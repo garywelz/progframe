@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Physics Processes - Programming Framework Analysis</title>
+    <style>
+        body { 
+            font-family: 'Times New Roman', Times, serif, 'Arial Unicode MS'; 
+            margin: 0; 
+            background: #ffffff; 
+            color: #000000; 
+            line-height: 1.6; 
+            font-size: 12pt; 
+        }
+        .container { 
+            max-width: 1000px; 
+            margin: 0 auto; 
+            padding: 1.5rem; 
+        }
+        h1, h2, h3 { 
+            color: #000000; 
+            margin-top: 1.5rem; 
+            margin-bottom: 0.75rem; 
+        }
+        h1 { 
+            font-size: 18pt; 
+            text-align: center; 
+        }
+        h2 { 
+            font-size: 16pt; 
+            border-bottom: 2px solid #000; 
+            padding-bottom: 0.5rem; 
+        }
+        h3 { 
+            font-size: 14pt; 
+        }
+        p { 
+            margin-bottom: 1rem; 
+            text-align: justify; 
+        }
+        .figure { 
+            margin: 1rem 0; 
+            text-align: center; 
+            border: 1px solid #ccc; 
+            padding: 1rem; 
+            background: #f9f9f9; 
+        }
+        .figure-caption { 
+            margin-top: 1rem; 
+            font-style: italic; 
+            text-align: left; 
+        }
+        .mermaid { 
+            background: white; 
+            padding: 1rem; 
+            border-radius: 4px; 
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+    <script>
+        mermaid.initialize({ 
+            startOnLoad: true, 
+            theme: 'default', 
+            flowchart: { 
+                useMaxWidth: false, 
+                htmlLabels: true,
+                curve: 'linear',
+                nodeSpacing: 50,
+                rankSpacing: 50,
+                padding: 20
+            },
+            themeVariables: {
+                fontFamily: 'Arial Unicode MS, Arial, sans-serif'
+            }
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Physics Processes - Programming Framework Analysis</h1>
+        
+        <p>This document presents physics processes analyzed using the Programming Framework methodology. Each process is represented as a computational flowchart with standardized color coding: Red for triggers/inputs, Yellow for structures/objects, Green for processing/operations, Blue for intermediates/states, and Violet for products/outputs. Yellow nodes use black text for optimal readability, while all other colors use white text.</p>
+
+        <h2>1. Quantum Tunneling Process</h2>
+        <div class="figure">
+            <div class="mermaid">
+graph TD
+    %% Initial Conditions
+    A1[Particle Energy E] --> B1[Energy Assessment]
+    C1[Barrier Height V₀] --> D1[Barrier Analysis]
+    E1[Barrier Width a] --> F1[Geometric Constraints]
+    
+    %% Quantum State Preparation
+    B1 --> G1[Wave Function Initialization]
+    D1 --> H1[Potential Energy Profile]
+    F1 --> I1[Spatial Boundary Conditions]
+    
+    %% Wave Function Evolution
+    G1 --> J1[Incident Wave Function ψ₁]
+    H1 --> K1[Barrier Region ψ₂]
+    I1 --> L1[Transmitted Wave Function ψ₃]
+    
+    %% Quantum Processing
+    J1 --> M1[Wave Function Matching]
+    K1 --> N1[Exponential Decay in Barrier]
+    L1 --> O1[Transmission Coefficient Calculation]
+    
+    %% Quantum State Analysis
+    M1 --> P1[Boundary Condition Equations]
+    N1 --> Q1[Quantum Amplitude Processing]
+    O1 --> R1[Probability Density Analysis]
+    
+    %% Transmission Calculation
+    P1 --> S1[Wave Function Continuity]
+    Q1 --> T1[Quantum Interference Effects]
+    R1 --> U1[Transmission Probability T]
+    
+    %% Classical vs Quantum Logic
+    S1 --> V1{Classical Prediction}
+    T1 --> W1{Quantum Reality}
+    U1 --> X1[Measured Transmission]
+    
+    %% Decision Points
+    V1 -->|E < V₀: T = 0| Y1[Classical Forbidden]
+    W1 -->|E < V₀: T > 0| Z1[Quantum Tunneling]
+    X1 --> AA1[Particle Detection Beyond Barrier]
+    
+    %% Measurement and Detection
+    Y1 --> BB1[Classical Prediction Failure]
+    Z1 --> CC1[Quantum Tunneling Success]
+    AA1 --> DD1[Energy Verification]
+    
+    %% Energy Conservation
+    BB1 --> EE1[Wave Function Collapse]
+    CC1 --> FF1[Final Particle State]
+    DD1 --> GG1[Energy Conservation Check]
+    
+    %% Final Results
+    EE1 --> HH1[Measurement Complete]
+    FF1 --> II1[Quantum Effect Confirmed]
+    GG1 --> JJ1[Energy Conservation Verified]
+    
+    %% Styling - Physics Color Scheme
+    style A1 fill:#ff6b6b,color:#fff
+    style C1 fill:#ff6b6b,color:#fff
+    style E1 fill:#ff6b6b,color:#fff
+    
+    style G1 fill:#ffd43b,color:#000
+    style H1 fill:#ffd43b,color:#000
+    style I1 fill:#ffd43b,color:#000
+    style J1 fill:#ffd43b,color:#000
+    style K1 fill:#ffd43b,color:#000
+    style L1 fill:#ffd43b,color:#000
+    
+    style M1 fill:#51cf66,color:#fff
+    style N1 fill:#51cf66,color:#fff
+    style O1 fill:#51cf66,color:#fff
+    style P1 fill:#51cf66,color:#fff
+    style Q1 fill:#51cf66,color:#fff
+    style R1 fill:#51cf66,color:#fff
+    style S1 fill:#51cf66,color:#fff
+    style T1 fill:#51cf66,color:#fff
+    style U1 fill:#51cf66,color:#fff
+    
+    style B1 fill:#74c0fc,color:#fff
+    style D1 fill:#74c0fc,color:#fff
+    style F1 fill:#74c0fc,color:#fff
+    style V1 fill:#74c0fc,color:#fff
+    style W1 fill:#74c0fc,color:#fff
+    style X1 fill:#74c0fc,color:#fff
+    style Y1 fill:#74c0fc,color:#fff
+    style Z1 fill:#74c0fc,color:#fff
+    style AA1 fill:#74c0fc,color:#fff
+    style BB1 fill:#74c0fc,color:#fff
+    style CC1 fill:#74c0fc,color:#fff
+    style DD1 fill:#74c0fc,color:#fff
+    style EE1 fill:#74c0fc,color:#fff
+    style FF1 fill:#74c0fc,color:#fff
+    style GG1 fill:#74c0fc,color:#fff
+    
+    style HH1 fill:#b197fc,color:#fff
+    style II1 fill:#b197fc,color:#fff
+    style JJ1 fill:#b197fc,color:#fff
+            </div>
+            
+            <div style="margin-top: 1rem; display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center;">
+                <div style="display:inline-flex; align-items:center; gap:.5rem; padding:.25rem .5rem; border-radius: 999px; border: 1px solid rgba(0,0,0,.08); background:#fff;">
+                    <span style="width: 12px; height: 12px; border-radius: 2px; border:1px solid rgba(0,0,0,.15); background:#ff6b6b;"></span>Energy & Geometric Inputs
+                </div>
+                <div style="display:inline-flex; align-items:center; gap:.5rem; padding:.25rem .5rem; border-radius: 999px; border: 1px solid rgba(0,0,0,.08); background:#fff;">
+                    <span style="width: 12px; height: 12px; border-radius: 2px; border:1px solid rgba(0,0,0,.15); background:#ffd43b;"></span>Wave Functions & Fields
+                </div>
+                <div style="display:inline-flex; align-items:center; gap:.5rem; padding:.25rem .5rem; border-radius: 999px; border: 1px solid rgba(0,0,0,.08); background:#fff;">
+                    <span style="width: 12px; height: 12px; border-radius: 2px; border:1px solid rgba(0,0,0,.15); background:#51cf66;"></span>Quantum Processing
+                </div>
+                <div style="display:inline-flex; align-items:center; gap:.5rem; padding:.25rem .5rem; border-radius: 999px; border: 1px solid rgba(0,0,0,.08); background:#fff;">
+                    <span style="width: 12px; height: 12px; border-radius: 2px; border:1px solid rgba(0,0,0,.15); background:#74c0fc;"></span>Intermediates
+                </div>
+                <div style="display:inline-flex; align-items:center; gap:.5rem; padding:.25rem .5rem; border-radius: 999px; border: 1px solid rgba(0,0,0,.08); background:#fff;">
+                    <span style="width: 12px; height: 12px; border-radius: 2px; border:1px solid rgba(0,0,0,.15); background:#b197fc;"></span>Products
+                </div>
+            </div>
+            
+            <div class="figure-caption">
+                <strong>Figure 1.</strong> Quantum Tunneling Process. This physics process visualization demonstrates quantum mechanical phenomena. The flowchart shows energy inputs, wave functions and fields, quantum processing operations, intermediate calculations, and final measurement outcomes.
+            </div>
+        </div>
+
+        <h2>2. Nuclear Fusion Process</h2>
+        <div class="figure">
+            <div class="mermaid">
+graph TD
+    %% Initial Setup
+    %% Input Conditions
+    A2[High Temperature Plasma] --> B2[Thermal Energy Input]
+    C2[High Pressure Environment] --> D2[Pressure Confinement]
+    E2[Deuterium-Tritium Fuel] --> F2[Fuel Preparation]
+    %% Plasma State
+    B2 --> G2[Ionization Process]
+    D2 --> H2[Magnetic Confinement]
+    F2 --> I2[Fuel Injection]
+    %% Fusion Conditions
+    G2 --> J2[Plasma Heating]
+    H2 --> K2[Confinement Stability]
+    I2 --> L2[Fuel Mixing]
+    %% Nuclear Reactions
+    J2 --> M2[Collision Frequency]
+    K2 --> N2[Confinement Time]
+    L2 --> O2[Reaction Rate]
+    %% Fusion Process
+    M2 --> P2[Deuterium-Tritium Collision]
+    N2 --> Q2[Plasma Containment]
+    O2 --> R2[Fusion Cross Section]
+    %% Energy Release
+    P2 --> S2[Helium-4 Formation]
+    Q2 --> T2[Neutron Emission]
+    R2 --> U2[Energy Release]
+    %% Energy Conversion
+    S2 --> V2[Kinetic Energy Transfer]
+    T2 --> W2[Neutron Capture]
+    U2 --> X2[Heat Generation]
+    %% Power Generation
+    V2 --> Y2[Plasma Heating]
+    W2 --> Z2[Breeding Blanket]
+    X2 --> AA2[Steam Generation]
+    %% Final Output
+    Y2 --> BB2[Self-Sustaining Fusion]
+    Z2 --> CC2[Tritium Breeding]
+    AA2 --> DD2[Electrical Power]
+    %% Process Control
+    BB2 --> EE2[Fusion Reactor Operation]
+    CC2 --> FF2[Fuel Cycle Management]
+    DD2 --> GG2[Power Grid Integration]
+    %% Styling - Physics Color Scheme
+    %% Styling - Biological Color Scheme
+    style A2 fill:#ff6b6b,color:#fff
+    style C2 fill:#ff6b6b,color:#fff
+    style E2 fill:#ff6b6b,color:#fff
+    style G2 fill:#ffd43b,color:#000
+    style H2 fill:#ffd43b,color:#000
+    style I2 fill:#ffd43b,color:#000
+    style J2 fill:#ffd43b,color:#000
+    style K2 fill:#ffd43b,color:#000
+    style L2 fill:#ffd43b,color:#000
+    style M2 fill:#51cf66,color:#fff
+    style N2 fill:#51cf66,color:#fff
+    style O2 fill:#51cf66,color:#fff
+    style P2 fill:#51cf66,color:#fff
+    style Q2 fill:#51cf66,color:#fff
+    style R2 fill:#51cf66,color:#fff
+    style S2 fill:#51cf66,color:#fff
+    style T2 fill:#51cf66,color:#fff
+    style U2 fill:#51cf66,color:#fff
+    style V2 fill:#51cf66,color:#fff
+    style W2 fill:#51cf66,color:#fff
+    style X2 fill:#51cf66,color:#fff
+    style B2 fill:#74c0fc,color:#fff
+    style D2 fill:#74c0fc,color:#fff
+    style F2 fill:#74c0fc,color:#fff
+    style Y2 fill:#74c0fc,color:#fff
+    style Z2 fill:#74c0fc,color:#fff
+    style AA2 fill:#74c0fc,color:#fff
+    style BB2 fill:#74c0fc,color:#fff
+    style CC2 fill:#74c0fc,color:#fff
+    style DD2 fill:#74c0fc,color:#fff
+    style EE2 fill:#74c0fc,color:#fff
+    style FF2 fill:#74c0fc,color:#fff
+    style GG2 fill:#74c0fc,color:#fff
+    style HH2 fill:#b197fc,color:#fff
+    style II2 fill:#b197fc,color:#fff
+    style JJ2 fill:#b197fc,color:#fff
+                    </div>
+            
+            <div style="margin-top: 1rem; display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center;">
+                <div style="display:inline-flex; align-items:center; gap:.5rem; padding:.25rem .5rem; border-radius: 999px; border: 1px solid rgba(0,0,0,.08); background:#fff;">
+                    <span style="width: 12px; height: 12px; border-radius: 2px; border:1px solid rgba(0,0,0,.15); background:#ff6b6b;"></span>Plasma & Fuel Inputs
+                </div>
+                <div style="display:inline-flex; align-items:center; gap:.5rem; padding:.25rem .5rem; border-radius: 999px; border: 1px solid rgba(0,0,0,.08); background:#fff;">
+                    <span style="width: 12px; height: 12px; border-radius: 2px; border:1px solid rgba(0,0,0,.15); background:#ffd43b;"></span>Confinement Systems
+                </div>
+                <div style="display:inline-flex; align-items:center; gap:.5rem; padding:.25rem .5rem; border-radius: 999px; border: 1px solid rgba(0,0,0,.08); background:#fff;">
+                    <span style="width: 12px; height: 12px; border-radius: 2px; border:1px solid rgba(0,0,0,.15); background:#51cf66;"></span>Nuclear Fusion Reactions
+                </div>
+                <div style="display:inline-flex; align-items:center; gap:.5rem; padding:.25rem .5rem; border-radius: 999px; border: 1px solid rgba(0,0,0,.08); background:#fff;">
+                    <span style="width: 12px; height: 12px; border-radius: 2px; border:1px solid rgba(0,0,0,.15); background:#74c0fc;"></span>Intermediates
+                </div>
+                <div style="display:inline-flex; align-items:center; gap:.5rem; padding:.25rem .5rem; border-radius: 999px; border: 1px solid rgba(0,0,0,.08); background:#fff;">
+                    <span style="width: 12px; height: 12px; border-radius: 2px; border:1px solid rgba(0,0,0,.15); background:#b197fc;"></span>Products
+                </div>
+            </div>
+            
+            <div class="figure-caption">
+                <strong>Figure 2.</strong> Nuclear Fusion Process. This physics process visualization demonstrates nuclear energy production. The flowchart shows plasma inputs, confinement systems, nuclear fusion reactions, intermediate processes, and final energy output.
+            </div>
+        </div>
+
+        <h2>3. Electromagnetic Wave Propagation</h2>
+        <div class="figure">
+            <div class="mermaid">
+graph TD
+    %% Initial Setup
+    %% Input Conditions
+    A3[Electromagnetic Source] --> B3[Source Analysis]
+    C3[Medium Properties] --> D3[Medium Analysis]
+    E3[Boundary Conditions] --> F3[Boundary Definition]
+    %% Wave Generation
+    B3 --> G3[Electric Field Generation]
+    D3 --> H3[Dielectric Properties]
+    F3 --> I3[Interface Conditions]
+    %% Wave Propagation
+    G3 --> J3[Maxwell's Equations]
+    H3 --> K3[Wave Speed Calculation]
+    I3 --> L3[Reflection/Refraction]
+    %% Field Evolution
+    J3 --> M3[Electric Field E]
+    K3 --> N3[Magnetic Field B]
+    L3 --> O3[Wave Vector k]
+    %% Wave Dynamics
+    M3 --> P3[Field Oscillation]
+    N3 --> Q3[Energy Density]
+    O3 --> R3[Phase Velocity]
+    %% Energy Transport
+    P3 --> S3[Poynting Vector]
+    Q3 --> T3[Energy Conservation]
+    R3 --> U3[Group Velocity]
+    %% Wave Interaction
+    S3 --> V3[Energy Flux]
+    T3 --> W3[Power Transmission]
+    U3 --> X3[Dispersion Effects]
+    %% Detection
+    V3 --> Y3[Wave Detection]
+    W3 --> Z3[Signal Processing]
+    X3 --> AA3[Interference Patterns]
+    %% Final Results
+    Y3 --> BB3[Wave Amplitude]
+    Z3 --> CC3[Phase Information]
+    AA3 --> DD3[Interference Fringes]
+    %% Output
+    BB3 --> EE3[Electromagnetic Wave Detected]
+    CC3 --> FF3[Phase Information Extracted]
+    DD3 --> GG3[Interference Pattern Analyzed]
+    %% Styling - Physics Color Scheme
+    %% Styling - Biological Color Scheme
+    style A3 fill:#ff6b6b,color:#fff
+    style C3 fill:#ff6b6b,color:#fff
+    style E3 fill:#ff6b6b,color:#fff
+    style G3 fill:#ffd43b,color:#000
+    style H3 fill:#ffd43b,color:#000
+    style I3 fill:#ffd43b,color:#000
+    style J3 fill:#ffd43b,color:#000
+    style K3 fill:#ffd43b,color:#000
+    style L3 fill:#ffd43b,color:#000
+    style M3 fill:#51cf66,color:#fff
+    style N3 fill:#51cf66,color:#fff
+    style O3 fill:#51cf66,color:#fff
+    style P3 fill:#51cf66,color:#fff
+    style Q3 fill:#51cf66,color:#fff
+    style R3 fill:#51cf66,color:#fff
+    style S3 fill:#51cf66,color:#fff
+    style T3 fill:#51cf66,color:#fff
+    style U3 fill:#51cf66,color:#fff
+    style V3 fill:#51cf66,color:#fff
+    style W3 fill:#51cf66,color:#fff
+    style X3 fill:#51cf66,color:#fff
+    style B3 fill:#74c0fc,color:#fff
+    style D3 fill:#74c0fc,color:#fff
+    style F3 fill:#74c0fc,color:#fff
+    style Y3 fill:#74c0fc,color:#fff
+    style Z3 fill:#74c0fc,color:#fff
+    style AA3 fill:#74c0fc,color:#fff
+    style BB3 fill:#74c0fc,color:#fff
+    style CC3 fill:#74c0fc,color:#fff
+    style DD3 fill:#74c0fc,color:#fff
+    style EE3 fill:#74c0fc,color:#fff
+    style FF3 fill:#74c0fc,color:#fff
+    style GG3 fill:#74c0fc,color:#fff
+    style HH3 fill:#b197fc,color:#fff
+    style II3 fill:#b197fc,color:#fff
+    style JJ3 fill:#b197fc,color:#fff
+                    </div>
+            
+            <div style="margin-top: 1rem; display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center;">
+                <div style="display:inline-flex; align-items:center; gap:.5rem; padding:.25rem .5rem; border-radius: 999px; border: 1px solid rgba(0,0,0,.08); background:#fff;">
+                    <span style="width: 12px; height: 12px; border-radius: 2px; border:1px solid rgba(0,0,0,.15); background:#ff6b6b;"></span>Source & Medium Inputs
+                </div>
+                <div style="display:inline-flex; align-items:center; gap:.5rem; padding:.25rem .5rem; border-radius: 999px; border: 1px solid rgba(0,0,0,.08); background:#fff;">
+                    <span style="width: 12px; height: 12px; border-radius: 2px; border:1px solid rgba(0,0,0,.15); background:#ffd43b;"></span>Electromagnetic Fields
+                </div>
+                <div style="display:inline-flex; align-items:center; gap:.5rem; padding:.25rem .5rem; border-radius: 999px; border: 1px solid rgba(0,0,0,.08); background:#fff;">
+                    <span style="width: 12px; height: 12px; border-radius: 2px; border:1px solid rgba(0,0,0,.15); background:#51cf66;"></span>Wave Propagation
+                </div>
+                <div style="display:inline-flex; align-items:center; gap:.5rem; padding:.25rem .5rem; border-radius: 999px; border: 1px solid rgba(0,0,0,.08); background:#fff;">
+                    <span style="width: 12px; height: 12px; border-radius: 2px; border:1px solid rgba(0,0,0,.15); background:#74c0fc;"></span>Intermediates
+                </div>
+                <div style="display:inline-flex; align-items:center; gap:.5rem; padding:.25rem .5rem; border-radius: 999px; border: 1px solid rgba(0,0,0,.08); background:#fff;">
+                    <span style="width: 12px; height: 12px; border-radius: 2px; border:1px solid rgba(0,0,0,.15); background:#b197fc;"></span>Products
+                </div>
+            </div>
+            
+            <div class="figure-caption">
+                <strong>Figure 3.</strong> Electromagnetic Wave Propagation. This physics process visualization demonstrates electromagnetic wave dynamics. The flowchart shows source inputs, electromagnetic fields, wave propagation processes, intermediate calculations, and final detection results.
+            </div>
+        </div>
+
+        <h2>4. Thermodynamic Cycle Process</h2>
+        <div class="figure">
+            <div class="mermaid">
+graph TD
+    %% Initial Setup
+    %% Input Conditions
+    A4[Heat Source] --> B4[Heat Supply]
+    C4[Working Fluid] --> D4[Fluid Properties]
+    E4[System Boundaries] --> F4[Boundary Definition]
+    %% Initial State
+    B4 --> G4[High Temperature Reservoir]
+    D4 --> H4[Fluid State Analysis]
+    F4 --> I4[System Isolation]
+    %% Isothermal Expansion
+    G4 --> J4[Heat Addition Q₁]
+    H4 --> K4[Volume Expansion]
+    I4 --> L4[Work Output W₁]
+    %% Adiabatic Expansion
+    J4 --> M4[Temperature Decrease]
+    K4 --> N4[Pressure Reduction]
+    L4 --> O4[Work Output W₂]
+    %% Isothermal Compression
+    M4 --> P4[Heat Rejection Q₂]
+    N4 --> Q4[Volume Compression]
+    O4 --> R4[Work Input W₃]
+    %% Adiabatic Compression
+    P4 --> S4[Temperature Increase]
+    Q4 --> T4[Pressure Increase]
+    R4 --> U4[Work Input W₄]
+    %% Cycle Completion
+    S4 --> V4[Return to Initial State]
+    T4 --> W4[System Reset]
+    U4 --> X4[Net Work Output]
+    %% Efficiency Calculation
+    V4 --> Y4[Cycle Efficiency η]
+    W4 --> Z4[Energy Conservation]
+    X4 --> AA4[Power Generation]
+    %% Final Results
+    Y4 --> BB4[Thermal Efficiency]
+    Z4 --> CC4[Energy Balance]
+    AA4 --> DD4[Mechanical Power]
+    %% Output
+    BB4 --> EE4[Thermodynamic Cycle Complete]
+    CC4 --> FF4[Energy Conversion Efficient]
+    DD4 --> GG4[Power Output Maximized]
+    %% Styling - Physics Color Scheme
+    %% Styling - Biological Color Scheme
+    style A4 fill:#ff6b6b,color:#fff
+    style C4 fill:#ff6b6b,color:#fff
+    style E4 fill:#ff6b6b,color:#fff
+    style G4 fill:#ffd43b,color:#000
+    style H4 fill:#ffd43b,color:#000
+    style I4 fill:#ffd43b,color:#000
+    style J4 fill:#ffd43b,color:#000
+    style K4 fill:#ffd43b,color:#000
+    style L4 fill:#ffd43b,color:#000
+    style M4 fill:#51cf66,color:#fff
+    style N4 fill:#51cf66,color:#fff
+    style O4 fill:#51cf66,color:#fff
+    style P4 fill:#51cf66,color:#fff
+    style Q4 fill:#51cf66,color:#fff
+    style R4 fill:#51cf66,color:#fff
+    style S4 fill:#51cf66,color:#fff
+    style T4 fill:#51cf66,color:#fff
+    style U4 fill:#51cf66,color:#fff
+    style V4 fill:#51cf66,color:#fff
+    style W4 fill:#51cf66,color:#fff
+    style X4 fill:#51cf66,color:#fff
+    style B4 fill:#74c0fc,color:#fff
+    style D4 fill:#74c0fc,color:#fff
+    style F4 fill:#74c0fc,color:#fff
+    style Y4 fill:#74c0fc,color:#fff
+    style Z4 fill:#74c0fc,color:#fff
+    style AA4 fill:#74c0fc,color:#fff
+    style BB4 fill:#74c0fc,color:#fff
+    style CC4 fill:#74c0fc,color:#fff
+    style DD4 fill:#74c0fc,color:#fff
+    style EE4 fill:#74c0fc,color:#fff
+    style FF4 fill:#74c0fc,color:#fff
+    style GG4 fill:#74c0fc,color:#fff
+    style HH4 fill:#b197fc,color:#fff
+    style II4 fill:#b197fc,color:#fff
+    style JJ4 fill:#b197fc,color:#fff
+                    </div>
+            
+            <div style="margin-top: 1rem; display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center;">
+                <div style="display:inline-flex; align-items:center; gap:.5rem; padding:.25rem .5rem; border-radius: 999px; border: 1px solid rgba(0,0,0,.08); background:#fff;">
+                    <span style="width: 12px; height: 12px; border-radius: 2px; border:1px solid rgba(0,0,0,.15); background:#ff6b6b;"></span>Heat & Fluid Inputs
+                </div>
+                <div style="display:inline-flex; align-items:center; gap:.5rem; padding:.25rem .5rem; border-radius: 999px; border: 1px solid rgba(0,0,0,.08); background:#fff;">
+                    <span style="width: 12px; height: 12px; border-radius: 2px; border:1px solid rgba(0,0,0,.15); background:#ffd43b;"></span>Thermodynamic Systems
+                </div>
+                <div style="display:inline-flex; align-items:center; gap:.5rem; padding:.25rem .5rem; border-radius: 999px; border: 1px solid rgba(0,0,0,.08); background:#fff;">
+                    <span style="width: 12px; height: 12px; border-radius: 2px; border:1px solid rgba(0,0,0,.15); background:#51cf66;"></span>Thermodynamic Processes
+                </div>
+                <div style="display:inline-flex; align-items:center; gap:.5rem; padding:.25rem .5rem; border-radius: 999px; border: 1px solid rgba(0,0,0,.08); background:#fff;">
+                    <span style="width: 12px; height: 12px; border-radius: 2px; border:1px solid rgba(0,0,0,.15); background:#74c0fc;"></span>Intermediates
+                </div>
+                <div style="display:inline-flex; align-items:center; gap:.5rem; padding:.25rem .5rem; border-radius: 999px; border: 1px solid rgba(0,0,0,.08); background:#fff;">
+                    <span style="width: 12px; height: 12px; border-radius: 2px; border:1px solid rgba(0,0,0,.15); background:#b197fc;"></span>Products
+                </div>
+            </div>
+            
+            <div class="figure-caption">
+                <strong>Figure 4.</strong> Thermodynamic Cycle Process. This physics process visualization demonstrates energy conversion cycles. The flowchart shows heat inputs, thermodynamic systems, thermodynamic processes, intermediate states, and final power output.
+            </div>
+        </div>
+
+        <h2>5. Particle Accelerator Process</h2>
+        <div class="figure">
+            <div class="mermaid">
+graph TD
+    %% Initial Setup
+    %% Input Conditions
+    A5[Particle Source] --> B5[Source Analysis]
+    C5[Accelerating Fields] --> D5[Field Generation]
+    E5[Beam Optics] --> F5[Optics Setup]
+    %% Particle Preparation
+    B5 --> G5[Particle Generation]
+    D5 --> H5[Electric Field E]
+    F5 --> I5[Magnetic Field B]
+    %% Initial Acceleration
+    G5 --> J5[Particle Injection]
+    H5 --> K5[Linear Acceleration]
+    I5 --> L5[Beam Focusing]
+    %% Acceleration Process
+    J5 --> M5[Velocity Increase]
+    K5 --> N5[Energy Gain]
+    L5 --> O5[Beam Confinement]
+    %% Circular Motion
+    M5 --> P5[Centripetal Force]
+    N5 --> Q5[Relativistic Effects]
+    O5 --> R5[Orbital Motion]
+    %% Energy Build-up
+    P5 --> S5[Radius of Curvature]
+    Q5 --> T5[Mass Increase]
+    R5 --> U5[Angular Velocity]
+    %% Beam Dynamics
+    S5 --> V5[Beam Stability]
+    T5 --> W5[Energy Synchronization]
+    U5 --> X5[Revolution Frequency]
+    %% Collision Process
+    V5 --> Y5[Beam Crossing]
+    W5 --> Z5[Particle Collisions]
+    X5 --> AA5[Reaction Products]
+    %% Detection
+    Y5 --> BB5[Collision Detection]
+    Z5 --> CC5[Particle Tracking]
+    AA5 --> DD5[Energy Measurement]
+    %% Final Results
+    BB5 --> EE5[Collision Events]
+    CC5 --> FF5[Particle Trajectories]
+    DD5 --> GG5[Energy Distribution]
+    %% Output
+    EE5 --> HH5[Particle Accelerator Active]
+    FF5 --> II5[Beam Dynamics Analyzed]
+    GG5 --> JJ5[Physics Data Collected]
+    %% Styling - Physics Color Scheme
+    %% Styling - Biological Color Scheme
+    style A5 fill:#ff6b6b,color:#fff
+    style C5 fill:#ff6b6b,color:#fff
+    style E5 fill:#ff6b6b,color:#fff
+    style G5 fill:#ffd43b,color:#000
+    style H5 fill:#ffd43b,color:#000
+    style I5 fill:#ffd43b,color:#000
+    style J5 fill:#ffd43b,color:#000
+    style K5 fill:#ffd43b,color:#000
+    style L5 fill:#ffd43b,color:#000
+    style M5 fill:#51cf66,color:#fff
+    style N5 fill:#51cf66,color:#fff
+    style O5 fill:#51cf66,color:#fff
+    style P5 fill:#51cf66,color:#fff
+    style Q5 fill:#51cf66,color:#fff
+    style R5 fill:#51cf66,color:#fff
+    style S5 fill:#51cf66,color:#fff
+    style T5 fill:#51cf66,color:#fff
+    style U5 fill:#51cf66,color:#fff
+    style V5 fill:#51cf66,color:#fff
+    style W5 fill:#51cf66,color:#fff
+    style X5 fill:#51cf66,color:#fff
+    style B5 fill:#74c0fc,color:#fff
+    style D5 fill:#74c0fc,color:#fff
+    style F5 fill:#74c0fc,color:#fff
+    style Y5 fill:#74c0fc,color:#fff
+    style Z5 fill:#74c0fc,color:#fff
+    style AA5 fill:#74c0fc,color:#fff
+    style BB5 fill:#74c0fc,color:#fff
+    style CC5 fill:#74c0fc,color:#fff
+    style DD5 fill:#74c0fc,color:#fff
+    style EE5 fill:#74c0fc,color:#fff
+    style FF5 fill:#74c0fc,color:#fff
+    style GG5 fill:#74c0fc,color:#fff
+    style HH5 fill:#b197fc,color:#fff
+    style II5 fill:#b197fc,color:#fff
+    style JJ5 fill:#b197fc,color:#fff
+                    </div>
+            
+            <div style="margin-top: 1rem; display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center;">
+                <div style="display:inline-flex; align-items:center; gap:.5rem; padding:.25rem .5rem; border-radius: 999px; border: 1px solid rgba(0,0,0,.08); background:#fff;">
+                    <span style="width: 12px; height: 12px; border-radius: 2px; border:1px solid rgba(0,0,0,.15); background:#ff6b6b;"></span>Particle & Field Inputs
+                </div>
+                <div style="display:inline-flex; align-items:center; gap:.5rem; padding:.25rem .5rem; border-radius: 999px; border: 1px solid rgba(0,0,0,.08); background:#fff;">
+                    <span style="width: 12px; height: 12px; border-radius: 2px; border:1px solid rgba(0,0,0,.15); background:#ffd43b;"></span>Accelerating Fields
+                </div>
+                <div style="display:inline-flex; align-items:center; gap:.5rem; padding:.25rem .5rem; border-radius: 999px; border: 1px solid rgba(0,0,0,.08); background:#fff;">
+                    <span style="width: 12px; height: 12px; border-radius: 2px; border:1px solid rgba(0,0,0,.15); background:#51cf66;"></span>Acceleration Processes
+                </div>
+                <div style="display:inline-flex; align-items:center; gap:.5rem; padding:.25rem .5rem; border-radius: 999px; border: 1px solid rgba(0,0,0,.08); background:#fff;">
+                    <span style="width: 12px; height: 12px; border-radius: 2px; border:1px solid rgba(0,0,0,.15); background:#74c0fc;"></span>Intermediates
+                </div>
+                <div style="display:inline-flex; align-items:center; gap:.5rem; padding:.25rem .5rem; border-radius: 999px; border: 1px solid rgba(0,0,0,.08); background:#fff;">
+                    <span style="width: 12px; height: 12px; border-radius: 2px; border:1px solid rgba(0,0,0,.15); background:#b197fc;"></span>Products
+                </div>
+            </div>
+            
+            <div class="figure-caption">
+                <strong>Figure 5.</strong> Particle Accelerator Process. This physics process visualization demonstrates particle acceleration mechanisms. The flowchart shows particle inputs, accelerating fields, acceleration processes, intermediate states, and final collision data.
+            </div>
+        </div>
+
+        <p><strong>Generated using the Programming Framework methodology</strong></p>
+        
+        <p>This collection demonstrates the computational nature of physical processes and systems</p>
+        
+        <p>Each flowchart preserves maximum detail through optimized Mermaid configuration</p>
+    </div>
+</body>
+</html> 

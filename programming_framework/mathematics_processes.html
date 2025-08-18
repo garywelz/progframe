@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mathematics Processes - Programming Framework Analysis</title>
+    <style>
+        body { 
+            font-family: 'Times New Roman', Times, serif, 'Arial Unicode MS'; 
+            margin: 0; 
+            background: #ffffff; 
+            color: #000000; 
+            line-height: 1.6; 
+            font-size: 12pt; 
+        }
+        .container { 
+            max-width: 1000px; 
+            margin: 0 auto; 
+            padding: 1.5rem; 
+        }
+        h1, h2, h3 { 
+            color: #000000; 
+            margin-top: 1.5rem; 
+            margin-bottom: 0.75rem; 
+        }
+        h1 { 
+            font-size: 18pt; 
+            text-align: center; 
+        }
+        h2 { 
+            font-size: 16pt; 
+            border-bottom: 2px solid #000; 
+            padding-bottom: 0.5rem; 
+        }
+        h3 { 
+            font-size: 14pt; 
+        }
+        p { 
+            margin-bottom: 1rem; 
+            text-align: justify; 
+        }
+        .figure { 
+            margin: 1rem 0; 
+            text-align: center; 
+            border: 1px solid #ccc; 
+            padding: 1rem; 
+            background: #f9f9f9; 
+        }
+        .figure-caption { 
+            margin-top: 1rem; 
+            font-style: italic; 
+            text-align: left; 
+        }
+        .mermaid { 
+            background: white; 
+            padding: 1rem; 
+            border-radius: 4px; 
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+    <script>
+        mermaid.initialize({ 
+            startOnLoad: true, 
+            theme: 'default', 
+            flowchart: { 
+                useMaxWidth: false, 
+                htmlLabels: true,
+                curve: 'linear',
+                nodeSpacing: 50,
+                rankSpacing: 50,
+                padding: 20
+            },
+            themeVariables: {
+                fontFamily: 'Arial Unicode MS, Arial, sans-serif'
+            }
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Mathematics Processes - Programming Framework Analysis</h1>
+        
+        <p>This document presents mathematics processes analyzed using the Programming Framework methodology. Each process is represented as a computational flowchart with standardized color coding: Red for triggers/inputs, Yellow for structures/objects, Green for processing/operations, Blue for intermediates/states, and Violet for products/outputs. Yellow nodes use black text for optimal readability, while all other colors use white text.</p>
+
+        <h2>1. Mathematical Induction Proof Process</h2>
+        <div class="figure">
+            <div class="mermaid">
+graph TD
+    %% Initial Setup
+    %% Axioms and Given Conditions
+    A1[Peano Axioms] --> B1[Axiom Processing]
+    C1[Given n in Natural Numbers] --> D1[Input Validation]
+    E1[Goal: Prove P(n)] --> F1[Target Identification]
+    %% Logical Framework Setup
+    B1 --> G1[Mathematical Universe Setup]
+    D1 --> H1[Variable Declaration]
+    F1 --> I1[Proof Strategy Selection]
+    %% Proof Structure
+    G1 --> J1[Induction Hypothesis P(k)]
+    H1 --> K1[Base Case Analysis]
+    I1 --> L1[Inductive Step Planning]
+    %% Base Case Processing
+    K1 --> M1[P(0) Verification]
+    M1 --> N1[Base Case Success]
+    N1 --> O1[Induction Foundation]
+    %% Inductive Step Processing
+    L1 --> P1[Assume P(k) for k in Natural Numbers]
+    P1 --> Q1[Show P(k+1) follows]
+    Q1 --> R1[Inductive Step Execution]
+    %% Mathematical Operations
+    R1 --> S1[Algebraic Manipulation]
+    S1 --> T1[Logical Deduction]
+    T1 --> U1[Theorem Application]
+    %% Intermediate Calculations
+    U1 --> V1[Sub-proof Construction]
+    V1 --> W1[Lemma Application]
+    W1 --> X1[Contradiction Analysis]
+    %% Proof Validation
+    X1 --> Y1[Logical Consistency Check]
+    Y1 --> Z1[Mathematical Rigor Verification]
+    Z1 --> AA1[Proof Completeness Assessment]
+    %% Decision Points
+    AA1 --> BB1{Proof Complete?}
+    BB1 -->|No| CC1[Identify Gap]
+    BB1 -->|Yes| DD1[Proof Validated]
+    %% Gap Resolution
+    CC1 --> EE1[Additional Lemma Needed]
+    EE1 --> FF1[Sub-proof Construction]
+    FF1 --> GG1[Gap Resolution]
+    GG1 --> Y1
+    %% Final Output
+    DD1 --> HH1[Theorem P(n) Proven]
+    HH1 --> II1[Mathematical Truth Established]
+    II1 --> JJ1[Proof Tree Complete]
+    %% Styling - Mathematical Color Scheme
+    %% Styling - Biological Color Scheme
+    style A1 fill:#ff6b6b,color:#fff
+    style C1 fill:#ff6b6b,color:#fff
+    style E1 fill:#ff6b6b,color:#fff
+    style J1 fill:#ffd43b,color:#000
+    style P1 fill:#ffd43b,color:#000
+    style Q1 fill:#ffd43b,color:#000
+    style S1 fill:#51cf66,color:#fff
+    style T1 fill:#51cf66,color:#fff
+    style U1 fill:#51cf66,color:#fff
+    style V1 fill:#51cf66,color:#fff
+    style W1 fill:#51cf66,color:#fff
+    style X1 fill:#51cf66,color:#fff
+    style B1 fill:#74c0fc,color:#fff
+    style D1 fill:#74c0fc,color:#fff
+    style F1 fill:#74c0fc,color:#fff
+    style G1 fill:#74c0fc,color:#fff
+    style H1 fill:#74c0fc,color:#fff
+    style I1 fill:#74c0fc,color:#fff
+    style K1 fill:#74c0fc,color:#fff
+    style L1 fill:#74c0fc,color:#fff
+    style M1 fill:#74c0fc,color:#fff
+    style N1 fill:#74c0fc,color:#fff
+    style O1 fill:#74c0fc,color:#fff
+    style R1 fill:#74c0fc,color:#fff
+    style Y1 fill:#74c0fc,color:#fff
+    style Z1 fill:#74c0fc,color:#fff
+    style AA1 fill:#74c0fc,color:#fff
+    style BB1 fill:#74c0fc,color:#fff
+    style CC1 fill:#74c0fc,color:#fff
+    style DD1 fill:#74c0fc,color:#fff
+    style EE1 fill:#74c0fc,color:#fff
+    style FF1 fill:#74c0fc,color:#fff
+    style GG1 fill:#74c0fc,color:#fff
+    style HH1 fill:#b197fc,color:#fff
+    style II1 fill:#b197fc,color:#fff
+    style JJ1 fill:#b197fc,color:#fff
+                    </div>
+            
+            <div style="margin-top: 1rem; display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center;">
+                <div style="display:inline-flex; align-items:center; gap:.5rem; padding:.25rem .5rem; border-radius: 999px; border: 1px solid rgba(0,0,0,.08); background:#fff;">
+                    <span style="width: 12px; height: 12px; border-radius: 2px; border:1px solid rgba(0,0,0,.15); background:#ff6b6b;"></span>Triggers & Inputs
+                </div>
+                <div style="display:inline-flex; align-items:center; gap:.5rem; padding:.25rem .5rem; border-radius: 999px; border: 1px solid rgba(0,0,0,.08); background:#fff;">
+                    <span style="width: 12px; height: 12px; border-radius: 2px; border:1px solid rgba(0,0,0,.15); background:#ffd43b;"></span>Logical Structures & Hypotheses
+                </div>
+                <div style="display:inline-flex; align-items:center; gap:.5rem; padding:.25rem .5rem; border-radius: 999px; border: 1px solid rgba(0,0,0,.08); background:#fff;">
+                    <span style="width: 12px; height: 12px; border-radius: 2px; border:1px solid rgba(0,0,0,.15); background:#51cf66;"></span>Deductions & Theorem Applications
+                </div>
+                <div style="display:inline-flex; align-items:center; gap:.5rem; padding:.25rem .5rem; border-radius: 999px; border: 1px solid rgba(0,0,0,.08); background:#fff;">
+                    <span style="width: 12px; height: 12px; border-radius: 2px; border:1px solid rgba(0,0,0,.15); background:#74c0fc;"></span>Intermediates
+                </div>
+                <div style="display:inline-flex; align-items:center; gap:.5rem; padding:.25rem .5rem; border-radius: 999px; border: 1px solid rgba(0,0,0,.08); background:#fff;">
+                    <span style="width: 12px; height: 12px; border-radius: 2px; border:1px solid rgba(0,0,0,.15); background:#b197fc;"></span>Products
+                </div>
+            </div>
+            
+            <div class="figure-caption">
+                <strong>Figure 1.</strong> Mathematical Induction Proof Process. This mathematics process visualization demonstrates formal mathematical reasoning. The flowchart shows axioms and given conditions, logical structures and hypotheses, deduction steps and theorem applications, intermediate calculations and sub-proofs, and final proven theorems.
+            </div>
+        </div>
+
+        <h2>2. Euclidean Algorithm Process</h2>
+        <div class="figure">
+            <div class="mermaid">
+graph TD
+    %% Initial Setup
+    %% Input Conditions
+    A2[Integer a] --> B2[Input Validation]
+    C2[Integer b] --> D2[Input Validation]
+    E2[Goal: Find GCD(a,b)] --> F2[Problem Statement]
+    %% Algorithm Initialization
+    B2 --> G2[Set r₀ = a]
+    D2 --> H2[Set r₁ = b]
+    F2 --> I2[Algorithm Selection]
+    %% Division Process
+    G2 --> J2[Division Algorithm]
+    H2 --> K2[Division Algorithm]
+    I2 --> L2[Iterative Process]
+    %% First Division
+    J2 --> M2[r₀ = q₁r₁ + r₂]
+    K2 --> N2[Calculate q₁ and r₂]
+    L2 --> O2[Initialize iteration counter]
+    %% Iterative Loop
+    M2 --> P2{Is r₂ = 0?}
+    N2 --> Q2[Store r₂]
+    O2 --> R2[Increment counter]
+    %% Continue or Terminate
+    P2 -->|No| S2[Set r₀ = r₁, r₁ = r₂]
+    P2 -->|Yes| T2[GCD Found: r₁]
+    Q2 --> U2[Update remainders]
+    R2 --> V2[Track iterations]
+    %% Next Iteration
+    S2 --> W2[Next Division Step]
+    U2 --> X2[Prepare for next iteration]
+    V2 --> Y2[Check termination condition]
+    %% Final Result
+    T2 --> Z2[GCD(a,b) = r₁]
+    W2 --> AA2[Repeat division process]
+    X2 --> BB2[Update variables]
+    Y2 --> CC2{Continue?}
+    %% Algorithm Completion
+    Z2 --> DD2[Result Validation]
+    AA2 --> P2
+    BB2 --> P2
+    CC2 -->|Yes| AA2
+    CC2 -->|No| T2
+    %% Output
+    DD2 --> EE2[GCD Calculation Complete]
+    EE2 --> FF2[Mathematical Proof of Correctness]
+    FF2 --> GG2[Algorithm Efficiency Analysis]
+    %% Styling - Mathematical Color Scheme
+    %% Styling - Biological Color Scheme
+    style A2 fill:#ff6b6b,color:#fff
+    style C2 fill:#ff6b6b,color:#fff
+    style E2 fill:#ff6b6b,color:#fff
+    style G2 fill:#ffd43b,color:#000
+    style H2 fill:#ffd43b,color:#000
+    style I2 fill:#ffd43b,color:#000
+    style J2 fill:#ffd43b,color:#000
+    style K2 fill:#ffd43b,color:#000
+    style L2 fill:#51cf66,color:#fff
+    style M2 fill:#51cf66,color:#fff
+    style N2 fill:#51cf66,color:#fff
+    style O2 fill:#51cf66,color:#fff
+    style S2 fill:#51cf66,color:#fff
+    style W2 fill:#51cf66,color:#fff
+    style AA2 fill:#51cf66,color:#fff
+    style B2 fill:#74c0fc,color:#fff
+    style D2 fill:#74c0fc,color:#fff
+    style F2 fill:#74c0fc,color:#fff
+    style P2 fill:#74c0fc,color:#fff
+    style Q2 fill:#74c0fc,color:#fff
+    style R2 fill:#74c0fc,color:#fff
+    style T2 fill:#74c0fc,color:#fff
+    style U2 fill:#74c0fc,color:#fff
+    style V2 fill:#74c0fc,color:#fff
+    style X2 fill:#74c0fc,color:#fff
+    style Y2 fill:#74c0fc,color:#fff
+    style CC2 fill:#74c0fc,color:#fff
+    style DD2 fill:#74c0fc,color:#fff
+    style Z2 fill:#b197fc,color:#fff
+    style EE2 fill:#b197fc,color:#fff
+    style FF2 fill:#b197fc,color:#fff
+    style GG2 fill:#b197fc,color:#fff
+                    </div>
+            
+            <div style="margin-top: 1rem; display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center;">
+                <div style="display:inline-flex; align-items:center; gap:.5rem; padding:.25rem .5rem; border-radius: 999px; border: 1px solid rgba(0,0,0,.08); background:#fff;">
+                    <span style="width: 12px; height: 12px; border-radius: 2px; border:1px solid rgba(0,0,0,.15); background:#ff6b6b;"></span>Triggers & Inputs
+                </div>
+                <div style="display:inline-flex; align-items:center; gap:.5rem; padding:.25rem .5rem; border-radius: 999px; border: 1px solid rgba(0,0,0,.08); background:#fff;">
+                    <span style="width: 12px; height: 12px; border-radius: 2px; border:1px solid rgba(0,0,0,.15); background:#ffd43b;"></span>Mathematical Methods & Algorithms
+                </div>
+                <div style="display:inline-flex; align-items:center; gap:.5rem; padding:.25rem .5rem; border-radius: 999px; border: 1px solid rgba(0,0,0,.08); background:#fff;">
+                    <span style="width: 12px; height: 12px; border-radius: 2px; border:1px solid rgba(0,0,0,.15); background:#51cf66;"></span>Computational Operations
+                </div>
+                <div style="display:inline-flex; align-items:center; gap:.5rem; padding:.25rem .5rem; border-radius: 999px; border: 1px solid rgba(0,0,0,.08); background:#fff;">
+                    <span style="width: 12px; height: 12px; border-radius: 2px; border:1px solid rgba(0,0,0,.15); background:#74c0fc;"></span>Intermediates
+                </div>
+                <div style="display:inline-flex; align-items:center; gap:.5rem; padding:.25rem .5rem; border-radius: 999px; border: 1px solid rgba(0,0,0,.08); background:#fff;">
+                    <span style="width: 12px; height: 12px; border-radius: 2px; border:1px solid rgba(0,0,0,.15); background:#b197fc;"></span>Products
+                </div>
+            </div>
+            
+            <div class="figure-caption">
+                <strong>Figure 2.</strong> Euclidean Algorithm Process. This mathematics process visualization demonstrates algorithmic computation. The flowchart shows integer inputs, mathematical methods and algorithms, computational operations, intermediate calculations, and final GCD results.
+            </div>
+        </div>
+
+        <h2>3. Calculus Integration Process</h2>
+        <div class="figure">
+            <div class="mermaid">
+graph TD
+    %% Initial Setup
+    %% Input Conditions
+    A3[Function f(x)] --> B3[Function Analysis]
+    C3[Integration Limits [a,b]] --> D3[Boundary Definition]
+    E3[Goal: ∫f(x)dx] --> F3[Problem Statement]
+    %% Function Classification
+    B3 --> G3[Function Type Classification]
+    D3 --> H3[Domain Analysis]
+    F3 --> I3[Integration Strategy Selection]
+    %% Integration Methods
+    G3 --> J3{Function Type?}
+    H3 --> K3[Continuity Check]
+    I3 --> L3[Method Selection]
+    %% Direct Integration
+    J3 -->|Polynomial| M3[Power Rule Application]
+    J3 -->|Trigonometric| N3[Trig Identity Application]
+    J3 -->|Exponential| O3[Exponential Rule]
+    J3 -->|Rational| P3[Partial Fractions]
+    %% Substitution Method
+    K3 --> Q3[Substitution Detection]
+    L3 --> R3[Substitution Method]
+    M3 --> S3[Direct Integration]
+    N3 --> T3[Trig Integration]
+    %% Integration by Parts
+    O3 --> U3[Integration by Parts]
+    P3 --> V3[Partial Fraction Decomposition]
+    Q3 --> W3[Substitution Application]
+    R3 --> X3[Variable Change]
+    %% Definite Integration
+    S3 --> Y3[Antiderivative F(x)]
+    T3 --> Z3[Trig Antiderivative]
+    U3 --> AA3[Parts Integration]
+    V3 --> BB3[Fraction Integration]
+    %% Evaluation
+    W3 --> CC3[Substituted Integral]
+    X3 --> DD3[New Variable Integration]
+    Y3 --> EE3[F(b) - F(a)]
+    Z3 --> FF3[Definite Trig Result]
+    %% Final Results
+    AA3 --> GG3[Parts Result]
+    BB3 --> HH3[Fraction Result]
+    CC3 --> II3[Substitution Result]
+    DD3 --> JJ3[Variable Back-Substitution]
+    %% Verification
+    EE3 --> KK3[Result Verification]
+    FF3 --> LL3[Trigonometric Verification]
+    GG3 --> MM3[Parts Verification]
+    HH3 --> NN3[Fraction Verification]
+    %% Output
+    KK3 --> OO3[Definite Integral Value]
+    LL3 --> PP3[Trigonometric Integral Value]
+    MM3 --> QQ3[Parts Integral Value]
+    NN3 --> RR3[Fractional Integral Value]
+    %% Styling - Mathematical Color Scheme
+    %% Styling - Biological Color Scheme
+    style A3 fill:#ff6b6b,color:#fff
+    style C3 fill:#ff6b6b,color:#fff
+    style E3 fill:#ff6b6b,color:#fff
+    style G3 fill:#ffd43b,color:#000
+    style H3 fill:#ffd43b,color:#000
+    style I3 fill:#ffd43b,color:#000
+    style J3 fill:#ffd43b,color:#000
+    style K3 fill:#ffd43b,color:#000
+    style L3 fill:#ffd43b,color:#000
+    style M3 fill:#51cf66,color:#fff
+    style N3 fill:#51cf66,color:#fff
+    style O3 fill:#51cf66,color:#fff
+    style P3 fill:#51cf66,color:#fff
+    style Q3 fill:#51cf66,color:#fff
+    style R3 fill:#51cf66,color:#fff
+    style S3 fill:#51cf66,color:#fff
+    style T3 fill:#51cf66,color:#fff
+    style U3 fill:#51cf66,color:#fff
+    style V3 fill:#51cf66,color:#fff
+    style AA3 fill:#51cf66,color:#fff
+    style BB3 fill:#51cf66,color:#fff
+    style B3 fill:#74c0fc,color:#fff
+    style D3 fill:#74c0fc,color:#fff
+    style F3 fill:#74c0fc,color:#fff
+    style Y3 fill:#74c0fc,color:#fff
+    style Z3 fill:#74c0fc,color:#fff
+    style AA3 fill:#74c0fc,color:#fff
+    style BB3 fill:#74c0fc,color:#fff
+    style CC3 fill:#74c0fc,color:#fff
+    style DD3 fill:#74c0fc,color:#fff
+    style EE3 fill:#74c0fc,color:#fff
+    style FF3 fill:#74c0fc,color:#fff
+    style GG3 fill:#74c0fc,color:#fff
+    style HH3 fill:#74c0fc,color:#fff
+    style II3 fill:#74c0fc,color:#fff
+    style JJ3 fill:#74c0fc,color:#fff
+    style EE4 fill:#b197fc,color:#fff
+    style FF4 fill:#b197fc,color:#fff
+    style GG4 fill:#b197fc,color:#fff
+    style HH4 fill:#b197fc,color:#fff
+    style KK4 fill:#b197fc,color:#fff
+    style LL4 fill:#b197fc,color:#fff
+    style MM4 fill:#b197fc,color:#fff
+    style NN4 fill:#b197fc,color:#fff
+                    </div>
+            
+            <div style="margin-top: 1rem; display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center;">
+                <div style="display:inline-flex; align-items:center; gap:.5rem; padding:.25rem .5rem; border-radius: 999px; border: 1px solid rgba(0,0,0,.08); background:#fff;">
+                    <span style="width: 12px; height: 12px; border-radius: 2px; border:1px solid rgba(0,0,0,.15); background:#ff6b6b;"></span>Triggers & Inputs
+                </div>
+                <div style="display:inline-flex; align-items:center; gap:.5rem; padding:.25rem .5rem; border-radius: 999px; border: 1px solid rgba(0,0,0,.08); background:#fff;">
+                    <span style="width: 12px; height: 12px; border-radius: 2px; border:1px solid rgba(0,0,0,.15); background:#ffd43b;"></span>Mathematical Methods & Theorems
+                </div>
+                <div style="display:inline-flex; align-items:center; gap:.5rem; padding:.25rem .5rem; border-radius: 999px; border: 1px solid rgba(0,0,0,.08); background:#fff;">
+                    <span style="width: 12px; height: 12px; border-radius: 2px; border:1px solid rgba(0,0,0,.15); background:#51cf66;"></span>Integration Operations
+                </div>
+                <div style="display:inline-flex; align-items:center; gap:.5rem; padding:.25rem .5rem; border-radius: 999px; border: 1px solid rgba(0,0,0,.08); background:#fff;">
+                    <span style="width: 12px; height: 12px; border-radius: 2px; border:1px solid rgba(0,0,0,.15); background:#74c0fc;"></span>Intermediates
+                </div>
+                <div style="display:inline-flex; align-items:center; gap:.5rem; padding:.25rem .5rem; border-radius: 999px; border: 1px solid rgba(0,0,0,.08); background:#fff;">
+                    <span style="width: 12px; height: 12px; border-radius: 2px; border:1px solid rgba(0,0,0,.15); background:#b197fc;"></span>Products
+                </div>
+            </div>
+            
+            <div class="figure-caption">
+                <strong>Figure 3.</strong> Calculus Integration Process. This mathematics process visualization demonstrates integral calculus computation. The flowchart shows function inputs, mathematical methods and theorems, integration operations, intermediate calculations, and final integral values.
+            </div>
+        </div>
+
+        <h2>4. Linear Algebra Matrix Operations</h2>
+        <div class="figure">
+            <div class="mermaid">
+graph TD
+    %% Initial Setup
+    %% Input Conditions
+    A4[Matrix A] --> B4[Matrix Analysis]
+    C4[Matrix B] --> D4[Matrix Analysis]
+    E4[Operation Type] --> F4[Operation Selection]
+    %% Matrix Classification
+    B4 --> G4[Matrix Dimensions Check]
+    D4 --> H4[Matrix Properties Analysis]
+    F4 --> I4[Operation Feasibility]
+    %% Operation Types
+    G4 --> J4{Operation Type?}
+    H4 --> K4[Matrix Properties]
+    I4 --> L4[Compatibility Check]
+    %% Matrix Addition
+    J4 -->|Addition| M4[Dimension Matching]
+    J4 -->|Multiplication| N4[Inner Product Dimensions]
+    J4 -->|Inverse| O4[Square Matrix Check]
+    J4 -->|Determinant| P4[Square Matrix Check]
+    %% Addition Process
+    K4 --> Q4[Element-wise Addition]
+    L4 --> R4[Compatibility Verification]
+    M4 --> S4[Add Corresponding Elements]
+    N4 --> T4[Matrix Multiplication Algorithm]
+    %% Multiplication Process
+    O4 --> U4[Inverse Calculation]
+    P4 --> V4[Determinant Calculation]
+    Q4 --> W4[Result Matrix C]
+    R4 --> X4[Operation Validation]
+    %% Inverse Calculation
+    S4 --> Y4[Addition Result]
+    T4 --> Z4[Multiplication Result]
+    U4 --> AA4[Gauss-Jordan Elimination]
+    V4 --> BB4[Determinant Expansion]
+    %% Determinant Calculation
+    W4 --> CC4[Result Verification]
+    X4 --> DD4[Properties Check]
+    Y4 --> EE4[Matrix C = A + B]
+    Z4 --> FF4[Matrix C = A × B]
+    %% Final Results
+    AA4 --> GG4[Inverse Matrix A⁻¹]
+    BB4 --> HH4[Determinant |A|]
+    CC4 --> II4[Result Validation]
+    DD4 --> JJ4[Properties Verification]
+    %% Output
+    EE4 --> KK4[Addition Complete]
+    FF4 --> LL4[Multiplication Complete]
+    GG4 --> MM4[Inverse Found]
+    HH4 --> NN4[Determinant Calculated]
+    %% Styling - Mathematical Color Scheme
+    %% Styling - Biological Color Scheme
+    style A4 fill:#ff6b6b,color:#fff
+    style C4 fill:#ff6b6b,color:#fff
+    style E4 fill:#ff6b6b,color:#fff
+    style G4 fill:#ffd43b,color:#000
+    style H4 fill:#ffd43b,color:#000
+    style I4 fill:#ffd43b,color:#000
+    style J4 fill:#ffd43b,color:#000
+    style K4 fill:#ffd43b,color:#000
+    style L4 fill:#ffd43b,color:#000
+    style M4 fill:#51cf66,color:#fff
+    style N4 fill:#51cf66,color:#fff
+    style O4 fill:#51cf66,color:#fff
+    style P4 fill:#51cf66,color:#fff
+    style Q4 fill:#51cf66,color:#fff
+    style R4 fill:#51cf66,color:#fff
+    style S4 fill:#51cf66,color:#fff
+    style T4 fill:#51cf66,color:#fff
+    style U4 fill:#51cf66,color:#fff
+    style V4 fill:#51cf66,color:#fff
+    style AA4 fill:#51cf66,color:#fff
+    style BB4 fill:#51cf66,color:#fff
+    style B4 fill:#74c0fc,color:#fff
+    style D4 fill:#74c0fc,color:#fff
+    style F4 fill:#74c0fc,color:#fff
+    style W4 fill:#74c0fc,color:#fff
+    style X4 fill:#74c0fc,color:#fff
+    style Y4 fill:#74c0fc,color:#fff
+    style Z4 fill:#74c0fc,color:#fff
+    style CC4 fill:#74c0fc,color:#fff
+    style DD4 fill:#74c0fc,color:#fff
+    style II4 fill:#74c0fc,color:#fff
+    style JJ4 fill:#74c0fc,color:#fff
+    style EE4 fill:#b197fc,color:#fff
+    style FF4 fill:#b197fc,color:#fff
+    style GG4 fill:#b197fc,color:#fff
+    style HH4 fill:#b197fc,color:#fff
+    style KK4 fill:#b197fc,color:#fff
+    style LL4 fill:#b197fc,color:#fff
+    style MM4 fill:#b197fc,color:#fff
+    style NN4 fill:#b197fc,color:#fff
+                    </div>
+            
+            <div style="margin-top: 1rem; display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center;">
+                <div style="display:inline-flex; align-items:center; gap:.5rem; padding:.25rem .5rem; border-radius: 999px; border: 1px solid rgba(0,0,0,.08); background:#fff;">
+                    <span style="width: 12px; height: 12px; border-radius: 2px; border:1px solid rgba(0,0,0,.15); background:#ff6b6b;"></span>Triggers & Inputs
+                </div>
+                <div style="display:inline-flex; align-items:center; gap:.5rem; padding:.25rem .5rem; border-radius: 999px; border: 1px solid rgba(0,0,0,.08); background:#fff;">
+                    <span style="width: 12px; height: 12px; border-radius: 2px; border:1px solid rgba(0,0,0,.15); background:#ffd43b;"></span>Mathematical Structures & Methods
+                </div>
+                <div style="display:inline-flex; align-items:center; gap:.5rem; padding:.25rem .5rem; border-radius: 999px; border: 1px solid rgba(0,0,0,.08); background:#fff;">
+                    <span style="width: 12px; height: 12px; border-radius: 2px; border:1px solid rgba(0,0,0,.15); background:#51cf66;"></span>Matrix Operations
+                </div>
+                <div style="display:inline-flex; align-items:center; gap:.5rem; padding:.25rem .5rem; border-radius: 999px; border: 1px solid rgba(0,0,0,.08); background:#fff;">
+                    <span style="width: 12px; height: 12px; border-radius: 2px; border:1px solid rgba(0,0,0,.15); background:#74c0fc;"></span>Intermediates
+                </div>
+                <div style="display:inline-flex; align-items:center; gap:.5rem; padding:.25rem .5rem; border-radius: 999px; border: 1px solid rgba(0,0,0,.08); background:#fff;">
+                    <span style="width: 12px; height: 12px; border-radius: 2px; border:1px solid rgba(0,0,0,.15); background:#b197fc;"></span>Products
+                </div>
+            </div>
+            
+            <div class="figure-caption">
+                <strong>Figure 4.</strong> Linear Algebra Matrix Operations. This mathematics process visualization demonstrates matrix algebra computation. The flowchart shows matrix inputs, mathematical structures and methods, matrix operations, intermediate calculations, and final matrix results.
+            </div>
+        </div>
+
+        <h2>5. Probability Theory Process</h2>
+        <div class="figure">
+            <div class="mermaid">
+graph TD
+    %% Initial Setup
+    %% Input Conditions
+    A5[Sample Space S] --> B5[Space Analysis]
+    C5[Event E] --> D5[Event Analysis]
+    E5[Probability Measure P] --> F5[Measure Definition]
+    %% Probability Framework
+    B5 --> G5[Sample Space Properties]
+    D5 --> H5[Event Properties]
+    F5 --> I5[Probability Axioms]
+    %% Axiomatic Foundation
+    G5 --> J5[Kolmogorov Axioms]
+    H5 --> K5[Event Algebra]
+    I5 --> L5[Measure Theory]
+    %% Probability Calculation
+    J5 --> M5[P(S) = 1]
+    K5 --> N5[Event Operations]
+    L5 --> O5[Probability Functions]
+    %% Event Operations
+    M5 --> P5[Complement Rule]
+    N5 --> Q5[Union Rule]
+    O5 --> R5[Conditional Probability]
+    %% Conditional Probability
+    P5 --> S5[P(E') = 1 - P(E)]
+    Q5 --> T5[P(A∪B) = P(A) + P(B) - P(A∩B)]
+    R5 --> U5[P(A|B) = P(A∩B)/P(B)]
+    %% Bayes' Theorem
+    S5 --> V5[Probability Calculation]
+    T5 --> W5[Set Operations]
+    U5 --> X5[Bayes' Theorem]
+    %% Independence
+    V5 --> Y5[Result Verification]
+    W5 --> Z5[Venn Diagram Analysis]
+    X5 --> AA5[P(A|B) = P(B|A)P(A)/P(B)]
+    %% Final Results
+    Y5 --> BB5[Probability Value]
+    Z5 --> CC5[Set Relationships]
+    AA5 --> DD5[Posterior Probability]
+    %% Output
+    BB5 --> EE5[Probability Calculated]
+    CC5 --> FF5[Event Relationships]
+    DD5 --> GG5[Bayesian Update]
+    %% Styling - Mathematical Color Scheme
+    %% Styling - Biological Color Scheme
+    style A5 fill:#ff6b6b,color:#fff
+    style C5 fill:#ff6b6b,color:#fff
+    style E5 fill:#ff6b6b,color:#fff
+    style G5 fill:#ffd43b,color:#000
+    style H5 fill:#ffd43b,color:#000
+    style I5 fill:#ffd43b,color:#000
+    style J5 fill:#ffd43b,color:#000
+    style K5 fill:#ffd43b,color:#000
+    style L5 fill:#ffd43b,color:#000
+    style M5 fill:#51cf66,color:#fff
+    style N5 fill:#51cf66,color:#fff
+    style O5 fill:#51cf66,color:#fff
+    style P5 fill:#51cf66,color:#fff
+    style Q5 fill:#51cf66,color:#fff
+    style R5 fill:#51cf66,color:#fff
+    style S5 fill:#51cf66,color:#fff
+    style T5 fill:#51cf66,color:#fff
+    style U5 fill:#51cf66,color:#fff
+    style X5 fill:#51cf66,color:#fff
+    style AA5 fill:#51cf66,color:#fff
+    style B5 fill:#74c0fc,color:#fff
+    style D5 fill:#74c0fc,color:#fff
+    style F5 fill:#74c0fc,color:#fff
+    style V5 fill:#74c0fc,color:#fff
+    style W5 fill:#74c0fc,color:#fff
+    style Y5 fill:#74c0fc,color:#fff
+    style Z5 fill:#74c0fc,color:#fff
+    style BB5 fill:#74c0fc,color:#fff
+    style CC5 fill:#74c0fc,color:#fff
+    style DD5 fill:#74c0fc,color:#fff
+    style EE5 fill:#b197fc,color:#fff
+    style FF5 fill:#b197fc,color:#fff
+    style GG5 fill:#b197fc,color:#fff
+                    </div>
+            
+            <div style="margin-top: 1rem; display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center;">
+                <div style="display:inline-flex; align-items:center; gap:.5rem; padding:.25rem .5rem; border-radius: 999px; border: 1px solid rgba(0,0,0,.08); background:#fff;">
+                    <span style="width: 12px; height: 12px; border-radius: 2px; border:1px solid rgba(0,0,0,.15); background:#ff6b6b;"></span>Triggers & Inputs
+                </div>
+                <div style="display:inline-flex; align-items:center; gap:.5rem; padding:.25rem .5rem; border-radius: 999px; border: 1px solid rgba(0,0,0,.08); background:#fff;">
+                    <span style="width: 12px; height: 12px; border-radius: 2px; border:1px solid rgba(0,0,0,.15); background:#ffd43b;"></span>Probability Axioms & Theorems
+                </div>
+                <div style="display:inline-flex; align-items:center; gap:.5rem; padding:.25rem .5rem; border-radius: 999px; border: 1px solid rgba(0,0,0,.08); background:#fff;">
+                    <span style="width: 12px; height: 12px; border-radius: 2px; border:1px solid rgba(0,0,0,.15); background:#51cf66;"></span>Probability Calculations
+                </div>
+                <div style="display:inline-flex; align-items:center; gap:.5rem; padding:.25rem .5rem; border-radius: 999px; border: 1px solid rgba(0,0,0,.08); background:#fff;">
+                    <span style="width: 12px; height: 12px; border-radius: 2px; border:1px solid rgba(0,0,0,.15); background:#74c0fc;"></span>Intermediates
+                </div>
+                <div style="display:inline-flex; align-items:center; gap:.5rem; padding:.25rem .5rem; border-radius: 999px; border: 1px solid rgba(0,0,0,.08); background:#fff;">
+                    <span style="width: 12px; height: 12px; border-radius: 2px; border:1px solid rgba(0,0,0,.15); background:#b197fc;"></span>Products
+                </div>
+            </div>
+            
+            <div class="figure-caption">
+                <strong>Figure 5.</strong> Probability Theory Process. This mathematics process visualization demonstrates probabilistic reasoning. The flowchart shows sample space inputs, probability axioms and theorems, probability calculations, intermediate computations, and final probability values.
+            </div>
+        </div>
+
+        <p><strong>Generated using the Programming Framework methodology</strong></p>
+        
+        <p>This collection demonstrates the computational nature of mathematical processes and systems</p>
+        
+        <p>Each flowchart preserves maximum detail through optimized Mermaid configuration</p>
+    </div>
+</body>
+</html> 

@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Computer Science Processes - Programming Framework Analysis</title>
+    <style>
+        body { 
+            font-family: 'Times New Roman', Times, serif, 'Arial Unicode MS'; 
+            margin: 0; 
+            background: #ffffff; 
+            color: #000000; 
+            line-height: 1.6; 
+            font-size: 12pt; 
+        }
+        .container { 
+            max-width: 1000px; 
+            margin: 0 auto; 
+            padding: 1.5rem; 
+        }
+        h1, h2, h3 { 
+            color: #000000; 
+            margin-top: 1.5rem; 
+            margin-bottom: 0.75rem; 
+        }
+        h1 { 
+            font-size: 18pt; 
+            text-align: center; 
+        }
+        h2 { 
+            font-size: 16pt; 
+            border-bottom: 2px solid #000; 
+            padding-bottom: 0.5rem; 
+        }
+        h3 { 
+            font-size: 14pt; 
+        }
+        p { 
+            margin-bottom: 1rem; 
+            text-align: justify; 
+        }
+        .figure { 
+            margin: 1rem 0; 
+            text-align: center; 
+            border: 1px solid #ccc; 
+            padding: 1rem; 
+            background: #f9f9f9; 
+        }
+        .figure-caption { 
+            margin-top: 1rem; 
+            font-style: italic; 
+            text-align: left; 
+        }
+        .mermaid { 
+            background: white; 
+            padding: 1rem; 
+            border-radius: 4px; 
+        }
+        .color-legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1rem;
+            justify-content: center;
+        }
+        .color-legend span {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.25rem 0.5rem;
+            border-radius: 999px;
+            border: 1px solid rgba(0,0,0,.08);
+            background: #fff;
+            font-size: 0.9rem;
+        }
+        .color-box {
+            width: 12px;
+            height: 12px;
+            border-radius: 2px;
+            border: 1px solid rgba(0,0,0,.15);
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+    <script>
+        mermaid.initialize({ 
+            startOnLoad: true, 
+            theme: 'default', 
+            flowchart: { 
+                useMaxWidth: false, 
+                htmlLabels: true,
+                curve: 'linear',
+                nodeSpacing: 50,
+                rankSpacing: 50,
+                padding: 20
+            },
+            themeVariables: {
+                fontFamily: 'Arial Unicode MS, Arial, sans-serif'
+            }
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Computer Science Processes - Programming Framework Analysis</h1>
+        
+        <p>This document presents computer science processes analyzed using the Programming Framework methodology. Each process is represented as a computational flowchart with standardized color coding: Red for triggers/inputs, Yellow for structures/objects, Green for processing/operations, Blue for intermediates/states, and Violet for products/outputs. Yellow nodes use black text for optimal readability, while all other colors use white text.</p>
+
+        <h2>1. QuickSort Algorithm Process</h2>
+        <div class="figure">
+            <div class="mermaid">
+graph TD
+    %% Initial Setup
+    %% Input Data and Parameters
+    A[Input Array 5,2,8,1,9] --> B[Array Size Analysis]
+    C[Sorting Criteria Ascending] --> D[Algorithm Selection]
+    E[Memory Constraints] --> F[Resource Assessment]
+    
+    %% Data Structure Setup
+    B --> G[Array Initialization]
+    D --> H[QuickSort Algorithm Selection]
+    F --> I[Memory Allocation]
+    
+    %% Algorithm Initialization
+    G --> J[Array Copy to Working Memory]
+    H --> K[Pivot Selection Strategy]
+    I --> L[Stack Space Allocation]
+    
+    %% First Partitioning Step
+    J --> M[Choose Pivot 5]
+    K --> N[Partitioning Logic Setup]
+    L --> O[Recursive Call Stack]
+    
+    %% Partitioning Process
+    M --> P[Compare Elements to Pivot]
+    P --> Q[Element Swapping Operations]
+    Q --> R[Partition Boundary Tracking]
+    
+    %% Sub-array Processing
+    R --> S[Left Sub-array 2,1]
+    R --> T[Right Sub-array 8,9]
+    O --> U[Recursive Function Calls]
+    
+    %% Left Sub-array Sorting
+    S --> V[Pivot Selection 2]
+    V --> W[Partitioning 1 and 2]
+    W --> X[Base Case Single Element]
+    
+    %% Right Sub-array Sorting
+    T --> Y[Pivot Selection 8]
+    Y --> Z[Partitioning 8,9]
+    Z --> AA[Recursive Sort 8,9]
+    
+    %% Merge and Combine
+    X --> BB[Sorted Left 1,2]
+    AA --> CC[Sorted Right 8,9]
+    BB --> DD[Combine Results]
+    CC --> DD
+    
+    %% Final Assembly
+    DD --> EE[Final Sorted Array 1,2,5,8,9]
+    EE --> FF[Algorithm Completion]
+    FF --> GG[Performance Metrics Calculation]
+    
+    %% Complexity Analysis
+    GG --> HH[Time Complexity O(n log n)]
+    GG --> II[Space Complexity O(log n)]
+    GG --> JJ[Stability Assessment Unstable]
+    
+    %% Styling - Computer Science Color Scheme
+    style A fill:#ff6b6b,color:#fff
+    style C fill:#ff6b6b,color:#fff
+    style E fill:#ff6b6b,color:#fff
+    
+    style B fill:#ffd43b,color:#000
+    style D fill:#ffd43b,color:#000
+    style F fill:#ffd43b,color:#000
+    style G fill:#ffd43b,color:#000
+    style H fill:#ffd43b,color:#000
+    style I fill:#ffd43b,color:#000
+    style J fill:#ffd43b,color:#000
+    style K fill:#ffd43b,color:#000
+    style L fill:#ffd43b,color:#000
+    style M fill:#ffd43b,color:#000
+    style N fill:#ffd43b,color:#000
+    style O fill:#ffd43b,color:#000
+    style V fill:#ffd43b,color:#000
+    style Y fill:#ffd43b,color:#000
+    
+    style P fill:#51cf66,color:#fff
+    style Q fill:#51cf66,color:#fff
+    style R fill:#51cf66,color:#fff
+    style W fill:#51cf66,color:#fff
+    style Z fill:#51cf66,color:#fff
+    style AA fill:#51cf66,color:#fff
+    style DD fill:#51cf66,color:#fff
+    style GG fill:#51cf66,color:#fff
+    style HH fill:#51cf66,color:#fff
+    style II fill:#51cf66,color:#fff
+    style JJ fill:#51cf66,color:#fff
+    
+    style S fill:#74c0fc,color:#fff
+    style T fill:#74c0fc,color:#fff
+    style U fill:#74c0fc,color:#fff
+    style X fill:#74c0fc,color:#fff
+    style BB fill:#74c0fc,color:#fff
+    style CC fill:#74c0fc,color:#fff
+    style EE fill:#74c0fc,color:#fff
+    style FF fill:#74c0fc,color:#fff
+    style GG fill:#51cf66,color:#fff
+    style HH fill:#51cf66,color:#fff
+    style II fill:#51cf66,color:#fff
+    style JJ fill:#51cf66,color:#fff
+            </div>
+            <div class="color-legend">
+                <span><span class="color-box" style="background:#ff6b6b;"></span>Inputs & Data</span>
+                <span><span class="color-box" style="background:#ffd43b;"></span>Data Structures & Arrays</span>
+                <span><span class="color-box" style="background:#51cf66;"></span>Operations & Algorithms</span>
+                <span><span class="color-box" style="background:#74c0fc;"></span>States & Variables</span>
+                <span><span class="color-box" style="background:#b197fc;"></span>Output & Results</span>
+            </div>
+            <div class="figure-caption">
+                <strong>Figure 1.</strong> QuickSort Algorithm Process. This computer science process visualization demonstrates the computational logic of the QuickSort algorithm. The flowchart shows input data and parameters, data structures and arrays, algorithmic operations and comparisons, intermediate states and recursive calls, and final sorted output.
+            </div>
+        </div>
+
+        <h2>2. Binary Search Tree Process</h2>
+        <div class="figure">
+            <div class="mermaid">
+graph TD
+    %% Input Data
+    A[Search Key 7] --> B[Key Validation]
+    C[BST Root Node] --> D[Tree Structure Analysis]
+    E[Search Operation] --> F[Algorithm Selection]
+    
+    %% Tree Traversal Setup
+    B --> G[Key Comparison Logic]
+    D --> H[Node Structure]
+    F --> I[Binary Search Strategy]
+    
+    %% Root Node Processing
+    G --> J[Compare Key with Root]
+    H --> K[Left Child Pointer]
+    I --> L[Right Child Pointer]
+    
+    %% Decision Logic
+    J --> M{Key < Root Value?}
+    K --> N[Left Subtree]
+    L --> O[Right Subtree]
+    
+    %% Left Subtree Search
+    M -->|Yes| P[Traverse Left]
+    N --> Q[Left Child Node]
+    P --> R[Recursive Search]
+    
+    %% Right Subtree Search
+    M -->|No| S[Traverse Right]
+    O --> T[Right Child Node]
+    S --> U[Recursive Search]
+    
+    %% Search Completion
+    R --> V{Key Found?}
+    U --> W{Key Found?}
+    V -->|Yes| X[Return Node]
+    V -->|No| Y[Return Null]
+    W -->|Yes| Z[Return Node]
+    W -->|No| AA[Return Null]
+    
+    %% Final Result
+    X --> BB[Search Successful]
+    Z --> BB
+    Y --> CC[Search Unsuccessful]
+    AA --> CC
+    
+    %% Styling - Computer Science Color Scheme
+    style A fill:#ff6b6b,color:#fff
+    style C fill:#ff6b6b,color:#fff
+    style E fill:#ff6b6b,color:#fff
+    
+    style B fill:#ffd43b,color:#000
+    style D fill:#ffd43b,color:#000
+    style F fill:#ffd43b,color:#000
+    style G fill:#ffd43b,color:#000
+    style H fill:#ffd43b,color:#000
+    style I fill:#ffd43b,color:#000
+    style J fill:#ffd43b,color:#000
+    style K fill:#ffd43b,color:#000
+    style L fill:#ffd43b,color:#000
+    style M fill:#74c0fc,color:#fff
+    style N fill:#ffd43b,color:#000
+    style O fill:#ffd43b,color:#000
+    style P fill:#ffd43b,color:#000
+    style Q fill:#ffd43b,color:#000
+    style R fill:#ffd43b,color:#000
+    style S fill:#ffd43b,color:#000
+    style T fill:#ffd43b,color:#000
+    style U fill:#ffd43b,color:#000
+    style V fill:#74c0fc,color:#fff
+    style W fill:#74c0fc,color:#fff
+    style X fill:#ffd43b,color:#000
+    style Y fill:#ffd43b,color:#000
+    style Z fill:#ffd43b,color:#000
+    style AA fill:#ffd43b,color:#000
+    style BB fill:#ffd43b,color:#000
+    style CC fill:#ffd43b,color:#000
+    
+    style BB fill:#74c0fc,color:#fff
+    style CC fill:#74c0fc,color:#fff
+            </div>
+            <div class="color-legend">
+                <span><span class="color-box" style="background:#ff6b6b;"></span>Inputs & Data</span>
+                <span><span class="color-box" style="background:#ffd43b;"></span>Data Structures & Arrays</span>
+                <span><span class="color-box" style="background:#51cf66;"></span>Operations & Algorithms</span>
+                <span><span class="color-box" style="background:#74c0fc;"></span>States & Variables</span>
+                <span><span class="color-box" style="background:#b197fc;"></span>Output & Results</span>
+            </div>
+            <div class="figure-caption">
+                <strong>Figure 2.</strong> Binary Search Tree Process. This computer science process visualization demonstrates the computational logic of binary search tree operations. The flowchart shows search key validation, tree structure analysis, binary search strategy, recursive traversal, and search result determination.
+            </div>
+        </div>
+
+        <h2>3. Dynamic Programming Process</h2>
+        <div class="figure">
+            <div class="mermaid">
+graph TD
+    %% Problem Definition
+    A[Problem Statement] --> B[Problem Analysis]
+    C[Input Parameters] --> D[Parameter Validation]
+    E[Constraints] --> F[Constraint Analysis]
+    
+    %% Dynamic Programming Setup
+    B --> G[Subproblem Identification]
+    D --> H[State Space Definition]
+    F --> I[Memory Requirements]
+    
+    %% Algorithm Design
+    G --> J[Recursive Relation]
+    H --> K[DP Table Structure]
+    I --> L[Memory Allocation]
+    
+    %% Implementation
+    J --> M[Base Case Definition]
+    K --> N[Table Initialization]
+    L --> O[Array Creation]
+    
+    %% Computation
+    M --> P[Fill Base Cases]
+    N --> Q[Iterative Computation]
+    O --> R[State Transitions]
+    
+    %% Solution Construction
+    P --> S[DP Table Population]
+    Q --> T[Optimal Value Calculation]
+    R --> U[Path Reconstruction]
+    
+    %% Final Result
+    S --> V[Optimal Solution]
+    T --> W[Performance Analysis]
+    U --> X[Solution Verification]
+    
+    %% Styling - Computer Science Color Scheme
+    style A fill:#ff6b6b,color:#fff
+    style C fill:#ff6b6b,color:#fff
+    style E fill:#ff6b6b,color:#fff
+    
+    style B fill:#ffd43b,color:#000
+    style D fill:#ffd43b,color:#000
+    style F fill:#ffd43b,color:#000
+    style G fill:#ffd43b,color:#000
+    style H fill:#ffd43b,color:#000
+    style I fill:#ffd43b,color:#000
+    style J fill:#ffd43b,color:#000
+    style K fill:#ffd43b,color:#000
+    style L fill:#ffd43b,color:#000
+    style M fill:#ffd43b,color:#000
+    style N fill:#ffd43b,color:#000
+    style O fill:#ffd43b,color:#000
+    style P fill:#ffd43b,color:#000
+    style Q fill:#ffd43b,color:#000
+    style R fill:#ffd43b,color:#000
+    style S fill:#ffd43b,color:#000
+    style T fill:#ffd43b,color:#000
+    style U fill:#ffd43b,color:#000
+    style V fill:#ffd43b,color:#000
+    style W fill:#ffd43b,color:#000
+    style X fill:#ffd43b,color:#000
+    
+    style X fill:#74c0fc,color:#fff
+            </div>
+            <div class="color-legend">
+                <span><span class="color-box" style="background:#ff6b6b;"></span>Inputs & Data</span>
+                <span><span class="color-box" style="background:#ffd43b;"></span>Data Structures & Arrays</span>
+                <span><span class="color-box" style="background:#51cf66;"></span>Operations & Algorithms</span>
+                <span><span class="color-box" style="background:#74c0fc;"></span>States & Variables</span>
+                <span><span class="color-box" style="background:#b197fc;"></span>Output & Results</span>
+            </div>
+            <div class="figure-caption">
+                <strong>Figure 3.</strong> Dynamic Programming Process. This computer science process visualization demonstrates the computational logic of dynamic programming algorithms. The flowchart shows problem analysis, subproblem identification, recursive relation formulation, table-based computation, and optimal solution construction.
+            </div>
+        </div>
+
+        <h2>4. Graph Traversal Process</h2>
+        <div class="figure">
+            <div class="mermaid">
+graph TD
+    %% Graph Representation
+    A[Graph Structure] --> B[Graph Analysis]
+    C[Starting Vertex] --> D[Vertex Validation]
+    E[Traversal Type] --> F[Algorithm Selection]
+    
+    %% Data Structure Setup
+    B --> G[Adjacency List/Matrix]
+    D --> H[Vertex Initialization]
+    F --> I[Queue/Stack Selection]
+    
+    %% Traversal Initialization
+    G --> J[Graph Representation]
+    H --> K[Visited Array]
+    I --> L[Data Structure Creation]
+    
+    %% Traversal Process
+    J --> M[Neighbor Discovery]
+    K --> N[Visit Tracking]
+    L --> O[Element Management]
+    
+    %% Algorithm Execution
+    M --> P[Neighbor Processing]
+    N --> Q[Visit Marking]
+    O --> R[Element Removal]
+    
+    %% Completion
+    P --> S[Traversal Complete]
+    Q --> T[All Vertices Visited]
+    R --> U[Data Structure Empty]
+    
+    %% Final Result
+    S --> V[Traversal Order]
+    T --> W[Connected Components]
+    U --> X[Algorithm Termination]
+    
+    %% Styling - Computer Science Color Scheme
+    style A fill:#ff6b6b,color:#fff
+    style C fill:#ff6b6b,color:#fff
+    style E fill:#ff6b6b,color:#fff
+    
+    style B fill:#ffd43b,color:#000
+    style D fill:#ffd43b,color:#000
+    style F fill:#ffd43b,color:#000
+    style G fill:#ffd43b,color:#000
+    style H fill:#ffd43b,color:#000
+    style I fill:#ffd43b,color:#000
+    style J fill:#ffd43b,color:#000
+    style K fill:#ffd43b,color:#000
+    style L fill:#ffd43b,color:#000
+    style M fill:#ffd43b,color:#000
+    style N fill:#ffd43b,color:#000
+    style O fill:#ffd43b,color:#000
+    style P fill:#ffd43b,color:#000
+    style Q fill:#ffd43b,color:#000
+    style R fill:#ffd43b,color:#000
+    style S fill:#ffd43b,color:#000
+    style T fill:#ffd43b,color:#000
+    style U fill:#ffd43b,color:#000
+    style V fill:#ffd43b,color:#000
+    style W fill:#ffd43b,color:#000
+    style X fill:#ffd43b,color:#000
+    
+    style X fill:#74c0fc,color:#fff
+            </div>
+            <div class="color-legend">
+                <span><span class="color-box" style="background:#ff6b6b;"></span>Inputs & Data</span>
+                <span><span class="color-box" style="background:#ffd43b;"></span>Data Structures & Arrays</span>
+                <span><span class="color-box" style="background:#51cf66;"></span>Operations & Algorithms</span>
+                <span><span class="color-box" style="background:#74c0fc;"></span>States & Variables</span>
+                <span><span class="color-box" style="background:#b197fc;"></span>Output & Results</span>
+            </div>
+            <div class="figure-caption">
+                <strong>Figure 4.</strong> Graph Traversal Process. This computer science process visualization demonstrates the computational logic of graph traversal algorithms. The flowchart shows graph representation, vertex initialization, neighbor discovery, visit tracking, and traversal completion.
+            </div>
+        </div>
+
+        <h2>5. Memory Management Process</h2>
+        <div class="figure">
+            <div class="mermaid">
+graph TD
+    %% Memory Request
+    A[Memory Request] --> B[Request Analysis]
+    C[Size Requirements] --> D[Size Validation]
+    E[Memory Type] --> F[Type Selection]
+    
+    %% Memory Allocation
+    B --> G[Free List Search]
+    D --> H[Block Size Check]
+    F --> I[Allocation Strategy]
+    
+    %% Block Management
+    G --> J[Free Block Identification]
+    H --> K[Block Splitting]
+    I --> L[Allocation Method]
+    
+    %% Memory Assignment
+    J --> M[Block Assignment]
+    K --> N[Remaining Block]
+    L --> O[Memory Marking]
+    
+    %% Deallocation
+    M --> P[Memory Usage]
+    N --> Q[Free Block Update]
+    O --> R[Allocation Complete]
+    
+    %% Cleanup
+    P --> S[Memory Release]
+    Q --> T[Free List Update]
+    R --> U[Fragmentation Check]
+    
+    %% Final State
+    S --> V[Memory Freed]
+    T --> W[Free List Maintained]
+    U --> X[Memory Management Complete]
+    
+    %% Styling - Computer Science Color Scheme
+    style A fill:#ff6b6b,color:#fff
+    style C fill:#ff6b6b,color:#fff
+    style E fill:#ff6b6b,color:#fff
+    
+    style B fill:#ffd43b,color:#000
+    style D fill:#ffd43b,color:#000
+    style F fill:#ffd43b,color:#000
+    style G fill:#ffd43b,color:#000
+    style H fill:#ffd43b,color:#000
+    style I fill:#ffd43b,color:#000
+    style J fill:#ffd43b,color:#000
+    style K fill:#ffd43b,color:#000
+    style L fill:#ffd43b,color:#000
+    style M fill:#ffd43b,color:#000
+    style N fill:#ffd43b,color:#000
+    style O fill:#ffd43b,color:#000
+    style P fill:#ffd43b,color:#000
+    style Q fill:#ffd43b,color:#000
+    style R fill:#ffd43b,color:#000
+    style S fill:#ffd43b,color:#000
+    style T fill:#ffd43b,color:#000
+    style U fill:#ffd43b,color:#000
+    style V fill:#ffd43b,color:#000
+    style W fill:#ffd43b,color:#000
+    style X fill:#ffd43b,color:#000
+    
+    style X fill:#74c0fc,color:#fff
+            </div>
+            <div class="color-legend">
+                <span><span class="color-box" style="background:#ff6b6b;"></span>Inputs & Data</span>
+                <span><span class="color-box" style="background:#ffd43b;"></span>Data Structures & Arrays</span>
+                <span><span class="color-box" style="background:#51cf66;"></span>Operations & Algorithms</span>
+                <span><span class="color-box" style="background:#74c0fc;"></span>States & Variables</span>
+                <span><span class="color-box" style="background:#b197fc;"></span>Output & Results</span>
+            </div>
+            <div class="figure-caption">
+                <strong>Figure 5.</strong> Memory Management Process. This computer science process visualization demonstrates the computational logic of memory management systems. The flowchart shows memory request analysis, free block search, allocation strategy, block management, and memory cleanup operations.
+            </div>
+        </div>
+    </div>
+</body>
+</html> 
