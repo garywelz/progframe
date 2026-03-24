@@ -8,12 +8,21 @@ sdk_version: "latest"
 app_file: "index.html"
 pinned: false
 author: "garywelz"
-short_description: Cross-disciplinary methodology for complex systems
+short_description: Mermaid flowcharts & graphs across science + links to interactive math/biology databases
 ---
 
 ## Programming Framework
 
 A systematic visualization methodology for analyzing complex systems across disciplines using Mermaid Markdown and a universal five-color code.
+
+**Source & backup:** [github.com/garywelz/progframe](https://github.com/garywelz/progframe)
+
+### Interactive databases (hosted on Google Cloud Storage)
+
+Browse searchable tables and open individual process charts:
+
+- **Mathematics** — [Algorithms & axiomatic theories table](https://storage.googleapis.com/regal-scholar-453620-r7-podcast-storage/mathematics-processes-database/mathematics-database-table.html) · [Named collections (mathematicians & theorems)](https://storage.googleapis.com/regal-scholar-453620-r7-podcast-storage/mathematics-processes-database/collections/index.html) · [Whole of mathematics graph](https://storage.googleapis.com/regal-scholar-453620-r7-podcast-storage/mathematics-processes-database/whole-of-mathematics.html)
+- **Biology** — [Pathways, mechanisms & lab protocols table](https://storage.googleapis.com/regal-scholar-453620-r7-podcast-storage/biology-processes-database/biology-database-table.html) · [Theme collections](https://storage.googleapis.com/regal-scholar-453620-r7-podcast-storage/biology-processes-database/collections/index.html)
 
 Complex systems across biology, chemistry, and physics exhibit remarkable similarities in their organizational principles despite operating at vastly different scales and domains. Traditional analysis methods often remain siloed within specific disciplines, limiting our ability to identify common patterns and computational logic that govern system behavior. Here, we present the Programming Framework, a systematic methodology that translates complex system dynamics into standardized computational representations using Mermaid Markdown syntax and LLM processing.
 
@@ -72,13 +81,13 @@ This workflow enables rapid creation of sophisticated visualizations that would 
 
 ### Experimental Validation
 
-- **Validation Paper**: [experimental_validation_paper.html](experimental_validation_paper.html) - Comprehensive experimental protocols and validation methodology
-- **Core Validation Flowcharts**:
-  - [catalytic_hydrogenation_optimization.html](catalytic_hydrogenation_optimization.html) - Experiment 1: Catalytic hydrogenation process validation
-  - [raft_polymerization_mechanism.html](raft_polymerization_mechanism.html) - Experiment 2: Polymerization kinetics validation
-  - [surface_catalysis_mechanism.html](surface_catalysis_mechanism.html) - Experiment 3: Surface chemistry process validation
-  - [electrochemical_oxygen_reduction.html](electrochemical_oxygen_reduction.html) - Experiment 4: Electrochemical process validation
-  - [quantum_chemistry_calculation.html](quantum_chemistry_calculation.html) - Experiment 5: Computational chemistry integration validation
+- **Validation Paper**: [experimental_validation_paper.html](experimental_validation_paper.html) — comprehensive experimental protocols and validation methodology
+- **Core validation flowcharts** (under `validation_flowcharts/`):
+  - [catalytic_hydrogenation_optimization.html](validation_flowcharts/catalytic_hydrogenation_optimization.html) — Experiment 1: catalytic hydrogenation
+  - [raft_polymerization_mechanism.html](validation_flowcharts/raft_polymerization_mechanism.html) — Experiment 2: polymerization kinetics
+  - [surface_catalysis_mechanism.html](validation_flowcharts/surface_catalysis_mechanism.html) — Experiment 3: surface chemistry
+  - [electrochemical_oxygen_reduction.html](validation_flowcharts/electrochemical_oxygen_reduction.html) — Experiment 4: electrochemical process
+  - [quantum_chemistry_calculation.html](validation_flowcharts/quantum_chemistry_calculation.html) — Experiment 5: computational chemistry
 
 ### Batch Architecture
 
