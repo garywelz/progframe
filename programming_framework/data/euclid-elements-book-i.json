@@ -1,0 +1,1167 @@
+{
+  "schemaVersion": "1.0",
+  "discourse": {
+    "id": "euclid-elements-book-i",
+    "name": "Euclid's Elements, Book I",
+    "subject": "geometry",
+    "variant": "classical",
+    "description": "The 48 propositions of Book I with dependencies on postulates (P1–P5), common notions (CN1–CN5), and prior propositions. Source: David E. Joyce, Clark University.",
+    "structure": {
+      "books": 1,
+      "propositions": 48,
+      "foundationTypes": [
+        "postulate",
+        "commonNotion"
+      ]
+    }
+  },
+  "metadata": {
+    "created": "2026-03-15",
+    "lastUpdated": "2026-03-15",
+    "version": "1.0.0",
+    "license": "CC BY 4.0",
+    "authors": [
+      "Welz, G."
+    ],
+    "methodology": "Programming Framework",
+    "citation": "Welz, G. (2026). Euclid's Elements Book I Dependency Graph. Programming Framework.",
+    "keywords": [
+      "Euclid",
+      "Elements",
+      "Book I",
+      "plane geometry",
+      "constructions",
+      "Pythagorean theorem"
+    ]
+  },
+  "sources": [
+    {
+      "id": "joyce",
+      "type": "digital",
+      "authors": "Joyce, David E.",
+      "title": "Euclid's Elements, Book I",
+      "year": "1996",
+      "url": "https://mathcs.clarku.edu/~djoyce/java/elements/bookI/bookI.html",
+      "notes": "Clark University; dependency table from Guide"
+    },
+    {
+      "id": "euclid-heath",
+      "type": "primary",
+      "authors": "Heath, T.L.",
+      "title": "The Thirteen Books of Euclid's Elements",
+      "year": "1908",
+      "edition": "2nd",
+      "publisher": "Cambridge University Press",
+      "url": "https://archive.org/details/euclidheath00heatiala",
+      "notes": "Standard English translation"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "P1",
+      "type": "postulate",
+      "label": "Draw a straight line from any point to any point",
+      "shortLabel": "Post. 1",
+      "book": 1,
+      "number": 1,
+      "colorClass": "postulate"
+    },
+    {
+      "id": "P2",
+      "type": "postulate",
+      "label": "Produce a finite straight line continuously in a straight line",
+      "shortLabel": "Post. 2",
+      "book": 1,
+      "number": 2,
+      "colorClass": "postulate"
+    },
+    {
+      "id": "P3",
+      "type": "postulate",
+      "label": "Describe a circle with any center and radius",
+      "shortLabel": "Post. 3",
+      "book": 1,
+      "number": 3,
+      "colorClass": "postulate"
+    },
+    {
+      "id": "P4",
+      "type": "postulate",
+      "label": "All right angles equal one another",
+      "shortLabel": "Post. 4",
+      "book": 1,
+      "number": 4,
+      "colorClass": "postulate"
+    },
+    {
+      "id": "P5",
+      "type": "postulate",
+      "label": "Parallel postulate: if interior angles < two right, lines meet",
+      "shortLabel": "Post. 5",
+      "book": 1,
+      "number": 5,
+      "colorClass": "postulate"
+    },
+    {
+      "id": "CN1",
+      "type": "commonNotion",
+      "label": "Things equal to the same thing are equal to each other",
+      "shortLabel": "CN 1",
+      "book": 1,
+      "number": 1,
+      "colorClass": "commonNotion"
+    },
+    {
+      "id": "CN2",
+      "type": "commonNotion",
+      "label": "If equals are added to equals, the wholes are equal",
+      "shortLabel": "CN 2",
+      "book": 1,
+      "number": 2,
+      "colorClass": "commonNotion"
+    },
+    {
+      "id": "CN3",
+      "type": "commonNotion",
+      "label": "If equals are subtracted from equals, the remainders are equal",
+      "shortLabel": "CN 3",
+      "book": 1,
+      "number": 3,
+      "colorClass": "commonNotion"
+    },
+    {
+      "id": "CN4",
+      "type": "commonNotion",
+      "label": "Things coinciding with one another are equal",
+      "shortLabel": "CN 4",
+      "book": 1,
+      "number": 4,
+      "colorClass": "commonNotion"
+    },
+    {
+      "id": "CN5",
+      "type": "commonNotion",
+      "label": "The whole is greater than the part",
+      "shortLabel": "CN 5",
+      "book": 1,
+      "number": 5,
+      "colorClass": "commonNotion"
+    },
+    {
+      "id": "Prop1",
+      "type": "proposition",
+      "label": "To construct an equilateral triangle on a given finite straight line",
+      "shortLabel": "Prop. I.1",
+      "short": "Equilateral triangle on given line",
+      "book": 1,
+      "number": 1,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop2",
+      "type": "proposition",
+      "label": "To place a straight line equal to a given straight line with one end at a given point",
+      "shortLabel": "Prop. I.2",
+      "short": "Place line equal to given at point",
+      "book": 1,
+      "number": 2,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop3",
+      "type": "proposition",
+      "label": "To cut off from the greater of two given unequal straight lines a straight line equal to the less",
+      "shortLabel": "Prop. I.3",
+      "short": "Cut off from greater segment equal to less",
+      "book": 1,
+      "number": 3,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop4",
+      "type": "proposition",
+      "label": "If two triangles have two sides equal to two sides respectively, and the angles contained equal, then bases and remaining angles equal",
+      "shortLabel": "Prop. I.4",
+      "short": "SAS congruence",
+      "book": 1,
+      "number": 4,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop5",
+      "type": "proposition",
+      "label": "In isosceles triangles the angles at the base equal one another",
+      "shortLabel": "Prop. I.5",
+      "short": "Base angles of isosceles equal",
+      "book": 1,
+      "number": 5,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop6",
+      "type": "proposition",
+      "label": "If in a triangle two angles equal one another, then the sides opposite the equal angles also equal one another",
+      "shortLabel": "Prop. I.6",
+      "short": "Sides opposite equal angles equal",
+      "book": 1,
+      "number": 6,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop7",
+      "type": "proposition",
+      "label": "Given two lines from ends of a line meeting at a point, no other such pair from same ends on same side",
+      "shortLabel": "Prop. I.7",
+      "short": "Uniqueness of triangle from ends",
+      "book": 1,
+      "number": 7,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop8",
+      "type": "proposition",
+      "label": "If two triangles have two sides equal to two sides respectively, and the base equal to the base, then the angles contained are equal",
+      "shortLabel": "Prop. I.8",
+      "short": "SSS congruence",
+      "book": 1,
+      "number": 8,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop9",
+      "type": "proposition",
+      "label": "To bisect a given rectilinear angle",
+      "shortLabel": "Prop. I.9",
+      "short": "Bisect angle",
+      "book": 1,
+      "number": 9,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop10",
+      "type": "proposition",
+      "label": "To bisect a given finite straight line",
+      "shortLabel": "Prop. I.10",
+      "short": "Bisect line",
+      "book": 1,
+      "number": 10,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop11",
+      "type": "proposition",
+      "label": "To draw a straight line at right angles to a given straight line from a given point on it",
+      "shortLabel": "Prop. I.11",
+      "short": "Perpendicular from point on line",
+      "book": 1,
+      "number": 11,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop12",
+      "type": "proposition",
+      "label": "To draw a straight line perpendicular to a given infinite straight line from a given point not on it",
+      "shortLabel": "Prop. I.12",
+      "short": "Perpendicular from point not on line",
+      "book": 1,
+      "number": 12,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop13",
+      "type": "proposition",
+      "label": "If a straight line stands on a straight line, it makes either two right angles or angles whose sum equals two right angles",
+      "shortLabel": "Prop. I.13",
+      "short": "Angles on line sum to two right",
+      "book": 1,
+      "number": 13,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop14",
+      "type": "proposition",
+      "label": "If with any straight line, at a point, two lines not on same side make adjacent angles equal to two right, they are in a straight line",
+      "shortLabel": "Prop. I.14",
+      "short": "If angles sum to two right, straight line",
+      "book": 1,
+      "number": 14,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop15",
+      "type": "proposition",
+      "label": "If two straight lines cut one another, they make the vertical angles equal to one another",
+      "shortLabel": "Prop. I.15",
+      "short": "Vertical angles equal",
+      "book": 1,
+      "number": 15,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop16",
+      "type": "proposition",
+      "label": "In any triangle, if one side is produced, the exterior angle is greater than either interior opposite angle",
+      "shortLabel": "Prop. I.16",
+      "short": "Exterior angle > interior opposite",
+      "book": 1,
+      "number": 16,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop17",
+      "type": "proposition",
+      "label": "In any triangle the sum of any two angles is less than two right angles",
+      "shortLabel": "Prop. I.17",
+      "short": "Sum of two angles < two right",
+      "book": 1,
+      "number": 17,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop18",
+      "type": "proposition",
+      "label": "In any triangle the angle opposite the greater side is greater",
+      "shortLabel": "Prop. I.18",
+      "short": "Angle opposite greater side greater",
+      "book": 1,
+      "number": 18,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop19",
+      "type": "proposition",
+      "label": "In any triangle the side opposite the greater angle is greater",
+      "shortLabel": "Prop. I.19",
+      "short": "Side opposite greater angle greater",
+      "book": 1,
+      "number": 19,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop20",
+      "type": "proposition",
+      "label": "In any triangle the sum of any two sides is greater than the remaining one",
+      "shortLabel": "Prop. I.20",
+      "short": "Triangle inequality",
+      "book": 1,
+      "number": 20,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop21",
+      "type": "proposition",
+      "label": "If from ends of one side two lines meet within the triangle, their sum < sum of other two sides",
+      "shortLabel": "Prop. I.21",
+      "short": "Lines from ends within triangle",
+      "book": 1,
+      "number": 21,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop22",
+      "type": "proposition",
+      "label": "To construct a triangle out of three straight lines which equal three given straight lines",
+      "shortLabel": "Prop. I.22",
+      "short": "Construct triangle from three lines",
+      "book": 1,
+      "number": 22,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop23",
+      "type": "proposition",
+      "label": "To construct a rectilinear angle equal to a given rectilinear angle on a given straight line",
+      "shortLabel": "Prop. I.23",
+      "short": "Construct angle equal to given",
+      "book": 1,
+      "number": 23,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop24",
+      "type": "proposition",
+      "label": "If two triangles have two sides equal but one contained angle greater, the base is greater",
+      "shortLabel": "Prop. I.24",
+      "short": "SAS for greater angle => greater base",
+      "book": 1,
+      "number": 24,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop25",
+      "type": "proposition",
+      "label": "If two triangles have two sides equal but base greater, the contained angle is greater",
+      "shortLabel": "Prop. I.25",
+      "short": "SAS for greater base => greater angle",
+      "book": 1,
+      "number": 25,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop26",
+      "type": "proposition",
+      "label": "If two triangles have two angles equal and one side equal, the remaining sides and angle equal",
+      "shortLabel": "Prop. I.26",
+      "short": "AAS congruence",
+      "book": 1,
+      "number": 26,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop27",
+      "type": "proposition",
+      "label": "If a line falling on two lines makes alternate angles equal, the lines are parallel",
+      "shortLabel": "Prop. I.27",
+      "short": "Alternate angles equal => parallel",
+      "book": 1,
+      "number": 27,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop28",
+      "type": "proposition",
+      "label": "If exterior angle equals interior opposite, or interior same-side sum to two right, lines parallel",
+      "shortLabel": "Prop. I.28",
+      "short": "Exterior = interior opposite => parallel",
+      "book": 1,
+      "number": 28,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop29",
+      "type": "proposition",
+      "label": "A line falling on parallel lines makes alternate angles equal, exterior = interior opposite",
+      "shortLabel": "Prop. I.29",
+      "short": "Parallel => alternate angles equal",
+      "book": 1,
+      "number": 29,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop30",
+      "type": "proposition",
+      "label": "Straight lines parallel to the same straight line are also parallel to one another",
+      "shortLabel": "Prop. I.30",
+      "short": "Transitivity of parallel",
+      "book": 1,
+      "number": 30,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop31",
+      "type": "proposition",
+      "label": "To draw a straight line through a given point parallel to a given straight line",
+      "shortLabel": "Prop. I.31",
+      "short": "Draw parallel through point",
+      "book": 1,
+      "number": 31,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop32",
+      "type": "proposition",
+      "label": "In any triangle, exterior angle equals sum of two interior opposite; three angles = two right",
+      "shortLabel": "Prop. I.32",
+      "short": "Exterior angle = sum interior opposite",
+      "book": 1,
+      "number": 32,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop33",
+      "type": "proposition",
+      "label": "Straight lines which join the ends of equal and parallel straight lines in same directions are equal and parallel",
+      "shortLabel": "Prop. I.33",
+      "short": "Joining ends of equal parallel lines",
+      "book": 1,
+      "number": 33,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop34",
+      "type": "proposition",
+      "label": "In parallelogrammic areas the opposite sides and angles equal one another, diameter bisects",
+      "shortLabel": "Prop. I.34",
+      "short": "Parallelogram properties",
+      "book": 1,
+      "number": 34,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop35",
+      "type": "proposition",
+      "label": "Parallelograms which are on the same base and in the same parallels equal one another",
+      "shortLabel": "Prop. I.35",
+      "short": "Parallelograms same base equal",
+      "book": 1,
+      "number": 35,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop36",
+      "type": "proposition",
+      "label": "Parallelograms which are on equal bases and in the same parallels equal one another",
+      "shortLabel": "Prop. I.36",
+      "short": "Parallelograms equal bases equal",
+      "book": 1,
+      "number": 36,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop37",
+      "type": "proposition",
+      "label": "Triangles which are on the same base and in the same parallels equal one another",
+      "shortLabel": "Prop. I.37",
+      "short": "Triangles same base equal",
+      "book": 1,
+      "number": 37,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop38",
+      "type": "proposition",
+      "label": "Triangles which are on equal bases and in the same parallels equal one another",
+      "shortLabel": "Prop. I.38",
+      "short": "Triangles equal bases equal",
+      "book": 1,
+      "number": 38,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop39",
+      "type": "proposition",
+      "label": "Equal triangles on same base and same side are in the same parallels",
+      "shortLabel": "Prop. I.39",
+      "short": "Equal triangles same base same side",
+      "book": 1,
+      "number": 39,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop40",
+      "type": "proposition",
+      "label": "Equal triangles on equal bases and same side are in the same parallels",
+      "shortLabel": "Prop. I.40",
+      "short": "Equal triangles equal bases same side",
+      "book": 1,
+      "number": 40,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop41",
+      "type": "proposition",
+      "label": "If a parallelogram has same base with triangle and same parallels, parallelogram is double the triangle",
+      "shortLabel": "Prop. I.41",
+      "short": "Parallelogram = 2× triangle",
+      "book": 1,
+      "number": 41,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop42",
+      "type": "proposition",
+      "label": "To construct a parallelogram equal to a given triangle in a given rectilinear angle",
+      "shortLabel": "Prop. I.42",
+      "short": "Construct parallelogram = triangle",
+      "book": 1,
+      "number": 42,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop43",
+      "type": "proposition",
+      "label": "In any parallelogram the complements of the parallelograms about the diameter equal one another",
+      "shortLabel": "Prop. I.43",
+      "short": "Complements of parallelogram",
+      "book": 1,
+      "number": 43,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop44",
+      "type": "proposition",
+      "label": "To a given straight line in a given angle, to apply a parallelogram equal to a given triangle",
+      "shortLabel": "Prop. I.44",
+      "short": "Apply parallelogram to line",
+      "book": 1,
+      "number": 44,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop45",
+      "type": "proposition",
+      "label": "To construct a parallelogram equal to a given rectilinear figure in a given rectilinear angle",
+      "shortLabel": "Prop. I.45",
+      "short": "Construct parallelogram = rectilinear figure",
+      "book": 1,
+      "number": 45,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop46",
+      "type": "proposition",
+      "label": "To describe a square on a given straight line",
+      "shortLabel": "Prop. I.46",
+      "short": "Construct square on line",
+      "book": 1,
+      "number": 46,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop47",
+      "type": "proposition",
+      "label": "In right-angled triangles the square on the side opposite the right angle equals the sum of the squares on the sides containing the right angle",
+      "shortLabel": "Prop. I.47",
+      "short": "Pythagorean theorem",
+      "book": 1,
+      "number": 47,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop48",
+      "type": "proposition",
+      "label": "If in a triangle the square on one side equals the sum of squares on the other two, the angle contained by those sides is right",
+      "shortLabel": "Prop. I.48",
+      "short": "Converse Pythagorean",
+      "book": 1,
+      "number": 48,
+      "colorClass": "proposition"
+    }
+  ],
+  "edges": [
+    {
+      "from": "P1",
+      "to": "Prop1"
+    },
+    {
+      "from": "P3",
+      "to": "Prop1"
+    },
+    {
+      "from": "Prop1",
+      "to": "Prop2"
+    },
+    {
+      "from": "P1",
+      "to": "Prop2"
+    },
+    {
+      "from": "P2",
+      "to": "Prop2"
+    },
+    {
+      "from": "P3",
+      "to": "Prop2"
+    },
+    {
+      "from": "Prop2",
+      "to": "Prop3"
+    },
+    {
+      "from": "P3",
+      "to": "Prop3"
+    },
+    {
+      "from": "CN4",
+      "to": "Prop4"
+    },
+    {
+      "from": "CN5",
+      "to": "Prop4"
+    },
+    {
+      "from": "Prop3",
+      "to": "Prop5"
+    },
+    {
+      "from": "Prop4",
+      "to": "Prop5"
+    },
+    {
+      "from": "Prop3",
+      "to": "Prop6"
+    },
+    {
+      "from": "Prop4",
+      "to": "Prop6"
+    },
+    {
+      "from": "Prop5",
+      "to": "Prop7"
+    },
+    {
+      "from": "Prop7",
+      "to": "Prop8"
+    },
+    {
+      "from": "Prop1",
+      "to": "Prop9"
+    },
+    {
+      "from": "Prop3",
+      "to": "Prop9"
+    },
+    {
+      "from": "Prop8",
+      "to": "Prop9"
+    },
+    {
+      "from": "Prop1",
+      "to": "Prop10"
+    },
+    {
+      "from": "Prop4",
+      "to": "Prop10"
+    },
+    {
+      "from": "Prop9",
+      "to": "Prop10"
+    },
+    {
+      "from": "Prop1",
+      "to": "Prop11"
+    },
+    {
+      "from": "Prop3",
+      "to": "Prop11"
+    },
+    {
+      "from": "Prop8",
+      "to": "Prop11"
+    },
+    {
+      "from": "Prop8",
+      "to": "Prop12"
+    },
+    {
+      "from": "Prop10",
+      "to": "Prop12"
+    },
+    {
+      "from": "Prop11",
+      "to": "Prop13"
+    },
+    {
+      "from": "Prop13",
+      "to": "Prop14"
+    },
+    {
+      "from": "Prop13",
+      "to": "Prop15"
+    },
+    {
+      "from": "Prop3",
+      "to": "Prop16"
+    },
+    {
+      "from": "Prop4",
+      "to": "Prop16"
+    },
+    {
+      "from": "Prop10",
+      "to": "Prop16"
+    },
+    {
+      "from": "Prop15",
+      "to": "Prop16"
+    },
+    {
+      "from": "Prop13",
+      "to": "Prop17"
+    },
+    {
+      "from": "Prop16",
+      "to": "Prop17"
+    },
+    {
+      "from": "Prop3",
+      "to": "Prop18"
+    },
+    {
+      "from": "Prop5",
+      "to": "Prop18"
+    },
+    {
+      "from": "Prop16",
+      "to": "Prop18"
+    },
+    {
+      "from": "Prop5",
+      "to": "Prop19"
+    },
+    {
+      "from": "Prop18",
+      "to": "Prop19"
+    },
+    {
+      "from": "Prop3",
+      "to": "Prop20"
+    },
+    {
+      "from": "Prop5",
+      "to": "Prop20"
+    },
+    {
+      "from": "Prop19",
+      "to": "Prop20"
+    },
+    {
+      "from": "Prop16",
+      "to": "Prop21"
+    },
+    {
+      "from": "Prop20",
+      "to": "Prop21"
+    },
+    {
+      "from": "Prop3",
+      "to": "Prop22"
+    },
+    {
+      "from": "Prop20",
+      "to": "Prop22"
+    },
+    {
+      "from": "Prop8",
+      "to": "Prop23"
+    },
+    {
+      "from": "Prop22",
+      "to": "Prop23"
+    },
+    {
+      "from": "Prop3",
+      "to": "Prop24"
+    },
+    {
+      "from": "Prop4",
+      "to": "Prop24"
+    },
+    {
+      "from": "Prop5",
+      "to": "Prop24"
+    },
+    {
+      "from": "Prop19",
+      "to": "Prop24"
+    },
+    {
+      "from": "Prop23",
+      "to": "Prop24"
+    },
+    {
+      "from": "Prop4",
+      "to": "Prop25"
+    },
+    {
+      "from": "Prop24",
+      "to": "Prop25"
+    },
+    {
+      "from": "Prop3",
+      "to": "Prop26"
+    },
+    {
+      "from": "Prop4",
+      "to": "Prop26"
+    },
+    {
+      "from": "Prop16",
+      "to": "Prop26"
+    },
+    {
+      "from": "Prop16",
+      "to": "Prop27"
+    },
+    {
+      "from": "Prop13",
+      "to": "Prop28"
+    },
+    {
+      "from": "Prop15",
+      "to": "Prop28"
+    },
+    {
+      "from": "Prop27",
+      "to": "Prop28"
+    },
+    {
+      "from": "Prop13",
+      "to": "Prop29"
+    },
+    {
+      "from": "Prop15",
+      "to": "Prop29"
+    },
+    {
+      "from": "Prop27",
+      "to": "Prop29"
+    },
+    {
+      "from": "P5",
+      "to": "Prop29"
+    },
+    {
+      "from": "Prop29",
+      "to": "Prop30"
+    },
+    {
+      "from": "Prop23",
+      "to": "Prop31"
+    },
+    {
+      "from": "Prop27",
+      "to": "Prop31"
+    },
+    {
+      "from": "Prop13",
+      "to": "Prop32"
+    },
+    {
+      "from": "Prop29",
+      "to": "Prop32"
+    },
+    {
+      "from": "Prop31",
+      "to": "Prop32"
+    },
+    {
+      "from": "Prop4",
+      "to": "Prop33"
+    },
+    {
+      "from": "Prop27",
+      "to": "Prop33"
+    },
+    {
+      "from": "Prop29",
+      "to": "Prop33"
+    },
+    {
+      "from": "Prop4",
+      "to": "Prop34"
+    },
+    {
+      "from": "Prop26",
+      "to": "Prop34"
+    },
+    {
+      "from": "Prop29",
+      "to": "Prop34"
+    },
+    {
+      "from": "Prop4",
+      "to": "Prop35"
+    },
+    {
+      "from": "Prop29",
+      "to": "Prop35"
+    },
+    {
+      "from": "Prop34",
+      "to": "Prop35"
+    },
+    {
+      "from": "Prop33",
+      "to": "Prop36"
+    },
+    {
+      "from": "Prop34",
+      "to": "Prop36"
+    },
+    {
+      "from": "Prop35",
+      "to": "Prop36"
+    },
+    {
+      "from": "Prop31",
+      "to": "Prop37"
+    },
+    {
+      "from": "Prop34",
+      "to": "Prop37"
+    },
+    {
+      "from": "Prop35",
+      "to": "Prop37"
+    },
+    {
+      "from": "Prop31",
+      "to": "Prop38"
+    },
+    {
+      "from": "Prop34",
+      "to": "Prop38"
+    },
+    {
+      "from": "Prop36",
+      "to": "Prop38"
+    },
+    {
+      "from": "Prop31",
+      "to": "Prop39"
+    },
+    {
+      "from": "Prop37",
+      "to": "Prop39"
+    },
+    {
+      "from": "Prop31",
+      "to": "Prop40"
+    },
+    {
+      "from": "Prop38",
+      "to": "Prop40"
+    },
+    {
+      "from": "Prop34",
+      "to": "Prop41"
+    },
+    {
+      "from": "Prop37",
+      "to": "Prop41"
+    },
+    {
+      "from": "Prop10",
+      "to": "Prop42"
+    },
+    {
+      "from": "Prop23",
+      "to": "Prop42"
+    },
+    {
+      "from": "Prop31",
+      "to": "Prop42"
+    },
+    {
+      "from": "Prop38",
+      "to": "Prop42"
+    },
+    {
+      "from": "Prop41",
+      "to": "Prop42"
+    },
+    {
+      "from": "Prop34",
+      "to": "Prop43"
+    },
+    {
+      "from": "Prop15",
+      "to": "Prop44"
+    },
+    {
+      "from": "Prop29",
+      "to": "Prop44"
+    },
+    {
+      "from": "Prop31",
+      "to": "Prop44"
+    },
+    {
+      "from": "Prop42",
+      "to": "Prop44"
+    },
+    {
+      "from": "Prop43",
+      "to": "Prop44"
+    },
+    {
+      "from": "Prop14",
+      "to": "Prop45"
+    },
+    {
+      "from": "Prop29",
+      "to": "Prop45"
+    },
+    {
+      "from": "Prop30",
+      "to": "Prop45"
+    },
+    {
+      "from": "Prop33",
+      "to": "Prop45"
+    },
+    {
+      "from": "Prop34",
+      "to": "Prop45"
+    },
+    {
+      "from": "Prop42",
+      "to": "Prop45"
+    },
+    {
+      "from": "Prop44",
+      "to": "Prop45"
+    },
+    {
+      "from": "Prop3",
+      "to": "Prop46"
+    },
+    {
+      "from": "Prop11",
+      "to": "Prop46"
+    },
+    {
+      "from": "Prop29",
+      "to": "Prop46"
+    },
+    {
+      "from": "Prop31",
+      "to": "Prop46"
+    },
+    {
+      "from": "Prop34",
+      "to": "Prop46"
+    },
+    {
+      "from": "Prop4",
+      "to": "Prop47"
+    },
+    {
+      "from": "Prop14",
+      "to": "Prop47"
+    },
+    {
+      "from": "Prop31",
+      "to": "Prop47"
+    },
+    {
+      "from": "Prop41",
+      "to": "Prop47"
+    },
+    {
+      "from": "Prop46",
+      "to": "Prop47"
+    },
+    {
+      "from": "Prop3",
+      "to": "Prop48"
+    },
+    {
+      "from": "Prop8",
+      "to": "Prop48"
+    },
+    {
+      "from": "Prop11",
+      "to": "Prop48"
+    },
+    {
+      "from": "Prop47",
+      "to": "Prop48"
+    }
+  ],
+  "colorScheme": {
+    "postulate": {
+      "fill": "#e74c3c",
+      "stroke": "#c0392b"
+    },
+    "commonNotion": {
+      "fill": "#9b59b6",
+      "stroke": "#8e44ad"
+    },
+    "proposition": {
+      "fill": "#1abc9c",
+      "stroke": "#16a085"
+    }
+  }
+}

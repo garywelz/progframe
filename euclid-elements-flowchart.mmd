@@ -1,0 +1,47 @@
+graph TD
+    %% ── Foundations ──────────────────────────────────────────
+    P1["Post. 1\nDraw a straight line\nbetween two points"]
+    P2["Post. 2\nExtend a straight line\ncontinuously"]
+    P3["Post. 3\nDraw a circle with given\ncenter and radius"]
+    CN1["CN 1\nThings equal to the same\nthing are equal to each other"]
+    CN3["CN 3\nIf equals subtracted from\nequals, remainders are equal"]
+    CN4["CN 4\nThings coinciding with\none another are equal"]
+    CN5["CN 5\nThe whole is greater\nthan the part"]
+
+    %% ── Propositions ─────────────────────────────────────────
+    Prop1["Prop. I.1\nConstruct an equilateral\ntriangle on a given line"]
+    Prop2["Prop. I.2\nPlace a line segment equal\nto a given segment at a point"]
+    Prop3["Prop. I.3\nCut off from the greater of\ntwo lines a segment equal to the less"]
+    Prop4["Prop. I.4\nSAS Congruence:\ntwo triangles with two equal sides\nand included angle are congruent"]
+    Prop5["Prop. I.5\nBase angles of an\nisosceles triangle are equal"]
+
+    %% ── Dependencies ─────────────────────────────────────────
+    P1 --> Prop1
+    P3 --> Prop1
+
+    Prop1 --> Prop2
+    P1 --> Prop2
+    P2 --> Prop2
+    P3 --> Prop2
+
+    Prop2 --> Prop3
+    P3 --> Prop3
+
+    CN4 --> Prop4
+    CN5 --> Prop4
+
+    Prop1 --> Prop5
+    P1 --> Prop5
+    P2 --> Prop5
+    CN1 --> Prop5
+    CN3 --> Prop5
+    Prop4 --> Prop5
+
+    %% ── Styling ──────────────────────────────────────────────
+    classDef postulate fill:#e74c3c,color:#fff,stroke:#c0392b
+    classDef commonnotion fill:#9b59b6,color:#fff,stroke:#8e44ad
+    classDef proposition fill:#1abc9c,color:#fff,stroke:#16a085
+
+    class P1,P2,P3 postulate
+    class CN1,CN3,CN4,CN5 commonnotion
+    class Prop1,Prop2,Prop3,Prop4,Prop5 proposition

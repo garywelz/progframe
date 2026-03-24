@@ -1,0 +1,573 @@
+{
+  "schemaVersion": "1.0",
+  "discourse": {
+    "id": "euclid-elements-book-iv",
+    "name": "Euclid's Elements, Book IV",
+    "subject": "geometry",
+    "variant": "classical",
+    "description": "Inscribed and circumscribed figures: triangle, square, pentagon, hexagon, 15-gon. All depend on Books I and III. IV.10 uses II.11. Source: David E. Joyce.",
+    "structure": {
+      "books": 4,
+      "definitions": 7,
+      "propositions": 16,
+      "foundationTypes": [
+        "definition",
+        "foundation"
+      ]
+    }
+  },
+  "metadata": {
+    "created": "2026-03-15",
+    "lastUpdated": "2026-03-15",
+    "version": "1.0.0",
+    "license": "CC BY 4.0",
+    "authors": [
+      "Welz, G."
+    ],
+    "methodology": "Programming Framework",
+    "citation": "Welz, G. (2026). Euclid's Elements Book IV Dependency Graph. Programming Framework.",
+    "keywords": [
+      "Euclid",
+      "Elements",
+      "Book IV",
+      "inscribed",
+      "circumscribed",
+      "pentagon",
+      "hexagon"
+    ]
+  },
+  "sources": [
+    {
+      "id": "joyce",
+      "type": "digital",
+      "authors": "Joyce, David E.",
+      "title": "Euclid's Elements, Book IV",
+      "year": "1996",
+      "url": "https://mathcs.clarku.edu/~djoyce/java/elements/bookIV/bookIV.html",
+      "notes": "Clark University; Logical structure"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "BookI",
+      "type": "foundation",
+      "label": "Book I — Fundamentals of plane geometry",
+      "shortLabel": "Book I",
+      "short": "Foundation",
+      "book": 1,
+      "colorClass": "foundation"
+    },
+    {
+      "id": "BookIII",
+      "type": "foundation",
+      "label": "Book III — Theory of circles",
+      "shortLabel": "Book III",
+      "short": "Foundation",
+      "book": 3,
+      "colorClass": "foundation"
+    },
+    {
+      "id": "PropII11",
+      "type": "foundation",
+      "label": "Prop. II.11 — Golden section",
+      "shortLabel": "Prop. II.11",
+      "short": "From Book II",
+      "book": 2,
+      "colorClass": "foundation"
+    },
+    {
+      "id": "Def1",
+      "type": "definition",
+      "label": "Rectilinear figure inscribed in circle when each vertex on circumference",
+      "shortLabel": "Def. IV.1",
+      "short": "Inscribe in circle",
+      "book": 4,
+      "number": 1,
+      "colorClass": "definition"
+    },
+    {
+      "id": "Def2",
+      "type": "definition",
+      "label": "Figure circumscribed about circle when each side touches circle",
+      "shortLabel": "Def. IV.2",
+      "short": "Circumscribe about circle",
+      "book": 4,
+      "number": 2,
+      "colorClass": "definition"
+    },
+    {
+      "id": "Def3",
+      "type": "definition",
+      "label": "Circle inscribed in figure when each side touches circle",
+      "shortLabel": "Def. IV.3",
+      "short": "Inscribe circle in figure",
+      "book": 4,
+      "number": 3,
+      "colorClass": "definition"
+    },
+    {
+      "id": "Def4",
+      "type": "definition",
+      "label": "Circle circumscribed about figure when each vertex on circumference",
+      "shortLabel": "Def. IV.4",
+      "short": "Circumscribe circle about figure",
+      "book": 4,
+      "number": 4,
+      "colorClass": "definition"
+    },
+    {
+      "id": "Def5",
+      "type": "definition",
+      "label": "Figure inscribed in figure when each vertex of inner on sides of outer",
+      "shortLabel": "Def. IV.5",
+      "short": "Inscribe in figure",
+      "book": 4,
+      "number": 5,
+      "colorClass": "definition"
+    },
+    {
+      "id": "Def6",
+      "type": "definition",
+      "label": "Figure circumscribed about figure when each side of outer touches inner",
+      "shortLabel": "Def. IV.6",
+      "short": "Circumscribe about figure",
+      "book": 4,
+      "number": 6,
+      "colorClass": "definition"
+    },
+    {
+      "id": "Def7",
+      "type": "definition",
+      "label": "Straight line inscribed in circle when its ends on circumference",
+      "shortLabel": "Def. IV.7",
+      "short": "Inscribe line in circle",
+      "book": 4,
+      "number": 7,
+      "colorClass": "definition"
+    },
+    {
+      "id": "Prop1",
+      "type": "proposition",
+      "label": "To fit into given circle a straight line equal to given, not greater than diameter",
+      "shortLabel": "Prop. IV.1",
+      "short": "Fit line in circle",
+      "book": 4,
+      "number": 1,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop2",
+      "type": "proposition",
+      "label": "To inscribe in given circle a triangle equiangular with given triangle",
+      "shortLabel": "Prop. IV.2",
+      "short": "Inscribe triangle in circle",
+      "book": 4,
+      "number": 2,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop3",
+      "type": "proposition",
+      "label": "To circumscribe about given circle a triangle equiangular with given",
+      "shortLabel": "Prop. IV.3",
+      "short": "Circumscribe triangle about circle",
+      "book": 4,
+      "number": 3,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop4",
+      "type": "proposition",
+      "label": "To inscribe a circle in a given triangle",
+      "shortLabel": "Prop. IV.4",
+      "short": "Inscribe circle in triangle",
+      "book": 4,
+      "number": 4,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop5",
+      "type": "proposition",
+      "label": "To circumscribe a circle about a given triangle",
+      "shortLabel": "Prop. IV.5",
+      "short": "Circumscribe circle about triangle",
+      "book": 4,
+      "number": 5,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop6",
+      "type": "proposition",
+      "label": "To inscribe a square in a given circle",
+      "shortLabel": "Prop. IV.6",
+      "short": "Inscribe square in circle",
+      "book": 4,
+      "number": 6,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop7",
+      "type": "proposition",
+      "label": "To circumscribe a square about a given circle",
+      "shortLabel": "Prop. IV.7",
+      "short": "Circumscribe square about circle",
+      "book": 4,
+      "number": 7,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop8",
+      "type": "proposition",
+      "label": "To inscribe a circle in a given square",
+      "shortLabel": "Prop. IV.8",
+      "short": "Inscribe circle in square",
+      "book": 4,
+      "number": 8,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop9",
+      "type": "proposition",
+      "label": "To circumscribe a circle about a given square",
+      "shortLabel": "Prop. IV.9",
+      "short": "Circumscribe circle about square",
+      "book": 4,
+      "number": 9,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop10",
+      "type": "proposition",
+      "label": "To construct isosceles triangle with each base angle double the remaining",
+      "shortLabel": "Prop. IV.10",
+      "short": "Isosceles triangle, base angles double",
+      "book": 4,
+      "number": 10,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop11",
+      "type": "proposition",
+      "label": "To inscribe an equilateral equiangular pentagon in a given circle",
+      "shortLabel": "Prop. IV.11",
+      "short": "Inscribe pentagon in circle",
+      "book": 4,
+      "number": 11,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop12",
+      "type": "proposition",
+      "label": "To circumscribe an equilateral equiangular pentagon about a given circle",
+      "shortLabel": "Prop. IV.12",
+      "short": "Circumscribe pentagon about circle",
+      "book": 4,
+      "number": 12,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop13",
+      "type": "proposition",
+      "label": "To inscribe a circle in a given equilateral equiangular pentagon",
+      "shortLabel": "Prop. IV.13",
+      "short": "Inscribe circle in pentagon",
+      "book": 4,
+      "number": 13,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop14",
+      "type": "proposition",
+      "label": "To circumscribe a circle about a given equilateral equiangular pentagon",
+      "shortLabel": "Prop. IV.14",
+      "short": "Circumscribe circle about pentagon",
+      "book": 4,
+      "number": 14,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop15",
+      "type": "proposition",
+      "label": "To inscribe an equilateral equiangular hexagon in a given circle",
+      "shortLabel": "Prop. IV.15",
+      "short": "Inscribe hexagon in circle",
+      "book": 4,
+      "number": 15,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop16",
+      "type": "proposition",
+      "label": "To inscribe an equilateral equiangular fifteen-angled figure in a given circle",
+      "shortLabel": "Prop. IV.16",
+      "short": "Inscribe 15-gon in circle",
+      "book": 4,
+      "number": 16,
+      "colorClass": "proposition"
+    }
+  ],
+  "edges": [
+    {
+      "from": "BookI",
+      "to": "Def1"
+    },
+    {
+      "from": "BookIII",
+      "to": "Def1"
+    },
+    {
+      "from": "BookI",
+      "to": "Def2"
+    },
+    {
+      "from": "BookIII",
+      "to": "Def2"
+    },
+    {
+      "from": "BookI",
+      "to": "Def3"
+    },
+    {
+      "from": "BookIII",
+      "to": "Def3"
+    },
+    {
+      "from": "BookI",
+      "to": "Def4"
+    },
+    {
+      "from": "BookIII",
+      "to": "Def4"
+    },
+    {
+      "from": "BookI",
+      "to": "Def5"
+    },
+    {
+      "from": "BookIII",
+      "to": "Def5"
+    },
+    {
+      "from": "BookI",
+      "to": "Def6"
+    },
+    {
+      "from": "BookIII",
+      "to": "Def6"
+    },
+    {
+      "from": "BookI",
+      "to": "Def7"
+    },
+    {
+      "from": "BookIII",
+      "to": "Def7"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop1"
+    },
+    {
+      "from": "BookIII",
+      "to": "Prop1"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop2"
+    },
+    {
+      "from": "BookIII",
+      "to": "Prop2"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop3"
+    },
+    {
+      "from": "BookIII",
+      "to": "Prop3"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop4"
+    },
+    {
+      "from": "BookIII",
+      "to": "Prop4"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop5"
+    },
+    {
+      "from": "BookIII",
+      "to": "Prop5"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop6"
+    },
+    {
+      "from": "BookIII",
+      "to": "Prop6"
+    },
+    {
+      "from": "Prop1",
+      "to": "Prop6"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop7"
+    },
+    {
+      "from": "BookIII",
+      "to": "Prop7"
+    },
+    {
+      "from": "Prop6",
+      "to": "Prop7"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop8"
+    },
+    {
+      "from": "BookIII",
+      "to": "Prop8"
+    },
+    {
+      "from": "Prop7",
+      "to": "Prop8"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop9"
+    },
+    {
+      "from": "BookIII",
+      "to": "Prop9"
+    },
+    {
+      "from": "Prop8",
+      "to": "Prop9"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop10"
+    },
+    {
+      "from": "BookIII",
+      "to": "Prop10"
+    },
+    {
+      "from": "Prop1",
+      "to": "Prop10"
+    },
+    {
+      "from": "Prop5",
+      "to": "Prop10"
+    },
+    {
+      "from": "PropII11",
+      "to": "Prop10"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop11"
+    },
+    {
+      "from": "BookIII",
+      "to": "Prop11"
+    },
+    {
+      "from": "Prop2",
+      "to": "Prop11"
+    },
+    {
+      "from": "Prop10",
+      "to": "Prop11"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop12"
+    },
+    {
+      "from": "BookIII",
+      "to": "Prop12"
+    },
+    {
+      "from": "Prop11",
+      "to": "Prop12"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop13"
+    },
+    {
+      "from": "BookIII",
+      "to": "Prop13"
+    },
+    {
+      "from": "Prop11",
+      "to": "Prop13"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop14"
+    },
+    {
+      "from": "BookIII",
+      "to": "Prop14"
+    },
+    {
+      "from": "Prop11",
+      "to": "Prop14"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop15"
+    },
+    {
+      "from": "BookIII",
+      "to": "Prop15"
+    },
+    {
+      "from": "Prop1",
+      "to": "Prop15"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop16"
+    },
+    {
+      "from": "BookIII",
+      "to": "Prop16"
+    },
+    {
+      "from": "Prop1",
+      "to": "Prop16"
+    },
+    {
+      "from": "Prop2",
+      "to": "Prop16"
+    },
+    {
+      "from": "Prop11",
+      "to": "Prop16"
+    }
+  ],
+  "colorScheme": {
+    "foundation": {
+      "fill": "#95a5a6",
+      "stroke": "#7f8c8d"
+    },
+    "definition": {
+      "fill": "#3498db",
+      "stroke": "#2980b9"
+    },
+    "proposition": {
+      "fill": "#1abc9c",
+      "stroke": "#16a085"
+    }
+  }
+}

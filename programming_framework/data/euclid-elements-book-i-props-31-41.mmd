@@ -1,0 +1,127 @@
+graph TD
+    P1["Post. 1\nDraw a straight line from any po..."]
+    P2["Post. 2\nProduce a finite straight line c..."]
+    P3["Post. 3\nDescribe a circle with any cente..."]
+    P4["Post. 4\nAll right angles equal one another"]
+    P5["Post. 5\nParallel postulate: if interior ..."]
+    CN1["CN 1\nThings equal to the same thing a..."]
+    CN2["CN 2\nIf equals are added to equals, t..."]
+    CN3["CN 3\nIf equals are subtracted from eq..."]
+    CN4["CN 4\nThings coinciding with one anoth..."]
+    CN5["CN 5\nThe whole is greater than the part"]
+    Prop1["Prop. I.1\nEquilateral triangle on given line"]
+    Prop2["Prop. I.2\nPlace line equal to given at point"]
+    Prop3["Prop. I.3\nCut off from greater segment equal to less"]
+    Prop4["Prop. I.4\nSAS congruence"]
+    Prop5["Prop. I.5\nBase angles of isosceles equal"]
+    Prop7["Prop. I.7\nUniqueness of triangle from ends"]
+    Prop8["Prop. I.8\nSSS congruence"]
+    Prop9["Prop. I.9\nBisect angle"]
+    Prop10["Prop. I.10\nBisect line"]
+    Prop11["Prop. I.11\nPerpendicular from point on line"]
+    Prop13["Prop. I.13\nAngles on line sum to two right"]
+    Prop15["Prop. I.15\nVertical angles equal"]
+    Prop16["Prop. I.16\nExterior angle > interior opposite"]
+    Prop18["Prop. I.18\nAngle opposite greater side greater"]
+    Prop19["Prop. I.19\nSide opposite greater angle greater"]
+    Prop20["Prop. I.20\nTriangle inequality"]
+    Prop22["Prop. I.22\nConstruct triangle from three lines"]
+    Prop23["Prop. I.23\nConstruct angle equal to given"]
+    Prop26["Prop. I.26\nAAS congruence"]
+    Prop27["Prop. I.27\nAlternate angles equal => parallel"]
+    Prop29["Prop. I.29\nParallel => alternate angles equal"]
+    Prop31["Prop. I.31\nDraw parallel through point"]
+    Prop32["Prop. I.32\nExterior angle = sum interior opposite"]
+    Prop33["Prop. I.33\nJoining ends of equal parallel lines"]
+    Prop34["Prop. I.34\nParallelogram properties"]
+    Prop35["Prop. I.35\nParallelograms same base equal"]
+    Prop36["Prop. I.36\nParallelograms equal bases equal"]
+    Prop37["Prop. I.37\nTriangles same base equal"]
+    Prop38["Prop. I.38\nTriangles equal bases equal"]
+    Prop39["Prop. I.39\nEqual triangles same base same side"]
+    Prop40["Prop. I.40\nEqual triangles equal bases same side"]
+    Prop41["Prop. I.41\nParallelogram = 2× triangle"]
+    P1 --> Prop1
+    P3 --> Prop1
+    Prop1 --> Prop2
+    P1 --> Prop2
+    P2 --> Prop2
+    P3 --> Prop2
+    Prop2 --> Prop3
+    P3 --> Prop3
+    CN4 --> Prop4
+    CN5 --> Prop4
+    Prop3 --> Prop5
+    Prop4 --> Prop5
+    Prop5 --> Prop7
+    Prop7 --> Prop8
+    Prop1 --> Prop9
+    Prop3 --> Prop9
+    Prop8 --> Prop9
+    Prop1 --> Prop10
+    Prop4 --> Prop10
+    Prop9 --> Prop10
+    Prop1 --> Prop11
+    Prop3 --> Prop11
+    Prop8 --> Prop11
+    Prop11 --> Prop13
+    Prop13 --> Prop15
+    Prop3 --> Prop16
+    Prop4 --> Prop16
+    Prop10 --> Prop16
+    Prop15 --> Prop16
+    Prop3 --> Prop18
+    Prop5 --> Prop18
+    Prop16 --> Prop18
+    Prop5 --> Prop19
+    Prop18 --> Prop19
+    Prop3 --> Prop20
+    Prop5 --> Prop20
+    Prop19 --> Prop20
+    Prop3 --> Prop22
+    Prop20 --> Prop22
+    Prop8 --> Prop23
+    Prop22 --> Prop23
+    Prop3 --> Prop26
+    Prop4 --> Prop26
+    Prop16 --> Prop26
+    Prop16 --> Prop27
+    Prop13 --> Prop29
+    Prop15 --> Prop29
+    Prop27 --> Prop29
+    P5 --> Prop29
+    Prop23 --> Prop31
+    Prop27 --> Prop31
+    Prop13 --> Prop32
+    Prop29 --> Prop32
+    Prop31 --> Prop32
+    Prop4 --> Prop33
+    Prop27 --> Prop33
+    Prop29 --> Prop33
+    Prop4 --> Prop34
+    Prop26 --> Prop34
+    Prop29 --> Prop34
+    Prop4 --> Prop35
+    Prop29 --> Prop35
+    Prop34 --> Prop35
+    Prop33 --> Prop36
+    Prop34 --> Prop36
+    Prop35 --> Prop36
+    Prop31 --> Prop37
+    Prop34 --> Prop37
+    Prop35 --> Prop37
+    Prop31 --> Prop38
+    Prop34 --> Prop38
+    Prop36 --> Prop38
+    Prop31 --> Prop39
+    Prop37 --> Prop39
+    Prop31 --> Prop40
+    Prop38 --> Prop40
+    Prop34 --> Prop41
+    Prop37 --> Prop41
+    classDef postulate fill:#e74c3c,color:#fff,stroke:#c0392b
+    classDef commonNotion fill:#9b59b6,color:#fff,stroke:#8e44ad
+    classDef proposition fill:#1abc9c,color:#fff,stroke:#16a085
+    class P1,P2,P3,P4,P5 postulate
+    class CN1,CN2,CN3,CN4,CN5 commonNotion
+    class Prop1,Prop2,Prop3,Prop4,Prop5,Prop7,Prop8,Prop9,Prop10,Prop11,Prop13,Prop15,Prop16,Prop18,Prop19,Prop20,Prop22,Prop23,Prop26,Prop27,Prop29,Prop31,Prop32,Prop33,Prop34,Prop35,Prop36,Prop37,Prop38,Prop39,Prop40,Prop41 proposition

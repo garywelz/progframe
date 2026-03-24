@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Quantum Chemistry Calculation Process - Programming Framework Validation</title>
+    <style>
+        body { 
+            font-family: 'Times New Roman', Times, serif, 'Arial Unicode MS'; 
+            margin: 0; 
+            background: #ffffff; 
+            color: #000000; 
+            line-height: 1.6; 
+            font-size: 12pt; 
+        }
+        .container { 
+            max-width: 1000px; 
+            margin: 0 auto; 
+            padding: 1.5rem; 
+        }
+        h1, h2, h3 { 
+            color: #000000; 
+            margin-top: 1.5rem; 
+            margin-bottom: 0.75rem; 
+        }
+        h1 { 
+            font-size: 18pt; 
+            text-align: center; 
+        }
+        h2 { 
+            font-size: 16pt; 
+            border-bottom: 2px solid #000; 
+            padding-bottom: 0.5rem; 
+        }
+        h3 { 
+            font-size: 14pt; 
+        }
+        p { 
+            margin-bottom: 1rem; 
+            text-align: justify; 
+        }
+        .figure { 
+            margin: 2rem 0; 
+            text-align: center; 
+            border: 1px solid #ccc; 
+            padding: 1rem; 
+            background: #f9f9f9; 
+        }
+        .figure-caption { 
+            margin-top: 1rem; 
+            font-style: italic; 
+            text-align: left; 
+        }
+        .mermaid { 
+            background: white; 
+            padding: 1rem; 
+            border-radius: 4px; 
+        }
+        .navigation {
+            margin: 3rem 0;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+        }
+        .nav-link {
+            color: #007bff;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border: 1px solid #007bff;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        .nav-link:hover {
+            background: #007bff;
+            color: white;
+        }
+        .footer {
+            margin-top: 3rem;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .contact-info {
+            margin-top: 1rem;
+        }
+        .contact-info p {
+            margin: 0.25rem 0;
+            text-align: center;
+        }
+        .validation-info {
+            background: #e7f3ff;
+            border: 1px solid #b3d9ff;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+    <script>
+        mermaid.initialize({ 
+            startOnLoad: true, 
+            theme: 'default', 
+            flowchart: { 
+                useMaxWidth: false, 
+                htmlLabels: true,
+                curve: 'linear',
+                nodeSpacing: 30,
+                rankSpacing: 30,
+                padding: 10
+            },
+            themeVariables: {
+                fontFamily: 'Arial Unicode MS, Arial, sans-serif'
+            }
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Quantum Chemistry Calculation Process - Programming Framework Validation</h1>
+        
+        <div class="validation-info">
+            <h3>Validation Experiment Support</h3>
+            <p><strong>Experiment 5:</strong> Computational Chemistry Integration Validation</p>
+            <p><strong>Purpose:</strong> This flowchart demonstrates the Programming Framework's ability to organize and interpret complex computational chemistry data and predict molecular properties.</p>
+        </div>
+
+        <p>This document presents the quantum chemistry calculation process analyzed using the Programming Framework methodology. The flowchart demonstrates the framework's ability to organize complex computational workflows, interpret quantum chemistry results, and predict molecular properties with high accuracy.</p>
+
+        <h2>Quantum Chemistry Calculation Process</h2>
+        <div class="figure">
+            <div class="mermaid">
+graph TD
+    A5[Molecular Structure] --> B5[Computational Method Selection]
+    C5[Basis Set Choice] --> D5[Calculation Parameters]
+    E5[Software Package] --> F5[Quantum Analysis]
+    
+    B5 --> G5[Level of Theory]
+    D5 --> H5[Convergence Criteria]
+    F5 --> I5[Property Calculation]
+    
+    G5 --> J5[Method Implementation]
+    H5 --> K5[Numerical Parameters]
+    I5 --> L5[Property Selection]
+    
+    J5 --> M5[Geometry Optimization]
+    K5 --> L5
+    L5 --> N5[Energy Calculation]
+    
+    M5 --> O5[Optimized Structure]
+    N5 --> P5[Property Evaluation]
+    O5 --> Q5[Quantum Chemistry Process]
+    
+    P5 --> R5[Molecular Properties]
+    Q5 --> S5[Result Analysis]
+    R5 --> T5[Property Validation]
+    
+    S5 --> U5[Computational Results]
+    T5 --> V5[Accuracy Assessment]
+    U5 --> W5[Property Prediction]
+    
+    V5 --> X5[Result Interpretation]
+    W5 --> Y5[Final Properties]
+    X5 --> Z5[Quantum Chemistry Complete]
+    
+    style A5 fill:#ff6b6b,color:#fff
+    style C5 fill:#ff6b6b,color:#fff
+    style E5 fill:#ff6b6b,color:#fff
+    
+    style B5 fill:#ffd43b,color:#000
+    style D5 fill:#ffd43b,color:#000
+    style F5 fill:#ffd43b,color:#000
+    style G5 fill:#ffd43b,color:#000
+    style H5 fill:#ffd43b,color:#000
+    style I5 fill:#ffd43b,color:#000
+    style J5 fill:#ffd43b,color:#000
+    style K5 fill:#ffd43b,color:#000
+    style L5 fill:#ffd43b,color:#000
+    style M5 fill:#ffd43b,color:#000
+    style N5 fill:#ffd43b,color:#000
+    style O5 fill:#ffd43b,color:#000
+    style P5 fill:#ffd43b,color:#000
+    style Q5 fill:#ffd43b,color:#000
+    style R5 fill:#ffd43b,color:#000
+    style S5 fill:#ffd43b,color:#000
+    style T5 fill:#ffd43b,color:#000
+    style U5 fill:#ffd43b,color:#000
+    style V5 fill:#ffd43b,color:#000
+    style W5 fill:#ffd43b,color:#000
+    style X5 fill:#ffd43b,color:#000
+    style Y5 fill:#ffd43b,color:#000
+    style Z5 fill:#ffd43b,color:#000
+    
+    style M5 fill:#51cf66,color:#fff
+    style N5 fill:#51cf66,color:#fff
+    style O5 fill:#51cf66,color:#fff
+    style P5 fill:#51cf66,color:#fff
+    style Q5 fill:#51cf66,color:#fff
+    style R5 fill:#51cf66,color:#fff
+    style S5 fill:#51cf66,color:#fff
+    style T5 fill:#51cf66,color:#fff
+    style U5 fill:#51cf66,color:#fff
+    style V5 fill:#51cf66,color:#fff
+    style W5 fill:#51cf66,color:#fff
+    style X5 fill:#51cf66,color:#fff
+    style Y5 fill:#51cf66,color:#fff
+    style Z5 fill:#51cf66,color:#fff
+    
+    style Z5 fill:#b197fc,color:#fff
+            </div>
+            
+            <div style="margin-top: 1rem; display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center;">
+                <div style="display:inline-flex; align-items:center; gap:.5rem; padding:.25rem .5rem; border-radius: 999px; border: 1px solid rgba(0,0,0,.08); background:#fff;">
+                    <span style="width: 12px; height: 12px; border-radius: 2px; border:1px solid rgba(0,0,0,.15); background:#ff6b6b;"></span>Triggers & Inputs
+                </div>
+                <div style="display:inline-flex; align-items:center; gap:.5rem; padding:.25rem .5rem; border-radius: 999px; border: 1px solid rgba(0,0,0,.08); background:#fff;">
+                    <span style="width: 12px; height: 12px; border-radius: 2px; border:1px solid rgba(0,0,0,.15); background:#ffd43b;"></span>Computational Methods
+                </div>
+                <div style="display:inline-flex; align-items:center; gap:.5rem; padding:.25rem .5rem; border-radius: 999px; border: 1px solid rgba(0,0,0,.08); background:#fff;">
+                    <span style="width: 12px; height: 12px; border-radius: 2px; border:1px solid rgba(0,0,0,.15); background:#51cf66;"></span>Quantum Operations
+                </div>
+                <div style="display:inline-flex; align-items:center; gap:.5rem; padding:.25rem .5rem; border-radius: 999px; border: 1px solid rgba(0,0,0,.08); background:#fff;">
+                    <span style="width: 12px; height: 12px; border-radius: 2px; border:1px solid rgba(0,0,0,.15); background:#74c0fc;"></span>Intermediates
+                </div>
+                <div style="display:inline-flex; align-items:center; gap:.5rem; padding:.25rem .5rem; border-radius: 999px; border: 1px solid rgba(0,0,0,.08); background:#fff;">
+                    <span style="width: 12px; height: 12px; border-radius: 2px; border:1px solid rgba(0,0,0,.15); background:#b197fc;"></span>Products
+                </div>
+            </div>
+            
+            <div class="figure-caption">
+                <strong>Figure 1.</strong> Quantum Chemistry Calculation Process. This validation flowchart demonstrates the Programming Framework's ability to organize and interpret complex computational chemistry data. The process shows molecular structure, basis set choice, and software package as inputs, computational method selection and calculation parameter methods, quantum chemistry operations including geometry optimization and energy calculations, intermediate computational results and property evaluations, and final molecular property predictions. This flowchart serves as the foundation for Experiment 5 validation, where framework interpretations of computational results will be compared against traditional computational chemistry methods and experimental data.
+            </div>
+        </div>
+
+        <h2>Validation Metrics</h2>
+        <p>This flowchart supports the following validation metrics for Experiment 5:</p>
+        <ul>
+            <li><strong>Computational Result Identification:</strong> Framework correctly identifies key computational results and their significance</li>
+            <li><strong>Analysis Accuracy:</strong> Framework analysis matches traditional computational chemistry interpretations</li>
+            <li><strong>Experimental Prediction:</strong> Framework successfully predicts experimental observables from computational data</li>
+            <li><strong>Accessibility Improvement:</strong> Framework improves accessibility and understanding of complex computational results</li>
+        </ul>
+
+        <h2>Experimental Application</h2>
+        <p>This flowchart guides the experimental validation by:</p>
+        <ol>
+            <li>Identifying key computational parameters (level of theory, basis set, convergence criteria)</li>
+            <li>Organizing computational workflow and result analysis</li>
+            <li>Providing a systematic approach to computational chemistry interpretation</li>
+            <li>Establishing clear success criteria for validation</li>
+        </ol>
+
+        <h2>Quantum Chemistry Details</h2>
+        <p>The flowchart captures the key steps of quantum chemistry calculations:</p>
+        <ul>
+            <li><strong>Method Selection:</strong> Choosing appropriate level of theory (HF, DFT, MP2, CCSD, etc.)</li>
+            <li><strong>Basis Set Selection:</strong> Selecting appropriate basis functions for accuracy vs. efficiency</li>
+            <li><strong>Geometry Optimization:</strong> Finding minimum energy molecular structures</li>
+            <li><strong>Property Calculation:</strong> Computing molecular properties (energies, dipole moments, etc.)</li>
+        </ul>
+
+        <h2>Computational Methods</h2>
+        <p>The framework integrates with key quantum chemistry methods:</p>
+        <ul>
+            <li><strong>Hartree-Fock (HF):</strong> Mean-field approximation for electronic structure</li>
+            <li><strong>Density Functional Theory (DFT):</strong> Modern approach using electron density</li>
+            <li><strong>Møller-Plesset Perturbation Theory (MP2):</strong> Post-HF correlation methods</li>
+            <li><strong>Coupled Cluster Methods (CCSD):</strong> High-accuracy correlation methods</li>
+        </ul>
+
+        <h2>Molecular Properties</h2>
+        <p>The framework can predict various molecular properties:</p>
+        <ul>
+            <li><strong>Energetic Properties:</strong> Total energy, binding energy, reaction energy</li>
+            <li><strong>Structural Properties:</strong> Bond lengths, bond angles, molecular geometry</li>
+            <li><strong>Electronic Properties:</strong> Dipole moment, polarizability, ionization potential</li>
+            <li><strong>Spectroscopic Properties:</strong> Vibrational frequencies, NMR chemical shifts</li>
+        </ul>
+
+        <h2>Software Integration</h2>
+        <p>The framework can organize results from various quantum chemistry software:</p>
+        <ul>
+            <li><strong>Gaussian:</strong> Comprehensive quantum chemistry package</li>
+            <li><strong>ORCA:</strong> Efficient DFT and wavefunction methods</li>
+            <li><strong>VASP:</strong> Plane-wave DFT for materials</li>
+            <li><strong>NWChem:</strong> High-performance computational chemistry</li>
+        </ul>
+
+        <div class="navigation">
+            <h3>Navigation</h3>
+            <div class="nav-links">
+                <a href="electrochemical_oxygen_reduction.html" class="nav-link">← Previous: Electrochemical ORR</a>
+                <a href="../experimental_validation_paper.html" class="nav-link">Back to Validation Paper</a>
+                <a href="../index.html" class="nav-link">Programming Framework Home</a>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p><strong>Generated using the Programming Framework methodology</strong></p>
+            <p>This flowchart supports experimental validation of the Programming Framework theory</p>
+            <div class="contact-info">
+                <p><strong>Gary Welz</strong></p>
+                <p>Retired Faculty Member</p>
+                <p>John Jay College, CUNY (Department of Mathematics and Computer Science)</p>
+                <p>Borough of Manhattan Community College, CUNY</p>
+                <p>CUNY Graduate Center (New Media Lab)</p>
+                <p>Email: gwelz@jjay.cuny.edu</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

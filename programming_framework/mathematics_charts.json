@@ -1,0 +1,20 @@
+{
+  "collection": {
+    "name": "Mathematics Flowcharts",
+    "discipline": "mathematics",
+    "description": "Programming Framework flowcharts for mathematical processes, proofs, and constructions. Dependency graphs showing how axioms, postulates, and propositions relate.",
+    "version": "1.0",
+    "source": "Programming Framework methodology"
+  },
+  "charts": [
+    {
+      "id": "euclid-elements-i-1-5",
+      "title": "Euclid's Elements Book I — Propositions 1–5 Dependencies",
+      "description": "Dependency graph showing how the first five propositions of Euclid's Elements depend on postulates (P1–P3), common notions (CN1, CN3, CN4, CN5), and each other. Demonstrates the axiomatic structure of Euclidean geometry.",
+      "category": "Geometry",
+      "subcategory": "Euclidean Geometry",
+      "tags": ["Euclid", "Elements", "axioms", "postulates", "propositions", "geometry", "foundations"],
+      "mermaid": "graph TD\n    %% ── Foundations ──────────────────────────────────────────\n    P1[\"Post. 1\\nDraw a straight line\\nbetween two points\"]\n    P2[\"Post. 2\\nExtend a straight line\\ncontinuously\"]\n    P3[\"Post. 3\\nDraw a circle with given\\ncenter and radius\"]\n    CN1[\"CN 1\\nThings equal to the same\\nthing are equal to each other\"]\n    CN3[\"CN 3\\nIf equals subtracted from\\nequals, remainders are equal\"]\n    CN4[\"CN 4\\nThings coinciding with\\none another are equal\"]\n    CN5[\"CN 5\\nThe whole is greater\\nthan the part\"]\n\n    %% ── Propositions ─────────────────────────────────────────\n    Prop1[\"Prop. I.1\\nConstruct an equilateral\\ntriangle on a given line\"]\n    Prop2[\"Prop. I.2\\nPlace a line segment equal\\nto a given segment at a point\"]\n    Prop3[\"Prop. I.3\\nCut off from the greater of\\ntwo lines a segment equal to the less\"]\n    Prop4[\"Prop. I.4\\nSAS Congruence:\\ntwo triangles with two equal sides\\nand included angle are congruent\"]\n    Prop5[\"Prop. I.5\\nBase angles of an\\nisosceles triangle are equal\"]\n\n    %% ── Dependencies ─────────────────────────────────────────\n    P1 --> Prop1\n    P3 --> Prop1\n\n    Prop1 --> Prop2\n    P1 --> Prop2\n    P2 --> Prop2\n    P3 --> Prop2\n\n    Prop2 --> Prop3\n    P3 --> Prop3\n\n    CN4 --> Prop4\n    CN5 --> Prop4\n\n    Prop1 --> Prop5\n    P1 --> Prop5\n    P2 --> Prop5\n    CN1 --> Prop5\n    CN3 --> Prop5\n    Prop4 --> Prop5\n\n    %% ── Styling ──────────────────────────────────────────────\n    classDef postulate fill:#e74c3c,color:#fff,stroke:#c0392b\n    classDef commonnotion fill:#9b59b6,color:#fff,stroke:#8e44ad\n    classDef proposition fill:#1abc9c,color:#fff,stroke:#16a085\n\n    class P1,P2,P3 postulate\n    class CN1,CN3,CN4,CN5 commonnotion\n    class Prop1,Prop2,Prop3,Prop4,Prop5 proposition"
+    }
+  ]
+}

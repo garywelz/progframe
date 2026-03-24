@@ -1,0 +1,783 @@
+{
+  "schemaVersion": "1.0",
+  "discourse": {
+    "id": "euclid-elements-book-xi",
+    "name": "Euclid's Elements, Book XI",
+    "subject": "solid_geometry",
+    "variant": "classical",
+    "description": "Solid geometry: planes, perpendiculars, parallelepipeds, prisms. 28 definitions, 39 propositions. Depends on Books I and VI. Source: David E. Joyce.",
+    "structure": {
+      "books": 11,
+      "definitions": 28,
+      "propositions": 39,
+      "foundationTypes": [
+        "foundation"
+      ]
+    }
+  },
+  "metadata": {
+    "created": "2026-03-18",
+    "lastUpdated": "2026-03-18",
+    "version": "1.0.0",
+    "license": "CC BY 4.0",
+    "authors": [
+      "Welz, G."
+    ],
+    "methodology": "Programming Framework",
+    "citation": "Welz, G. (2026). Euclid's Elements Book XI Dependency Graph. Programming Framework.",
+    "keywords": [
+      "Euclid",
+      "Elements",
+      "Book XI",
+      "solid geometry",
+      "plane",
+      "parallelepiped",
+      "prism"
+    ]
+  },
+  "sources": [
+    {
+      "id": "joyce",
+      "type": "digital",
+      "authors": "Joyce, David E.",
+      "title": "Euclid's Elements, Book XI",
+      "year": "1996",
+      "url": "https://mathcs.clarku.edu/~djoyce/java/elements/bookXI/bookXI.html",
+      "notes": "Clark University"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "BookI",
+      "type": "foundation",
+      "label": "Book I — Plane geometry",
+      "shortLabel": "Book I",
+      "short": "Foundation",
+      "book": 1,
+      "colorClass": "foundation"
+    },
+    {
+      "id": "BookVI",
+      "type": "foundation",
+      "label": "Book VI — Similar figures",
+      "shortLabel": "Book VI",
+      "short": "Foundation",
+      "book": 6,
+      "colorClass": "foundation"
+    },
+    {
+      "id": "Prop1",
+      "type": "proposition",
+      "label": "A part of a straight line cannot be in one plane and part in another elevated",
+      "shortLabel": "Prop. XI.1",
+      "short": "Line part in plane",
+      "book": 11,
+      "number": 1,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop2",
+      "type": "proposition",
+      "label": "If two straight lines cut one another, they lie in one plane; every triangle in one plane",
+      "shortLabel": "Prop. XI.2",
+      "short": "Two lines cut: one plane",
+      "book": 11,
+      "number": 2,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop3",
+      "type": "proposition",
+      "label": "If two planes cut one another, their intersection is a straight line",
+      "shortLabel": "Prop. XI.3",
+      "short": "Planes cut: line",
+      "book": 11,
+      "number": 3,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop4",
+      "type": "proposition",
+      "label": "If line at right angles to two lines cutting at point, also perpendicular to plane through them",
+      "shortLabel": "Prop. XI.4",
+      "short": "Line perpendicular to plane",
+      "book": 11,
+      "number": 4,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop5",
+      "type": "proposition",
+      "label": "If line at right angles to three lines meeting at point, the three lie in one plane",
+      "shortLabel": "Prop. XI.5",
+      "short": "Three lines from point",
+      "book": 11,
+      "number": 5,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop6",
+      "type": "proposition",
+      "label": "If two lines at right angles to same plane, they are parallel",
+      "shortLabel": "Prop. XI.6",
+      "short": "Perpendicular to same plane: parallel",
+      "book": 11,
+      "number": 6,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop7",
+      "type": "proposition",
+      "label": "If two lines parallel, line joining points on each is in same plane",
+      "shortLabel": "Prop. XI.7",
+      "short": "Parallel lines: join in plane",
+      "book": 11,
+      "number": 7,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop8",
+      "type": "proposition",
+      "label": "If two lines parallel, one perpendicular to plane, so is the other",
+      "shortLabel": "Prop. XI.8",
+      "short": "Parallel: one perpendicular",
+      "book": 11,
+      "number": 8,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop9",
+      "type": "proposition",
+      "label": "Lines parallel to same line but not in same plane are parallel to each other",
+      "shortLabel": "Prop. XI.9",
+      "short": "Parallel to same: parallel",
+      "book": 11,
+      "number": 9,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop10",
+      "type": "proposition",
+      "label": "Two lines meeting parallel to two meeting not in same plane: contain equal angles",
+      "shortLabel": "Prop. XI.10",
+      "short": "Skew lines: equal angles",
+      "book": 11,
+      "number": 10,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop11",
+      "type": "proposition",
+      "label": "To draw line perpendicular to given plane from given elevated point",
+      "shortLabel": "Prop. XI.11",
+      "short": "Perpendicular from point to plane",
+      "book": 11,
+      "number": 11,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop12",
+      "type": "proposition",
+      "label": "To set up line at right angles to plane from given point in it",
+      "shortLabel": "Prop. XI.12",
+      "short": "Perpendicular from point in plane",
+      "book": 11,
+      "number": 12,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop13",
+      "type": "proposition",
+      "label": "From same point two lines cannot be perpendicular to same plane on same side",
+      "shortLabel": "Prop. XI.13",
+      "short": "One perpendicular only",
+      "book": 11,
+      "number": 13,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop14",
+      "type": "proposition",
+      "label": "Planes to which same line is perpendicular are parallel",
+      "shortLabel": "Prop. XI.14",
+      "short": "Planes perpendicular to line: parallel",
+      "book": 11,
+      "number": 14,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop15",
+      "type": "proposition",
+      "label": "Two lines meeting parallel to two meeting not in same plane: planes through them parallel",
+      "shortLabel": "Prop. XI.15",
+      "short": "Skew lines: planes parallel",
+      "book": 11,
+      "number": 15,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop16",
+      "type": "proposition",
+      "label": "If two parallel planes cut by any plane, intersections are parallel",
+      "shortLabel": "Prop. XI.16",
+      "short": "Parallel planes cut: parallel",
+      "book": 11,
+      "number": 16,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop17",
+      "type": "proposition",
+      "label": "If two lines cut by parallel planes, they are cut in same ratios",
+      "shortLabel": "Prop. XI.17",
+      "short": "Parallel planes: same ratio",
+      "book": 11,
+      "number": 17,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop18",
+      "type": "proposition",
+      "label": "If line perpendicular to plane, all planes through it perpendicular to that plane",
+      "shortLabel": "Prop. XI.18",
+      "short": "Line perpendicular: planes through it",
+      "book": 11,
+      "number": 18,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop19",
+      "type": "proposition",
+      "label": "If two planes cutting one another perpendicular to plane, intersection perpendicular",
+      "shortLabel": "Prop. XI.19",
+      "short": "Planes perpendicular: intersection",
+      "book": 11,
+      "number": 19,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop20",
+      "type": "proposition",
+      "label": "Solid angle by three plane angles: sum of any two greater than third",
+      "shortLabel": "Prop. XI.20",
+      "short": "Solid angle: plane angles",
+      "book": 11,
+      "number": 20,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop21",
+      "type": "proposition",
+      "label": "Any solid angle contained by plane angles summing to less than four right angles",
+      "shortLabel": "Prop. XI.21",
+      "short": "Solid angle: less than four right",
+      "book": 11,
+      "number": 21,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop22",
+      "type": "proposition",
+      "label": "Three plane angles with sum of any two greater than third, equal sides: construct triangle",
+      "shortLabel": "Prop. XI.22",
+      "short": "Three plane angles: construct triangle",
+      "book": 11,
+      "number": 22,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop23",
+      "type": "proposition",
+      "label": "To construct solid angle from three plane angles (sum of any two greater than third)",
+      "shortLabel": "Prop. XI.23",
+      "short": "Construct solid angle",
+      "book": 11,
+      "number": 23,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop24",
+      "type": "proposition",
+      "label": "If solid contained by parallel planes, opposite planes equal and parallelogrammic",
+      "shortLabel": "Prop. XI.24",
+      "short": "Solid by parallel planes",
+      "book": 11,
+      "number": 24,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop25",
+      "type": "proposition",
+      "label": "Parallelepiped cut by plane parallel to opposite: base to base as solid to solid",
+      "shortLabel": "Prop. XI.25",
+      "short": "Parallelepiped cut: base ratio",
+      "book": 11,
+      "number": 25,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop26",
+      "type": "proposition",
+      "label": "To construct solid angle equal to given on given line at given point",
+      "shortLabel": "Prop. XI.26",
+      "short": "Construct equal solid angle",
+      "book": 11,
+      "number": 26,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop27",
+      "type": "proposition",
+      "label": "To describe parallelepiped similar to given on given straight line",
+      "shortLabel": "Prop. XI.27",
+      "short": "Similar parallelepiped on line",
+      "book": 11,
+      "number": 27,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop28",
+      "type": "proposition",
+      "label": "Parallelepiped cut by plane through diagonals of opposite planes: bisected",
+      "shortLabel": "Prop. XI.28",
+      "short": "Parallelepiped: diagonal plane bisects",
+      "book": 11,
+      "number": 28,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop29",
+      "type": "proposition",
+      "label": "Parallelepipeds same base, height, ends on same lines: equal",
+      "shortLabel": "Prop. XI.29",
+      "short": "Same base, height, same lines: equal",
+      "book": 11,
+      "number": 29,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop30",
+      "type": "proposition",
+      "label": "Parallelepipeds same base, height, ends not on same lines: equal",
+      "shortLabel": "Prop. XI.30",
+      "short": "Same base, height, different lines: equal",
+      "book": 11,
+      "number": 30,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop31",
+      "type": "proposition",
+      "label": "Parallelepipeds on equal bases, same height: equal",
+      "shortLabel": "Prop. XI.31",
+      "short": "Equal bases, same height: equal",
+      "book": 11,
+      "number": 31,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop32",
+      "type": "proposition",
+      "label": "Parallelepipeds same height: to one another as bases",
+      "shortLabel": "Prop. XI.32",
+      "short": "Same height: as bases",
+      "book": 11,
+      "number": 32,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop33",
+      "type": "proposition",
+      "label": "Similar parallelepipeds: to one another in triplicate ratio of corresponding sides",
+      "shortLabel": "Prop. XI.33",
+      "short": "Similar: triplicate ratio",
+      "book": 11,
+      "number": 33,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop34",
+      "type": "proposition",
+      "label": "Equal parallelepipeds: bases reciprocally proportional to heights",
+      "shortLabel": "Prop. XI.34",
+      "short": "Equal: bases reciprocally proportional",
+      "book": 11,
+      "number": 34,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop35",
+      "type": "proposition",
+      "label": "Equal plane angles, elevated lines with equal angles: perpendiculars, joins",
+      "shortLabel": "Prop. XI.35",
+      "short": "Equal plane angles: elevated lines",
+      "book": 11,
+      "number": 35,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop36",
+      "type": "proposition",
+      "label": "Three proportional lines: parallelepiped from three equals that on mean equilateral",
+      "shortLabel": "Prop. XI.36",
+      "short": "Three proportional: parallelepiped",
+      "book": 11,
+      "number": 36,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop37",
+      "type": "proposition",
+      "label": "Four proportional: similar parallelepipeds proportional; converse",
+      "shortLabel": "Prop. XI.37",
+      "short": "Four proportional: parallelepipeds",
+      "book": 11,
+      "number": 37,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop38",
+      "type": "proposition",
+      "label": "Cube opposite sides bisected, planes through: intersection and diameter bisect each other",
+      "shortLabel": "Prop. XI.38",
+      "short": "Cube: bisected by planes",
+      "book": 11,
+      "number": 38,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop39",
+      "type": "proposition",
+      "label": "Two prisms equal height, parallelogram and triangle bases, parallelogram double: equal",
+      "shortLabel": "Prop. XI.39",
+      "short": "Prisms: parallelogram, triangle",
+      "book": 11,
+      "number": 39,
+      "colorClass": "proposition"
+    }
+  ],
+  "edges": [
+    {
+      "from": "BookI",
+      "to": "Prop1"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop1"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop2"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop2"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop3"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop3"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop4"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop4"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop5"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop5"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop6"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop6"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop7"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop7"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop8"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop8"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop9"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop9"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop10"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop10"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop11"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop11"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop12"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop12"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop13"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop13"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop14"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop14"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop15"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop15"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop16"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop16"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop17"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop17"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop18"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop18"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop19"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop19"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop20"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop20"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop21"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop21"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop22"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop22"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop23"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop23"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop24"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop24"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop25"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop25"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop26"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop26"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop27"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop27"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop28"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop28"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop29"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop29"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop30"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop30"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop31"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop31"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop32"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop32"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop33"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop33"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop34"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop34"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop35"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop35"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop36"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop36"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop37"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop37"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop38"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop38"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop39"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop39"
+    }
+  ],
+  "colorScheme": {
+    "foundation": {
+      "fill": "#95a5a6",
+      "stroke": "#7f8c8d"
+    },
+    "proposition": {
+      "fill": "#1abc9c",
+      "stroke": "#16a085"
+    }
+  }
+}

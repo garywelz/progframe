@@ -1,0 +1,614 @@
+{
+  "schemaVersion": "1.0",
+  "discourse": {
+    "id": "peano-arithmetic",
+    "name": "Peano Arithmetic",
+    "subject": "arithmetic",
+    "variant": "classical",
+    "description": "Axiomatic development of natural number arithmetic. Five axioms, definitions of addition and multiplication, and key theorems (associativity, commutativity, distributivity, order). Based on Landau, Foundations of Analysis.",
+    "structure": {
+      "axioms": 5,
+      "definitions": 2,
+      "theorems": 25
+    }
+  },
+  "metadata": {
+    "created": "2026-03-15",
+    "lastUpdated": "2026-03-15",
+    "version": "1.0.0",
+    "license": "CC BY 4.0",
+    "authors": [
+      "Welz, G."
+    ],
+    "methodology": "Programming Framework",
+    "citation": "Welz, G. (2026). Peano Arithmetic Dependency Graph. Programming Framework.",
+    "keywords": [
+      "Peano",
+      "arithmetic",
+      "natural numbers",
+      "induction",
+      "foundations"
+    ]
+  },
+  "sources": [
+    {
+      "id": "landau",
+      "type": "primary",
+      "authors": "Landau, E.",
+      "title": "Foundations of Analysis",
+      "year": "1930",
+      "publisher": "Chelsea",
+      "edition": "1951",
+      "notes": "Canonical development"
+    },
+    {
+      "id": "wikipedia",
+      "type": "digital",
+      "title": "Peano axioms",
+      "url": "https://en.wikipedia.org/wiki/Peano_axioms",
+      "notes": "Overview and definitions"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "A1",
+      "type": "axiom",
+      "label": "0 is a natural number",
+      "shortLabel": "A1",
+      "short": "0 ∈ N",
+      "colorClass": "axiom"
+    },
+    {
+      "id": "A2",
+      "type": "axiom",
+      "label": "No predecessor of 0: S(x) ≠ 0",
+      "shortLabel": "A2",
+      "short": "0 not a successor",
+      "colorClass": "axiom"
+    },
+    {
+      "id": "A3",
+      "type": "axiom",
+      "label": "Successor injective: S(x)=S(y) ⇒ x=y",
+      "shortLabel": "A3",
+      "short": "S injective",
+      "colorClass": "axiom"
+    },
+    {
+      "id": "A4",
+      "type": "axiom",
+      "label": "Closure: S(x) ∈ N for all x ∈ N",
+      "shortLabel": "A4",
+      "short": "N closed under S",
+      "colorClass": "axiom"
+    },
+    {
+      "id": "A5",
+      "type": "axiom",
+      "label": "Induction: if 0∈K and (x∈K⇒S(x)∈K) then K=N",
+      "shortLabel": "A5",
+      "short": "Induction",
+      "colorClass": "axiom"
+    },
+    {
+      "id": "T1",
+      "type": "theorem",
+      "label": "x≠y ⇒ S(x)≠S(y)",
+      "shortLabel": "T1",
+      "short": "Contrapositive of A3",
+      "colorClass": "theorem"
+    },
+    {
+      "id": "T2",
+      "type": "theorem",
+      "label": "S(x)≠x for all x",
+      "shortLabel": "T2",
+      "short": "Successor ≠ identity",
+      "colorClass": "theorem"
+    },
+    {
+      "id": "T3",
+      "type": "theorem",
+      "label": "If x≠0 then x=S(u) for some u",
+      "shortLabel": "T3",
+      "short": "Every nonzero is successor",
+      "colorClass": "theorem"
+    },
+    {
+      "id": "DefAdd",
+      "type": "definition",
+      "label": "Addition: x+0=x, x+S(y)=S(x+y)",
+      "shortLabel": "DefAdd",
+      "short": "Definition of +",
+      "colorClass": "definition"
+    },
+    {
+      "id": "T4",
+      "type": "theorem",
+      "label": "Addition is well-defined for all x,y",
+      "shortLabel": "T4",
+      "short": "Add well-defined",
+      "colorClass": "theorem"
+    },
+    {
+      "id": "T5",
+      "type": "theorem",
+      "label": "(x+y)+z = x+(y+z)",
+      "shortLabel": "T5",
+      "short": "Associativity of +",
+      "colorClass": "theorem"
+    },
+    {
+      "id": "T6",
+      "type": "theorem",
+      "label": "0+x = x",
+      "shortLabel": "T6",
+      "short": "Left identity",
+      "colorClass": "theorem"
+    },
+    {
+      "id": "T7",
+      "type": "theorem",
+      "label": "S(x)+y = S(x+y)",
+      "shortLabel": "T7",
+      "short": "Successor and add",
+      "colorClass": "theorem"
+    },
+    {
+      "id": "T8",
+      "type": "theorem",
+      "label": "x+y = y+x",
+      "shortLabel": "T8",
+      "short": "Commutativity of +",
+      "colorClass": "theorem"
+    },
+    {
+      "id": "T9",
+      "type": "theorem",
+      "label": "x+y=x+z ⇒ y=z",
+      "shortLabel": "T9",
+      "short": "Cancellation for +",
+      "colorClass": "theorem"
+    },
+    {
+      "id": "DefMul",
+      "type": "definition",
+      "label": "Multiplication: x·0=0, x·S(y)=x·y+x",
+      "shortLabel": "DefMul",
+      "short": "Definition of ·",
+      "colorClass": "definition"
+    },
+    {
+      "id": "T10",
+      "type": "theorem",
+      "label": "Multiplication is well-defined for all x,y",
+      "shortLabel": "T10",
+      "short": "Mul well-defined",
+      "colorClass": "theorem"
+    },
+    {
+      "id": "T11",
+      "type": "theorem",
+      "label": "x·0 = 0",
+      "shortLabel": "T11",
+      "short": "Zero times",
+      "colorClass": "theorem"
+    },
+    {
+      "id": "T12",
+      "type": "theorem",
+      "label": "0·x = 0",
+      "shortLabel": "T12",
+      "short": "Zero from left",
+      "colorClass": "theorem"
+    },
+    {
+      "id": "T13",
+      "type": "theorem",
+      "label": "S(x)·y = x·y + y",
+      "shortLabel": "T13",
+      "short": "Successor and mul",
+      "colorClass": "theorem"
+    },
+    {
+      "id": "T14",
+      "type": "theorem",
+      "label": "x·y = y·x",
+      "shortLabel": "T14",
+      "short": "Commutativity of ·",
+      "colorClass": "theorem"
+    },
+    {
+      "id": "T15",
+      "type": "theorem",
+      "label": "(x·y)·z = x·(y·z)",
+      "shortLabel": "T15",
+      "short": "Associativity of ·",
+      "colorClass": "theorem"
+    },
+    {
+      "id": "T16",
+      "type": "theorem",
+      "label": "x·(y+z) = x·y + x·z",
+      "shortLabel": "T16",
+      "short": "Distributivity",
+      "colorClass": "theorem"
+    },
+    {
+      "id": "T17",
+      "type": "theorem",
+      "label": "(x+y)·z = x·z + y·z",
+      "shortLabel": "T17",
+      "short": "Distributivity (right)",
+      "colorClass": "theorem"
+    },
+    {
+      "id": "T18",
+      "type": "theorem",
+      "label": "x≤y iff ∃z x+z=y",
+      "shortLabel": "T18",
+      "short": "Order definition",
+      "colorClass": "theorem"
+    },
+    {
+      "id": "T19",
+      "type": "theorem",
+      "label": "Trichotomy: exactly one of x<y, x=y, y<x",
+      "shortLabel": "T19",
+      "short": "Trichotomy",
+      "colorClass": "theorem"
+    },
+    {
+      "id": "T20",
+      "type": "theorem",
+      "label": "x≤y ⇒ x+z≤y+z",
+      "shortLabel": "T20",
+      "short": "Order + add",
+      "colorClass": "theorem"
+    },
+    {
+      "id": "T21",
+      "type": "theorem",
+      "label": "x≤y and z>0 ⇒ x·z≤y·z",
+      "shortLabel": "T21",
+      "short": "Order + mul",
+      "colorClass": "theorem"
+    },
+    {
+      "id": "T22",
+      "type": "theorem",
+      "label": "1·x = x (where 1=S(0))",
+      "shortLabel": "T22",
+      "short": "Multiplicative identity",
+      "colorClass": "theorem"
+    },
+    {
+      "id": "T23",
+      "type": "theorem",
+      "label": "x·1 = x",
+      "shortLabel": "T23",
+      "short": "Right identity",
+      "colorClass": "theorem"
+    },
+    {
+      "id": "T24",
+      "type": "theorem",
+      "label": "Well-ordering: every nonempty subset has least element",
+      "shortLabel": "T24",
+      "short": "Well-ordering",
+      "colorClass": "theorem"
+    },
+    {
+      "id": "T25",
+      "type": "theorem",
+      "label": "Strong induction principle",
+      "shortLabel": "T25",
+      "short": "Strong induction",
+      "colorClass": "theorem"
+    }
+  ],
+  "edges": [
+    {
+      "from": "A3",
+      "to": "T1"
+    },
+    {
+      "from": "A1",
+      "to": "T2"
+    },
+    {
+      "from": "A2",
+      "to": "T2"
+    },
+    {
+      "from": "A3",
+      "to": "T2"
+    },
+    {
+      "from": "T1",
+      "to": "T2"
+    },
+    {
+      "from": "A5",
+      "to": "T2"
+    },
+    {
+      "from": "A5",
+      "to": "T3"
+    },
+    {
+      "from": "A5",
+      "to": "DefAdd"
+    },
+    {
+      "from": "DefAdd",
+      "to": "T4"
+    },
+    {
+      "from": "A5",
+      "to": "T4"
+    },
+    {
+      "from": "DefAdd",
+      "to": "T5"
+    },
+    {
+      "from": "A5",
+      "to": "T5"
+    },
+    {
+      "from": "DefAdd",
+      "to": "T6"
+    },
+    {
+      "from": "A5",
+      "to": "T6"
+    },
+    {
+      "from": "DefAdd",
+      "to": "T7"
+    },
+    {
+      "from": "T6",
+      "to": "T7"
+    },
+    {
+      "from": "A5",
+      "to": "T7"
+    },
+    {
+      "from": "DefAdd",
+      "to": "T8"
+    },
+    {
+      "from": "T5",
+      "to": "T8"
+    },
+    {
+      "from": "T6",
+      "to": "T8"
+    },
+    {
+      "from": "T7",
+      "to": "T8"
+    },
+    {
+      "from": "A5",
+      "to": "T8"
+    },
+    {
+      "from": "DefAdd",
+      "to": "T9"
+    },
+    {
+      "from": "T8",
+      "to": "T9"
+    },
+    {
+      "from": "A5",
+      "to": "T9"
+    },
+    {
+      "from": "DefAdd",
+      "to": "DefMul"
+    },
+    {
+      "from": "A5",
+      "to": "DefMul"
+    },
+    {
+      "from": "DefMul",
+      "to": "T10"
+    },
+    {
+      "from": "A5",
+      "to": "T10"
+    },
+    {
+      "from": "DefMul",
+      "to": "T11"
+    },
+    {
+      "from": "DefMul",
+      "to": "T12"
+    },
+    {
+      "from": "T6",
+      "to": "T12"
+    },
+    {
+      "from": "A5",
+      "to": "T12"
+    },
+    {
+      "from": "DefMul",
+      "to": "T13"
+    },
+    {
+      "from": "T8",
+      "to": "T13"
+    },
+    {
+      "from": "A5",
+      "to": "T13"
+    },
+    {
+      "from": "DefMul",
+      "to": "T14"
+    },
+    {
+      "from": "T12",
+      "to": "T14"
+    },
+    {
+      "from": "T13",
+      "to": "T14"
+    },
+    {
+      "from": "A5",
+      "to": "T14"
+    },
+    {
+      "from": "DefMul",
+      "to": "T15"
+    },
+    {
+      "from": "T5",
+      "to": "T15"
+    },
+    {
+      "from": "T8",
+      "to": "T15"
+    },
+    {
+      "from": "A5",
+      "to": "T15"
+    },
+    {
+      "from": "DefMul",
+      "to": "T16"
+    },
+    {
+      "from": "T5",
+      "to": "T16"
+    },
+    {
+      "from": "T8",
+      "to": "T16"
+    },
+    {
+      "from": "T15",
+      "to": "T16"
+    },
+    {
+      "from": "A5",
+      "to": "T16"
+    },
+    {
+      "from": "T16",
+      "to": "T17"
+    },
+    {
+      "from": "T8",
+      "to": "T17"
+    },
+    {
+      "from": "DefAdd",
+      "to": "T18"
+    },
+    {
+      "from": "T8",
+      "to": "T18"
+    },
+    {
+      "from": "T9",
+      "to": "T18"
+    },
+    {
+      "from": "T18",
+      "to": "T19"
+    },
+    {
+      "from": "T9",
+      "to": "T19"
+    },
+    {
+      "from": "T18",
+      "to": "T20"
+    },
+    {
+      "from": "T8",
+      "to": "T20"
+    },
+    {
+      "from": "T18",
+      "to": "T21"
+    },
+    {
+      "from": "T16",
+      "to": "T21"
+    },
+    {
+      "from": "T14",
+      "to": "T21"
+    },
+    {
+      "from": "DefMul",
+      "to": "T22"
+    },
+    {
+      "from": "T6",
+      "to": "T22"
+    },
+    {
+      "from": "A5",
+      "to": "T22"
+    },
+    {
+      "from": "T14",
+      "to": "T23"
+    },
+    {
+      "from": "T22",
+      "to": "T23"
+    },
+    {
+      "from": "T18",
+      "to": "T24"
+    },
+    {
+      "from": "T19",
+      "to": "T24"
+    },
+    {
+      "from": "A5",
+      "to": "T24"
+    },
+    {
+      "from": "T18",
+      "to": "T25"
+    },
+    {
+      "from": "T24",
+      "to": "T25"
+    },
+    {
+      "from": "A5",
+      "to": "T25"
+    }
+  ],
+  "colorScheme": {
+    "axiom": {
+      "fill": "#e74c3c",
+      "stroke": "#c0392b"
+    },
+    "definition": {
+      "fill": "#3498db",
+      "stroke": "#2980b9"
+    },
+    "theorem": {
+      "fill": "#1abc9c",
+      "stroke": "#16a085"
+    }
+  }
+}

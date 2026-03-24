@@ -1,0 +1,761 @@
+{
+  "schemaVersion": "1.0",
+  "discourse": {
+    "id": "euclid-elements-book-vii",
+    "name": "Euclid's Elements, Book VII",
+    "subject": "number_theory",
+    "variant": "classical",
+    "description": "Number theory: GCD (Euclidean algorithm), proportions, primes, LCM. 22 definitions, 39 propositions. Does not depend on previous books. Source: David E. Joyce.",
+    "structure": {
+      "books": 7,
+      "definitions": 22,
+      "propositions": 39,
+      "foundationTypes": [
+        "definition"
+      ]
+    }
+  },
+  "metadata": {
+    "created": "2026-03-18",
+    "lastUpdated": "2026-03-18",
+    "version": "1.0.0",
+    "license": "CC BY 4.0",
+    "authors": [
+      "Welz, G."
+    ],
+    "methodology": "Programming Framework",
+    "citation": "Welz, G. (2026). Euclid's Elements Book VII Dependency Graph. Programming Framework.",
+    "keywords": [
+      "Euclid",
+      "Elements",
+      "Book VII",
+      "number theory",
+      "GCD",
+      "prime",
+      "LCM"
+    ]
+  },
+  "sources": [
+    {
+      "id": "joyce",
+      "type": "digital",
+      "authors": "Joyce, David E.",
+      "title": "Euclid's Elements, Book VII",
+      "year": "1996",
+      "url": "https://mathcs.clarku.edu/~djoyce/java/elements/bookVII/bookVII.html",
+      "notes": "Clark University"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "Def1",
+      "type": "definition",
+      "label": "A unit is that by virtue of which each of the things that exist is called one",
+      "shortLabel": "Def. VII.1",
+      "short": "Unit",
+      "book": 7,
+      "number": 1,
+      "colorClass": "definition"
+    },
+    {
+      "id": "Def2",
+      "type": "definition",
+      "label": "A number is a multitude composed of units",
+      "shortLabel": "Def. VII.2",
+      "short": "Number",
+      "book": 7,
+      "number": 2,
+      "colorClass": "definition"
+    },
+    {
+      "id": "Def3",
+      "type": "definition",
+      "label": "A number is part of a number when it measures it",
+      "shortLabel": "Def. VII.3",
+      "short": "Part",
+      "book": 7,
+      "number": 3,
+      "colorClass": "definition"
+    },
+    {
+      "id": "Def4",
+      "type": "definition",
+      "label": "Parts when it does not measure it",
+      "shortLabel": "Def. VII.4",
+      "short": "Parts",
+      "book": 7,
+      "number": 4,
+      "colorClass": "definition"
+    },
+    {
+      "id": "Def5",
+      "type": "definition",
+      "label": "The greater is a multiple of the less when measured by the less",
+      "shortLabel": "Def. VII.5",
+      "short": "Multiple",
+      "book": 7,
+      "number": 5,
+      "colorClass": "definition"
+    },
+    {
+      "id": "Def6",
+      "type": "definition",
+      "label": "An even number is that which is divisible into two equal parts",
+      "shortLabel": "Def. VII.6",
+      "short": "Even",
+      "book": 7,
+      "number": 6,
+      "colorClass": "definition"
+    },
+    {
+      "id": "Def7",
+      "type": "definition",
+      "label": "An odd number is that which is not divisible into two equal parts",
+      "shortLabel": "Def. VII.7",
+      "short": "Odd",
+      "book": 7,
+      "number": 7,
+      "colorClass": "definition"
+    },
+    {
+      "id": "Def8",
+      "type": "definition",
+      "label": "Even-times even: measured by an even number an even number of times",
+      "shortLabel": "Def. VII.8",
+      "short": "Even-times even",
+      "book": 7,
+      "number": 8,
+      "colorClass": "definition"
+    },
+    {
+      "id": "Def9",
+      "type": "definition",
+      "label": "Even-times odd: measured by an even number an odd number of times",
+      "shortLabel": "Def. VII.9",
+      "short": "Even-times odd",
+      "book": 7,
+      "number": 9,
+      "colorClass": "definition"
+    },
+    {
+      "id": "Def10",
+      "type": "definition",
+      "label": "Odd-times odd: measured by an odd number an odd number of times",
+      "shortLabel": "Def. VII.10",
+      "short": "Odd-times odd",
+      "book": 7,
+      "number": 10,
+      "colorClass": "definition"
+    },
+    {
+      "id": "Def11",
+      "type": "definition",
+      "label": "A prime number is that which is measured by a unit alone",
+      "shortLabel": "Def. VII.11",
+      "short": "Prime",
+      "book": 7,
+      "number": 11,
+      "colorClass": "definition"
+    },
+    {
+      "id": "Def12",
+      "type": "definition",
+      "label": "Numbers relatively prime when only a unit measures both",
+      "shortLabel": "Def. VII.12",
+      "short": "Relatively prime",
+      "book": 7,
+      "number": 12,
+      "colorClass": "definition"
+    },
+    {
+      "id": "Def13",
+      "type": "definition",
+      "label": "A composite number is that measured by some number",
+      "shortLabel": "Def. VII.13",
+      "short": "Composite",
+      "book": 7,
+      "number": 13,
+      "colorClass": "definition"
+    },
+    {
+      "id": "Def14",
+      "type": "definition",
+      "label": "Numbers composite to one another when some number measures both",
+      "shortLabel": "Def. VII.14",
+      "short": "Composite to one another",
+      "book": 7,
+      "number": 14,
+      "colorClass": "definition"
+    },
+    {
+      "id": "Def15",
+      "type": "definition",
+      "label": "A number multiplies a number when the latter is added as many times as units in the former",
+      "shortLabel": "Def. VII.15",
+      "short": "Multiply",
+      "book": 7,
+      "number": 15,
+      "colorClass": "definition"
+    },
+    {
+      "id": "Def16",
+      "type": "definition",
+      "label": "When two numbers multiplied produce a number, the product is plane",
+      "shortLabel": "Def. VII.16",
+      "short": "Product",
+      "book": 7,
+      "number": 16,
+      "colorClass": "definition"
+    },
+    {
+      "id": "Def17",
+      "type": "definition",
+      "label": "Sides of the product are the numbers multiplied",
+      "shortLabel": "Def. VII.17",
+      "short": "Side",
+      "book": 7,
+      "number": 17,
+      "colorClass": "definition"
+    },
+    {
+      "id": "Def18",
+      "type": "definition",
+      "label": "A plane number is that produced by two numbers",
+      "shortLabel": "Def. VII.18",
+      "short": "Plane number",
+      "book": 7,
+      "number": 18,
+      "colorClass": "definition"
+    },
+    {
+      "id": "Def19",
+      "type": "definition",
+      "label": "A solid number is that produced by three numbers",
+      "shortLabel": "Def. VII.19",
+      "short": "Solid number",
+      "book": 7,
+      "number": 19,
+      "colorClass": "definition"
+    },
+    {
+      "id": "Def20",
+      "type": "definition",
+      "label": "Similar plane numbers have sides proportional",
+      "shortLabel": "Def. VII.20",
+      "short": "Similar plane",
+      "book": 7,
+      "number": 20,
+      "colorClass": "definition"
+    },
+    {
+      "id": "Def21",
+      "type": "definition",
+      "label": "Similar solid numbers have sides proportional",
+      "shortLabel": "Def. VII.21",
+      "short": "Similar solid",
+      "book": 7,
+      "number": 21,
+      "colorClass": "definition"
+    },
+    {
+      "id": "Def22",
+      "type": "definition",
+      "label": "A perfect number is that which equals its own parts",
+      "shortLabel": "Def. VII.22",
+      "short": "Perfect",
+      "book": 7,
+      "number": 22,
+      "colorClass": "definition"
+    },
+    {
+      "id": "Prop1",
+      "type": "proposition",
+      "label": "Unequal numbers: repeated subtraction; if unit left, relatively prime",
+      "shortLabel": "Prop. VII.1",
+      "short": "Antenaresis, relatively prime",
+      "book": 7,
+      "number": 1,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop2",
+      "type": "proposition",
+      "label": "To find greatest common measure of two numbers not relatively prime",
+      "shortLabel": "Prop. VII.2",
+      "short": "GCD of two numbers",
+      "book": 7,
+      "number": 2,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop3",
+      "type": "proposition",
+      "label": "To find greatest common measure of three numbers",
+      "shortLabel": "Prop. VII.3",
+      "short": "GCD of three numbers",
+      "book": 7,
+      "number": 3,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop4",
+      "type": "proposition",
+      "label": "Any number is part or parts of any number, less of greater",
+      "shortLabel": "Prop. VII.4",
+      "short": "Part or parts",
+      "book": 7,
+      "number": 4,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop5",
+      "type": "proposition",
+      "label": "If a is same part of b as c of d, then a+c same part of b+d",
+      "shortLabel": "Prop. VII.5",
+      "short": "Same part: sum",
+      "book": 7,
+      "number": 5,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop6",
+      "type": "proposition",
+      "label": "If a is same parts of b as c of d, then a+c same parts of b+d",
+      "shortLabel": "Prop. VII.6",
+      "short": "Same parts: sum",
+      "book": 7,
+      "number": 6,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop7",
+      "type": "proposition",
+      "label": "If a part of b as c of d, remainder same part of remainder",
+      "shortLabel": "Prop. VII.7",
+      "short": "Same part: remainder",
+      "book": 7,
+      "number": 7,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop8",
+      "type": "proposition",
+      "label": "If a parts of b as c of d, remainder same parts of remainder",
+      "shortLabel": "Prop. VII.8",
+      "short": "Same parts: remainder",
+      "book": 7,
+      "number": 8,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop9",
+      "type": "proposition",
+      "label": "If a part of b as c of d, alternately a part/parts of c as b of d",
+      "shortLabel": "Prop. VII.9",
+      "short": "Same part: alternately",
+      "book": 7,
+      "number": 9,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop10",
+      "type": "proposition",
+      "label": "If a parts of b as c of d, alternately a part/parts of c as b of d",
+      "shortLabel": "Prop. VII.10",
+      "short": "Same parts: alternately",
+      "book": 7,
+      "number": 10,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop11",
+      "type": "proposition",
+      "label": "If whole:whole as subtracted:subtracted, remainder:remainder as whole:whole",
+      "shortLabel": "Prop. VII.11",
+      "short": "Proportion: remainder",
+      "book": 7,
+      "number": 11,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop12",
+      "type": "proposition",
+      "label": "Proportional: one antecedent to consequent as sum antecedents to sum consequents",
+      "shortLabel": "Prop. VII.12",
+      "short": "Proportional: sum",
+      "book": 7,
+      "number": 12,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop13",
+      "type": "proposition",
+      "label": "If four numbers proportional, also proportional alternately",
+      "shortLabel": "Prop. VII.13",
+      "short": "Proportional: alternately",
+      "book": 7,
+      "number": 13,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop14",
+      "type": "proposition",
+      "label": "If a:b = d:e and b:c = e:f, then a:c = d:f",
+      "shortLabel": "Prop. VII.14",
+      "short": "Ex aequali",
+      "book": 7,
+      "number": 14,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop15",
+      "type": "proposition",
+      "label": "If unit measures a, b measures c same times, alternately unit:c as b:d",
+      "shortLabel": "Prop. VII.15",
+      "short": "Unit measures",
+      "book": 7,
+      "number": 15,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop16",
+      "type": "proposition",
+      "label": "If a×b and c×d, then a×b = c×d (commutativity)",
+      "shortLabel": "Prop. VII.16",
+      "short": "Commutativity of product",
+      "book": 7,
+      "number": 16,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop17",
+      "type": "proposition",
+      "label": "a:b = (a×c):(b×c)",
+      "shortLabel": "Prop. VII.17",
+      "short": "Ratio of products",
+      "book": 7,
+      "number": 17,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop18",
+      "type": "proposition",
+      "label": "a×c : b×c = a:b",
+      "shortLabel": "Prop. VII.18",
+      "short": "Ratio: multipliers",
+      "book": 7,
+      "number": 18,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop19",
+      "type": "proposition",
+      "label": "a:b = c:d iff a×d = b×c",
+      "shortLabel": "Prop. VII.19",
+      "short": "Proportional iff product",
+      "book": 7,
+      "number": 19,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop20",
+      "type": "proposition",
+      "label": "Least numbers in ratio measure others same number of times",
+      "shortLabel": "Prop. VII.20",
+      "short": "Least in ratio",
+      "book": 7,
+      "number": 20,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop21",
+      "type": "proposition",
+      "label": "Relatively prime numbers are least in their ratio",
+      "shortLabel": "Prop. VII.21",
+      "short": "Relatively prime: least",
+      "book": 7,
+      "number": 21,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop22",
+      "type": "proposition",
+      "label": "Least numbers in ratio are relatively prime",
+      "shortLabel": "Prop. VII.22",
+      "short": "Least: relatively prime",
+      "book": 7,
+      "number": 22,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop23",
+      "type": "proposition",
+      "label": "If a,b relatively prime, divisor of a relatively prime to b",
+      "shortLabel": "Prop. VII.23",
+      "short": "Relatively prime: divisor",
+      "book": 7,
+      "number": 23,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop24",
+      "type": "proposition",
+      "label": "If a,b relatively prime to c, then a×b relatively prime to c",
+      "shortLabel": "Prop. VII.24",
+      "short": "Product relatively prime",
+      "book": 7,
+      "number": 24,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop25",
+      "type": "proposition",
+      "label": "If a,b relatively prime, a² relatively prime to b",
+      "shortLabel": "Prop. VII.25",
+      "short": "Square relatively prime",
+      "book": 7,
+      "number": 25,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop26",
+      "type": "proposition",
+      "label": "If a,c and b,d relatively prime, a×b, c×d relatively prime",
+      "shortLabel": "Prop. VII.26",
+      "short": "Products relatively prime",
+      "book": 7,
+      "number": 26,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop27",
+      "type": "proposition",
+      "label": "If a,b relatively prime, a²,b² relatively prime; a×a², b×b²",
+      "shortLabel": "Prop. VII.27",
+      "short": "Squares relatively prime",
+      "book": 7,
+      "number": 27,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop28",
+      "type": "proposition",
+      "label": "If a,b relatively prime, a+b prime to each; converse",
+      "shortLabel": "Prop. VII.28",
+      "short": "Sum relatively prime",
+      "book": 7,
+      "number": 28,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop29",
+      "type": "proposition",
+      "label": "Prime relatively prime to any number it does not measure",
+      "shortLabel": "Prop. VII.29",
+      "short": "Prime to non-multiple",
+      "book": 7,
+      "number": 29,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop30",
+      "type": "proposition",
+      "label": "If prime measures product, it measures one factor",
+      "shortLabel": "Prop. VII.30",
+      "short": "Prime divides product",
+      "book": 7,
+      "number": 30,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop31",
+      "type": "proposition",
+      "label": "Any composite measured by some prime",
+      "shortLabel": "Prop. VII.31",
+      "short": "Composite has prime factor",
+      "book": 7,
+      "number": 31,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop32",
+      "type": "proposition",
+      "label": "Any number is prime or measured by some prime",
+      "shortLabel": "Prop. VII.32",
+      "short": "Prime or has prime factor",
+      "book": 7,
+      "number": 32,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop33",
+      "type": "proposition",
+      "label": "Given numbers, find least in same ratio",
+      "shortLabel": "Prop. VII.33",
+      "short": "Least in ratio",
+      "book": 7,
+      "number": 33,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop34",
+      "type": "proposition",
+      "label": "To find least number that two given numbers measure",
+      "shortLabel": "Prop. VII.34",
+      "short": "LCM of two",
+      "book": 7,
+      "number": 34,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop35",
+      "type": "proposition",
+      "label": "If two numbers measure some number, LCM also measures it",
+      "shortLabel": "Prop. VII.35",
+      "short": "LCM divides common multiple",
+      "book": 7,
+      "number": 35,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop36",
+      "type": "proposition",
+      "label": "To find least number that three given numbers measure",
+      "shortLabel": "Prop. VII.36",
+      "short": "LCM of three",
+      "book": 7,
+      "number": 36,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop37",
+      "type": "proposition",
+      "label": "If a measures b, b has part named by a",
+      "shortLabel": "Prop. VII.37",
+      "short": "Measured has part",
+      "book": 7,
+      "number": 37,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop38",
+      "type": "proposition",
+      "label": "If b has part named by a, a measures b",
+      "shortLabel": "Prop. VII.38",
+      "short": "Part implies measured",
+      "book": 7,
+      "number": 38,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop39",
+      "type": "proposition",
+      "label": "To find least number with given parts",
+      "shortLabel": "Prop. VII.39",
+      "short": "Least with given parts",
+      "book": 7,
+      "number": 39,
+      "colorClass": "proposition"
+    }
+  ],
+  "edges": [
+    {
+      "from": "Prop1",
+      "to": "Prop2"
+    },
+    {
+      "from": "Prop1",
+      "to": "Prop3"
+    },
+    {
+      "from": "Prop2",
+      "to": "Prop3"
+    },
+    {
+      "from": "Prop19",
+      "to": "Prop20"
+    },
+    {
+      "from": "Prop20",
+      "to": "Prop21"
+    },
+    {
+      "from": "Prop21",
+      "to": "Prop22"
+    },
+    {
+      "from": "Prop22",
+      "to": "Prop23"
+    },
+    {
+      "from": "Prop23",
+      "to": "Prop24"
+    },
+    {
+      "from": "Prop23",
+      "to": "Prop25"
+    },
+    {
+      "from": "Prop24",
+      "to": "Prop26"
+    },
+    {
+      "from": "Prop25",
+      "to": "Prop27"
+    },
+    {
+      "from": "Prop23",
+      "to": "Prop28"
+    },
+    {
+      "from": "Prop23",
+      "to": "Prop29"
+    },
+    {
+      "from": "Prop29",
+      "to": "Prop30"
+    },
+    {
+      "from": "Prop31",
+      "to": "Prop32"
+    },
+    {
+      "from": "Prop20",
+      "to": "Prop33"
+    },
+    {
+      "from": "Prop22",
+      "to": "Prop33"
+    },
+    {
+      "from": "Prop33",
+      "to": "Prop34"
+    },
+    {
+      "from": "Prop34",
+      "to": "Prop35"
+    },
+    {
+      "from": "Prop34",
+      "to": "Prop36"
+    },
+    {
+      "from": "Prop37",
+      "to": "Prop38"
+    },
+    {
+      "from": "Prop38",
+      "to": "Prop39"
+    }
+  ],
+  "colorScheme": {
+    "definition": {
+      "fill": "#3498db",
+      "stroke": "#2980b9"
+    },
+    "proposition": {
+      "fill": "#1abc9c",
+      "stroke": "#16a085"
+    }
+  }
+}

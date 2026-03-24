@@ -1,0 +1,600 @@
+{
+  "schemaVersion": "1.0",
+  "discourse": {
+    "id": "propositional-logic",
+    "name": "Propositional Logic",
+    "subject": "logic",
+    "variant": "classical",
+    "description": "Hilbert-style axiomatic development of classical propositional logic. Three axioms (Łukasiewicz P2), modus ponens, definitions of disjunction, conjunction, biconditional, and key theorems (double negation, De Morgan, excluded middle, deduction theorem).",
+    "structure": {
+      "axioms": 4,
+      "definitions": 3,
+      "theorems": 19
+    }
+  },
+  "metadata": {
+    "created": "2026-03-15",
+    "lastUpdated": "2026-03-15",
+    "version": "1.0.0",
+    "license": "CC BY 4.0",
+    "authors": [
+      "Welz, G."
+    ],
+    "methodology": "Programming Framework",
+    "citation": "Welz, G. (2026). Propositional Logic Dependency Graph. Programming Framework.",
+    "keywords": [
+      "propositional logic",
+      "Hilbert",
+      "Łukasiewicz",
+      "tautology",
+      "modus ponens"
+    ]
+  },
+  "sources": [
+    {
+      "id": "frege",
+      "type": "primary",
+      "authors": "Frege, G.",
+      "title": "Begriffsschrift",
+      "year": "1879",
+      "notes": "First axiomatic propositional logic"
+    },
+    {
+      "id": "lukasiewicz",
+      "type": "primary",
+      "authors": "Łukasiewicz, J.",
+      "title": "Elements of Mathematical Logic",
+      "year": "1929",
+      "notes": "P2: 3 axioms"
+    },
+    {
+      "id": "wikipedia",
+      "type": "digital",
+      "title": "Propositional calculus",
+      "url": "https://en.wikipedia.org/wiki/Propositional_calculus",
+      "notes": "Axioms and theorems"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "A1",
+      "type": "axiom",
+      "label": "φ → (ψ → φ)",
+      "shortLabel": "A1",
+      "short": "Weakening",
+      "colorClass": "axiom"
+    },
+    {
+      "id": "A2",
+      "type": "axiom",
+      "label": "(φ→(ψ→χ)) → ((φ→ψ)→(φ→χ))",
+      "shortLabel": "A2",
+      "short": "Distrib. of impl.",
+      "colorClass": "axiom"
+    },
+    {
+      "id": "A3",
+      "type": "axiom",
+      "label": "(¬φ→¬ψ) → (ψ→φ)",
+      "shortLabel": "A3",
+      "short": "Contraposition",
+      "colorClass": "axiom"
+    },
+    {
+      "id": "MP",
+      "type": "axiom",
+      "label": "Modus Ponens: φ, (φ→ψ) ⊢ ψ",
+      "shortLabel": "MP",
+      "short": "MP",
+      "colorClass": "axiom"
+    },
+    {
+      "id": "T1",
+      "type": "theorem",
+      "label": "φ → φ",
+      "shortLabel": "T1",
+      "short": "Self-implication",
+      "colorClass": "theorem"
+    },
+    {
+      "id": "T2",
+      "type": "theorem",
+      "label": "¬¬φ → φ",
+      "shortLabel": "T2",
+      "short": "Double neg. elim",
+      "colorClass": "theorem"
+    },
+    {
+      "id": "T3",
+      "type": "theorem",
+      "label": "φ → ¬¬φ",
+      "shortLabel": "T3",
+      "short": "Double neg. intro",
+      "colorClass": "theorem"
+    },
+    {
+      "id": "T4",
+      "type": "theorem",
+      "label": "(φ→ψ) → (¬ψ→¬φ)",
+      "shortLabel": "T4",
+      "short": "Transposition",
+      "colorClass": "theorem"
+    },
+    {
+      "id": "T5",
+      "type": "theorem",
+      "label": "(φ→ψ)∧(ψ→χ) ⇒ (φ→χ)",
+      "shortLabel": "T5",
+      "short": "Hyp. syllogism",
+      "colorClass": "theorem"
+    },
+    {
+      "id": "DefOr",
+      "type": "definition",
+      "label": "φ ∨ ψ := ¬φ → ψ",
+      "shortLabel": "DefOr",
+      "short": "Def. disjunction",
+      "colorClass": "definition"
+    },
+    {
+      "id": "DefAnd",
+      "type": "definition",
+      "label": "φ ∧ ψ := ¬(φ → ¬ψ)",
+      "shortLabel": "DefAnd",
+      "short": "Def. conjunction",
+      "colorClass": "definition"
+    },
+    {
+      "id": "DefIff",
+      "type": "definition",
+      "label": "φ ↔ ψ := (φ→ψ)∧(ψ→φ)",
+      "shortLabel": "DefIff",
+      "short": "Def. biconditional",
+      "colorClass": "definition"
+    },
+    {
+      "id": "T6",
+      "type": "theorem",
+      "label": "φ → (φ ∨ ψ)",
+      "shortLabel": "T6",
+      "short": "Addition (∨I)",
+      "colorClass": "theorem"
+    },
+    {
+      "id": "T7",
+      "type": "theorem",
+      "label": "(φ∧ψ) → φ",
+      "shortLabel": "T7",
+      "short": "Simplification (∧E)",
+      "colorClass": "theorem"
+    },
+    {
+      "id": "T8",
+      "type": "theorem",
+      "label": "(φ∧ψ) → ψ",
+      "shortLabel": "T8",
+      "short": "Simplification (∧E)",
+      "colorClass": "theorem"
+    },
+    {
+      "id": "T9",
+      "type": "theorem",
+      "label": "φ → (ψ → (φ∧ψ))",
+      "shortLabel": "T9",
+      "short": "Conjunction (∧I)",
+      "colorClass": "theorem"
+    },
+    {
+      "id": "T10",
+      "type": "theorem",
+      "label": "(φ→ψ) ↔ (¬φ∨ψ)",
+      "shortLabel": "T10",
+      "short": "Material impl.",
+      "colorClass": "theorem"
+    },
+    {
+      "id": "T11",
+      "type": "theorem",
+      "label": "¬(φ∧ψ) ↔ (¬φ∨¬ψ)",
+      "shortLabel": "T11",
+      "short": "De Morgan (1)",
+      "colorClass": "theorem"
+    },
+    {
+      "id": "T12",
+      "type": "theorem",
+      "label": "¬(φ∨ψ) ↔ (¬φ∧¬ψ)",
+      "shortLabel": "T12",
+      "short": "De Morgan (2)",
+      "colorClass": "theorem"
+    },
+    {
+      "id": "T13",
+      "type": "theorem",
+      "label": "φ ∨ ¬φ",
+      "shortLabel": "T13",
+      "short": "Excluded middle",
+      "colorClass": "theorem"
+    },
+    {
+      "id": "T14",
+      "type": "theorem",
+      "label": "¬(φ ∧ ¬φ)",
+      "shortLabel": "T14",
+      "short": "Non-contradiction",
+      "colorClass": "theorem"
+    },
+    {
+      "id": "T15",
+      "type": "theorem",
+      "label": "(φ∧¬φ) → ψ",
+      "shortLabel": "T15",
+      "short": "Explosion",
+      "colorClass": "theorem"
+    },
+    {
+      "id": "T16",
+      "type": "theorem",
+      "label": "(φ∨ψ) ↔ (ψ∨φ)",
+      "shortLabel": "T16",
+      "short": "Commutation (∨)",
+      "colorClass": "theorem"
+    },
+    {
+      "id": "T17",
+      "type": "theorem",
+      "label": "(φ∧ψ) ↔ (ψ∧φ)",
+      "shortLabel": "T17",
+      "short": "Commutation (∧)",
+      "colorClass": "theorem"
+    },
+    {
+      "id": "T18",
+      "type": "theorem",
+      "label": "(φ∧(ψ∨χ)) ↔ ((φ∧ψ)∨(φ∧χ))",
+      "shortLabel": "T18",
+      "short": "Distribution",
+      "colorClass": "theorem"
+    },
+    {
+      "id": "T19",
+      "type": "theorem",
+      "label": "Deduction theorem",
+      "shortLabel": "T19",
+      "short": "Deduction thm",
+      "colorClass": "theorem"
+    }
+  ],
+  "edges": [
+    {
+      "from": "A1",
+      "to": "T1"
+    },
+    {
+      "from": "A2",
+      "to": "T1"
+    },
+    {
+      "from": "MP",
+      "to": "T1"
+    },
+    {
+      "from": "A3",
+      "to": "T2"
+    },
+    {
+      "from": "T1",
+      "to": "T2"
+    },
+    {
+      "from": "MP",
+      "to": "T2"
+    },
+    {
+      "from": "A1",
+      "to": "T3"
+    },
+    {
+      "from": "A3",
+      "to": "T3"
+    },
+    {
+      "from": "MP",
+      "to": "T3"
+    },
+    {
+      "from": "A3",
+      "to": "T4"
+    },
+    {
+      "from": "T2",
+      "to": "T4"
+    },
+    {
+      "from": "T3",
+      "to": "T4"
+    },
+    {
+      "from": "MP",
+      "to": "T4"
+    },
+    {
+      "from": "A2",
+      "to": "T5"
+    },
+    {
+      "from": "T1",
+      "to": "T5"
+    },
+    {
+      "from": "MP",
+      "to": "T5"
+    },
+    {
+      "from": "A1",
+      "to": "DefOr"
+    },
+    {
+      "from": "A2",
+      "to": "DefOr"
+    },
+    {
+      "from": "A3",
+      "to": "DefOr"
+    },
+    {
+      "from": "MP",
+      "to": "DefOr"
+    },
+    {
+      "from": "DefOr",
+      "to": "DefAnd"
+    },
+    {
+      "from": "A3",
+      "to": "DefAnd"
+    },
+    {
+      "from": "MP",
+      "to": "DefAnd"
+    },
+    {
+      "from": "DefAnd",
+      "to": "DefIff"
+    },
+    {
+      "from": "T9",
+      "to": "DefIff"
+    },
+    {
+      "from": "MP",
+      "to": "DefIff"
+    },
+    {
+      "from": "DefOr",
+      "to": "T6"
+    },
+    {
+      "from": "A1",
+      "to": "T6"
+    },
+    {
+      "from": "MP",
+      "to": "T6"
+    },
+    {
+      "from": "DefAnd",
+      "to": "T7"
+    },
+    {
+      "from": "A1",
+      "to": "T7"
+    },
+    {
+      "from": "A3",
+      "to": "T7"
+    },
+    {
+      "from": "MP",
+      "to": "T7"
+    },
+    {
+      "from": "DefAnd",
+      "to": "T8"
+    },
+    {
+      "from": "A1",
+      "to": "T8"
+    },
+    {
+      "from": "A3",
+      "to": "T8"
+    },
+    {
+      "from": "MP",
+      "to": "T8"
+    },
+    {
+      "from": "A1",
+      "to": "T9"
+    },
+    {
+      "from": "A2",
+      "to": "T9"
+    },
+    {
+      "from": "MP",
+      "to": "T9"
+    },
+    {
+      "from": "DefOr",
+      "to": "T10"
+    },
+    {
+      "from": "T4",
+      "to": "T10"
+    },
+    {
+      "from": "MP",
+      "to": "T10"
+    },
+    {
+      "from": "DefAnd",
+      "to": "T11"
+    },
+    {
+      "from": "DefOr",
+      "to": "T11"
+    },
+    {
+      "from": "T4",
+      "to": "T11"
+    },
+    {
+      "from": "T6",
+      "to": "T11"
+    },
+    {
+      "from": "MP",
+      "to": "T11"
+    },
+    {
+      "from": "DefAnd",
+      "to": "T12"
+    },
+    {
+      "from": "DefOr",
+      "to": "T12"
+    },
+    {
+      "from": "T4",
+      "to": "T12"
+    },
+    {
+      "from": "MP",
+      "to": "T12"
+    },
+    {
+      "from": "DefOr",
+      "to": "T13"
+    },
+    {
+      "from": "T2",
+      "to": "T13"
+    },
+    {
+      "from": "T3",
+      "to": "T13"
+    },
+    {
+      "from": "MP",
+      "to": "T13"
+    },
+    {
+      "from": "DefAnd",
+      "to": "T14"
+    },
+    {
+      "from": "T4",
+      "to": "T14"
+    },
+    {
+      "from": "MP",
+      "to": "T14"
+    },
+    {
+      "from": "DefAnd",
+      "to": "T15"
+    },
+    {
+      "from": "A1",
+      "to": "T15"
+    },
+    {
+      "from": "A2",
+      "to": "T15"
+    },
+    {
+      "from": "MP",
+      "to": "T15"
+    },
+    {
+      "from": "DefOr",
+      "to": "T16"
+    },
+    {
+      "from": "T4",
+      "to": "T16"
+    },
+    {
+      "from": "MP",
+      "to": "T16"
+    },
+    {
+      "from": "DefAnd",
+      "to": "T17"
+    },
+    {
+      "from": "T9",
+      "to": "T17"
+    },
+    {
+      "from": "MP",
+      "to": "T17"
+    },
+    {
+      "from": "DefAnd",
+      "to": "T18"
+    },
+    {
+      "from": "DefOr",
+      "to": "T18"
+    },
+    {
+      "from": "T6",
+      "to": "T18"
+    },
+    {
+      "from": "T7",
+      "to": "T18"
+    },
+    {
+      "from": "T8",
+      "to": "T18"
+    },
+    {
+      "from": "T9",
+      "to": "T18"
+    },
+    {
+      "from": "MP",
+      "to": "T18"
+    },
+    {
+      "from": "A1",
+      "to": "T19"
+    },
+    {
+      "from": "A2",
+      "to": "T19"
+    },
+    {
+      "from": "MP",
+      "to": "T19"
+    }
+  ],
+  "colorScheme": {
+    "axiom": {
+      "fill": "#e74c3c",
+      "stroke": "#c0392b"
+    },
+    "definition": {
+      "fill": "#3498db",
+      "stroke": "#2980b9"
+    },
+    "theorem": {
+      "fill": "#1abc9c",
+      "stroke": "#16a085"
+    }
+  }
+}

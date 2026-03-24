@@ -1,0 +1,54 @@
+graph TD
+    BookI["Book I\nFoundation"]
+    Def1["Def. II.1\nRectangle contained by two strai..."]
+    Def2["Def. II.2\nGnomon: parallelogram about diam..."]
+    Prop1["Prop. II.1\nRectangle = sum of rectangles"]
+    Prop2["Prop. II.2\nSum of rectangles = square on whole"]
+    Prop3["Prop. II.3\nRectangle = rectangle + square"]
+    Prop4["Prop. II.4\nSquare on whole = squares + 2×rectangle"]
+    Prop5["Prop. II.5\nUnequal segments: rectangle + square = square on half"]
+    Prop6["Prop. II.6\nBisected + added: rectangle + square = square"]
+    Prop7["Prop. II.7\nSquare on whole + square on segment"]
+    Prop8["Prop. II.8\nFour times rectangle + square"]
+    Prop9["Prop. II.9\nUnequal segments: sum of squares"]
+    Prop10["Prop. II.10\nBisected + added: sum of squares"]
+    Prop11["Prop. II.11\nCut line: rectangle = square (golden section)"]
+    Prop12["Prop. II.12\nObtuse triangle: law of cosines"]
+    Prop13["Prop. II.13\nAcute triangle: law of cosines"]
+    Prop14["Prop. II.14\nConstruct square = rectilinear figure"]
+    BookI --> Prop1
+    Def1 --> Prop1
+    BookI --> Prop2
+    Def1 --> Prop2
+    BookI --> Prop3
+    Def1 --> Prop3
+    BookI --> Prop4
+    Def1 --> Prop4
+    BookI --> Prop5
+    Def1 --> Prop5
+    Def2 --> Prop5
+    BookI --> Prop6
+    Def1 --> Prop6
+    Def2 --> Prop6
+    BookI --> Prop7
+    Def1 --> Prop7
+    BookI --> Prop8
+    Def1 --> Prop8
+    BookI --> Prop9
+    Def1 --> Prop9
+    BookI --> Prop10
+    Def1 --> Prop10
+    BookI --> Prop11
+    Prop6 --> Prop11
+    BookI --> Prop12
+    Prop4 --> Prop12
+    BookI --> Prop13
+    Prop7 --> Prop13
+    BookI --> Prop14
+    Prop5 --> Prop14
+    classDef foundation fill:#95a5a6,color:#fff,stroke:#7f8c8d
+    classDef definition fill:#3498db,color:#fff,stroke:#2980b9
+    classDef proposition fill:#1abc9c,color:#fff,stroke:#16a085
+    class BookI foundation
+    class Def1,Def2 definition
+    class Prop1,Prop2,Prop3,Prop4,Prop5,Prop6,Prop7,Prop8,Prop9,Prop10,Prop11,Prop12,Prop13,Prop14 proposition

@@ -88,7 +88,7 @@
 graph TD
     %% Initial Conditions
     A1[Particle Energy E] --> B1[Energy Assessment]
-    C1[Barrier Height V₀] --> D1[Barrier Analysis]
+    C1[Barrier Height V0] --> D1[Barrier Analysis]
     E1[Barrier Width a] --> F1[Geometric Constraints]
     
     %% Quantum State Preparation
@@ -97,9 +97,9 @@ graph TD
     F1 --> I1[Spatial Boundary Conditions]
     
     %% Wave Function Evolution
-    G1 --> J1[Incident Wave Function ψ₁]
-    H1 --> K1[Barrier Region ψ₂]
-    I1 --> L1[Transmitted Wave Function ψ₃]
+    G1 --> J1[Incident Wave Function psi1]
+    H1 --> K1[Barrier Region psi2]
+    I1 --> L1[Transmitted Wave Function psi3]
     
     %% Quantum Processing
     J1 --> M1[Wave Function Matching]
@@ -122,8 +122,8 @@ graph TD
     U1 --> X1[Measured Transmission]
     
     %% Decision Points
-    V1 -->|E < V₀: T = 0| Y1[Classical Forbidden]
-    W1 -->|E < V₀: T > 0| Z1[Quantum Tunneling]
+    V1 --> Y1[Classical Forbidden]
+    W1 --> Z1[Quantum Tunneling]
     X1 --> AA1[Particle Detection Beyond Barrier]
     
     %% Measurement and Detection
@@ -437,27 +437,27 @@ graph TD
     D4 --> H4[Fluid State Analysis]
     F4 --> I4[System Isolation]
     %% Isothermal Expansion
-    G4 --> J4[Heat Addition Q₁]
+    G4 --> J4[Heat Addition Q1]
     H4 --> K4[Volume Expansion]
-    I4 --> L4[Work Output W₁]
+    I4 --> L4[Work Output W1]
     %% Adiabatic Expansion
     J4 --> M4[Temperature Decrease]
     K4 --> N4[Pressure Reduction]
-    L4 --> O4[Work Output W₂]
+    L4 --> O4[Work Output W2]
     %% Isothermal Compression
-    M4 --> P4[Heat Rejection Q₂]
+    M4 --> P4[Heat Rejection Q2]
     N4 --> Q4[Volume Compression]
-    O4 --> R4[Work Input W₃]
+    O4 --> R4[Work Input W3]
     %% Adiabatic Compression
     P4 --> S4[Temperature Increase]
     Q4 --> T4[Pressure Increase]
-    R4 --> U4[Work Input W₄]
+    R4 --> U4[Work Input W4]
     %% Cycle Completion
     S4 --> V4[Return to Initial State]
     T4 --> W4[System Reset]
     U4 --> X4[Net Work Output]
     %% Efficiency Calculation
-    V4 --> Y4[Cycle Efficiency η]
+    V4 --> Y4[Cycle Efficiency eta]
     W4 --> Z4[Energy Conservation]
     X4 --> AA4[Power Generation]
     %% Final Results

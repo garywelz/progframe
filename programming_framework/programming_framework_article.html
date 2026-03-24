@@ -229,9 +229,9 @@ graph TD
     J --> K[Glucose Inside Cell]
     K --> L[High Glucose Status]
     %% Regulatory Logic Gates
-    I --> M{Is Lactose Present?}
-    L --> N{Is Glucose Present?}
-    F --> O{Is Energy Low?}
+    I --> M[Is Lactose Present Question]
+    L --> N[Is Glucose Present Question]
+    F --> O[Is Energy Low Question]
     %% Repressor Logic
     M -->|No| P[Lac Repressor Active]
     M -->|Yes| Q[Lac Repressor Inactive]
@@ -248,8 +248,8 @@ graph TD
     X --> Z[CAP Binds Promoter]
     Y --> AA[No CAP Binding]
     %% Transcription Control
-    U --> BB{Operator Free?}
-    Z --> CC{CAP Bound?}
+    U --> BB[Operator Free Question]
+    Z --> CC[CAP Bound Question]
     BB -->|Yes| DD[RNA Polymerase Binding]
     BB -->|No| EE[Transcription Blocked]
     CC -->|Yes| FF[Strong Transcription]
@@ -566,7 +566,7 @@ graph TD
 graph TD
     %% Initial Conditions
     A[Particle Energy E] --> B[Energy Assessment]
-    C[Barrier Height V₀] --> D[Barrier Analysis]
+    C[Barrier Height V0] --> D[Barrier Analysis]
     E[Barrier Width a] --> F[Geometric Constraints]
     
     %% Quantum State Preparation
@@ -575,9 +575,9 @@ graph TD
     F --> I[Spatial Boundary Conditions]
     
     %% Wave Function Evolution
-    G --> J[Incident Wave Function ψ₁]
-    H --> K[Barrier Region ψ₂]
-    I --> L[Transmitted Wave Function ψ₃]
+    G --> J[Incident Wave Function psi1]
+    H --> K[Barrier Region psi2]
+    I --> L[Transmitted Wave Function psi3]
     
     %% Quantum Processing
     J --> M[Wave Function Matching]
@@ -600,8 +600,8 @@ graph TD
     U --> X[Measured Transmission]
     
     %% Decision Points
-    V -->|E < V₀: T = 0| Y[Classical Forbidden]
-    W -->|E < V₀: T > 0| Z[Quantum Tunneling]
+    V --> Y[Classical Forbidden]
+    W --> Z[Quantum Tunneling]
     X --> AA[Particle Detection Beyond Barrier]
     
     %% Measurement and Detection

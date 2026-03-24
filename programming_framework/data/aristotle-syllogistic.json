@@ -1,0 +1,326 @@
+{
+  "schemaVersion": "1.0",
+  "discourse": {
+    "id": "aristotle-syllogistic",
+    "name": "Aristotle Syllogistic Logic",
+    "subject": "logic",
+    "variant": "classical",
+    "description": "Aristotelian categorical syllogistic. Four perfect syllogisms (Barbara, Celarent, Darii, Ferio), three conversion rules, and ten imperfect syllogisms reduced to the perfect ones. Based on Prior Analytics.",
+    "structure": {
+      "axioms": 7,
+      "definitions": 2,
+      "theorems": 10
+    }
+  },
+  "metadata": {
+    "created": "2026-03-15",
+    "lastUpdated": "2026-03-15",
+    "version": "1.0.0",
+    "license": "CC BY 4.0",
+    "authors": [
+      "Welz, G."
+    ],
+    "methodology": "Programming Framework",
+    "citation": "Welz, G. (2026). Aristotle Syllogistic Dependency Graph. Programming Framework.",
+    "keywords": [
+      "Aristotle",
+      "syllogism",
+      "categorical logic",
+      "Prior Analytics",
+      "Barbara",
+      "Celarent"
+    ]
+  },
+  "sources": [
+    {
+      "id": "aristotle",
+      "type": "primary",
+      "authors": "Aristotle",
+      "title": "Prior Analytics",
+      "year": "c. 350 BCE",
+      "notes": "Syllogistic theory"
+    },
+    {
+      "id": "stanford",
+      "type": "secondary",
+      "authors": "Smith, R.",
+      "title": "Aristotle's Logic",
+      "url": "https://plato.stanford.edu/entries/aristotle-logic/",
+      "notes": "Stanford Encyclopedia"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "DefAEIO",
+      "type": "definition",
+      "label": "A, E, I, O: All/No/Some/Some-not",
+      "shortLabel": "DefAEIO",
+      "short": "Categorical forms",
+      "colorClass": "definition"
+    },
+    {
+      "id": "DefFig",
+      "type": "definition",
+      "label": "Three figures: middle term position",
+      "shortLabel": "DefFig",
+      "short": "Figures 1,2,3",
+      "colorClass": "definition"
+    },
+    {
+      "id": "Econv",
+      "type": "axiom",
+      "label": "Eab implies Eba (No M is P implies No P is M)",
+      "shortLabel": "Econv",
+      "short": "E-conversion",
+      "colorClass": "axiom"
+    },
+    {
+      "id": "Iconv",
+      "type": "axiom",
+      "label": "Iab implies Iba (Some M is P implies Some P is M)",
+      "shortLabel": "Iconv",
+      "short": "I-conversion",
+      "colorClass": "axiom"
+    },
+    {
+      "id": "Aconv",
+      "type": "axiom",
+      "label": "Aab implies Iba (All M is P implies Some P is M)",
+      "shortLabel": "Aconv",
+      "short": "A-conversion",
+      "colorClass": "axiom"
+    },
+    {
+      "id": "Barbara",
+      "type": "axiom",
+      "label": "AAA-1: All M is P, All S is M therefore All S is P",
+      "shortLabel": "Barbara",
+      "short": "Barbara",
+      "colorClass": "axiom"
+    },
+    {
+      "id": "Celarent",
+      "type": "axiom",
+      "label": "EAE-1: No M is P, All S is M therefore No S is P",
+      "shortLabel": "Celarent",
+      "short": "Celarent",
+      "colorClass": "axiom"
+    },
+    {
+      "id": "Darii",
+      "type": "axiom",
+      "label": "AII-1: All M is P, Some S is M therefore Some S is P",
+      "shortLabel": "Darii",
+      "short": "Darii",
+      "colorClass": "axiom"
+    },
+    {
+      "id": "Ferio",
+      "type": "axiom",
+      "label": "EIO-1: No M is P, Some S is M therefore Some S is not P",
+      "shortLabel": "Ferio",
+      "short": "Ferio",
+      "colorClass": "axiom"
+    },
+    {
+      "id": "Cesare",
+      "type": "theorem",
+      "label": "EAE-2: No P is M, All S is M therefore No S is P",
+      "shortLabel": "Cesare",
+      "short": "Cesare",
+      "colorClass": "theorem"
+    },
+    {
+      "id": "Camestres",
+      "type": "theorem",
+      "label": "AEE-2: All P is M, No S is M therefore No S is P",
+      "shortLabel": "Camestres",
+      "short": "Camestres",
+      "colorClass": "theorem"
+    },
+    {
+      "id": "Festino",
+      "type": "theorem",
+      "label": "EIO-2: No P is M, Some S is M therefore Some S is not P",
+      "shortLabel": "Festino",
+      "short": "Festino",
+      "colorClass": "theorem"
+    },
+    {
+      "id": "Baroco",
+      "type": "theorem",
+      "label": "AOO-2: All P is M, Some S is not M therefore Some S is not P",
+      "shortLabel": "Baroco",
+      "short": "Baroco",
+      "colorClass": "theorem"
+    },
+    {
+      "id": "Darapti",
+      "type": "theorem",
+      "label": "AAI-3: All M is P, All M is S therefore Some S is P",
+      "shortLabel": "Darapti",
+      "short": "Darapti",
+      "colorClass": "theorem"
+    },
+    {
+      "id": "Felapton",
+      "type": "theorem",
+      "label": "EAO-3: No M is P, All M is S therefore Some S is not P",
+      "shortLabel": "Felapton",
+      "short": "Felapton",
+      "colorClass": "theorem"
+    },
+    {
+      "id": "Disamis",
+      "type": "theorem",
+      "label": "IAI-3: Some M is P, All M is S therefore Some S is P",
+      "shortLabel": "Disamis",
+      "short": "Disamis",
+      "colorClass": "theorem"
+    },
+    {
+      "id": "Datisi",
+      "type": "theorem",
+      "label": "AII-3: All M is P, Some M is S therefore Some S is P",
+      "shortLabel": "Datisi",
+      "short": "Datisi",
+      "colorClass": "theorem"
+    },
+    {
+      "id": "Bocardo",
+      "type": "theorem",
+      "label": "OAO-3: Some M is not P, All M is S therefore Some S is not P",
+      "shortLabel": "Bocardo",
+      "short": "Bocardo",
+      "colorClass": "theorem"
+    },
+    {
+      "id": "Ferison",
+      "type": "theorem",
+      "label": "EIO-3: No M is P, Some M is S therefore Some S is not P",
+      "shortLabel": "Ferison",
+      "short": "Ferison",
+      "colorClass": "theorem"
+    }
+  ],
+  "edges": [
+    {
+      "from": "DefAEIO",
+      "to": "Barbara"
+    },
+    {
+      "from": "DefFig",
+      "to": "Barbara"
+    },
+    {
+      "from": "DefAEIO",
+      "to": "Celarent"
+    },
+    {
+      "from": "DefFig",
+      "to": "Celarent"
+    },
+    {
+      "from": "DefAEIO",
+      "to": "Darii"
+    },
+    {
+      "from": "DefFig",
+      "to": "Darii"
+    },
+    {
+      "from": "DefAEIO",
+      "to": "Ferio"
+    },
+    {
+      "from": "DefFig",
+      "to": "Ferio"
+    },
+    {
+      "from": "Econv",
+      "to": "Cesare"
+    },
+    {
+      "from": "Celarent",
+      "to": "Cesare"
+    },
+    {
+      "from": "Econv",
+      "to": "Camestres"
+    },
+    {
+      "from": "Celarent",
+      "to": "Camestres"
+    },
+    {
+      "from": "Econv",
+      "to": "Festino"
+    },
+    {
+      "from": "Ferio",
+      "to": "Festino"
+    },
+    {
+      "from": "Barbara",
+      "to": "Baroco"
+    },
+    {
+      "from": "Aconv",
+      "to": "Darapti"
+    },
+    {
+      "from": "Darii",
+      "to": "Darapti"
+    },
+    {
+      "from": "Aconv",
+      "to": "Felapton"
+    },
+    {
+      "from": "Ferio",
+      "to": "Felapton"
+    },
+    {
+      "from": "Iconv",
+      "to": "Disamis"
+    },
+    {
+      "from": "Darii",
+      "to": "Disamis"
+    },
+    {
+      "from": "Aconv",
+      "to": "Datisi"
+    },
+    {
+      "from": "Darii",
+      "to": "Datisi"
+    },
+    {
+      "from": "Barbara",
+      "to": "Bocardo"
+    },
+    {
+      "from": "Aconv",
+      "to": "Ferison"
+    },
+    {
+      "from": "Ferio",
+      "to": "Ferison"
+    }
+  ],
+  "colorScheme": {
+    "axiom": {
+      "fill": "#e74c3c",
+      "stroke": "#c0392b"
+    },
+    "definition": {
+      "fill": "#3498db",
+      "stroke": "#2980b9"
+    },
+    "theorem": {
+      "fill": "#1abc9c",
+      "stroke": "#16a085"
+    }
+  }
+}

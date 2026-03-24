@@ -1,0 +1,60 @@
+graph TD
+    %% ── GLMP Color Scheme ────────────────────────────────────
+    %% Red: Triggers & Inputs
+    %% Yellow: Structures & Objects  
+    %% Green: Processing & Operations
+    %% Light Blue: Intermediates & States
+    %% Violet: Products & Outputs
+    %% Lavender: Decision diamonds AND/OR
+
+    %% ── Inputs ───────────────────────────────────────────────
+    A1["Sorted array A\nSearch key K"]
+    
+    %% ── Structures ────────────────────────────────────────────
+    B1["Initialize interval\nlow = 0, high = n-1"]
+    
+    %% ── Processing & Loop ─────────────────────────────────────
+    C1["Compute middle\nmid = low + (high-low)/2"]
+    C2["Compare key with A[mid]"]
+    
+    %% ── Decision diamonds (Lavender) ──────────────────────────
+    D1{"Interval\nempty?"}
+    D2{"key ==\nA[mid]?"}
+    D3{"key <\nA[mid]?"}
+    
+    %% ── Intermediates & States ─────────────────────────────────
+    E1["Narrow to lower half\nhigh = mid - 1"]
+    E2["Narrow to upper half\nlow = mid + 1"]
+    
+    %% ── Outputs ────────────────────────────────────────────────
+    F1["Return mid\nFound"]
+    F2["Return -1\nNot found"]
+    
+    %% ── Flow ──────────────────────────────────────────────────
+    A1 --> B1
+    B1 --> D1
+    D1 -->|No| C1
+    D1 -->|Yes| F2
+    C1 --> C2
+    C2 --> D2
+    D2 -->|Yes| F1
+    D2 -->|No| D3
+    D3 -->|Yes| E1
+    D3 -->|No| E2
+    E1 --> D1
+    E2 --> D1
+    
+    %% ── Styling (GLMP 6-color) ────────────────────────────────
+    classDef red fill:#ff6b6b,color:#fff,stroke:#c0392b
+    classDef yellow fill:#ffd43b,color:#000,stroke:#f59f00
+    classDef green fill:#51cf66,color:#fff,stroke:#40c057
+    classDef lightblue fill:#74c0fc,color:#fff,stroke:#4dabf7
+    classDef violet fill:#b197fc,color:#fff,stroke:#9775fa
+    classDef lavender fill:#e6e6fa,color:#333,stroke:#b19cd9
+    
+    class A1 red
+    class B1 yellow
+    class C1,C2 green
+    class E1,E2 lightblue
+    class F1,F2 violet
+    class D1,D2,D3 lavender

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binary Search - NIST DADS - GLMP Color Scheme</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', sans-serif; background: #f8f9fa; padding: 2rem; }
+        .container { max-width: 900px; margin: 0 auto; background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+        h1 { color: #2c3e50; margin-bottom: 0.5rem; }
+        .source { font-size: 0.9rem; color: #666; margin-bottom: 1.5rem; }
+        .source a { color: #667eea; }
+        .mermaid { padding: 1rem; background: #fafafa; border-radius: 8px; overflow-x: auto; }
+        .legend { margin-top: 2rem; padding: 1rem; background: #f8f9fa; border-radius: 8px; }
+        .legend h3 { margin-bottom: 1rem; font-size: 1rem; }
+        .legend-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.75rem; }
+        .legend-item { display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; }
+        .legend-box { width: 24px; height: 24px; border-radius: 4px; flex-shrink: 0; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Binary Search</h1>
+        <p class="source">Source: <a href="https://www.nist.gov/dads/HTML/binarySearch.html" target="_blank">NIST Dictionary of Algorithms and Data Structures</a> · Color scheme: <a href="https://storage.googleapis.com/regal-scholar-453620-r7-podcast-storage/glmp-v2/viewer_demo/glmp-viewer-demo-v1-v6.html?process=ecoli_lac_operon" target="_blank">GLMP Process Viewer</a></p>
+        
+        <div class="mermaid">
+graph TD
+    A1["Sorted array A\nSearch key K"]
+    B1["Initialize interval\nlow = 0, high = n-1"]
+    C1["Compute middle\nmid = low + (high-low)/2"]
+    C2["Compare key with A[mid]"]
+    D1{"Interval\nempty?"}
+    D2{"key ==\nA[mid]?"}
+    D3{"key <\nA[mid]?"}
+    E1["Narrow to lower half\nhigh = mid - 1"]
+    E2["Narrow to upper half\nlow = mid + 1"]
+    F1["Return mid\nFound"]
+    F2["Return -1\nNot found"]
+    A1 --> B1
+    B1 --> D1
+    D1 -->|No| C1
+    D1 -->|Yes| F2
+    C1 --> C2
+    C2 --> D2
+    D2 -->|Yes| F1
+    D2 -->|No| D3
+    D3 -->|Yes| E1
+    D3 -->|No| E2
+    E1 --> D1
+    E2 --> D1
+    classDef red fill:#ff6b6b,color:#fff,stroke:#c0392b
+    classDef yellow fill:#ffd43b,color:#000,stroke:#f59f00
+    classDef green fill:#51cf66,color:#fff,stroke:#40c057
+    classDef lightblue fill:#74c0fc,color:#fff,stroke:#4dabf7
+    classDef violet fill:#b197fc,color:#fff,stroke:#9775fa
+    classDef lavender fill:#e6e6fa,color:#333,stroke:#b19cd9
+    class A1 red
+    class B1 yellow
+    class C1,C2 green
+    class E1,E2 lightblue
+    class F1,F2 violet
+    class D1,D2,D3 lavender
+        </div>
+        
+        <div class="legend">
+            <h3>Color Coding (GLMP 6-Color System)</h3>
+            <div class="legend-grid">
+                <div class="legend-item"><span class="legend-box" style="background:#ff6b6b"></span> Red — Triggers & Inputs</div>
+                <div class="legend-item"><span class="legend-box" style="background:#ffd43b"></span> Yellow — Structures & Objects</div>
+                <div class="legend-item"><span class="legend-box" style="background:#51cf66"></span> Green — Processing & Operations</div>
+                <div class="legend-item"><span class="legend-box" style="background:#74c0fc"></span> Light Blue — Intermediates & States</div>
+                <div class="legend-item"><span class="legend-box" style="background:#b197fc"></span> Violet — Products & Outputs</div>
+                <div class="legend-item"><span class="legend-box" style="background:#e6e6fa"></span> Lavender — Decision diamonds (AND/OR)</div>
+            </div>
+        </div>
+    </div>
+    <script>
+        mermaid.initialize({
+            startOnLoad: true,
+            flowchart: { useMaxWidth: true, nodeSpacing: 40, rankSpacing: 40 },
+            themeVariables: { fontSize: '14px' }
+        });
+    </script>
+</body>
+</html>

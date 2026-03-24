@@ -1,0 +1,650 @@
+{
+  "schemaVersion": "1.0",
+  "discourse": {
+    "id": "euclid-elements-book-xiii",
+    "name": "Euclid's Elements, Book XIII",
+    "subject": "regular_solids",
+    "variant": "classical",
+    "description": "Regular solids: tetrahedron, octahedron, cube, icosahedron, dodecahedron. 18 propositions. Depends on Books I, IV, VI, X, XI. Source: David E. Joyce.",
+    "structure": {
+      "books": 13,
+      "propositions": 18,
+      "foundationTypes": [
+        "foundation"
+      ]
+    }
+  },
+  "metadata": {
+    "created": "2026-03-18",
+    "lastUpdated": "2026-03-18",
+    "version": "1.0.0",
+    "license": "CC BY 4.0",
+    "authors": [
+      "Welz, G."
+    ],
+    "methodology": "Programming Framework",
+    "citation": "Welz, G. (2026). Euclid's Elements Book XIII Dependency Graph. Programming Framework.",
+    "keywords": [
+      "Euclid",
+      "Elements",
+      "Book XIII",
+      "regular solids",
+      "Platonic",
+      "tetrahedron",
+      "octahedron",
+      "cube",
+      "icosahedron",
+      "dodecahedron"
+    ]
+  },
+  "sources": [
+    {
+      "id": "joyce",
+      "type": "digital",
+      "authors": "Joyce, David E.",
+      "title": "Euclid's Elements, Book XIII",
+      "year": "1996",
+      "url": "https://mathcs.clarku.edu/~djoyce/java/elements/bookXIII/bookXIII.html",
+      "notes": "Clark University"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "BookI",
+      "type": "foundation",
+      "label": "Book I — Plane geometry",
+      "shortLabel": "Book I",
+      "short": "Foundation",
+      "book": 1,
+      "colorClass": "foundation"
+    },
+    {
+      "id": "BookIV",
+      "type": "foundation",
+      "label": "Book IV — Inscribed figures",
+      "shortLabel": "Book IV",
+      "short": "Foundation",
+      "book": 4,
+      "colorClass": "foundation"
+    },
+    {
+      "id": "BookVI",
+      "type": "foundation",
+      "label": "Book VI — Similar figures",
+      "shortLabel": "Book VI",
+      "short": "Foundation",
+      "book": 6,
+      "colorClass": "foundation"
+    },
+    {
+      "id": "BookX",
+      "type": "foundation",
+      "label": "Book X — Incommensurables",
+      "shortLabel": "Book X",
+      "short": "Foundation",
+      "book": 10,
+      "colorClass": "foundation"
+    },
+    {
+      "id": "BookXI",
+      "type": "foundation",
+      "label": "Book XI — Solid geometry",
+      "shortLabel": "Book XI",
+      "short": "Foundation",
+      "book": 11,
+      "colorClass": "foundation"
+    },
+    {
+      "id": "Prop1",
+      "type": "proposition",
+      "label": "Line cut in extreme and mean ratio: square on greater plus half whole equals five times square on half",
+      "shortLabel": "Prop. XIII.1",
+      "short": "Extreme and mean: square on greater",
+      "book": 13,
+      "number": 1,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop2",
+      "type": "proposition",
+      "label": "If square on line five times square on segment: double segment cut in extreme and mean, greater is remainder",
+      "shortLabel": "Prop. XIII.2",
+      "short": "Square five times: extreme and mean",
+      "book": 13,
+      "number": 2,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop3",
+      "type": "proposition",
+      "label": "Line cut in extreme and mean: square on lesser + half greater equals five times square on half",
+      "shortLabel": "Prop. XIII.3",
+      "short": "Extreme and mean: sum of segments",
+      "book": 13,
+      "number": 3,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop4",
+      "type": "proposition",
+      "label": "Line cut in extreme and mean: sum of squares on whole and lesser triple square on greater",
+      "shortLabel": "Prop. XIII.4",
+      "short": "Extreme and mean: sum of squares",
+      "book": 13,
+      "number": 4,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop5",
+      "type": "proposition",
+      "label": "Line cut in extreme and mean, add greater: whole cut in extreme and mean, original is greater",
+      "shortLabel": "Prop. XIII.5",
+      "short": "Extreme and mean: add greater",
+      "book": 13,
+      "number": 5,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop6",
+      "type": "proposition",
+      "label": "Rational line cut in extreme and mean ratio: each segment is apotome",
+      "shortLabel": "Prop. XIII.6",
+      "short": "Rational cut: apotome",
+      "book": 13,
+      "number": 6,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop7",
+      "type": "proposition",
+      "label": "Equilateral pentagon: if three angles equal (order or not), pentagon equiangular",
+      "shortLabel": "Prop. XIII.7",
+      "short": "Equilateral pentagon: three angles",
+      "book": 13,
+      "number": 7,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop8",
+      "type": "proposition",
+      "label": "Equilateral equiangular pentagon: diagonals subtending two angles cut in extreme and mean ratio",
+      "shortLabel": "Prop. XIII.8",
+      "short": "Pentagon: diagonals in extreme and mean",
+      "book": 13,
+      "number": 8,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop9",
+      "type": "proposition",
+      "label": "Side of hexagon + decagon in same circle: cut in extreme and mean, greater is hexagon",
+      "shortLabel": "Prop. XIII.9",
+      "short": "Hexagon + decagon: extreme and mean",
+      "book": 13,
+      "number": 9,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop10",
+      "type": "proposition",
+      "label": "Equilateral pentagon in circle: square on side equals sum of squares on hexagon and decagon",
+      "shortLabel": "Prop. XIII.10",
+      "short": "Pentagon: square equals hexagon + decagon",
+      "book": 13,
+      "number": 10,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop11",
+      "type": "proposition",
+      "label": "Equilateral pentagon in circle with rational diameter: side is minor",
+      "shortLabel": "Prop. XIII.11",
+      "short": "Pentagon in rational circle: minor",
+      "book": 13,
+      "number": 11,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop12",
+      "type": "proposition",
+      "label": "Equilateral triangle in circle: square on side triple square on radius",
+      "shortLabel": "Prop. XIII.12",
+      "short": "Equilateral triangle: side triple radius",
+      "book": 13,
+      "number": 12,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop13",
+      "type": "proposition",
+      "label": "To construct pyramid (tetrahedron) in given sphere; diameter squared 1.5 times side squared",
+      "shortLabel": "Prop. XIII.13",
+      "short": "Construct tetrahedron in sphere",
+      "book": 13,
+      "number": 13,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop14",
+      "type": "proposition",
+      "label": "To construct octahedron in sphere; diameter squared double side squared",
+      "shortLabel": "Prop. XIII.14",
+      "short": "Construct octahedron in sphere",
+      "book": 13,
+      "number": 14,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop15",
+      "type": "proposition",
+      "label": "To construct cube in sphere; diameter squared triple side squared",
+      "shortLabel": "Prop. XIII.15",
+      "short": "Construct cube in sphere",
+      "book": 13,
+      "number": 15,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop16",
+      "type": "proposition",
+      "label": "To construct icosahedron in sphere; side is minor",
+      "shortLabel": "Prop. XIII.16",
+      "short": "Construct icosahedron in sphere",
+      "book": 13,
+      "number": 16,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop17",
+      "type": "proposition",
+      "label": "To construct dodecahedron in sphere; side is apotome",
+      "shortLabel": "Prop. XIII.17",
+      "short": "Construct dodecahedron in sphere",
+      "book": 13,
+      "number": 17,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop18",
+      "type": "proposition",
+      "label": "To set out sides of five figures and compare them; no other such figure exists",
+      "shortLabel": "Prop. XIII.18",
+      "short": "Compare five regular solids",
+      "book": 13,
+      "number": 18,
+      "colorClass": "proposition"
+    }
+  ],
+  "edges": [
+    {
+      "from": "BookI",
+      "to": "Prop1"
+    },
+    {
+      "from": "BookIV",
+      "to": "Prop1"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop1"
+    },
+    {
+      "from": "BookX",
+      "to": "Prop1"
+    },
+    {
+      "from": "BookXI",
+      "to": "Prop1"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop2"
+    },
+    {
+      "from": "BookIV",
+      "to": "Prop2"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop2"
+    },
+    {
+      "from": "BookX",
+      "to": "Prop2"
+    },
+    {
+      "from": "BookXI",
+      "to": "Prop2"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop3"
+    },
+    {
+      "from": "BookIV",
+      "to": "Prop3"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop3"
+    },
+    {
+      "from": "BookX",
+      "to": "Prop3"
+    },
+    {
+      "from": "BookXI",
+      "to": "Prop3"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop4"
+    },
+    {
+      "from": "BookIV",
+      "to": "Prop4"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop4"
+    },
+    {
+      "from": "BookX",
+      "to": "Prop4"
+    },
+    {
+      "from": "BookXI",
+      "to": "Prop4"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop5"
+    },
+    {
+      "from": "BookIV",
+      "to": "Prop5"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop5"
+    },
+    {
+      "from": "BookX",
+      "to": "Prop5"
+    },
+    {
+      "from": "BookXI",
+      "to": "Prop5"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop6"
+    },
+    {
+      "from": "BookIV",
+      "to": "Prop6"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop6"
+    },
+    {
+      "from": "BookX",
+      "to": "Prop6"
+    },
+    {
+      "from": "BookXI",
+      "to": "Prop6"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop7"
+    },
+    {
+      "from": "BookIV",
+      "to": "Prop7"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop7"
+    },
+    {
+      "from": "BookX",
+      "to": "Prop7"
+    },
+    {
+      "from": "BookXI",
+      "to": "Prop7"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop8"
+    },
+    {
+      "from": "BookIV",
+      "to": "Prop8"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop8"
+    },
+    {
+      "from": "BookX",
+      "to": "Prop8"
+    },
+    {
+      "from": "BookXI",
+      "to": "Prop8"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop9"
+    },
+    {
+      "from": "BookIV",
+      "to": "Prop9"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop9"
+    },
+    {
+      "from": "BookX",
+      "to": "Prop9"
+    },
+    {
+      "from": "BookXI",
+      "to": "Prop9"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop10"
+    },
+    {
+      "from": "BookIV",
+      "to": "Prop10"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop10"
+    },
+    {
+      "from": "BookX",
+      "to": "Prop10"
+    },
+    {
+      "from": "BookXI",
+      "to": "Prop10"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop11"
+    },
+    {
+      "from": "BookIV",
+      "to": "Prop11"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop11"
+    },
+    {
+      "from": "BookX",
+      "to": "Prop11"
+    },
+    {
+      "from": "BookXI",
+      "to": "Prop11"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop12"
+    },
+    {
+      "from": "BookIV",
+      "to": "Prop12"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop12"
+    },
+    {
+      "from": "BookX",
+      "to": "Prop12"
+    },
+    {
+      "from": "BookXI",
+      "to": "Prop12"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop13"
+    },
+    {
+      "from": "BookIV",
+      "to": "Prop13"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop13"
+    },
+    {
+      "from": "BookX",
+      "to": "Prop13"
+    },
+    {
+      "from": "BookXI",
+      "to": "Prop13"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop14"
+    },
+    {
+      "from": "BookIV",
+      "to": "Prop14"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop14"
+    },
+    {
+      "from": "BookX",
+      "to": "Prop14"
+    },
+    {
+      "from": "BookXI",
+      "to": "Prop14"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop15"
+    },
+    {
+      "from": "BookIV",
+      "to": "Prop15"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop15"
+    },
+    {
+      "from": "BookX",
+      "to": "Prop15"
+    },
+    {
+      "from": "BookXI",
+      "to": "Prop15"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop16"
+    },
+    {
+      "from": "BookIV",
+      "to": "Prop16"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop16"
+    },
+    {
+      "from": "BookX",
+      "to": "Prop16"
+    },
+    {
+      "from": "BookXI",
+      "to": "Prop16"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop17"
+    },
+    {
+      "from": "BookIV",
+      "to": "Prop17"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop17"
+    },
+    {
+      "from": "BookX",
+      "to": "Prop17"
+    },
+    {
+      "from": "BookXI",
+      "to": "Prop17"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop18"
+    },
+    {
+      "from": "BookIV",
+      "to": "Prop18"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop18"
+    },
+    {
+      "from": "BookX",
+      "to": "Prop18"
+    },
+    {
+      "from": "BookXI",
+      "to": "Prop18"
+    }
+  ],
+  "colorScheme": {
+    "foundation": {
+      "fill": "#95a5a6",
+      "stroke": "#7f8c8d"
+    },
+    "proposition": {
+      "fill": "#1abc9c",
+      "stroke": "#16a085"
+    }
+  }
+}

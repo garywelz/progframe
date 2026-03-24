@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mathematical Dependency Graphs — Design Document</title>
+    <style>
+        body { font-family: 'Segoe UI', system-ui, sans-serif; max-width: 900px; margin: 0 auto; padding: 2rem; line-height: 1.6; color: #333; }
+        h1 { color: #2c3e50; border-bottom: 2px solid #667eea; padding-bottom: 0.5rem; }
+        h2 { color: #667eea; margin-top: 2rem; }
+        h3 { color: #495057; margin-top: 1.5rem; }
+        table { border-collapse: collapse; width: 100%; margin: 1rem 0; }
+        th, td { border: 1px solid #ddd; padding: 8px 12px; text-align: left; }
+        th { background: #f8f9fa; font-weight: 600; }
+        pre { background: #f8f9fa; padding: 1rem; overflow-x: auto; border-radius: 6px; font-size: 0.85rem; }
+        code { background: #e9ecef; padding: 0.2em 0.4em; border-radius: 4px; font-size: 0.9em; }
+        .nav { margin-bottom: 2rem; padding: 1rem; background: #f8f9fa; border-radius: 8px; }
+        .nav a { color: #667eea; margin-right: 1rem; }
+        hr { border: none; border-top: 1px solid #dee2e6; margin: 2rem 0; }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <a href="https://storage.googleapis.com/regal-scholar-453620-r7-podcast-storage/mathematics-processes-database/mathematics-database-table.html">← Mathematics Database</a>
+        <a href="discourse-schema.json">Schema (JSON)</a>
+        <a href="MATHEMATICAL_DEPENDENCY_GRAPHS_DESIGN.md">Design (Markdown)</a>
+    </div>
+
+    <h1>Mathematical Dependency Graphs — Design Document</h1>
+
+    <h2>Overview</h2>
+    <p>A hybrid architecture for representing and visualizing axiomatic dependency structures across multiple mathematical subjects. Supports both static Mermaid subgraphs and interactive full-graph exploration.</p>
+
+    <h2>Scope: Target Subjects</h2>
+    <table>
+        <tr><th>Subject</th><th>Foundations</th><th>Derived Items</th><th>Notes</th></tr>
+        <tr><td><strong>Euclid's Elements</strong></td><td>Postulates, Common Notions, Definitions</td><td>464 Propositions (13 books)</td><td>Geometric constructions</td></tr>
+        <tr><td><strong>Peano Arithmetic</strong></td><td>5 axioms, definitions</td><td>Theorems</td><td>Successor, induction</td></tr>
+        <tr><td><strong>Other number systems</strong></td><td>Axioms (integers, rationals, reals)</td><td>Theorems</td><td>Construction sequences</td></tr>
+        <tr><td><strong>Number theory</strong></td><td>Definitions, lemmas</td><td>Theorems</td><td>Divisibility, primes</td></tr>
+        <tr><td><strong>Algebra</strong></td><td>Group/ring/field axioms</td><td>Theorems</td><td>Abstract structures</td></tr>
+        <tr><td><strong>Hilbert's geometry</strong></td><td>5 groups of axioms</td><td>Theorems</td><td><em>Grundlagen der Geometrie</em></td></tr>
+        <tr><td><strong>Tarski's geometry</strong></td><td>Betweenness, congruence relations</td><td>Theorems</td><td>First-order, decidable</td></tr>
+        <tr><td><strong>Analysis</strong></td><td>Completeness, continuity axioms</td><td>Theorems</td><td>Real analysis, limits</td></tr>
+    </table>
+
+    <h2>Metadata & Sources</h2>
+    <p>Each discourse includes <strong>metadata</strong> (created, lastUpdated, version, license, authors, methodology, citation) and <strong>sources</strong> (primary texts, digital editions, commentaries). Nodes can reference sources via <code>sourceRef</code>.</p>
+
+    <h2>Hybrid Architecture</h2>
+    <ol>
+        <li><strong>Canonical JSON</strong> — One file per discourse, source of truth</li>
+        <li><strong>Mermaid generator</strong> — Filter by book/chapter, output subgraph</li>
+        <li><strong>Interactive viewer</strong> — Full graph with zoom, search, highlight</li>
+        <li><strong>Index/Registry</strong> — Catalog of all discourses with metadata</li>
+    </ol>
+
+    <h2>Implementation Phases</h2>
+    <table>
+        <tr><th>Phase</th><th>Deliverable</th></tr>
+        <tr><td>1</td><td>Schema + Euclid Props 1–6 JSON; Mermaid generator script</td></tr>
+        <tr><td>2</td><td>Euclid Book I full JSON; static pages for Books I–IV</td></tr>
+        <tr><td>3</td><td>Interactive viewer (single discourse)</td></tr>
+        <tr><td>4</td><td>Peano Arithmetic, Hilbert Geometry JSON</td></tr>
+        <tr><td>5</td><td>Multi-discourse index; cross-discourse navigation</td></tr>
+        <tr><td>6</td><td>Tarski, Analysis, other subjects</td></tr>
+    </table>
+
+    <h2>References</h2>
+    <ul>
+        <li>Euclid's Elements: <a href="http://www.perseus.tufts.edu/hopper/text?doc=Perseus:text:1999.01.0086">Perseus Digital Library</a></li>
+        <li>Heath, T.L. <em>The Thirteen Books of Euclid's Elements</em> (1908, 2nd ed.)</li>
+        <li>Hilbert: <em>Grundlagen der Geometrie</em> (1899)</li>
+        <li>Tarski: <em>What is Elementary Geometry?</em> (1959)</li>
+        <li>Peano: <em>Arithmetices principia</em> (1889)</li>
+    </ul>
+
+    <p style="margin-top:2rem;color:#666;font-size:0.9rem;">Programming Framework · Mathematical Dependency Graphs Design · 2026</p>
+</body>
+</html>

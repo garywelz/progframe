@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riemannian Geometry - Mathematics Process</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; padding: 20px; }
+        .container { max-width: 1200px; margin: 0 auto; background: white; border-radius: 15px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); overflow: hidden; }
+        .header { background: #d35400; color: white; padding: 30px; }
+        .header h1 { margin: 0 0 10px 0; font-size: 2em; font-weight: 300; }
+        .header-meta { display: flex; flex-wrap: wrap; gap: 15px; margin-top: 15px; font-size: 0.9em; opacity: 0.9; }
+        .meta-item { background: rgba(255,255,255,0.2); padding: 5px 12px; border-radius: 20px; }
+        .nav-links { padding: 15px 30px; background: #f8f9fa; border-bottom: 1px solid #ecf0f1; }
+        .nav-links a { color: #d35400; text-decoration: none; margin-right: 20px; font-weight: 500; }
+        .nav-links a:hover { text-decoration: underline; }
+        .content { padding: 30px; }
+        .description { margin-bottom: 30px; }
+        .flowchart-container { margin: 30px 0; }
+        .flowchart-container h2 { color: #2c3e50; margin-bottom: 15px; }
+        .mermaid { background: white; padding: 20px; border-radius: 10px; border: 1px solid #ecf0f1; overflow-x: auto; }
+        .color-legend { background: #f8f9fa; padding: 20px; border-radius: 10px; margin: 30px 0; }
+        .color-legend h3 { color: #2c3e50; margin-bottom: 15px; }
+        .color-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; }
+        .color-item { display: flex; align-items: center; gap: 10px; padding: 10px; background: white; border-radius: 5px; }
+        .color-box { width: 30px; height: 30px; border-radius: 4px; border: 1px solid #ddd; }
+        .info-card { background: #f8f9fa; padding: 20px; border-radius: 10px; margin-top: 20px; }
+        .info-card h3 { color: #2c3e50; margin-bottom: 15px; }
+        .info-card ul { list-style: none; padding: 0; }
+        .info-card li { padding: 8px 0; border-bottom: 1px solid #ecf0f1; }
+        .info-card li:last-child { border-bottom: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Riemannian Geometry</h1>
+            <div class="header-meta">
+                <span class="meta-item">Differential Geometry</span>
+                <span class="meta-item">Mathematics</span>
+            </div>
+        </div>
+        <div class="nav-links">
+            <a href="../../mathematics_index.html">← Back to Mathematics Index</a>
+            <a href="differential_geometry-index.html">Differential Geometry Index</a>
+            <a href="https://arxiv.org/list/math.DG/recent" target="_blank">arXiv: Differential Geometry (math.DG)</a>
+        </div>
+        <div class="content">
+            <div class="description">
+                <h2>Description</h2>
+                <p>Riemannian metrics, curvature tensors, and geodesics. Dependency graph for the Levi-Civita connection, sectional curvature, and comparison theorems.</p>
+            </div>
+            <div class="flowchart-container">
+                <h2>Dependency Flowchart</h2>
+                <div class="mermaid">
+graph TD
+    D1["D1 Riemannian metric g\nPositive definite smooth 2-tensor"]
+    D2["D2 Levi-Civita connection ∇\nMetric compatibility, torsion-free"]
+    D3["D3 Riemann curvature tensor R\nR(X,Y)Z = ∇_X∇_Y Z − ∇_Y∇_X Z − ∇_[X,Y] Z"]
+    D4["D4 Geodesic\n∇_γ' γ' = 0"]
+    
+    T1["T1 Fundamental theorem\nUnique Levi-Civita connection"]
+    T2["T2 Gauss-Bonnet\n∫ K dA = 2πχ for surfaces"]
+    T3["T3 Comparison: K ≥ 0 ⇒ geodesics diverge\nBonnet-Myers for K ≥ κ > 0"]
+    T4["T4 Cartan-Hadamard\nSimply connected, K ≤ 0 ⇒ diffeo to R^n"]
+    T5["T5 Parallel transport\nPreserves inner product along curves"]
+    
+    D1 --> D2
+    D1 --> T1
+    D2 --> D3
+    D2 --> D4
+    D2 --> T5
+    D3 --> T2
+    D3 --> T3
+    D3 --> T4
+    D4 --> T3
+    T1 --> D2
+    
+    classDef definition fill:#3498db,color:#fff,stroke:#2980b9
+    classDef theorem fill:#1abc9c,color:#fff,stroke:#16a085
+    class D1,D2,D3,D4 definition
+    class T1,T2,T3,T4,T5 theorem
+                </div>
+            </div>
+            <div class="color-legend">
+                <h3>Color Scheme</h3>
+                <div class="color-grid">
+                    <div class="color-item"><div class="color-box" style="background:#3498db"></div><div><strong>Blue</strong><br><small>Definitions (D1–D4)</small></div></div>
+                    <div class="color-item"><div class="color-box" style="background:#1abc9c"></div><div><strong>Teal</strong><br><small>Theorems (T1–T5)</small></div></div>
+                </div>
+            </div>
+            <div class="info-card">
+                <h3>Info</h3>
+                <ul>
+                    <li><strong>Subcategory:</strong> differential_geometry</li>
+                    <li><strong>Keywords:</strong> Riemannian metric, curvature, Levi-Civita, geodesic, Gauss-Bonnet</li>
+                    <li><strong>Research frontier:</strong> <a href="https://arxiv.org/list/math.DG/recent" target="_blank">arXiv math.DG</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script>
+        mermaid.initialize({ startOnLoad: true, theme: 'default', flowchart: { useMaxWidth: true, htmlLabels: true, curve: 'step', nodeSpacing: 25, rankSpacing: 40 } });
+    </script>
+</body>
+</html>

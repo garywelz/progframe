@@ -1,0 +1,540 @@
+{
+  "schemaVersion": "1.0",
+  "discourse": {
+    "id": "euclid-elements-book-viii",
+    "name": "Euclid's Elements, Book VIII",
+    "subject": "number_theory",
+    "variant": "classical",
+    "description": "Continued proportions. 27 propositions. Depends on Book VII. Source: David E. Joyce.",
+    "structure": {
+      "books": 8,
+      "propositions": 27,
+      "foundationTypes": [
+        "foundation"
+      ]
+    }
+  },
+  "metadata": {
+    "created": "2026-03-18",
+    "lastUpdated": "2026-03-18",
+    "version": "1.0.0",
+    "license": "CC BY 4.0",
+    "authors": [
+      "Welz, G."
+    ],
+    "methodology": "Programming Framework",
+    "citation": "Welz, G. (2026). Euclid's Elements Book VIII Dependency Graph. Programming Framework.",
+    "keywords": [
+      "Euclid",
+      "Elements",
+      "Book VIII",
+      "continued proportion",
+      "plane",
+      "solid"
+    ]
+  },
+  "sources": [
+    {
+      "id": "joyce",
+      "type": "digital",
+      "authors": "Joyce, David E.",
+      "title": "Euclid's Elements, Book VIII",
+      "year": "1996",
+      "url": "https://mathcs.clarku.edu/~djoyce/java/elements/bookVIII/bookVIII.html",
+      "notes": "Clark University"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "BookVII",
+      "type": "foundation",
+      "label": "Book VII — Number theory",
+      "shortLabel": "Book VII",
+      "short": "Foundation",
+      "book": 7,
+      "colorClass": "foundation"
+    },
+    {
+      "id": "Prop1",
+      "type": "proposition",
+      "label": "Continued proportion, extremes relatively prime: least in ratio",
+      "shortLabel": "Prop. VIII.1",
+      "short": "Continued proportion, extremes prime",
+      "book": 8,
+      "number": 1,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop2",
+      "type": "proposition",
+      "label": "To find numbers in continued proportion, least in given ratio",
+      "shortLabel": "Prop. VIII.2",
+      "short": "Find numbers in continued proportion",
+      "book": 8,
+      "number": 2,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop3",
+      "type": "proposition",
+      "label": "Least in continued proportion: extremes relatively prime",
+      "shortLabel": "Prop. VIII.3",
+      "short": "Least: extremes prime",
+      "book": 8,
+      "number": 3,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop4",
+      "type": "proposition",
+      "label": "Given ratios in least numbers, find least in continued proportion",
+      "shortLabel": "Prop. VIII.4",
+      "short": "Find continued proportion from ratios",
+      "book": 8,
+      "number": 4,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop5",
+      "type": "proposition",
+      "label": "Plane numbers have ratio compounded of ratios of sides",
+      "shortLabel": "Prop. VIII.5",
+      "short": "Plane numbers: compound ratio",
+      "book": 8,
+      "number": 5,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop6",
+      "type": "proposition",
+      "label": "Continued proportion: if first does not measure second, none measures another",
+      "shortLabel": "Prop. VIII.6",
+      "short": "First does not measure second",
+      "book": 8,
+      "number": 6,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop7",
+      "type": "proposition",
+      "label": "Continued proportion: if first measures last, it measures second",
+      "shortLabel": "Prop. VIII.7",
+      "short": "First measures last",
+      "book": 8,
+      "number": 7,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop8",
+      "type": "proposition",
+      "label": "Numbers between two in continued proportion correspond to ratios",
+      "shortLabel": "Prop. VIII.8",
+      "short": "Numbers between in proportion",
+      "book": 8,
+      "number": 8,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop9",
+      "type": "proposition",
+      "label": "Two relatively prime: numbers between them as between each and unit",
+      "shortLabel": "Prop. VIII.9",
+      "short": "Relatively prime: numbers to unit",
+      "book": 8,
+      "number": 9,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop10",
+      "type": "proposition",
+      "label": "Numbers between number and unit correspond to between two numbers",
+      "shortLabel": "Prop. VIII.10",
+      "short": "Numbers from unit",
+      "book": 8,
+      "number": 10,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop11",
+      "type": "proposition",
+      "label": "Between two squares one mean proportional; duplicate ratio",
+      "shortLabel": "Prop. VIII.11",
+      "short": "Mean proportional of squares",
+      "book": 8,
+      "number": 11,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop12",
+      "type": "proposition",
+      "label": "Between two cubes two mean proportionals; triplicate ratio",
+      "shortLabel": "Prop. VIII.12",
+      "short": "Two means between cubes",
+      "book": 8,
+      "number": 12,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop13",
+      "type": "proposition",
+      "label": "Continued proportion: products proportional; products of products",
+      "shortLabel": "Prop. VIII.13",
+      "short": "Products proportional",
+      "book": 8,
+      "number": 13,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop14",
+      "type": "proposition",
+      "label": "Square measures square iff side measures side",
+      "shortLabel": "Prop. VIII.14",
+      "short": "Square measures square",
+      "book": 8,
+      "number": 14,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop15",
+      "type": "proposition",
+      "label": "Cube measures cube iff side measures side",
+      "shortLabel": "Prop. VIII.15",
+      "short": "Cube measures cube",
+      "book": 8,
+      "number": 15,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop16",
+      "type": "proposition",
+      "label": "Square does not measure square iff side does not measure side",
+      "shortLabel": "Prop. VIII.16",
+      "short": "Square does not measure square",
+      "book": 8,
+      "number": 16,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop17",
+      "type": "proposition",
+      "label": "Cube does not measure cube iff side does not measure side",
+      "shortLabel": "Prop. VIII.17",
+      "short": "Cube does not measure cube",
+      "book": 8,
+      "number": 17,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop18",
+      "type": "proposition",
+      "label": "Between similar plane numbers one mean proportional; duplicate ratio",
+      "shortLabel": "Prop. VIII.18",
+      "short": "Similar plane: mean proportional",
+      "book": 8,
+      "number": 18,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop19",
+      "type": "proposition",
+      "label": "Between similar solid numbers two mean proportionals; triplicate ratio",
+      "shortLabel": "Prop. VIII.19",
+      "short": "Similar solid: two means",
+      "book": 8,
+      "number": 19,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop20",
+      "type": "proposition",
+      "label": "If one mean between two numbers, they are similar plane",
+      "shortLabel": "Prop. VIII.20",
+      "short": "One mean: similar plane",
+      "book": 8,
+      "number": 20,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop21",
+      "type": "proposition",
+      "label": "If two means between two numbers, they are similar solid",
+      "shortLabel": "Prop. VIII.21",
+      "short": "Two means: similar solid",
+      "book": 8,
+      "number": 21,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop22",
+      "type": "proposition",
+      "label": "Three in continued proportion, first square: third square",
+      "shortLabel": "Prop. VIII.22",
+      "short": "Three in proportion: first square",
+      "book": 8,
+      "number": 22,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop23",
+      "type": "proposition",
+      "label": "Four in continued proportion, first cube: fourth cube",
+      "shortLabel": "Prop. VIII.23",
+      "short": "Four in proportion: first cube",
+      "book": 8,
+      "number": 23,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop24",
+      "type": "proposition",
+      "label": "If ratio as square to square and first square, second square",
+      "shortLabel": "Prop. VIII.24",
+      "short": "Ratio as square to square",
+      "book": 8,
+      "number": 24,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop25",
+      "type": "proposition",
+      "label": "If ratio as cube to cube and first cube, second cube",
+      "shortLabel": "Prop. VIII.25",
+      "short": "Ratio as cube to cube",
+      "book": 8,
+      "number": 25,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop26",
+      "type": "proposition",
+      "label": "Similar plane numbers have ratio of square to square",
+      "shortLabel": "Prop. VIII.26",
+      "short": "Similar plane: square ratio",
+      "book": 8,
+      "number": 26,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop27",
+      "type": "proposition",
+      "label": "Similar solid numbers have ratio of cube to cube",
+      "shortLabel": "Prop. VIII.27",
+      "short": "Similar solid: cube ratio",
+      "book": 8,
+      "number": 27,
+      "colorClass": "proposition"
+    }
+  ],
+  "edges": [
+    {
+      "from": "BookVII",
+      "to": "Prop1"
+    },
+    {
+      "from": "BookVII",
+      "to": "Prop2"
+    },
+    {
+      "from": "Prop1",
+      "to": "Prop2"
+    },
+    {
+      "from": "BookVII",
+      "to": "Prop3"
+    },
+    {
+      "from": "Prop2",
+      "to": "Prop3"
+    },
+    {
+      "from": "BookVII",
+      "to": "Prop4"
+    },
+    {
+      "from": "Prop2",
+      "to": "Prop4"
+    },
+    {
+      "from": "BookVII",
+      "to": "Prop5"
+    },
+    {
+      "from": "BookVII",
+      "to": "Prop6"
+    },
+    {
+      "from": "Prop1",
+      "to": "Prop6"
+    },
+    {
+      "from": "BookVII",
+      "to": "Prop7"
+    },
+    {
+      "from": "Prop1",
+      "to": "Prop7"
+    },
+    {
+      "from": "BookVII",
+      "to": "Prop8"
+    },
+    {
+      "from": "BookVII",
+      "to": "Prop9"
+    },
+    {
+      "from": "Prop8",
+      "to": "Prop9"
+    },
+    {
+      "from": "BookVII",
+      "to": "Prop10"
+    },
+    {
+      "from": "Prop9",
+      "to": "Prop10"
+    },
+    {
+      "from": "BookVII",
+      "to": "Prop11"
+    },
+    {
+      "from": "Prop8",
+      "to": "Prop11"
+    },
+    {
+      "from": "BookVII",
+      "to": "Prop12"
+    },
+    {
+      "from": "Prop8",
+      "to": "Prop12"
+    },
+    {
+      "from": "BookVII",
+      "to": "Prop13"
+    },
+    {
+      "from": "BookVII",
+      "to": "Prop14"
+    },
+    {
+      "from": "Prop11",
+      "to": "Prop14"
+    },
+    {
+      "from": "BookVII",
+      "to": "Prop15"
+    },
+    {
+      "from": "Prop12",
+      "to": "Prop15"
+    },
+    {
+      "from": "BookVII",
+      "to": "Prop16"
+    },
+    {
+      "from": "Prop14",
+      "to": "Prop16"
+    },
+    {
+      "from": "BookVII",
+      "to": "Prop17"
+    },
+    {
+      "from": "Prop15",
+      "to": "Prop17"
+    },
+    {
+      "from": "BookVII",
+      "to": "Prop18"
+    },
+    {
+      "from": "Prop8",
+      "to": "Prop18"
+    },
+    {
+      "from": "BookVII",
+      "to": "Prop19"
+    },
+    {
+      "from": "Prop8",
+      "to": "Prop19"
+    },
+    {
+      "from": "BookVII",
+      "to": "Prop20"
+    },
+    {
+      "from": "Prop18",
+      "to": "Prop20"
+    },
+    {
+      "from": "BookVII",
+      "to": "Prop21"
+    },
+    {
+      "from": "Prop19",
+      "to": "Prop21"
+    },
+    {
+      "from": "BookVII",
+      "to": "Prop22"
+    },
+    {
+      "from": "Prop1",
+      "to": "Prop22"
+    },
+    {
+      "from": "BookVII",
+      "to": "Prop23"
+    },
+    {
+      "from": "Prop1",
+      "to": "Prop23"
+    },
+    {
+      "from": "BookVII",
+      "to": "Prop24"
+    },
+    {
+      "from": "Prop22",
+      "to": "Prop24"
+    },
+    {
+      "from": "BookVII",
+      "to": "Prop25"
+    },
+    {
+      "from": "Prop23",
+      "to": "Prop25"
+    },
+    {
+      "from": "BookVII",
+      "to": "Prop26"
+    },
+    {
+      "from": "Prop18",
+      "to": "Prop26"
+    },
+    {
+      "from": "BookVII",
+      "to": "Prop27"
+    },
+    {
+      "from": "Prop19",
+      "to": "Prop27"
+    }
+  ],
+  "colorScheme": {
+    "foundation": {
+      "fill": "#95a5a6",
+      "stroke": "#7f8c8d"
+    },
+    "proposition": {
+      "fill": "#1abc9c",
+      "stroke": "#16a085"
+    }
+  }
+}

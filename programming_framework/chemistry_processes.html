@@ -86,95 +86,74 @@
         <div class="figure">
             <div class="mermaid">
 graph TD
-    %% Initial Setup
-    %% Input Conditions
-    A1[Alkene Substrate] --> B1[Substrate Analysis]
-    C1[Hydrogen Gas H₂] --> D1[Gas Supply]
-    E1[Catalyst (Pt/Pd/Ni)] --> F1[Catalyst Preparation]
+    A[Alkene Substrate] --> B[Substrate Analysis]
+    C[Hydrogen Gas H2] --> D[Gas Supply]
+    E[Catalyst Pt/Pd/Ni] --> F[Catalyst Preparation]
     
-    %% Reactant Preparation
-    B1 --> G1[Substrate Purity Check]
-    D1 --> H1[Gas Pressure Control]
-    F1 --> I1[Catalyst Activation]
+    B --> G[Substrate Purity Check]
+    D --> H[Gas Pressure Control]
+    F --> I[Catalyst Activation]
     
-    %% Reaction Setup
-    G1 --> J1[Reaction Vessel Loading]
-    H1 --> K1[Pressure Regulation]
-    I1 --> L1[Catalyst Dispersion]
+    G --> J[Reaction Vessel Loading]
+    H --> K[Pressure Regulation]
+    I --> L[Catalyst Dispersion]
     
-    %% Catalytic Process
-    J1 --> M1[Substrate Adsorption]
-    K1 --> N1[Hydrogen Dissociation]
-    L1 --> O1[Active Site Formation]
+    J --> M[Substrate Adsorption]
+    K --> N[Hydrogen Dissociation]
+    L --> O[Active Site Formation]
     
-    %% Surface Reactions
-    M1 --> P1[π-Bond Activation]
-    N1 --> Q1[H• Radical Formation]
-    O1 --> R1[Catalytic Surface]
+    M --> P[Pi-Bond Activation]
+    N --> Q[H• Radical Formation]
+    O --> R[Catalytic Surface]
     
-    %% Hydrogenation Steps
-    P1 --> S1[First H Addition]
-    Q1 --> T1[Hydrogen Transfer]
-    R1 --> U1[Surface Complex]
+    P --> S[First H Addition]
+    Q --> T[Hydrogen Transfer]
+    R --> U[Surface Complex]
     
-    %% Product Formation
-    S1 --> V1[Alkyl Intermediate]
-    T1 --> W1[Second H Addition]
-    U1 --> X1[Product Desorption]
+    S --> V[Alkyl Intermediate]
+    T --> W[Second H Addition]
+    U --> X[Product Desorption]
     
-    %% Final Products
-    V1 --> Y1[Alkane Product]
-    W1 --> Z1[Complete Hydrogenation]
-    X1 --> AA1[Catalyst Recovery]
+    V --> Y[Alkane Product]
+    W --> Z[Complete Hydrogenation]
+    X --> AA[Catalyst Recovery]
     
-    %% Process Control
-    Y1 --> BB1[Product Analysis]
-    Z1 --> CC1[Conversion Check]
-    AA1 --> DD1[Catalyst Regeneration]
+    %% Red: Reactants & Inputs
+    style A fill:#ff6b6b,color:#fff
+    style C fill:#ff6b6b,color:#fff
+    style E fill:#ff6b6b,color:#fff
     
-    %% Output
-    BB1 --> EE1[Hydrogenation Complete]
-    CC1 --> FF1[Yield Optimization]
-    DD1 --> GG1[Process Efficiency]
+    %% Yellow: Catalysts & Equipment
+    style B fill:#ffd43b,color:#000
+    style D fill:#ffd43b,color:#000
+    style F fill:#ffd43b,color:#000
+    style G fill:#ffd43b,color:#000
+    style H fill:#ffd43b,color:#000
+    style I fill:#ffd43b,color:#000
+    style J fill:#ffd43b,color:#000
+    style K fill:#ffd43b,color:#000
+    style L fill:#ffd43b,color:#000
     
-    %% Styling - Chemistry Color Scheme
-    style A1 fill:#ff6b6b,color:#fff
-    style C1 fill:#ff6b6b,color:#fff
-    style E1 fill:#ff6b6b,color:#fff
+    %% Green: Chemical Reactions
+    style M fill:#51cf66,color:#fff
+    style N fill:#51cf66,color:#fff
+    style O fill:#51cf66,color:#fff
+    style P fill:#51cf66,color:#fff
+    style Q fill:#51cf66,color:#fff
+    style R fill:#51cf66,color:#fff
+    style S fill:#51cf66,color:#fff
+    style T fill:#51cf66,color:#fff
+    style U fill:#51cf66,color:#fff
+    style W fill:#51cf66,color:#fff
+    style X fill:#51cf66,color:#fff
     
-    style G1 fill:#ffd43b,color:#000
-    style H1 fill:#ffd43b,color:#000
-    style I1 fill:#ffd43b,color:#000
-    style J1 fill:#ffd43b,color:#000
-    style K1 fill:#ffd43b,color:#000
-    style L1 fill:#ffd43b,color:#000
+    %% Blue: Intermediates & States
+    style V fill:#74c0fc,color:#fff
     
-    style M1 fill:#51cf66,color:#fff
-    style N1 fill:#51cf66,color:#fff
-    style O1 fill:#51cf66,color:#fff
-    style P1 fill:#51cf66,color:#fff
-    style Q1 fill:#51cf66,color:#fff
-    style R1 fill:#51cf66,color:#fff
-    style S1 fill:#51cf66,color:#fff
-    style T1 fill:#51cf66,color:#fff
-    style U1 fill:#51cf66,color:#fff
-    style V1 fill:#51cf66,color:#fff
-    style W1 fill:#51cf66,color:#fff
-    style X1 fill:#51cf66,color:#fff
-    
-    style B1 fill:#74c0fc,color:#fff
-    style D1 fill:#74c0fc,color:#fff
-    style F1 fill:#74c0fc,color:#fff
-    style Y1 fill:#74c0fc,color:#fff
-    style Z1 fill:#74c0fc,color:#fff
-    style AA1 fill:#74c0fc,color:#fff
-    style BB1 fill:#74c0fc,color:#fff
-    style CC1 fill:#74c0fc,color:#fff
-    style DD1 fill:#74c0fc,color:#fff
-    
-    style EE1 fill:#b197fc,color:#fff
-    style FF1 fill:#b197fc,color:#fff
-    style GG1 fill:#b197fc,color:#fff
+    %% Violet: Final Products
+    style Y fill:#b197fc,color:#fff
+    style Z fill:#b197fc,color:#fff
+    style AA fill:#b197fc,color:#fff
                     </div>
             
             <div style="margin-top: 1rem; display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center;">
@@ -331,7 +310,7 @@ graph TD
     N3 --> Q3[Base Consumption]
     O3 --> R3[Equivalence Point]
     %% pH Changes
-    P3 --> S3[H⁺ + OH⁻ → H₂O]
+    P3 --> S3[H plus plus OH minus yields H2O]
     Q3 --> T3[Neutralization Reaction]
     R3 --> U3[Stoichiometric Point]
     %% Endpoint Detection

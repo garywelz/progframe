@@ -1,0 +1,49 @@
+graph TD
+    P1["Post. 1\nDraw a straight line from any po..."]
+    P2["Post. 2\nProduce a finite straight line c..."]
+    P3["Post. 3\nDescribe a circle with any cente..."]
+    P4["Post. 4\nAll right angles equal one another"]
+    P5["Post. 5\nParallel postulate: if interior ..."]
+    CN1["CN 1\nThings equal to the same thing a..."]
+    CN2["CN 2\nIf equals are added to equals, t..."]
+    CN3["CN 3\nIf equals are subtracted from eq..."]
+    CN4["CN 4\nThings coinciding with one anoth..."]
+    CN5["CN 5\nThe whole is greater than the part"]
+    Prop1["Prop. I.1\nEquilateral triangle on given line"]
+    Prop2["Prop. I.2\nPlace line equal to given at point"]
+    Prop3["Prop. I.3\nCut off from greater segment equal to less"]
+    Prop4["Prop. I.4\nSAS congruence"]
+    Prop5["Prop. I.5\nBase angles of isosceles equal"]
+    Prop6["Prop. I.6\nSides opposite equal angles equal"]
+    Prop7["Prop. I.7\nUniqueness of triangle from ends"]
+    Prop8["Prop. I.8\nSSS congruence"]
+    Prop9["Prop. I.9\nBisect angle"]
+    Prop10["Prop. I.10\nBisect line"]
+    P1 --> Prop1
+    P3 --> Prop1
+    Prop1 --> Prop2
+    P1 --> Prop2
+    P2 --> Prop2
+    P3 --> Prop2
+    Prop2 --> Prop3
+    P3 --> Prop3
+    CN4 --> Prop4
+    CN5 --> Prop4
+    Prop3 --> Prop5
+    Prop4 --> Prop5
+    Prop3 --> Prop6
+    Prop4 --> Prop6
+    Prop5 --> Prop7
+    Prop7 --> Prop8
+    Prop1 --> Prop9
+    Prop3 --> Prop9
+    Prop8 --> Prop9
+    Prop1 --> Prop10
+    Prop4 --> Prop10
+    Prop9 --> Prop10
+    classDef postulate fill:#e74c3c,color:#fff,stroke:#c0392b
+    classDef commonNotion fill:#9b59b6,color:#fff,stroke:#8e44ad
+    classDef proposition fill:#1abc9c,color:#fff,stroke:#16a085
+    class P1,P2,P3,P4,P5 postulate
+    class CN1,CN2,CN3,CN4,CN5 commonNotion
+    class Prop1,Prop2,Prop3,Prop4,Prop5,Prop6,Prop7,Prop8,Prop9,Prop10 proposition

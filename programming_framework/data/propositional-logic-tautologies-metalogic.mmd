@@ -1,0 +1,89 @@
+graph TD
+    A1("A1 Weakening")
+    A2("A2 Distrib. of impl.")
+    A3("A3 Contraposition")
+    MP("MP MP")
+    T1("T1 Self-implication")
+    T2("T2 Double neg. elim")
+    T3("T3 Double neg. intro")
+    T4("T4 Transposition")
+    DefOr("DefOr Def. disjunction")
+    DefAnd("DefAnd Def. conjunction")
+    T6("T6 Addition (orI)")
+    T7("T7 Simplification (andE)")
+    T8("T8 Simplification (andE)")
+    T9("T9 Conjunction (andI)")
+    T13("T13 Excluded middle")
+    T14("T14 Non-contradiction")
+    T15("T15 Explosion")
+    T16("T16 Commutation (or)")
+    T17("T17 Commutation (and)")
+    T18("T18 Distribution")
+    T19("T19 Deduction thm")
+    A1 --> T1
+    A2 --> T1
+    MP --> T1
+    A3 --> T2
+    T1 --> T2
+    MP --> T2
+    A1 --> T3
+    A3 --> T3
+    MP --> T3
+    A3 --> T4
+    T2 --> T4
+    T3 --> T4
+    MP --> T4
+    A1 --> DefOr
+    A2 --> DefOr
+    A3 --> DefOr
+    MP --> DefOr
+    DefOr --> DefAnd
+    A3 --> DefAnd
+    MP --> DefAnd
+    DefOr --> T6
+    A1 --> T6
+    MP --> T6
+    DefAnd --> T7
+    A1 --> T7
+    A3 --> T7
+    MP --> T7
+    DefAnd --> T8
+    A1 --> T8
+    A3 --> T8
+    MP --> T8
+    A1 --> T9
+    A2 --> T9
+    MP --> T9
+    DefOr --> T13
+    T2 --> T13
+    T3 --> T13
+    MP --> T13
+    DefAnd --> T14
+    T4 --> T14
+    MP --> T14
+    DefAnd --> T15
+    A1 --> T15
+    A2 --> T15
+    MP --> T15
+    DefOr --> T16
+    T4 --> T16
+    MP --> T16
+    DefAnd --> T17
+    T9 --> T17
+    MP --> T17
+    DefAnd --> T18
+    DefOr --> T18
+    T6 --> T18
+    T7 --> T18
+    T8 --> T18
+    T9 --> T18
+    MP --> T18
+    A1 --> T19
+    A2 --> T19
+    MP --> T19
+    classDef axiom fill:#e74c3c,color:#fff,stroke:#c0392b
+    classDef definition fill:#3498db,color:#fff,stroke:#2980b9
+    classDef theorem fill:#1abc9c,color:#fff,stroke:#16a085
+    class A1,A2,A3,MP axiom
+    class DefOr,DefAnd definition
+    class T1,T2,T3,T4,T6,T7,T8,T9,T13,T14,T15,T16,T17,T18,T19 theorem

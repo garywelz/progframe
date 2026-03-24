@@ -1,0 +1,728 @@
+{
+  "schemaVersion": "1.0",
+  "discourse": {
+    "id": "euclid-elements-book-ix",
+    "name": "Euclid's Elements, Book IX",
+    "subject": "number_theory",
+    "variant": "classical",
+    "description": "Primes, perfect numbers, odd/even. 36 propositions. Depends on Books VII and VIII. Source: David E. Joyce.",
+    "structure": {
+      "books": 9,
+      "propositions": 36,
+      "foundationTypes": [
+        "foundation"
+      ]
+    }
+  },
+  "metadata": {
+    "created": "2026-03-18",
+    "lastUpdated": "2026-03-18",
+    "version": "1.0.0",
+    "license": "CC BY 4.0",
+    "authors": [
+      "Welz, G."
+    ],
+    "methodology": "Programming Framework",
+    "citation": "Welz, G. (2026). Euclid's Elements Book IX Dependency Graph. Programming Framework.",
+    "keywords": [
+      "Euclid",
+      "Elements",
+      "Book IX",
+      "prime",
+      "perfect",
+      "odd",
+      "even"
+    ]
+  },
+  "sources": [
+    {
+      "id": "joyce",
+      "type": "digital",
+      "authors": "Joyce, David E.",
+      "title": "Euclid's Elements, Book IX",
+      "year": "1996",
+      "url": "https://mathcs.clarku.edu/~djoyce/java/elements/bookIX/bookIX.html",
+      "notes": "Clark University; IX.20 infinitude of primes"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "BookVII",
+      "type": "foundation",
+      "label": "Book VII — Number theory",
+      "shortLabel": "Book VII",
+      "short": "Foundation",
+      "book": 7,
+      "colorClass": "foundation"
+    },
+    {
+      "id": "BookVIII",
+      "type": "foundation",
+      "label": "Book VIII — Continued proportions",
+      "shortLabel": "Book VIII",
+      "short": "Foundation",
+      "book": 8,
+      "colorClass": "foundation"
+    },
+    {
+      "id": "Prop1",
+      "type": "proposition",
+      "label": "Two similar plane numbers multiplied: product is square",
+      "shortLabel": "Prop. IX.1",
+      "short": "Similar plane product square",
+      "book": 9,
+      "number": 1,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop2",
+      "type": "proposition",
+      "label": "Two numbers product square: they are similar plane",
+      "shortLabel": "Prop. IX.2",
+      "short": "Product square: similar plane",
+      "book": 9,
+      "number": 2,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop3",
+      "type": "proposition",
+      "label": "Cubic number multiplied by itself: product is cube",
+      "shortLabel": "Prop. IX.3",
+      "short": "Cube times itself",
+      "book": 9,
+      "number": 3,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop4",
+      "type": "proposition",
+      "label": "Cubic times cubic: product is cube",
+      "shortLabel": "Prop. IX.4",
+      "short": "Cube times cube",
+      "book": 9,
+      "number": 4,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop5",
+      "type": "proposition",
+      "label": "If cube times any makes cube, the multiplied is cubic",
+      "shortLabel": "Prop. IX.5",
+      "short": "Cube times any makes cube",
+      "book": 9,
+      "number": 5,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop6",
+      "type": "proposition",
+      "label": "If number times itself makes cubic, it is cubic",
+      "shortLabel": "Prop. IX.6",
+      "short": "Number times itself cubic",
+      "book": 9,
+      "number": 6,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop7",
+      "type": "proposition",
+      "label": "Composite times any: product is solid",
+      "shortLabel": "Prop. IX.7",
+      "short": "Composite times any: solid",
+      "book": 9,
+      "number": 7,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop8",
+      "type": "proposition",
+      "label": "Numbers from unit in continued proportion: 3rd square, 4th cube, 7th both",
+      "shortLabel": "Prop. IX.8",
+      "short": "Continued proportion from unit",
+      "book": 9,
+      "number": 8,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop9",
+      "type": "proposition",
+      "label": "If second from unit square, all square; if cubic, all cubic",
+      "shortLabel": "Prop. IX.9",
+      "short": "Second square: all square",
+      "book": 9,
+      "number": 9,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop10",
+      "type": "proposition",
+      "label": "If second not square, only 3rd and every other square; similar for cube",
+      "shortLabel": "Prop. IX.10",
+      "short": "Second not square",
+      "book": 9,
+      "number": 10,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop11",
+      "type": "proposition",
+      "label": "Continued proportion from unit: less measures greater",
+      "shortLabel": "Prop. IX.11",
+      "short": "Less measures greater",
+      "book": 9,
+      "number": 11,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop12",
+      "type": "proposition",
+      "label": "If prime measures last, it measures second from unit",
+      "shortLabel": "Prop. IX.12",
+      "short": "Prime measures last",
+      "book": 9,
+      "number": 12,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop13",
+      "type": "proposition",
+      "label": "Continued proportion, second prime: only proportional numbers measure last",
+      "shortLabel": "Prop. IX.13",
+      "short": "Second prime: only those measure",
+      "book": 9,
+      "number": 13,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop14",
+      "type": "proposition",
+      "label": "Least measured by given primes: not measured by any other prime",
+      "shortLabel": "Prop. IX.14",
+      "short": "Least measured by primes",
+      "book": 9,
+      "number": 14,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop15",
+      "type": "proposition",
+      "label": "Three least in ratio: sum of any two prime to remainder",
+      "shortLabel": "Prop. IX.15",
+      "short": "Three in proportion",
+      "book": 9,
+      "number": 15,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop16",
+      "type": "proposition",
+      "label": "Two relatively prime: no third as first to second",
+      "shortLabel": "Prop. IX.16",
+      "short": "Relatively prime: no third",
+      "book": 9,
+      "number": 16,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop17",
+      "type": "proposition",
+      "label": "Continued proportion, extremes prime: last not to any as first to second",
+      "shortLabel": "Prop. IX.17",
+      "short": "Extremes prime: no extension",
+      "book": 9,
+      "number": 17,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop18",
+      "type": "proposition",
+      "label": "Given two numbers, investigate if third proportional exists",
+      "shortLabel": "Prop. IX.18",
+      "short": "Third proportional",
+      "book": 9,
+      "number": 18,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop19",
+      "type": "proposition",
+      "label": "Given three numbers, investigate when fourth proportional exists",
+      "shortLabel": "Prop. IX.19",
+      "short": "Fourth proportional",
+      "book": 9,
+      "number": 19,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop20",
+      "type": "proposition",
+      "label": "Prime numbers are more than any assigned multitude",
+      "shortLabel": "Prop. IX.20",
+      "short": "Infinitude of primes",
+      "book": 9,
+      "number": 20,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop21",
+      "type": "proposition",
+      "label": "Sum of even numbers is even",
+      "shortLabel": "Prop. IX.21",
+      "short": "Sum of evens even",
+      "book": 9,
+      "number": 21,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop22",
+      "type": "proposition",
+      "label": "Sum of odd numbers, even multitude: sum even",
+      "shortLabel": "Prop. IX.22",
+      "short": "Sum of odds (even count) even",
+      "book": 9,
+      "number": 22,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop23",
+      "type": "proposition",
+      "label": "Sum of odd numbers, odd multitude: sum odd",
+      "shortLabel": "Prop. IX.23",
+      "short": "Sum of odds (odd count) odd",
+      "book": 9,
+      "number": 23,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop24",
+      "type": "proposition",
+      "label": "Even minus even: remainder even",
+      "shortLabel": "Prop. IX.24",
+      "short": "Even minus even",
+      "book": 9,
+      "number": 24,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop25",
+      "type": "proposition",
+      "label": "Even minus odd: remainder odd",
+      "shortLabel": "Prop. IX.25",
+      "short": "Even minus odd",
+      "book": 9,
+      "number": 25,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop26",
+      "type": "proposition",
+      "label": "Odd minus odd: remainder even",
+      "shortLabel": "Prop. IX.26",
+      "short": "Odd minus odd",
+      "book": 9,
+      "number": 26,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop27",
+      "type": "proposition",
+      "label": "Odd minus even: remainder odd",
+      "shortLabel": "Prop. IX.27",
+      "short": "Odd minus even",
+      "book": 9,
+      "number": 27,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop28",
+      "type": "proposition",
+      "label": "Odd times even: product even",
+      "shortLabel": "Prop. IX.28",
+      "short": "Odd times even",
+      "book": 9,
+      "number": 28,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop29",
+      "type": "proposition",
+      "label": "Odd times odd: product odd",
+      "shortLabel": "Prop. IX.29",
+      "short": "Odd times odd",
+      "book": 9,
+      "number": 29,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop30",
+      "type": "proposition",
+      "label": "Odd measuring even: measures half",
+      "shortLabel": "Prop. IX.30",
+      "short": "Odd measures even",
+      "book": 9,
+      "number": 30,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop31",
+      "type": "proposition",
+      "label": "Odd relatively prime to any: also prime to its double",
+      "shortLabel": "Prop. IX.31",
+      "short": "Odd prime to double",
+      "book": 9,
+      "number": 31,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop32",
+      "type": "proposition",
+      "label": "Numbers doubled from 2: even-times even only",
+      "shortLabel": "Prop. IX.32",
+      "short": "Powers of 2",
+      "book": 9,
+      "number": 32,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop33",
+      "type": "proposition",
+      "label": "Number with half odd: even-times odd only",
+      "shortLabel": "Prop. IX.33",
+      "short": "Half odd",
+      "book": 9,
+      "number": 33,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop34",
+      "type": "proposition",
+      "label": "Number neither: both even-times even and even-times odd",
+      "shortLabel": "Prop. IX.34",
+      "short": "Neither",
+      "book": 9,
+      "number": 34,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop35",
+      "type": "proposition",
+      "label": "Continued proportion: (second−first):first = (last−first):sum of rest",
+      "shortLabel": "Prop. IX.35",
+      "short": "Geometric series",
+      "book": 9,
+      "number": 35,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop36",
+      "type": "proposition",
+      "label": "If sum of powers of 2 is prime, product with last is perfect",
+      "shortLabel": "Prop. IX.36",
+      "short": "Perfect numbers",
+      "book": 9,
+      "number": 36,
+      "colorClass": "proposition"
+    }
+  ],
+  "edges": [
+    {
+      "from": "BookVII",
+      "to": "Prop1"
+    },
+    {
+      "from": "BookVIII",
+      "to": "Prop1"
+    },
+    {
+      "from": "BookVII",
+      "to": "Prop2"
+    },
+    {
+      "from": "BookVIII",
+      "to": "Prop2"
+    },
+    {
+      "from": "BookVII",
+      "to": "Prop3"
+    },
+    {
+      "from": "BookVIII",
+      "to": "Prop3"
+    },
+    {
+      "from": "BookVII",
+      "to": "Prop4"
+    },
+    {
+      "from": "BookVIII",
+      "to": "Prop4"
+    },
+    {
+      "from": "BookVII",
+      "to": "Prop5"
+    },
+    {
+      "from": "BookVIII",
+      "to": "Prop5"
+    },
+    {
+      "from": "BookVII",
+      "to": "Prop6"
+    },
+    {
+      "from": "BookVIII",
+      "to": "Prop6"
+    },
+    {
+      "from": "BookVII",
+      "to": "Prop7"
+    },
+    {
+      "from": "BookVIII",
+      "to": "Prop7"
+    },
+    {
+      "from": "BookVII",
+      "to": "Prop8"
+    },
+    {
+      "from": "BookVIII",
+      "to": "Prop8"
+    },
+    {
+      "from": "BookVII",
+      "to": "Prop9"
+    },
+    {
+      "from": "BookVIII",
+      "to": "Prop9"
+    },
+    {
+      "from": "BookVII",
+      "to": "Prop10"
+    },
+    {
+      "from": "BookVIII",
+      "to": "Prop10"
+    },
+    {
+      "from": "BookVII",
+      "to": "Prop11"
+    },
+    {
+      "from": "BookVIII",
+      "to": "Prop11"
+    },
+    {
+      "from": "BookVII",
+      "to": "Prop12"
+    },
+    {
+      "from": "BookVIII",
+      "to": "Prop12"
+    },
+    {
+      "from": "BookVII",
+      "to": "Prop13"
+    },
+    {
+      "from": "BookVIII",
+      "to": "Prop13"
+    },
+    {
+      "from": "BookVII",
+      "to": "Prop14"
+    },
+    {
+      "from": "BookVIII",
+      "to": "Prop14"
+    },
+    {
+      "from": "BookVII",
+      "to": "Prop15"
+    },
+    {
+      "from": "BookVIII",
+      "to": "Prop15"
+    },
+    {
+      "from": "BookVII",
+      "to": "Prop16"
+    },
+    {
+      "from": "BookVIII",
+      "to": "Prop16"
+    },
+    {
+      "from": "BookVII",
+      "to": "Prop17"
+    },
+    {
+      "from": "BookVIII",
+      "to": "Prop17"
+    },
+    {
+      "from": "BookVII",
+      "to": "Prop18"
+    },
+    {
+      "from": "BookVIII",
+      "to": "Prop18"
+    },
+    {
+      "from": "BookVII",
+      "to": "Prop19"
+    },
+    {
+      "from": "BookVIII",
+      "to": "Prop19"
+    },
+    {
+      "from": "BookVII",
+      "to": "Prop20"
+    },
+    {
+      "from": "BookVIII",
+      "to": "Prop20"
+    },
+    {
+      "from": "BookVII",
+      "to": "Prop21"
+    },
+    {
+      "from": "BookVIII",
+      "to": "Prop21"
+    },
+    {
+      "from": "BookVII",
+      "to": "Prop22"
+    },
+    {
+      "from": "BookVIII",
+      "to": "Prop22"
+    },
+    {
+      "from": "BookVII",
+      "to": "Prop23"
+    },
+    {
+      "from": "BookVIII",
+      "to": "Prop23"
+    },
+    {
+      "from": "BookVII",
+      "to": "Prop24"
+    },
+    {
+      "from": "BookVIII",
+      "to": "Prop24"
+    },
+    {
+      "from": "BookVII",
+      "to": "Prop25"
+    },
+    {
+      "from": "BookVIII",
+      "to": "Prop25"
+    },
+    {
+      "from": "BookVII",
+      "to": "Prop26"
+    },
+    {
+      "from": "BookVIII",
+      "to": "Prop26"
+    },
+    {
+      "from": "BookVII",
+      "to": "Prop27"
+    },
+    {
+      "from": "BookVIII",
+      "to": "Prop27"
+    },
+    {
+      "from": "BookVII",
+      "to": "Prop28"
+    },
+    {
+      "from": "BookVIII",
+      "to": "Prop28"
+    },
+    {
+      "from": "BookVII",
+      "to": "Prop29"
+    },
+    {
+      "from": "BookVIII",
+      "to": "Prop29"
+    },
+    {
+      "from": "BookVII",
+      "to": "Prop30"
+    },
+    {
+      "from": "BookVIII",
+      "to": "Prop30"
+    },
+    {
+      "from": "BookVII",
+      "to": "Prop31"
+    },
+    {
+      "from": "BookVIII",
+      "to": "Prop31"
+    },
+    {
+      "from": "BookVII",
+      "to": "Prop32"
+    },
+    {
+      "from": "BookVIII",
+      "to": "Prop32"
+    },
+    {
+      "from": "BookVII",
+      "to": "Prop33"
+    },
+    {
+      "from": "BookVIII",
+      "to": "Prop33"
+    },
+    {
+      "from": "BookVII",
+      "to": "Prop34"
+    },
+    {
+      "from": "BookVIII",
+      "to": "Prop34"
+    },
+    {
+      "from": "BookVII",
+      "to": "Prop35"
+    },
+    {
+      "from": "BookVIII",
+      "to": "Prop35"
+    },
+    {
+      "from": "BookVII",
+      "to": "Prop36"
+    },
+    {
+      "from": "BookVIII",
+      "to": "Prop36"
+    }
+  ],
+  "colorScheme": {
+    "foundation": {
+      "fill": "#95a5a6",
+      "stroke": "#7f8c8d"
+    },
+    "proposition": {
+      "fill": "#1abc9c",
+      "stroke": "#16a085"
+    }
+  }
+}

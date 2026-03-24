@@ -1,0 +1,24 @@
+graph TD
+    DefFact("DefFact Factorial")
+    DefSum("DefSum Sum principle")
+    DefProd("DefProd Product principle")
+    PermNoRep("PermNoRep Permutations no rep")
+    Pigeonhole("Pigeonhole Pigeonhole principle")
+    InclExcl("InclExcl Inclusion-exclusion")
+    InclExcl3("InclExcl3 Incl-excl 3 sets")
+    Derange("Derange Derangements")
+    Stirling2("Stirling2 Stirling numbers")
+    DefFact --> PermNoRep
+    DefProd --> PermNoRep
+    DefSum --> Pigeonhole
+    DefSum --> InclExcl
+    InclExcl --> InclExcl3
+    InclExcl --> Derange
+    PermNoRep --> Derange
+    DefSum --> Stirling2
+    DefProd --> Stirling2
+    classDef axiom fill:#e74c3c,color:#fff,stroke:#c0392b
+    classDef definition fill:#3498db,color:#fff,stroke:#2980b9
+    classDef theorem fill:#1abc9c,color:#fff,stroke:#16a085
+    class DefFact,DefSum,DefProd definition
+    class PermNoRep,Pigeonhole,InclExcl,InclExcl3,Derange,Stirling2 theorem

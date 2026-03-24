@@ -1,0 +1,365 @@
+{
+  "schemaVersion": "1.0",
+  "discourse": {
+    "id": "euclid-elements-book-ii",
+    "name": "Euclid's Elements, Book II",
+    "subject": "geometry",
+    "variant": "classical",
+    "description": "The 14 propositions of Book II on geometric algebra (rectangles, squares). Props 1-10 are logically independent within Book II; 11-14 depend on 6, 4, 7, 5. All depend on Book I. Source: David E. Joyce, Clark University.",
+    "structure": {
+      "books": 2,
+      "propositions": 14,
+      "foundationTypes": [
+        "definition"
+      ]
+    }
+  },
+  "metadata": {
+    "created": "2026-03-15",
+    "lastUpdated": "2026-03-15",
+    "version": "1.0.0",
+    "license": "CC BY 4.0",
+    "authors": [
+      "Welz, G."
+    ],
+    "methodology": "Programming Framework",
+    "citation": "Welz, G. (2026). Euclid's Elements Book II Dependency Graph. Programming Framework.",
+    "keywords": [
+      "Euclid",
+      "Elements",
+      "Book II",
+      "geometric algebra",
+      "rectangles",
+      "squares",
+      "golden section",
+      "quadrature"
+    ]
+  },
+  "sources": [
+    {
+      "id": "joyce",
+      "type": "digital",
+      "authors": "Joyce, David E.",
+      "title": "Euclid's Elements, Book II",
+      "year": "1996",
+      "url": "https://mathcs.clarku.edu/~djoyce/java/elements/bookII/bookII.html",
+      "notes": "Clark University; dependency table from Logical structure"
+    },
+    {
+      "id": "euclid-heath",
+      "type": "primary",
+      "authors": "Heath, T.L.",
+      "title": "The Thirteen Books of Euclid's Elements",
+      "year": "1908",
+      "edition": "2nd",
+      "publisher": "Cambridge University Press",
+      "url": "https://archive.org/details/euclidheath00heatiala",
+      "notes": "Standard English translation"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "BookI",
+      "type": "foundation",
+      "label": "Book I — Fundamentals of plane geometry",
+      "shortLabel": "Book I",
+      "short": "Foundation",
+      "book": 1,
+      "colorClass": "foundation"
+    },
+    {
+      "id": "Def1",
+      "type": "definition",
+      "label": "Rectangle contained by two straight lines containing the right angle",
+      "shortLabel": "Def. II.1",
+      "book": 2,
+      "number": 1,
+      "colorClass": "definition"
+    },
+    {
+      "id": "Def2",
+      "type": "definition",
+      "label": "Gnomon: parallelogram about diameter with two complements",
+      "shortLabel": "Def. II.2",
+      "book": 2,
+      "number": 2,
+      "colorClass": "definition"
+    },
+    {
+      "id": "Prop1",
+      "type": "proposition",
+      "label": "If one line is cut into segments, rectangle by whole equals sum of rectangles by each segment",
+      "shortLabel": "Prop. II.1",
+      "short": "Rectangle = sum of rectangles",
+      "book": 2,
+      "number": 1,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop2",
+      "type": "proposition",
+      "label": "If a line is cut at random, sum of rectangles by whole and each segment equals square on whole",
+      "shortLabel": "Prop. II.2",
+      "short": "Sum of rectangles = square on whole",
+      "book": 2,
+      "number": 2,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop3",
+      "type": "proposition",
+      "label": "If a line is cut at random, rectangle by whole and one segment equals rectangle by segments plus square on that segment",
+      "shortLabel": "Prop. II.3",
+      "short": "Rectangle = rectangle + square",
+      "book": 2,
+      "number": 3,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop4",
+      "type": "proposition",
+      "label": "If a line is cut at random, square on whole equals squares on segments plus twice rectangle contained by segments",
+      "shortLabel": "Prop. II.4",
+      "short": "Square on whole = squares + 2×rectangle",
+      "book": 2,
+      "number": 4,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop5",
+      "type": "proposition",
+      "label": "If a line cut into equal and unequal segments, rectangle by unequal segments plus square on difference equals square on half",
+      "shortLabel": "Prop. II.5",
+      "short": "Unequal segments: rectangle + square = square on half",
+      "book": 2,
+      "number": 5,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop6",
+      "type": "proposition",
+      "label": "If a line bisected and added to, rectangle by whole-with-added and added plus square on half equals square on half-plus-added",
+      "shortLabel": "Prop. II.6",
+      "short": "Bisected + added: rectangle + square = square",
+      "book": 2,
+      "number": 6,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop7",
+      "type": "proposition",
+      "label": "If a line cut at random, square on whole plus square on one segment equals twice rectangle by whole and segment plus square on remainder",
+      "shortLabel": "Prop. II.7",
+      "short": "Square on whole + square on segment",
+      "book": 2,
+      "number": 7,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop8",
+      "type": "proposition",
+      "label": "If a line cut at random, four times rectangle by whole and one segment plus square on remainder equals square on whole-plus-segment",
+      "shortLabel": "Prop. II.8",
+      "short": "Four times rectangle + square",
+      "book": 2,
+      "number": 8,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop9",
+      "type": "proposition",
+      "label": "If a line cut into equal and unequal segments, sum of squares on unequal segments is double sum of square on half and square on difference",
+      "shortLabel": "Prop. II.9",
+      "short": "Unequal segments: sum of squares",
+      "book": 2,
+      "number": 9,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop10",
+      "type": "proposition",
+      "label": "If a line bisected and added to, square on whole-with-added plus square on added equals double sum of square on half and square on half-plus-added",
+      "shortLabel": "Prop. II.10",
+      "short": "Bisected + added: sum of squares",
+      "book": 2,
+      "number": 10,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop11",
+      "type": "proposition",
+      "label": "To cut a given line so that rectangle by whole and one segment equals square on remaining segment",
+      "shortLabel": "Prop. II.11",
+      "short": "Cut line: rectangle = square (golden section)",
+      "book": 2,
+      "number": 11,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop12",
+      "type": "proposition",
+      "label": "In obtuse-angled triangles, square on side opposite obtuse angle greater than sum of squares on sides containing it",
+      "shortLabel": "Prop. II.12",
+      "short": "Obtuse triangle: law of cosines",
+      "book": 2,
+      "number": 12,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop13",
+      "type": "proposition",
+      "label": "In acute-angled triangles, square on side opposite acute angle less than sum of squares on sides containing it",
+      "shortLabel": "Prop. II.13",
+      "short": "Acute triangle: law of cosines",
+      "book": 2,
+      "number": 13,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop14",
+      "type": "proposition",
+      "label": "To construct a square equal to a given rectilinear figure",
+      "shortLabel": "Prop. II.14",
+      "short": "Construct square = rectilinear figure",
+      "book": 2,
+      "number": 14,
+      "colorClass": "proposition"
+    }
+  ],
+  "edges": [
+    {
+      "from": "BookI",
+      "to": "Prop1"
+    },
+    {
+      "from": "Def1",
+      "to": "Prop1"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop2"
+    },
+    {
+      "from": "Def1",
+      "to": "Prop2"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop3"
+    },
+    {
+      "from": "Def1",
+      "to": "Prop3"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop4"
+    },
+    {
+      "from": "Def1",
+      "to": "Prop4"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop5"
+    },
+    {
+      "from": "Def1",
+      "to": "Prop5"
+    },
+    {
+      "from": "Def2",
+      "to": "Prop5"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop6"
+    },
+    {
+      "from": "Def1",
+      "to": "Prop6"
+    },
+    {
+      "from": "Def2",
+      "to": "Prop6"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop7"
+    },
+    {
+      "from": "Def1",
+      "to": "Prop7"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop8"
+    },
+    {
+      "from": "Def1",
+      "to": "Prop8"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop9"
+    },
+    {
+      "from": "Def1",
+      "to": "Prop9"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop10"
+    },
+    {
+      "from": "Def1",
+      "to": "Prop10"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop11"
+    },
+    {
+      "from": "Prop6",
+      "to": "Prop11"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop12"
+    },
+    {
+      "from": "Prop4",
+      "to": "Prop12"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop13"
+    },
+    {
+      "from": "Prop7",
+      "to": "Prop13"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop14"
+    },
+    {
+      "from": "Prop5",
+      "to": "Prop14"
+    }
+  ],
+  "colorScheme": {
+    "foundation": {
+      "fill": "#95a5a6",
+      "stroke": "#7f8c8d"
+    },
+    "definition": {
+      "fill": "#3498db",
+      "stroke": "#2980b9"
+    },
+    "proposition": {
+      "fill": "#1abc9c",
+      "stroke": "#16a085"
+    }
+  }
+}

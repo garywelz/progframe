@@ -109,107 +109,22 @@
         <div class="figure">
             <div class="mermaid">
 graph TD
-    %% Initial Setup
-    %% Input Data and Parameters
-    A[Input Array 5,2,8,1,9] --> B[Array Size Analysis]
-    C[Sorting Criteria Ascending] --> D[Algorithm Selection]
-    E[Memory Constraints] --> F[Resource Assessment]
+    A[Input Array] --> B[Choose Pivot]
+    B --> C[Partition Array]
+    C --> D[Recursive Sort Left]
+    C --> E[Recursive Sort Right]
+    D --> F[Merge Results]
+    E --> F
+    F --> G[Sorted Array]
     
-    %% Data Structure Setup
-    B --> G[Array Initialization]
-    D --> H[QuickSort Algorithm Selection]
-    F --> I[Memory Allocation]
-    
-    %% Algorithm Initialization
-    G --> J[Array Copy to Working Memory]
-    H --> K[Pivot Selection Strategy]
-    I --> L[Stack Space Allocation]
-    
-    %% First Partitioning Step
-    J --> M[Choose Pivot 5]
-    K --> N[Partitioning Logic Setup]
-    L --> O[Recursive Call Stack]
-    
-    %% Partitioning Process
-    M --> P[Compare Elements to Pivot]
-    P --> Q[Element Swapping Operations]
-    Q --> R[Partition Boundary Tracking]
-    
-    %% Sub-array Processing
-    R --> S[Left Sub-array 2,1]
-    R --> T[Right Sub-array 8,9]
-    O --> U[Recursive Function Calls]
-    
-    %% Left Sub-array Sorting
-    S --> V[Pivot Selection 2]
-    V --> W[Partitioning 1 and 2]
-    W --> X[Base Case Single Element]
-    
-    %% Right Sub-array Sorting
-    T --> Y[Pivot Selection 8]
-    Y --> Z[Partitioning 8,9]
-    Z --> AA[Recursive Sort 8,9]
-    
-    %% Merge and Combine
-    X --> BB[Sorted Left 1,2]
-    AA --> CC[Sorted Right 8,9]
-    BB --> DD[Combine Results]
-    CC --> DD
-    
-    %% Final Assembly
-    DD --> EE[Final Sorted Array 1,2,5,8,9]
-    EE --> FF[Algorithm Completion]
-    FF --> GG[Performance Metrics Calculation]
-    
-    %% Complexity Analysis
-    GG --> HH[Time Complexity O(n log n)]
-    GG --> II[Space Complexity O(log n)]
-    GG --> JJ[Stability Assessment Unstable]
-    
-    %% Styling - Computer Science Color Scheme
     style A fill:#ff6b6b,color:#fff
-    style C fill:#ff6b6b,color:#fff
-    style E fill:#ff6b6b,color:#fff
-    
     style B fill:#ffd43b,color:#000
-    style D fill:#ffd43b,color:#000
-    style F fill:#ffd43b,color:#000
-    style G fill:#ffd43b,color:#000
-    style H fill:#ffd43b,color:#000
-    style I fill:#ffd43b,color:#000
-    style J fill:#ffd43b,color:#000
-    style K fill:#ffd43b,color:#000
-    style L fill:#ffd43b,color:#000
-    style M fill:#ffd43b,color:#000
-    style N fill:#ffd43b,color:#000
-    style O fill:#ffd43b,color:#000
-    style V fill:#ffd43b,color:#000
-    style Y fill:#ffd43b,color:#000
-    
-    style P fill:#51cf66,color:#fff
-    style Q fill:#51cf66,color:#fff
-    style R fill:#51cf66,color:#fff
-    style W fill:#51cf66,color:#fff
-    style Z fill:#51cf66,color:#fff
-    style AA fill:#51cf66,color:#fff
-    style DD fill:#51cf66,color:#fff
-    style GG fill:#51cf66,color:#fff
-    style HH fill:#51cf66,color:#fff
-    style II fill:#51cf66,color:#fff
-    style JJ fill:#51cf66,color:#fff
-    
-    style S fill:#74c0fc,color:#fff
-    style T fill:#74c0fc,color:#fff
-    style U fill:#74c0fc,color:#fff
-    style X fill:#74c0fc,color:#fff
-    style BB fill:#74c0fc,color:#fff
-    style CC fill:#74c0fc,color:#fff
-    style EE fill:#74c0fc,color:#fff
-    style FF fill:#74c0fc,color:#fff
-    style GG fill:#51cf66,color:#fff
-    style HH fill:#51cf66,color:#fff
-    style II fill:#51cf66,color:#fff
-    style JJ fill:#51cf66,color:#fff
+    style C fill:#51cf66,color:#fff
+    style D fill:#74c0fc,color:#fff
+    style E fill:#74c0fc,color:#fff
+    style F fill:#51cf66,color:#fff
+    style G fill:#b197fc,color:#fff
+
             </div>
             <div class="color-legend">
                 <span><span class="color-box" style="background:#ff6b6b;"></span>Inputs & Data</span>
@@ -227,84 +142,38 @@ graph TD
         <div class="figure">
             <div class="mermaid">
 graph TD
-    %% Input Data
-    A[Search Key 7] --> B[Key Validation]
-    C[BST Root Node] --> D[Tree Structure Analysis]
-    E[Search Operation] --> F[Algorithm Selection]
+    A[Search Key] --> B[Compare with Root]
+    B --> C[Key less than Root Question]
+    C -->|Yes| D[Search Left Subtree]
+    C -->|No| E[Search Right Subtree]
+    D --> F[Recursive Search]
+    E --> G[Recursive Search]
+    F --> H[Key Found Question]
+    G --> I[Key Found Question]
+    H -->|Yes| J[Return Node]
+    H -->|No| K[Return Null]
+    I -->|Yes| L[Return Node]
+    I -->|No| M[Return Null]
+    J --> N[Search Successful]
+    L --> N
+    K --> O[Search Unsuccessful]
+    M --> O
     
-    %% Tree Traversal Setup
-    B --> G[Key Comparison Logic]
-    D --> H[Node Structure]
-    F --> I[Binary Search Strategy]
-    
-    %% Root Node Processing
-    G --> J[Compare Key with Root]
-    H --> K[Left Child Pointer]
-    I --> L[Right Child Pointer]
-    
-    %% Decision Logic
-    J --> M{Key < Root Value?}
-    K --> N[Left Subtree]
-    L --> O[Right Subtree]
-    
-    %% Left Subtree Search
-    M -->|Yes| P[Traverse Left]
-    N --> Q[Left Child Node]
-    P --> R[Recursive Search]
-    
-    %% Right Subtree Search
-    M -->|No| S[Traverse Right]
-    O --> T[Right Child Node]
-    S --> U[Recursive Search]
-    
-    %% Search Completion
-    R --> V{Key Found?}
-    U --> W{Key Found?}
-    V -->|Yes| X[Return Node]
-    V -->|No| Y[Return Null]
-    W -->|Yes| Z[Return Node]
-    W -->|No| AA[Return Null]
-    
-    %% Final Result
-    X --> BB[Search Successful]
-    Z --> BB
-    Y --> CC[Search Unsuccessful]
-    AA --> CC
-    
-    %% Styling - Computer Science Color Scheme
     style A fill:#ff6b6b,color:#fff
-    style C fill:#ff6b6b,color:#fff
-    style E fill:#ff6b6b,color:#fff
-    
     style B fill:#ffd43b,color:#000
-    style D fill:#ffd43b,color:#000
-    style F fill:#ffd43b,color:#000
-    style G fill:#ffd43b,color:#000
-    style H fill:#ffd43b,color:#000
-    style I fill:#ffd43b,color:#000
-    style J fill:#ffd43b,color:#000
-    style K fill:#ffd43b,color:#000
-    style L fill:#ffd43b,color:#000
+    style C fill:#51cf66,color:#fff
+    style D fill:#74c0fc,color:#fff
+    style E fill:#74c0fc,color:#fff
+    style F fill:#51cf66,color:#fff
+    style G fill:#51cf66,color:#fff
+    style H fill:#51cf66,color:#fff
+    style I fill:#51cf66,color:#fff
+    style J fill:#74c0fc,color:#fff
+    style K fill:#74c0fc,color:#fff
+    style L fill:#74c0fc,color:#fff
     style M fill:#74c0fc,color:#fff
-    style N fill:#ffd43b,color:#000
-    style O fill:#ffd43b,color:#000
-    style P fill:#ffd43b,color:#000
-    style Q fill:#ffd43b,color:#000
-    style R fill:#ffd43b,color:#000
-    style S fill:#ffd43b,color:#000
-    style T fill:#ffd43b,color:#000
-    style U fill:#ffd43b,color:#000
-    style V fill:#74c0fc,color:#fff
-    style W fill:#74c0fc,color:#fff
-    style X fill:#ffd43b,color:#000
-    style Y fill:#ffd43b,color:#000
-    style Z fill:#ffd43b,color:#000
-    style AA fill:#ffd43b,color:#000
-    style BB fill:#ffd43b,color:#000
-    style CC fill:#ffd43b,color:#000
-    
-    style BB fill:#74c0fc,color:#fff
-    style CC fill:#74c0fc,color:#fff
+    style N fill:#b197fc,color:#fff
+    style O fill:#b197fc,color:#fff
             </div>
             <div class="color-legend">
                 <span><span class="color-box" style="background:#ff6b6b;"></span>Inputs & Data</span>
@@ -358,10 +227,12 @@ graph TD
     U --> X[Solution Verification]
     
     %% Styling - Computer Science Color Scheme
+    %% Red: Inputs & Triggers
     style A fill:#ff6b6b,color:#fff
     style C fill:#ff6b6b,color:#fff
     style E fill:#ff6b6b,color:#fff
     
+    %% Yellow: Structures & Objects
     style B fill:#ffd43b,color:#000
     style D fill:#ffd43b,color:#000
     style F fill:#ffd43b,color:#000
@@ -374,16 +245,18 @@ graph TD
     style M fill:#ffd43b,color:#000
     style N fill:#ffd43b,color:#000
     style O fill:#ffd43b,color:#000
-    style P fill:#ffd43b,color:#000
-    style Q fill:#ffd43b,color:#000
-    style R fill:#ffd43b,color:#000
-    style S fill:#ffd43b,color:#000
-    style T fill:#ffd43b,color:#000
-    style U fill:#ffd43b,color:#000
-    style V fill:#ffd43b,color:#000
-    style W fill:#ffd43b,color:#000
-    style X fill:#ffd43b,color:#000
     
+    %% Green: Processing & Operations
+    style P fill:#51cf66,color:#fff
+    style Q fill:#51cf66,color:#fff
+    style R fill:#51cf66,color:#fff
+    style S fill:#51cf66,color:#fff
+    style T fill:#51cf66,color:#fff
+    style U fill:#51cf66,color:#fff
+    
+    %% Blue: Intermediates & States
+    style V fill:#74c0fc,color:#fff
+    style W fill:#74c0fc,color:#fff
     style X fill:#74c0fc,color:#fff
             </div>
             <div class="color-legend">
@@ -438,10 +311,12 @@ graph TD
     U --> X[Algorithm Termination]
     
     %% Styling - Computer Science Color Scheme
+    %% Red: Inputs & Triggers
     style A fill:#ff6b6b,color:#fff
     style C fill:#ff6b6b,color:#fff
     style E fill:#ff6b6b,color:#fff
     
+    %% Yellow: Structures & Objects
     style B fill:#ffd43b,color:#000
     style D fill:#ffd43b,color:#000
     style F fill:#ffd43b,color:#000
@@ -451,19 +326,21 @@ graph TD
     style J fill:#ffd43b,color:#000
     style K fill:#ffd43b,color:#000
     style L fill:#ffd43b,color:#000
-    style M fill:#ffd43b,color:#000
-    style N fill:#ffd43b,color:#000
-    style O fill:#ffd43b,color:#000
-    style P fill:#ffd43b,color:#000
-    style Q fill:#ffd43b,color:#000
-    style R fill:#ffd43b,color:#000
-    style S fill:#ffd43b,color:#000
-    style T fill:#ffd43b,color:#000
-    style U fill:#ffd43b,color:#000
-    style V fill:#ffd43b,color:#000
-    style W fill:#ffd43b,color:#000
-    style X fill:#ffd43b,color:#000
     
+    %% Green: Processing & Operations
+    style M fill:#51cf66,color:#fff
+    style N fill:#51cf66,color:#fff
+    style O fill:#51cf66,color:#fff
+    style P fill:#51cf66,color:#fff
+    style Q fill:#51cf66,color:#fff
+    style R fill:#51cf66,color:#fff
+    style S fill:#51cf66,color:#fff
+    style T fill:#51cf66,color:#fff
+    style U fill:#51cf66,color:#fff
+    
+    %% Blue: Intermediates & States
+    style V fill:#74c0fc,color:#fff
+    style W fill:#74c0fc,color:#fff
     style X fill:#74c0fc,color:#fff
             </div>
             <div class="color-legend">
@@ -518,10 +395,12 @@ graph TD
     U --> X[Memory Management Complete]
     
     %% Styling - Computer Science Color Scheme
+    %% Red: Inputs & Triggers
     style A fill:#ff6b6b,color:#fff
     style C fill:#ff6b6b,color:#fff
     style E fill:#ff6b6b,color:#fff
     
+    %% Yellow: Structures & Objects
     style B fill:#ffd43b,color:#000
     style D fill:#ffd43b,color:#000
     style F fill:#ffd43b,color:#000
@@ -534,16 +413,18 @@ graph TD
     style M fill:#ffd43b,color:#000
     style N fill:#ffd43b,color:#000
     style O fill:#ffd43b,color:#000
-    style P fill:#ffd43b,color:#000
-    style Q fill:#ffd43b,color:#000
-    style R fill:#ffd43b,color:#000
-    style S fill:#ffd43b,color:#000
-    style T fill:#ffd43b,color:#000
-    style U fill:#ffd43b,color:#000
-    style V fill:#ffd43b,color:#000
-    style W fill:#ffd43b,color:#000
-    style X fill:#ffd43b,color:#000
     
+    %% Green: Processing & Operations
+    style P fill:#51cf66,color:#fff
+    style Q fill:#51cf66,color:#fff
+    style R fill:#51cf66,color:#fff
+    style S fill:#51cf66,color:#fff
+    style T fill:#51cf66,color:#fff
+    style U fill:#51cf66,color:#fff
+    
+    %% Blue: Intermediates & States
+    style V fill:#74c0fc,color:#fff
+    style W fill:#74c0fc,color:#fff
     style X fill:#74c0fc,color:#fff
             </div>
             <div class="color-legend">
@@ -557,6 +438,17 @@ graph TD
                 <strong>Figure 5.</strong> Memory Management Process. This computer science process visualization demonstrates the computational logic of memory management systems. The flowchart shows memory request analysis, free block search, allocation strategy, block management, and memory cleanup operations.
             </div>
         </div>
+        
+        <div style="margin-top: 3rem; padding: 2rem; background: #f8f9fa; border-radius: 8px; border-left: 4px solid #007bff;">
+            <h3 style="margin-top: 0; color: #007bff;">Contact Information</h3>
+            <p style="margin-bottom: 0.5rem;"><strong>Gary Welz</strong></p>
+            <p style="margin-bottom: 0.5rem;">Retired Faculty Member</p>
+            <p style="margin-bottom: 0.5rem;">John Jay College, CUNY (Department of Mathematics and Computer Science)</p>
+            <p style="margin-bottom: 0.5rem;">Borough of Manhattan Community College, CUNY</p>
+            <p style="margin-bottom: 0.5rem;">CUNY Graduate Center (New Media Lab)</p>
+            <p style="margin-bottom: 0;"><strong>Email:</strong> gwelz@jjay.cuny.edu</p>
+        </div>
     </div>
 </body>
 </html> 
+

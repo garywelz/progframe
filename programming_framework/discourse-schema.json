@@ -1,0 +1,102 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Mathematical Discourse Dependency Graph",
+  "description": "Schema for axiomatic dependency structures across mathematical subjects",
+  "type": "object",
+  "required": ["schemaVersion", "discourse", "nodes", "edges"],
+  "properties": {
+    "schemaVersion": { "type": "string", "const": "1.0" },
+    "discourse": {
+      "type": "object",
+      "required": ["id", "name", "subject"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+        "name": { "type": "string" },
+        "subject": {
+          "type": "string",
+          "enum": ["geometry", "arithmetic", "algebra", "analysis", "number_theory", "foundations", "other"]
+        },
+        "variant": { "type": "string" },
+        "description": { "type": "string" },
+        "structure": { "type": "object" }
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "properties": {
+        "created": { "type": "string", "format": "date" },
+        "lastUpdated": { "type": "string", "format": "date" },
+        "version": { "type": "string" },
+        "license": { "type": "string" },
+        "authors": { "type": "array", "items": { "type": "string" } },
+        "methodology": { "type": "string" },
+        "citation": { "type": "string" },
+        "keywords": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id"],
+        "properties": {
+          "id": { "type": "string" },
+          "type": { "type": "string", "enum": ["primary", "secondary", "digital", "commentary"] },
+          "authors": { "type": "string" },
+          "title": { "type": "string" },
+          "year": { "type": ["string", "integer"] },
+          "edition": { "type": "string" },
+          "publisher": { "type": "string" },
+          "url": { "type": "string", "format": "uri" },
+          "doi": { "type": "string" },
+          "notes": { "type": "string" }
+        }
+      }
+    },
+    "nodes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "type", "label"],
+        "properties": {
+          "id": { "type": "string" },
+          "type": {
+            "type": "string",
+            "enum": ["axiom", "postulate", "commonNotion", "definition", "proposition", "theorem", "lemma", "corollary"]
+          },
+          "label": { "type": "string" },
+          "shortLabel": { "type": "string" },
+          "book": { "type": "integer" },
+          "chapter": { "type": "integer" },
+          "number": { "type": "integer" },
+          "colorClass": { "type": "string" },
+          "sourceRef": { "type": "string", "description": "Reference to sources[].id + location (e.g., 'euclid-heath, Book I, Prop 1')" },
+          "notes": { "type": "string" },
+          "keywords": { "type": "array", "items": { "type": "string" } },
+          "relatedNodes": { "type": "array", "items": { "type": "string" }, "description": "IDs of conceptually related nodes" }
+        }
+      }
+    },
+    "edges": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["from", "to"],
+        "properties": {
+          "from": { "type": "string" },
+          "to": { "type": "string" }
+        }
+      }
+    },
+    "colorScheme": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "fill": { "type": "string" },
+          "stroke": { "type": "string" }
+        }
+      }
+    }
+  }
+}

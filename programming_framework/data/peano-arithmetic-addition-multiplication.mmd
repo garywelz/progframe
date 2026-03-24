@@ -1,0 +1,65 @@
+graph TD
+    A5["A5\nInduction"]
+    DefAdd["DefAdd\nDefinition of +"]
+    T5["T5\nAssociativity of +"]
+    T6["T6\nLeft identity"]
+    T7["T7\nSuccessor and add"]
+    T8["T8\nCommutativity of +"]
+    T9["T9\nCancellation for +"]
+    DefMul["DefMul\nDefinition of ·"]
+    T10["T10\nMul well-defined"]
+    T11["T11\nZero times"]
+    T12["T12\nZero from left"]
+    T13["T13\nSuccessor and mul"]
+    T14["T14\nCommutativity of ·"]
+    T15["T15\nAssociativity of ·"]
+    T16["T16\nDistributivity"]
+    T17["T17\nDistributivity (right)"]
+    A5 --> DefAdd
+    DefAdd --> T5
+    A5 --> T5
+    DefAdd --> T6
+    A5 --> T6
+    DefAdd --> T7
+    T6 --> T7
+    A5 --> T7
+    DefAdd --> T8
+    T5 --> T8
+    T6 --> T8
+    T7 --> T8
+    A5 --> T8
+    DefAdd --> T9
+    T8 --> T9
+    A5 --> T9
+    DefAdd --> DefMul
+    A5 --> DefMul
+    DefMul --> T10
+    A5 --> T10
+    DefMul --> T11
+    DefMul --> T12
+    T6 --> T12
+    A5 --> T12
+    DefMul --> T13
+    T8 --> T13
+    A5 --> T13
+    DefMul --> T14
+    T12 --> T14
+    T13 --> T14
+    A5 --> T14
+    DefMul --> T15
+    T5 --> T15
+    T8 --> T15
+    A5 --> T15
+    DefMul --> T16
+    T5 --> T16
+    T8 --> T16
+    T15 --> T16
+    A5 --> T16
+    T16 --> T17
+    T8 --> T17
+    classDef axiom fill:#e74c3c,color:#fff,stroke:#c0392b
+    classDef definition fill:#3498db,color:#fff,stroke:#2980b9
+    classDef theorem fill:#1abc9c,color:#fff,stroke:#16a085
+    class A5 axiom
+    class DefAdd,DefMul definition
+    class T5,T6,T7,T8,T9,T10,T11,T12,T13,T14,T15,T16,T17 theorem

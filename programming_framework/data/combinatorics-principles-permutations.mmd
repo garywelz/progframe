@@ -1,0 +1,17 @@
+graph TD
+    DefFact("DefFact Factorial")
+    DefSum("DefSum Sum principle")
+    DefProd("DefProd Product principle")
+    PermNoRep("PermNoRep Permutations no rep")
+    PermRep("PermRep Permutations with rep")
+    CombNoRep("CombNoRep Combinations")
+    DefFact --> PermNoRep
+    DefProd --> PermNoRep
+    DefProd --> PermRep
+    PermNoRep --> CombNoRep
+    DefFact --> CombNoRep
+    classDef axiom fill:#e74c3c,color:#fff,stroke:#c0392b
+    classDef definition fill:#3498db,color:#fff,stroke:#2980b9
+    classDef theorem fill:#1abc9c,color:#fff,stroke:#16a085
+    class DefFact,DefSum,DefProd definition
+    class PermNoRep,PermRep,CombNoRep theorem

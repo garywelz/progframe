@@ -1,0 +1,52 @@
+graph TD
+    DefAEIO("DefAEIO Categorical forms")
+    DefFig("DefFig Figures 1,2,3")
+    Econv("Econv E-conversion")
+    Iconv("Iconv I-conversion")
+    Aconv("Aconv A-conversion")
+    Barbara("Barbara Barbara")
+    Celarent("Celarent Celarent")
+    Darii("Darii Darii")
+    Ferio("Ferio Ferio")
+    Cesare("Cesare Cesare")
+    Camestres("Camestres Camestres")
+    Festino("Festino Festino")
+    Baroco("Baroco Baroco")
+    Darapti("Darapti Darapti")
+    Felapton("Felapton Felapton")
+    Disamis("Disamis Disamis")
+    Datisi("Datisi Datisi")
+    Bocardo("Bocardo Bocardo")
+    Ferison("Ferison Ferison")
+    DefAEIO --> Barbara
+    DefFig --> Barbara
+    DefAEIO --> Celarent
+    DefFig --> Celarent
+    DefAEIO --> Darii
+    DefFig --> Darii
+    DefAEIO --> Ferio
+    DefFig --> Ferio
+    Econv --> Cesare
+    Celarent --> Cesare
+    Econv --> Camestres
+    Celarent --> Camestres
+    Econv --> Festino
+    Ferio --> Festino
+    Barbara --> Baroco
+    Aconv --> Darapti
+    Darii --> Darapti
+    Aconv --> Felapton
+    Ferio --> Felapton
+    Iconv --> Disamis
+    Darii --> Disamis
+    Aconv --> Datisi
+    Darii --> Datisi
+    Barbara --> Bocardo
+    Aconv --> Ferison
+    Ferio --> Ferison
+    classDef axiom fill:#e74c3c,color:#fff,stroke:#c0392b
+    classDef definition fill:#3498db,color:#fff,stroke:#2980b9
+    classDef theorem fill:#1abc9c,color:#fff,stroke:#16a085
+    class Econv,Iconv,Aconv,Barbara,Celarent,Darii,Ferio axiom
+    class DefAEIO,DefFig definition
+    class Cesare,Camestres,Festino,Baroco,Darapti,Felapton,Disamis,Datisi,Bocardo,Ferison theorem

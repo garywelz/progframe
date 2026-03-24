@@ -1,0 +1,2620 @@
+{
+  "schemaVersion": "1.0",
+  "discourse": {
+    "id": "euclid-elements-book-x",
+    "name": "Euclid's Elements, Book X",
+    "subject": "incommensurables",
+    "variant": "classical",
+    "description": "Incommensurables, binomials, apotomes. 16 definitions, 115 propositions. Depends on Books I, V, VI. Source: David E. Joyce.",
+    "structure": {
+      "books": 10,
+      "definitions": 16,
+      "propositions": 115,
+      "foundationTypes": [
+        "foundation"
+      ]
+    }
+  },
+  "metadata": {
+    "created": "2026-03-18",
+    "lastUpdated": "2026-03-18",
+    "version": "1.0.0",
+    "license": "CC BY 4.0",
+    "authors": [
+      "Welz, G."
+    ],
+    "methodology": "Programming Framework",
+    "citation": "Welz, G. (2026). Euclid's Elements Book X Dependency Graph. Programming Framework.",
+    "keywords": [
+      "Euclid",
+      "Elements",
+      "Book X",
+      "incommensurable",
+      "binomial",
+      "apotome",
+      "medial"
+    ]
+  },
+  "sources": [
+    {
+      "id": "joyce",
+      "type": "digital",
+      "authors": "Joyce, David E.",
+      "title": "Euclid's Elements, Book X",
+      "year": "1996",
+      "url": "https://mathcs.clarku.edu/~djoyce/java/elements/bookX/bookX.html",
+      "notes": "Clark University"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "BookI",
+      "type": "foundation",
+      "label": "Book I — Plane geometry",
+      "shortLabel": "Book I",
+      "short": "Foundation",
+      "book": 1,
+      "colorClass": "foundation"
+    },
+    {
+      "id": "BookV",
+      "type": "foundation",
+      "label": "Book V — Proportions",
+      "shortLabel": "Book V",
+      "short": "Foundation",
+      "book": 5,
+      "colorClass": "foundation"
+    },
+    {
+      "id": "BookVI",
+      "type": "foundation",
+      "label": "Book VI — Similar figures",
+      "shortLabel": "Book VI",
+      "short": "Foundation",
+      "book": 6,
+      "colorClass": "foundation"
+    },
+    {
+      "id": "Prop1",
+      "type": "proposition",
+      "label": "Two unequal magnitudes: subtract more than half repeatedly; remainder less than lesser",
+      "shortLabel": "Prop. X.1",
+      "short": "Antenaresis for magnitudes",
+      "book": 10,
+      "number": 1,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop2",
+      "type": "proposition",
+      "label": "If less subtracted from greater repeatedly and remainder never measures prior: incommensurable",
+      "shortLabel": "Prop. X.2",
+      "short": "Incommensurable criterion",
+      "book": 10,
+      "number": 2,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop3",
+      "type": "proposition",
+      "label": "To find greatest common measure of two commensurable magnitudes",
+      "shortLabel": "Prop. X.3",
+      "short": "GCM of two commensurable",
+      "book": 10,
+      "number": 3,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop4",
+      "type": "proposition",
+      "label": "To find greatest common measure of three commensurable magnitudes",
+      "shortLabel": "Prop. X.4",
+      "short": "GCM of three commensurable",
+      "book": 10,
+      "number": 4,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop5",
+      "type": "proposition",
+      "label": "Commensurable magnitudes have ratio which a number has to a number",
+      "shortLabel": "Prop. X.5",
+      "short": "Commensurable: number ratio",
+      "book": 10,
+      "number": 5,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop6",
+      "type": "proposition",
+      "label": "If two magnitudes have number-to-number ratio, they are commensurable",
+      "shortLabel": "Prop. X.6",
+      "short": "Number ratio: commensurable",
+      "book": 10,
+      "number": 6,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop7",
+      "type": "proposition",
+      "label": "Incommensurable magnitudes do not have number-to-number ratio",
+      "shortLabel": "Prop. X.7",
+      "short": "Incommensurable: no number ratio",
+      "book": 10,
+      "number": 7,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop8",
+      "type": "proposition",
+      "label": "If magnitudes lack number-to-number ratio, they are incommensurable",
+      "shortLabel": "Prop. X.8",
+      "short": "No number ratio: incommensurable",
+      "book": 10,
+      "number": 8,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop9",
+      "type": "proposition",
+      "label": "Squares on commensurable lines have square-to-square ratio; converse",
+      "shortLabel": "Prop. X.9",
+      "short": "Squares: commensurable iff square ratio",
+      "book": 10,
+      "number": 9,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop10",
+      "type": "proposition",
+      "label": "To find two lines incommensurable with assigned: one in length, one in square",
+      "shortLabel": "Prop. X.10",
+      "short": "Find incommensurable lines",
+      "book": 10,
+      "number": 10,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop11",
+      "type": "proposition",
+      "label": "Four proportional: first commensurable with second iff third with fourth",
+      "shortLabel": "Prop. X.11",
+      "short": "Proportion preserves commensurability",
+      "book": 10,
+      "number": 11,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop12",
+      "type": "proposition",
+      "label": "Magnitudes commensurable with same magnitude are commensurable",
+      "shortLabel": "Prop. X.12",
+      "short": "Commensurable with same",
+      "book": 10,
+      "number": 12,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop13",
+      "type": "proposition",
+      "label": "If two commensurable, one incommensurable with third, so is the other",
+      "shortLabel": "Prop. X.13",
+      "short": "Commensurable: incommensurable partner",
+      "book": 10,
+      "number": 13,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop14",
+      "type": "proposition",
+      "label": "Given two lines: find square by which greater square exceeds less; find line whose square equals sum",
+      "shortLabel": "Prop. X.14",
+      "short": "Square difference, sum of squares",
+      "book": 10,
+      "number": 14,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop15",
+      "type": "proposition",
+      "label": "Two commensurable added: whole commensurable with each",
+      "shortLabel": "Prop. X.15",
+      "short": "Commensurable sum",
+      "book": 10,
+      "number": 15,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop16",
+      "type": "proposition",
+      "label": "Two incommensurable added: sum incommensurable with each",
+      "shortLabel": "Prop. X.16",
+      "short": "Incommensurable sum",
+      "book": 10,
+      "number": 16,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop17",
+      "type": "proposition",
+      "label": "Applied parallelogram falling short by square: parts commensurable iff square difference commensurable",
+      "shortLabel": "Prop. X.17",
+      "short": "Parallelogram falling short",
+      "book": 10,
+      "number": 17,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop18",
+      "type": "proposition",
+      "label": "Applied parallelogram: parts incommensurable iff square difference incommensurable",
+      "shortLabel": "Prop. X.18",
+      "short": "Parallelogram: incommensurable parts",
+      "book": 10,
+      "number": 18,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop19",
+      "type": "proposition",
+      "label": "Rectangle by rational lines commensurable in length is rational",
+      "shortLabel": "Prop. X.19",
+      "short": "Rational rectangle from rational",
+      "book": 10,
+      "number": 19,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop20",
+      "type": "proposition",
+      "label": "Rational area applied to rational line: breadth rational and commensurable",
+      "shortLabel": "Prop. X.20",
+      "short": "Rational area on rational",
+      "book": 10,
+      "number": 20,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop21",
+      "type": "proposition",
+      "label": "Rectangle by rational in square only is irrational; side called medial",
+      "shortLabel": "Prop. X.21",
+      "short": "Medial: rational in square only",
+      "book": 10,
+      "number": 21,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop22",
+      "type": "proposition",
+      "label": "Square on medial applied to rational: breadth rational, incommensurable in length",
+      "shortLabel": "Prop. X.22",
+      "short": "Medial applied to rational",
+      "book": 10,
+      "number": 22,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop23",
+      "type": "proposition",
+      "label": "Line commensurable with medial is medial",
+      "shortLabel": "Prop. X.23",
+      "short": "Commensurable with medial",
+      "book": 10,
+      "number": 23,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop24",
+      "type": "proposition",
+      "label": "Rectangle by medial lines commensurable in length is medial",
+      "shortLabel": "Prop. X.24",
+      "short": "Medial rectangle: commensurable length",
+      "book": 10,
+      "number": 24,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop25",
+      "type": "proposition",
+      "label": "Rectangle by medial in square only: rational or medial",
+      "shortLabel": "Prop. X.25",
+      "short": "Medial: square only",
+      "book": 10,
+      "number": 25,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop26",
+      "type": "proposition",
+      "label": "Medial area does not exceed medial by rational area",
+      "shortLabel": "Prop. X.26",
+      "short": "Medial minus medial",
+      "book": 10,
+      "number": 26,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop27",
+      "type": "proposition",
+      "label": "To find medial lines commensurable in square only containing rational rectangle",
+      "shortLabel": "Prop. X.27",
+      "short": "Find medial in square only, rational rect",
+      "book": 10,
+      "number": 27,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop28",
+      "type": "proposition",
+      "label": "To find medial lines commensurable in square only containing medial rectangle",
+      "shortLabel": "Prop. X.28",
+      "short": "Find medial in square only, medial rect",
+      "book": 10,
+      "number": 28,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop29",
+      "type": "proposition",
+      "label": "To find two rational in square only: square diff commensurable with greater",
+      "shortLabel": "Prop. X.29",
+      "short": "Find rational in square only, commensurable diff",
+      "book": 10,
+      "number": 29,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop30",
+      "type": "proposition",
+      "label": "To find two rational in square only: square diff incommensurable with greater",
+      "shortLabel": "Prop. X.30",
+      "short": "Find rational in square only, incommensurable diff",
+      "book": 10,
+      "number": 30,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop31",
+      "type": "proposition",
+      "label": "To find two medial in square only, rational rect: diff commensurable with greater",
+      "shortLabel": "Prop. X.31",
+      "short": "Find medial, rational rect, commensurable diff",
+      "book": 10,
+      "number": 31,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop32",
+      "type": "proposition",
+      "label": "To find two medial in square only, medial rect: diff commensurable with greater",
+      "shortLabel": "Prop. X.32",
+      "short": "Find medial, medial rect, commensurable diff",
+      "book": 10,
+      "number": 32,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop33",
+      "type": "proposition",
+      "label": "To find two incommensurable in square: sum of squares rational, rectangle medial",
+      "shortLabel": "Prop. X.33",
+      "short": "Find incommensurable: rational sum, medial rect",
+      "book": 10,
+      "number": 33,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop34",
+      "type": "proposition",
+      "label": "To find two incommensurable in square: sum medial, rectangle rational",
+      "shortLabel": "Prop. X.34",
+      "short": "Find incommensurable: medial sum, rational rect",
+      "book": 10,
+      "number": 34,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop35",
+      "type": "proposition",
+      "label": "To find two incommensurable in square: sum and rect medial, incommensurable",
+      "shortLabel": "Prop. X.35",
+      "short": "Find incommensurable: both medial",
+      "book": 10,
+      "number": 35,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop36",
+      "type": "proposition",
+      "label": "Two rational in square only added: whole irrational, called binomial",
+      "shortLabel": "Prop. X.36",
+      "short": "Binomial defined",
+      "book": 10,
+      "number": 36,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop37",
+      "type": "proposition",
+      "label": "Two medial in square only, rational rect added: first bimedial",
+      "shortLabel": "Prop. X.37",
+      "short": "First bimedial defined",
+      "book": 10,
+      "number": 37,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop38",
+      "type": "proposition",
+      "label": "Two medial in square only, medial rect added: second bimedial",
+      "shortLabel": "Prop. X.38",
+      "short": "Second bimedial defined",
+      "book": 10,
+      "number": 38,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop39",
+      "type": "proposition",
+      "label": "Two incommensurable in square, rational sum, medial rect added: major",
+      "shortLabel": "Prop. X.39",
+      "short": "Major defined",
+      "book": 10,
+      "number": 39,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop40",
+      "type": "proposition",
+      "label": "Two incommensurable in square, medial sum, rational rect added: side of rational plus medial",
+      "shortLabel": "Prop. X.40",
+      "short": "Side of rational plus medial",
+      "book": 10,
+      "number": 40,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop41",
+      "type": "proposition",
+      "label": "Two incommensurable in square, both medial added: side of sum of two medial",
+      "shortLabel": "Prop. X.41",
+      "short": "Side of sum of two medial",
+      "book": 10,
+      "number": 41,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop42",
+      "type": "proposition",
+      "label": "Binomial divided into terms at one point only",
+      "shortLabel": "Prop. X.42",
+      "short": "Binomial: unique division",
+      "book": 10,
+      "number": 42,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop43",
+      "type": "proposition",
+      "label": "First bimedial divided at one point only",
+      "shortLabel": "Prop. X.43",
+      "short": "First bimedial: unique division",
+      "book": 10,
+      "number": 43,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop44",
+      "type": "proposition",
+      "label": "Second bimedial divided at one point only",
+      "shortLabel": "Prop. X.44",
+      "short": "Second bimedial: unique division",
+      "book": 10,
+      "number": 44,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop45",
+      "type": "proposition",
+      "label": "Major divided at one point only",
+      "shortLabel": "Prop. X.45",
+      "short": "Major: unique division",
+      "book": 10,
+      "number": 45,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop46",
+      "type": "proposition",
+      "label": "Side of rational plus medial divided at one point only",
+      "shortLabel": "Prop. X.46",
+      "short": "Side rational+medial: unique division",
+      "book": 10,
+      "number": 46,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop47",
+      "type": "proposition",
+      "label": "Side of sum of two medial divided at one point only",
+      "shortLabel": "Prop. X.47",
+      "short": "Side two medial: unique division",
+      "book": 10,
+      "number": 47,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop48",
+      "type": "proposition",
+      "label": "To find the first binomial line",
+      "shortLabel": "Prop. X.48",
+      "short": "Find first binomial",
+      "book": 10,
+      "number": 48,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop49",
+      "type": "proposition",
+      "label": "To find the second binomial line",
+      "shortLabel": "Prop. X.49",
+      "short": "Find second binomial",
+      "book": 10,
+      "number": 49,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop50",
+      "type": "proposition",
+      "label": "To find the third binomial line",
+      "shortLabel": "Prop. X.50",
+      "short": "Find third binomial",
+      "book": 10,
+      "number": 50,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop51",
+      "type": "proposition",
+      "label": "To find the fourth binomial line",
+      "shortLabel": "Prop. X.51",
+      "short": "Find fourth binomial",
+      "book": 10,
+      "number": 51,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop52",
+      "type": "proposition",
+      "label": "To find the fifth binomial line",
+      "shortLabel": "Prop. X.52",
+      "short": "Find fifth binomial",
+      "book": 10,
+      "number": 52,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop53",
+      "type": "proposition",
+      "label": "To find the sixth binomial line",
+      "shortLabel": "Prop. X.53",
+      "short": "Find sixth binomial",
+      "book": 10,
+      "number": 53,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop54",
+      "type": "proposition",
+      "label": "Area by rational and first binomial: side is binomial",
+      "shortLabel": "Prop. X.54",
+      "short": "Rational × first binomial",
+      "book": 10,
+      "number": 54,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop55",
+      "type": "proposition",
+      "label": "Area by rational and second binomial: side is first bimedial",
+      "shortLabel": "Prop. X.55",
+      "short": "Rational × second binomial",
+      "book": 10,
+      "number": 55,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop56",
+      "type": "proposition",
+      "label": "Area by rational and third binomial: side is second bimedial",
+      "shortLabel": "Prop. X.56",
+      "short": "Rational × third binomial",
+      "book": 10,
+      "number": 56,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop57",
+      "type": "proposition",
+      "label": "Area by rational and fourth binomial: side is major",
+      "shortLabel": "Prop. X.57",
+      "short": "Rational × fourth binomial",
+      "book": 10,
+      "number": 57,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop58",
+      "type": "proposition",
+      "label": "Area by rational and fifth binomial: side is rational plus medial",
+      "shortLabel": "Prop. X.58",
+      "short": "Rational × fifth binomial",
+      "book": 10,
+      "number": 58,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop59",
+      "type": "proposition",
+      "label": "Area by rational and sixth binomial: side is sum of two medial",
+      "shortLabel": "Prop. X.59",
+      "short": "Rational × sixth binomial",
+      "book": 10,
+      "number": 59,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop60",
+      "type": "proposition",
+      "label": "Square on binomial applied to rational: breadth first binomial",
+      "shortLabel": "Prop. X.60",
+      "short": "Square on binomial",
+      "book": 10,
+      "number": 60,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop61",
+      "type": "proposition",
+      "label": "Square on first bimedial applied to rational: breadth second binomial",
+      "shortLabel": "Prop. X.61",
+      "short": "Square on first bimedial",
+      "book": 10,
+      "number": 61,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop62",
+      "type": "proposition",
+      "label": "Square on second bimedial applied to rational: breadth third binomial",
+      "shortLabel": "Prop. X.62",
+      "short": "Square on second bimedial",
+      "book": 10,
+      "number": 62,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop63",
+      "type": "proposition",
+      "label": "Square on major applied to rational: breadth fourth binomial",
+      "shortLabel": "Prop. X.63",
+      "short": "Square on major",
+      "book": 10,
+      "number": 63,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop64",
+      "type": "proposition",
+      "label": "Square on rational+medial applied to rational: breadth fifth binomial",
+      "shortLabel": "Prop. X.64",
+      "short": "Square on rational+medial",
+      "book": 10,
+      "number": 64,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop65",
+      "type": "proposition",
+      "label": "Square on sum of two medial applied to rational: breadth sixth binomial",
+      "shortLabel": "Prop. X.65",
+      "short": "Square on two medial",
+      "book": 10,
+      "number": 65,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop66",
+      "type": "proposition",
+      "label": "Line commensurable with binomial is binomial, same order",
+      "shortLabel": "Prop. X.66",
+      "short": "Commensurable with binomial",
+      "book": 10,
+      "number": 66,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop67",
+      "type": "proposition",
+      "label": "Line commensurable with bimedial is bimedial, same order",
+      "shortLabel": "Prop. X.67",
+      "short": "Commensurable with bimedial",
+      "book": 10,
+      "number": 67,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop68",
+      "type": "proposition",
+      "label": "Line commensurable with major is major",
+      "shortLabel": "Prop. X.68",
+      "short": "Commensurable with major",
+      "book": 10,
+      "number": 68,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop69",
+      "type": "proposition",
+      "label": "Line commensurable with rational+medial is rational+medial",
+      "shortLabel": "Prop. X.69",
+      "short": "Commensurable with rational+medial",
+      "book": 10,
+      "number": 69,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop70",
+      "type": "proposition",
+      "label": "Line commensurable with sum of two medial is sum of two medial",
+      "shortLabel": "Prop. X.70",
+      "short": "Commensurable with two medial",
+      "book": 10,
+      "number": 70,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop71",
+      "type": "proposition",
+      "label": "Rational and medial added: four irrationals arise",
+      "shortLabel": "Prop. X.71",
+      "short": "Rational + medial: four irrationals",
+      "book": 10,
+      "number": 71,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop72",
+      "type": "proposition",
+      "label": "Two medial incommensurable added: two irrationals arise",
+      "shortLabel": "Prop. X.72",
+      "short": "Two medial: two irrationals",
+      "book": 10,
+      "number": 72,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop73",
+      "type": "proposition",
+      "label": "Rational minus rational in square only: remainder irrational, apotome",
+      "shortLabel": "Prop. X.73",
+      "short": "Apotome defined",
+      "book": 10,
+      "number": 73,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop74",
+      "type": "proposition",
+      "label": "Medial minus medial, rational rect: first apotome of medial",
+      "shortLabel": "Prop. X.74",
+      "short": "First apotome of medial",
+      "book": 10,
+      "number": 74,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop75",
+      "type": "proposition",
+      "label": "Medial minus medial, medial rect: second apotome of medial",
+      "shortLabel": "Prop. X.75",
+      "short": "Second apotome of medial",
+      "book": 10,
+      "number": 75,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop76",
+      "type": "proposition",
+      "label": "Line minus incommensurable: sum rational, rect medial: remainder minor",
+      "shortLabel": "Prop. X.76",
+      "short": "Minor defined",
+      "book": 10,
+      "number": 76,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop77",
+      "type": "proposition",
+      "label": "Line minus incommensurable: sum medial, rect rational: produces rational+medial",
+      "shortLabel": "Prop. X.77",
+      "short": "Produces rational+medial",
+      "book": 10,
+      "number": 77,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop78",
+      "type": "proposition",
+      "label": "Line minus incommensurable: both medial, incommensurable: produces medial+medial",
+      "shortLabel": "Prop. X.78",
+      "short": "Produces medial+medial",
+      "book": 10,
+      "number": 78,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop79",
+      "type": "proposition",
+      "label": "To apotome only one rational can be annexed in square only",
+      "shortLabel": "Prop. X.79",
+      "short": "Apotome: unique annex",
+      "book": 10,
+      "number": 79,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop80",
+      "type": "proposition",
+      "label": "To first apotome of medial: unique medial annex, rational rect",
+      "shortLabel": "Prop. X.80",
+      "short": "First apotome medial: unique annex",
+      "book": 10,
+      "number": 80,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop81",
+      "type": "proposition",
+      "label": "To second apotome of medial: unique medial annex, medial rect",
+      "shortLabel": "Prop. X.81",
+      "short": "Second apotome medial: unique annex",
+      "book": 10,
+      "number": 81,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop82",
+      "type": "proposition",
+      "label": "To minor: unique annex incommensurable in square",
+      "shortLabel": "Prop. X.82",
+      "short": "Minor: unique annex",
+      "book": 10,
+      "number": 82,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop83",
+      "type": "proposition",
+      "label": "To produces rational+medial: unique annex",
+      "shortLabel": "Prop. X.83",
+      "short": "Rational+medial: unique annex",
+      "book": 10,
+      "number": 83,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop84",
+      "type": "proposition",
+      "label": "To produces medial+medial: unique annex",
+      "shortLabel": "Prop. X.84",
+      "short": "Medial+medial: unique annex",
+      "book": 10,
+      "number": 84,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop85",
+      "type": "proposition",
+      "label": "To find the first apotome",
+      "shortLabel": "Prop. X.85",
+      "short": "Find first apotome",
+      "book": 10,
+      "number": 85,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop86",
+      "type": "proposition",
+      "label": "To find the second apotome",
+      "shortLabel": "Prop. X.86",
+      "short": "Find second apotome",
+      "book": 10,
+      "number": 86,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop87",
+      "type": "proposition",
+      "label": "To find the third apotome",
+      "shortLabel": "Prop. X.87",
+      "short": "Find third apotome",
+      "book": 10,
+      "number": 87,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop88",
+      "type": "proposition",
+      "label": "To find the fourth apotome",
+      "shortLabel": "Prop. X.88",
+      "short": "Find fourth apotome",
+      "book": 10,
+      "number": 88,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop89",
+      "type": "proposition",
+      "label": "To find the fifth apotome",
+      "shortLabel": "Prop. X.89",
+      "short": "Find fifth apotome",
+      "book": 10,
+      "number": 89,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop90",
+      "type": "proposition",
+      "label": "To find the sixth apotome",
+      "shortLabel": "Prop. X.90",
+      "short": "Find sixth apotome",
+      "book": 10,
+      "number": 90,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop91",
+      "type": "proposition",
+      "label": "Area by rational and first apotome: side is apotome",
+      "shortLabel": "Prop. X.91",
+      "short": "Rational × first apotome",
+      "book": 10,
+      "number": 91,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop92",
+      "type": "proposition",
+      "label": "Area by rational and second apotome: side is first apotome of medial",
+      "shortLabel": "Prop. X.92",
+      "short": "Rational × second apotome",
+      "book": 10,
+      "number": 92,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop93",
+      "type": "proposition",
+      "label": "Area by rational and third apotome: side is second apotome of medial",
+      "shortLabel": "Prop. X.93",
+      "short": "Rational × third apotome",
+      "book": 10,
+      "number": 93,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop94",
+      "type": "proposition",
+      "label": "Area by rational and fourth apotome: side is minor",
+      "shortLabel": "Prop. X.94",
+      "short": "Rational × fourth apotome",
+      "book": 10,
+      "number": 94,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop95",
+      "type": "proposition",
+      "label": "Area by rational and fifth apotome: side produces rational+medial",
+      "shortLabel": "Prop. X.95",
+      "short": "Rational × fifth apotome",
+      "book": 10,
+      "number": 95,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop96",
+      "type": "proposition",
+      "label": "Area by rational and sixth apotome: side produces medial+medial",
+      "shortLabel": "Prop. X.96",
+      "short": "Rational × sixth apotome",
+      "book": 10,
+      "number": 96,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop97",
+      "type": "proposition",
+      "label": "Square on apotome of medial applied to rational: breadth first apotome",
+      "shortLabel": "Prop. X.97",
+      "short": "Square on apotome medial",
+      "book": 10,
+      "number": 97,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop98",
+      "type": "proposition",
+      "label": "Square on first apotome of medial: breadth second apotome",
+      "shortLabel": "Prop. X.98",
+      "short": "Square on first apotome medial",
+      "book": 10,
+      "number": 98,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop99",
+      "type": "proposition",
+      "label": "Square on second apotome of medial: breadth third apotome",
+      "shortLabel": "Prop. X.99",
+      "short": "Square on second apotome medial",
+      "book": 10,
+      "number": 99,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop100",
+      "type": "proposition",
+      "label": "Square on minor applied to rational: breadth fourth apotome",
+      "shortLabel": "Prop. X.100",
+      "short": "Square on minor",
+      "book": 10,
+      "number": 100,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop101",
+      "type": "proposition",
+      "label": "Square on produces rational+medial: breadth fifth apotome",
+      "shortLabel": "Prop. X.101",
+      "short": "Square on rational+medial",
+      "book": 10,
+      "number": 101,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop102",
+      "type": "proposition",
+      "label": "Square on produces medial+medial: breadth sixth apotome",
+      "shortLabel": "Prop. X.102",
+      "short": "Square on medial+medial",
+      "book": 10,
+      "number": 102,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop103",
+      "type": "proposition",
+      "label": "Line commensurable with apotome is apotome, same order",
+      "shortLabel": "Prop. X.103",
+      "short": "Commensurable with apotome",
+      "book": 10,
+      "number": 103,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop104",
+      "type": "proposition",
+      "label": "Line commensurable with apotome of medial is apotome of medial",
+      "shortLabel": "Prop. X.104",
+      "short": "Commensurable with apotome medial",
+      "book": 10,
+      "number": 104,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop105",
+      "type": "proposition",
+      "label": "Line commensurable with minor is minor",
+      "shortLabel": "Prop. X.105",
+      "short": "Commensurable with minor",
+      "book": 10,
+      "number": 105,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop106",
+      "type": "proposition",
+      "label": "Line commensurable with produces rational+medial is same",
+      "shortLabel": "Prop. X.106",
+      "short": "Commensurable with rational+medial",
+      "book": 10,
+      "number": 106,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop107",
+      "type": "proposition",
+      "label": "Line commensurable with produces medial+medial is same",
+      "shortLabel": "Prop. X.107",
+      "short": "Commensurable with medial+medial",
+      "book": 10,
+      "number": 107,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop108",
+      "type": "proposition",
+      "label": "From rational area subtract medial: side is apotome or minor",
+      "shortLabel": "Prop. X.108",
+      "short": "Rational minus medial",
+      "book": 10,
+      "number": 108,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop109",
+      "type": "proposition",
+      "label": "From medial subtract rational: first apotome of medial or rational+medial",
+      "shortLabel": "Prop. X.109",
+      "short": "Medial minus rational",
+      "book": 10,
+      "number": 109,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop110",
+      "type": "proposition",
+      "label": "From medial subtract medial incommensurable: second apotome or medial+medial",
+      "shortLabel": "Prop. X.110",
+      "short": "Medial minus medial",
+      "book": 10,
+      "number": 110,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop111",
+      "type": "proposition",
+      "label": "Apotome is not the same as binomial",
+      "shortLabel": "Prop. X.111",
+      "short": "Apotome ≠ binomial",
+      "book": 10,
+      "number": 111,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop112",
+      "type": "proposition",
+      "label": "Square on rational applied to binomial: breadth apotome, same order",
+      "shortLabel": "Prop. X.112",
+      "short": "Rational on binomial",
+      "book": 10,
+      "number": 112,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop113",
+      "type": "proposition",
+      "label": "Square on rational applied to apotome: breadth binomial, same order",
+      "shortLabel": "Prop. X.113",
+      "short": "Rational on apotome",
+      "book": 10,
+      "number": 113,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop114",
+      "type": "proposition",
+      "label": "Area by apotome and binomial (commensurable terms): side is rational",
+      "shortLabel": "Prop. X.114",
+      "short": "Apotome × binomial: rational",
+      "book": 10,
+      "number": 114,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop115",
+      "type": "proposition",
+      "label": "From medial arise irrationals infinite in number, none same as preceding",
+      "shortLabel": "Prop. X.115",
+      "short": "Medial: infinite irrationals",
+      "book": 10,
+      "number": 115,
+      "colorClass": "proposition"
+    }
+  ],
+  "edges": [
+    {
+      "from": "BookI",
+      "to": "Prop1"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop1"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop1"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop2"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop2"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop2"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop3"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop3"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop3"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop4"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop4"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop4"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop5"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop5"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop5"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop6"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop6"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop6"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop7"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop7"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop7"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop8"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop8"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop8"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop9"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop9"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop9"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop10"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop10"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop10"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop11"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop11"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop11"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop12"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop12"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop12"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop13"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop13"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop13"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop14"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop14"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop14"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop15"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop15"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop15"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop16"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop16"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop16"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop17"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop17"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop17"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop18"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop18"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop18"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop19"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop19"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop19"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop20"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop20"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop20"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop21"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop21"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop21"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop22"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop22"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop22"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop23"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop23"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop23"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop24"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop24"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop24"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop25"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop25"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop25"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop26"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop26"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop26"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop27"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop27"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop27"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop28"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop28"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop28"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop29"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop29"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop29"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop30"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop30"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop30"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop31"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop31"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop31"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop32"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop32"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop32"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop33"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop33"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop33"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop34"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop34"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop34"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop35"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop35"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop35"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop36"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop36"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop36"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop37"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop37"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop37"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop38"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop38"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop38"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop39"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop39"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop39"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop40"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop40"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop40"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop41"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop41"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop41"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop42"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop42"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop42"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop43"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop43"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop43"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop44"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop44"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop44"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop45"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop45"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop45"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop46"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop46"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop46"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop47"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop47"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop47"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop48"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop48"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop48"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop49"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop49"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop49"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop50"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop50"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop50"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop51"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop51"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop51"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop52"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop52"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop52"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop53"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop53"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop53"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop54"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop54"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop54"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop55"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop55"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop55"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop56"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop56"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop56"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop57"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop57"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop57"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop58"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop58"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop58"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop59"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop59"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop59"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop60"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop60"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop60"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop61"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop61"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop61"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop62"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop62"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop62"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop63"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop63"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop63"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop64"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop64"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop64"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop65"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop65"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop65"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop66"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop66"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop66"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop67"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop67"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop67"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop68"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop68"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop68"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop69"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop69"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop69"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop70"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop70"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop70"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop71"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop71"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop71"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop72"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop72"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop72"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop73"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop73"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop73"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop74"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop74"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop74"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop75"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop75"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop75"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop76"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop76"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop76"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop77"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop77"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop77"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop78"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop78"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop78"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop79"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop79"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop79"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop80"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop80"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop80"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop81"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop81"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop81"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop82"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop82"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop82"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop83"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop83"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop83"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop84"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop84"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop84"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop85"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop85"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop85"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop86"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop86"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop86"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop87"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop87"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop87"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop88"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop88"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop88"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop89"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop89"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop89"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop90"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop90"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop90"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop91"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop91"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop91"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop92"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop92"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop92"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop93"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop93"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop93"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop94"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop94"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop94"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop95"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop95"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop95"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop96"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop96"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop96"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop97"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop97"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop97"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop98"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop98"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop98"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop99"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop99"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop99"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop100"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop100"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop100"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop101"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop101"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop101"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop102"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop102"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop102"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop103"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop103"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop103"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop104"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop104"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop104"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop105"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop105"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop105"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop106"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop106"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop106"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop107"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop107"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop107"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop108"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop108"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop108"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop109"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop109"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop109"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop110"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop110"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop110"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop111"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop111"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop111"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop112"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop112"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop112"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop113"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop113"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop113"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop114"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop114"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop114"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop115"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop115"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop115"
+    }
+  ],
+  "colorScheme": {
+    "foundation": {
+      "fill": "#95a5a6",
+      "stroke": "#7f8c8d"
+    },
+    "proposition": {
+      "fill": "#1abc9c",
+      "stroke": "#16a085"
+    }
+  }
+}

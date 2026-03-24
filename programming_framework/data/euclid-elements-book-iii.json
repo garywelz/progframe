@@ -1,0 +1,885 @@
+{
+  "schemaVersion": "1.0",
+  "discourse": {
+    "id": "euclid-elements-book-iii",
+    "name": "Euclid's Elements, Book III",
+    "subject": "geometry",
+    "variant": "classical",
+    "description": "Theory of circles: 11 definitions, 37 propositions. All depend on Book I. III.35 uses II.5. Source: David E. Joyce.",
+    "structure": {
+      "books": 3,
+      "definitions": 11,
+      "propositions": 37,
+      "foundationTypes": [
+        "definition",
+        "foundation"
+      ]
+    }
+  },
+  "metadata": {
+    "created": "2026-03-15",
+    "lastUpdated": "2026-03-15",
+    "version": "1.0.0",
+    "license": "CC BY 4.0",
+    "authors": [
+      "Welz, G."
+    ],
+    "methodology": "Programming Framework",
+    "citation": "Welz, G. (2026). Euclid's Elements Book III Dependency Graph. Programming Framework.",
+    "keywords": [
+      "Euclid",
+      "Elements",
+      "Book III",
+      "circles",
+      "chords",
+      "tangents"
+    ]
+  },
+  "sources": [
+    {
+      "id": "joyce",
+      "type": "digital",
+      "authors": "Joyce, David E.",
+      "title": "Euclid's Elements, Book III",
+      "year": "1996",
+      "url": "https://mathcs.clarku.edu/~djoyce/java/elements/bookIII/bookIII.html",
+      "notes": "Clark University"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "BookI",
+      "type": "foundation",
+      "label": "Book I — Fundamentals of plane geometry",
+      "shortLabel": "Book I",
+      "short": "Foundation",
+      "book": 1,
+      "colorClass": "foundation"
+    },
+    {
+      "id": "PropII5",
+      "type": "foundation",
+      "label": "Prop. II.5 — Rectangle + square = square on half",
+      "shortLabel": "Prop. II.5",
+      "short": "From Book II",
+      "book": 2,
+      "colorClass": "foundation"
+    },
+    {
+      "id": "Def1",
+      "type": "definition",
+      "label": "Equal circles are those with equal radii",
+      "shortLabel": "Def. III.1",
+      "short": "Equal circles",
+      "book": 3,
+      "number": 1,
+      "colorClass": "definition"
+    },
+    {
+      "id": "Def2",
+      "type": "definition",
+      "label": "A straight line touches a circle if it meets but does not cut it",
+      "shortLabel": "Def. III.2",
+      "short": "Tangent",
+      "book": 3,
+      "number": 2,
+      "colorClass": "definition"
+    },
+    {
+      "id": "Def3",
+      "type": "definition",
+      "label": "Circles touch one another if they meet but do not cut",
+      "shortLabel": "Def. III.3",
+      "short": "Circles touching",
+      "book": 3,
+      "number": 3,
+      "colorClass": "definition"
+    },
+    {
+      "id": "Def4",
+      "type": "definition",
+      "label": "Lines equally distant from center when perpendiculars from center equal",
+      "shortLabel": "Def. III.4",
+      "short": "Equally distant from center",
+      "book": 3,
+      "number": 4,
+      "colorClass": "definition"
+    },
+    {
+      "id": "Def5",
+      "type": "definition",
+      "label": "Greater distance when greater perpendicular falls",
+      "shortLabel": "Def. III.5",
+      "short": "Greater distance",
+      "book": 3,
+      "number": 5,
+      "colorClass": "definition"
+    },
+    {
+      "id": "Def6",
+      "type": "definition",
+      "label": "Segment of circle: figure contained by straight line and circumference",
+      "shortLabel": "Def. III.6",
+      "short": "Segment of circle",
+      "book": 3,
+      "number": 6,
+      "colorClass": "definition"
+    },
+    {
+      "id": "Def7",
+      "type": "definition",
+      "label": "Angle of segment: contained by straight line and circumference",
+      "shortLabel": "Def. III.7",
+      "short": "Angle of segment",
+      "book": 3,
+      "number": 7,
+      "colorClass": "definition"
+    },
+    {
+      "id": "Def8",
+      "type": "definition",
+      "label": "Angle in segment: contained by straight lines joining circumference",
+      "shortLabel": "Def. III.8",
+      "short": "Angle in segment",
+      "book": 3,
+      "number": 8,
+      "colorClass": "definition"
+    },
+    {
+      "id": "Def9",
+      "type": "definition",
+      "label": "Angle stands on circumference when lines cut off that circumference",
+      "shortLabel": "Def. III.9",
+      "short": "Angle stands on circumference",
+      "book": 3,
+      "number": 9,
+      "colorClass": "definition"
+    },
+    {
+      "id": "Def10",
+      "type": "definition",
+      "label": "Sector: figure contained by two radii and circumference between them",
+      "shortLabel": "Def. III.10",
+      "short": "Sector",
+      "book": 3,
+      "number": 10,
+      "colorClass": "definition"
+    },
+    {
+      "id": "Def11",
+      "type": "definition",
+      "label": "Similar segments are those which admit equal angles",
+      "shortLabel": "Def. III.11",
+      "short": "Similar segments",
+      "book": 3,
+      "number": 11,
+      "colorClass": "definition"
+    },
+    {
+      "id": "Prop1",
+      "type": "proposition",
+      "label": "To find the center of a given circle",
+      "shortLabel": "Prop. III.1",
+      "short": "Find center of circle",
+      "book": 3,
+      "number": 1,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop2",
+      "type": "proposition",
+      "label": "Straight line joining two points on circumference falls within circle",
+      "shortLabel": "Prop. III.2",
+      "short": "Chord falls within circle",
+      "book": 3,
+      "number": 2,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop3",
+      "type": "proposition",
+      "label": "If diameter bisects chord not through center, it cuts at right angles",
+      "shortLabel": "Prop. III.3",
+      "short": "Diameter bisects chord at right angles",
+      "book": 3,
+      "number": 3,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop4",
+      "type": "proposition",
+      "label": "Two non-diameters cutting one another do not bisect",
+      "shortLabel": "Prop. III.4",
+      "short": "Non-diameters do not bisect",
+      "book": 3,
+      "number": 4,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop5",
+      "type": "proposition",
+      "label": "If two circles cut one another, they do not have same center",
+      "shortLabel": "Prop. III.5",
+      "short": "Cutting circles do not share center",
+      "book": 3,
+      "number": 5,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop6",
+      "type": "proposition",
+      "label": "If two circles touch, they do not have same center",
+      "shortLabel": "Prop. III.6",
+      "short": "Touching circles do not share center",
+      "book": 3,
+      "number": 6,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop7",
+      "type": "proposition",
+      "label": "From point on diameter: greatest through center, least is remainder",
+      "shortLabel": "Prop. III.7",
+      "short": "Greatest/shortest from point on diameter",
+      "book": 3,
+      "number": 7,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop8",
+      "type": "proposition",
+      "label": "From point outside: through center greatest; between point and diameter least",
+      "shortLabel": "Prop. III.8",
+      "short": "Lines from point outside circle",
+      "book": 3,
+      "number": 8,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop9",
+      "type": "proposition",
+      "label": "If more than two equal lines fall from point on circle, point is center",
+      "shortLabel": "Prop. III.9",
+      "short": "Three equal lines imply center",
+      "book": 3,
+      "number": 9,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop10",
+      "type": "proposition",
+      "label": "A circle does not cut another at more than two points",
+      "shortLabel": "Prop. III.10",
+      "short": "Circles cut at most two points",
+      "book": 3,
+      "number": 10,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop11",
+      "type": "proposition",
+      "label": "Line joining centers of internally touching circles passes through contact",
+      "shortLabel": "Prop. III.11",
+      "short": "Internally touching circles",
+      "book": 3,
+      "number": 11,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop12",
+      "type": "proposition",
+      "label": "Line joining centers of externally touching circles passes through contact",
+      "shortLabel": "Prop. III.12",
+      "short": "Externally touching circles",
+      "book": 3,
+      "number": 12,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop13",
+      "type": "proposition",
+      "label": "Circle does not touch another at more than one point",
+      "shortLabel": "Prop. III.13",
+      "short": "Circles touch at most one point",
+      "book": 3,
+      "number": 13,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop14",
+      "type": "proposition",
+      "label": "Equal chords equally distant from center, and conversely",
+      "shortLabel": "Prop. III.14",
+      "short": "Equal chords equally distant",
+      "book": 3,
+      "number": 14,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop15",
+      "type": "proposition",
+      "label": "Diameter greatest; nearer to center greater than more remote",
+      "shortLabel": "Prop. III.15",
+      "short": "Diameter greatest",
+      "book": 3,
+      "number": 15,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop16",
+      "type": "proposition",
+      "label": "Perpendicular at end of diameter falls outside; horn angle",
+      "shortLabel": "Prop. III.16",
+      "short": "Tangent at end of diameter",
+      "book": 3,
+      "number": 16,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop17",
+      "type": "proposition",
+      "label": "From given point to draw straight line touching given circle",
+      "shortLabel": "Prop. III.17",
+      "short": "Draw tangent from point",
+      "book": 3,
+      "number": 17,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop18",
+      "type": "proposition",
+      "label": "Radius to point of contact perpendicular to tangent",
+      "shortLabel": "Prop. III.18",
+      "short": "Radius to tangent perpendicular",
+      "book": 3,
+      "number": 18,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop19",
+      "type": "proposition",
+      "label": "Perpendicular from contact to tangent passes through center",
+      "shortLabel": "Prop. III.19",
+      "short": "Perpendicular from contact to center",
+      "book": 3,
+      "number": 19,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop20",
+      "type": "proposition",
+      "label": "Angle at center double angle at circumference on same base",
+      "shortLabel": "Prop. III.20",
+      "short": "Angle at center double angle at circumference",
+      "book": 3,
+      "number": 20,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop21",
+      "type": "proposition",
+      "label": "In a circle angles in same segment equal one another",
+      "shortLabel": "Prop. III.21",
+      "short": "Angles in same segment equal",
+      "book": 3,
+      "number": 21,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop22",
+      "type": "proposition",
+      "label": "Sum of opposite angles of cyclic quadrilateral equals two right angles",
+      "shortLabel": "Prop. III.22",
+      "short": "Opposite angles of cyclic quadrilateral",
+      "book": 3,
+      "number": 22,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop23",
+      "type": "proposition",
+      "label": "On same line cannot construct two similar unequal segments on same side",
+      "shortLabel": "Prop. III.23",
+      "short": "Same line, two similar unequal segments",
+      "book": 3,
+      "number": 23,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop24",
+      "type": "proposition",
+      "label": "Similar segments on equal straight lines equal one another",
+      "shortLabel": "Prop. III.24",
+      "short": "Similar segments on equal lines equal",
+      "book": 3,
+      "number": 24,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop25",
+      "type": "proposition",
+      "label": "Given segment of circle, describe complete circle",
+      "shortLabel": "Prop. III.25",
+      "short": "Complete circle from segment",
+      "book": 3,
+      "number": 25,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop26",
+      "type": "proposition",
+      "label": "In equal circles equal angles stand on equal circumferences",
+      "shortLabel": "Prop. III.26",
+      "short": "Equal angles stand on equal arcs",
+      "book": 3,
+      "number": 26,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop27",
+      "type": "proposition",
+      "label": "In equal circles angles on equal circumferences equal one another",
+      "shortLabel": "Prop. III.27",
+      "short": "Equal arcs imply equal angles",
+      "book": 3,
+      "number": 27,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop28",
+      "type": "proposition",
+      "label": "In equal circles equal chords cut off equal circumferences",
+      "shortLabel": "Prop. III.28",
+      "short": "Equal chords cut off equal arcs",
+      "book": 3,
+      "number": 28,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop29",
+      "type": "proposition",
+      "label": "In equal circles chords cutting equal circumferences are equal",
+      "shortLabel": "Prop. III.29",
+      "short": "Equal arcs imply equal chords",
+      "book": 3,
+      "number": 29,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop30",
+      "type": "proposition",
+      "label": "To bisect a given circumference",
+      "shortLabel": "Prop. III.30",
+      "short": "Bisect given circumference",
+      "book": 3,
+      "number": 30,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop31",
+      "type": "proposition",
+      "label": "Angle in semicircle right; in greater segment less; in less greater",
+      "shortLabel": "Prop. III.31",
+      "short": "Angle in semicircle is right",
+      "book": 3,
+      "number": 31,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop32",
+      "type": "proposition",
+      "label": "Angle with tangent equals angle in alternate segment",
+      "shortLabel": "Prop. III.32",
+      "short": "Tangent-chord angle equals alternate segment",
+      "book": 3,
+      "number": 32,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop33",
+      "type": "proposition",
+      "label": "On given line describe segment admitting angle equal to given",
+      "shortLabel": "Prop. III.33",
+      "short": "Segment admitting given angle",
+      "book": 3,
+      "number": 33,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop34",
+      "type": "proposition",
+      "label": "From given circle cut off segment admitting given angle",
+      "shortLabel": "Prop. III.34",
+      "short": "Cut off segment admitting angle",
+      "book": 3,
+      "number": 34,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop35",
+      "type": "proposition",
+      "label": "If chords cut one another, rectangle by segments of one equals other",
+      "shortLabel": "Prop. III.35",
+      "short": "Rectangle from chord segments equal",
+      "book": 3,
+      "number": 35,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop36",
+      "type": "proposition",
+      "label": "From point outside: tangent squared = secant × external part",
+      "shortLabel": "Prop. III.36",
+      "short": "Tangent squared = secant × external",
+      "book": 3,
+      "number": 36,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop37",
+      "type": "proposition",
+      "label": "If rectangle equals square on line, that line touches circle",
+      "shortLabel": "Prop. III.37",
+      "short": "Converse: tangent if rectangle = square",
+      "book": 3,
+      "number": 37,
+      "colorClass": "proposition"
+    }
+  ],
+  "edges": [
+    {
+      "from": "BookI",
+      "to": "Def1"
+    },
+    {
+      "from": "BookI",
+      "to": "Def2"
+    },
+    {
+      "from": "BookI",
+      "to": "Def3"
+    },
+    {
+      "from": "BookI",
+      "to": "Def4"
+    },
+    {
+      "from": "BookI",
+      "to": "Def5"
+    },
+    {
+      "from": "BookI",
+      "to": "Def6"
+    },
+    {
+      "from": "BookI",
+      "to": "Def7"
+    },
+    {
+      "from": "BookI",
+      "to": "Def8"
+    },
+    {
+      "from": "BookI",
+      "to": "Def9"
+    },
+    {
+      "from": "BookI",
+      "to": "Def10"
+    },
+    {
+      "from": "BookI",
+      "to": "Def11"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop1"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop2"
+    },
+    {
+      "from": "Prop1",
+      "to": "Prop2"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop3"
+    },
+    {
+      "from": "Prop1",
+      "to": "Prop3"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop4"
+    },
+    {
+      "from": "Prop3",
+      "to": "Prop4"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop5"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop6"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop7"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop8"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop9"
+    },
+    {
+      "from": "Prop1",
+      "to": "Prop9"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop10"
+    },
+    {
+      "from": "Prop1",
+      "to": "Prop10"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop11"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop12"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop13"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop14"
+    },
+    {
+      "from": "Prop3",
+      "to": "Prop14"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop15"
+    },
+    {
+      "from": "Prop3",
+      "to": "Prop15"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop16"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop17"
+    },
+    {
+      "from": "Prop16",
+      "to": "Prop17"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop18"
+    },
+    {
+      "from": "Prop1",
+      "to": "Prop18"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop19"
+    },
+    {
+      "from": "Prop18",
+      "to": "Prop19"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop20"
+    },
+    {
+      "from": "Prop1",
+      "to": "Prop20"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop21"
+    },
+    {
+      "from": "Prop20",
+      "to": "Prop21"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop22"
+    },
+    {
+      "from": "Prop21",
+      "to": "Prop22"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop23"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop24"
+    },
+    {
+      "from": "Prop23",
+      "to": "Prop24"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop25"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop26"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop27"
+    },
+    {
+      "from": "Prop26",
+      "to": "Prop27"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop28"
+    },
+    {
+      "from": "Prop27",
+      "to": "Prop28"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop29"
+    },
+    {
+      "from": "Prop28",
+      "to": "Prop29"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop30"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop31"
+    },
+    {
+      "from": "Prop20",
+      "to": "Prop31"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop32"
+    },
+    {
+      "from": "Prop31",
+      "to": "Prop32"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop33"
+    },
+    {
+      "from": "Prop16",
+      "to": "Prop33"
+    },
+    {
+      "from": "Prop32",
+      "to": "Prop33"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop34"
+    },
+    {
+      "from": "Prop32",
+      "to": "Prop34"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop35"
+    },
+    {
+      "from": "Prop1",
+      "to": "Prop35"
+    },
+    {
+      "from": "Prop3",
+      "to": "Prop35"
+    },
+    {
+      "from": "PropII5",
+      "to": "Prop35"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop36"
+    },
+    {
+      "from": "Prop1",
+      "to": "Prop36"
+    },
+    {
+      "from": "Prop18",
+      "to": "Prop36"
+    },
+    {
+      "from": "Prop35",
+      "to": "Prop36"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop37"
+    },
+    {
+      "from": "Prop1",
+      "to": "Prop37"
+    },
+    {
+      "from": "Prop16",
+      "to": "Prop37"
+    },
+    {
+      "from": "Prop32",
+      "to": "Prop37"
+    },
+    {
+      "from": "Prop36",
+      "to": "Prop37"
+    }
+  ],
+  "colorScheme": {
+    "foundation": {
+      "fill": "#95a5a6",
+      "stroke": "#7f8c8d"
+    },
+    "definition": {
+      "fill": "#3498db",
+      "stroke": "#2980b9"
+    },
+    "proposition": {
+      "fill": "#1abc9c",
+      "stroke": "#16a085"
+    }
+  }
+}

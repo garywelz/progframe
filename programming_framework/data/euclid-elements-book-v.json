@@ -1,0 +1,676 @@
+{
+  "schemaVersion": "1.0",
+  "discourse": {
+    "id": "euclid-elements-book-v",
+    "name": "Euclid's Elements, Book V",
+    "subject": "geometry",
+    "variant": "classical",
+    "description": "Theory of ratio and proportion (Eudoxus). 18 definitions, 25 propositions. Does not depend on previous books. Source: David E. Joyce.",
+    "structure": {
+      "books": 5,
+      "definitions": 18,
+      "propositions": 25,
+      "foundationTypes": [
+        "definition"
+      ]
+    }
+  },
+  "metadata": {
+    "created": "2026-03-15",
+    "lastUpdated": "2026-03-15",
+    "version": "1.0.0",
+    "license": "CC BY 4.0",
+    "authors": [
+      "Welz, G."
+    ],
+    "methodology": "Programming Framework",
+    "citation": "Welz, G. (2026). Euclid's Elements Book V Dependency Graph. Programming Framework.",
+    "keywords": [
+      "Euclid",
+      "Elements",
+      "Book V",
+      "proportion",
+      "ratio",
+      "Eudoxus"
+    ]
+  },
+  "sources": [
+    {
+      "id": "joyce",
+      "type": "digital",
+      "authors": "Joyce, David E.",
+      "title": "Euclid's Elements, Book V",
+      "year": "1996",
+      "url": "https://mathcs.clarku.edu/~djoyce/java/elements/bookV/bookV.html",
+      "notes": "Clark University; Logical structure"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "Def1",
+      "type": "definition",
+      "label": "A magnitude is a part of a magnitude when it measures it",
+      "shortLabel": "Def. V.1",
+      "short": "Part",
+      "book": 5,
+      "number": 1,
+      "colorClass": "definition"
+    },
+    {
+      "id": "Def2",
+      "type": "definition",
+      "label": "The greater is a multiple of the less when it is measured by the less",
+      "shortLabel": "Def. V.2",
+      "short": "Multiple",
+      "book": 5,
+      "number": 2,
+      "colorClass": "definition"
+    },
+    {
+      "id": "Def3",
+      "type": "definition",
+      "label": "A ratio is a sort of relation in respect of size between two magnitudes",
+      "shortLabel": "Def. V.3",
+      "short": "Ratio",
+      "book": 5,
+      "number": 3,
+      "colorClass": "definition"
+    },
+    {
+      "id": "Def4",
+      "type": "definition",
+      "label": "Magnitudes have a ratio when the less can be multiplied to exceed the greater",
+      "shortLabel": "Def. V.4",
+      "short": "Same ratio",
+      "book": 5,
+      "number": 4,
+      "colorClass": "definition"
+    },
+    {
+      "id": "Def5",
+      "type": "definition",
+      "label": "Magnitudes in same ratio when equimultiples alike exceed, equal, or fall short",
+      "shortLabel": "Def. V.5",
+      "short": "In same ratio (Eudoxus)",
+      "book": 5,
+      "number": 5,
+      "colorClass": "definition"
+    },
+    {
+      "id": "Def6",
+      "type": "definition",
+      "label": "Magnitudes which have the same ratio are proportional",
+      "shortLabel": "Def. V.6",
+      "short": "Proportional",
+      "book": 5,
+      "number": 6,
+      "colorClass": "definition"
+    },
+    {
+      "id": "Def7",
+      "type": "definition",
+      "label": "When of equimultiples first exceeds second, third does not exceed fourth",
+      "shortLabel": "Def. V.7",
+      "short": "Greater ratio",
+      "book": 5,
+      "number": 7,
+      "colorClass": "definition"
+    },
+    {
+      "id": "Def8",
+      "type": "definition",
+      "label": "Compound ratio is the ratio of the products of corresponding terms",
+      "shortLabel": "Def. V.8",
+      "short": "Compound ratio",
+      "book": 5,
+      "number": 8,
+      "colorClass": "definition"
+    },
+    {
+      "id": "Def9",
+      "type": "definition",
+      "label": "Duplicate ratio is the ratio of the squares",
+      "shortLabel": "Def. V.9",
+      "short": "Duplicate ratio",
+      "book": 5,
+      "number": 9,
+      "colorClass": "definition"
+    },
+    {
+      "id": "Def10",
+      "type": "definition",
+      "label": "Triplicate ratio is the ratio of the cubes",
+      "shortLabel": "Def. V.10",
+      "short": "Triplicate ratio",
+      "book": 5,
+      "number": 10,
+      "colorClass": "definition"
+    },
+    {
+      "id": "Def11",
+      "type": "definition",
+      "label": "Corresponding magnitudes in proportion",
+      "shortLabel": "Def. V.11",
+      "short": "Corresponding magnitudes",
+      "book": 5,
+      "number": 11,
+      "colorClass": "definition"
+    },
+    {
+      "id": "Def12",
+      "type": "definition",
+      "label": "Alternate: first to third as second to fourth",
+      "shortLabel": "Def. V.12",
+      "short": "Alternate ratio",
+      "book": 5,
+      "number": 12,
+      "colorClass": "definition"
+    },
+    {
+      "id": "Def13",
+      "type": "definition",
+      "label": "Inverse: second to first as fourth to third",
+      "shortLabel": "Def. V.13",
+      "short": "Inverse ratio",
+      "book": 5,
+      "number": 13,
+      "colorClass": "definition"
+    },
+    {
+      "id": "Def14",
+      "type": "definition",
+      "label": "Composition: first+second to second as third+fourth to fourth",
+      "shortLabel": "Def. V.14",
+      "short": "Composition of ratio",
+      "book": 5,
+      "number": 14,
+      "colorClass": "definition"
+    },
+    {
+      "id": "Def15",
+      "type": "definition",
+      "label": "Separation: first−second to second as third−fourth to fourth",
+      "shortLabel": "Def. V.15",
+      "short": "Separation of ratio",
+      "book": 5,
+      "number": 15,
+      "colorClass": "definition"
+    },
+    {
+      "id": "Def16",
+      "type": "definition",
+      "label": "Conversion: first to first−second as third to third−fourth",
+      "shortLabel": "Def. V.16",
+      "short": "Conversion of ratio",
+      "book": 5,
+      "number": 16,
+      "colorClass": "definition"
+    },
+    {
+      "id": "Def17",
+      "type": "definition",
+      "label": "Ex aequali: when first to second as second to third",
+      "shortLabel": "Def. V.17",
+      "short": "Ex aequali",
+      "book": 5,
+      "number": 17,
+      "colorClass": "definition"
+    },
+    {
+      "id": "Def18",
+      "type": "definition",
+      "label": "Ex aequali perturbed: when ratios are in perturbed order",
+      "shortLabel": "Def. V.18",
+      "short": "Ex aequali perturbed",
+      "book": 5,
+      "number": 18,
+      "colorClass": "definition"
+    },
+    {
+      "id": "Prop1",
+      "type": "proposition",
+      "label": "If magnitudes each same multiple of others, sum is that multiple of sum",
+      "shortLabel": "Prop. V.1",
+      "short": "Sum of multiples",
+      "book": 5,
+      "number": 1,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop2",
+      "type": "proposition",
+      "label": "If first:second as third:fourth, sum of first and fifth as sum of third and sixth",
+      "shortLabel": "Prop. V.2",
+      "short": "Equimultiples sum",
+      "book": 5,
+      "number": 2,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop3",
+      "type": "proposition",
+      "label": "Equimultiples of equimultiples are equimultiples",
+      "shortLabel": "Prop. V.3",
+      "short": "Equimultiples of equimultiples",
+      "book": 5,
+      "number": 3,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop4",
+      "type": "proposition",
+      "label": "If a:b = c:d, then ma:nb = mc:nd",
+      "shortLabel": "Prop. V.4",
+      "short": "Equimultiples preserve ratio",
+      "book": 5,
+      "number": 4,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop5",
+      "type": "proposition",
+      "label": "Multiple of whole minus multiple of part = multiple of remainder",
+      "shortLabel": "Prop. V.5",
+      "short": "Multiple of difference",
+      "book": 5,
+      "number": 5,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop6",
+      "type": "proposition",
+      "label": "Equimultiples minus equimultiples equal or equimultiples",
+      "shortLabel": "Prop. V.6",
+      "short": "Equimultiples minus equimultiples",
+      "book": 5,
+      "number": 6,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop7",
+      "type": "proposition",
+      "label": "Equal magnitudes have same ratio to same; same to equals",
+      "shortLabel": "Prop. V.7",
+      "short": "Equals in ratio",
+      "book": 5,
+      "number": 7,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop8",
+      "type": "proposition",
+      "label": "Of unequal magnitudes, greater has greater ratio to same",
+      "shortLabel": "Prop. V.8",
+      "short": "Greater has greater ratio",
+      "book": 5,
+      "number": 8,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop9",
+      "type": "proposition",
+      "label": "Magnitudes with same ratio to same are equal",
+      "shortLabel": "Prop. V.9",
+      "short": "Same ratio implies equal",
+      "book": 5,
+      "number": 9,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop10",
+      "type": "proposition",
+      "label": "Of magnitudes with ratio to same, greater ratio implies greater",
+      "shortLabel": "Prop. V.10",
+      "short": "Greater ratio implies greater",
+      "book": 5,
+      "number": 10,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop11",
+      "type": "proposition",
+      "label": "Ratios same with same ratio are same with one another",
+      "shortLabel": "Prop. V.11",
+      "short": "Transitivity of ratios",
+      "book": 5,
+      "number": 11,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop12",
+      "type": "proposition",
+      "label": "Proportional: one antecedent to one consequent as sum to sum",
+      "shortLabel": "Prop. V.12",
+      "short": "Sum of antecedents/consequents",
+      "book": 5,
+      "number": 12,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop13",
+      "type": "proposition",
+      "label": "If a:b = c:d and c:d > e:f, then a:b > e:f",
+      "shortLabel": "Prop. V.13",
+      "short": "Substitution in ratio inequality",
+      "book": 5,
+      "number": 13,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop14",
+      "type": "proposition",
+      "label": "If a:b = c:d and a>c, then b>d",
+      "shortLabel": "Prop. V.14",
+      "short": "Equal ratios, equal magnitudes",
+      "book": 5,
+      "number": 14,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop15",
+      "type": "proposition",
+      "label": "Parts have same ratio as their equimultiples",
+      "shortLabel": "Prop. V.15",
+      "short": "Parts as equimultiples",
+      "book": 5,
+      "number": 15,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop16",
+      "type": "proposition",
+      "label": "If a:b = c:d, then a:c = b:d",
+      "shortLabel": "Prop. V.16",
+      "short": "Alternate proportion",
+      "book": 5,
+      "number": 16,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop17",
+      "type": "proposition",
+      "label": "If (a+b):b = (c+d):d, then a:b = c:d",
+      "shortLabel": "Prop. V.17",
+      "short": "Jointly implies separately",
+      "book": 5,
+      "number": 17,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop18",
+      "type": "proposition",
+      "label": "If a:b = c:d, then (a+b):b = (c+d):d",
+      "shortLabel": "Prop. V.18",
+      "short": "Separately implies jointly",
+      "book": 5,
+      "number": 18,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop19",
+      "type": "proposition",
+      "label": "If (a+b):(c+d) = a:c, then also = b:d",
+      "shortLabel": "Prop. V.19",
+      "short": "Whole to whole as part to part",
+      "book": 5,
+      "number": 19,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop20",
+      "type": "proposition",
+      "label": "If a:b = d:e and b:c = e:f and a>c, then d>f",
+      "shortLabel": "Prop. V.20",
+      "short": "Ex aequali (direct)",
+      "book": 5,
+      "number": 20,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop21",
+      "type": "proposition",
+      "label": "If a:b = e:f and b:c = d:e and a>c, then d>f",
+      "shortLabel": "Prop. V.21",
+      "short": "Ex aequali (perturbed)",
+      "book": 5,
+      "number": 21,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop22",
+      "type": "proposition",
+      "label": "If a1:a2 = b1:b2, a2:a3 = b2:b3, ..., then a1:an = b1:bn",
+      "shortLabel": "Prop. V.22",
+      "short": "Ex aequali chain",
+      "book": 5,
+      "number": 22,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop23",
+      "type": "proposition",
+      "label": "If a:b = y:z and b:c = x:y, then a:c = x:z",
+      "shortLabel": "Prop. V.23",
+      "short": "Ex aequali perturbed chain",
+      "book": 5,
+      "number": 23,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop24",
+      "type": "proposition",
+      "label": "If a:b = c:d and e:b = f:d, then (a+e):b = (c+f):d",
+      "shortLabel": "Prop. V.24",
+      "short": "Sum of ratios",
+      "book": 5,
+      "number": 24,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop25",
+      "type": "proposition",
+      "label": "If a:b = c:d and a greatest, d least, then a+d > b+c",
+      "shortLabel": "Prop. V.25",
+      "short": "Sum of extremes > sum of means",
+      "book": 5,
+      "number": 25,
+      "colorClass": "proposition"
+    }
+  ],
+  "edges": [
+    {
+      "from": "Prop2",
+      "to": "Prop3"
+    },
+    {
+      "from": "Prop3",
+      "to": "Prop4"
+    },
+    {
+      "from": "Prop1",
+      "to": "Prop5"
+    },
+    {
+      "from": "Prop2",
+      "to": "Prop6"
+    },
+    {
+      "from": "Prop1",
+      "to": "Prop8"
+    },
+    {
+      "from": "Prop8",
+      "to": "Prop9"
+    },
+    {
+      "from": "Prop7",
+      "to": "Prop10"
+    },
+    {
+      "from": "Prop8",
+      "to": "Prop10"
+    },
+    {
+      "from": "Prop1",
+      "to": "Prop12"
+    },
+    {
+      "from": "Prop8",
+      "to": "Prop14"
+    },
+    {
+      "from": "Prop10",
+      "to": "Prop14"
+    },
+    {
+      "from": "Prop13",
+      "to": "Prop14"
+    },
+    {
+      "from": "Prop7",
+      "to": "Prop15"
+    },
+    {
+      "from": "Prop12",
+      "to": "Prop15"
+    },
+    {
+      "from": "Prop11",
+      "to": "Prop16"
+    },
+    {
+      "from": "Prop14",
+      "to": "Prop16"
+    },
+    {
+      "from": "Prop15",
+      "to": "Prop16"
+    },
+    {
+      "from": "Prop1",
+      "to": "Prop17"
+    },
+    {
+      "from": "Prop2",
+      "to": "Prop17"
+    },
+    {
+      "from": "Prop11",
+      "to": "Prop18"
+    },
+    {
+      "from": "Prop14",
+      "to": "Prop18"
+    },
+    {
+      "from": "Prop17",
+      "to": "Prop18"
+    },
+    {
+      "from": "Prop11",
+      "to": "Prop19"
+    },
+    {
+      "from": "Prop16",
+      "to": "Prop19"
+    },
+    {
+      "from": "Prop17",
+      "to": "Prop19"
+    },
+    {
+      "from": "Prop7",
+      "to": "Prop20"
+    },
+    {
+      "from": "Prop8",
+      "to": "Prop20"
+    },
+    {
+      "from": "Prop10",
+      "to": "Prop20"
+    },
+    {
+      "from": "Prop13",
+      "to": "Prop20"
+    },
+    {
+      "from": "Prop7",
+      "to": "Prop21"
+    },
+    {
+      "from": "Prop8",
+      "to": "Prop21"
+    },
+    {
+      "from": "Prop10",
+      "to": "Prop21"
+    },
+    {
+      "from": "Prop13",
+      "to": "Prop21"
+    },
+    {
+      "from": "Prop4",
+      "to": "Prop22"
+    },
+    {
+      "from": "Prop20",
+      "to": "Prop22"
+    },
+    {
+      "from": "Prop11",
+      "to": "Prop23"
+    },
+    {
+      "from": "Prop15",
+      "to": "Prop23"
+    },
+    {
+      "from": "Prop16",
+      "to": "Prop23"
+    },
+    {
+      "from": "Prop21",
+      "to": "Prop23"
+    },
+    {
+      "from": "Prop7",
+      "to": "Prop24"
+    },
+    {
+      "from": "Prop18",
+      "to": "Prop24"
+    },
+    {
+      "from": "Prop22",
+      "to": "Prop24"
+    },
+    {
+      "from": "Prop7",
+      "to": "Prop25"
+    },
+    {
+      "from": "Prop11",
+      "to": "Prop25"
+    },
+    {
+      "from": "Prop14",
+      "to": "Prop25"
+    },
+    {
+      "from": "Prop19",
+      "to": "Prop25"
+    }
+  ],
+  "colorScheme": {
+    "definition": {
+      "fill": "#3498db",
+      "stroke": "#2980b9"
+    },
+    "proposition": {
+      "fill": "#1abc9c",
+      "stroke": "#16a085"
+    }
+  }
+}

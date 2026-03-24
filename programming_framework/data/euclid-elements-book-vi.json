@@ -1,0 +1,875 @@
+{
+  "schemaVersion": "1.0",
+  "discourse": {
+    "id": "euclid-elements-book-vi",
+    "name": "Euclid's Elements, Book VI",
+    "subject": "geometry",
+    "variant": "classical",
+    "description": "Similar figures. 4 definitions, 33 propositions. Depends on Book I and Book V. VI.1 is basis for most. Source: David E. Joyce.",
+    "structure": {
+      "books": 6,
+      "definitions": 4,
+      "propositions": 33,
+      "foundationTypes": [
+        "definition",
+        "foundation"
+      ]
+    }
+  },
+  "metadata": {
+    "created": "2026-03-15",
+    "lastUpdated": "2026-03-15",
+    "version": "1.0.0",
+    "license": "CC BY 4.0",
+    "authors": [
+      "Welz, G."
+    ],
+    "methodology": "Programming Framework",
+    "citation": "Welz, G. (2026). Euclid's Elements Book VI Dependency Graph. Programming Framework.",
+    "keywords": [
+      "Euclid",
+      "Elements",
+      "Book VI",
+      "similar",
+      "proportion",
+      "triangles"
+    ]
+  },
+  "sources": [
+    {
+      "id": "joyce",
+      "type": "digital",
+      "authors": "Joyce, David E.",
+      "title": "Euclid's Elements, Book VI",
+      "year": "1996",
+      "url": "https://mathcs.clarku.edu/~djoyce/java/elements/bookVI/bookVI.html",
+      "notes": "Clark University; VI.1 basis for most"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "BookI",
+      "type": "foundation",
+      "label": "Book I — Fundamentals of plane geometry",
+      "shortLabel": "Book I",
+      "short": "Foundation",
+      "book": 1,
+      "colorClass": "foundation"
+    },
+    {
+      "id": "BookV",
+      "type": "foundation",
+      "label": "Book V — Theory of proportions",
+      "shortLabel": "Book V",
+      "short": "Foundation",
+      "book": 5,
+      "colorClass": "foundation"
+    },
+    {
+      "id": "Def1",
+      "type": "definition",
+      "label": "Similar rectilinear figures have equal angles and proportional sides",
+      "shortLabel": "Def. VI.1",
+      "short": "Similar rectilinear",
+      "book": 6,
+      "number": 1,
+      "colorClass": "definition"
+    },
+    {
+      "id": "Def2",
+      "type": "definition",
+      "label": "Figures reciprocally proportional when sides are proportional inversely",
+      "shortLabel": "Def. VI.2",
+      "short": "Reciprocally proportional",
+      "book": 6,
+      "number": 2,
+      "colorClass": "definition"
+    },
+    {
+      "id": "Def3",
+      "type": "definition",
+      "label": "Straight line is mean proportional when first to it as it to third",
+      "shortLabel": "Def. VI.3",
+      "short": "Mean proportional",
+      "book": 6,
+      "number": 3,
+      "colorClass": "definition"
+    },
+    {
+      "id": "Def4",
+      "type": "definition",
+      "label": "Duplicate ratio is the ratio of the squares on corresponding sides",
+      "shortLabel": "Def. VI.4",
+      "short": "Duplicate ratio",
+      "book": 6,
+      "number": 4,
+      "colorClass": "definition"
+    },
+    {
+      "id": "Prop1",
+      "type": "proposition",
+      "label": "Triangles and parallelograms under same height are as their bases",
+      "shortLabel": "Prop. VI.1",
+      "short": "Triangles under same height",
+      "book": 6,
+      "number": 1,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop2",
+      "type": "proposition",
+      "label": "Line parallel to side cuts sides proportionally; converse",
+      "shortLabel": "Prop. VI.2",
+      "short": "Parallel cuts sides proportionally",
+      "book": 6,
+      "number": 2,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop3",
+      "type": "proposition",
+      "label": "Angle bisector: segments of base proportionally as remaining sides",
+      "shortLabel": "Prop. VI.3",
+      "short": "Angle bisector divides base",
+      "book": 6,
+      "number": 3,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop4",
+      "type": "proposition",
+      "label": "Equiangular triangles: sides about equal angles proportional",
+      "shortLabel": "Prop. VI.4",
+      "short": "Equiangular: sides proportional",
+      "book": 6,
+      "number": 4,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop5",
+      "type": "proposition",
+      "label": "If sides proportional, triangles equiangular",
+      "shortLabel": "Prop. VI.5",
+      "short": "Sides proportional: equiangular",
+      "book": 6,
+      "number": 5,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop6",
+      "type": "proposition",
+      "label": "One angle equal, sides about it proportional: equiangular",
+      "shortLabel": "Prop. VI.6",
+      "short": "One angle equal, sides proportional",
+      "book": 6,
+      "number": 6,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop7",
+      "type": "proposition",
+      "label": "One angle equal, sides about others proportional: equiangular",
+      "shortLabel": "Prop. VI.7",
+      "short": "One angle equal, other sides proportional",
+      "book": 6,
+      "number": 7,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop8",
+      "type": "proposition",
+      "label": "Perpendicular from right angle: triangles similar to whole",
+      "shortLabel": "Prop. VI.8",
+      "short": "Altitude in right triangle",
+      "book": 6,
+      "number": 8,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop9",
+      "type": "proposition",
+      "label": "To cut off a prescribed part from a given straight line",
+      "shortLabel": "Prop. VI.9",
+      "short": "Cut off prescribed part",
+      "book": 6,
+      "number": 9,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop10",
+      "type": "proposition",
+      "label": "To cut a given line similarly to a given cut line",
+      "shortLabel": "Prop. VI.10",
+      "short": "Cut line similarly",
+      "book": 6,
+      "number": 10,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop11",
+      "type": "proposition",
+      "label": "To find a third proportional to two given lines",
+      "shortLabel": "Prop. VI.11",
+      "short": "Third proportional",
+      "book": 6,
+      "number": 11,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop12",
+      "type": "proposition",
+      "label": "To find a fourth proportional to three given lines",
+      "shortLabel": "Prop. VI.12",
+      "short": "Fourth proportional",
+      "book": 6,
+      "number": 12,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop13",
+      "type": "proposition",
+      "label": "To find a mean proportional to two given lines",
+      "shortLabel": "Prop. VI.13",
+      "short": "Mean proportional",
+      "book": 6,
+      "number": 13,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop14",
+      "type": "proposition",
+      "label": "Equal equiangular parallelograms: sides reciprocally proportional",
+      "shortLabel": "Prop. VI.14",
+      "short": "Parallelograms reciprocally proportional",
+      "book": 6,
+      "number": 14,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop15",
+      "type": "proposition",
+      "label": "Equal triangles, one angle equal: sides reciprocally proportional",
+      "shortLabel": "Prop. VI.15",
+      "short": "Triangles reciprocally proportional",
+      "book": 6,
+      "number": 15,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop16",
+      "type": "proposition",
+      "label": "Four lines proportional iff rectangle extremes = rectangle means",
+      "shortLabel": "Prop. VI.16",
+      "short": "Four lines proportional: rectangle",
+      "book": 6,
+      "number": 16,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop17",
+      "type": "proposition",
+      "label": "Three lines proportional iff rectangle extremes = square on mean",
+      "shortLabel": "Prop. VI.17",
+      "short": "Three lines proportional: rectangle",
+      "book": 6,
+      "number": 17,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop18",
+      "type": "proposition",
+      "label": "To describe figure similar to given on given line",
+      "shortLabel": "Prop. VI.18",
+      "short": "Similar figure on given line",
+      "book": 6,
+      "number": 18,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop19",
+      "type": "proposition",
+      "label": "Similar triangles in duplicate ratio of corresponding sides",
+      "shortLabel": "Prop. VI.19",
+      "short": "Similar triangles: duplicate ratio",
+      "book": 6,
+      "number": 19,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop20",
+      "type": "proposition",
+      "label": "Similar polygons in duplicate ratio of corresponding sides",
+      "shortLabel": "Prop. VI.20",
+      "short": "Similar polygons: duplicate ratio",
+      "book": 6,
+      "number": 20,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop21",
+      "type": "proposition",
+      "label": "Figures similar to same rectilinear figure are similar",
+      "shortLabel": "Prop. VI.21",
+      "short": "Similar to same: similar",
+      "book": 6,
+      "number": 21,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop22",
+      "type": "proposition",
+      "label": "Four lines proportional iff similar figures on them proportional",
+      "shortLabel": "Prop. VI.22",
+      "short": "Four lines proportional: figures",
+      "book": 6,
+      "number": 22,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop23",
+      "type": "proposition",
+      "label": "Equiangular parallelograms: ratio compounded of sides",
+      "shortLabel": "Prop. VI.23",
+      "short": "Equiangular parallelograms: compound ratio",
+      "book": 6,
+      "number": 23,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop24",
+      "type": "proposition",
+      "label": "Parallelograms about diameter similar to whole",
+      "shortLabel": "Prop. VI.24",
+      "short": "Parallelograms about diameter",
+      "book": 6,
+      "number": 24,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop25",
+      "type": "proposition",
+      "label": "To construct figure similar to one and equal to another",
+      "shortLabel": "Prop. VI.25",
+      "short": "Similar and equal to another",
+      "book": 6,
+      "number": 25,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop26",
+      "type": "proposition",
+      "label": "Parallelogram similar to whole, common angle: about same diameter",
+      "shortLabel": "Prop. VI.26",
+      "short": "Parallelogram similar to difference",
+      "book": 6,
+      "number": 26,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop27",
+      "type": "proposition",
+      "label": "Of parallelograms applied to line, greatest is on half",
+      "shortLabel": "Prop. VI.27",
+      "short": "Greatest parallelogram applied",
+      "book": 6,
+      "number": 27,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop28",
+      "type": "proposition",
+      "label": "To apply parallelogram equal to figure, deficient by similar",
+      "shortLabel": "Prop. VI.28",
+      "short": "Apply parallelogram: deficient",
+      "book": 6,
+      "number": 28,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop29",
+      "type": "proposition",
+      "label": "To apply parallelogram equal to figure, exceeding by similar",
+      "shortLabel": "Prop. VI.29",
+      "short": "Apply parallelogram: exceeding",
+      "book": 6,
+      "number": 29,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop30",
+      "type": "proposition",
+      "label": "To cut a given line in extreme and mean ratio",
+      "shortLabel": "Prop. VI.30",
+      "short": "Extreme and mean ratio",
+      "book": 6,
+      "number": 30,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop31",
+      "type": "proposition",
+      "label": "In right triangle, figure on hypotenuse = sum of similar on sides",
+      "shortLabel": "Prop. VI.31",
+      "short": "Right triangle: similar figures",
+      "book": 6,
+      "number": 31,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop32",
+      "type": "proposition",
+      "label": "Two triangles, two sides proportional, placed with parallel sides",
+      "shortLabel": "Prop. VI.32",
+      "short": "Two triangles: sides parallel",
+      "book": 6,
+      "number": 32,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop33",
+      "type": "proposition",
+      "label": "Angles in equal circles have ratio of circumferences",
+      "shortLabel": "Prop. VI.33",
+      "short": "Angles in circles: ratio of arcs",
+      "book": 6,
+      "number": 33,
+      "colorClass": "proposition"
+    }
+  ],
+  "edges": [
+    {
+      "from": "BookI",
+      "to": "Def1"
+    },
+    {
+      "from": "BookV",
+      "to": "Def1"
+    },
+    {
+      "from": "BookI",
+      "to": "Def2"
+    },
+    {
+      "from": "BookV",
+      "to": "Def2"
+    },
+    {
+      "from": "BookI",
+      "to": "Def3"
+    },
+    {
+      "from": "BookV",
+      "to": "Def3"
+    },
+    {
+      "from": "BookI",
+      "to": "Def4"
+    },
+    {
+      "from": "BookV",
+      "to": "Def4"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop1"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop1"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop2"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop2"
+    },
+    {
+      "from": "Prop1",
+      "to": "Prop2"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop3"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop3"
+    },
+    {
+      "from": "Prop1",
+      "to": "Prop3"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop4"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop4"
+    },
+    {
+      "from": "Prop1",
+      "to": "Prop4"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop5"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop5"
+    },
+    {
+      "from": "Prop1",
+      "to": "Prop5"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop6"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop6"
+    },
+    {
+      "from": "Prop1",
+      "to": "Prop6"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop7"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop7"
+    },
+    {
+      "from": "Prop1",
+      "to": "Prop7"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop8"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop8"
+    },
+    {
+      "from": "Prop1",
+      "to": "Prop8"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop9"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop9"
+    },
+    {
+      "from": "Prop1",
+      "to": "Prop9"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop10"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop10"
+    },
+    {
+      "from": "Prop1",
+      "to": "Prop10"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop11"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop11"
+    },
+    {
+      "from": "Prop1",
+      "to": "Prop11"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop12"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop12"
+    },
+    {
+      "from": "Prop1",
+      "to": "Prop12"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop13"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop13"
+    },
+    {
+      "from": "Prop1",
+      "to": "Prop13"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop14"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop14"
+    },
+    {
+      "from": "Prop1",
+      "to": "Prop14"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop15"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop15"
+    },
+    {
+      "from": "Prop1",
+      "to": "Prop15"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop16"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop16"
+    },
+    {
+      "from": "Prop1",
+      "to": "Prop16"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop17"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop17"
+    },
+    {
+      "from": "Prop1",
+      "to": "Prop17"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop18"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop18"
+    },
+    {
+      "from": "Prop1",
+      "to": "Prop18"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop19"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop19"
+    },
+    {
+      "from": "Prop1",
+      "to": "Prop19"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop20"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop20"
+    },
+    {
+      "from": "Prop1",
+      "to": "Prop20"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop21"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop21"
+    },
+    {
+      "from": "Prop1",
+      "to": "Prop21"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop22"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop22"
+    },
+    {
+      "from": "Prop1",
+      "to": "Prop22"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop23"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop23"
+    },
+    {
+      "from": "Prop1",
+      "to": "Prop23"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop24"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop24"
+    },
+    {
+      "from": "Prop1",
+      "to": "Prop24"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop25"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop25"
+    },
+    {
+      "from": "Prop1",
+      "to": "Prop25"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop26"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop26"
+    },
+    {
+      "from": "Prop1",
+      "to": "Prop26"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop27"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop27"
+    },
+    {
+      "from": "Prop1",
+      "to": "Prop27"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop28"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop28"
+    },
+    {
+      "from": "Prop1",
+      "to": "Prop28"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop29"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop29"
+    },
+    {
+      "from": "Prop1",
+      "to": "Prop29"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop30"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop30"
+    },
+    {
+      "from": "Prop1",
+      "to": "Prop30"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop31"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop31"
+    },
+    {
+      "from": "Prop1",
+      "to": "Prop31"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop32"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop32"
+    },
+    {
+      "from": "Prop1",
+      "to": "Prop32"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop33"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop33"
+    }
+  ],
+  "colorScheme": {
+    "foundation": {
+      "fill": "#95a5a6",
+      "stroke": "#7f8c8d"
+    },
+    "definition": {
+      "fill": "#3498db",
+      "stroke": "#2980b9"
+    },
+    "proposition": {
+      "fill": "#1abc9c",
+      "stroke": "#16a085"
+    }
+  }
+}

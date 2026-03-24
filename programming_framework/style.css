@@ -230,6 +230,57 @@ header p {
     line-height: 1.5;
 }
 
+/* Batch Status Section */
+.batch-status {
+    margin: 3rem 0;
+}
+
+.status-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.status-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    border: 2px solid #e9ecef;
+    transition: all 0.3s ease;
+}
+
+.status-card.complete {
+    border-color: #51cf66;
+    background: linear-gradient(135deg, #f8fff9 0%, #e8f5e8 100%);
+}
+
+.status-card.in-progress {
+    border-color: #ffd43b;
+    background: linear-gradient(135deg, #fffef8 0%, #fef9e8 100%);
+}
+
+.status-card.external {
+    border-color: #74c0fc;
+    background: linear-gradient(135deg, #f8fbff 0%, #e8f4ff 100%);
+}
+
+.status-card h3 {
+    margin: 0 0 1rem 0;
+    color: #333;
+    font-size: 1.2rem;
+}
+
+.status-card p {
+    margin: 0.5rem 0;
+    color: #666;
+    line-height: 1.5;
+}
+
+.status-card p strong {
+    color: #333;
+}
+
 /* Resources grid */
 .resources-grid {
     display: grid;

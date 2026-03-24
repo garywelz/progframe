@@ -1,0 +1,239 @@
+{
+  "schemaVersion": "1.0",
+  "discourse": {
+    "id": "combinatorics",
+    "name": "Combinatorics",
+    "subject": "discrete_mathematics",
+    "variant": "classical",
+    "description": "Counting principles: sum and product rules, permutations (with/without repetition), combinations, binomial theorem, pigeonhole principle, inclusion-exclusion, derangements.",
+    "structure": {
+      "axioms": 0,
+      "definitions": 3,
+      "theorems": 11
+    }
+  },
+  "metadata": {
+    "created": "2026-03-15",
+    "lastUpdated": "2026-03-15",
+    "version": "1.0.0",
+    "license": "CC BY 4.0",
+    "authors": [
+      "Welz, G."
+    ],
+    "methodology": "Programming Framework",
+    "citation": "Welz, G. (2026). Combinatorics Dependency Graph. Programming Framework.",
+    "keywords": [
+      "combinatorics",
+      "permutations",
+      "combinations",
+      "counting",
+      "binomial theorem"
+    ]
+  },
+  "sources": [
+    {
+      "id": "dmoi",
+      "type": "primary",
+      "title": "Discrete Mathematics: An Open Introduction",
+      "url": "https://discrete.openmathbooks.org/dmoi4/sec_counting-combperm.html",
+      "notes": "Counting principles"
+    },
+    {
+      "id": "mathisfun",
+      "type": "digital",
+      "title": "Combinations and Permutations",
+      "url": "https://www.mathsisfun.com/combinatorics/combinations-permutations.html",
+      "notes": "Formulas"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "DefFact",
+      "type": "definition",
+      "label": "Factorial: n! = n(n-1)...1, 0!=1",
+      "shortLabel": "DefFact",
+      "short": "Factorial",
+      "colorClass": "definition"
+    },
+    {
+      "id": "DefSum",
+      "type": "definition",
+      "label": "Sum principle: disjoint choices add (OR)",
+      "shortLabel": "DefSum",
+      "short": "Sum principle",
+      "colorClass": "definition"
+    },
+    {
+      "id": "DefProd",
+      "type": "definition",
+      "label": "Product principle: sequential choices multiply (AND)",
+      "shortLabel": "DefProd",
+      "short": "Product principle",
+      "colorClass": "definition"
+    },
+    {
+      "id": "PermNoRep",
+      "type": "theorem",
+      "label": "P(n,r) = n!/(n-r)! arrangements of r from n",
+      "shortLabel": "PermNoRep",
+      "short": "Permutations no rep",
+      "colorClass": "theorem"
+    },
+    {
+      "id": "PermRep",
+      "type": "theorem",
+      "label": "n^r arrangements of r from n with repetition",
+      "shortLabel": "PermRep",
+      "short": "Permutations with rep",
+      "colorClass": "theorem"
+    },
+    {
+      "id": "CombNoRep",
+      "type": "theorem",
+      "label": "C(n,r) = n!/(r!(n-r)!) = P(n,r)/r!",
+      "shortLabel": "CombNoRep",
+      "short": "Combinations",
+      "colorClass": "theorem"
+    },
+    {
+      "id": "CombRep",
+      "type": "theorem",
+      "label": "C(n+r-1,r) ways to choose r from n with rep",
+      "shortLabel": "CombRep",
+      "short": "Combinations with rep",
+      "colorClass": "theorem"
+    },
+    {
+      "id": "BinomThm",
+      "type": "theorem",
+      "label": "(a+b)^n = sum C(n,k) a^k b^(n-k)",
+      "shortLabel": "BinomThm",
+      "short": "Binomial theorem",
+      "colorClass": "theorem"
+    },
+    {
+      "id": "Pascal",
+      "type": "theorem",
+      "label": "C(n,k) = C(n-1,k-1) + C(n-1,k)",
+      "shortLabel": "Pascal",
+      "short": "Pascal identity",
+      "colorClass": "theorem"
+    },
+    {
+      "id": "Pigeonhole",
+      "type": "theorem",
+      "label": "n+1 objects in n boxes implies one box has 2+",
+      "shortLabel": "Pigeonhole",
+      "short": "Pigeonhole principle",
+      "colorClass": "theorem"
+    },
+    {
+      "id": "InclExcl",
+      "type": "theorem",
+      "label": "|A union B| = |A| + |B| - |A intersect B|",
+      "shortLabel": "InclExcl",
+      "short": "Inclusion-exclusion",
+      "colorClass": "theorem"
+    },
+    {
+      "id": "InclExcl3",
+      "type": "theorem",
+      "label": "Inclusion-exclusion for 3 sets",
+      "shortLabel": "InclExcl3",
+      "short": "Incl-excl 3 sets",
+      "colorClass": "theorem"
+    },
+    {
+      "id": "Derange",
+      "type": "theorem",
+      "label": "D(n) = n! sum (-1)^k/k! derangements",
+      "shortLabel": "Derange",
+      "short": "Derangements",
+      "colorClass": "theorem"
+    },
+    {
+      "id": "Stirling2",
+      "type": "theorem",
+      "label": "S(n,k) = partitions of n into k nonempty sets",
+      "shortLabel": "Stirling2",
+      "short": "Stirling numbers",
+      "colorClass": "theorem"
+    }
+  ],
+  "edges": [
+    {
+      "from": "DefFact",
+      "to": "PermNoRep"
+    },
+    {
+      "from": "DefProd",
+      "to": "PermNoRep"
+    },
+    {
+      "from": "DefProd",
+      "to": "PermRep"
+    },
+    {
+      "from": "PermNoRep",
+      "to": "CombNoRep"
+    },
+    {
+      "from": "DefFact",
+      "to": "CombNoRep"
+    },
+    {
+      "from": "CombNoRep",
+      "to": "CombRep"
+    },
+    {
+      "from": "CombNoRep",
+      "to": "BinomThm"
+    },
+    {
+      "from": "CombNoRep",
+      "to": "Pascal"
+    },
+    {
+      "from": "DefSum",
+      "to": "Pigeonhole"
+    },
+    {
+      "from": "DefSum",
+      "to": "InclExcl"
+    },
+    {
+      "from": "InclExcl",
+      "to": "InclExcl3"
+    },
+    {
+      "from": "InclExcl",
+      "to": "Derange"
+    },
+    {
+      "from": "PermNoRep",
+      "to": "Derange"
+    },
+    {
+      "from": "DefSum",
+      "to": "Stirling2"
+    },
+    {
+      "from": "DefProd",
+      "to": "Stirling2"
+    }
+  ],
+  "colorScheme": {
+    "axiom": {
+      "fill": "#e74c3c",
+      "stroke": "#c0392b"
+    },
+    "definition": {
+      "fill": "#3498db",
+      "stroke": "#2980b9"
+    },
+    "theorem": {
+      "fill": "#1abc9c",
+      "stroke": "#16a085"
+    }
+  }
+}

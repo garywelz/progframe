@@ -1,0 +1,567 @@
+{
+  "schemaVersion": "1.0",
+  "discourse": {
+    "id": "euclid-elements-book-xii",
+    "name": "Euclid's Elements, Book XII",
+    "subject": "measurement",
+    "variant": "classical",
+    "description": "Measurement of figures: circles, pyramids, cones, cylinders, spheres. 18 propositions. Depends on Books I, V, VI, XI. Source: David E. Joyce.",
+    "structure": {
+      "books": 12,
+      "propositions": 18,
+      "foundationTypes": [
+        "foundation"
+      ]
+    }
+  },
+  "metadata": {
+    "created": "2026-03-18",
+    "lastUpdated": "2026-03-18",
+    "version": "1.0.0",
+    "license": "CC BY 4.0",
+    "authors": [
+      "Welz, G."
+    ],
+    "methodology": "Programming Framework",
+    "citation": "Welz, G. (2026). Euclid's Elements Book XII Dependency Graph. Programming Framework.",
+    "keywords": [
+      "Euclid",
+      "Elements",
+      "Book XII",
+      "measurement",
+      "pyramid",
+      "cone",
+      "cylinder",
+      "sphere"
+    ]
+  },
+  "sources": [
+    {
+      "id": "joyce",
+      "type": "digital",
+      "authors": "Joyce, David E.",
+      "title": "Euclid's Elements, Book XII",
+      "year": "1996",
+      "url": "https://mathcs.clarku.edu/~djoyce/java/elements/bookXII/bookXII.html",
+      "notes": "Clark University"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "BookI",
+      "type": "foundation",
+      "label": "Book I — Plane geometry",
+      "shortLabel": "Book I",
+      "short": "Foundation",
+      "book": 1,
+      "colorClass": "foundation"
+    },
+    {
+      "id": "BookV",
+      "type": "foundation",
+      "label": "Book V — Proportions",
+      "shortLabel": "Book V",
+      "short": "Foundation",
+      "book": 5,
+      "colorClass": "foundation"
+    },
+    {
+      "id": "BookVI",
+      "type": "foundation",
+      "label": "Book VI — Similar figures",
+      "shortLabel": "Book VI",
+      "short": "Foundation",
+      "book": 6,
+      "colorClass": "foundation"
+    },
+    {
+      "id": "BookXI",
+      "type": "foundation",
+      "label": "Book XI — Solid geometry",
+      "shortLabel": "Book XI",
+      "short": "Foundation",
+      "book": 11,
+      "colorClass": "foundation"
+    },
+    {
+      "id": "Prop1",
+      "type": "proposition",
+      "label": "Similar polygons in circles: to one another as squares on diameters",
+      "shortLabel": "Prop. XII.1",
+      "short": "Similar polygons: as squares on diameters",
+      "book": 12,
+      "number": 1,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop2",
+      "type": "proposition",
+      "label": "Circles are to one another as the squares on their diameters",
+      "shortLabel": "Prop. XII.2",
+      "short": "Circles: as squares on diameters",
+      "book": 12,
+      "number": 2,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop3",
+      "type": "proposition",
+      "label": "Pyramid with triangular base: divided into two pyramids, two prisms; prisms greater than half",
+      "shortLabel": "Prop. XII.3",
+      "short": "Pyramid divided",
+      "book": 12,
+      "number": 3,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop4",
+      "type": "proposition",
+      "label": "Two pyramids same height, triangular bases, divided: base to base as all prisms",
+      "shortLabel": "Prop. XII.4",
+      "short": "Pyramids: base as prisms",
+      "book": 12,
+      "number": 4,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop5",
+      "type": "proposition",
+      "label": "Pyramids same height, triangular bases: to one another as bases",
+      "shortLabel": "Prop. XII.5",
+      "short": "Pyramids: as bases",
+      "book": 12,
+      "number": 5,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop6",
+      "type": "proposition",
+      "label": "Pyramids same height, polygonal bases: to one another as bases",
+      "shortLabel": "Prop. XII.6",
+      "short": "Pyramids polygonal: as bases",
+      "book": 12,
+      "number": 6,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop7",
+      "type": "proposition",
+      "label": "Prism with triangular base: divided into three equal pyramids",
+      "shortLabel": "Prop. XII.7",
+      "short": "Prism into three pyramids",
+      "book": 12,
+      "number": 7,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop8",
+      "type": "proposition",
+      "label": "Similar pyramids triangular bases: in triplicate ratio of corresponding sides",
+      "shortLabel": "Prop. XII.8",
+      "short": "Similar pyramids: triplicate ratio",
+      "book": 12,
+      "number": 8,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop9",
+      "type": "proposition",
+      "label": "Equal pyramids triangular bases: bases reciprocally proportional to heights",
+      "shortLabel": "Prop. XII.9",
+      "short": "Equal pyramids: bases reciprocally proportional",
+      "book": 12,
+      "number": 9,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop10",
+      "type": "proposition",
+      "label": "Any cone is third part of cylinder same base and equal height",
+      "shortLabel": "Prop. XII.10",
+      "short": "Cone third of cylinder",
+      "book": 12,
+      "number": 10,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop11",
+      "type": "proposition",
+      "label": "Cones and cylinders same height: to one another as bases",
+      "shortLabel": "Prop. XII.11",
+      "short": "Cones, cylinders: as bases",
+      "book": 12,
+      "number": 11,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop12",
+      "type": "proposition",
+      "label": "Similar cones and cylinders: in triplicate ratio of diameters of bases",
+      "shortLabel": "Prop. XII.12",
+      "short": "Similar cones, cylinders: triplicate",
+      "book": 12,
+      "number": 12,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop13",
+      "type": "proposition",
+      "label": "Cylinder cut by plane parallel to opposite: cylinder to cylinder as axis to axis",
+      "shortLabel": "Prop. XII.13",
+      "short": "Cylinder cut: as axes",
+      "book": 12,
+      "number": 13,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop14",
+      "type": "proposition",
+      "label": "Cones and cylinders on equal bases: to one another as heights",
+      "shortLabel": "Prop. XII.14",
+      "short": "Cones, cylinders equal bases: as heights",
+      "book": 12,
+      "number": 14,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop15",
+      "type": "proposition",
+      "label": "Equal cones and cylinders: bases reciprocally proportional to heights",
+      "shortLabel": "Prop. XII.15",
+      "short": "Equal cones, cylinders: reciprocally proportional",
+      "book": 12,
+      "number": 15,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop16",
+      "type": "proposition",
+      "label": "Given two circles same center: inscribe in greater equilateral polygon even sides not touching lesser",
+      "shortLabel": "Prop. XII.16",
+      "short": "Inscribe polygon in greater circle",
+      "book": 12,
+      "number": 16,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop17",
+      "type": "proposition",
+      "label": "Given two spheres same center: inscribe in greater polyhedral solid not touching lesser",
+      "shortLabel": "Prop. XII.17",
+      "short": "Inscribe polyhedron in greater sphere",
+      "book": 12,
+      "number": 17,
+      "colorClass": "proposition"
+    },
+    {
+      "id": "Prop18",
+      "type": "proposition",
+      "label": "Spheres are to one another in triplicate ratio of their diameters",
+      "shortLabel": "Prop. XII.18",
+      "short": "Spheres: triplicate ratio",
+      "book": 12,
+      "number": 18,
+      "colorClass": "proposition"
+    }
+  ],
+  "edges": [
+    {
+      "from": "BookI",
+      "to": "Prop1"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop1"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop1"
+    },
+    {
+      "from": "BookXI",
+      "to": "Prop1"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop2"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop2"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop2"
+    },
+    {
+      "from": "BookXI",
+      "to": "Prop2"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop3"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop3"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop3"
+    },
+    {
+      "from": "BookXI",
+      "to": "Prop3"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop4"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop4"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop4"
+    },
+    {
+      "from": "BookXI",
+      "to": "Prop4"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop5"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop5"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop5"
+    },
+    {
+      "from": "BookXI",
+      "to": "Prop5"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop6"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop6"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop6"
+    },
+    {
+      "from": "BookXI",
+      "to": "Prop6"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop7"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop7"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop7"
+    },
+    {
+      "from": "BookXI",
+      "to": "Prop7"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop8"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop8"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop8"
+    },
+    {
+      "from": "BookXI",
+      "to": "Prop8"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop9"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop9"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop9"
+    },
+    {
+      "from": "BookXI",
+      "to": "Prop9"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop10"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop10"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop10"
+    },
+    {
+      "from": "BookXI",
+      "to": "Prop10"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop11"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop11"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop11"
+    },
+    {
+      "from": "BookXI",
+      "to": "Prop11"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop12"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop12"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop12"
+    },
+    {
+      "from": "BookXI",
+      "to": "Prop12"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop13"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop13"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop13"
+    },
+    {
+      "from": "BookXI",
+      "to": "Prop13"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop14"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop14"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop14"
+    },
+    {
+      "from": "BookXI",
+      "to": "Prop14"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop15"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop15"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop15"
+    },
+    {
+      "from": "BookXI",
+      "to": "Prop15"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop16"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop16"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop16"
+    },
+    {
+      "from": "BookXI",
+      "to": "Prop16"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop17"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop17"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop17"
+    },
+    {
+      "from": "BookXI",
+      "to": "Prop17"
+    },
+    {
+      "from": "BookI",
+      "to": "Prop18"
+    },
+    {
+      "from": "BookV",
+      "to": "Prop18"
+    },
+    {
+      "from": "BookVI",
+      "to": "Prop18"
+    },
+    {
+      "from": "BookXI",
+      "to": "Prop18"
+    }
+  ],
+  "colorScheme": {
+    "foundation": {
+      "fill": "#95a5a6",
+      "stroke": "#7f8c8d"
+    },
+    "proposition": {
+      "fill": "#1abc9c",
+      "stroke": "#16a085"
+    }
+  }
+}

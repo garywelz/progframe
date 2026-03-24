@@ -3,250 +3,434 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Programming Framework</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <title>Programming Framework - Systematic Analysis of Complex Systems</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .main-content {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin-bottom: 30px;
+        }
+
+        .overview {
+            margin-bottom: 40px;
+        }
+
+        .overview h2 {
+            color: #667eea;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        .overview p {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .color-system {
+            margin-bottom: 40px;
+        }
+
+        .color-system h2 {
+            color: #667eea;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .color-card {
+            border-radius: 10px;
+            padding: 20px;
+            color: white;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .color-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .color-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .color-card p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .red { background: linear-gradient(135deg, #ff6b6b, #ee5a52); }
+        .yellow { background: linear-gradient(135deg, #ffd43b, #fcc419); color: #333; }
+        .green { background: linear-gradient(135deg, #51cf66, #40c057); }
+        .blue { background: linear-gradient(135deg, #74c0fc, #4dabf7); }
+        .violet { background: linear-gradient(135deg, #b197fc, #9775fa); }
+
+        .resources {
+            margin-bottom: 40px;
+        }
+
+        .resources h2 {
+            color: #667eea;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .resource-card {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 25px;
+            text-align: center;
+            border: 2px solid #e9ecef;
+            transition: all 0.3s ease;
+        }
+
+        .resource-card:hover {
+            border-color: #667eea;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .resource-card h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        .resource-card p {
+            margin-bottom: 15px;
+            color: #666;
+        }
+
+        .resource-card a {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: background 0.3s ease;
+        }
+
+        .resource-card a:hover {
+            background: #5a6fd8;
+        }
+
+        .footer {
+            background: rgba(255,255,255,0.1);
+            color: white;
+            text-align: center;
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .footer h3 {
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .footer p {
+            margin-bottom: 5px;
+            opacity: 0.9;
+        }
+
+        .footer a {
+            color: #ffd43b;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .main-content {
+                padding: 20px;
+            }
+            
+            .color-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .resource-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="container">
-        <header>
-            <h1>🚀 Programming Framework</h1>
-            <p>A comprehensive framework for programming education and practice</p>
-        </header>
+        <div class="header">
+            <h1>🎨 Programming Framework</h1>
+            <p>Systematic Analysis of Complex Systems Across Disciplines</p>
+        </div>
 
-        <nav class="tabs">
-            <button class="tab-btn active" data-tab="overview">Overview</button>
-            <button class="tab-btn" data-tab="methodology">Methodology</button>
-            <button class="tab-btn" data-tab="examples">Examples</button>
-            <button class="tab-btn" data-tab="resources">Resources</button>
-        </nav>
+        <div class="main-content">
+            <div class="overview">
+                <h2>Project Overview</h2>
+                <p>The Programming Framework is a systematic visualization methodology for analyzing complex systems across disciplines using Mermaid Markdown and a universal five-color code.</p>
+                
+                <p>Complex systems across biology, chemistry, and physics exhibit remarkable similarities in their organizational principles despite operating at vastly different scales and domains. Traditional analysis methods often remain siloed within specific disciplines, limiting our ability to identify common patterns and computational logic that govern system behavior.</p>
+                
+                <p>Here, we present the Programming Framework, a systematic methodology that translates complex system dynamics into standardized computational representations using Mermaid Markdown syntax and LLM processing.</p>
+            </div>
 
-        <main>
-            <!-- Overview Tab -->
-            <div class="tab-content active" id="overview">
-                <div class="card">
-                    <h2>What is the Programming Framework?</h2>
-                    <p>The Programming Framework is a systematic approach to learning and mastering programming concepts through structured methodology, practical examples, and progressive skill development.</p>
+            <div class="overview">
+                <h2>Technical Foundation: Mermaid Markdown</h2>
+                
+                <h3 style="color: #667eea; margin: 20px 0 15px 0; font-size: 1.4rem;">The Invention of Mermaid</h3>
+                <p><strong>Knut Sveidqvist</strong> invented the Mermaid markdown format. He created Mermaid, a JavaScript-based diagramming and charting tool, to simplify diagram creation in documentation workflows. The project was inspired by his experience trying to update a diagram in a document, which was difficult due to the file format.</p>
+                
+                <p>Sveidqvist's innovation revolutionized how diagrams are created and maintained in documentation by providing a text-based syntax that can be version-controlled, easily edited, and automatically rendered into visual diagrams. This approach eliminates the need for external diagramming tools and ensures diagrams stay synchronized with their documentation.</p>
+                
+                <h3 style="color: #667eea; margin: 20px 0 15px 0; font-size: 1.4rem;">Mermaid Markdown (.mmd) Format</h3>
+                <p>The Programming Framework leverages Mermaid's <code>.mmd</code> file format, which provides:</p>
+                <ul style="margin: 15px 0; padding-left: 30px;">
+                    <li><strong>Text-based syntax</strong> for creating complex flowcharts and diagrams</li>
+                    <li><strong>Version control compatibility</strong> - diagrams can be tracked in Git repositories</li>
+                    <li><strong>LLM-friendly format</strong> - AI systems can generate and modify diagram code</li>
+                    <li><strong>Cross-platform compatibility</strong> - works in any environment that supports JavaScript</li>
+                    <li><strong>Embeddable rendering</strong> - diagrams can be displayed in HTML, Markdown, and other formats</li>
+                </ul>
+                
+                <h3 style="color: #667eea; margin: 20px 0 15px 0; font-size: 1.4rem;">LLM Integration and Workflow</h3>
+                <p>Our methodology uses Large Language Models to:</p>
+                <ol style="margin: 15px 0; padding-left: 30px;">
+                    <li><strong>Generate .mmd files</strong> - LLMs create detailed Mermaid syntax for complex processes</li>
+                    <li><strong>Apply color coding</strong> - Systematic application of the 5-category color system</li>
+                    <li><strong>Ensure consistency</strong> - Standardized node naming and connection patterns</li>
+                    <li><strong>Embed in HTML</strong> - .mmd files are embedded in HTML for web display</li>
+                    <li><strong>Maintain quality</strong> - LLMs can validate and optimize diagram structure</li>
+                </ol>
+                
+                <p>This workflow enables rapid creation of sophisticated visualizations that would be impractical to create manually, while maintaining the flexibility and editability of text-based formats.</p>
+            </div>
+
+            <div class="color-system">
+                <h2>Universal Color Coding System</h2>
+                <p style="text-align: center; margin-bottom: 20px; font-size: 1.1rem;">The framework uses a standardized five-color system across all disciplines:</p>
+                
+                <div class="color-grid">
+                    <div class="color-card red">
+                        <h3>🔴 Red (#ff6b6b)</h3>
+                        <p><strong>Triggers & Inputs</strong><br>
+                        Environmental signals, reactants, input data, energy sources, axioms</p>
+                    </div>
                     
-                    <div class="features">
-                        <div class="feature">
-                            <h3>🎯 Systematic Learning</h3>
-                            <p>Structured approach to programming education with clear progression paths</p>
-                        </div>
-                        <div class="feature">
-                            <h3>🔧 Practical Application</h3>
-                            <p>Real-world examples and hands-on exercises to reinforce concepts</p>
-                        </div>
-                        <div class="feature">
-                            <h3>📈 Progressive Development</h3>
-                            <p>Build skills incrementally from fundamentals to advanced techniques</p>
-                        </div>
-                        <div class="feature">
-                            <h3>🌐 Multi-Language Support</h3>
-                            <p>Learn concepts that apply across multiple programming languages</p>
-                        </div>
+                    <div class="color-card yellow">
+                        <h3>🟡 Yellow (#ffd43b)</h3>
+                        <p><strong>Structures & Objects</strong><br>
+                        Enzymes, catalysts, data structures, fields, theorems</p>
+                    </div>
+                    
+                    <div class="color-card green">
+                        <h3>🟢 Green (#51cf66)</h3>
+                        <p><strong>Processing & Operations</strong><br>
+                        Metabolic reactions, chemical reactions, algorithms, quantum operations</p>
+                    </div>
+                    
+                    <div class="color-card blue">
+                        <h3>🔵 Blue (#74c0fc)</h3>
+                        <p><strong>Intermediates & States</strong><br>
+                        Metabolites, intermediates, variables, states, measurement results</p>
+                    </div>
+                    
+                    <div class="color-card violet">
+                        <h3>🟣 Violet (#b197fc)</h3>
+                        <p><strong>Products & Outputs</strong><br>
+                        Biomolecules, final products, program outputs, phenomena, proven results</p>
                     </div>
                 </div>
             </div>
 
-            <!-- Methodology Tab -->
-            <div class="tab-content" id="methodology">
-                <div class="card">
-                    <h2>Programming Framework Methodology</h2>
+            <div class="batch-status">
+                <h2>📊 Batch Architecture Status</h2>
+                <div class="status-grid">
+                    <div class="status-card complete">
+                        <h3>📐 Mathematics</h3>
+                        <p><strong>Status:</strong> Complete ✅</p>
+                        <p><strong>Batches:</strong> 7/7 (21 processes)</p>
+                        <p>Number Theory, Analysis & Calculus, Abstract Algebra, Geometry & Topology, Applied Mathematics, Discrete Mathematics, Historical & Educational</p>
+                    </div>
                     
-                    <div class="methodology-step">
-                        <h3>1. Foundation Building</h3>
-                        <p>Establish core programming concepts and principles</p>
-                        <ul>
-                            <li>Variables and data types</li>
-                            <li>Control structures</li>
-                            <li>Functions and methods</li>
-                            <li>Basic algorithms</li>
-                        </ul>
+                    <div class="status-card completed">
+                        <h3>⚗️ Chemistry</h3>
+                        <p><strong>Status:</strong> Completed ✅</p>
+                        <p><strong>Batches:</strong> 14/14 (70 processes)</p>
+                        <p>Organic Chemistry, Physical Chemistry, Analytical Chemistry, Inorganic Chemistry, Biochemistry, Materials Chemistry, Environmental Chemistry, Electrochemical Processes, Surface Chemistry & Catalysis, Thermodynamic Processes, Kinetic Processes, Spectroscopy & Analysis, Quantum Chemistry, Materials Chemistry</p>
                     </div>
-
-                    <div class="methodology-step">
-                        <h3>2. Problem Analysis</h3>
-                        <p>Learn to break down complex problems into manageable components</p>
-                        <ul>
-                            <li>Requirements gathering</li>
-                            <li>Problem decomposition</li>
-                            <li>Algorithm design</li>
-                            <li>Pseudocode development</li>
-                        </ul>
+                    
+                    <div class="status-card in-progress">
+                        <h3>💻 Computer Science</h3>
+                        <p><strong>Status:</strong> In Progress 🔄</p>
+                        <p><strong>Batches:</strong> 1/7 (3 processes)</p>
+                        <p>Algorithms & Data Structures, Software Engineering, Artificial Intelligence, Computer Security, Computer Networks, Database Systems, Computer Graphics</p>
                     </div>
-
-                    <div class="methodology-step">
-                        <h3>3. Implementation</h3>
-                        <p>Translate solutions into working code</p>
-                        <ul>
-                            <li>Code organization</li>
-                            <li>Best practices</li>
-                            <li>Testing and debugging</li>
-                            <li>Documentation</li>
-                        </ul>
+                    
+                    <div class="status-card in-progress">
+                        <h3>⚛️ Physics</h3>
+                        <p><strong>Status:</strong> In Progress 🔄</p>
+                        <p><strong>Batches:</strong> 1/7 (3 processes)</p>
+                        <p>Classical Mechanics, Electromagnetism, Thermodynamics, Quantum Mechanics, Relativity, Astrophysics, Particle Physics</p>
                     </div>
-
-                    <div class="methodology-step">
-                        <h3>4. Optimization</h3>
-                        <p>Improve code efficiency and maintainability</p>
-                        <ul>
-                            <li>Performance analysis</li>
-                            <li>Code refactoring</li>
-                            <li>Design patterns</li>
-                            <li>Advanced algorithms</li>
-                        </ul>
+                    
+                    <div class="status-card external">
+                        <h3>🧬 Biology</h3>
+                        <p><strong>Status:</strong> External GLMP ✅</p>
+                        <p><strong>Location:</strong> Hugging Face Space</p>
+                        <p>Comprehensive biological systems analysis with genome logic modeling and metabolic pathway visualization</p>
                     </div>
                 </div>
             </div>
 
-            <!-- Examples Tab -->
-            <div class="tab-content" id="examples">
-                <div class="card">
-                    <h2>Framework Examples</h2>
-                    
-                    <div class="example">
-                        <h3>Problem: Find the Maximum Number in an Array</h3>
-                        <div class="framework-application">
-                            <h4>Framework Application:</h4>
-                            <ol>
-                                <li><strong>Foundation:</strong> Understand arrays and loops</li>
-                                <li><strong>Analysis:</strong> Need to compare each element with current maximum</li>
-                                <li><strong>Implementation:</strong> Write iterative solution</li>
-                                <li><strong>Optimization:</strong> Consider edge cases and efficiency</li>
-                            </ol>
-                        </div>
-                        <div class="code-example">
-                            <h4>Example Implementation (Python):</h4>
-                            <pre><code class="language-python">def find_max(arr):
-    if not arr:
-        return None
-    
-    max_val = arr[0]
-    for num in arr[1:]:
-        if num > max_val:
-            max_val = num
-    
-    return max_val
-
-# Test the function
-numbers = [3, 7, 2, 9, 1, 5]
-result = find_max(numbers)
-print(f"Maximum number: {result}")  # Output: Maximum number: 9</code></pre>
-                        </div>
+            <div class="resources">
+                <h2>Key Resources & Documentation</h2>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h3>📚 Complete Documentation</h3>
+                        <p>Detailed methodology, implementation guidelines, and theoretical foundation</p>
+                        <a href="README.md">View README</a>
                     </div>
-
-                    <div class="example">
-                        <h3>Problem: Reverse a String</h3>
-                        <div class="framework-application">
-                            <h4>Framework Application:</h4>
-                            <ol>
-                                <li><strong>Foundation:</strong> String manipulation and indexing</li>
-                                <li><strong>Analysis:</strong> Process characters from end to beginning</li>
-                                <li><strong>Implementation:</strong> Build reversed string character by character</li>
-                                <li><strong>Optimization:</strong> Use built-in methods or efficient algorithms</li>
-                            </ol>
-                        </div>
-                        <div class="code-example">
-                            <h4>Example Implementation (JavaScript):</h4>
-                            <pre><code class="language-javascript">function reverseString(str) {
-    let reversed = '';
-    for (let i = str.length - 1; i >= 0; i--) {
-        reversed += str[i];
-    }
-    return reversed;
-}
-
-// Test the function
-const text = "Programming Framework";
-const result = reverseString(text);
-console.log(result); // Output: krowemarF gnimmargorP</code></pre>
-                        </div>
+                    
+                    <div class="resource-card">
+                        <h3>🧬 Biology</h3>
+                        <p>Biological system analysis with GLMP integration</p>
+                        <a href="https://huggingface.co/spaces/garywelz/glmp" target="_blank">Explore Biology (GLMP)</a>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <h3>⚗️ Chemistry</h3>
+                        <p>Chemical reaction mechanisms and visualizations</p>
+                        <a href="chemistry_index.html">Explore Chemistry</a>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <h3>💻 Computer Science</h3>
+                        <p>Algorithm and computational analysis</p>
+                        <a href="computer_science_index.html">Explore CS</a>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <h3>⚛️ Physics</h3>
+                        <p>Physical system dynamics and quantum processes</p>
+                        <a href="physics_index.html">Explore Physics</a>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <h3>📐 Mathematics</h3>
+                        <p>Mathematical proof and calculation processes</p>
+                        <a href="mathematics_index.html">Explore Math</a>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <h3>📖 Academic Article</h3>
+                        <p>Comprehensive framework documentation and methodology</p>
+                        <a href="programming_framework_article.html">Read Article</a>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <h3>🔬 GLMP Foundation</h3>
+                        <p>Original biological systems analysis project</p>
+                        <a href="https://huggingface.co/spaces/garywelz/glmp" target="_blank">Visit GLMP</a>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <h3>🧪 Experimental Validation</h3>
+                        <p>Comprehensive validation protocols and experimental design</p>
+                        <a href="experimental_validation_paper.html">View Validation Paper</a>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <h3>🔬 Validation Flowcharts</h3>
+                        <p>Core validation flowcharts supporting experimental protocols</p>
+                        <a href="catalytic_hydrogenation_optimization.html">Catalytic Hydrogenation</a>
+                        <a href="raft_polymerization_mechanism.html">RAFT Polymerization</a>
+                        <a href="surface_catalysis_mechanism.html">Surface Catalysis</a>
+                        <a href="electrochemical_oxygen_reduction.html">Electrochemical ORR</a>
+                        <a href="quantum_chemistry_calculation.html">Quantum Chemistry</a>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <h3>📄 Journal Submission Paper</h3>
+                        <p>Self-contained academic paper suitable for journal submission or arXiv</p>
+                        <a href="journal_submission_paper.html">View Journal Paper</a>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <!-- Resources Tab -->
-            <div class="tab-content" id="resources">
-                <div class="card">
-                    <h2>Learning Resources</h2>
-                    
-                    <div class="resources-grid">
-                        <div class="resource">
-                            <h3>📚 Books</h3>
-                            <ul>
-                                <li>"Clean Code" by Robert C. Martin</li>
-                                <li>"Design Patterns" by Gang of Four</li>
-                                <li>"Introduction to Algorithms" by CLRS</li>
-                                <li>"The Pragmatic Programmer" by Hunt & Thomas</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="resource">
-                            <h3>🌐 Online Platforms</h3>
-                            <ul>
-                                <li>LeetCode - Algorithm practice</li>
-                                <li>HackerRank - Coding challenges</li>
-                                <li>Codecademy - Interactive tutorials</li>
-                                <li>freeCodeCamp - Project-based learning</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="resource">
-                            <h3>🎥 Video Courses</h3>
-                            <ul>
-                                <li>MIT OpenCourseWare</li>
-                                <li>Stanford CS50</li>
-                                <li>Coursera Algorithms courses</li>
-                                <li>YouTube programming channels</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="resource">
-                            <h3>🛠️ Tools</h3>
-                            <ul>
-                                <li>Git - Version control</li>
-                                <li>VS Code - Code editor</li>
-                                <li>Docker - Containerization</li>
-                                <li>Postman - API testing</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="resource">
-                            <h3>📖 Documentation</h3>
-                            <ul>
-                                <li><a href="ProgFrame_README.md" target="_blank">Programming Framework README</a></li>
-                                <li><a href="programming_framework_article.html" target="_blank">Academic Article</a></li>
-                                <li><a href="computer_science_processes.html" target="_blank">Computer Science Examples</a></li>
-                                <li><a href="chemistry_examples.html" target="_blank">Chemistry Examples</a></li>
-                                <li><a href="physics_processes.html" target="_blank">Physics Examples</a></li>
-                                <li><a href="mathematics_processes.html" target="_blank">Mathematics Examples</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </main>
+        <div class="footer">
+            <h3>About the Author</h3>
+            <p><strong>Gary Welz</strong></p>
+            <p>Retired Faculty Member</p>
+            <p>John Jay College, CUNY (Department of Mathematics and Computer Science)</p>
+            <p>Borough of Manhattan Community College, CUNY</p>
+            <p>CUNY Graduate Center (New Media Lab)</p>
+            <p>Email: <a href="mailto:gwelz@jjay.cuny.edu">gwelz@jjay.cuny.edu</a></p>
+        </div>
     </div>
-
-    <script>
-        // Tab functionality
-        document.querySelectorAll('.tab-btn').forEach(button => {
-            button.addEventListener('click', () => {
-                // Remove active class from all tabs and content
-                document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-                document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
-                
-                // Add active class to clicked tab
-                button.classList.add('active');
-                
-                // Show corresponding content
-                const tabId = button.getAttribute('data-tab');
-                document.getElementById(tabId).classList.add('active');
-            });
-        });
-    </script>
 </body>
 </html>
