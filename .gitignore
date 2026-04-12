@@ -54,3 +54,32 @@ temp_code.*
 .env.test.local
 .env.production.local
 
+# Large binary data (download from Figshare/HuggingFace)
+benchmark_data/
+*.h5ad
+*.npz
+*.pkl
+
+# Windows Zone.Identifier files
+*:Zone.Identifier
+
+# Personal documents
+*.pdf
+
+# Intermediate/deprecated files
+scPerturBench_Results/
+STATE_K562_Colab.py
+STATE_K562_Benchmark.ipynb
+STATE_K562_Benchmark_v2.ipynb
+STATE_K562_Benchmark_v3.ipynb
+STATE_rescore_DE_genes.py
+colab_grammar_aware.py
+glmp_analysis_report.json
+glmp_hybridization_pipeline.py
+genome_as_computer_v2*.html
+
+# Large result artifacts (derived, can be regenerated)
+results/celloracle_grn_coefficients.pkl
+results/celloracle_gene_names.npy
+results/fig*.png
+

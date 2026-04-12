@@ -4,6 +4,7 @@
 
 set -e
 
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 DB_DIR="/home/gdubs/copernicus-web-public/huggingface-space/mathematics-processes-database"
 BUCKET="gs://regal-scholar-453620-r7-podcast-storage/mathematics-processes-database"
 
@@ -27,6 +28,19 @@ if [ -f "build-graph-data.js" ]; then
     node build-graph-data.js
 fi
 
+# Canonical index files live in progframe; copy into DB_DIR before upload (like ZFC index)
+PF_MATH_DIR="$SCRIPT_DIR/programming_framework/mathematics-processes-database"
+PF_MATH_META="$PF_MATH_DIR/metadata.json"
+PF_MATH_TABLE="$PF_MATH_DIR/mathematics-database-table.html"
+if [ -f "$PF_MATH_META" ]; then
+  cp "$PF_MATH_META" "$DB_DIR/metadata.json"
+  echo "Synced metadata.json from progframe → copernicus DB"
+fi
+if [ -f "$PF_MATH_TABLE" ]; then
+  cp "$PF_MATH_TABLE" "$DB_DIR/mathematics-database-table.html"
+  echo "Synced mathematics-database-table.html from progframe → copernicus DB"
+fi
+
 # Upload metadata (with cache bust for fresh fetch)
 gsutil -h "Cache-Control:no-cache, max-age=0" cp metadata.json "$BUCKET/"
 
@@ -39,6 +53,16 @@ gsutil -h "Cache-Control:no-cache, max-age=0" cp mathematics-database-table.html
 
 # Upload Number Theory Research Frontier sample
 gsutil -h "Cache-Control:no-cache, max-age=0" cp number-theory-research-frontier.html "$BUCKET/"
+
+# GLMP foundational typology (working paper; source in progframe repo)
+PF_GLMP_TYPOLOGY="$SCRIPT_DIR/GLMP_Foundational_Typology.html"
+if [ -f "$PF_GLMP_TYPOLOGY" ]; then
+  cp "$PF_GLMP_TYPOLOGY" "$DB_DIR/GLMP_Foundational_Typology.html"
+  echo "Synced GLMP_Foundational_Typology.html from progframe → copernicus DB"
+fi
+if [ -f "GLMP_Foundational_Typology.html" ]; then
+  gsutil -h "Cache-Control:no-cache, max-age=0" cp GLMP_Foundational_Typology.html "$BUCKET/"
+fi
 
 # Upload Named Collections (mathematicians & theorems)
 if [ -d "collections" ]; then
@@ -135,10 +159,22 @@ gsutil cp processes/geometry_topology/geometry_topology-euclid-elements-book-xii
 gsutil cp processes/geometry_topology/geometry_topology-euclid-elements-book-xiii-props-10-18.html "$BUCKET/processes/geometry_topology/"
 
 # Upload Axiomatic Set Theory (ZFC)
+# Optional: copy curated index from progframe repo (Cantor / CH / GCH narrative, etc.)
+PF_ZFC_INDEX="$SCRIPT_DIR/programming_framework/processes/foundations/foundations-axiomatic-set-theory.html"
+if [ -f "$PF_ZFC_INDEX" ]; then
+  cp "$PF_ZFC_INDEX" "$DB_DIR/processes/foundations/foundations-axiomatic-set-theory.html"
+  echo "Synced foundations-axiomatic-set-theory.html from progframe → copernicus DB"
+fi
+PF_ZFC_CANTOR="$SCRIPT_DIR/programming_framework/processes/foundations/foundations-axiomatic-set-theory-cantor-cardinality.html"
+if [ -f "$PF_ZFC_CANTOR" ]; then
+  cp "$PF_ZFC_CANTOR" "$DB_DIR/processes/foundations/foundations-axiomatic-set-theory-cantor-cardinality.html"
+  echo "Synced foundations-axiomatic-set-theory-cantor-cardinality.html from progframe → copernicus DB"
+fi
 gsutil -h "Cache-Control:no-cache, max-age=0" cp processes/foundations/foundations-axiomatic-set-theory.html "$BUCKET/processes/foundations/"
 gsutil -h "Cache-Control:no-cache, max-age=0" cp processes/foundations/foundations-axiomatic-set-theory-axioms-basic.html "$BUCKET/processes/foundations/"
 gsutil -h "Cache-Control:no-cache, max-age=0" cp processes/foundations/foundations-axiomatic-set-theory-definitions-derived.html "$BUCKET/processes/foundations/"
 gsutil -h "Cache-Control:no-cache, max-age=0" cp processes/foundations/foundations-axiomatic-set-theory-ordinals-choice.html "$BUCKET/processes/foundations/"
+gsutil -h "Cache-Control:no-cache, max-age=0" cp processes/foundations/foundations-axiomatic-set-theory-cantor-cardinality.html "$BUCKET/processes/foundations/"
 gsutil -h "Cache-Control:no-cache, max-age=0" cp processes/foundations/foundations-axiomatic-set-theory-ch-continuum.html "$BUCKET/processes/foundations/"
 gsutil -h "Cache-Control:no-cache, max-age=0" cp processes/foundations/foundations-axiomatic-set-theory-forcing.html "$BUCKET/processes/foundations/"
 gsutil -h "Cache-Control:no-cache, max-age=0" cp processes/foundations/foundations-axiomatic-set-theory-ad.html "$BUCKET/processes/foundations/"

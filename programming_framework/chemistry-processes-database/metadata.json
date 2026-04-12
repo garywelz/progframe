@@ -1,0 +1,696 @@
+{
+  "discipline": "chemistry",
+  "version": "1",
+  "totalProcesses": 56,
+  "generatedBy": "build_chemistry_database.py",
+  "frontierByCategory": [
+    {
+      "categorySlug": "analytical_chemistry",
+      "frontierLabel": "PubMed — analytical chemistry",
+      "frontierUrl": "https://pubmed.ncbi.nlm.nih.gov/?term=analytical+chemistry"
+    },
+    {
+      "categorySlug": "biochemistry",
+      "frontierLabel": "PubMed — biochemistry",
+      "frontierUrl": "https://pubmed.ncbi.nlm.nih.gov/?term=biochemistry"
+    },
+    {
+      "categorySlug": "electrochemical",
+      "frontierLabel": "ChemRxiv",
+      "frontierUrl": "https://chemrxiv.org/"
+    },
+    {
+      "categorySlug": "environmental_chemistry",
+      "frontierLabel": "PubMed — environmental",
+      "frontierUrl": "https://pubmed.ncbi.nlm.nih.gov/?term=environmental+chemistry"
+    },
+    {
+      "categorySlug": "inorganic_chemistry",
+      "frontierLabel": "ChemRxiv",
+      "frontierUrl": "https://chemrxiv.org/"
+    },
+    {
+      "categorySlug": "kinetics",
+      "frontierLabel": "arXiv physics.chem-ph",
+      "frontierUrl": "https://arxiv.org/list/physics.chem-ph/recent"
+    },
+    {
+      "categorySlug": "materials_chemistry",
+      "frontierLabel": "ChemRxiv",
+      "frontierUrl": "https://chemrxiv.org/"
+    },
+    {
+      "categorySlug": "materials_solids",
+      "frontierLabel": "arXiv cond-mat.mtrl-sci",
+      "frontierUrl": "https://arxiv.org/list/cond-mat.mtrl-sci/recent"
+    },
+    {
+      "categorySlug": "organic_chemistry",
+      "frontierLabel": "ChemRxiv",
+      "frontierUrl": "https://chemrxiv.org/"
+    },
+    {
+      "categorySlug": "physical_chemistry",
+      "frontierLabel": "arXiv physics.chem-ph",
+      "frontierUrl": "https://arxiv.org/list/physics.chem-ph/recent"
+    },
+    {
+      "categorySlug": "quantum_chemistry",
+      "frontierLabel": "arXiv physics.chem-ph",
+      "frontierUrl": "https://arxiv.org/list/physics.chem-ph/recent"
+    },
+    {
+      "categorySlug": "spectroscopy",
+      "frontierLabel": "PubMed — spectroscopy",
+      "frontierUrl": "https://pubmed.ncbi.nlm.nih.gov/?term=spectroscopy"
+    },
+    {
+      "categorySlug": "surface_catalysis",
+      "frontierLabel": "ChemRxiv",
+      "frontierUrl": "https://chemrxiv.org/"
+    },
+    {
+      "categorySlug": "thermodynamics",
+      "frontierLabel": "arXiv cond-mat.stat-mech",
+      "frontierUrl": "https://arxiv.org/list/cond-mat.stat-mech/recent"
+    }
+  ],
+  "processes": [
+    {
+      "id": "chem-b01-p01",
+      "title": "Organic Reaction Mechanisms Process",
+      "category": "Organic Chemistry",
+      "categorySlug": "organic_chemistry",
+      "batch": 1,
+      "batchFile": "batches/chemistry_batch_01.html",
+      "href": "batches/chemistry_batch_01.html#chem-b01-p01",
+      "frontierLabel": "ChemRxiv",
+      "frontierUrl": "https://chemrxiv.org/"
+    },
+    {
+      "id": "chem-b01-p02",
+      "title": "Organic Synthesis Pathways Process",
+      "category": "Organic Chemistry",
+      "categorySlug": "organic_chemistry",
+      "batch": 1,
+      "batchFile": "batches/chemistry_batch_01.html",
+      "href": "batches/chemistry_batch_01.html#chem-b01-p02",
+      "frontierLabel": "ChemRxiv",
+      "frontierUrl": "https://chemrxiv.org/"
+    },
+    {
+      "id": "chem-b01-p03",
+      "title": "Stereochemistry Analysis Process",
+      "category": "Organic Chemistry",
+      "categorySlug": "organic_chemistry",
+      "batch": 1,
+      "batchFile": "batches/chemistry_batch_01.html",
+      "href": "batches/chemistry_batch_01.html#chem-b01-p03",
+      "frontierLabel": "ChemRxiv",
+      "frontierUrl": "https://chemrxiv.org/"
+    },
+    {
+      "id": "chem-b02-p01",
+      "title": "Thermodynamic Calculations Process",
+      "category": "Physical Chemistry",
+      "categorySlug": "physical_chemistry",
+      "batch": 2,
+      "batchFile": "batches/chemistry_batch_02.html",
+      "href": "batches/chemistry_batch_02.html#chem-b02-p01",
+      "frontierLabel": "arXiv physics.chem-ph",
+      "frontierUrl": "https://arxiv.org/list/physics.chem-ph/recent"
+    },
+    {
+      "id": "chem-b02-p02",
+      "title": "Chemical Kinetics Process",
+      "category": "Physical Chemistry",
+      "categorySlug": "physical_chemistry",
+      "batch": 2,
+      "batchFile": "batches/chemistry_batch_02.html",
+      "href": "batches/chemistry_batch_02.html#chem-b02-p02",
+      "frontierLabel": "arXiv physics.chem-ph",
+      "frontierUrl": "https://arxiv.org/list/physics.chem-ph/recent"
+    },
+    {
+      "id": "chem-b02-p03",
+      "title": "Spectroscopy Analysis Process",
+      "category": "Physical Chemistry",
+      "categorySlug": "physical_chemistry",
+      "batch": 2,
+      "batchFile": "batches/chemistry_batch_02.html",
+      "href": "batches/chemistry_batch_02.html#chem-b02-p03",
+      "frontierLabel": "arXiv physics.chem-ph",
+      "frontierUrl": "https://arxiv.org/list/physics.chem-ph/recent"
+    },
+    {
+      "id": "chem-b03-p01",
+      "title": "Spectroscopy Analysis Process",
+      "category": "Analytical Chemistry",
+      "categorySlug": "analytical_chemistry",
+      "batch": 3,
+      "batchFile": "batches/chemistry_batch_03.html",
+      "href": "batches/chemistry_batch_03.html#chem-b03-p01",
+      "frontierLabel": "PubMed — analytical chemistry",
+      "frontierUrl": "https://pubmed.ncbi.nlm.nih.gov/?term=analytical+chemistry"
+    },
+    {
+      "id": "chem-b03-p02",
+      "title": "Chromatography Process",
+      "category": "Analytical Chemistry",
+      "categorySlug": "analytical_chemistry",
+      "batch": 3,
+      "batchFile": "batches/chemistry_batch_03.html",
+      "href": "batches/chemistry_batch_03.html#chem-b03-p02",
+      "frontierLabel": "PubMed — analytical chemistry",
+      "frontierUrl": "https://pubmed.ncbi.nlm.nih.gov/?term=analytical+chemistry"
+    },
+    {
+      "id": "chem-b03-p03",
+      "title": "Electrochemical Analysis Process",
+      "category": "Analytical Chemistry",
+      "categorySlug": "analytical_chemistry",
+      "batch": 3,
+      "batchFile": "batches/chemistry_batch_03.html",
+      "href": "batches/chemistry_batch_03.html#chem-b03-p03",
+      "frontierLabel": "PubMed — analytical chemistry",
+      "frontierUrl": "https://pubmed.ncbi.nlm.nih.gov/?term=analytical+chemistry"
+    },
+    {
+      "id": "chem-b04-p01",
+      "title": "Coordination Chemistry Process",
+      "category": "Inorganic Chemistry",
+      "categorySlug": "inorganic_chemistry",
+      "batch": 4,
+      "batchFile": "batches/chemistry_batch_04.html",
+      "href": "batches/chemistry_batch_04.html#chem-b04-p01",
+      "frontierLabel": "ChemRxiv",
+      "frontierUrl": "https://chemrxiv.org/"
+    },
+    {
+      "id": "chem-b04-p02",
+      "title": "Catalysis Process",
+      "category": "Inorganic Chemistry",
+      "categorySlug": "inorganic_chemistry",
+      "batch": 4,
+      "batchFile": "batches/chemistry_batch_04.html",
+      "href": "batches/chemistry_batch_04.html#chem-b04-p02",
+      "frontierLabel": "ChemRxiv",
+      "frontierUrl": "https://chemrxiv.org/"
+    },
+    {
+      "id": "chem-b04-p03",
+      "title": "Solid State Chemistry Process",
+      "category": "Inorganic Chemistry",
+      "categorySlug": "inorganic_chemistry",
+      "batch": 4,
+      "batchFile": "batches/chemistry_batch_04.html",
+      "href": "batches/chemistry_batch_04.html#chem-b04-p03",
+      "frontierLabel": "ChemRxiv",
+      "frontierUrl": "https://chemrxiv.org/"
+    },
+    {
+      "id": "chem-b05-p01",
+      "title": "Enzyme Kinetics Process",
+      "category": "Biochemistry",
+      "categorySlug": "biochemistry",
+      "batch": 5,
+      "batchFile": "batches/chemistry_batch_05.html",
+      "href": "batches/chemistry_batch_05.html#chem-b05-p01",
+      "frontierLabel": "PubMed — biochemistry",
+      "frontierUrl": "https://pubmed.ncbi.nlm.nih.gov/?term=biochemistry"
+    },
+    {
+      "id": "chem-b05-p02",
+      "title": "Metabolism Process",
+      "category": "Biochemistry",
+      "categorySlug": "biochemistry",
+      "batch": 5,
+      "batchFile": "batches/chemistry_batch_05.html",
+      "href": "batches/chemistry_batch_05.html#chem-b05-p02",
+      "frontierLabel": "PubMed — biochemistry",
+      "frontierUrl": "https://pubmed.ncbi.nlm.nih.gov/?term=biochemistry"
+    },
+    {
+      "id": "chem-b05-p03",
+      "title": "Protein Structure Process",
+      "category": "Biochemistry",
+      "categorySlug": "biochemistry",
+      "batch": 5,
+      "batchFile": "batches/chemistry_batch_05.html",
+      "href": "batches/chemistry_batch_05.html#chem-b05-p03",
+      "frontierLabel": "PubMed — biochemistry",
+      "frontierUrl": "https://pubmed.ncbi.nlm.nih.gov/?term=biochemistry"
+    },
+    {
+      "id": "chem-b06-p01",
+      "title": "Polymer Chemistry Process",
+      "category": "Materials Chemistry",
+      "categorySlug": "materials_chemistry",
+      "batch": 6,
+      "batchFile": "batches/chemistry_batch_06.html",
+      "href": "batches/chemistry_batch_06.html#chem-b06-p01",
+      "frontierLabel": "ChemRxiv",
+      "frontierUrl": "https://chemrxiv.org/"
+    },
+    {
+      "id": "chem-b06-p02",
+      "title": "Nanomaterials Process",
+      "category": "Materials Chemistry",
+      "categorySlug": "materials_chemistry",
+      "batch": 6,
+      "batchFile": "batches/chemistry_batch_06.html",
+      "href": "batches/chemistry_batch_06.html#chem-b06-p02",
+      "frontierLabel": "ChemRxiv",
+      "frontierUrl": "https://chemrxiv.org/"
+    },
+    {
+      "id": "chem-b06-p03",
+      "title": "Composite Materials Process",
+      "category": "Materials Chemistry",
+      "categorySlug": "materials_chemistry",
+      "batch": 6,
+      "batchFile": "batches/chemistry_batch_06.html",
+      "href": "batches/chemistry_batch_06.html#chem-b06-p03",
+      "frontierLabel": "ChemRxiv",
+      "frontierUrl": "https://chemrxiv.org/"
+    },
+    {
+      "id": "chem-b07-p01",
+      "title": "Atmospheric Chemistry Process",
+      "category": "Environmental Chemistry",
+      "categorySlug": "environmental_chemistry",
+      "batch": 7,
+      "batchFile": "batches/chemistry_batch_07.html",
+      "href": "batches/chemistry_batch_07.html#chem-b07-p01",
+      "frontierLabel": "PubMed — environmental",
+      "frontierUrl": "https://pubmed.ncbi.nlm.nih.gov/?term=environmental+chemistry"
+    },
+    {
+      "id": "chem-b07-p02",
+      "title": "Water Chemistry Process",
+      "category": "Environmental Chemistry",
+      "categorySlug": "environmental_chemistry",
+      "batch": 7,
+      "batchFile": "batches/chemistry_batch_07.html",
+      "href": "batches/chemistry_batch_07.html#chem-b07-p02",
+      "frontierLabel": "PubMed — environmental",
+      "frontierUrl": "https://pubmed.ncbi.nlm.nih.gov/?term=environmental+chemistry"
+    },
+    {
+      "id": "chem-b07-p03",
+      "title": "Green Chemistry Process",
+      "category": "Environmental Chemistry",
+      "categorySlug": "environmental_chemistry",
+      "batch": 7,
+      "batchFile": "batches/chemistry_batch_07.html",
+      "href": "batches/chemistry_batch_07.html#chem-b07-p03",
+      "frontierLabel": "PubMed — environmental",
+      "frontierUrl": "https://pubmed.ncbi.nlm.nih.gov/?term=environmental+chemistry"
+    },
+    {
+      "id": "chem-b08-p01",
+      "title": "Electrochemical Cell Design",
+      "category": "Electrochemical Processes",
+      "categorySlug": "electrochemical",
+      "batch": 8,
+      "batchFile": "batches/chemistry_batch_08.html",
+      "href": "batches/chemistry_batch_08.html#chem-b08-p01",
+      "frontierLabel": "ChemRxiv",
+      "frontierUrl": "https://chemrxiv.org/"
+    },
+    {
+      "id": "chem-b08-p02",
+      "title": "Battery Chemistry",
+      "category": "Electrochemical Processes",
+      "categorySlug": "electrochemical",
+      "batch": 8,
+      "batchFile": "batches/chemistry_batch_08.html",
+      "href": "batches/chemistry_batch_08.html#chem-b08-p02",
+      "frontierLabel": "ChemRxiv",
+      "frontierUrl": "https://chemrxiv.org/"
+    },
+    {
+      "id": "chem-b08-p03",
+      "title": "Corrosion Mechanisms",
+      "category": "Electrochemical Processes",
+      "categorySlug": "electrochemical",
+      "batch": 8,
+      "batchFile": "batches/chemistry_batch_08.html",
+      "href": "batches/chemistry_batch_08.html#chem-b08-p03",
+      "frontierLabel": "ChemRxiv",
+      "frontierUrl": "https://chemrxiv.org/"
+    },
+    {
+      "id": "chem-b08-p04",
+      "title": "Electroplating",
+      "category": "Electrochemical Processes",
+      "categorySlug": "electrochemical",
+      "batch": 8,
+      "batchFile": "batches/chemistry_batch_08.html",
+      "href": "batches/chemistry_batch_08.html#chem-b08-p04",
+      "frontierLabel": "ChemRxiv",
+      "frontierUrl": "https://chemrxiv.org/"
+    },
+    {
+      "id": "chem-b08-p05",
+      "title": "Electrolysis",
+      "category": "Electrochemical Processes",
+      "categorySlug": "electrochemical",
+      "batch": 8,
+      "batchFile": "batches/chemistry_batch_08.html",
+      "href": "batches/chemistry_batch_08.html#chem-b08-p05",
+      "frontierLabel": "ChemRxiv",
+      "frontierUrl": "https://chemrxiv.org/"
+    },
+    {
+      "id": "chem-b09-p01",
+      "title": "Heterogeneous Catalysis",
+      "category": "Surface Chemistry & Catalysis",
+      "categorySlug": "surface_catalysis",
+      "batch": 9,
+      "batchFile": "batches/chemistry_batch_09.html",
+      "href": "batches/chemistry_batch_09.html#chem-b09-p01",
+      "frontierLabel": "ChemRxiv",
+      "frontierUrl": "https://chemrxiv.org/"
+    },
+    {
+      "id": "chem-b09-p02",
+      "title": "Photocatalysis",
+      "category": "Surface Chemistry & Catalysis",
+      "categorySlug": "surface_catalysis",
+      "batch": 9,
+      "batchFile": "batches/chemistry_batch_09.html",
+      "href": "batches/chemistry_batch_09.html#chem-b09-p02",
+      "frontierLabel": "ChemRxiv",
+      "frontierUrl": "https://chemrxiv.org/"
+    },
+    {
+      "id": "chem-b09-p03",
+      "title": "Enzyme Catalysis",
+      "category": "Surface Chemistry & Catalysis",
+      "categorySlug": "surface_catalysis",
+      "batch": 9,
+      "batchFile": "batches/chemistry_batch_09.html",
+      "href": "batches/chemistry_batch_09.html#chem-b09-p03",
+      "frontierLabel": "ChemRxiv",
+      "frontierUrl": "https://chemrxiv.org/"
+    },
+    {
+      "id": "chem-b09-p04",
+      "title": "Zeolite Catalysis",
+      "category": "Surface Chemistry & Catalysis",
+      "categorySlug": "surface_catalysis",
+      "batch": 9,
+      "batchFile": "batches/chemistry_batch_09.html",
+      "href": "batches/chemistry_batch_09.html#chem-b09-p04",
+      "frontierLabel": "ChemRxiv",
+      "frontierUrl": "https://chemrxiv.org/"
+    },
+    {
+      "id": "chem-b09-p05",
+      "title": "Supported Catalysts",
+      "category": "Surface Chemistry & Catalysis",
+      "categorySlug": "surface_catalysis",
+      "batch": 9,
+      "batchFile": "batches/chemistry_batch_09.html",
+      "href": "batches/chemistry_batch_09.html#chem-b09-p05",
+      "frontierLabel": "ChemRxiv",
+      "frontierUrl": "https://chemrxiv.org/"
+    },
+    {
+      "id": "chem-b10-p01",
+      "title": "Phase Transitions",
+      "category": "Thermodynamic Processes",
+      "categorySlug": "thermodynamics",
+      "batch": 10,
+      "batchFile": "batches/chemistry_batch_10.html",
+      "href": "batches/chemistry_batch_10.html#chem-b10-p01",
+      "frontierLabel": "arXiv cond-mat.stat-mech",
+      "frontierUrl": "https://arxiv.org/list/cond-mat.stat-mech/recent"
+    },
+    {
+      "id": "chem-b10-p02",
+      "title": "Solution Thermodynamics",
+      "category": "Thermodynamic Processes",
+      "categorySlug": "thermodynamics",
+      "batch": 10,
+      "batchFile": "batches/chemistry_batch_10.html",
+      "href": "batches/chemistry_batch_10.html#chem-b10-p02",
+      "frontierLabel": "arXiv cond-mat.stat-mech",
+      "frontierUrl": "https://arxiv.org/list/cond-mat.stat-mech/recent"
+    },
+    {
+      "id": "chem-b10-p03",
+      "title": "Chemical Equilibrium",
+      "category": "Thermodynamic Processes",
+      "categorySlug": "thermodynamics",
+      "batch": 10,
+      "batchFile": "batches/chemistry_batch_10.html",
+      "href": "batches/chemistry_batch_10.html#chem-b10-p03",
+      "frontierLabel": "arXiv cond-mat.stat-mech",
+      "frontierUrl": "https://arxiv.org/list/cond-mat.stat-mech/recent"
+    },
+    {
+      "id": "chem-b10-p04",
+      "title": "Thermochemistry",
+      "category": "Thermodynamic Processes",
+      "categorySlug": "thermodynamics",
+      "batch": 10,
+      "batchFile": "batches/chemistry_batch_10.html",
+      "href": "batches/chemistry_batch_10.html#chem-b10-p04",
+      "frontierLabel": "arXiv cond-mat.stat-mech",
+      "frontierUrl": "https://arxiv.org/list/cond-mat.stat-mech/recent"
+    },
+    {
+      "id": "chem-b10-p05",
+      "title": "Entropy Changes",
+      "category": "Thermodynamic Processes",
+      "categorySlug": "thermodynamics",
+      "batch": 10,
+      "batchFile": "batches/chemistry_batch_10.html",
+      "href": "batches/chemistry_batch_10.html#chem-b10-p05",
+      "frontierLabel": "arXiv cond-mat.stat-mech",
+      "frontierUrl": "https://arxiv.org/list/cond-mat.stat-mech/recent"
+    },
+    {
+      "id": "chem-b11-p01",
+      "title": "Reaction Mechanisms",
+      "category": "Kinetic Processes",
+      "categorySlug": "kinetics",
+      "batch": 11,
+      "batchFile": "batches/chemistry_batch_11.html",
+      "href": "batches/chemistry_batch_11.html#chem-b11-p01",
+      "frontierLabel": "arXiv physics.chem-ph",
+      "frontierUrl": "https://arxiv.org/list/physics.chem-ph/recent"
+    },
+    {
+      "id": "chem-b11-p02",
+      "title": "Temperature Effects",
+      "category": "Kinetic Processes",
+      "categorySlug": "kinetics",
+      "batch": 11,
+      "batchFile": "batches/chemistry_batch_11.html",
+      "href": "batches/chemistry_batch_11.html#chem-b11-p02",
+      "frontierLabel": "arXiv physics.chem-ph",
+      "frontierUrl": "https://arxiv.org/list/physics.chem-ph/recent"
+    },
+    {
+      "id": "chem-b11-p03",
+      "title": "Concentration Effects",
+      "category": "Kinetic Processes",
+      "categorySlug": "kinetics",
+      "batch": 11,
+      "batchFile": "batches/chemistry_batch_11.html",
+      "href": "batches/chemistry_batch_11.html#chem-b11-p03",
+      "frontierLabel": "arXiv physics.chem-ph",
+      "frontierUrl": "https://arxiv.org/list/physics.chem-ph/recent"
+    },
+    {
+      "id": "chem-b11-p04",
+      "title": "Catalyst Effects",
+      "category": "Kinetic Processes",
+      "categorySlug": "kinetics",
+      "batch": 11,
+      "batchFile": "batches/chemistry_batch_11.html",
+      "href": "batches/chemistry_batch_11.html#chem-b11-p04",
+      "frontierLabel": "arXiv physics.chem-ph",
+      "frontierUrl": "https://arxiv.org/list/physics.chem-ph/recent"
+    },
+    {
+      "id": "chem-b11-p05",
+      "title": "Pressure Effects",
+      "category": "Kinetic Processes",
+      "categorySlug": "kinetics",
+      "batch": 11,
+      "batchFile": "batches/chemistry_batch_11.html",
+      "href": "batches/chemistry_batch_11.html#chem-b11-p05",
+      "frontierLabel": "arXiv physics.chem-ph",
+      "frontierUrl": "https://arxiv.org/list/physics.chem-ph/recent"
+    },
+    {
+      "id": "chem-b12-p01",
+      "title": "UV-Vis Spectroscopy",
+      "category": "Spectroscopy & Analysis",
+      "categorySlug": "spectroscopy",
+      "batch": 12,
+      "batchFile": "batches/chemistry_batch_12.html",
+      "href": "batches/chemistry_batch_12.html#chem-b12-p01",
+      "frontierLabel": "PubMed — spectroscopy",
+      "frontierUrl": "https://pubmed.ncbi.nlm.nih.gov/?term=spectroscopy"
+    },
+    {
+      "id": "chem-b12-p02",
+      "title": "IR Spectroscopy",
+      "category": "Spectroscopy & Analysis",
+      "categorySlug": "spectroscopy",
+      "batch": 12,
+      "batchFile": "batches/chemistry_batch_12.html",
+      "href": "batches/chemistry_batch_12.html#chem-b12-p02",
+      "frontierLabel": "PubMed — spectroscopy",
+      "frontierUrl": "https://pubmed.ncbi.nlm.nih.gov/?term=spectroscopy"
+    },
+    {
+      "id": "chem-b12-p03",
+      "title": "NMR Spectroscopy",
+      "category": "Spectroscopy & Analysis",
+      "categorySlug": "spectroscopy",
+      "batch": 12,
+      "batchFile": "batches/chemistry_batch_12.html",
+      "href": "batches/chemistry_batch_12.html#chem-b12-p03",
+      "frontierLabel": "PubMed — spectroscopy",
+      "frontierUrl": "https://pubmed.ncbi.nlm.nih.gov/?term=spectroscopy"
+    },
+    {
+      "id": "chem-b12-p04",
+      "title": "Mass Spectrometry",
+      "category": "Spectroscopy & Analysis",
+      "categorySlug": "spectroscopy",
+      "batch": 12,
+      "batchFile": "batches/chemistry_batch_12.html",
+      "href": "batches/chemistry_batch_12.html#chem-b12-p04",
+      "frontierLabel": "PubMed — spectroscopy",
+      "frontierUrl": "https://pubmed.ncbi.nlm.nih.gov/?term=spectroscopy"
+    },
+    {
+      "id": "chem-b12-p05",
+      "title": "Chromatography",
+      "category": "Spectroscopy & Analysis",
+      "categorySlug": "spectroscopy",
+      "batch": 12,
+      "batchFile": "batches/chemistry_batch_12.html",
+      "href": "batches/chemistry_batch_12.html#chem-b12-p05",
+      "frontierLabel": "PubMed — spectroscopy",
+      "frontierUrl": "https://pubmed.ncbi.nlm.nih.gov/?term=spectroscopy"
+    },
+    {
+      "id": "chem-b13-p01",
+      "title": "Molecular Orbitals",
+      "category": "Quantum Chemistry",
+      "categorySlug": "quantum_chemistry",
+      "batch": 13,
+      "batchFile": "batches/chemistry_batch_13.html",
+      "href": "batches/chemistry_batch_13.html#chem-b13-p01",
+      "frontierLabel": "arXiv physics.chem-ph",
+      "frontierUrl": "https://arxiv.org/list/physics.chem-ph/recent"
+    },
+    {
+      "id": "chem-b13-p02",
+      "title": "Electronic Transitions",
+      "category": "Quantum Chemistry",
+      "categorySlug": "quantum_chemistry",
+      "batch": 13,
+      "batchFile": "batches/chemistry_batch_13.html",
+      "href": "batches/chemistry_batch_13.html#chem-b13-p02",
+      "frontierLabel": "arXiv physics.chem-ph",
+      "frontierUrl": "https://arxiv.org/list/physics.chem-ph/recent"
+    },
+    {
+      "id": "chem-b13-p03",
+      "title": "Computational Methods",
+      "category": "Quantum Chemistry",
+      "categorySlug": "quantum_chemistry",
+      "batch": 13,
+      "batchFile": "batches/chemistry_batch_13.html",
+      "href": "batches/chemistry_batch_13.html#chem-b13-p03",
+      "frontierLabel": "arXiv physics.chem-ph",
+      "frontierUrl": "https://arxiv.org/list/physics.chem-ph/recent"
+    },
+    {
+      "id": "chem-b13-p04",
+      "title": "Reaction Pathways",
+      "category": "Quantum Chemistry",
+      "categorySlug": "quantum_chemistry",
+      "batch": 13,
+      "batchFile": "batches/chemistry_batch_13.html",
+      "href": "batches/chemistry_batch_13.html#chem-b13-p04",
+      "frontierLabel": "arXiv physics.chem-ph",
+      "frontierUrl": "https://arxiv.org/list/physics.chem-ph/recent"
+    },
+    {
+      "id": "chem-b13-p05",
+      "title": "Spectroscopic Calculations",
+      "category": "Quantum Chemistry",
+      "categorySlug": "quantum_chemistry",
+      "batch": 13,
+      "batchFile": "batches/chemistry_batch_13.html",
+      "href": "batches/chemistry_batch_13.html#chem-b13-p05",
+      "frontierLabel": "arXiv physics.chem-ph",
+      "frontierUrl": "https://arxiv.org/list/physics.chem-ph/recent"
+    },
+    {
+      "id": "chem-b14-p01",
+      "title": "Crystal Structure",
+      "category": "Materials Chemistry (solids)",
+      "categorySlug": "materials_solids",
+      "batch": 14,
+      "batchFile": "batches/chemistry_batch_14.html",
+      "href": "batches/chemistry_batch_14.html#chem-b14-p01",
+      "frontierLabel": "arXiv cond-mat.mtrl-sci",
+      "frontierUrl": "https://arxiv.org/list/cond-mat.mtrl-sci/recent"
+    },
+    {
+      "id": "chem-b14-p02",
+      "title": "Polymorphism",
+      "category": "Materials Chemistry (solids)",
+      "categorySlug": "materials_solids",
+      "batch": 14,
+      "batchFile": "batches/chemistry_batch_14.html",
+      "href": "batches/chemistry_batch_14.html#chem-b14-p02",
+      "frontierLabel": "arXiv cond-mat.mtrl-sci",
+      "frontierUrl": "https://arxiv.org/list/cond-mat.mtrl-sci/recent"
+    },
+    {
+      "id": "chem-b14-p03",
+      "title": "Defects & Doping",
+      "category": "Materials Chemistry (solids)",
+      "categorySlug": "materials_solids",
+      "batch": 14,
+      "batchFile": "batches/chemistry_batch_14.html",
+      "href": "batches/chemistry_batch_14.html#chem-b14-p03",
+      "frontierLabel": "arXiv cond-mat.mtrl-sci",
+      "frontierUrl": "https://arxiv.org/list/cond-mat.mtrl-sci/recent"
+    },
+    {
+      "id": "chem-b14-p04",
+      "title": "Nanomaterials",
+      "category": "Materials Chemistry (solids)",
+      "categorySlug": "materials_solids",
+      "batch": 14,
+      "batchFile": "batches/chemistry_batch_14.html",
+      "href": "batches/chemistry_batch_14.html#chem-b14-p04",
+      "frontierLabel": "arXiv cond-mat.mtrl-sci",
+      "frontierUrl": "https://arxiv.org/list/cond-mat.mtrl-sci/recent"
+    },
+    {
+      "id": "chem-b14-p05",
+      "title": "Composite Materials",
+      "category": "Materials Chemistry (solids)",
+      "categorySlug": "materials_solids",
+      "batch": 14,
+      "batchFile": "batches/chemistry_batch_14.html",
+      "href": "batches/chemistry_batch_14.html#chem-b14-p05",
+      "frontierLabel": "arXiv cond-mat.mtrl-sci",
+      "frontierUrl": "https://arxiv.org/list/cond-mat.mtrl-sci/recent"
+    }
+  ]
+}

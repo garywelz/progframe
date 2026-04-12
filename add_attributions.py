@@ -1,12 +1,16 @@
 #!/usr/bin/env python3
 """
-Add attribution Cite badges to mathematics process charts.
+Add attribution Cite badges and optional Frontier links to mathematics process charts.
 
 Reads attributions.json (chart ID -> attribution data), finds matching HTML
-files in processes/, and injects the Cite span + CSS into header-meta.
-Skips charts that already have attribution-wrap.
+files in processes/, and injects into header-meta:
+  - Cite (attribution-wrap + popover) when primary/publication/year/doi/url present
+  - Frontier (external link) when frontier_url / frontierUrl present
 
-Usage: python add_attributions.py [--dry-run]
+Charts that already have Cite are not re-injected; Frontier is added if missing.
+Skips entries with nothing to add.
+
+Usage: python3 add_attributions.py [--dry-run]
 """
 import argparse
 import json
@@ -29,7 +33,7 @@ ATTRIBUTION_CSS = """
 
 
 def build_attribution_html(att: dict, link_color: str = "#3498db") -> str:
-    """Build the Cite span + popover HTML from attribution dict."""
+    """Build the Cite span + popover HTML from attribution dict. Empty if no fields."""
     parts = []
     if att.get("primary"):
         parts.append(f'<strong>Primary:</strong> {att["primary"]}')
@@ -43,8 +47,20 @@ def build_attribution_html(att: dict, link_color: str = "#3498db") -> str:
         text = att.get("url_text", "Link")
         parts.append(f'<strong>URL:</strong> <a href="{att["url"]}" target="_blank">{text}</a>')
 
+    if not parts:
+        return ""
+
     popover_html = "<br>".join(parts)
     return f'<span class="meta-item attribution-wrap"><span class="attribution-trigger meta-item" tabindex="0">Cite</span><div class="attribution-popover">{popover_html}</div></span>'
+
+
+def build_frontier_span(att: dict) -> str:
+    """Optional literature-hub link (arXiv recent, etc.). Uses frontier_url or frontierUrl."""
+    url = att.get("frontier_url") or att.get("frontierUrl")
+    if not url:
+        return ""
+    label = att.get("frontier_label") or att.get("frontierLabel") or "Frontier"
+    return f'<span class="meta-item frontier-meta-link"><a href="{url}" target="_blank" rel="noopener noreferrer">{label}</a></span>'
 
 
 def find_html_path(chart_id: str) -> Path | None:
@@ -59,6 +75,10 @@ def has_attribution(html: str) -> bool:
     return "attribution-wrap" in html
 
 
+def has_frontier_meta(html: str) -> bool:
+    return "frontier-meta-link" in html
+
+
 def has_header_meta(html: str) -> bool:
     return '<div class="header-meta"' in html
 
@@ -71,19 +91,20 @@ def inject_css(html: str) -> str:
 
 
 def inject_attribution_span(html: str, span_html: str) -> str:
-    """Insert attribution span before the closing </div> of the first header-meta."""
+    """Append span before the closing </div> of the first header-meta."""
+    if not span_html:
+        return html
     pattern = r'(<div class="header-meta"[^>]*>)([\s\S]*?)(\s*</div>)'
     match = re.search(pattern, html)
     if not match:
         return html
     prefix, content, closing = match.groups()
-    # Insert before the closing </div> of header-meta
     new_content = content.rstrip() + "\n                " + span_html + closing
     return html[: match.start()] + prefix + new_content + html[match.end() :]
 
 
 def main():
-    ap = argparse.ArgumentParser(description="Add attribution Cite badges to mathematics process charts")
+    ap = argparse.ArgumentParser(description="Add Cite + optional Frontier to mathematics process charts")
     ap.add_argument("--dry-run", action="store_true", help="Print what would be done, don't write files")
     args = ap.parse_args()
 
@@ -91,7 +112,12 @@ def main():
         data = json.load(f)
 
     attributions = {k: v for k, v in data.items() if not k.startswith("_") and isinstance(v, dict) and v}
-    stats = {"updated": 0, "skipped_no_file": 0, "skipped_no_header_meta": 0, "skipped_has_attribution": 0, "skipped_empty": 0}
+    stats = {
+        "updated": 0,
+        "skipped_no_file": 0,
+        "skipped_no_header_meta": 0,
+        "skipped_nothing_to_do": 0,
+    }
 
     for chart_id, att in attributions.items():
         path = find_html_path(chart_id)
@@ -101,18 +127,27 @@ def main():
             continue
 
         html = path.read_text(encoding="utf-8")
-        if has_attribution(html):
-            stats["skipped_has_attribution"] += 1
-            print(f"[skip] {chart_id}: already has attribution")
-            continue
         if not has_header_meta(html):
             stats["skipped_no_header_meta"] += 1
             print(f"[skip] {chart_id}: no header-meta (index page?)")
             continue
 
-        span_html = build_attribution_html(att)
-        html = inject_css(html)
-        html = inject_attribution_span(html, span_html)
+        cite_span = build_attribution_html(att)
+        frontier_span = build_frontier_span(att)
+
+        effective_cite = cite_span if cite_span and not has_attribution(html) else ""
+        effective_frontier = frontier_span if frontier_span and not has_frontier_meta(html) else ""
+
+        if not effective_cite and not effective_frontier:
+            stats["skipped_nothing_to_do"] += 1
+            print(f"[skip] {chart_id}: nothing to add (already has cite/frontier or JSON empty)")
+            continue
+
+        if effective_cite:
+            html = inject_css(html)
+            html = inject_attribution_span(html, effective_cite)
+        if effective_frontier:
+            html = inject_attribution_span(html, effective_frontier)
 
         if args.dry_run:
             print(f"[dry-run] would update {path}")

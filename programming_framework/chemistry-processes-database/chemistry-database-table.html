@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Chemistry Processes Database</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      margin: 0;
+      background: linear-gradient(145deg, #0f766e 0%, #134e4a 50%, #042f2e 100%);
+      min-height: 100vh;
+      color: #0f172a;
+    }
+    .wrap { max-width: 1280px; margin: 0 auto; padding: 24px 16px 48px; }
+    .card {
+      background: #f8fafc;
+      border-radius: 16px;
+      box-shadow: 0 20px 50px rgba(0,0,0,.25);
+      overflow: hidden;
+    }
+    header {
+      padding: 24px 28px;
+      background: linear-gradient(90deg, #0d9488, #14b8a6);
+      color: #fff;
+    }
+    header h1 { margin: 0 0 8px; font-size: 1.5rem; }
+    header p { margin: 0; opacity: .95; font-size: .95rem; }
+    .toolbar {
+      padding: 16px 24px;
+      border-bottom: 1px solid #e2e8f0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+    .toolbar label { font-size: .85rem; color: #64748b; }
+    input[type="search"] {
+      flex: 1;
+      min-width: 200px;
+      padding: 10px 14px;
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      font-size: 1rem;
+    }
+    select {
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: 1px solid #cbd5e1;
+      font-size: .95rem;
+    }
+    .meta { font-size: .85rem; color: #64748b; margin-left: auto; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: .92rem;
+    }
+    th, td { padding: 12px 16px; text-align: left; border-bottom: 1px solid #e2e8f0; }
+    th {
+      background: #f1f5f9;
+      font-weight: 600;
+      color: #334155;
+      position: sticky;
+      top: 0;
+    }
+    tr:hover td { background: #f0fdfa; }
+    a.row-link { color: #0f766e; font-weight: 600; text-decoration: none; }
+    a.row-link:hover { text-decoration: underline; }
+    .slug { font-size: .8rem; color: #94a3b8; }
+    td.frontier a { color: #0d9488; font-weight: 500; text-decoration: none; font-size: .88rem; }
+    td.frontier a:hover { text-decoration: underline; }
+    td.frontier .na { color: #94a3b8; font-size: .85rem; }
+    footer {
+      padding: 16px 24px;
+      font-size: .8rem;
+      color: #64748b;
+      background: #f8fafc;
+    }
+    footer a { color: #0d9488; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <header>
+        <h1>⚗️ Chemistry processes</h1>
+        <p>Programming Framework flowcharts — filter by branch or search titles. <strong>Frontier</strong> links go to recent literature hubs (arXiv, ChemRxiv, PubMed) by branch.</p>
+      </header>
+      <div class="toolbar">
+        <label for="q">Search</label>
+        <input type="search" id="q" placeholder="Title, category, id…" autocomplete="off" />
+        <label for="cat">Branch</label>
+        <select id="cat"><option value="">All branches</option></select>
+        <span class="meta" id="count"></span>
+      </div>
+      <div style="overflow:auto; max-height: min(70vh, 640px);">
+        <table>
+          <thead>
+            <tr>
+              <th>Process</th>
+              <th>Branch</th>
+              <th>Batch</th>
+              <th>Frontier</th>
+            </tr>
+          </thead>
+          <tbody id="tbody"></tbody>
+        </table>
+      </div>
+      <footer>
+        Static host: <a href="https://storage.googleapis.com/regal-scholar-453620-r7-podcast-storage/chemistry-processes-database/chemistry-database-table.html">GCS</a> ·
+        Space: <a href="https://huggingface.co/spaces/garywelz/programming_framework" target="_blank" rel="noopener">Hugging Face</a> ·
+        <span id="gen"></span>
+      </footer>
+    </div>
+  </div>
+  <script>
+(function () {
+  const META_URL = './metadata.json';
+  const tbody = document.getElementById('tbody');
+  const q = document.getElementById('q');
+  const cat = document.getElementById('cat');
+  const countEl = document.getElementById('count');
+  const gen = document.getElementById('gen');
+
+  function row(p) {
+    const tr = document.createElement('tr');
+    const a = document.createElement('a');
+    a.className = 'row-link';
+    a.href = p.href;
+    a.textContent = p.title;
+    const td1 = document.createElement('td');
+    td1.appendChild(a);
+    const sub = document.createElement('div');
+    sub.className = 'slug';
+    sub.textContent = p.id;
+    td1.appendChild(sub);
+    const td2 = document.createElement('td');
+    td2.textContent = p.category;
+    const td3 = document.createElement('td');
+    td3.textContent = 'Batch ' + String(p.batch).padStart(2, '0');
+    const td4 = document.createElement('td');
+    td4.className = 'frontier';
+    if (p.frontierUrl) {
+      const fa = document.createElement('a');
+      fa.href = p.frontierUrl;
+      fa.target = '_blank';
+      fa.rel = 'noopener noreferrer';
+      fa.textContent = p.frontierLabel || 'Frontier';
+      td4.appendChild(fa);
+    } else {
+      const em = document.createElement('span');
+      em.className = 'na';
+      em.textContent = '—';
+      td4.appendChild(em);
+    }
+    tr.appendChild(td1);
+    tr.appendChild(td2);
+    tr.appendChild(td3);
+    tr.appendChild(td4);
+    return tr;
+  }
+
+  fetch(META_URL)
+    .then((r) => r.json())
+    .then((data) => {
+      gen.textContent = 'Processes: ' + data.totalProcesses + ' · v' + (data.version || '1');
+      const processes = data.processes || [];
+      const cats = [...new Set(processes.map((p) => p.category))].sort();
+      cats.forEach((c) => {
+        const o = document.createElement('option');
+        o.value = c;
+        o.textContent = c;
+        cat.appendChild(o);
+      });
+
+      function render() {
+        const qq = (q.value || '').toLowerCase().trim();
+        const cf = cat.value;
+        const filtered = processes.filter((p) => {
+          if (cf && p.category !== cf) return false;
+          if (!qq) return true;
+          const hay = (p.title + ' ' + p.category + ' ' + p.id + ' ' + (p.categorySlug || '') + ' ' + (p.frontierLabel || '')).toLowerCase();
+          return hay.includes(qq);
+        });
+        tbody.innerHTML = '';
+        filtered.forEach((p) => tbody.appendChild(row(p)));
+        countEl.textContent = filtered.length + ' shown';
+      }
+
+      q.addEventListener('input', render);
+      cat.addEventListener('change', render);
+      render();
+    })
+    .catch((e) => {
+      tbody.innerHTML = '<tr><td colspan="4">Could not load metadata.json (' + e + ')</td></tr>';
+    });
+})();
+  </script>
+</body>
+</html>

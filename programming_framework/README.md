@@ -8,7 +8,7 @@ sdk_version: "latest"
 app_file: "index.html"
 pinned: false
 author: "garywelz"
-short_description: Mermaid flowcharts & graphs across science + links to interactive math/biology databases
+short_description: Mermaid charts + math, biology & chemistry DB links
 ---
 
 ## Programming Framework
@@ -23,6 +23,7 @@ Browse searchable tables and open individual process charts:
 
 - **Mathematics** — [Algorithms & axiomatic theories table](https://storage.googleapis.com/regal-scholar-453620-r7-podcast-storage/mathematics-processes-database/mathematics-database-table.html) · [Named collections (mathematicians & theorems)](https://storage.googleapis.com/regal-scholar-453620-r7-podcast-storage/mathematics-processes-database/collections/index.html) · [Whole of mathematics graph](https://storage.googleapis.com/regal-scholar-453620-r7-podcast-storage/mathematics-processes-database/whole-of-mathematics.html)
 - **Biology** — [Pathways, mechanisms & lab protocols table](https://storage.googleapis.com/regal-scholar-453620-r7-podcast-storage/biology-processes-database/biology-database-table.html) · [Theme collections](https://storage.googleapis.com/regal-scholar-453620-r7-podcast-storage/biology-processes-database/collections/index.html)
+- **Chemistry** — [Processes table](https://storage.googleapis.com/regal-scholar-453620-r7-podcast-storage/chemistry-processes-database/chemistry-database-table.html) (run `build_chemistry_database.py` + `./upload-chemistry-database-to-gcs.sh` from the repo root to publish)
 
 Complex systems across biology, chemistry, and physics exhibit remarkable similarities in their organizational principles despite operating at vastly different scales and domains. Traditional analysis methods often remain siloed within specific disciplines, limiting our ability to identify common patterns and computational logic that govern system behavior. Here, we present the Programming Framework, a systematic methodology that translates complex system dynamics into standardized computational representations using Mermaid Markdown syntax and LLM processing.
 

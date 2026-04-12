@@ -1,11 +1,13 @@
 {
-  "_schema": "Chart ID (filename without .html) -> attribution. Run add_attributions.py to inject into HTML.",
+  "_schema": "Chart ID (filename without .html) -> attribution. Run add_attributions.py to inject Cite + optional Frontier into HTML. Optional keys: frontier_url, frontier_label (camelCase frontierUrl / frontierLabel also accepted).",
   "number_theory-sieve-of-eratosthenes": {
     "primary": "Eratosthenes (c. 240 BCE); NIST DADS",
     "publication": "NIST Dictionary of Algorithms and Data Structures",
     "year": "Ancient",
     "url": "https://www.nist.gov/dads/HTML/sieveOfEratosthenes.html",
-    "url_text": "NIST DADS"
+    "url_text": "NIST DADS",
+    "frontier_url": "https://arxiv.org/list/math.NT/recent",
+    "frontier_label": "arXiv math.NT"
   },
   "number_theory-extended-euclidean": {
     "primary": "Euclid (Algorithm); extended form classical",
@@ -69,14 +71,18 @@
     "year": "1931",
     "doi": "https://doi.org/10.1007/BF01700692",
     "url": "https://en.wikipedia.org/wiki/G%C3%B6del%27s_incompleteness_theorems",
-    "url_text": "Wikipedia"
+    "url_text": "Wikipedia",
+    "frontier_url": "https://arxiv.org/list/math.LO/recent",
+    "frontier_label": "arXiv math.LO"
   },
   "number_theory-peano-arithmetic-godel-incompleteness-2": {
     "primary": "Kurt Gödel",
     "publication": "Second incompleteness theorem",
     "year": "1931",
     "url": "https://en.wikipedia.org/wiki/G%C3%B6del%27s_incompleteness_theorems",
-    "url_text": "Wikipedia"
+    "url_text": "Wikipedia",
+    "frontier_url": "https://arxiv.org/list/math.LO/recent",
+    "frontier_label": "arXiv math.LO"
   },
   "number_theory-peano-arithmetic-paris-harrington": {
     "primary": "Jeff Paris, Leo Harrington",
@@ -318,8 +324,9 @@
   "discrete_mathematics-type-theory-normalization": {"primary": "Church, Curry, Howard", "publication": "Type theory and normalization", "year": "1930s–1969", "url": "https://en.wikipedia.org/wiki/Simply_typed_lambda_calculus", "url_text": "Wikipedia"},
   "discrete_mathematics-type-theory-typing": {"primary": "Per Martin-Löf", "publication": "Dependent type theory", "year": "1971", "url": "https://en.wikipedia.org/wiki/Intuitionistic_type_theory", "url_text": "Wikipedia"},
   "foundations-axiomatic-set-theory-ad": {"primary": "Kurt Gödel", "publication": "Axiom of determinacy", "year": "1962", "url": "https://en.wikipedia.org/wiki/Axiom_of_determinacy", "url_text": "Wikipedia"},
+  "foundations-axiomatic-set-theory-cantor-cardinality": {"primary": "Georg Cantor", "publication": "Cardinality; diagonal argument; Cantor's theorem", "year": "1874–1891", "url": "https://en.wikipedia.org/wiki/Georg_Cantor", "url_text": "Wikipedia", "frontier_url": "https://arxiv.org/list/math.LO/recent", "frontier_label": "arXiv math.LO"},
   "foundations-axiomatic-set-theory-ch-continuum": {"primary": "Cantor, Gödel, Cohen", "publication": "Continuum hypothesis", "year": "1878–1963", "url": "https://en.wikipedia.org/wiki/Continuum_hypothesis", "url_text": "Wikipedia"},
-  "foundations-axiomatic-set-theory-definitions-derived": {"primary": "Zermelo, Fraenkel", "publication": "ZFC axioms", "year": "1908–1922", "url": "https://en.wikipedia.org/wiki/Zermelo%E2%80%93Fraenkel_set_theory", "url_text": "Wikipedia"},
+  "foundations-axiomatic-set-theory-definitions-derived": {"primary": "Zermelo, Fraenkel", "publication": "ZFC axioms", "year": "1908–1922", "url": "https://en.wikipedia.org/wiki/Zermelo%E2%80%93Fraenkel_set_theory", "url_text": "Wikipedia", "frontier_url": "https://arxiv.org/list/math.LO/recent", "frontier_label": "arXiv math.LO"},
   "foundations-axiomatic-set-theory-forcing": {"primary": "Paul Cohen", "publication": "Forcing (set theory)", "year": "1963", "url": "https://en.wikipedia.org/wiki/Forcing_(mathematics)", "url_text": "Wikipedia"},
   "foundations-axiomatic-set-theory-ordinals-choice": {"primary": "Cantor, Zermelo", "publication": "Ordinals and axiom of choice", "year": "1883–1904", "url": "https://en.wikipedia.org/wiki/Axiom_of_choice", "url_text": "Wikipedia"},
   "functional_analysis-banach-spaces": {"primary": "Stefan Banach", "publication": "Banach spaces", "year": "1932", "url": "https://en.wikipedia.org/wiki/Banach_space", "url_text": "Wikipedia"},

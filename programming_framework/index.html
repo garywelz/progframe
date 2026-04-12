@@ -174,6 +174,120 @@
             background: #5a6fd8;
         }
 
+        .discipline-databases {
+            margin-bottom: 40px;
+        }
+
+        .discipline-databases h2 {
+            color: #667eea;
+            font-size: 2rem;
+            margin-bottom: 12px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        .discipline-databases .db-lead {
+            color: #555;
+            font-size: 1.05rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .db-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .db-card {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 22px;
+            text-align: center;
+            border: 2px solid #e9ecef;
+            transition: all 0.3s ease;
+        }
+
+        .db-card:hover {
+            border-color: #667eea;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+
+        .db-card h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 1.25rem;
+        }
+
+        .db-card p {
+            margin-bottom: 14px;
+            color: #555;
+            font-size: 0.98rem;
+            line-height: 1.5;
+        }
+
+        .db-card .db-stats {
+            margin-top: 12px;
+            margin-bottom: 0;
+            font-size: 0.88rem;
+            color: #666;
+        }
+
+        .db-card .db-badge {
+            display: inline-block;
+            margin-bottom: 12px;
+            padding: 4px 12px;
+            border-radius: 999px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            background: #fff3bf;
+            color: #946c00;
+            border: 1px solid #fcc419;
+        }
+
+        .db-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 6px;
+        }
+
+        .db-actions a {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 8px 16px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            transition: background 0.3s ease;
+        }
+
+        .db-actions a:hover {
+            background: #5a6fd8;
+        }
+
+        .db-card.under-development {
+            background: #f1f3f5;
+            border-style: dashed;
+            border-color: #ced4da;
+        }
+
+        .db-card.under-development:hover {
+            border-color: #adb5bd;
+        }
+
+        .db-card.under-development .db-actions a {
+            background: #868e96;
+        }
+
+        .db-card.under-development .db-actions a:hover {
+            background: #6c757d;
+        }
+
         .footer {
             background: rgba(255,255,255,0.1);
             color: white;
@@ -216,6 +330,10 @@
             }
             
             .resource-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .db-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -346,6 +464,62 @@
                 </div>
             </div>
 
+            <div class="discipline-databases">
+                <h2>🗄️ Discipline databases</h2>
+                <p class="db-lead">Live searchable tables on cloud storage where deployed; other disciplines use static batch pages while the database spine is built out.</p>
+                <div class="db-grid">
+                    <div class="db-card">
+                        <h3>🧬 Biology</h3>
+                        <p>Biological process visualizations: <strong>GLMP</strong> covers biochemical and molecular processes; the <strong>Biology Database</strong> covers higher-level organismal pathways, mechanisms, and lab-style protocols.</p>
+                        <div class="db-actions">
+                            <a href="https://storage.googleapis.com/regal-scholar-453620-r7-podcast-storage/biology-processes-database/biology-database-table.html" target="_blank" rel="noopener noreferrer">🗄️ Biology database table</a>
+                            <a href="https://storage.googleapis.com/regal-scholar-453620-r7-podcast-storage/biology-processes-database/collections/index.html" target="_blank" rel="noopener noreferrer">📚 Theme collections</a>
+                            <a href="https://huggingface.co/spaces/garywelz/glmp" target="_blank" rel="noopener noreferrer">🧬 GLMP (HF Space)</a>
+                        </div>
+                        <p class="db-stats">Biology database: 20 processes (3 groups: pathways, mechanisms, assay protocols) · GLMP: 50+ processes (biochemical / molecular)</p>
+                    </div>
+
+                    <div class="db-card">
+                        <h3>⚗️ Chemistry</h3>
+                        <p>Process flowcharts across organic, physical, analytical, and materials chemistry, electrochemistry, spectroscopy, and related branches. The cloud table lists every process with search and branch filters; batch pages on this Space stay the editorial hub.</p>
+                        <div class="db-actions">
+                            <a href="https://storage.googleapis.com/regal-scholar-453620-r7-podcast-storage/chemistry-processes-database/chemistry-database-table.html" target="_blank" rel="noopener noreferrer">🗄️ Chemistry database table</a>
+                            <a href="chemistry_index.html">Browse chemistry batches (Space)</a>
+                        </div>
+                        <p class="db-stats">56 processes across 14 branches (see live table after GCS upload)</p>
+                    </div>
+
+                    <div class="db-card">
+                        <h3>🔢 Mathematics</h3>
+                        <p>Algorithms, proof methods, dependency graphs, and computational processes — main table plus named collections (mathematicians, theorems) and a whole-of-mathematics graph view.</p>
+                        <div class="db-actions">
+                            <a href="https://storage.googleapis.com/regal-scholar-453620-r7-podcast-storage/mathematics-processes-database/mathematics-database-table.html" target="_blank" rel="noopener noreferrer">🗄️ Mathematics database table</a>
+                            <a href="https://storage.googleapis.com/regal-scholar-453620-r7-podcast-storage/mathematics-processes-database/collections/index.html" target="_blank" rel="noopener noreferrer">📚 Named collections</a>
+                            <a href="https://storage.googleapis.com/regal-scholar-453620-r7-podcast-storage/mathematics-processes-database/whole-of-mathematics.html" target="_blank" rel="noopener noreferrer">🌐 Whole of mathematics</a>
+                        </div>
+                        <p class="db-stats">216 processes across 23 subcategories (see live table for the exact index)</p>
+                    </div>
+
+                    <div class="db-card under-development">
+                        <h3>⚛️ Physics</h3>
+                        <span class="db-badge">Under development</span>
+                        <p>Physical processes including quantum mechanics, thermodynamics, and particle physics. Interactive cloud table coming; use static physics batches for now.</p>
+                        <div class="db-actions">
+                            <a href="physics_index.html">Browse physics batches</a>
+                        </div>
+                    </div>
+
+                    <div class="db-card under-development">
+                        <h3>💻 Computer Science</h3>
+                        <span class="db-badge">Under development</span>
+                        <p>Algorithms, software-engineering workflows, and computational processes. Interactive cloud table coming; use static CS batches for now.</p>
+                        <div class="db-actions">
+                            <a href="computer_science_index.html">Browse computer science batches</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="resources">
                 <h2>Key Resources & Documentation</h2>
                 <div class="resource-grid">
@@ -406,11 +580,11 @@
                     <div class="resource-card">
                         <h3>🔬 Validation Flowcharts</h3>
                         <p>Core validation flowcharts supporting experimental protocols</p>
-                        <a href="catalytic_hydrogenation_optimization.html">Catalytic Hydrogenation</a>
-                        <a href="raft_polymerization_mechanism.html">RAFT Polymerization</a>
-                        <a href="surface_catalysis_mechanism.html">Surface Catalysis</a>
-                        <a href="electrochemical_oxygen_reduction.html">Electrochemical ORR</a>
-                        <a href="quantum_chemistry_calculation.html">Quantum Chemistry</a>
+                        <a href="validation_flowcharts/catalytic_hydrogenation_optimization.html">Catalytic Hydrogenation</a>
+                        <a href="validation_flowcharts/raft_polymerization_mechanism.html">RAFT Polymerization</a>
+                        <a href="validation_flowcharts/surface_catalysis_mechanism.html">Surface Catalysis</a>
+                        <a href="validation_flowcharts/electrochemical_oxygen_reduction.html">Electrochemical ORR</a>
+                        <a href="validation_flowcharts/quantum_chemistry_calculation.html">Quantum Chemistry</a>
                     </div>
                     
                     <div class="resource-card">

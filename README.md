@@ -9,6 +9,7 @@
 | **Mathematics database (table + charts)** | [GCS — mathematics-database-table.html](https://storage.googleapis.com/regal-scholar-453620-r7-podcast-storage/mathematics-processes-database/mathematics-database-table.html) |
 | **Biology database (table + charts)** | [GCS — biology-database-table.html](https://storage.googleapis.com/regal-scholar-453620-r7-podcast-storage/biology-processes-database/biology-database-table.html) |
 | **Biology theme collections** | [GCS — collections/index.html](https://storage.googleapis.com/regal-scholar-453620-r7-podcast-storage/biology-processes-database/collections/index.html) |
+| **Chemistry database (table)** | [GCS — chemistry-database-table.html](https://storage.googleapis.com/regal-scholar-453620-r7-podcast-storage/chemistry-processes-database/chemistry-database-table.html) |
 | **Mathematics named collections** | [GCS — collections/index.html](https://storage.googleapis.com/regal-scholar-453620-r7-podcast-storage/mathematics-processes-database/collections/index.html) |
 
 ## Repository layout
@@ -16,12 +17,15 @@
 ```
 progframe/
 ├── programming_framework/   # Static Space: index, discipline hubs, batches, validation charts, data, generator
+│   └── mathematics-processes-database/   # Canonical metadata.json + mathematics-database-table.html (synced to GCS)
 ├── generate_collections.py           # Math named collection pages → copernicus math DB
 ├── add_named_collections.py          # Math metadata namedCollections
 ├── generate_biology_collections.py   # Biology theme collection pages
 ├── add_biology_named_collections.py  # Biology metadata namedCollections + collectionStats
+├── build_chemistry_database.py         # Chemistry metadata + GCS-oriented batch copies
 ├── upload-mathematics-database-to-gcs.sh
 ├── upload-biology-database-to-gcs.sh
+├── upload-chemistry-database-to-gcs.sh
 ├── add_attributions.py
 └── …
 ```
@@ -40,6 +44,8 @@ cd programming_framework && python3 -m http.server 8080
 ## Deploying to Google Cloud Storage
 
 Requires [gsutil](https://cloud.google.com/storage/docs/gsutil) authenticated to the target bucket.
+
+For the **mathematics** database, commit changes under `programming_framework/mathematics-processes-database/` (`metadata.json`, `mathematics-database-table.html`); the upload script copies them into the Copernicus DB directory, then pushes to GCS.
 
 ```bash
 cd /path/to/progframe
