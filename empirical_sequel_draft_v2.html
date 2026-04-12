@@ -776,6 +776,33 @@ graph TD
 
 <p>This does not mean Hypothesis&nbsp;4 is wrong &mdash; it means that <strong>scRNA-seq mRNA snapshots are the wrong instrument</strong> for detecting the hidden attractor states postulated by the theory. The attractor states may be encoded in the chromatin accessibility landscape (measurable by scATAC-seq), in protein levels (not measurable by scRNA-seq), or in the combinatorial state of multiple genes rather than in any single gene&rsquo;s marginal distribution. The fact that grammar-blind models <em>do</em> show a Class&nbsp;III accuracy deficit (Section 8.1) while the bimodality analysis does <em>not</em> detect bimodal distributions is itself consistent with the &ldquo;hidden state&rdquo; interpretation: the attractor states are hidden from simple distributional summaries just as they are hidden from the models.</p>
 
+<h3>8.7 CellOracle Transcription Factors vs. Grammar-Blind Mean (Case Study)</h3>
+
+<p>CellOracle yields per-gene Pearson correlations on the K562 essential screen. Our CellOracle run scored <strong>17</strong> transcription factors; <strong>eight</strong> of these lie in the 780-gene benchmark intersection used for the 14 grammar-blind methods. This is too small for formal class-level hypothesis tests, but it supports a transparent case study of <strong>grammar advantage</strong> defined as CellOracle <em>r</em> minus the mean <em>r</em> across the 14 methods for the same gene (see <code>run_celloracle_grammar_advantage.py</code> and <code>results/celloracle_grammar_advantage.tsv</code>).</p>
+
+<div class="tbl-wrap">
+<table>
+  <thead>
+    <tr><th>Class</th><th><em>N</em> (TFs in benchmark &cap; CellOracle)</th><th>Mean grammar advantage</th><th>Median grammar advantage</th></tr>
+  </thead>
+  <tbody>
+    <tr style="background:#eaf4fb;"><td style="color:#2980b9;">I</td><td>5</td><td>&minus;0.796</td><td>&minus;0.856</td></tr>
+    <tr style="background:#eafaf1;"><td style="color:#27ae60;">II</td><td>2</td><td>&minus;0.880</td><td>&minus;0.880</td></tr>
+    <tr style="background:#fef9e7;"><td style="color:#f39c12;">III</td><td>1 (MYC)</td><td>&minus;0.557</td><td>&minus;0.557</td></tr>
+  </tbody>
+</table>
+</div>
+
+<p>Advantage is <strong>negative throughout</strong> (CellOracle is far below the grammar-blind mean on this metric). For <strong>MYC</strong>, the only Class&nbsp;III overlap, CellOracle <em>r</em>&nbsp;=&nbsp;0.260 vs. 14-method mean <em>r</em>&nbsp;=&nbsp;0.817 (advantage <strong>&minus;0.557</strong>), which is <em>less negative</em> than the Class&nbsp;I or II TF means &mdash; suggestive, but <em>N</em>&nbsp;=&nbsp;1 for Class&nbsp;III and the comparison is TF-only.</p>
+
+<h3>8.8 TRRUST GRN Signal Propagation (Grammar-Aware Baseline)</h3>
+
+<p>We added a deliberately minimal <strong>grammar-aware</strong> baseline: signed linear diffusion on the TRRUST human network (Han et al.&nbsp;2018). A perturbation is seeded as a negative impulse at the knocked-out gene; damped propagation along activation (&plus;1) and repression (&minus;1) edges yields a predicted shift vector, scored against observed shifts using the same <strong>top-20 DE genes</strong> per perturbation as the DE20 rescoring (see <code>run_grn_propagation.py</code>).</p>
+
+<p>On the essential-screen object (310,385 cells &times; 8,563 genes), TRRUST contributed 2,134 nonzero entries in the full gene&times;gene adjacency; <strong>242</strong> perturbations met inclusion criteria (non-control, &ge;5 cells, TRRUST connectivity, nonzero DE variance). Mean Pearson <em>r</em> across scored genes was <strong>0.296</strong> (median 0.290). Class-stratified means on scored genes were Class&nbsp;I <strong>0.308</strong> (<em>N</em>&nbsp;=&nbsp;211), II <strong>0.325</strong> (<em>N</em>&nbsp;=&nbsp;12), III <strong>0.128</strong> (<em>N</em>&nbsp;=&nbsp;14), IV <strong>0.178</strong> (<em>N</em>&nbsp;=&nbsp;2), V <strong>0.196</strong> (<em>N</em>&nbsp;=&nbsp;3). On the <strong>780-gene benchmark subset</strong> intersecting scored genes, Class&nbsp;I mean <em>r</em>&nbsp;=&nbsp;<strong>0.294</strong> (<em>N</em>&nbsp;=&nbsp;81), Class&nbsp;III mean <em>r</em>&nbsp;=&nbsp;<strong>0.133</strong> (<em>N</em>&nbsp;=&nbsp;12).</p>
+
+<p>When <strong>GRN_Propagation</strong> is appended to the Section&nbsp;8.1 meta-analysis alongside the 14 benchmark methods, STATE_HVG, and STATE_DE20 (<code>merge_hypothesis2_meta.py</code>), the Class&nbsp;I vs.&nbsp;Class&nbsp;III contrast is <strong>C3&minus;C1&nbsp;=&nbsp;&minus;0.161</strong> &mdash; a <em>larger</em> Class&nbsp;III deficit than for typical grammar-blind methods (e.g. GEARS C3&minus;C1&nbsp;=&nbsp;&minus;0.047). Across <strong>17</strong> methods, <strong>13</strong> show C3&nbsp;&lt;&nbsp;C1 (sign test <em>p</em>&nbsp;=&nbsp;0.0245; one-sample <em>t</em>&nbsp;=&nbsp;&minus;3.44, <em>p</em>&nbsp;=&nbsp;0.0017). Thus a topology-only TRRUST baseline does <strong>not</strong> rescue Class&nbsp;III under this metric; if anything, it underperforms the blind ensemble on the class gap. Per-gene scores: <code>results/grn_propagation_scores.tsv</code>.</p>
+
 <h2>9. Hypothesis Verdicts</h2>
 
 <div class="tbl-wrap">
@@ -791,8 +818,8 @@ graph TD
     </tr>
     <tr>
       <td>H2: Grammar-Aware Advantage</td>
-      <td><span class="verdict verdict-untested">Not Fully Tested</span></td>
-      <td>CellOracle&rsquo;s restriction to TF perturbations prevented the planned comparison. GRN topology analysis provides indirect evidence only.</td>
+      <td><span class="verdict verdict-partial">Tested; Not Supported</span></td>
+      <td>CellOracle case study (Section&nbsp;8.7): grammar advantage negative on eight benchmark TFs. TRRUST propagation baseline (Section&nbsp;8.8): Class&nbsp;III mean <em>r</em> below Class&nbsp;I; meta-analysis C3&minus;C1&nbsp;=&nbsp;&minus;0.16 vs. &asymp;&minus;0.05 for typical blind methods. Topology and literature GRN alone do not outperform grammar-blind scores here.</td>
     </tr>
     <tr>
       <td>H3: Class I Ceiling</td>
@@ -867,7 +894,9 @@ graph TD
 
 <h3>10.4 What Class III Difficulty Implies for Grammar-Aware Models</h3>
 
-<p>If Class&nbsp;III genes are harder for grammar-blind models <em>because</em> these models cannot represent bistable topology, then grammar-aware models should show a smaller (or absent) Class&nbsp;III penalty. The planned CellOracle comparison was designed to test this, but CellOracle&rsquo;s restriction to TF perturbations prevented a complete test. The GRN topology analysis offers a hint: CellOracle&rsquo;s inferred network does identify feedback-rich genes, and the Class&nbsp;III difficulty signal persists when viewed through CellOracle&rsquo;s topology features. A full test awaits a grammar-aware model that can simulate perturbations for all gene types, not just transcription factors.</p>
+<p>If Class&nbsp;III genes are harder for grammar-blind models <em>because</em> these models cannot represent bistable topology, then grammar-aware models should show a smaller (or absent) Class&nbsp;III penalty. Sections&nbsp;8.7&ndash;8.8 add two direct probes. Neither supports the strong form of Hypothesis&nbsp;2: CellOracle remains far below the grammar-blind mean on the overlapping TF set, and the TRRUST diffusion baseline shows a <em>steeper</em> Class&nbsp;I&ndash;III gap than most blind methods, not a shallower one. Interpreting this requires care: TRRUST is incomplete, undirected effects and context are omitted, and the baseline does not learn from expression. The fair conclusion is narrower: <strong>knowing a literature GRN and running a simple signed propagation is not sufficient</strong> to beat grammar-blind predictors on DE20, and Class&nbsp;III remains hard (or harder) for that baseline. Richer grammar-aware models (trained simulators, multi-omic state) remain untested at genome scale.</p>
+
+<p><strong>Published tooling gap.</strong> Few perturbation predictors take a curated directed GRN with signed edges as a first-class input for arbitrary gene knockdowns; CellOracle is GRN-based but TF-limited; GEARS uses a functional graph rather than regulatory edges. That gap delayed a clean Hypothesis&nbsp;2 test; the propagation baseline is an attempt to close it with a transparent, reproducible reference implementation.</p>
 
 <h3>10.5 Nucleation, Attractive Conditionals, and the Hidden State Problem</h3>
 
@@ -918,7 +947,7 @@ graph TD
 
 <p>The full five-class monotonic gradient predicted by Hypothesis&nbsp;1 does not appear: Classes&nbsp;II (negative feedback) and V (self-modifying) do not show the expected intermediate difficulty, though sample sizes for these classes are small. A robustness test that expanded Class&nbsp;III to include transient cell-cycle bistable genes (N&nbsp;=&nbsp;14&nbsp;&rarr;&nbsp;22) abolished the signal, revealing that the difficulty effect is specific to <em>persistent</em> bistable circuits &mdash; those that lock cells into stable attractor states (cell fate commitments, proliferative lock-in) &mdash; rather than transient bistable switches that every cell cycles through. This refines the original conjecture: the theoretically predicted difficulty arises not from positive feedback per se, but from the hidden attractor states that persistent bistable circuits create and that grammar-blind models, observing a transcriptomic snapshot, cannot distinguish.</p>
 
-<p>The grammar-aware comparison (Hypothesis&nbsp;2) could not be fully tested due to CellOracle&rsquo;s restriction to transcription factor perturbations. This remains the most important open question.</p>
+<p>Hypothesis&nbsp;2 was addressed with a TF-only CellOracle case study and a TRRUST propagation baseline (Sections&nbsp;8.7&ndash;8.8). Neither shows the hypothesized grammar advantage; richer grammar-aware architectures at full-genome scale remain the most important open direction.</p>
 
 <p>We recommend that future virtual cell model benchmarks report class-stratified accuracy alongside aggregate scores. The gene circuit classification table (<strong>gene_circuit_classes.tsv</strong>) released with this paper enables immediate adoption of this practice.</p>
 
@@ -937,10 +966,10 @@ graph TD
 <ul class="plist">
   <li><strong>Repository:</strong> <a href="https://github.com/garywelz/progframe">github.com/garywelz/progframe</a></li>
   <li><strong>Gene circuit classifications:</strong> <code>gene_circuit_classes.tsv</code> &mdash; GLMP complexity class (I&ndash;V) for each of the 780 benchmark genes, with classification rationale and literature references</li>
-  <li><strong>Per-gene accuracy scores:</strong> <code>results/merged_scores.tsv</code> (14 benchmark methods), <code>results/state_k562_per_gene_scores.tsv</code> (STATE HVG), <code>results/state_k562_de20_scores.tsv</code> (STATE DE20)</li>
+  <li><strong>Per-gene accuracy scores:</strong> <code>results/merged_scores.tsv</code> (14 benchmark methods), <code>results/state_k562_per_gene_scores.tsv</code> (STATE HVG), <code>results/state_k562_de20_scores.tsv</code> (STATE DE20), <code>results/grn_propagation_scores.tsv</code> (TRRUST signed propagation, DE20 metric), <code>results/celloracle_grammar_advantage.tsv</code> (CellOracle vs 14-method mean)</li>
   <li><strong>GRN topology features:</strong> <code>results/grn_topology_features.tsv</code>, <code>results/grn_topology_vs_accuracy.tsv</code></li>
   <li><strong>Bimodality analysis:</strong> <code>results/bimodality_analysis.tsv</code>, <code>results/bimodality_report.txt</code></li>
-  <li><strong>Analysis scripts:</strong> <code>merge_state_results.py</code>, <code>merge_state_de20_results.py</code>, <code>run_bimodality_analysis.py</code>, <code>compute_de_genes.py</code></li>
+  <li><strong>Analysis scripts:</strong> <code>merge_state_results.py</code>, <code>merge_state_de20_results.py</code>, <code>merge_hypothesis2_meta.py</code>, <code>run_grn_propagation.py</code>, <code>run_celloracle_grammar_advantage.py</code>, <code>run_bimodality_analysis.py</code>, <code>compute_de_genes.py</code></li>
   <li><strong>STATE Colab notebook:</strong> <code>STATE_K562_Benchmark_v4.ipynb</code> (inference), <code>STATE_Rescore_DE20.ipynb</code> (DE20 re-scoring)</li>
 </ul>
 
@@ -957,6 +986,7 @@ graph TD
   <li>Run STATE inference using <code>STATE_K562_Benchmark_v4.ipynb</code> on Google Colab (requires GPU runtime, ~2 hours on T4).</li>
   <li>Re-score STATE on DE20 genes using <code>STATE_Rescore_DE20.ipynb</code> on Google Colab (~15 minutes).</li>
   <li>Run the meta-analysis: <code>python3 merge_state_results.py</code> and <code>python3 merge_state_de20_results.py</code></li>
+  <li>Hypothesis&nbsp;2 baselines: <code>python3 run_grn_propagation.py</code> then <code>python3 merge_hypothesis2_meta.py</code>; CellOracle comparison: <code>python3 run_celloracle_grammar_advantage.py</code> (requires <code>results/celloracle_k562_per_gene_scores.tsv</code>)</li>
   <li>Run the bimodality analysis: <code>python3 run_bimodality_analysis.py</code></li>
 </ol>
 <p>All analyses were performed using Python 3.12 with NumPy, SciPy, pandas, scanpy, and anndata. The STATE model (<code>arcinstitute/ST-HVG-Parse</code>) was accessed from HuggingFace Hub. A standard Google Colab Pro environment with T4 GPU and High-RAM runtime is sufficient for all computations.</p>
