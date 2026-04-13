@@ -348,38 +348,22 @@
 </head>
 <body>
 
-<nav class="paper-nav" aria-label="Primary diagram corpora">
-  <a id="nav-db" href="#">Mathematics Processes Database</a>
+<nav class="paper-nav" aria-label="GLMP working papers and resources">
+  <a href="https://storage.googleapis.com/regal-scholar-453620-r7-podcast-storage/mathematics-processes-database/GLMP_Foundational_Typology.html" aria-current="page">Paper I: Foundational Typology</a>
   <span class="nav-sep" aria-hidden="true">&middot;</span>
-  <a id="nav-glmp" href="#">GLMP Database Table (regulatory algorithms)</a>
+  <a href="https://storage.googleapis.com/regal-scholar-453620-r7-podcast-storage/mathematics-processes-database/genome_as_computer_v2.html">Paper II: The Genome as Computer</a>
+  <span class="nav-sep" aria-hidden="true">&middot;</span>
+  <a href="https://storage.googleapis.com/regal-scholar-453620-r7-podcast-storage/mathematics-processes-database/empirical_sequel_draft.html">Paper III: Empirical Sequel</a>
+  <span class="nav-sep" aria-hidden="true">&middot;</span>
+  <a href="https://storage.googleapis.com/regal-scholar-453620-r7-podcast-storage/glmp-database-table.html">GLMP Database</a>
   <span class="nav-aux">
-    <a id="nav-zfc" href="#">ZFC index</a>
-    <a id="nav-euclid" href="#">Euclid index</a>
-    <a id="nav-peano" href="#">Peano arithmetic</a>
-    <span class="nav-sep" aria-hidden="true">&middot;</span>
-    <a id="nav-sequel" href="#">Paper II: The Genome as Computer</a>
-    <span class="nav-sep" aria-hidden="true">&middot;</span>
-    <a id="nav-empirical" href="#">Paper III: Empirical Test</a>
+    <a href="https://storage.googleapis.com/regal-scholar-453620-r7-podcast-storage/mathematics-processes-database/mathematics-database-table.html?v=2">Mathematics Database</a>
+    <a href="https://gdubs-copernicus-web.hf.space/" target="_blank" rel="noopener">Programming Framework (HuggingFace)</a>
+    <a href="https://storage.googleapis.com/regal-scholar-453620-r7-podcast-storage/mathematics-processes-database/processes/foundations/foundations-axiomatic-set-theory.html">ZFC index</a>
+    <a href="https://storage.googleapis.com/regal-scholar-453620-r7-podcast-storage/mathematics-processes-database/processes/geometry_topology/geometry_topology-euclid-elements.html">Euclid index</a>
+    <a href="https://storage.googleapis.com/regal-scholar-453620-r7-podcast-storage/mathematics-processes-database/processes/number_theory/number_theory-peano-arithmetic.html">Peano arithmetic</a>
   </span>
 </nav>
-<script>
-(function () {
-  var gcs = 'https://storage.googleapis.com/regal-scholar-453620-r7-podcast-storage/mathematics-processes-database';
-  var mathTableUrl = gcs + '/mathematics-database-table.html?v=2';
-  var glmpTableUrl = 'https://storage.googleapis.com/regal-scholar-453620-r7-podcast-storage/glmp-database-table.html';
-  var onGcs = location.hostname.indexOf('storage.googleapis.com') >= 0;
-  function p(path) {
-    return onGcs ? path : gcs + '/' + path.replace(/^\//, '');
-  }
-  document.getElementById('nav-db').href = mathTableUrl;
-  document.getElementById('nav-glmp').href = glmpTableUrl;
-  document.getElementById('nav-zfc').href = p('processes/foundations/foundations-axiomatic-set-theory.html');
-  document.getElementById('nav-euclid').href = p('processes/geometry_topology/geometry_topology-euclid-elements.html');
-  document.getElementById('nav-peano').href = p('processes/number_theory/number_theory-peano-arithmetic.html');
-  document.getElementById('nav-sequel').href = gcs + '/genome_as_computer_v2.html';
-  document.getElementById('nav-empirical').href = gcs + '/empirical_sequel_draft.html';
-})();
-</script>
 
 <!-- HEADER -->
 <header class="paper-header">

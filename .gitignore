@@ -76,7 +76,7 @@ STATE_rescore_DE_genes.py
 colab_grammar_aware.py
 glmp_analysis_report.json
 glmp_hybridization_pipeline.py
-genome_as_computer_v2*.html
+genome_as_computer_v2 (1).html
 
 # Large result artifacts (derived, can be regenerated)
 results/celloracle_grn_coefficients.pkl
