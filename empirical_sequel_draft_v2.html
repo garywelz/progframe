@@ -331,6 +331,21 @@ graph TD
   </div>
 </div>
 
+<p><strong>Class IV — Delayed negative feedback (circadian CLOCK&ndash;BMAL1 / PER&ndash;CRY).</strong> Class&nbsp;IV denotes <strong>mixed feedback with delay</strong>: typically a negative loop spanning three or more nodes so that transcription&ndash;translation delays convert a simple negative feedback into <strong>sustained oscillation</strong> rather than a static toggle. The CLOCK&ndash;BMAL1 heterodimer activates <em>Per</em> and <em>Cry</em> genes; the accumulating PER&ndash;CRY complex feeds back to repress CLOCK/BMAL1-driven transcription after a lag, closing the loop. The relevant hidden variable is often <strong>phase</strong> (where the cell sits in the cycle), not only which attractor basin is occupied. <em>Only two benchmark genes fall in Class&nbsp;IV in our table (PER1, CRY2); interpret aggregate Class&nbsp;IV statistics with caution.</em></p>
+<div class="diagram-wrap">
+  <div class="mermaid">
+graph TD
+  Input["Light / SCN<br/>entraining input"]:::signal --> CBC["CLOCK / BMAL1<br/>heterodimer"]:::gene
+  CBC -- "activates<br/>transcription" --> PC["PER / CRY<br/>mRNA to protein"]:::gene
+  PC -. "delayed<br/>repression" .-> CBC
+  PC --> Out["Circadian output<br/>genes"]:::outcome
+  classDef signal fill:#2E75B6,stroke:#1a5276,color:#fff
+  classDef gene fill:#1abc9c,stroke:#16a085,color:#fff
+  classDef outcome fill:#f39c12,stroke:#e67e22,color:#fff
+  linkStyle 2 stroke:#e74c3c,stroke-width:2px
+  </div>
+</div>
+
 <p><strong>Class V — Self-modifying chromatin (BRD4).</strong> BRD4 reads acetylated histones and recruits the transcriptional machinery, which includes histone acetyltransferases that create more acetylation marks &mdash; modifying the regulatory architecture itself. The circuit rewrites its own program. <em>Benchmark accuracy: mean r&nbsp;=&nbsp;0.876.</em></p>
 <div class="diagram-wrap">
   <div class="mermaid">
@@ -964,13 +979,14 @@ graph TD
 <p>All data and code necessary to reproduce the analyses in this paper are available in the public GitHub repository:</p>
 
 <ul class="plist">
-  <li><strong>Repository:</strong> <a href="https://github.com/garywelz/progframe">github.com/garywelz/progframe</a></li>
-  <li><strong>Gene circuit classifications:</strong> <code>gene_circuit_classes.tsv</code> &mdash; GLMP complexity class (I&ndash;V) for each of the 780 benchmark genes, with classification rationale and literature references</li>
+  <li><strong>Repository:</strong> <a href="https://github.com/garywelz/glmp">github.com/garywelz/glmp</a> (GLMP: K562 empirical sequel bundle under <code>k562-empirical-sequel/</code>; tabulated scores and figures in <code>results/</code>; <code>gene_circuit_classes.tsv</code> at repository root for script compatibility)</li>
+  <li><strong>Gene circuit classifications:</strong> <code>gene_circuit_classes.tsv</code> (repository root) &mdash; GLMP complexity class (I&ndash;V) for each of the 780 benchmark genes, with classification rationale and literature references</li>
+  <li><strong>Working paper (HTML):</strong> <code>k562-empirical-sequel/empirical_sequel_draft_v2.html</code></li>
   <li><strong>Per-gene accuracy scores:</strong> <code>results/merged_scores.tsv</code> (14 benchmark methods), <code>results/state_k562_per_gene_scores.tsv</code> (STATE HVG), <code>results/state_k562_de20_scores.tsv</code> (STATE DE20), <code>results/grn_propagation_scores.tsv</code> (TRRUST signed propagation, DE20 metric), <code>results/celloracle_grammar_advantage.tsv</code> (CellOracle vs 14-method mean)</li>
   <li><strong>GRN topology features:</strong> <code>results/grn_topology_features.tsv</code>, <code>results/grn_topology_vs_accuracy.tsv</code></li>
   <li><strong>Bimodality analysis:</strong> <code>results/bimodality_analysis.tsv</code>, <code>results/bimodality_report.txt</code></li>
-  <li><strong>Analysis scripts:</strong> <code>merge_state_results.py</code>, <code>merge_state_de20_results.py</code>, <code>merge_hypothesis2_meta.py</code>, <code>run_grn_propagation.py</code>, <code>run_celloracle_grammar_advantage.py</code>, <code>run_bimodality_analysis.py</code>, <code>compute_de_genes.py</code></li>
-  <li><strong>STATE Colab notebook:</strong> <code>STATE_K562_Benchmark_v4.ipynb</code> (inference), <code>STATE_Rescore_DE20.ipynb</code> (DE20 re-scoring)</li>
+  <li><strong>Analysis scripts:</strong> <code>k562-empirical-sequel/scripts/</code> &mdash; <code>merge_state_results.py</code>, <code>merge_state_de20_results.py</code>, <code>merge_hypothesis2_meta.py</code>, <code>run_grn_propagation.py</code>, <code>run_celloracle_grammar_advantage.py</code>, <code>run_bimodality_analysis.py</code>, <code>compute_de_genes.py</code> (run from repository root; requires Figshare <code>.h5ad</code> and <code>regulatory_data/trrust_rawdata.human.tsv</code> for propagation)</li>
+  <li><strong>STATE Colab notebooks:</strong> <code>k562-empirical-sequel/STATE_K562_Benchmark_v4.ipynb</code> (inference), <code>k562-empirical-sequel/STATE_Rescore_DE20.ipynb</code> (DE20 re-scoring)</li>
 </ul>
 
 <p>The K562 Perturb-seq benchmark data (Replogle et al. 2022) is available at <a href="https://plus.figshare.com/articles/dataset/Mapping_information-rich_genotype-phenotype_landscapes_with_genome-scale_Perturb-seq/20029387">Figshare</a>. The GLMP flowchart database and companion theoretical papers are hosted at the <a href="https://huggingface.co/spaces/garywelz/glmp">GLMP HuggingFace Space</a> and <a href="https://storage.googleapis.com/regal-scholar-453620-r7-podcast-storage/glmp-database-table.html">GLMP database</a>.</p>
@@ -982,7 +998,7 @@ graph TD
 <p>This study can be reproduced with the following steps:</p>
 <ol>
   <li>Download the K562 benchmark dataset (<code>ReplogleWeissman2022_K562_essential.h5ad</code>) from Figshare.</li>
-  <li>Clone the repository: <code>git clone https://github.com/garywelz/progframe</code></li>
+  <li>Clone the repository: <code>git clone https://github.com/garywelz/glmp</code></li>
   <li>Run STATE inference using <code>STATE_K562_Benchmark_v4.ipynb</code> on Google Colab (requires GPU runtime, ~2 hours on T4).</li>
   <li>Re-score STATE on DE20 genes using <code>STATE_Rescore_DE20.ipynb</code> on Google Colab (~15 minutes).</li>
   <li>Run the meta-analysis: <code>python3 merge_state_results.py</code> and <code>python3 merge_state_de20_results.py</code></li>
