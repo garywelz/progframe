@@ -402,6 +402,101 @@ Lean proof terms (or tactic traces) to role-labeled graphs so the same
 theorem can be viewed in both registers. That pipeline does not exist in the
 current Mathematics Database corpus, which remains informal and LLM-derived.
 
+### 3.5 Loops, merges, and different topologies for the “same” theorem
+
+Proof graphs are not only role-labeled DAGs: **loops**, **joins** (multiple
+predecessors), and **depth–width tradeoffs** make some arguments easy to tell
+apart by eye. Two motifs illustrate what the corpus metadata (node counts,
+branching, loop counts) is trying to capture.
+
+**Induction as a loop (schematic).** In prose, induction “reapplies the same
+step” at ever-larger indices. An informal diagram can show that by an edge
+that returns from the inductive step to itself (or to the hypothesis node):
+the Lean user sees a **subgoal tree** (`base`, `induct` case split), not a
+literal cycle—the cycle is a **pedagogical overlay** on the recursive nature
+of the argument.
+
+```mermaid
+flowchart TD
+  S["Source: theorem P n for all natural n"]
+  B["Base case: prove P 0"]
+  IH["Assumption: inductive hypothesis P n"]
+  ST["Inference: prove P of n plus 1 from IH"]
+  S --> B
+  B --> IH
+  IH --> ST
+  ST --> ST
+  ST --> C["Conclusion: by induction P holds for all n"]
+  B --> C
+  style S fill:#ff6b6b,color:#fff
+  style B fill:#51cf66,color:#fff
+  style IH fill:#ffa94d,color:#000
+  style ST fill:#74c0fc,color:#fff
+  style C fill:#b197fc,color:#fff
+```
+
+**Same theorem, different topology: Pythagorean theorem.** Section 5.3
+remarks that geometric and algebraic proof *families* allocate complexity
+differently. Stylized graphs make the contrast **topological**: a classic
+**similar-triangle** proof **fans in**—two constructions feed one
+diagrammatic “chase” (a **join** before the conclusion)—whereas a
+coordinated-algebra or vector proof is often a **long narrow chain** of
+rewrites (few constructions, many inference nodes in sequence). Neither
+diagram is unique; they exemplify shapes the database can compare.
+
+*Geometric style (merge into one algorithm capsule):*
+
+```mermaid
+flowchart TD
+  T["Source: Pythagorean theorem a squared plus b squared equals c squared"]
+  C1["Construction: altitude to hypotenuse"]
+  C2["Construction: mark similar triangles"]
+  AC["Algorithm capsule: length or area chase"]
+  AS["Assertion: proportional segments"]
+  I["Inference: combine ratios to relate a b c"]
+  CO["Conclusion: as required"]
+  T --> C1 --> AC
+  T --> C2 --> AC
+  AC --> AS --> I --> CO
+  style T fill:#ff6b6b,color:#fff
+  style C1 fill:#ffd43b,color:#000
+  style C2 fill:#ffd43b,color:#000
+  style AC fill:#20c997,color:#fff
+  style AS fill:#51cf66,color:#fff
+  style I fill:#74c0fc,color:#fff
+  style CO fill:#b197fc,color:#fff
+```
+
+*Algebraic / rewrite-chain style (narrow path):*
+
+```mermaid
+flowchart TD
+  T2["Source: same theorem for legs a b and hypotenuse c"]
+  A0["Assumption: nonnegative lengths"]
+  R1["Inference: encode triangle constraint algebraically"]
+  R2["Inference: expand and simplify"]
+  R3["Inference: isolate c squared"]
+  CO2["Conclusion: a squared plus b squared equals c squared"]
+  T2 --> A0 --> R1 --> R2 --> R3 --> CO2
+  style T2 fill:#ff6b6b,color:#fff
+  style A0 fill:#ffa94d,color:#000
+  style R1 fill:#74c0fc,color:#fff
+  style R2 fill:#74c0fc,color:#fff
+  style R3 fill:#74c0fc,color:#fff
+  style CO2 fill:#b197fc,color:#fff
+```
+
+| Sketch | Visual signature | Typical role mix |
+|--------|------------------|------------------|
+| Induction (above) | **Self-loop** on the step node | One temporary assumption, repeated inferential pattern |
+| Geometric Pythagoras | **Width then merge** (join into capsule) | Several **Construction** / **Algorithm capsule** nodes |
+| Algebraic Pythagoras | **Path** (serial inferences) | Predominantly **Inference**, shallow branching |
+
+Together with the **contradiction hub** topology common in Section 5.2, these
+patterns give a vocabulary for “what the graph *looks like*” beyond raw node
+counts—complementary to the Lean-oriented **linear tactic/trace** view in
+Section 3.4.
+
 ---
 
 ## 4. The Mathematics Database
@@ -531,6 +626,8 @@ unique to the graph-theoretic approach: direct structural comparison of
 multiple proofs of the same theorem. The database entry captures several
 distinct proof families (geometric, algebraic, trigonometric) in a single
 hybrid graph, with node colors encoding proof family membership.
+Section 3.5 gives stylized **merge vs. narrow-chain** sketches for two
+Pythagorean proof shapes that match this qualitative contrast.
 
 Structural differences that are difficult to articulate in prose become
 visually and metrically apparent: geometric proofs have more construction
