@@ -11,6 +11,7 @@
 | **Biology theme collections** | [GCS — collections/index.html](https://storage.googleapis.com/regal-scholar-453620-r7-podcast-storage/biology-processes-database/collections/index.html) |
 | **Chemistry database (table)** | [GCS — chemistry-database-table.html](https://storage.googleapis.com/regal-scholar-453620-r7-podcast-storage/chemistry-processes-database/chemistry-database-table.html) |
 | **Mathematics named collections** | [GCS — collections/index.html](https://storage.googleapis.com/regal-scholar-453620-r7-podcast-storage/mathematics-processes-database/collections/index.html) |
+| **K562 / GLMP empirical analyses** (notebooks, CellOracle, benchmark data) | [glmp — k562-empirical-sequel/](https://github.com/garywelz/glmp/tree/main/k562-empirical-sequel) |
 
 ## Repository layout
 
@@ -29,6 +30,8 @@ progframe/
 ├── add_attributions.py
 └── …
 ```
+
+Scripts and data for the **K562 perturbation benchmark**, **CellOracle**, and **empirical sequel** paper track live in the [**glmp**](https://github.com/garywelz/glmp) repo under `k562-empirical-sequel/` (see also `from-progframe-migration-2026-05-06/` there for migration notes).
 
 Generator scripts that write into **`copernicus-web-public/huggingface-space/...`** use absolute paths on the author’s machine; adjust `DB_ROOT` / `METADATA` in those scripts if your clone differs.
 
