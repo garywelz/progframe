@@ -1,0 +1,19 @@
+---
+description: Mermaid diagrams in paper markdown must use fenced mermaid code blocks for GitHub
+globs: papers/programming-framework-paper/**/*
+alwaysApply: false
+---
+
+# Mermaid on GitHub (Programming Framework paper)
+
+- In markdown meant for GitHub preview (especially `current-draft.md`), every Mermaid diagram must be in a **fenced** code block with language tag **`mermaid`** — not a bare `flowchart` / `graph` body.
+- Raw diagram text after labels like `Mermaid Markdown Code:` must be wrapped as:
+
+  ````markdown
+  ```mermaid
+  flowchart TD
+  ...
+  ```
+  ````
+
+- When regenerating the draft from PDF, keep `ensure_github_mermaid_fences()` in `build_current_draft_from_pdf.py` in sync with any new diagram patterns (single vs double newlines before prose, `graph TD` vs `flowchart TD`, etc.). After changing the build script, run it and confirm there are no diagram bodies starting at column 0 **outside** a ` ```mermaid ` fence.

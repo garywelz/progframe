@@ -146,7 +146,7 @@ Email: gwelz@gc.cuny.edu"""
 
 FEASIBILITY_P = """We demonstrate the feasibility and cross-domain transferability of the Programming Framework through application across five scientific disciplines. The framework is proposed as infrastructure for further development, not as a validated system with formal accuracy metrics — those remain important directions for future work."""
 
-MATH_43 = """## 4.3 Mathematical Processes
+MATH_43 = """### 4.3 Mathematical Processes
 
 The framework has been applied to mathematics across three structural categories: algorithmic flowcharts (e.g., Sieve of Eratosthenes, Merge Sort, Dijkstra's Algorithm, Euclidean Algorithm), axiomatic dependency graphs (e.g., Euclid's Elements, Peano Arithmetic, ZFC Set Theory, Group Theory, Category Theory), and proof graphs — hybrid dependency graphs with node colors encoding proof roles including source, assumption, construction, assertion, inference, algorithm capsule, contradiction, and conclusion (e.g., Euclid Book I pilot proofs, Infinitely Many Primes, Pythagorean Theorem proof comparison, Cantor Diagonal proofs).
 
@@ -188,6 +188,38 @@ This work is part of the CopernicusAI Knowledge Engine project, which aims to cr
 """
 
 
+def ensure_github_mermaid_fences(md: str) -> str:
+    """GitHub markdown preview only renders Mermaid inside fenced ```mermaid blocks.
+
+    PDF extraction emits 'Mermaid Markdown Code:' (and similar) followed by a raw
+    flowchart body. Wrap those bodies automatically so the generated current-draft.md
+    preview works on github.com without manual editing.
+    """
+    # Diagram is followed by either (a) one or more newlines then a heading/figure line, or
+    # (b) a blank paragraph then prose (PDF uses inconsistent newline counts around ### headings).
+    end = r"(?=\n+(?:### |## |\*\*Figure )|\n\n(?:The |This |Availability:|Note on |Discipline-specific |Keywords:|\[\^[a-z]))"
+
+    # Paper figures / appendix-style "Mermaid Markdown Code:" sections
+    md = re.sub(
+        rf"(Mermaid Markdown Code:\n+)(?!\s*```)(flowchart TD[\s\S]*?){end}",
+        r"\1```mermaid\n\2\n```\n",
+        md,
+    )
+    # Accessibility example in §3.2 (PDF line breaks may use one newline, not a blank line)
+    md = re.sub(
+        r"(Example Mermaid code using shape-based encoding:\n+)(?!\s*```)(flowchart TD[\s\S]*?)(?=\n+This shape-based)",
+        r"\1```mermaid\n\2\n```\n",
+        md,
+    )
+    # If PDF used graph TD instead of flowchart TD (future-proof)
+    md = re.sub(
+        rf"(Mermaid Markdown Code:\n+)(?!\s*```)(graph TD[\s\S]*?){end}",
+        r"\1```mermaid\n\2\n```\n",
+        md,
+    )
+    return md
+
+
 def apply_revisions(md: str) -> str:
     md = md.replace(
         "Empirical: - Demonstrated application across biology (GLMP with 100+ processes), mathematics, physics,\n"
@@ -222,9 +254,9 @@ def apply_revisions(md: str) -> str:
             + "\n\n- A living demonstration of the Framework’s applicability in a complex scientific domain",
         )
 
-    # Replace old 4.3 section through before ## 4.4
+    # Replace PDF §4.3 with expanded revision text (preserve following §4.4)
     md = re.sub(
-        r"## 4\.3 Mathematical Processes.*?(?=## 4\.4)",
+        r"### 4\.3 Mathematical Processes.*?(?=### 4\.4|## 4\.4)",
         MATH_43 + "\n",
         md,
         count=1,
@@ -342,6 +374,7 @@ def main() -> None:
     md = lines_to_markdown(rest)
     md = fix_figure_double_labels(md)
     md = apply_revisions(md)
+    md = ensure_github_mermaid_fences(md)
     header = (
         "# The Programming Framework: A General Method for Process Analysis Using LLMs and Mermaid Visualization\n\n"
         "> **Source:** Converted May 2026 from `programming_framework.pdf`. "
