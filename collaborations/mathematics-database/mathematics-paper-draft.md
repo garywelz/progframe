@@ -144,6 +144,9 @@ These systems are powerful but require significant expertise and are oriented
 toward formal verification rather than structural analysis or educational
 accessibility. They do not provide the kind of lightweight, rapidly generated,
 visually inspectable representations that the present work proposes.
+Section 3.4 illustrates—on one classical theorem—how a **Lean-style** proof
+flow differs in shape and semantics from an **informal proof graph** in the
+sense used here.
 
 Mathematical ontologies — including the Mathematics Subject Classification
 (MSC) and OpenMath [CITE] — provide controlled vocabularies for mathematical
@@ -320,6 +323,85 @@ diagonal argument in multiple variants; algorithm capsule (the diagonal
 construction) is the structural core of all variants; graph reveals the
 family resemblance across proof variants.
 
+### 3.4 Informal proof graphs versus Lean-style proof structure
+
+Proof assistants such as **Lean 4** encode proofs as terms in dependent type
+theory; the interactive experience is a sequence of **goals** refined by
+**tactics** (`intro`, `have`, `rw`, `exact`, `contradiction`, …). Mathlib and
+related libraries supply lemmas as certified building blocks. None of that
+is what the **proof graphs** in this paper are trying to duplicate: our graphs
+are **PEDAGOGICAL and STRUCTURAL**—eight semantic roles applied to natural-language
+arguments—**not** machine-checked certificates.
+
+Still, it is useful to place the two representations side by side on **the
+same mathematical idea** (Euclid’s argument that no finite list of primes is
+exhaustive). The informal graph (Section 3.3 and Appendix) emphasizes *roles*
+(source, assumption, algorithm capsule, contradiction, …). A **schematic**
+“Lean-shaped” graph emphasizes *proof obligations* and *lemma dependencies* as
+one might sketch after reading a formal proof—the labels below are
+illustrative, not a literal port of a specific Mathlib proof term.
+
+**Informal proof graph (role-oriented).** Same content as the Appendix sample:
+the flow is read as a story of justification, with an explicit **algorithm
+capsule** for the arithmetic construction.
+
+```mermaid
+flowchart TD
+    A["Source: claim infinitely many primes"]
+    B["Assumption: finite list p1 through pn"]
+    C["Algorithm capsule: N equals product of all listed primes plus 1"]
+    D["Assertion: N not divisible by any listed prime"]
+    E["Inference: N is prime or has a new prime factor"]
+    F["Contradiction: list was complete"]
+    G["Conclusion: no finite list is exhaustive"]
+    A --> B --> C --> D --> E --> F --> G
+```
+
+**Lean-schematic proof tree (goal and lemma oriented).** A plausible *shape*
+for the formal proof: introduce a finite set (or finset) of primes, define
+`N` as product plus one, invoke **existence of a prime divisor**, show that
+divisor cannot lie in the original set, then close by contradiction. In
+practice Mathlib may package this as a one-line invocation of a general
+lemma; the graph exposes the *logical skeleton* such a proof unpacks.
+
+```mermaid
+flowchart TD
+    T["Theorem goal: primes are not contained in any finite set"]
+    G1["intro: hypothetical finite set S of primes"]
+    G2["define N as product of S plus one"]
+    G3["invoke: every n greater than 1 has a prime factor"]
+    G4["have: some prime p divides N"]
+    G5["show: p cannot be in S"]
+    G6["contradiction: S was assumed exhaustive"]
+    T --> G1 --> G2 --> G3 --> G4 --> G5 --> G6
+    style T fill:#ff6b6b,color:#fff
+    style G1 fill:#ffa94d,color:#000
+    style G2 fill:#20c997,color:#fff
+    style G3 fill:#51cf66,color:#fff
+    style G4 fill:#74c0fc,color:#fff
+    style G5 fill:#74c0fc,color:#fff
+    style G6 fill:#9775fa,color:#fff
+```
+
+**How the two differ:**
+
+| Dimension | Informal proof graph (this paper) | Lean-style schematic |
+|-----------|-------------------------------------|----------------------|
+| **Node meaning** | Epistemic role (assumption, construction, …) | Goal state, definition, or lemma application |
+| **Edges** | “Justifies / explains” for a human reader | “Resolves subgoal” or “depends on lemma in library” |
+| **Correctness** | Human review; not machine-checked | Kernel-checkable when fully formalized |
+| **Granularity** | Chosen for clarity; steps may be coarse | Often fine-grained (many small tactic steps) |
+| **Construction** | LLM from prose + editor | Tactics or proof terms; could *in principle* be mined from `.lean` |
+| **Algorithm capsule** | Explicit node type for procedural content | Corresponds to computable definitions (`Finset.prod`, etc.) inside terms |
+
+**Takeaway.** Lean proofs and informal proof graphs are **complementary**:
+Lean answers “is this formally correct?”; proof graphs answer “how is the
+argument *organized* for inspection, teaching, and cross-proof comparison?”
+A natural research direction—echoed in Section 8—is to **map** or **align**
+Lean proof terms (or tactic traces) to role-labeled graphs so the same
+theorem can be viewed in both registers. That pipeline does not exist in the
+current Mathematics Database corpus, which remains informal and LLM-derived.
+
 ---
 
 ## 4. The Mathematics Database
@@ -480,6 +562,11 @@ contributions are:
    mathematics wherever embedded procedural substructures appear within
    larger logical or regulatory structures.
 
+4. **Disciplinary positioning relative to proof assistants.** Section 3.4
+   contrasts informal proof graphs with a Lean-schematic proof tree for the
+   same classical argument, clarifying that this work targets human-facing
+   structural inspection rather than kernel-certified formal proof.
+
 The proof graph color scheme (eight roles) and the axiomatic dependency graph
 color scheme (six object types) are exactly the kind of domain-specific
 customization that the Programming Framework explicitly supports and
@@ -524,13 +611,15 @@ reliability and multi-pipeline reproducibility have not been evaluated.
 **Formal semantics mapping.** A natural extension is to map the proof graph
 representation to more formal systems — Petri nets for algorithm capsules,
 type-theoretic representations for axiomatic dependencies, or direct export
-to Lean/Coq proof assistant formats. This would enable automated consistency
-checking of the database against formal mathematics.
+to Lean/Coq proof assistant formats (Section 3.4 sketches how informal roles
+and formal goal structure diverge on one example). This would enable
+automated consistency checking of the database against formal mathematics.
 
 **Integration with proof assistants.** The Lean 4 mathematical library
 (Mathlib) and the Coq Proof Assistant contain large bodies of formalized
 mathematics. Aligning the Mathematics Database with these libraries — using
-them as ground truth for validation and as a source of additional entries —
+them as ground truth for validation, as a source of additional entries, or
+by mining tactic traces into role-labeled graphs as sketched in Section 3.4 —
 would significantly increase the corpus size and quality.
 
 **Community extension.** A community-driven submission and review process,
@@ -588,7 +677,7 @@ mathematical knowledge representation.
 
 - Programming Framework paper [CITE — in review, *Learned Publishing*]
 - GLMP Paper I [CITE — Welz & Krampis, in preparation]
-- Lean / Mathlib [CITE]
+- Lean 4, Mathlib community [CITE]; *Theorem Proving in Lean 4* [CITE]
 - Coq proof assistant [CITE]
 - Mizar Mathematical Library [CITE]
 - QED project [CITE]
@@ -696,6 +785,31 @@ flowchart TD
     style E fill:#74c0fc,color:#fff
     style F fill:#9775fa,color:#fff
     style G fill:#b197fc,color:#fff
+```
+
+### Lean-schematic proof tree (same theorem, contrast with Section 3.4)
+
+The diagram below is the **goal-oriented** sketch paired with the informal
+proof graph above; see **Section 3.4** for the comparison table and
+discussion.
+
+```mermaid
+flowchart TD
+    T["Theorem goal: primes are not contained in any finite set"]
+    G1["intro: hypothetical finite set S of primes"]
+    G2["define N as product of S plus one"]
+    G3["invoke: every n greater than 1 has a prime factor"]
+    G4["have: some prime p divides N"]
+    G5["show: p cannot be in S"]
+    G6["contradiction: S was assumed exhaustive"]
+    T --> G1 --> G2 --> G3 --> G4 --> G5 --> G6
+    style T fill:#ff6b6b,color:#fff
+    style G1 fill:#ffa94d,color:#000
+    style G2 fill:#20c997,color:#fff
+    style G3 fill:#51cf66,color:#fff
+    style G4 fill:#74c0fc,color:#fff
+    style G5 fill:#74c0fc,color:#fff
+    style G6 fill:#9775fa,color:#fff
 ```
 
 ---
