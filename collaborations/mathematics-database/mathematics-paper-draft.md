@@ -613,17 +613,19 @@ the CUNY Graduate Center New Media Lab for institutional support.
 
 ## Appendix: Sample Mermaid Code
 
+*Rendering: Use ASCII-only labels in quoted nodes so diagrams parse reliably on github.com. The site may add its own diagram zoom UI around fenced blocks; that chrome is not part of the source below.*
+
 ### Algorithmic Flowchart — Euclidean Algorithm
 
 ```mermaid
 flowchart TD
-    A[Input: a, b] --> B{Is b = 0?}
-    B -->|Yes| C[GCD = a]
-    B -->|No| D[Calculate r = a mod b]
-    D --> E[Set a = b]
-    E --> F[Set b = r]
+    A["Input integers a and b"] --> B{"b equals 0?"}
+    B -->|Yes| C["GCD equals a"]
+    B -->|No| D["r equals a mod b"]
+    D --> E["a equals b"]
+    E --> F["b equals r"]
     F --> B
-    C --> G[Return GCD]
+    C --> G["Return GCD"]
     style A fill:#ff6b6b,color:#fff
     style B fill:#74c0fc,color:#fff
     style C fill:#74c0fc,color:#fff
@@ -633,16 +635,60 @@ flowchart TD
     style G fill:#b197fc,color:#fff
 ```
 
+### Axiomatic Dependency Graph — Euclid Book I roots to early propositions
+
+Illustrative DAG: postulates and common notions as **roots**, with dependency edges to the first propositions (abbreviated labels; full statements in Heath). This matches the style of the `euclid-elements-book-i` entries in the Mathematics Database.
+
+```mermaid
+flowchart TD
+    P1["Post. I draw segment between two points"]
+    P2["Post. II extend a finite line"]
+    P3["Post. III draw circle center and radius"]
+    CN1["CN I equals of the same are equal"]
+    CN3["CN III subtract equals, equals remain"]
+    CN4["CN IV coincide implies equal"]
+    CN5["CN V whole greater than part"]
+    Prop1["Prop. I.1 equilateral triangle on segment"]
+    Prop2["Prop. I.2 transport a length"]
+    Prop3["Prop. I.3 cut off lesser from greater"]
+    Prop4["Prop. I.4 SAS triangle congruence"]
+    Prop5["Prop. I.5 isosceles base angles"]
+    P1 --> Prop1
+    P3 --> Prop1
+    Prop1 --> Prop2
+    P1 --> Prop2
+    P2 --> Prop2
+    P3 --> Prop2
+    Prop2 --> Prop3
+    P3 --> Prop3
+    CN4 --> Prop4
+    CN5 --> Prop4
+    Prop1 --> Prop5
+    P1 --> Prop5
+    P2 --> Prop5
+    CN1 --> Prop5
+    CN3 --> Prop5
+    Prop4 --> Prop5
+    classDef post fill:#e74c3c,color:#fff
+    classDef cn fill:#9b59b6,color:#fff
+    classDef pr fill:#1abc9c,color:#fff
+    class P1,P2,P3 post
+    class CN1,CN3,CN4,CN5 cn
+    class Prop1,Prop2,Prop3,Prop4,Prop5 pr
+```
+
 ### Proof Graph — Infinitely Many Primes (Euclid)
 
 ```mermaid
 flowchart TD
-    A[Source: Infinitely many primes exist] --> B[Assumption: Finite prime list p1...pn]
-    B --> C[Algorithm Capsule: Construct N = p1·p2·...·pn + 1]
-    C --> D[Assertion: N is not divisible by any pi]
-    D --> E[Inference: N is either prime or has a prime factor not in list]
-    E --> F[Contradiction: List was assumed complete]
-    F --> G[Conclusion: No finite list contains all primes]
+    A["Source: claim infinitely many primes"]
+    B["Assumption: finite list p1 through pn"]
+    C["Algorithm capsule: N equals product of all listed primes plus 1"]
+    D["Assertion: N not divisible by any listed prime"]
+    E["Inference: N is prime or has a new prime factor"]
+    F["Contradiction: list was complete"]
+    G["Conclusion: no finite list is exhaustive"]
+    A --> B --> C --> D --> E --> F --> G
     style A fill:#ff6b6b,color:#fff
     style B fill:#ffa94d,color:#000
     style C fill:#20c997,color:#fff
