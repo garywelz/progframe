@@ -54,8 +54,9 @@ gsutil -h "Cache-Control:no-cache, max-age=0" cp mathematics-database-table.html
 # Upload Number Theory Research Frontier sample
 gsutil -h "Cache-Control:no-cache, max-age=0" cp number-theory-research-frontier.html "$BUCKET/"
 
-# GLMP foundational typology (working paper; source in progframe repo)
-PF_GLMP_TYPOLOGY="$SCRIPT_DIR/GLMP_Foundational_Typology.html"
+# GLMP foundational typology (working paper; canonical copy under glmp repo)
+GLMP_MIGRATED="/home/gdubs/glmp/migrated-from-progframe-2026-05"
+PF_GLMP_TYPOLOGY="$GLMP_MIGRATED/GLMP_Foundational_Typology.html"
 if [ -f "$PF_GLMP_TYPOLOGY" ]; then
   cp "$PF_GLMP_TYPOLOGY" "$DB_DIR/GLMP_Foundational_Typology.html"
   echo "Synced GLMP_Foundational_Typology.html from progframe → copernicus DB"

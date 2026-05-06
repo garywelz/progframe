@@ -23,6 +23,7 @@ MANIFEST
 
 # Virtual environments
 venv/
+.venv-pdf/
 env/
 ENV/
 env.bak/

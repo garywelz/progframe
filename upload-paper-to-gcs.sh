@@ -5,14 +5,16 @@
 set -e
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+GLMP_MIGRATED="/home/gdubs/glmp/migrated-from-progframe-2026-05"
 DB_DIR="/home/gdubs/copernicus-web-public/huggingface-space/mathematics-processes-database"
 BUCKET="gs://regal-scholar-453620-r7-podcast-storage/mathematics-processes-database"
 GCS_BASE="https://storage.googleapis.com/regal-scholar-453620-r7-podcast-storage/mathematics-processes-database"
 
-PAPER1="$SCRIPT_DIR/GLMP_Foundational_Typology.html"
-PAPER2="$SCRIPT_DIR/genome_as_computer_v2 (1).html"
+# GLMP working-paper HTML sources (canonical copies moved under the glmp repo)
+PAPER1="$GLMP_MIGRATED/GLMP_Foundational_Typology.html"
+PAPER2="$GLMP_MIGRATED/genome_as_computer_v2 (1).html"
 PAPER2_GCS_NAME="genome_as_computer_v2.html"
-PAPER3="$SCRIPT_DIR/empirical_sequel_draft.html"
+PAPER3="$GLMP_MIGRATED/empirical_sequel_draft.html"
 PAPER3_GCS_NAME="empirical_sequel_draft.html"
 
 upload_paper() {
