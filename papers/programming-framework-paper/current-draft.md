@@ -717,7 +717,7 @@ This work is part of the CopernicusAI Knowledge Engine project, which aims to cr
 
 ## References
 
-Berners-Lee, T., Hendler, J., & Lassila, O. (2001). The Semantic Web. *Scientific American*, *284*(5), 34–43. https://doi.org/10.1038/scientificamerican0501-34
+Berners-Lee, T., Hendler, J., & Lassila, O. (2001). The semantic web. *Scientific American*, *284*(5), 34–43. https://doi.org/10.1038/scientificamerican0501-34
 
 Brown, T., Mann, B., Ryder, N., Subbiah, M., Kaplan, J. D., Dhariwal, P., Neelakantan, A., Shyam, P., Sastry, G., Askell, A., Agarwal, S., Herbert-Voss, A., Krueger, G., Henighan, T., Child, R., Ramesh, A., Ziegler, D., Wu, J., Winter, C., Hesse, C., Chen, M., Sigler, E., Litwin, M., Gray, S., Chess, B., Clark, J., Berner, C., McCandlish, S., Radford, A., Sutskever, I., & Amodei, D. (2020). Language models are few-shot learners. *Advances in Neural Information Processing Systems*, *33*, 1877–1901. https://proceedings.neurips.cc/paper/2020/hash/1457c0d6bfcb4967418bfb8ac142f64a-Abstract.html
 
@@ -727,44 +727,44 @@ Funahashi, A., Matsuoka, Y., Jouraku, A., Morohashi, M., Kikuchi, N., & Kitano, 
 
 Gruber, T. R. (1993). A translation approach to portable ontology specifications. *Knowledge Acquisition*, *5*(2), 199–220. https://doi.org/10.1006/knac.1993.1008
 
-Healey, C. G., & Enns, J. T. (2012). Attention and visual memory in visualization and computer graphics. *IEEE Transactions on Visualization and Computer Graphics*, *18*(7), 1170–1188. https://doi.org/10.1109/TVCG.2011.127
+Healey, C. G., & Enns, J. T. (2012). Attention and visual memory in visualisation and computer graphics. *IEEE Transactions on Visualisation and Computer Graphics*, *18*(7), 1170–1188. https://doi.org/10.1109/TVCG.2011.127
 
 Hucka, M., Finney, A., Sauro, H. M., Bolouri, H., Doyle, J. C., Kitano, H., Arkin, A. P., Bornstein, B. J., Bray, D., Cornish-Bowden, A., Cuellar, A. A., Dronov, S., Gilles, E. D., Ginkel, M., Gor, V., Goryanin, I. I., Hedley, W. J., Hodgman, T. C., Hofmeyr, J., … Wang, J. (2003). The systems biology markup language (SBML): A medium for representation and exchange of biochemical network models. *Bioinformatics*, *19*(4), 524–531. https://doi.org/10.1093/bioinformatics/btg015
 
-Kong, N., Agrawala, M., & Hartmann, B. (2019). Perfopticon: Visual querying for performance in large-scale graph databases. In *Proceedings of the 2019 CHI Conference on Human Factors in Computing Systems* (pp. 1–12). Association for Computing Machinery. https://doi.org/10.1145/3290605.3300688
+Kong, N., Agrawala, M., & Hartmann, B. (2019). Perfopticon: Visual querying for performance in large-scale graph databases. *Proceedings of the 2019 CHI Conference on Human Factors in Computing Systems*, 1–12. https://doi.org/10.1145/3290605.3300688
 
 Larkin, J. H., & Simon, H. A. (1987). Why a diagram is (sometimes) worth ten thousand words. *Cognitive Science*, *11*(1), 65–100. https://doi.org/10.1016/S0364-0213(87)80026-5
 
-Le Novère, N., Hucka, M., Mi, H., Moodie, S., Schreiber, F., Sorokin, A., Demir, E., Wegner, K., Aladjem, M. I., Wimalaratne, S. M., Bergman, F. T., Gauges, R., Ghazal, P., Kawaji, H., Li, L., Matsuoka, Y., Villéger, A., Boyd, S. E., Calzone, L., … Kitano, H. (2009). The systems biology graphical notation. *Nature Biotechnology*, *27*(8), 735–741. https://doi.org/10.1038/nbt.1558
+Le Novère, N., Hucka, M., Mi, H., Moodie, S., Schreiber, F., Sorokin, A., Demir, E., Wegner, K., Aladjem, M. I., Wimalaratne, S. M., Bergman, F. T., Gauges, R., Ghazal, P., Kawaji, H., Li, L., Matsuoka, Y., Villéger, A., Boyd, S. E., Calzone, L., … Kitano, H. (2009). The Systems Biology Graphical Notation. *Nature Biotechnology*, *27*(8), 735–741. https://doi.org/10.1038/nbt.1558
 
-Liu, C., Wu, P., Li, C., & Zhu, J. (2020). Generating diagrams from natural language. In *Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing* (pp. 3637–3647). Association for Computational Linguistics. https://doi.org/10.18653/v1/2020.emnlp-main.295
+Liu, C., Wu, P., Li, C., & Zhu, J. (2020). Generating diagrams from natural language. *Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing*, 3637–3647. https://doi.org/10.18653/v1/2020.emnlp-main.295
 
-Noy, N. F., & McGuinness, D. L. (2001). *Ontology development 101: A guide to creating your first ontology* (Tech. Rep. No. KSL-01-05). Stanford Knowledge Systems Laboratory, Stanford University, Stanford, CA, USA. https://protege.stanford.edu/publications/ontology_development/ontology101.pdf
+Noy, N. F., & McGuinness, D. L. (2001). *Ontology development 101: A guide to creating your first ontology* (Stanford Knowledge Systems Laboratory Technical Report No. KSL-01-05). https://protege.stanford.edu/publications/ontology_development/ontology101.pdf
 
-Object Management Group. (2017). *Unified Modeling Language* (Version 2.5.1). https://www.omg.org/spec/UML/2.5.1/
+Object Management Group. (2017). Unified Modelling Language (UML), Version 2.5.1. https://www.omg.org/spec/UML/2.5.1/
 
-OpenAI. (2023). *GPT-4 technical report* (arXiv:2303.08774). arXiv. https://arxiv.org/abs/2303.08774
+OpenAI. (2023). GPT-4 technical report. *arXiv*. https://arxiv.org/abs/2303.08774
 
-Ouyang, L., Wu, J., Jiang, X., Almeida, D., Wainwright, C., Mishkin, P., Zhang, C., Agarwal, S., Slama, K., Ray, A., Schulman, J., Hilton, J., Kelton, F., Miller, L., Simens, M., Askell, A., Welinder, P., Christiano, P., Leike, J., & Lowe, R. (2022). Training language models to follow instructions with human feedback. *Advances in Neural Information Processing Systems*, *35*, 27730–27744.
+Ouyang, L., Wu, J., Jiang, X., Almeida, D., Wainwright, C. L., Mishkin, P., Zhang, C., Agarwal, S., Slama, K., Ray, A., Schulman, J., Hilton, J., Kelton, F., Miller, L., Simens, M., Askell, A., Welinder, P., Christiano, P., Leike, J., … Ziegler, D. M. (2022). Training language models to follow instructions with human feedback. *Advances in Neural Information Processing Systems*, *35*, 27730–27744.
 
 Shannon, P., Markiel, A., Ozier, O., Baliga, N. S., Wang, J. T., Ramage, D., Amin, N., Schwikowski, B., & Ideker, T. (2003). Cytoscape: A software environment for integrated models of biomolecular interaction networks. *Genome Research*, *13*(11), 2498–2504. https://doi.org/10.1101/gr.1239303
 
-Sveidqvist, K. (2014). *Mermaid: Diagramming and charting software* [Computer software]. GitHub. https://github.com/mermaid-js/mermaid
+Sveidqvist, K. (2014). Mermaid: Diagramming and charting software [GitHub repository]. https://github.com/mermaid-js/mermaid
 
-Uschold, M., & Gruninger, M. (1996). Ontologies: Principles, methods and applications. *The Knowledge Engineering Review*, *11*(2), 93–136. https://doi.org/10.1017/S0269888900007797
+Uschold, M., & Gruninger, M. (1996). Ontologies: Principles, methods and applications. *Knowledge Engineering Review*, *11*(2), 93–136. https://doi.org/10.1017/S0269888900007797
 
-Welz, G. (2024). From inspiration to AI: Biology as visual programming. *Medium*. https://medium.com/@garywelz_47126/frominspiration-to-ai-biology-as-visual-programming-520ee523029a
+Welz, G. (2024). From inspiration to AI: Biology as visual programming. *Medium*. https://medium.com/@garywelz_47126/from-inspiration-to-ai-biology-as-visual-programming-520ee523029a
 
-Welz, G. (2025a). *GLMP: Genome logic modelling project—A microscope for biological processes* [Hugging Face Space]. Hugging Face. https://huggingface.co/spaces/garywelz/glmp
+Welz, G. (2024–2025a). The Programming Framework: A universal method for process analysis [Hugging Face Space]. https://huggingface.co/spaces/garywelz/programming_framework
 
-Welz, G. (2025b). *The Programming Framework: A universal method for process analysis* [Hugging Face Space]. Hugging Face. https://huggingface.co/spaces/garywelz/programming_framework
+Welz, G. (2024–2025b). GLMP: Genome Logic Modelling Project [Hugging Face Space]. https://huggingface.co/spaces/garywelz/glmp
 
-White, J., Fu, Q., Hays, S., Sandborn, M., Olea, C., Gilbert, H., Elrad, T., … Schmidt, D. C. (2023). A prompt pattern catalog to enhance prompt engineering with ChatGPT. *arXiv*. https://arxiv.org/abs/2302.11382
+White, J., Fu, Q., Hays, S., Sandborn, M., Olea, C., Gilbert, H., … Schmidt, D. C. (2023). A prompt pattern catalog to enhance prompt engineering with ChatGPT. *arXiv*. https://arxiv.org/abs/2302.11382
 
-Wikipedia contributors. (2025). *Mermaid (software)*. *Wikipedia, The Free Encyclopedia*. Retrieved 7 May 2026, from https://en.wikipedia.org/wiki/Mermaid_(software)
+Wikipedia contributors. (2025). Mermaid (software). In *Wikipedia, The Free Encyclopedia*. https://en.wikipedia.org/wiki/Mermaid_(software)
 
 ## Prior Work and Related Artifacts
-Interactive demonstrations of the methodology appear as Hugging Face Spaces (Welz, 2025a, 2025b); the Medium article (Welz, 2024) gives additional background. See also *Availability* in the Conclusion for direct links.
+Interactive demonstrations of the methodology appear as Hugging Face Spaces (Welz, 2024–2025a, 2024–2025b); the Medium article (Welz, 2024) gives additional background. See also *Availability* in the Conclusion for direct links.
 Note on Diagram Rendering: All Mermaid diagram code blocks in this paper render as interactive flowchart diagrams in HTML/web versions. The Programming Framework Hugging
 Face Space (https://huggingface.co/spaces/garywelz/programming_framework) and GLMP Space
 (https://huggingface.co/spaces/garywelz/glmp) provide live, interactive examples where readers can view
