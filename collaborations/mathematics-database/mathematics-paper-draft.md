@@ -365,6 +365,10 @@ graph where:
 | Contradiction | Purple | A contradiction reached (in proof by contradiction) |
 | Conclusion | Violet | The final conclusion establishing the theorem |
 
+The eight-role vocabulary above describes node *semantics*; the following
+addresses node *syntax* — how diagrams render shape and conjunctive structure in
+practice.
+
 #### Shapes, conjunctive joins, and palette
 
 In the Mathematics Database as currently published, proof steps are rendered in
@@ -441,7 +445,7 @@ arguments—**not** machine-checked certificates.
 
 Still, it is useful to place the two representations side by side on **the
 same mathematical idea** (Euclid’s argument that no finite list of primes is
-exhaustive). The informal proof graph in **Section 3.4** (and the Appendix
+exhaustive). The informal proof graph **below** (and the Appendix
 reference proof graph) emphasizes *roles*
 (source, assumption, algorithm capsule, contradiction, …). A **schematic**
 “Lean-shaped” graph emphasizes *proof obligations* and *lemma dependencies* as
@@ -1016,11 +1020,13 @@ the CUNY Graduate Center New Media Lab for institutional support.
 
 ## Appendix: Reference Proof Graph — Infinitely Many Primes (Euclid)
 
-The following proof graph illustrates the complete eight-role
-vocabulary of the proof graph schema on a compact, well-known
-argument. Node colors encode proof role: Red = source,
-Orange = assumption, Teal = algorithm capsule, Green = assertion,
-Blue = inference, Purple = contradiction, Violet = conclusion.
+The following proof graph illustrates per-node role styling for the
+eight-role schema from §3.3 on Euclid’s infinitude-of-primes argument. Node
+colors map to roles that appear in this linear staging: Red = source, Orange =
+assumption, Teal = algorithm capsule, Green = assertion, Blue = inference,
+Purple = contradiction, Violet = conclusion.
+
+The **Construction** role (Yellow in §3.3) has no standalone node in this compact presentation—the Euclidean construction is represented inside the **algorithm capsule**.
 
 ```mermaid
 flowchart TD
