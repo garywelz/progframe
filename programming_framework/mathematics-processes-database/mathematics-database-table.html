@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mathematics Database: Algorithms and Axiomatic Theories</title>
+    <title>Mathematics Database: Algorithms, Axiomatic Theories &amp; Proof Graphs</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -100,6 +100,10 @@
         
         .section-header.axiomatic {
             background: #9b59b6;
+        }
+        
+        .section-header.proof-graph {
+            background: #1abc9c;
         }
         
         .section-header:first-of-type {
@@ -509,6 +513,10 @@
             background: #f3e5f5;
             color: #9b59b6;
         }
+        .search-result-item .type-badge.proofgraph {
+            background: #d5f4e6;
+            color: #16a085;
+        }
         .search-no-results {
             padding: 14px;
             color: #7f8c8d;
@@ -519,8 +527,8 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>🔢 Algorithms and Axiomatic Theories</h1>
-            <p>A unified, diagrammatic representation of mathematical structure—algorithms as flowcharts, axiomatic systems as dependency graphs</p>
+            <h1>🔢 Algorithms, Axiomatic Theories &amp; Proof Graphs</h1>
+            <p>A unified, diagrammatic representation of mathematical structure—algorithms as flowcharts, axiomatic systems as dependency graphs, proofs as role-labeled graphs</p>
             <button class="refresh-btn" onclick="loadData()">🔄 Refresh Data</button>
         </div>
         
@@ -644,6 +652,25 @@
                         <!-- Axiomatic theories populated here -->
                     </tbody>
                 </table>
+                
+                <div class="section-header proof-graph">🔬 Proof Graphs — Logical structure (eight-role vocabulary)</div>
+                <p style="margin: 10px 0 5px 0; color: #7f8c8d; font-size: 0.9em;">Justificatory graphs with source, assumption, construction, assertion, inference, algorithm capsule, contradiction, and conclusion roles. Pages live under <code>proof-graphs/</code>.</p>
+                <table id="proofGraphsTable" class="section-table">
+                    <thead>
+                        <tr>
+                            <th onclick="sortTable('proofGraphs', 0)">Name ↕</th>
+                            <th onclick="sortTable('proofGraphs', 1)">Subcategory ↕</th>
+                            <th onclick="sortTable('proofGraphs', 2)">Complexity ↕</th>
+                            <th onclick="sortTable('proofGraphs', 3)">Nodes ↕</th>
+                            <th onclick="sortTable('proofGraphs', 4)">Edges ↕</th>
+                            <th onclick="sortTable('proofGraphs', 5)">Capsules ↕</th>
+                            <th onclick="sortTable('proofGraphs', 6)">Temp asms ↕</th>
+                            <th onclick="sortTable('proofGraphs', 7)">Frontier ↕</th>
+                        </tr>
+                    </thead>
+                    <tbody id="proofGraphsBody">
+                    </tbody>
+                </table>
             </div>
             
             <div class="what-enables">
@@ -724,11 +751,12 @@
             : (window.location.hostname.includes('huggingface.co'))
             ? './mathematics-processes-database/metadata.json'
             : './metadata.json';
-        let currentSortColumn = { algorithms: -1, axiomatic: -1 };
-        let sortDirection = { algorithms: 1, axiomatic: 1 };
+        let currentSortColumn = { algorithms: -1, axiomatic: -1, proofGraphs: -1 };
+        let sortDirection = { algorithms: 1, axiomatic: 1, proofGraphs: 1 };
         let processes = [];
         let algorithms = [];
         let axiomatic = [];
+        let proofGraphs = [];
         const DOMAIN_ORDER = ['algebra', 'analysis', 'geometry_topology', 'number_theory', 'discrete_logic', 'applied'];
         const DOMAIN_NAMES = { algebra: 'Algebra', analysis: 'Analysis', geometry_topology: 'Geometry & Topology',
             number_theory: 'Number Theory', discrete_logic: 'Discrete & Logic', applied: 'Applied & Other' };
@@ -761,17 +789,14 @@
                 processes = data.processes || [];
                 algorithms = processes.filter(p => (p.processType || 'algorithm') === 'algorithm');
                 axiomatic = processes.filter(p => p.processType === 'axiomatic_theory');
+                proofGraphs = processes.filter(p => p.processType === 'proof_graph');
                 populateData(data);
                 
                 document.getElementById('loading').style.display = 'none';
                 document.getElementById('content').style.display = 'block';
                 
                 // Set Start Here link based on hosting
-                const procBase = window.location.hostname.includes('storage.googleapis.com')
-                    ? 'https://storage.googleapis.com/regal-scholar-453620-r7-podcast-storage/mathematics-processes-database/processes'
-                    : (window.location.hostname.includes('huggingface.co'))
-                    ? './mathematics-processes-database/processes'
-                    : './processes';
+                const procBase = viewerBases().processes;
                 const wholeMapUrl = window.location.hostname.includes('storage.googleapis.com')
                     ? 'https://storage.googleapis.com/regal-scholar-453620-r7-podcast-storage/mathematics-processes-database/whole-of-mathematics.html'
                     : (window.location.hostname.includes('huggingface.co'))
@@ -787,7 +812,7 @@
                 if (collEl) collEl.href = collUrl;
                 
                 // Wire up search
-                setupSearch(procBase);
+                setupSearch();
                 
             } catch (error) {
                 console.error('❌ Error loading data:', error);
@@ -803,12 +828,26 @@
             }
         }
         
-        function getProcessUrl(process, procBase) {
+        function viewerBases() {
             const isGCS = window.location.hostname.includes('storage.googleapis.com');
-            return procBase + '/' + (process.subcategory || '') + '/' + (process.id || process.subcategory + '-' + process.name.toLowerCase().replace(/\s+/g, '-')) + '.html';
+            const isHF = window.location.hostname.includes('huggingface.co');
+            const bucket = 'https://storage.googleapis.com/regal-scholar-453620-r7-podcast-storage/mathematics-processes-database';
+            return {
+                processes: isGCS ? bucket + '/processes' : (isHF ? './mathematics-processes-database/processes' : './processes'),
+                proofGraphs: isGCS ? bucket + '/proof-graphs' : (isHF ? './mathematics-processes-database/proof-graphs' : './proof-graphs'),
+            };
         }
         
-        function setupSearch(procBase) {
+        function getProcessUrl(process) {
+            const b = viewerBases();
+            if (process.processType === 'proof_graph') {
+                const fname = process.proofGraphHtml || (process.id + '.html');
+                return b.proofGraphs + '/' + fname;
+            }
+            return b.processes + '/' + (process.subcategory || '') + '/' + (process.id || process.subcategory + '-' + process.name.toLowerCase().replace(/\s+/g, '-')) + '.html';
+        }
+        
+        function setupSearch() {
             const input = document.getElementById('searchInput');
             const resultsEl = document.getElementById('searchResults');
             if (!input || !resultsEl) return;
@@ -836,10 +875,11 @@
                     matches.forEach(p => {
                         const a = document.createElement('a');
                         a.className = 'search-result-item';
-                        a.href = getProcessUrl(p, procBase);
+                        a.href = getProcessUrl(p);
                         a.target = '_blank';
-                        const typeClass = (p.processType === 'axiomatic_theory') ? 'axiomatic' : '';
-                        a.innerHTML = `<span class="name">${escapeHtml(p.name)}</span><span class="type-badge ${typeClass}">${p.processType === 'axiomatic_theory' ? 'Axiomatic' : 'Algorithm'}</span><div class="meta">${escapeHtml(p.subcategory_name || p.subcategory)}</div>`;
+                        const typeClass = (p.processType === 'axiomatic_theory') ? 'axiomatic' : (p.processType === 'proof_graph') ? 'proofgraph' : '';
+                        const typeLabel = p.processType === 'axiomatic_theory' ? 'Axiomatic' : (p.processType === 'proof_graph' ? 'Proof graph' : 'Algorithm');
+                        a.innerHTML = `<span class="name">${escapeHtml(p.name)}</span><span class="type-badge ${typeClass}">${typeLabel}</span><div class="meta">${escapeHtml(p.subcategory_name || p.subcategory)}</div>`;
                         resultsEl.appendChild(a);
                     });
                 }
@@ -905,6 +945,7 @@
             const subcatCount = Object.keys(data.subcategoryCounts || {}).filter(k => (data.subcategoryCounts[k] || 0) > 0).length;
             const collStats = data.collectionStats || {};
             const collTotal = collStats.total || (collStats.mathematicians || 0) + (collStats.theorems || 0);
+            const pgCount = proofGraphs.length;
             document.getElementById('statsGrid').innerHTML = `
                 <div class="stat-card">
                     <div class="stat-number">${algCount}</div>
@@ -915,8 +956,12 @@
                     <div class="stat-label">Axiomatic Theories — axiom–theorem dependency graphs</div>
                 </div>
                 <div class="stat-card">
+                    <div class="stat-number">${pgCount}</div>
+                    <div class="stat-label">Proof graphs — eight-role justificatory structure</div>
+                </div>
+                <div class="stat-card">
                     <div class="stat-number">${subcatCount}</div>
-                    <div class="stat-label">Subcategories (e.g. Number Theory, Geometry & Topology)</div>
+                    <div class="stat-label">Subcategories (e.g. Number Theory, Foundations)</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-number">${collTotal || '—'}</div>
@@ -962,6 +1007,23 @@
                 });
             });
             
+            const proofGraphsBody = document.getElementById('proofGraphsBody');
+            proofGraphsBody.innerHTML = '';
+            const pgGroups = groupByDomain(proofGraphs);
+            const pgCols = 8;
+            DOMAIN_ORDER.forEach((domainId, idx) => {
+                const items = pgGroups[domainId];
+                if (!items || items.length === 0) return;
+                if (idx > 0) proofGraphsBody.appendChild(createDomainBreakRow(pgCols));
+                const domainName = (dh[domainId] && dh[domainId].name) || domainId;
+                proofGraphsBody.appendChild(createDomainHeaderRow(domainId, domainName, 'proofGraphs', pgCols));
+                items.forEach(p => {
+                    const row = createProofGraphRow(p);
+                    row.dataset.domain = getDomain(p);
+                    proofGraphsBody.appendChild(row);
+                });
+            });
+            
             // Populate breakdown
             const breakdown = {};
             (data.processes || []).forEach(p => {
@@ -1002,13 +1064,7 @@
         
         function createProcessRow(process) {
             const row = document.createElement('tr');
-            const isGCS = window.location.hostname.includes('storage.googleapis.com');
-            const isHF = window.location.hostname.includes('huggingface.co');
-            const viewerUrl = isGCS 
-                ? `https://storage.googleapis.com/regal-scholar-453620-r7-podcast-storage/mathematics-processes-database/processes/${process.subcategory}/${process.id}.html`
-                : (isHF)
-                ? `./mathematics-processes-database/processes/${process.subcategory}/${process.id}.html`
-                : `./processes/${process.subcategory}/${process.id}.html`;
+            const viewerUrl = getProcessUrl(process);
             row.innerHTML = `
                 <td class="process-name">
                     <a href="${viewerUrl}" target="_blank">${process.name}</a>
@@ -1026,13 +1082,7 @@
         
         function createAxiomaticRow(process) {
             const row = document.createElement('tr');
-            const isGCS = window.location.hostname.includes('storage.googleapis.com');
-            const isHF = window.location.hostname.includes('huggingface.co');
-            const viewerUrl = isGCS 
-                ? `https://storage.googleapis.com/regal-scholar-453620-r7-podcast-storage/mathematics-processes-database/processes/${process.subcategory}/${process.id}.html`
-                : (isHF)
-                ? `./mathematics-processes-database/processes/${process.subcategory}/${process.id}.html`
-                : `./processes/${process.subcategory}/${process.id}.html`;
+            const viewerUrl = getProcessUrl(process);
             const na = (v) => (v !== undefined && v !== null && v !== '') ? v : '—';
             row.innerHTML = `
                 <td class="process-name">
@@ -1051,10 +1101,31 @@
             return row;
         }
         
+        function createProofGraphRow(process) {
+            const row = document.createElement('tr');
+            const viewerUrl = getProcessUrl(process);
+            const cap = (process.algorithm_capsules !== undefined && process.algorithm_capsules !== null) ? process.algorithm_capsules : '—';
+            const ta = (process.temporary_assumptions !== undefined && process.temporary_assumptions !== null) ? process.temporary_assumptions : '—';
+            const fr = process.frontier ? 'yes' : '—';
+            row.innerHTML = `
+                <td class="process-name">
+                    <a href="${viewerUrl}" target="_blank">${process.name}</a>
+                </td>
+                <td><span class="subcategory">${process.subcategory_name || process.subcategory}</span></td>
+                <td><span class="complexity ${process.complexity}">${process.complexity}</span></td>
+                <td class="number">${process.nodes}</td>
+                <td class="number">${process.edges}</td>
+                <td class="number">${cap}</td>
+                <td class="number">${ta}</td>
+                <td class="number">${fr}</td>
+            `;
+            return row;
+        }
+        
         function sortTable(section, column) {
-            const tbodyId = section === 'algorithms' ? 'algorithmsBody' : 'axiomaticBody';
+            const tbodyId = section === 'algorithms' ? 'algorithmsBody' : (section === 'axiomatic' ? 'axiomaticBody' : 'proofGraphsBody');
             const tbody = document.getElementById(tbodyId);
-            const colCount = section === 'algorithms' ? 8 : 10;
+            const colCount = section === 'algorithms' ? 8 : (section === 'axiomatic' ? 10 : 8);
             const tableType = section;
             
             // Extract only data rows (exclude domain-header and domain-break)

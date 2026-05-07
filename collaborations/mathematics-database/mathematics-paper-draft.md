@@ -32,7 +32,7 @@ inference, algorithm capsule, contradiction, conclusion) that makes embedded
 algorithmic substructures within proofs explicitly visible. Together these
 three graph types constitute the Mathematics Database, a publicly accessible,
 machine-readable corpus spanning classical geometry, number theory, algebra,
-set theory, and theoretical computer science. We argue that this unified
+set theory, mathematical logic, and theoretical computer science. We argue that this unified
 representation reveals structural properties — including complexity metrics,
 algorithm capsule frequency, and cross-proof-family comparisons — that are
 obscured by conventional prose and static diagrams. The methodology is a
@@ -114,7 +114,8 @@ Dijkstra's Algorithm, Euclidean Algorithm, and others), axiomatic systems
 Theory, Field Theory, Category Theory, Lambda Calculus), and proof graphs
 (Euclid Book I pilot proofs, Infinitely Many Primes, Pythagorean Theorem
 proof comparison across multiple proof families, Fundamental Theorem of
-Arithmetic, Cantor Diagonal proofs and variants).
+Arithmetic, Cantor Diagonal proofs and variants, Gödel Completeness Theorem,
+Gödel First Incompleteness Theorem, and the Kirby–Paris/Goodstein independence result).
 
 **Methodological:** The proof graph node vocabulary — an eight-role
 domain-specific extension of the Programming Framework's general color
@@ -223,6 +224,28 @@ AND gate count, OR gate count, loop count, graph type.
 - Euclidean Algorithm — minimal loop, elegant termination condition
 - Binary Search — logarithmic branching structure
 
+*Figure 1: Euclidean Algorithm — algorithmic flowchart.
+Color legend: Red = input, Blue = decision/intermediate,
+Green = operation, Violet = output.*
+
+```mermaid
+flowchart TD
+    A["Input integers a and b"] --> B{"b equals 0?"}
+    B -->|Yes| C["GCD equals a"]
+    B -->|No| D["r equals a mod b"]
+    D --> E["a equals b"]
+    E --> F["b equals r"]
+    F --> B
+    C --> G["Return GCD"]
+    style A fill:#ff6b6b,color:#fff
+    style B fill:#74c0fc,color:#fff
+    style C fill:#74c0fc,color:#fff
+    style D fill:#51cf66,color:#fff
+    style E fill:#51cf66,color:#fff
+    style F fill:#51cf66,color:#fff
+    style G fill:#b197fc,color:#fff
+```
+
 Algorithmic flowcharts are the most direct application of the Programming
 Framework's base methodology and require no extension to the standard
 vocabulary.
@@ -259,6 +282,49 @@ axiom-to-theorem ratio, number of distinct proof paths to key results.
   universal constructions
 - Lambda Calculus — foundational for type theory and functional programming;
   bridge between mathematics and computer science
+
+*Figure 2: Euclid's Elements Book I — axiomatic dependency graph
+(illustrative; abbreviated node labels after Heath).
+Color legend: Red = Postulates, Purple = Common Notions,
+Teal = Propositions.*
+
+```mermaid
+flowchart TD
+    P1["Post. I draw segment between two points"]
+    P2["Post. II extend a finite line"]
+    P3["Post. III draw circle center and radius"]
+    CN1["CN I equals of the same are equal"]
+    CN3["CN III subtract equals, equals remain"]
+    CN4["CN IV coincide implies equal"]
+    CN5["CN V whole greater than part"]
+    Prop1["Prop. I.1 equilateral triangle on segment"]
+    Prop2["Prop. I.2 transport a length"]
+    Prop3["Prop. I.3 cut off lesser from greater"]
+    Prop4["Prop. I.4 SAS triangle congruence"]
+    Prop5["Prop. I.5 isosceles base angles"]
+    P1 --> Prop1
+    P3 --> Prop1
+    Prop1 --> Prop2
+    P1 --> Prop2
+    P2 --> Prop2
+    P3 --> Prop2
+    Prop2 --> Prop3
+    P3 --> Prop3
+    CN4 --> Prop4
+    CN5 --> Prop4
+    Prop1 --> Prop5
+    P1 --> Prop5
+    P2 --> Prop5
+    CN1 --> Prop5
+    CN3 --> Prop5
+    Prop4 --> Prop5
+    classDef post fill:#e74c3c,color:#fff
+    classDef cn fill:#9b59b6,color:#fff
+    classDef pr fill:#1abc9c,color:#fff
+    class P1,P2,P3 post
+    class CN1,CN3,CN4,CN5 cn
+    class Prop1,Prop2,Prop3,Prop4,Prop5 pr
+```
 
 Axiomatic dependency graphs require a domain-specific node vocabulary not
 present in the base Programming Framework, making them a natural extension
@@ -335,15 +401,15 @@ arguments—**not** machine-checked certificates.
 
 Still, it is useful to place the two representations side by side on **the
 same mathematical idea** (Euclid’s argument that no finite list of primes is
-exhaustive). The informal graph (Section 3.3 and Appendix) emphasizes *roles*
+exhaustive). The informal proof graph in **Section 3.4** (and the Appendix
+reference proof graph) emphasizes *roles*
 (source, assumption, algorithm capsule, contradiction, …). A **schematic**
 “Lean-shaped” graph emphasizes *proof obligations* and *lemma dependencies* as
 one might sketch after reading a formal proof—the labels below are
 illustrative, not a literal port of a specific Mathlib proof term.
 
-**Informal proof graph (role-oriented).** Same content as the Appendix sample:
-the flow is read as a story of justification, with an explicit **algorithm
-capsule** for the arithmetic construction.
+**Informal proof graph (role-oriented).** The flow is read as a story of justification, with an explicit **algorithm
+capsule** for the arithmetic construction. The Appendix gives the same graph with full per-node styling.
 
 ```mermaid
 flowchart TD
@@ -506,8 +572,10 @@ Section 3.4.
 
 The Mathematics Database is implemented as a collection of JSON metadata
 files stored on Google Cloud Storage, with an interactive HTML viewer that
-renders the data as a sortable, filterable table and generates live Mermaid
-diagram previews.
+renders the data in **three sortable tables** (algorithms, axiomatic theories,
+proof graphs) and generates live Mermaid diagram previews. The deployed manifest uses a `processType` field with values
+`algorithm`, `axiomatic_theory`, and `proof_graph` (parallel to the
+schema's `category` field below).
 
 Each entry in the database is a JSON object with the following schema [16]:
 
@@ -537,6 +605,10 @@ Each entry in the database is a JSON object with the following schema [16]:
 }
 ```
 
+Field names in the schema above are normative; the deployed manifest uses
+`name` in place of `title` and `processType` in place of `category` for
+implementation compatibility.
+
 The `frontier` flag marks entries where the graph representation pushes
 against the limits of Mermaid's expressivity or the LLM's reliability —
 cases that require additional validation or that suggest future extensions
@@ -557,6 +629,13 @@ currently include:
 - **Sorting Algorithms** — comparative collection for algorithmic flowcharts
 - **Foundational Set Theory** — ZFC and alternatives
 
+Proof graphs share `namedCollections` tags with their corresponding axiomatic
+entries where applicable — for example, the Gödel completeness and
+incompleteness proof graphs carry the `godel` collection tag alongside the
+existing axiomatic Parts 4–8 charts, enabling navigation between the
+dependency-level and proof-level representations of the same mathematical
+content.
+
 Named collections enable the history of mathematics to be studied as a
 graph-theoretic corpus — tracking how proof strategies, construction
 methods, and axiomatic choices evolved across mathematicians and periods.
@@ -571,6 +650,8 @@ Interactive viewers for all three graph types, including live Mermaid
 rendering, are available at:
 
 https://huggingface.co/spaces/garywelz/programming_framework
+
+The main table presents all three processType categories in separate sortable sections — algorithms, axiomatic theories, and proof graphs — with columns specific to each type.
 
 ---
 
@@ -591,19 +672,74 @@ carries the mathematical content. What the proof graph representation makes
 explicit — and measurable — is the structural boundary between the
 algorithmic and the inferential within a single proof.
 
-The algorithm capsule concept connects this paper to the Genome Logic
-Modeling Project [14], which makes a parallel observation
-about gene regulatory circuits: that biological control processes contain
-embedded logical structures (CONDITIONAL, NAND/NOR, feedback) that are
-formally analogous to computational primitives. In both cases, the
-representational move is the same: give embedded structure an explicit
-node type, and it becomes visible and measurable.
+The algorithm capsule concept reveals a structural pattern that recurs
+across mathematical domains in a way that prose descriptions obscure. The
+proof graph corpus now contains three entries in what we term the
+**diagonalization family**: the Cantor Diagonal proofs, the Gödel First
+Incompleteness proof graph, and the Kirby–Paris/Goodstein independence result
+(flagged as frontier in the manifest given the two-level proof structure). In
+each case, the algorithm capsule is not incidental to the proof but is its
+structural core — the mechanism by which the argument achieves its result.
+
+In the Cantor diagonal proofs, the capsule is the construction of a real number
+or subset that differs from every element of an assumed enumeration — a finite
+procedure applied at each position of an infinite list. In the Gödel First
+Incompleteness proof graph, the capsule is the diagonal lemma itself: the
+arithmetical procedure that constructs a self-referential sentence by
+applying a provability predicate to its own Gödel number. In the
+Kirby–Paris/Goodstein entry, the capsule is the Goodstein sequence computation
+— an explicit algorithmic procedure whose termination, provable by ordinal
+descent, cannot be established within Peano Arithmetic. All three capsules have
+the same logical role: they construct an object with a property that generates
+the proof's central tension, whether contradiction, unprovability, or
+independence.
+
+The proof graph representation makes this family resemblance visible and
+measurable in a way that is not available from prose alone. All three entries
+share a common topological signature: a dense algorithm capsule node with high
+out-degree feeding into an assertion chain that terminates either at a
+contradiction node (Cantor, Gödel) or a meta-level independence node
+(Kirby–Paris). The Gödel Numbering algorithm — included in the corpus as a
+standalone algorithmic flowchart — serves as the explicit capsule twin to the
+incompleteness proof graph, making this the first algorithm/proof pair in the
+corpus where the same mathematical content appears in both the algorithm and
+proof graph categories. This pairing directly supports the claim in §1.2 that
+the unified representation reveals structural relationships between proof and
+computation that are invisible when the two object types are represented
+separately.
+
+This connection extends beyond mathematics to the Genome Logic Modeling
+Project [14], which identifies parallel embedded structures in biological
+regulatory circuits — CONDITIONAL gates, NAND/NOR logic, and feedback loops
+that function as computational primitives within gene expression networks. In
+both cases the representational move is the same: assign an explicit node type
+to embedded procedural structure, and it becomes visible, nameable, and
+comparable across instances. The diagonalization family in the mathematics
+corpus and the logical primitive vocabulary in the genomic corpus are
+independent instantiations of the same methodological insight.
+
+**Scope note (second incompleteness).** Gödel's *second* incompleteness
+theorem remains represented in the current database only as an axiomatic
+dependency chart (Peano & Gödel sequence, Part 8). A dedicated proof graph
+for second incompleteness is deferred: it requires additional internal
+formalization of consistency statements and would exceed the validation
+burden of the first-incompleteness pilot.
 
 ### 5.2 Structural Complexity Comparison
 
 The database's quantitative metadata enables direct complexity comparison
-across mathematical objects that are not usually compared. A preliminary
-analysis of the current corpus reveals:
+across mathematical objects that are not usually compared. Analysis of the
+eight proof-graph entries in the deployed manifest reveals the following for
+file-level bundles (Euclid Book I,
+infinitely many primes, Cantor diagonals, FTA, Pythagorean comparison,
+Gödel completeness, Gödel first incompleteness, and Kirby–Paris /
+Goodstein independence). Aggregating the declared node and edge counts yields
+approximately 25 nodes and 28 edges per proof graph on average—roughly
+double the typical algorithmic flowchart in the same manifest—while individual
+graphs range from 10 nodes (the frontier Goodstein independence sketch) to
+42 nodes (the bundled Cantor diagonal page). These figures remain modest in
+absolute terms but are no longer anecdotal: they are exactly the numbers
+exposed in the public table viewer.
 
 - Proof graphs are on average more complex (higher node and edge counts)
   than algorithmic flowcharts of comparable mathematical content, reflecting
@@ -616,9 +752,10 @@ analysis of the current corpus reveals:
   contradiction node with high in-degree, preceded by a dense assumption
   and inference subgraph, followed by a minimal conclusion arc.
 
-These are preliminary observations from the current corpus. A larger,
-systematically constructed database would enable more rigorous statistical
-analysis.
+These qualitative structural findings are grounded in exact public counts from
+a small, manifest-documented corpus (*N* = 8 proof graphs); a larger,
+systematically constructed database would strengthen statistical inference
+beyond descriptive ranges and means.
 
 ### 5.3 Cross-Proof-Family Comparison
 
@@ -687,10 +824,11 @@ inheritance in axiomatic hierarchies, or quantifier structure. These
 limitations are managed by approximation and noted in individual entry
 metadata.
 
-**Corpus size.** The current corpus is sufficient for qualitative
-demonstration but too small for robust statistical claims about structural
-properties of mathematical object types. The observations in Section 5 are
-preliminary.
+**Corpus size.** Proof graphs are now first-class entries in the deployed
+manifest (eight entries across five mathematical domains), but *N* remains
+small for robust statistical inference. The observations in §5 are grounded in
+exact public counts but should be understood as findings from a small
+systematic corpus rather than large-scale statistical claims.
 
 **No formal semantics.** The graph representations are visually and
 structurally informative but do not carry formal logical semantics. They
@@ -750,8 +888,8 @@ The proof graph contribution — particularly the eight-role node vocabulary
 and the algorithm capsule concept — reveals structural properties of
 mathematical justification that are invisible in prose and static diagrams.
 The Mathematics Database, spanning classical geometry, number theory,
-algebra, set theory, and theoretical computer science, provides a
-machine-readable corpus for further analysis.
+algebra, set theory, mathematical logic, and theoretical computer science,
+provides a machine-readable corpus for further analysis.
 
 More broadly, this paper demonstrates that the Programming Framework's
 claim — that formal structure is recoverable from natural language
@@ -815,73 +953,13 @@ the CUNY Graduate Center New Media Lab for institutional support.
 
 ---
 
-## Appendix: Sample Mermaid Code
+## Appendix: Reference Proof Graph — Infinitely Many Primes (Euclid)
 
-*Rendering: Use ASCII-only labels in quoted nodes so diagrams parse reliably on github.com. The site may add its own diagram zoom UI around fenced blocks; that chrome is not part of the source below.*
-
-### Algorithmic Flowchart — Euclidean Algorithm
-
-```mermaid
-flowchart TD
-    A["Input integers a and b"] --> B{"b equals 0?"}
-    B -->|Yes| C["GCD equals a"]
-    B -->|No| D["r equals a mod b"]
-    D --> E["a equals b"]
-    E --> F["b equals r"]
-    F --> B
-    C --> G["Return GCD"]
-    style A fill:#ff6b6b,color:#fff
-    style B fill:#74c0fc,color:#fff
-    style C fill:#74c0fc,color:#fff
-    style D fill:#51cf66,color:#fff
-    style E fill:#51cf66,color:#fff
-    style F fill:#51cf66,color:#fff
-    style G fill:#b197fc,color:#fff
-```
-
-### Axiomatic Dependency Graph — Euclid Book I roots to early propositions
-
-Illustrative DAG: postulates and common notions as **roots**, with dependency edges to the first propositions (abbreviated labels; full statements in Heath). This matches the style of the `euclid-elements-book-i` entries in the Mathematics Database.
-
-```mermaid
-flowchart TD
-    P1["Post. I draw segment between two points"]
-    P2["Post. II extend a finite line"]
-    P3["Post. III draw circle center and radius"]
-    CN1["CN I equals of the same are equal"]
-    CN3["CN III subtract equals, equals remain"]
-    CN4["CN IV coincide implies equal"]
-    CN5["CN V whole greater than part"]
-    Prop1["Prop. I.1 equilateral triangle on segment"]
-    Prop2["Prop. I.2 transport a length"]
-    Prop3["Prop. I.3 cut off lesser from greater"]
-    Prop4["Prop. I.4 SAS triangle congruence"]
-    Prop5["Prop. I.5 isosceles base angles"]
-    P1 --> Prop1
-    P3 --> Prop1
-    Prop1 --> Prop2
-    P1 --> Prop2
-    P2 --> Prop2
-    P3 --> Prop2
-    Prop2 --> Prop3
-    P3 --> Prop3
-    CN4 --> Prop4
-    CN5 --> Prop4
-    Prop1 --> Prop5
-    P1 --> Prop5
-    P2 --> Prop5
-    CN1 --> Prop5
-    CN3 --> Prop5
-    Prop4 --> Prop5
-    classDef post fill:#e74c3c,color:#fff
-    classDef cn fill:#9b59b6,color:#fff
-    classDef pr fill:#1abc9c,color:#fff
-    class P1,P2,P3 post
-    class CN1,CN3,CN4,CN5 cn
-    class Prop1,Prop2,Prop3,Prop4,Prop5 pr
-```
-
-### Proof Graph — Infinitely Many Primes (Euclid)
+The following proof graph illustrates the complete eight-role
+vocabulary of the proof graph schema on a compact, well-known
+argument. Node colors encode proof role: Red = source,
+Orange = assumption, Teal = algorithm capsule, Green = assertion,
+Blue = inference, Purple = contradiction, Violet = conclusion.
 
 ```mermaid
 flowchart TD
@@ -900,31 +978,6 @@ flowchart TD
     style E fill:#74c0fc,color:#fff
     style F fill:#9775fa,color:#fff
     style G fill:#b197fc,color:#fff
-```
-
-### Lean-schematic proof tree (same theorem, contrast with Section 3.4)
-
-The diagram below is the **goal-oriented** sketch paired with the informal
-proof graph above; see **Section 3.4** for the comparison table and
-discussion.
-
-```mermaid
-flowchart TD
-    T["Theorem goal: primes are not contained in any finite set"]
-    G1["intro: hypothetical finite set S of primes"]
-    G2["define N as product of S plus one"]
-    G3["invoke: every n greater than 1 has a prime factor"]
-    G4["have: some prime p divides N"]
-    G5["show: p cannot be in S"]
-    G6["contradiction: S was assumed exhaustive"]
-    T --> G1 --> G2 --> G3 --> G4 --> G5 --> G6
-    style T fill:#ff6b6b,color:#fff
-    style G1 fill:#ffa94d,color:#000
-    style G2 fill:#20c997,color:#fff
-    style G3 fill:#51cf66,color:#fff
-    style G4 fill:#74c0fc,color:#fff
-    style G5 fill:#74c0fc,color:#fff
-    style G6 fill:#9775fa,color:#fff
 ```
 
 ---

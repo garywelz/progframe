@@ -61,7 +61,6 @@ for slug, name, years, blurb, items in [
       ("number_theory", "number_theory-peano-arithmetic-godel-completeness"),
       ("number_theory", "number_theory-peano-arithmetic-godel-formalization"),
       ("number_theory", "number_theory-peano-arithmetic-godel-fol"),
-      ("foundations", "foundations-axiomatic-set-theory-ad"),
       ("discrete_mathematics", "discrete_mathematics-model-theory-compactness")]),
     ("peano", "Peano", "", "", [("number_theory", "number_theory-peano-arithmetic-axioms-foundations"),
       ("number_theory", "number_theory-peano-arithmetic-addition-multiplication"),

@@ -40,6 +40,17 @@ if [ -f "$PF_MATH_TABLE" ]; then
   cp "$PF_MATH_TABLE" "$DB_DIR/mathematics-database-table.html"
   echo "Synced mathematics-database-table.html from progframe → copernicus DB"
 fi
+if [ -d "$PF_MATH_DIR/proof-graphs" ]; then
+  mkdir -p "$DB_DIR/proof-graphs"
+  cp -r "$PF_MATH_DIR/proof-graphs/"* "$DB_DIR/proof-graphs/"
+  echo "Synced proof-graphs/ from progframe → copernicus DB"
+fi
+PF_GN_ALG="$PF_MATH_DIR/processes/number_theory/number_theory-godel-numbering-algorithm.html"
+if [ -f "$PF_GN_ALG" ]; then
+  mkdir -p "$DB_DIR/processes/number_theory"
+  cp "$PF_GN_ALG" "$DB_DIR/processes/number_theory/"
+  echo "Synced Gödel numbering algorithm HTML → copernicus DB"
+fi
 
 # Upload metadata (with cache bust for fresh fetch)
 gsutil -h "Cache-Control:no-cache, max-age=0" cp metadata.json "$BUCKET/"
@@ -48,8 +59,18 @@ gsutil -h "Cache-Control:no-cache, max-age=0" cp metadata.json "$BUCKET/"
 gsutil -h "Cache-Control:no-cache, max-age=0" cp whole-of-mathematics.html "$BUCKET/"
 gsutil -h "Cache-Control:no-cache, max-age=0" cp graph-data.json "$BUCKET/"
 
-# Upload database table (Algorithms + Axiomatic Theories sections)
+# Upload database table (Algorithms + Axiomatic + Proof Graphs sections)
 gsutil -h "Cache-Control:no-cache, max-age=0" cp mathematics-database-table.html "$BUCKET/"
+
+if [ -d "proof-graphs" ]; then
+  echo "Uploading proof-graphs/"
+  gsutil -m -h "Cache-Control:no-cache, max-age=0" cp -r proof-graphs "$BUCKET/"
+fi
+
+# Gödel numbering (and other new process pages synced from progframe)
+if [ -f "processes/number_theory/number_theory-godel-numbering-algorithm.html" ]; then
+  gsutil -h "Cache-Control:no-cache, max-age=0" cp processes/number_theory/number_theory-godel-numbering-algorithm.html "$BUCKET/processes/number_theory/"
+fi
 
 # Upload Number Theory Research Frontier sample
 gsutil -h "Cache-Control:no-cache, max-age=0" cp number-theory-research-frontier.html "$BUCKET/"

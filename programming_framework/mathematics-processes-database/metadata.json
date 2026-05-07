@@ -1,12 +1,12 @@
 {
-  "name": "Mathematics Database: Algorithms and Axiomatic Theories",
+  "name": "Mathematics Database: Algorithms, Axiomatic Theories, and Proof Graphs",
   "version": "1.0.0",
   "created": "2026-01-08",
-  "lastUpdated": "2026-04-04",
+  "lastUpdated": "2026-05-07",
   "category": "mathematics",
   "colorScheme": "5-color",
-  "description": "Algorithms (flowcharts) and axiomatic theories (dependency graphs) visualized using the Programming Framework.",
-  "totalProcesses": 217,
+  "description": "Algorithms (flowcharts), axiomatic theories (dependency graphs), and proof graphs visualized using the Programming Framework.",
+  "totalProcesses": 225,
   "subcategories": 23,
   "collectionStats": {
     "mathematicians": 63,
@@ -14,41 +14,41 @@
     "total": 95
   },
   "statistics": {
-    "totalNodes": 698,
-    "totalEdges": 1313,
+    "totalNodes": 2186,
+    "totalEdges": 2221,
     "totalConditionals": 3,
-    "totalOrGates": 31,
-    "totalLoops": 17,
+    "totalOrGates": 32,
+    "totalLoops": 18,
     "totalAndGates": 21
   },
   "subcategoryCounts": {
-    "number_theory": 16,
-    "geometry_topology": 26,
-    "differential_geometry": 6,
-    "symplectic_geometry": 5,
-    "metric_geometry": 5,
+    "geometry_topology": 34,
     "discrete_mathematics": 22,
-    "linear_algebra": 4,
     "calculus_analysis": 20,
+    "number_theory": 20,
+    "foundations": 11,
     "abstract_algebra": 9,
-    "category_theory": 4,
-    "algebraic_geometry": 5,
     "representation_theory": 6,
-    "commutative_algebra": 5,
-    "k_theory": 5,
-    "quantum_algebra": 5,
+    "differential_geometry": 6,
     "statistics_probability": 6,
-    "optimization": 5,
-    "information_theory": 5,
-    "mathematical_physics": 5,
     "complex_analysis": 6,
     "functional_analysis": 6,
     "numerical_analysis": 6,
+    "algebraic_geometry": 5,
+    "commutative_algebra": 5,
     "partial_differential_equations": 5,
     "spectral_theory": 5,
+    "symplectic_geometry": 5,
+    "metric_geometry": 5,
     "operator_algebras": 5,
-    "foundations": 8,
-    "bioinformatics": 5
+    "k_theory": 5,
+    "quantum_algebra": 5,
+    "optimization": 5,
+    "information_theory": 5,
+    "mathematical_physics": 5,
+    "bioinformatics": 5,
+    "category_theory": 4,
+    "linear_algebra": 4
   },
   "domainHierarchy": {
     "algebra": {
@@ -202,7 +202,7 @@
     },
     {
       "id": "foundations-axiomatic-set-theory-axioms-basic",
-      "name": "Axiomatic Set Theory \u2014 ZFC Axioms & Basic Notions",
+      "name": "Axiomatic Set Theory — ZFC Axioms & Basic Notions",
       "processType": "axiomatic_theory",
       "subcategory": "foundations",
       "subcategory_name": "Foundations",
@@ -220,7 +220,7 @@
     },
     {
       "id": "foundations-axiomatic-set-theory-definitions-derived",
-      "name": "Axiomatic Set Theory \u2014 Definitions: Ordered Pair, Relation, Function",
+      "name": "Axiomatic Set Theory — Definitions: Ordered Pair, Relation, Function",
       "processType": "axiomatic_theory",
       "subcategory": "foundations",
       "subcategory_name": "Foundations",
@@ -238,7 +238,7 @@
     },
     {
       "id": "foundations-axiomatic-set-theory-ordinals-choice",
-      "name": "Axiomatic Set Theory \u2014 Ordinals, Cardinals & Choice",
+      "name": "Axiomatic Set Theory — Ordinals, Cardinals & Choice",
       "processType": "axiomatic_theory",
       "subcategory": "foundations",
       "subcategory_name": "Foundations",
@@ -259,7 +259,7 @@
     },
     {
       "id": "foundations-axiomatic-set-theory-cantor-cardinality",
-      "name": "Axiomatic Set Theory \u2014 Cantor & Cardinality",
+      "name": "Axiomatic Set Theory — Cantor & Cardinality",
       "processType": "axiomatic_theory",
       "subcategory": "foundations",
       "subcategory_name": "Foundations",
@@ -280,7 +280,7 @@
     },
     {
       "id": "foundations-axiomatic-set-theory-ch-continuum",
-      "name": "Axiomatic Set Theory \u2014 Continuum Hypothesis & Independence",
+      "name": "Axiomatic Set Theory — Continuum Hypothesis & Independence",
       "processType": "axiomatic_theory",
       "subcategory": "foundations",
       "subcategory_name": "Foundations",
@@ -301,7 +301,7 @@
     },
     {
       "id": "foundations-axiomatic-set-theory-forcing",
-      "name": "Axiomatic Set Theory \u2014 Forcing",
+      "name": "Axiomatic Set Theory — Forcing",
       "processType": "axiomatic_theory",
       "subcategory": "foundations",
       "subcategory_name": "Foundations",
@@ -319,7 +319,7 @@
     },
     {
       "id": "foundations-axiomatic-set-theory-ad",
-      "name": "Axiomatic Set Theory \u2014 Axiom of Determinacy",
+      "name": "Axiomatic Set Theory — Axiom of Determinacy",
       "processType": "axiomatic_theory",
       "subcategory": "foundations",
       "subcategory_name": "Foundations",
@@ -333,10 +333,7 @@
       "definitions": 5,
       "lemmas": 0,
       "theorems": 5,
-      "corollaries": 0,
-      "namedCollections": [
-        "godel"
-      ]
+      "corollaries": 0
     },
     {
       "id": "category_theory-category-theory",
@@ -358,7 +355,7 @@
     },
     {
       "id": "category_theory-category-theory-foundations",
-      "name": "Category Theory \u2014 Categories, Morphisms & Functors",
+      "name": "Category Theory — Categories, Morphisms & Functors",
       "processType": "axiomatic_theory",
       "subcategory": "category_theory",
       "subcategory_name": "Category Theory",
@@ -379,7 +376,7 @@
     },
     {
       "id": "category_theory-category-theory-natural-transformations",
-      "name": "Category Theory \u2014 Natural Transformations & Equivalences",
+      "name": "Category Theory — Natural Transformations & Equivalences",
       "processType": "axiomatic_theory",
       "subcategory": "category_theory",
       "subcategory_name": "Category Theory",
@@ -400,7 +397,7 @@
     },
     {
       "id": "category_theory-category-theory-limits-adjunctions",
-      "name": "Category Theory \u2014 Limits, Colimits & Adjunctions",
+      "name": "Category Theory — Limits, Colimits & Adjunctions",
       "processType": "axiomatic_theory",
       "subcategory": "category_theory",
       "subcategory_name": "Category Theory",
@@ -436,7 +433,7 @@
     },
     {
       "id": "algebraic_geometry-affine-projective",
-      "name": "Algebraic Geometry \u2014 Affine & Projective Varieties",
+      "name": "Algebraic Geometry — Affine & Projective Varieties",
       "processType": "axiomatic_theory",
       "subcategory": "algebraic_geometry",
       "subcategory_name": "Algebraic Geometry",
@@ -454,7 +451,7 @@
     },
     {
       "id": "algebraic_geometry-schemes-sheaves",
-      "name": "Algebraic Geometry \u2014 Schemes & Sheaves",
+      "name": "Algebraic Geometry — Schemes & Sheaves",
       "processType": "axiomatic_theory",
       "subcategory": "algebraic_geometry",
       "subcategory_name": "Algebraic Geometry",
@@ -478,7 +475,7 @@
     },
     {
       "id": "algebraic_geometry-morphisms-rational",
-      "name": "Algebraic Geometry \u2014 Morphisms & Rational Maps",
+      "name": "Algebraic Geometry — Morphisms & Rational Maps",
       "processType": "axiomatic_theory",
       "subcategory": "algebraic_geometry",
       "subcategory_name": "Algebraic Geometry",
@@ -496,7 +493,7 @@
     },
     {
       "id": "algebraic_geometry-cohomology",
-      "name": "Algebraic Geometry \u2014 Sheaf Cohomology",
+      "name": "Algebraic Geometry — Sheaf Cohomology",
       "processType": "axiomatic_theory",
       "subcategory": "algebraic_geometry",
       "subcategory_name": "Algebraic Geometry",
@@ -536,7 +533,7 @@
     },
     {
       "id": "representation_theory-group-reps",
-      "name": "Representation Theory \u2014 Group Representations",
+      "name": "Representation Theory — Group Representations",
       "processType": "axiomatic_theory",
       "subcategory": "representation_theory",
       "subcategory_name": "Representation Theory",
@@ -557,7 +554,7 @@
     },
     {
       "id": "representation_theory-characters",
-      "name": "Representation Theory \u2014 Characters",
+      "name": "Representation Theory — Characters",
       "processType": "axiomatic_theory",
       "subcategory": "representation_theory",
       "subcategory_name": "Representation Theory",
@@ -575,7 +572,7 @@
     },
     {
       "id": "representation_theory-lie-algebras",
-      "name": "Representation Theory \u2014 Lie Algebras & sl\u2082",
+      "name": "Representation Theory — Lie Algebras & sl₂",
       "processType": "axiomatic_theory",
       "subcategory": "representation_theory",
       "subcategory_name": "Representation Theory",
@@ -596,7 +593,7 @@
     },
     {
       "id": "representation_theory-schur-weyl",
-      "name": "Representation Theory \u2014 Schur\u2013Weyl Duality",
+      "name": "Representation Theory — Schur–Weyl Duality",
       "processType": "axiomatic_theory",
       "subcategory": "representation_theory",
       "subcategory_name": "Representation Theory",
@@ -614,7 +611,7 @@
     },
     {
       "id": "representation_theory-induced-restricted",
-      "name": "Representation Theory \u2014 Induced & Restricted Reps",
+      "name": "Representation Theory — Induced & Restricted Reps",
       "processType": "axiomatic_theory",
       "subcategory": "representation_theory",
       "subcategory_name": "Representation Theory",
@@ -650,7 +647,7 @@
     },
     {
       "id": "commutative_algebra-noetherian",
-      "name": "Commutative Algebra \u2014 Noetherian Rings",
+      "name": "Commutative Algebra — Noetherian Rings",
       "processType": "axiomatic_theory",
       "subcategory": "commutative_algebra",
       "subcategory_name": "Commutative Algebra",
@@ -671,7 +668,7 @@
     },
     {
       "id": "commutative_algebra-localization",
-      "name": "Commutative Algebra \u2014 Localization",
+      "name": "Commutative Algebra — Localization",
       "processType": "axiomatic_theory",
       "subcategory": "commutative_algebra",
       "subcategory_name": "Commutative Algebra",
@@ -689,7 +686,7 @@
     },
     {
       "id": "commutative_algebra-primary-decomp",
-      "name": "Commutative Algebra \u2014 Primary Decomposition",
+      "name": "Commutative Algebra — Primary Decomposition",
       "processType": "axiomatic_theory",
       "subcategory": "commutative_algebra",
       "subcategory_name": "Commutative Algebra",
@@ -710,7 +707,7 @@
     },
     {
       "id": "commutative_algebra-dimension",
-      "name": "Commutative Algebra \u2014 Dimension Theory",
+      "name": "Commutative Algebra — Dimension Theory",
       "processType": "axiomatic_theory",
       "subcategory": "commutative_algebra",
       "subcategory_name": "Commutative Algebra",
@@ -746,7 +743,7 @@
     },
     {
       "id": "partial_differential_equations-classical",
-      "name": "PDEs \u2014 Laplace, Heat, Wave",
+      "name": "PDEs — Laplace, Heat, Wave",
       "processType": "axiomatic_theory",
       "subcategory": "partial_differential_equations",
       "subcategory_name": "PDEs",
@@ -764,7 +761,7 @@
     },
     {
       "id": "partial_differential_equations-wellposed",
-      "name": "PDEs \u2014 Well-Posedness",
+      "name": "PDEs — Well-Posedness",
       "processType": "axiomatic_theory",
       "subcategory": "partial_differential_equations",
       "subcategory_name": "PDEs",
@@ -782,7 +779,7 @@
     },
     {
       "id": "partial_differential_equations-sobolev",
-      "name": "PDEs \u2014 Sobolev Spaces",
+      "name": "PDEs — Sobolev Spaces",
       "processType": "axiomatic_theory",
       "subcategory": "partial_differential_equations",
       "subcategory_name": "PDEs",
@@ -800,7 +797,7 @@
     },
     {
       "id": "partial_differential_equations-maximum",
-      "name": "PDEs \u2014 Maximum Principles",
+      "name": "PDEs — Maximum Principles",
       "processType": "axiomatic_theory",
       "subcategory": "partial_differential_equations",
       "subcategory_name": "PDEs",
@@ -836,7 +833,7 @@
     },
     {
       "id": "differential_geometry-manifolds",
-      "name": "Differential Geometry \u2014 Manifolds & Tangent Spaces",
+      "name": "Differential Geometry — Manifolds & Tangent Spaces",
       "processType": "axiomatic_theory",
       "subcategory": "differential_geometry",
       "subcategory_name": "Differential Geometry",
@@ -854,7 +851,7 @@
     },
     {
       "id": "differential_geometry-riemannian",
-      "name": "Differential Geometry \u2014 Riemannian Metric & Curvature",
+      "name": "Differential Geometry — Riemannian Metric & Curvature",
       "processType": "axiomatic_theory",
       "subcategory": "differential_geometry",
       "subcategory_name": "Differential Geometry",
@@ -875,7 +872,7 @@
     },
     {
       "id": "differential_geometry-connections",
-      "name": "Differential Geometry \u2014 Connections & Geodesics",
+      "name": "Differential Geometry — Connections & Geodesics",
       "processType": "axiomatic_theory",
       "subcategory": "differential_geometry",
       "subcategory_name": "Differential Geometry",
@@ -893,7 +890,7 @@
     },
     {
       "id": "differential_geometry-forms",
-      "name": "Differential Geometry \u2014 Differential Forms",
+      "name": "Differential Geometry — Differential Forms",
       "processType": "axiomatic_theory",
       "subcategory": "differential_geometry",
       "subcategory_name": "Differential Geometry",
@@ -914,7 +911,7 @@
     },
     {
       "id": "differential_geometry-minimal-surfaces",
-      "name": "Differential Geometry \u2014 Minimal Surfaces",
+      "name": "Differential Geometry — Minimal Surfaces",
       "processType": "axiomatic_theory",
       "subcategory": "differential_geometry",
       "subcategory_name": "Differential Geometry",
@@ -950,7 +947,7 @@
     },
     {
       "id": "spectral_theory-spectrum",
-      "name": "Spectral Theory \u2014 Spectrum & Resolvent",
+      "name": "Spectral Theory — Spectrum & Resolvent",
       "processType": "axiomatic_theory",
       "subcategory": "spectral_theory",
       "subcategory_name": "Spectral Theory",
@@ -973,7 +970,7 @@
     },
     {
       "id": "spectral_theory-selfadjoint",
-      "name": "Spectral Theory \u2014 Self-Adjoint Operators",
+      "name": "Spectral Theory — Self-Adjoint Operators",
       "processType": "axiomatic_theory",
       "subcategory": "spectral_theory",
       "subcategory_name": "Spectral Theory",
@@ -994,7 +991,7 @@
     },
     {
       "id": "spectral_theory-compact",
-      "name": "Spectral Theory \u2014 Compact Operators",
+      "name": "Spectral Theory — Compact Operators",
       "processType": "axiomatic_theory",
       "subcategory": "spectral_theory",
       "subcategory_name": "Spectral Theory",
@@ -1012,7 +1009,7 @@
     },
     {
       "id": "spectral_theory-schrodinger",
-      "name": "Spectral Theory \u2014 Schr\u00f6dinger Operators",
+      "name": "Spectral Theory — Schrödinger Operators",
       "processType": "axiomatic_theory",
       "subcategory": "spectral_theory",
       "subcategory_name": "Spectral Theory",
@@ -1048,7 +1045,7 @@
     },
     {
       "id": "symplectic_geometry-form",
-      "name": "Symplectic Geometry \u2014 Symplectic Form",
+      "name": "Symplectic Geometry — Symplectic Form",
       "processType": "axiomatic_theory",
       "subcategory": "symplectic_geometry",
       "subcategory_name": "Symplectic Geometry",
@@ -1066,7 +1063,7 @@
     },
     {
       "id": "symplectic_geometry-hamiltonian",
-      "name": "Symplectic Geometry \u2014 Hamiltonian Vector Fields",
+      "name": "Symplectic Geometry — Hamiltonian Vector Fields",
       "processType": "axiomatic_theory",
       "subcategory": "symplectic_geometry",
       "subcategory_name": "Symplectic Geometry",
@@ -1087,7 +1084,7 @@
     },
     {
       "id": "symplectic_geometry-darboux",
-      "name": "Symplectic Geometry \u2014 Darboux Theorem",
+      "name": "Symplectic Geometry — Darboux Theorem",
       "processType": "axiomatic_theory",
       "subcategory": "symplectic_geometry",
       "subcategory_name": "Symplectic Geometry",
@@ -1108,7 +1105,7 @@
     },
     {
       "id": "symplectic_geometry-poisson",
-      "name": "Symplectic Geometry \u2014 Poisson Bracket",
+      "name": "Symplectic Geometry — Poisson Bracket",
       "processType": "axiomatic_theory",
       "subcategory": "symplectic_geometry",
       "subcategory_name": "Symplectic Geometry",
@@ -1147,7 +1144,7 @@
     },
     {
       "id": "metric_geometry-metric-spaces",
-      "name": "Metric Geometry \u2014 Metric Spaces",
+      "name": "Metric Geometry — Metric Spaces",
       "processType": "axiomatic_theory",
       "subcategory": "metric_geometry",
       "subcategory_name": "Metric Geometry",
@@ -1165,7 +1162,7 @@
     },
     {
       "id": "metric_geometry-geodesics",
-      "name": "Metric Geometry \u2014 Geodesics & Length",
+      "name": "Metric Geometry — Geodesics & Length",
       "processType": "axiomatic_theory",
       "subcategory": "metric_geometry",
       "subcategory_name": "Metric Geometry",
@@ -1183,7 +1180,7 @@
     },
     {
       "id": "metric_geometry-curvature",
-      "name": "Metric Geometry \u2014 Curvature",
+      "name": "Metric Geometry — Curvature",
       "processType": "axiomatic_theory",
       "subcategory": "metric_geometry",
       "subcategory_name": "Metric Geometry",
@@ -1201,7 +1198,7 @@
     },
     {
       "id": "metric_geometry-hyperbolic",
-      "name": "Metric Geometry \u2014 Hyperbolic Geometry",
+      "name": "Metric Geometry — Hyperbolic Geometry",
       "processType": "axiomatic_theory",
       "subcategory": "metric_geometry",
       "subcategory_name": "Metric Geometry",
@@ -1237,7 +1234,7 @@
     },
     {
       "id": "operator_algebras-cstar",
-      "name": "Operator Algebras \u2014 C*-Algebras",
+      "name": "Operator Algebras — C*-Algebras",
       "processType": "axiomatic_theory",
       "subcategory": "operator_algebras",
       "subcategory_name": "Operator Algebras",
@@ -1258,7 +1255,7 @@
     },
     {
       "id": "operator_algebras-vonneumann",
-      "name": "Operator Algebras \u2014 Von Neumann Algebras",
+      "name": "Operator Algebras — Von Neumann Algebras",
       "processType": "axiomatic_theory",
       "subcategory": "operator_algebras",
       "subcategory_name": "Operator Algebras",
@@ -1279,7 +1276,7 @@
     },
     {
       "id": "operator_algebras-gns",
-      "name": "Operator Algebras \u2014 GNS Construction",
+      "name": "Operator Algebras — GNS Construction",
       "processType": "axiomatic_theory",
       "subcategory": "operator_algebras",
       "subcategory_name": "Operator Algebras",
@@ -1301,7 +1298,7 @@
     },
     {
       "id": "operator_algebras-spectral",
-      "name": "Operator Algebras \u2014 Spectral Theory for C*-Algebras",
+      "name": "Operator Algebras — Spectral Theory for C*-Algebras",
       "processType": "axiomatic_theory",
       "subcategory": "operator_algebras",
       "subcategory_name": "Operator Algebras",
@@ -1342,7 +1339,7 @@
     },
     {
       "id": "k_theory-algebraic",
-      "name": "K-Theory \u2014 Algebraic K-Theory",
+      "name": "K-Theory — Algebraic K-Theory",
       "processType": "axiomatic_theory",
       "subcategory": "k_theory",
       "subcategory_name": "K-Theory",
@@ -1360,7 +1357,7 @@
     },
     {
       "id": "k_theory-topological",
-      "name": "K-Theory \u2014 Topological K-Theory",
+      "name": "K-Theory — Topological K-Theory",
       "processType": "axiomatic_theory",
       "subcategory": "k_theory",
       "subcategory_name": "K-Theory",
@@ -1381,7 +1378,7 @@
     },
     {
       "id": "k_theory-operator",
-      "name": "K-Theory \u2014 Operator K-Theory",
+      "name": "K-Theory — Operator K-Theory",
       "processType": "axiomatic_theory",
       "subcategory": "k_theory",
       "subcategory_name": "K-Theory",
@@ -1399,7 +1396,7 @@
     },
     {
       "id": "k_theory-bott",
-      "name": "K-Theory \u2014 Bott Periodicity",
+      "name": "K-Theory — Bott Periodicity",
       "processType": "axiomatic_theory",
       "subcategory": "k_theory",
       "subcategory_name": "K-Theory",
@@ -1435,7 +1432,7 @@
     },
     {
       "id": "quantum_algebra-groups",
-      "name": "Quantum Algebra \u2014 Quantum Groups",
+      "name": "Quantum Algebra — Quantum Groups",
       "processType": "axiomatic_theory",
       "subcategory": "quantum_algebra",
       "subcategory_name": "Quantum Algebra",
@@ -1453,7 +1450,7 @@
     },
     {
       "id": "quantum_algebra-hopf",
-      "name": "Quantum Algebra \u2014 Hopf Algebras",
+      "name": "Quantum Algebra — Hopf Algebras",
       "processType": "axiomatic_theory",
       "subcategory": "quantum_algebra",
       "subcategory_name": "Quantum Algebra",
@@ -1471,7 +1468,7 @@
     },
     {
       "id": "quantum_algebra-operads",
-      "name": "Quantum Algebra \u2014 Operads",
+      "name": "Quantum Algebra — Operads",
       "processType": "axiomatic_theory",
       "subcategory": "quantum_algebra",
       "subcategory_name": "Quantum Algebra",
@@ -1489,7 +1486,7 @@
     },
     {
       "id": "quantum_algebra-yangbaxter",
-      "name": "Quantum Algebra \u2014 Yang\u2013Baxter Equation",
+      "name": "Quantum Algebra — Yang–Baxter Equation",
       "processType": "axiomatic_theory",
       "subcategory": "quantum_algebra",
       "subcategory_name": "Quantum Algebra",
@@ -1525,7 +1522,7 @@
     },
     {
       "id": "optimization-linear",
-      "name": "Optimization \u2014 Linear Programming",
+      "name": "Optimization — Linear Programming",
       "processType": "axiomatic_theory",
       "subcategory": "optimization",
       "subcategory_name": "Optimization",
@@ -1543,7 +1540,7 @@
     },
     {
       "id": "optimization-simplex",
-      "name": "Optimization \u2014 Simplex Method",
+      "name": "Optimization — Simplex Method",
       "processType": "algorithm",
       "subcategory": "optimization",
       "subcategory_name": "Optimization",
@@ -1556,7 +1553,7 @@
     },
     {
       "id": "optimization-duality",
-      "name": "Optimization \u2014 Duality",
+      "name": "Optimization — Duality",
       "processType": "axiomatic_theory",
       "subcategory": "optimization",
       "subcategory_name": "Optimization",
@@ -1574,7 +1571,7 @@
     },
     {
       "id": "optimization-control",
-      "name": "Optimization \u2014 Optimal Control",
+      "name": "Optimization — Optimal Control",
       "processType": "axiomatic_theory",
       "subcategory": "optimization",
       "subcategory_name": "Optimization",
@@ -1610,7 +1607,7 @@
     },
     {
       "id": "information_theory-entropy",
-      "name": "Information Theory \u2014 Entropy",
+      "name": "Information Theory — Entropy",
       "processType": "axiomatic_theory",
       "subcategory": "information_theory",
       "subcategory_name": "Information Theory",
@@ -1631,7 +1628,7 @@
     },
     {
       "id": "information_theory-channel",
-      "name": "Information Theory \u2014 Channel Capacity",
+      "name": "Information Theory — Channel Capacity",
       "processType": "axiomatic_theory",
       "subcategory": "information_theory",
       "subcategory_name": "Information Theory",
@@ -1652,7 +1649,7 @@
     },
     {
       "id": "information_theory-coding",
-      "name": "Information Theory \u2014 Source & Channel Coding",
+      "name": "Information Theory — Source & Channel Coding",
       "processType": "axiomatic_theory",
       "subcategory": "information_theory",
       "subcategory_name": "Information Theory",
@@ -1673,7 +1670,7 @@
     },
     {
       "id": "information_theory-rate",
-      "name": "Information Theory \u2014 Rate-Distortion",
+      "name": "Information Theory — Rate-Distortion",
       "processType": "axiomatic_theory",
       "subcategory": "information_theory",
       "subcategory_name": "Information Theory",
@@ -1709,7 +1706,7 @@
     },
     {
       "id": "mathematical_physics-classical",
-      "name": "Mathematical Physics \u2014 Lagrangian & Hamiltonian",
+      "name": "Mathematical Physics — Lagrangian & Hamiltonian",
       "processType": "axiomatic_theory",
       "subcategory": "mathematical_physics",
       "subcategory_name": "Mathematical Physics",
@@ -1730,7 +1727,7 @@
     },
     {
       "id": "mathematical_physics-quantum",
-      "name": "Mathematical Physics \u2014 Quantum Mechanics",
+      "name": "Mathematical Physics — Quantum Mechanics",
       "processType": "axiomatic_theory",
       "subcategory": "mathematical_physics",
       "subcategory_name": "Mathematical Physics",
@@ -1748,7 +1745,7 @@
     },
     {
       "id": "mathematical_physics-field",
-      "name": "Mathematical Physics \u2014 Field Theory",
+      "name": "Mathematical Physics — Field Theory",
       "processType": "axiomatic_theory",
       "subcategory": "mathematical_physics",
       "subcategory_name": "Mathematical Physics",
@@ -1766,7 +1763,7 @@
     },
     {
       "id": "mathematical_physics-statmech",
-      "name": "Mathematical Physics \u2014 Statistical Mechanics",
+      "name": "Mathematical Physics — Statistical Mechanics",
       "processType": "axiomatic_theory",
       "subcategory": "mathematical_physics",
       "subcategory_name": "Mathematical Physics",
@@ -1802,7 +1799,7 @@
     },
     {
       "id": "abstract_algebra-ring-theory-axioms-units",
-      "name": "Ring Theory \u2014 Ring Axioms & Units",
+      "name": "Ring Theory — Ring Axioms & Units",
       "processType": "axiomatic_theory",
       "subcategory": "abstract_algebra",
       "subcategory_name": "Abstract Algebra",
@@ -1820,7 +1817,7 @@
     },
     {
       "id": "abstract_algebra-ring-theory-ideals-quotients",
-      "name": "Ring Theory \u2014 Ideals & Quotient Rings",
+      "name": "Ring Theory — Ideals & Quotient Rings",
       "processType": "axiomatic_theory",
       "subcategory": "abstract_algebra",
       "subcategory_name": "Abstract Algebra",
@@ -1842,7 +1839,7 @@
     },
     {
       "id": "abstract_algebra-ring-theory-prime-maximal",
-      "name": "Ring Theory \u2014 Prime & Maximal Ideals",
+      "name": "Ring Theory — Prime & Maximal Ideals",
       "processType": "axiomatic_theory",
       "subcategory": "abstract_algebra",
       "subcategory_name": "Abstract Algebra",
@@ -1878,7 +1875,7 @@
     },
     {
       "id": "abstract_algebra-field-theory-extensions",
-      "name": "Field Theory \u2014 Fields & Extensions",
+      "name": "Field Theory — Fields & Extensions",
       "processType": "axiomatic_theory",
       "subcategory": "abstract_algebra",
       "subcategory_name": "Abstract Algebra",
@@ -1899,7 +1896,7 @@
     },
     {
       "id": "abstract_algebra-field-theory-splitting",
-      "name": "Field Theory \u2014 Algebraic Closure & Splitting Fields",
+      "name": "Field Theory — Algebraic Closure & Splitting Fields",
       "processType": "axiomatic_theory",
       "subcategory": "abstract_algebra",
       "subcategory_name": "Abstract Algebra",
@@ -1920,7 +1917,7 @@
     },
     {
       "id": "abstract_algebra-field-theory-galois",
-      "name": "Field Theory \u2014 Galois Extensions & Fundamental Theorem",
+      "name": "Field Theory — Galois Extensions & Fundamental Theorem",
       "processType": "axiomatic_theory",
       "subcategory": "abstract_algebra",
       "subcategory_name": "Abstract Algebra",
@@ -1960,7 +1957,7 @@
     },
     {
       "id": "calculus_analysis-real-analysis-completeness",
-      "name": "Real Analysis \u2014 Ordered Field & Completeness",
+      "name": "Real Analysis — Ordered Field & Completeness",
       "processType": "axiomatic_theory",
       "subcategory": "calculus_analysis",
       "subcategory_name": "Calculus & Analysis",
@@ -1978,7 +1975,7 @@
     },
     {
       "id": "calculus_analysis-real-analysis-limits-continuity",
-      "name": "Real Analysis \u2014 Sequences, Limits & Continuity",
+      "name": "Real Analysis — Sequences, Limits & Continuity",
       "processType": "axiomatic_theory",
       "subcategory": "calculus_analysis",
       "subcategory_name": "Calculus & Analysis",
@@ -1999,7 +1996,7 @@
     },
     {
       "id": "calculus_analysis-real-analysis-differentiation",
-      "name": "Real Analysis \u2014 Differentiation",
+      "name": "Real Analysis — Differentiation",
       "processType": "axiomatic_theory",
       "subcategory": "calculus_analysis",
       "subcategory_name": "Calculus & Analysis",
@@ -2035,7 +2032,7 @@
     },
     {
       "id": "linear_algebra-linear-algebra-vector-spaces",
-      "name": "Linear Algebra \u2014 Vector Spaces & Bases",
+      "name": "Linear Algebra — Vector Spaces & Bases",
       "processType": "axiomatic_theory",
       "subcategory": "linear_algebra",
       "subcategory_name": "Linear Algebra",
@@ -2053,7 +2050,7 @@
     },
     {
       "id": "linear_algebra-linear-algebra-linear-maps",
-      "name": "Linear Algebra \u2014 Linear Maps",
+      "name": "Linear Algebra — Linear Maps",
       "processType": "axiomatic_theory",
       "subcategory": "linear_algebra",
       "subcategory_name": "Linear Algebra",
@@ -2071,7 +2068,7 @@
     },
     {
       "id": "linear_algebra-linear-algebra-eigenvalues",
-      "name": "Linear Algebra \u2014 Eigenvalues & Diagonalization",
+      "name": "Linear Algebra — Eigenvalues & Diagonalization",
       "processType": "axiomatic_theory",
       "subcategory": "linear_algebra",
       "subcategory_name": "Linear Algebra",
@@ -2089,7 +2086,7 @@
     },
     {
       "id": "discrete_mathematics-type-theory",
-      "name": "Type Theory & \u03bb-Calculus",
+      "name": "Type Theory & λ-Calculus",
       "processType": "axiomatic_theory",
       "subcategory": "discrete_mathematics",
       "subcategory_name": "Discrete Mathematics",
@@ -2107,7 +2104,7 @@
     },
     {
       "id": "discrete_mathematics-type-theory-lambda",
-      "name": "Type Theory \u2014 Untyped \u03bb-Calculus",
+      "name": "Type Theory — Untyped λ-Calculus",
       "processType": "axiomatic_theory",
       "subcategory": "discrete_mathematics",
       "subcategory_name": "Discrete Mathematics",
@@ -2125,7 +2122,7 @@
     },
     {
       "id": "discrete_mathematics-type-theory-typing",
-      "name": "Type Theory \u2014 Simply Typed \u03bb-Calculus",
+      "name": "Type Theory — Simply Typed λ-Calculus",
       "processType": "axiomatic_theory",
       "subcategory": "discrete_mathematics",
       "subcategory_name": "Discrete Mathematics",
@@ -2143,7 +2140,7 @@
     },
     {
       "id": "discrete_mathematics-type-theory-normalization",
-      "name": "Type Theory \u2014 Normalization & Curry-Howard",
+      "name": "Type Theory — Normalization & Curry-Howard",
       "processType": "axiomatic_theory",
       "subcategory": "discrete_mathematics",
       "subcategory_name": "Discrete Mathematics",
@@ -2179,7 +2176,7 @@
     },
     {
       "id": "discrete_mathematics-model-theory-structures",
-      "name": "Model Theory \u2014 Languages & Structures",
+      "name": "Model Theory — Languages & Structures",
       "processType": "axiomatic_theory",
       "subcategory": "discrete_mathematics",
       "subcategory_name": "Discrete Mathematics",
@@ -2197,7 +2194,7 @@
     },
     {
       "id": "discrete_mathematics-model-theory-elementary",
-      "name": "Model Theory \u2014 Elementary Equivalence",
+      "name": "Model Theory — Elementary Equivalence",
       "processType": "axiomatic_theory",
       "subcategory": "discrete_mathematics",
       "subcategory_name": "Discrete Mathematics",
@@ -2215,7 +2212,7 @@
     },
     {
       "id": "discrete_mathematics-model-theory-compactness",
-      "name": "Model Theory \u2014 Compactness & L\u00f6wenheim-Skolem",
+      "name": "Model Theory — Compactness & Löwenheim-Skolem",
       "processType": "axiomatic_theory",
       "subcategory": "discrete_mathematics",
       "subcategory_name": "Discrete Mathematics",
@@ -2254,7 +2251,7 @@
     },
     {
       "id": "discrete_mathematics-proof-theory-sequents",
-      "name": "Proof Theory \u2014 Sequent Calculus",
+      "name": "Proof Theory — Sequent Calculus",
       "processType": "axiomatic_theory",
       "subcategory": "discrete_mathematics",
       "subcategory_name": "Discrete Mathematics",
@@ -2272,7 +2269,7 @@
     },
     {
       "id": "discrete_mathematics-proof-theory-cut-elimination",
-      "name": "Proof Theory \u2014 Cut Elimination",
+      "name": "Proof Theory — Cut Elimination",
       "processType": "axiomatic_theory",
       "subcategory": "discrete_mathematics",
       "subcategory_name": "Discrete Mathematics",
@@ -2290,7 +2287,7 @@
     },
     {
       "id": "discrete_mathematics-proof-theory-normalization",
-      "name": "Proof Theory \u2014 Normalization",
+      "name": "Proof Theory — Normalization",
       "processType": "axiomatic_theory",
       "subcategory": "discrete_mathematics",
       "subcategory_name": "Discrete Mathematics",
@@ -2522,7 +2519,7 @@
     },
     {
       "id": "geometry_topology-euclid-elements-book-i",
-      "name": "Euclid's Elements \u2014 Book I (Plane Geometry)",
+      "name": "Euclid's Elements — Book I (Plane Geometry)",
       "processType": "axiomatic_theory",
       "subcategory": "geometry_topology",
       "subcategory_name": "Geometry & Topology",
@@ -2540,7 +2537,7 @@
     },
     {
       "id": "geometry_topology-euclid-elements-book-ii",
-      "name": "Euclid's Elements \u2014 Book II (Geometric Algebra)",
+      "name": "Euclid's Elements — Book II (Geometric Algebra)",
       "processType": "axiomatic_theory",
       "subcategory": "geometry_topology",
       "subcategory_name": "Geometry & Topology",
@@ -2561,7 +2558,7 @@
     },
     {
       "id": "geometry_topology-euclid-elements-book-iii",
-      "name": "Euclid's Elements \u2014 Book III (Circles)",
+      "name": "Euclid's Elements — Book III (Circles)",
       "processType": "axiomatic_theory",
       "subcategory": "geometry_topology",
       "subcategory_name": "Geometry & Topology",
@@ -2579,7 +2576,7 @@
     },
     {
       "id": "geometry_topology-euclid-elements-book-iv",
-      "name": "Euclid's Elements \u2014 Book IV (Inscribed Figures)",
+      "name": "Euclid's Elements — Book IV (Inscribed Figures)",
       "processType": "axiomatic_theory",
       "subcategory": "geometry_topology",
       "subcategory_name": "Geometry & Topology",
@@ -2597,7 +2594,7 @@
     },
     {
       "id": "geometry_topology-euclid-elements-book-v",
-      "name": "Euclid's Elements \u2014 Book V (Proportions)",
+      "name": "Euclid's Elements — Book V (Proportions)",
       "processType": "axiomatic_theory",
       "subcategory": "geometry_topology",
       "subcategory_name": "Geometry & Topology",
@@ -2615,7 +2612,7 @@
     },
     {
       "id": "geometry_topology-euclid-elements-book-vi",
-      "name": "Euclid's Elements \u2014 Book VI (Similar Figures)",
+      "name": "Euclid's Elements — Book VI (Similar Figures)",
       "processType": "axiomatic_theory",
       "subcategory": "geometry_topology",
       "subcategory_name": "Geometry & Topology",
@@ -2633,7 +2630,7 @@
     },
     {
       "id": "geometry_topology-euclid-elements-book-vii",
-      "name": "Euclid's Elements \u2014 Book VII (Number Theory)",
+      "name": "Euclid's Elements — Book VII (Number Theory)",
       "processType": "axiomatic_theory",
       "subcategory": "geometry_topology",
       "subcategory_name": "Geometry & Topology",
@@ -2651,7 +2648,7 @@
     },
     {
       "id": "geometry_topology-euclid-elements-book-viii",
-      "name": "Euclid's Elements \u2014 Book VIII (Continued Proportions)",
+      "name": "Euclid's Elements — Book VIII (Continued Proportions)",
       "processType": "axiomatic_theory",
       "subcategory": "geometry_topology",
       "subcategory_name": "Geometry & Topology",
@@ -2669,7 +2666,7 @@
     },
     {
       "id": "geometry_topology-euclid-elements-book-ix",
-      "name": "Euclid's Elements \u2014 Book IX (Number Theory)",
+      "name": "Euclid's Elements — Book IX (Number Theory)",
       "processType": "axiomatic_theory",
       "subcategory": "geometry_topology",
       "subcategory_name": "Geometry & Topology",
@@ -2687,7 +2684,7 @@
     },
     {
       "id": "geometry_topology-euclid-elements-book-x",
-      "name": "Euclid's Elements \u2014 Book X (Incommensurables)",
+      "name": "Euclid's Elements — Book X (Incommensurables)",
       "processType": "axiomatic_theory",
       "subcategory": "geometry_topology",
       "subcategory_name": "Geometry & Topology",
@@ -2705,7 +2702,7 @@
     },
     {
       "id": "geometry_topology-euclid-elements-book-xi",
-      "name": "Euclid's Elements \u2014 Book XI (Solid Geometry)",
+      "name": "Euclid's Elements — Book XI (Solid Geometry)",
       "processType": "axiomatic_theory",
       "subcategory": "geometry_topology",
       "subcategory_name": "Geometry & Topology",
@@ -2723,7 +2720,7 @@
     },
     {
       "id": "geometry_topology-euclid-elements-book-xii",
-      "name": "Euclid's Elements \u2014 Book XII (Measurement of Figures)",
+      "name": "Euclid's Elements — Book XII (Measurement of Figures)",
       "processType": "axiomatic_theory",
       "subcategory": "geometry_topology",
       "subcategory_name": "Geometry & Topology",
@@ -2741,7 +2738,7 @@
     },
     {
       "id": "geometry_topology-euclid-elements-book-xiii",
-      "name": "Euclid's Elements \u2014 Book XIII (Regular Solids)",
+      "name": "Euclid's Elements — Book XIII (Regular Solids)",
       "processType": "axiomatic_theory",
       "subcategory": "geometry_topology",
       "subcategory_name": "Geometry & Topology",
@@ -2879,7 +2876,7 @@
     },
     {
       "id": "calculus_analysis-complex-dynamics-julia-fatou",
-      "name": "Complex Dynamics \u2014 Julia & Fatou Sets",
+      "name": "Complex Dynamics — Julia & Fatou Sets",
       "processType": "axiomatic_theory",
       "subcategory": "calculus_analysis",
       "subcategory_name": "Calculus & Analysis",
@@ -2958,7 +2955,7 @@
     },
     {
       "id": "calculus_analysis-hubbard-douady-collection",
-      "name": "Hubbard & Douady \u2014 Mandelbrot Set",
+      "name": "Hubbard & Douady — Mandelbrot Set",
       "processType": "axiomatic_theory",
       "subcategory": "calculus_analysis",
       "subcategory_name": "Calculus & Analysis",
@@ -2994,7 +2991,7 @@
     },
     {
       "id": "calculus_analysis-boettcher-external-rays",
-      "name": "B\u00f6ttcher Coordinate & External Rays",
+      "name": "Böttcher Coordinate & External Rays",
       "processType": "axiomatic_theory",
       "subcategory": "calculus_analysis",
       "subcategory_name": "Calculus & Analysis",
@@ -3156,7 +3153,7 @@
     },
     {
       "id": "bioinformatics-sequence-alignment-nw-sw",
-      "name": "Sequence Alignment \u2014 Needleman-Wunsch & Smith-Waterman",
+      "name": "Sequence Alignment — Needleman-Wunsch & Smith-Waterman",
       "processType": "algorithm",
       "subcategory": "bioinformatics",
       "subcategory_name": "Bioinformatics",
@@ -3236,7 +3233,7 @@
     },
     {
       "id": "statistics_probability-kolmogorov-axioms",
-      "name": "Statistics & Probability \u2014 Kolmogorov Axioms",
+      "name": "Statistics & Probability — Kolmogorov Axioms",
       "processType": "axiomatic_theory",
       "subcategory": "statistics_probability",
       "subcategory_name": "Statistics & Probability",
@@ -3258,7 +3255,7 @@
     },
     {
       "id": "statistics_probability-bayes-theorem",
-      "name": "Statistics & Probability \u2014 Bayes' Theorem",
+      "name": "Statistics & Probability — Bayes' Theorem",
       "processType": "axiomatic_theory",
       "subcategory": "statistics_probability",
       "subcategory_name": "Statistics & Probability",
@@ -3281,7 +3278,7 @@
     },
     {
       "id": "statistics_probability-central-limit-theorem",
-      "name": "Statistics & Probability \u2014 Central Limit Theorem",
+      "name": "Statistics & Probability — Central Limit Theorem",
       "processType": "axiomatic_theory",
       "subcategory": "statistics_probability",
       "subcategory_name": "Statistics & Probability",
@@ -3304,7 +3301,7 @@
     },
     {
       "id": "statistics_probability-law-of-large-numbers",
-      "name": "Statistics & Probability \u2014 Law of Large Numbers",
+      "name": "Statistics & Probability — Law of Large Numbers",
       "processType": "axiomatic_theory",
       "subcategory": "statistics_probability",
       "subcategory_name": "Statistics & Probability",
@@ -3325,7 +3322,7 @@
     },
     {
       "id": "statistics_probability-markov-chains",
-      "name": "Statistics & Probability \u2014 Markov Chains",
+      "name": "Statistics & Probability — Markov Chains",
       "processType": "axiomatic_theory",
       "subcategory": "statistics_probability",
       "subcategory_name": "Statistics & Probability",
@@ -3364,7 +3361,7 @@
     },
     {
       "id": "complex_analysis-analytic-cauchy-riemann",
-      "name": "Complex Analysis \u2014 Analytic Functions & Cauchy\u2013Riemann",
+      "name": "Complex Analysis — Analytic Functions & Cauchy–Riemann",
       "processType": "axiomatic_theory",
       "subcategory": "complex_analysis",
       "subcategory_name": "Complex Analysis",
@@ -3387,7 +3384,7 @@
     },
     {
       "id": "complex_analysis-cauchy-residue",
-      "name": "Complex Analysis \u2014 Cauchy Integral & Residue Calculus",
+      "name": "Complex Analysis — Cauchy Integral & Residue Calculus",
       "processType": "axiomatic_theory",
       "subcategory": "complex_analysis",
       "subcategory_name": "Complex Analysis",
@@ -3409,7 +3406,7 @@
     },
     {
       "id": "complex_analysis-conformal-mappings",
-      "name": "Complex Analysis \u2014 Conformal Mappings & Riemann Surfaces",
+      "name": "Complex Analysis — Conformal Mappings & Riemann Surfaces",
       "processType": "axiomatic_theory",
       "subcategory": "complex_analysis",
       "subcategory_name": "Complex Analysis",
@@ -3427,7 +3424,7 @@
     },
     {
       "id": "complex_analysis-entire-picard",
-      "name": "Complex Analysis \u2014 Entire Functions & Picard Theorems",
+      "name": "Complex Analysis — Entire Functions & Picard Theorems",
       "processType": "axiomatic_theory",
       "subcategory": "complex_analysis",
       "subcategory_name": "Complex Analysis",
@@ -3448,7 +3445,7 @@
     },
     {
       "id": "complex_analysis-singularities-laurent",
-      "name": "Complex Analysis \u2014 Singularities & Laurent Series",
+      "name": "Complex Analysis — Singularities & Laurent Series",
       "processType": "axiomatic_theory",
       "subcategory": "complex_analysis",
       "subcategory_name": "Complex Analysis",
@@ -3484,7 +3481,7 @@
     },
     {
       "id": "functional_analysis-banach-spaces",
-      "name": "Functional Analysis \u2014 Banach Spaces",
+      "name": "Functional Analysis — Banach Spaces",
       "processType": "axiomatic_theory",
       "subcategory": "functional_analysis",
       "subcategory_name": "Functional Analysis",
@@ -3502,7 +3499,7 @@
     },
     {
       "id": "functional_analysis-hilbert-spaces",
-      "name": "Functional Analysis \u2014 Hilbert Spaces",
+      "name": "Functional Analysis — Hilbert Spaces",
       "processType": "axiomatic_theory",
       "subcategory": "functional_analysis",
       "subcategory_name": "Functional Analysis",
@@ -3523,7 +3520,7 @@
     },
     {
       "id": "functional_analysis-distributions",
-      "name": "Functional Analysis \u2014 Distributions",
+      "name": "Functional Analysis — Distributions",
       "processType": "axiomatic_theory",
       "subcategory": "functional_analysis",
       "subcategory_name": "Functional Analysis",
@@ -3541,7 +3538,7 @@
     },
     {
       "id": "functional_analysis-bounded-operators",
-      "name": "Functional Analysis \u2014 Bounded Operators",
+      "name": "Functional Analysis — Bounded Operators",
       "processType": "axiomatic_theory",
       "subcategory": "functional_analysis",
       "subcategory_name": "Functional Analysis",
@@ -3559,7 +3556,7 @@
     },
     {
       "id": "functional_analysis-compact-spectral",
-      "name": "Functional Analysis \u2014 Compact Operators & Spectral Theory",
+      "name": "Functional Analysis — Compact Operators & Spectral Theory",
       "processType": "axiomatic_theory",
       "subcategory": "functional_analysis",
       "subcategory_name": "Functional Analysis",
@@ -3595,7 +3592,7 @@
     },
     {
       "id": "numerical_analysis-quadrature",
-      "name": "Numerical Analysis \u2014 Quadrature",
+      "name": "Numerical Analysis — Quadrature",
       "processType": "axiomatic_theory",
       "subcategory": "numerical_analysis",
       "subcategory_name": "Numerical Analysis",
@@ -3613,7 +3610,7 @@
     },
     {
       "id": "numerical_analysis-ode-solvers",
-      "name": "Numerical Analysis \u2014 ODE Solvers",
+      "name": "Numerical Analysis — ODE Solvers",
       "processType": "axiomatic_theory",
       "subcategory": "numerical_analysis",
       "subcategory_name": "Numerical Analysis",
@@ -3631,7 +3628,7 @@
     },
     {
       "id": "numerical_analysis-linear-direct",
-      "name": "Numerical Analysis \u2014 Linear Systems Direct",
+      "name": "Numerical Analysis — Linear Systems Direct",
       "processType": "axiomatic_theory",
       "subcategory": "numerical_analysis",
       "subcategory_name": "Numerical Analysis",
@@ -3652,7 +3649,7 @@
     },
     {
       "id": "numerical_analysis-iterative",
-      "name": "Numerical Analysis \u2014 Iterative Methods",
+      "name": "Numerical Analysis — Iterative Methods",
       "processType": "axiomatic_theory",
       "subcategory": "numerical_analysis",
       "subcategory_name": "Numerical Analysis",
@@ -3670,7 +3667,7 @@
     },
     {
       "id": "numerical_analysis-interpolation",
-      "name": "Numerical Analysis \u2014 Interpolation",
+      "name": "Numerical Analysis — Interpolation",
       "processType": "axiomatic_theory",
       "subcategory": "numerical_analysis",
       "subcategory_name": "Numerical Analysis",
@@ -3691,7 +3688,7 @@
     },
     {
       "id": "geometry_topology-point-set-topology-props-1-15",
-      "name": "Point-Set Topology \u2014 Part 1: Axioms & Definitions",
+      "name": "Point-Set Topology — Part 1: Axioms & Definitions",
       "processType": "axiomatic_theory",
       "subcategory": "geometry_topology",
       "subcategory_name": "Geometry & Topology",
@@ -3709,7 +3706,7 @@
     },
     {
       "id": "geometry_topology-point-set-topology-props-16-30",
-      "name": "Point-Set Topology \u2014 Part 2: Continuity & Compactness",
+      "name": "Point-Set Topology — Part 2: Continuity & Compactness",
       "processType": "axiomatic_theory",
       "subcategory": "geometry_topology",
       "subcategory_name": "Geometry & Topology",
@@ -3727,7 +3724,7 @@
     },
     {
       "id": "geometry_topology-point-set-topology-props-31-45",
-      "name": "Point-Set Topology \u2014 Part 3: Connectedness & Separation",
+      "name": "Point-Set Topology — Part 3: Connectedness & Separation",
       "processType": "axiomatic_theory",
       "subcategory": "geometry_topology",
       "subcategory_name": "Geometry & Topology",
@@ -3745,7 +3742,7 @@
     },
     {
       "id": "geometry_topology-point-set-topology-props-46-60",
-      "name": "Point-Set Topology \u2014 Part 4: Countability & Metrization",
+      "name": "Point-Set Topology — Part 4: Countability & Metrization",
       "processType": "axiomatic_theory",
       "subcategory": "geometry_topology",
       "subcategory_name": "Geometry & Topology",
@@ -3763,7 +3760,7 @@
     },
     {
       "id": "geometry_topology-algebraic-topology-props-1-15",
-      "name": "Algebraic Topology \u2014 Part 1: Homological Algebra",
+      "name": "Algebraic Topology — Part 1: Homological Algebra",
       "processType": "axiomatic_theory",
       "subcategory": "geometry_topology",
       "subcategory_name": "Geometry & Topology",
@@ -3781,7 +3778,7 @@
     },
     {
       "id": "geometry_topology-algebraic-topology-props-16-30",
-      "name": "Algebraic Topology \u2014 Part 2: Simplicial Homology",
+      "name": "Algebraic Topology — Part 2: Simplicial Homology",
       "processType": "axiomatic_theory",
       "subcategory": "geometry_topology",
       "subcategory_name": "Geometry & Topology",
@@ -3799,7 +3796,7 @@
     },
     {
       "id": "geometry_topology-algebraic-topology-props-31-45",
-      "name": "Algebraic Topology \u2014 Part 3: Homology Theory",
+      "name": "Algebraic Topology — Part 3: Homology Theory",
       "processType": "axiomatic_theory",
       "subcategory": "geometry_topology",
       "subcategory_name": "Geometry & Topology",
@@ -3817,7 +3814,7 @@
     },
     {
       "id": "geometry_topology-algebraic-topology-props-46-60",
-      "name": "Algebraic Topology \u2014 Part 4: Persistent Homology & TDA",
+      "name": "Algebraic Topology — Part 4: Persistent Homology & TDA",
       "processType": "axiomatic_theory",
       "subcategory": "geometry_topology",
       "subcategory_name": "Geometry & Topology",
@@ -3947,7 +3944,7 @@
     },
     {
       "id": "number_theory-miller-rabin",
-      "name": "Miller\u2013Rabin Primality Test",
+      "name": "Miller–Rabin Primality Test",
       "processType": "algorithm",
       "subcategory": "number_theory",
       "subcategory_name": "Number Theory",
@@ -3979,13 +3976,13 @@
     },
     {
       "id": "number_theory-szemeredi-theorem",
-      "name": "Szemer\u00e9di's Theorem",
+      "name": "Szemerédi's Theorem",
       "processType": "axiomatic_theory",
       "subcategory": "number_theory",
       "subcategory_name": "Number Theory",
       "frontierStatus": "proved",
       "year": 1975,
-      "prover": "Endre Szemer\u00e9di",
+      "prover": "Endre Szemerédi",
       "complexity": "high",
       "nodes": 11,
       "edges": 12,
@@ -4048,7 +4045,7 @@
     },
     {
       "id": "number_theory-peano-arithmetic-godel-fol",
-      "name": "Peano & G\u00f6del \u2014 Part 4: First-Order Logic",
+      "name": "Peano & Gödel — Part 4: First-Order Logic",
       "processType": "axiomatic_theory",
       "subcategory": "number_theory",
       "subcategory_name": "Number Theory",
@@ -4069,7 +4066,7 @@
     },
     {
       "id": "number_theory-peano-arithmetic-godel-formalization",
-      "name": "Peano & G\u00f6del \u2014 Part 5: Formalization & G\u00f6del Numbering",
+      "name": "Peano & Gödel — Part 5: Formalization & Gödel Numbering",
       "processType": "axiomatic_theory",
       "subcategory": "number_theory",
       "subcategory_name": "Number Theory",
@@ -4090,7 +4087,7 @@
     },
     {
       "id": "number_theory-peano-arithmetic-godel-completeness",
-      "name": "Peano & G\u00f6del \u2014 Part 6: Completeness Theorem",
+      "name": "Peano & Gödel — Part 6: Completeness Theorem",
       "processType": "axiomatic_theory",
       "subcategory": "number_theory",
       "subcategory_name": "Number Theory",
@@ -4112,7 +4109,7 @@
     },
     {
       "id": "number_theory-peano-arithmetic-godel-incompleteness-1",
-      "name": "Peano & G\u00f6del \u2014 Part 7: First Incompleteness Theorem",
+      "name": "Peano & Gödel — Part 7: First Incompleteness Theorem",
       "processType": "axiomatic_theory",
       "subcategory": "number_theory",
       "subcategory_name": "Number Theory",
@@ -4135,7 +4132,7 @@
     },
     {
       "id": "number_theory-peano-arithmetic-godel-incompleteness-2",
-      "name": "Peano & G\u00f6del \u2014 Part 8: Second Incompleteness Theorem",
+      "name": "Peano & Gödel — Part 8: Second Incompleteness Theorem",
       "processType": "axiomatic_theory",
       "subcategory": "number_theory",
       "subcategory_name": "Number Theory",
@@ -4158,7 +4155,7 @@
     },
     {
       "id": "number_theory-peano-arithmetic-paris-harrington",
-      "name": "Peano & Paris \u2014 Part 9: Paris-Harrington Theorem",
+      "name": "Peano & Paris — Part 9: Paris-Harrington Theorem",
       "processType": "axiomatic_theory",
       "subcategory": "number_theory",
       "subcategory_name": "Number Theory",
@@ -4176,7 +4173,7 @@
     },
     {
       "id": "number_theory-peano-arithmetic-paris-goodstein",
-      "name": "Peano & Paris \u2014 Part 10: Goodstein & Kirby-Paris Indicators",
+      "name": "Peano & Paris — Part 10: Goodstein & Kirby-Paris Indicators",
       "processType": "axiomatic_theory",
       "subcategory": "number_theory",
       "subcategory_name": "Number Theory",
@@ -4194,7 +4191,7 @@
     },
     {
       "id": "number_theory-peano-arithmetic-paris-hydra",
-      "name": "Peano & Paris \u2014 Part 11: Hydra Game",
+      "name": "Peano & Paris — Part 11: Hydra Game",
       "processType": "axiomatic_theory",
       "subcategory": "number_theory",
       "subcategory_name": "Number Theory",
@@ -4209,6 +4206,178 @@
       "lemmas": 4,
       "theorems": 2,
       "corollaries": 1
+    },
+    {
+      "id": "number_theory-godel-numbering-algorithm",
+      "name": "Gödel Numbering (arithmetization of syntax)",
+      "processType": "algorithm",
+      "subcategory": "number_theory",
+      "subcategory_name": "Number Theory",
+      "complexity": "high",
+      "nodes": 9,
+      "edges": 9,
+      "orGates": 1,
+      "loops": 1,
+      "andGates": 0,
+      "namedCollections": [
+        "godel",
+        "peano",
+        "theorem-godel-incompleteness"
+      ]
+    },
+    {
+      "id": "geometry_topology-proof-euclid-book-i-pilot",
+      "name": "Euclid Book I (pilot proof bundle)",
+      "processType": "proof_graph",
+      "subcategory": "geometry_topology",
+      "subcategory_name": "Geometry & Topology",
+      "complexity": "medium",
+      "nodes": 41,
+      "edges": 48,
+      "orGates": 0,
+      "loops": 0,
+      "andGates": 0,
+      "algorithm_capsules": 0,
+      "temporary_assumptions": 0,
+      "proofGraphHtml": "euclid-book-i-pilot.html",
+      "frontier": false,
+      "namedCollections": [
+        "euclid"
+      ]
+    },
+    {
+      "id": "number_theory-proof-infinitely-many-primes",
+      "name": "Infinitely Many Primes (Euclid)",
+      "processType": "proof_graph",
+      "subcategory": "number_theory",
+      "subcategory_name": "Number Theory",
+      "complexity": "medium",
+      "nodes": 14,
+      "edges": 17,
+      "orGates": 0,
+      "loops": 0,
+      "andGates": 0,
+      "algorithm_capsules": 1,
+      "temporary_assumptions": 1,
+      "proofGraphHtml": "infinitely-many-primes.html",
+      "frontier": false,
+      "namedCollections": [
+        "euclid"
+      ]
+    },
+    {
+      "id": "foundations-proof-cantor-diagonal-proofs",
+      "name": "Cantor Diagonal Proofs (bundle)",
+      "processType": "proof_graph",
+      "subcategory": "foundations",
+      "subcategory_name": "Foundations",
+      "complexity": "high",
+      "nodes": 42,
+      "edges": 50,
+      "orGates": 0,
+      "loops": 0,
+      "andGates": 0,
+      "algorithm_capsules": 1,
+      "temporary_assumptions": 0,
+      "proofGraphHtml": "cantor-diagonal-proofs.html",
+      "frontier": false,
+      "namedCollections": [
+        "cantor"
+      ]
+    },
+    {
+      "id": "number_theory-proof-fundamental-theorem-arithmetic",
+      "name": "Fundamental Theorem of Arithmetic (proof graph)",
+      "processType": "proof_graph",
+      "subcategory": "number_theory",
+      "subcategory_name": "Number Theory",
+      "complexity": "high",
+      "nodes": 27,
+      "edges": 34,
+      "orGates": 0,
+      "loops": 0,
+      "andGates": 0,
+      "algorithm_capsules": 2,
+      "temporary_assumptions": 1,
+      "proofGraphHtml": "fundamental-theorem-arithmetic.html",
+      "frontier": false
+    },
+    {
+      "id": "geometry_topology-proof-pythagorean-comparison",
+      "name": "Pythagorean Theorem (proof comparison)",
+      "processType": "proof_graph",
+      "subcategory": "geometry_topology",
+      "subcategory_name": "Geometry & Topology",
+      "complexity": "medium",
+      "nodes": 33,
+      "edges": 39,
+      "orGates": 0,
+      "loops": 0,
+      "andGates": 0,
+      "algorithm_capsules": 2,
+      "temporary_assumptions": 0,
+      "proofGraphHtml": "pythagorean-comparison.html",
+      "frontier": false
+    },
+    {
+      "id": "foundations-proof-godel-completeness-theorem",
+      "name": "Gödel Completeness Theorem (proof graph)",
+      "processType": "proof_graph",
+      "subcategory": "foundations",
+      "subcategory_name": "Foundations",
+      "complexity": "high",
+      "nodes": 15,
+      "edges": 15,
+      "orGates": 0,
+      "loops": 0,
+      "andGates": 0,
+      "algorithm_capsules": 1,
+      "temporary_assumptions": 0,
+      "proofGraphHtml": "godel-completeness-theorem.html",
+      "frontier": false,
+      "namedCollections": [
+        "godel",
+        "peano"
+      ]
+    },
+    {
+      "id": "foundations-proof-godel-first-incompleteness",
+      "name": "Gödel First Incompleteness (proof graph)",
+      "processType": "proof_graph",
+      "subcategory": "foundations",
+      "subcategory_name": "Foundations",
+      "complexity": "high",
+      "nodes": 14,
+      "edges": 13,
+      "orGates": 0,
+      "loops": 0,
+      "andGates": 0,
+      "algorithm_capsules": 1,
+      "temporary_assumptions": 0,
+      "proofGraphHtml": "godel-first-incompleteness.html",
+      "frontier": false,
+      "namedCollections": [
+        "godel",
+        "peano",
+        "theorem-godel-incompleteness"
+      ]
+    },
+    {
+      "id": "number_theory-proof-kirby-paris-goodstein",
+      "name": "Kirby–Paris / Goodstein Independence (frontier proof graph)",
+      "processType": "proof_graph",
+      "subcategory": "number_theory",
+      "subcategory_name": "Number Theory",
+      "complexity": "high",
+      "nodes": 10,
+      "edges": 9,
+      "orGates": 0,
+      "loops": 0,
+      "andGates": 0,
+      "algorithm_capsules": 1,
+      "temporary_assumptions": 0,
+      "proofGraphHtml": "kirby-paris-goodstein-independence.html",
+      "frontier": true
     }
   ]
 }
