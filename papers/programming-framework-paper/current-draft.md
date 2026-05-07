@@ -1,4 +1,4 @@
-# The Programming Framework: A General Method for Process Analysis Using LLMs and Mermaid Visualization
+# The Programming Framework: A General Method for Process Analysis Using LLMs and Mermaid Visualisation
 
 > **Source:** Converted May 2026 from `programming_framework.pdf`. Readable from WSL as `/mnt/c/Users/garyw/Downloads/programming_framework.pdf` when the file is in Windows Downloads.
 
@@ -15,15 +15,20 @@ Email: gwelz@gc.cuny.edu
 
 Scientific and technical fields rely heavily on textual process descriptions that are difficult to compare, analyze, or reuse computationally. We introduce the Programming Framework, a methodology for transforming textual process descriptions into structured, computable diagrams using large language models (LLMs) and Mermaid diagram syntax. Node colors, shapes, and edge types serve as lightweight semantic markers, providing flexible visual encoding that can be adapted to domain-specific conventions. We demonstrate the feasibility and cross-domain transferability of the methodology through application across biology (100+ processes via the Genome Logic Modeling Project, currently undergoing domain expert review), chemistry (70+ processes), and mathematics — where the framework extends naturally from algorithmic flowcharts to axiomatic dependency graphs and proof graphs, enabling unified structural comparison across procedural and logical forms. Applications in physics and computer science further demonstrate domain-agnostic transferability. The methodology is designed to lower the barrier to process visualization for researchers, educators, and AI systems, enabling structured comparison and analysis across scientific disciplines without requiring specialized software or domain-specific diagramming expertise. The Programming Framework is proposed as reusable, open infrastructure — a starting point that others can adopt, extend, and critique — with all methodology, tools, and examples publicly available.
 
-Keywords: process visualization, LLM-powered analysis, Mermaid diagrams, knowledge representation,
-cross-disciplinary analysis, scientific workflows
+## Key Points
+
+- A repeatable LLM pipeline turns textual process descriptions into structured Mermaid flowcharts across five scientific domains.
+- A five-category colour scheme—customisable per domain—supports rapid visual parsing and cross-disciplinary comparison of processes.
+- Deployments from GLMP (100+ biological processes) through extended mathematics graphs demonstrate feasibility, not formal efficacy trials.
+- GLMP flowcharts are under domain-expert review with the Computational Genomics Laboratory at Hunter College, CUNY.
+- Methodology, tools, and examples are open infrastructure on Hugging Face and public storage for adoption and extension.
 
 ## 1. Introduction
 ### 1.1 Motivation
 Processes are central to scientific and technical work. Biologists describe reaction pathways and regulatory
 networks; computer scientists specify algorithms and data pipelines; chemists outline reaction mechanisms;
-physicists model physical processes; mathematicians formalize proofs and algorithms. These processes are
-usually documented in prose, sometimes accompanied by diagrams that are static, informal, or disciplinespecific.
+physicists model physical processes; mathematicians formalise proofs and algorithms. These processes are
+usually documented in prose, sometimes accompanied by diagrams that are static, informal, or discipline-specific.
 This creates several problems:
 1. Limited comparability: Two textual descriptions of similar processes may be difficult to compare
 systematically, even within the same discipline.
@@ -35,18 +40,18 @@ transfer and interdisciplinary collaboration.
 time-consuming and error-prone.
 
 Large language models (LLMs) now provide a pragmatic way to transform text into structured representations.
-However, without a clear methodology and standardized representation format, attempts at “LLM diagram”
+However, without a clear methodology and standardised representation format, attempts at “LLM diagram”
 conversions risk being ad-hoc and irreproducible.
 ### 1.2 The Programming Framework Approach
 The Programming Framework addresses these challenges by providing:
-1. A suggested color-coding system as a starting point, with flexibility for domain-specific customization
+1. A suggested colour-coding system as a starting point, with flexibility for domain-specific customisation
 2. A repeatable LLM-based methodology for extracting processes from text into structured flowcharts
-3. Mermaid Markdown as visualization standard for human-readable, version-controllable diagrams
+3. Mermaid Markdown as visualisation standard for human-readable, version-controllable diagrams
 4. A JSON-based storage format with metadata for managing large collections of process diagrams
 5. An iterative refinement loop where humans and AI collaborate to improve process fidelity over time
 The Framework is intended as a “meta-tool”: it does not prescribe what processes must look like in each
 field, but instead offers a consistent way to represent and refine them, enabling cross-disciplinary comparison
-and optimization.
+and optimisation.
 
 We demonstrate the feasibility and cross-domain transferability of the Programming Framework through application across five scientific disciplines. The framework is proposed as infrastructure for further development, not as a validated system with formal accuracy metrics — those remain important directions for future work.
 ### 1.3 Contributions
@@ -54,63 +59,55 @@ This paper contributes:
 Methodological: - A repeatable LLM-based pipeline for extracting processes from text into structured
 flowcharts - A concrete, step-by-step methodology with prompt engineering guidelines and validation
 workflows - Practical observations about prompt design, failure modes, and human–AI collaboration in
-process modeling
-Representational: - A suggested five-category color-coding system (Red/Yellow/Green/Blue/Violet) as a
-starting point, with examples of domain-specific customization (e.g., GLMP’s logical connectives) - Mermaid
+process modelling
+Representational: - A suggested five-category colour-coding system (Red/Yellow/Green/Blue/Violet) as a
+starting point, with examples of domain-specific customisation (e.g., GLMP’s logical connectives) - Mermaid
 + JSON as computable, version-controlled artifacts with extensible metadata schemas
 Empirical: - Feasibility demonstrations across biology (GLMP with 100+ processes), mathematics, physics, chemistry, and computer science - Working systems and live artifacts illustrating cross-domain transferability
 ## 2. Related Work
-This section situates the Programming Framework within existing research on process modeling, knowledge
+This section situates the Programming Framework within existing research on process modelling, knowledge
 representation, and LLM-based diagram generation.
-### 2.1 Process Modeling in Scientific Domains
-Process modeling has a long history in scientific computing and knowledge representation. In biology,
+### 2.1 Process Modelling in Scientific Domains
+Process modelling has a long history in scientific computing and knowledge representation. In biology,
 standards like SBGN [5], BioPAX [6], and SBML [7] provide formal representations for biochemical
-networks, enabling quantitative modeling and simulation. However, these standards require specialized
+networks, enabling quantitative modelling and simulation. However, these standards require specialised
 tools (CellDesigner [8], Cytoscape [9]) and significant expertise, creating barriers to adoption for rapid
-visualization and cross-domain comparison.
+visualisation and cross-domain comparison.
 In computer science, UML [10] provides comprehensive notation for software processes, but its complexity
-can be overwhelming for simple process flows. Chemistry lacks a unified process visualization standard
+can be overwhelming for simple process flows. Chemistry lacks a unified process visualisation standard
 
 comparable to SBGN, with tools primarily focused on molecular structure drawing rather than reaction
-pathways. Mathematics and physics similarly lack standardized process visualization formats, relying on
+pathways. Mathematics and physics similarly lack standardised process visualisation formats, relying on
 domain-specific simulation tools.
-The Programming Framework addresses a gap: providing accessible, text-based process visualization that
+The Programming Framework addresses a gap: providing accessible, text-based process visualisation that
 works across domains while maintaining compatibility with existing standards when needed. This work builds
 on principles from knowledge representation (Gruber, 1993) and ontology engineering (Noy & McGuinness,
-2001), adapting them for practical, accessible process visualization.
+2001), adapting them for practical, accessible process visualisation.
 ### 2.2 Knowledge Representation and Ontology Engineering
 The Framework’s JSON-based metadata schema draws from principles in ontology engineering and semantic
 web technologies. While not implementing full RDF/OWL semantics, the structured metadata approach
 enables entity linking, cross-referencing, and integration with knowledge graphs—core goals of semantic
 web research (Berners-Lee et al., 2001). The approach aligns with lightweight ontology principles (Uschold
 & Gruninger, 1996), prioritizing practical utility over formal completeness.
-The color-coding system provides a lightweight ontology for process stages (input  structure  operation
+The colour-coding system provides a lightweight ontology for process stages (input  structure  operation
  intermediate  output), enabling pattern recognition and cross-domain comparison without requiring
 formal ontology development. This aligns with research on visual knowledge representation (Larkin &
-Simon, 1987) and the use of color semantics for information organization (Healey & Enns, 2012).
+Simon, 1987) and the use of colour semantics for information organisation (Healey & Enns, 2012).
 ### 2.3 LLM-Based Knowledge Extraction
-Recent advances in large language models have enabled automated extraction of structured information
-from unstructured text (Brown et al., 2020; OpenAI, 2023). The Programming Framework applies these
-capabilities specifically to process extraction, building on work in relation extraction (Zelenko et al., 2003),
-event extraction (Ahn, 2006), and knowledge graph construction (Ji et al., 2021).
-Unlike general-purpose knowledge extraction, the Framework focuses on process-specific structures: sequences, decisions, branches, and flows. This specialization enables more reliable extraction through
-domain-agnostic but process-aware prompts, drawing on research in structured output generation (Ouyang et al., 2022) and prompt engineering for scientific applications (White et al., 2023).
+Large language models now support structured extraction from unstructured text (Brown et al., 2020; OpenAI, 2023). The Programming Framework applies that capacity to process-specific structures—sequences, decisions, branches, and flows—using process-aware prompts and structured output methods (Ouyang et al., 2022; White et al., 2023).
 ### 2.4 Scientific Workflow Systems
-Scientific workflow systems (e.g., Taverna, Galaxy, KNIME) enable researchers to compose and execute
-computational pipelines. The Programming Framework complements these systems by providing visualization and analysis of process logic, rather than execution environments. The Framework’s diagrams could
-potentially be mapped to workflow specifications, enabling bidirectional translation between visual process
-descriptions and executable workflows.
-### 2.5 Diagram Generation and Visualization
+Scientific workflow systems execute computational pipelines rather than documenting process logic for comparison. The Programming Framework complements them by visualising and analysing process structure; diagrams could in principle map to workflow specifications for bidirectional translation.
+### 2.5 Diagram Generation and Visualisation
 Automated diagram generation from text has been explored in various contexts (Kong et al., 2019; Liu et
 al., 2020). The Programming Framework’s contribution is its focus on scientific processes, cross-domain
-applicability, and integration with version-controlled, structured data formats. The use of Mermaid Markdown provides a balance between expressiveness and accessibility, avoiding the complexity of specialized
+applicability, and integration with version-controlled, structured data formats. The use of Mermaid Markdown provides a balance between expressiveness and accessibility, avoiding the complexity of specialised
 diagramming languages while maintaining sufficient structure for computational analysis.
 
 ## 3. Methodology
 The Programming Framework treats process extraction as a structured transformation task with human-inthe-loop verification. At a high level, the pipeline has five stages:
 1. Process scoping and selection
 2. LLM-based structure extraction
-3. Mermaid diagram generation with color coding
+3. Mermaid diagram generation with colour coding
 4. JSON storage and metadata attachment
 5. Iterative refinement (human + AI)
 ### 3.1 Process Scoping and Selection
@@ -129,9 +126,9 @@ exploration, or when the source text provides only a summary description
 3. Specify the perspective: For example, “molecular events,” “data flow,” “user actions,” or “computational steps”
 These scoping decisions are made by a human operator but are clearly communicated to the LLM via the
 prompt.
-### 3.2 Suggested Color-Coding System
-The Programming Framework suggests a five-category color-coding system as a starting point for process
-visualization. This system provides a baseline semantic meaning that can be adapted for specific domains:
+### 3.2 Suggested Colour-Coding System
+The Programming Framework suggests a five-category colour-coding system as a starting point for process
+visualisation. This system provides a baseline semantic meaning that can be adapted for specific domains:
 • Red (#ff6b6b): Triggers & Inputs - Initial conditions, environmental inputs, starting materials, or data
 inputs (uses white text for contrast)
 • Yellow (#ffd43b): Structures & Objects - Physical structures, molecules, data structures, algorithms,
@@ -144,16 +141,16 @@ conditions (uses white text for contrast)
 • Violet (#b197fc): Products & Outputs - Final outputs, end products, or results (uses white text for
 contrast)
 Rationale for Five Categories: The five-category system balances cognitive load with visual distinctiveness.
-Five colors provide sufficient semantic granularity to capture the primary stages of most processes (input 
+Five colours provide sufficient semantic granularity to capture the primary stages of most processes (input 
 structure  operation  intermediate  output) while remaining visually distinguishable and memorable.
 This number avoids both oversimplification (fewer categories would lose important distinctions) and cognitive
-overload (more categories would reduce rapid visual parsing). The color choices (Red, Yellow, Green, Blue,
+overload (more categories would reduce rapid visual parsing). The colour choices (Red, Yellow, Green, Blue,
 Violet) follow a natural spectrum that aids memorability and intuitive association with process stages.
-Accessibility Considerations: The color-coding system may present challenges for colorblind users. While
-the Framework allows customization and alternative visual indicators (shapes, patterns, labels), the default
-five-color scheme should be supplemented with text labels and, when possible, shape or pattern variations for
+Accessibility Considerations: The colour-coding system may present challenges for colorblind users. While
+the Framework allows customisation and alternative visual indicators (shapes, patterns, labels), the default
+five-colour scheme should be supplemented with text labels and, when possible, shape or pattern variations for
 accessibility.
-Node Shape Alternatives for Accessibility: Mermaid supports different node shapes that can serve as secondary identifiers independent of color: - Ovals/Stadium shapes for triggers/inputs: A([Input]) - Rectangles for structures/objects: B[Structure] - Hexagons for processing/operations: C{{Operation}}
+Node Shape Alternatives for Accessibility: Mermaid supports different node shapes that can serve as secondary identifiers independent of colour: - Ovals/Stadium shapes for triggers/inputs: A([Input]) - Rectangles for structures/objects: B[Structure] - Hexagons for processing/operations: C{{Operation}}
 - Cylinders for intermediates/states: D[(State)] - Trapezoids for products/outputs: E[/Output\]
 Example Mermaid code using shape-based encoding:
 ```mermaid
@@ -166,15 +163,15 @@ D --> E[/Output\]
 
 This shape-based approach provides accessibility for colorblind users while maintaining the visual distinction of process stages. Future work should include systematic evaluation of colorblind accessibility and
 development of alternative visual encoding schemes.
-Customization and Adaptation: The color scheme is not rigidly enforced. Different processes may require
-different color assignments based on domain-specific needs. For example, in the Genome Logic Modeling
-Project (GLMP), a custom color scheme is used where specific colors represent logical connectives (AND,
+Customisation and Adaptation: The colour scheme is not rigidly enforced. Different processes may require
+different colour assignments based on domain-specific needs. For example, in the Genome Logic Modelling
+Project (GLMP), a custom colour scheme is used where specific colours represent logical connectives (AND,
 OR, NOT nodes) to better represent regulatory logic in biological systems. Other processes might benefit
-from domain-specific color schemes that highlight particular aspects of the process (e.g., energy levels, time
+from domain-specific colour schemes that highlight particular aspects of the process (e.g., energy levels, time
 sequences, or hierarchical relationships).
-The suggested color system can enable: - Rapid visual parsing of process flow (when consistently applied) -
+The suggested colour system can enable: - Rapid visual parsing of process flow (when consistently applied) -
 Cross-disciplinary comparison using consistent semantics (within a shared scheme) - Pattern recognition
-across different domains - Domain-specific customization for specialized visualization needs
+across different domains - Domain-specific customisation for specialised visualisation needs
 ### 3.3 LLM Prompt Engineering for Process Extraction
 The core of the method uses LLMs to convert scoped text into an ordered set of process elements. A typical
 extraction prompt has the following structure:
@@ -182,8 +179,8 @@ extraction prompt has the following structure:
 “You are a scientific process modeler. Given a textual description of a process, extract a sequence
 of steps, decisions, and flows. Optionally classify each element according to the Programming
 
-Framework’s suggested color system: Red (triggers/inputs), Yellow (structures/objects), Green (processing/operations), Blue (intermediates/states), Violet (products/outputs). Note that domain-specific
-processes may require custom color assignments.”
+Framework’s suggested colour system: Red (triggers/inputs), Yellow (structures/objects), Green (processing/operations), Blue (intermediates/states), Violet (products/outputs). Note that domain-specific
+processes may require custom colour assignments.”
 2. Output schema:
 Request a structured JSON-like or list-form output with elements such as:
 • id: step identifier
@@ -191,16 +188,16 @@ Request a structured JSON-like or list-form output with elements such as:
 "product"
 • label: concise description
 • inputs / outputs: optional fields for data or entities
-• color: assigned color category
+• colour: assigned colour category
 3. Constraints:
 • No speculative steps beyond the text
 • Use consistent terminology for entities
 • Explicitly represent branching conditions
-• Maintain color consistency throughout
+• Maintain colour consistency throughout
 4. Example:
-Provide 1–2 worked examples to anchor the model’s behavior, showing how different process types
-map to color categories.
-Given the scoped text and this prompt, the LLM produces a candidate structured representation with color
+Provide 1–2 worked examples to anchor the model’s behaviour, showing how different process types
+map to colour categories.
+Given the scoped text and this prompt, the LLM produces a candidate structured representation with colour
 assignments.
 Prompt Sensitivity: Prompt design significantly influences extraction fidelity; this framework therefore
 treats prompts as first-class methodological artifacts. Small variations in prompt wording, example selection,
@@ -212,7 +209,7 @@ Mermaid is an open-source JavaScript-based diagramming and charting software tha
 from text-based descriptions, created by Knut Sveidqvist in 2014 [1]. The project originated from a need to
 simplify diagram creation in documentation workflows and has since become widely adopted, with native
 support in GitHub, GitLab, Notion, Obsidian, and many other platforms [1,2]. The Framework primarily uses
-Mermaid flowcharts with color styling. Mermaid’s text-based syntax enables version control, collaborative
+Mermaid flowcharts with colour styling. Mermaid’s text-based syntax enables version control, collaborative
 editing, and seamless integration into documentation systems.
 **Figure 1:** Basic Programming Framework Structure. Color Legend: Red (#ff6b6b) = Triggers/Inputs, Yellow
 (#ffd43b) = Structures/Objects, Green (#51cf66) = Processing/Operations, Blue (#74c0fc) = Intermediates/States, Violet (#b197fc) = Products/Outputs. Note: This is one possible representation; more detailed
@@ -241,12 +238,12 @@ The transformation from LLM output to Mermaid involves:
 1. Node mapping: Assign each extracted step or decision to a Mermaid node with a short label
 2. Edge construction: Translate the LLM’s ordering and branching into --> or labeled edges (e.g.,
 -->|Yes|)
-3. Color application: Apply the appropriate color styling based on the Framework’s five-category system
-4. Layout specification: Standardize on top-down (TD) or left-right (LR) layouts for consistency
+3. Colour application: Apply the appropriate colour styling based on the Framework’s five-category system
+4. Layout specification: Standardise on top-down (TD) or left-right (LR) layouts for consistency
 5. Styling and grouping (optional): Use Mermaid’s subgraphs or classes to group related steps or
 highlight categories
 This transformation can be done by the same LLM (with a different prompt) or by deterministic code that
-maps a structured intermediate representation to Mermaid syntax with color styling.
+maps a structured intermediate representation to Mermaid syntax with colour styling.
 
 ### 3.5 JSON Storage and Metadata
 Each process diagram is stored as a JSON object that includes:
@@ -254,7 +251,7 @@ Each process diagram is stored as a JSON object that includes:
 • id: unique identifier
 • title: human-readable name
 • description: short textual description
-• mermaid: Mermaid source string (including color styling)
+• mermaid: Mermaid source string (including colour styling)
 • version: version number or timestamp
 • prompt_version: version identifier for the specific prompt template used (enables reproducibility)
 • llm_version: version of the LLM used for generation (e.g., “Gemini 2.0 Flash”, “GPT-4”)
@@ -263,7 +260,7 @@ Each process diagram is stored as a JSON object that includes:
 • category: subdomain or pathway family
 • source: reference to the originating paper, textbook, or URL
 • entities: key entities (genes, proteins, molecules, algorithms, etc.)
-• color_distribution: count of nodes by color category
+• color_distribution: count of nodes by colour category
 • annotations: notes or comments
 • created_by / reviewed_by: human or AI agents involved
 3. Links:
@@ -316,12 +313,12 @@ and identify any missing steps, incorrect relationships, or logical inconsistenc
 
 2. Review loop:
 • Human reviewer checks correctness against source
-• Reviewer flags errors (missing steps, incorrect branches, color misassignments, oversimplifications)
+• Reviewer flags errors (missing steps, incorrect branches, colour misassignments, oversimplifications)
 • Reviewer either edits the Mermaid directly or uses guided prompts to ask the LLM for revisions
 3. Validation prompts:
 • “Compare this diagram to the source text and list any missing steps.”
 • “Identify any logical inconsistencies between the diagram and the description.”
-• “Verify that all color assignments follow the Programming Framework color system.”
+• “Verify that all colour assignments follow the Programming Framework colour system.”
 4. Versioning:
 • Each set of changes increments the version field
 • Past versions are retained for audit and comparison
@@ -335,13 +332,13 @@ The Framework employs a multi-stage validation process to ensure diagram accurac
 • Criteria for correctness:
 – All steps from source text are represented
 – Branching logic matches source description
-– Color assignments follow Framework conventions (or documented domain-specific customizations)
+– Colour assignments follow Framework conventions (or documented domain-specific customisations)
 – No hallucinated steps beyond source material
 – Logical flow is consistent (no unreachable nodes, proper entry/exit points)
 2. Structured Validation Checklist:
 • Completeness: Are all key steps from the source represented?
 • Accuracy: Do the relationships and flows match the source description?
-• Consistency: Are color assignments consistent throughout?
+• Consistency: Are colour assignments consistent throughout?
 • Clarity: Is the diagram readable and interpretable?
 3. Agreement Metrics (Future Work):
 • Current implementation relies on single-reviewer validation
@@ -360,10 +357,10 @@ kappa) calculated for correctness assessments
 ## 4. Applications Across Disciplines
 The Programming Framework has been applied across multiple scientific domains. Here we
 describe applications in biology, chemistry, mathematics, physics, and computer science.
-### 4.1 Biological Processes: Genome Logic Modeling Project (GLMP)
-The most extensive application to date is in the Genome Logic Modeling Project (GLMP), which applies the
+### 4.1 Biological Processes: Genome Logic Modelling Project (GLMP)
+The most extensive application to date is in the Genome Logic Modelling Project (GLMP), which applies the
 Framework to map biological processes.
-Scope: - 100+ processes analyzed across multiple organisms and systems - Processes span 6+ major
+Scope: - 100+ processes analysed across multiple organisms and systems - Processes span 6+ major
 categories: Central Dogma, Metabolism, Signaling, Proteins, Photosynthesis, DNA Repair - Comprehensive
 coverage of regulatory networks, metabolic pathways, and cellular processes
 
@@ -373,21 +370,21 @@ Data sources: - Textbook descriptions - Review articles - Online open-education 
 papers
 Pipeline: 1. Select a process (e.g., “beta-galactosidase regulation”) 2. Identify canonical description and
 supporting references 3. Run the Programming Framework pipeline to generate initial Mermaid diagram
-with color coding 4. Refine the diagram in collaboration with domain knowledge 5. Store final diagram and
+with colour coding 4. Refine the diagram in collaboration with domain knowledge 5. Store final diagram and
 metadata in JSON in Google Cloud Storage 6. Expose diagrams via web-based interactive viewer
 Outcomes: - A coherent collection of biological process diagrams with consistent style
 - A living demonstration of the Framework’s applicability in a complex scientific domain - Integration with the broader
 CopernicusAI Knowledge Engine
 Example: The beta-galactosidase regulation system in E. coli demonstrates complex regulatory logic
 with environmental inputs (Red), regulatory proteins and enzymes (Yellow), metabolic reactions (Green),
-intermediate states (Blue), and final products (Violet). The color coding enables rapid identification of
+intermediate states (Blue), and final products (Violet). The colour coding enables rapid identification of
 regulatory checkpoints and feedback mechanisms.
 Sample Diagram - Beta-Galactosidase Regulation:
 **Figure 2:** Beta-Galactosidase Regulation System in E. coli. Note: This is one possible representation
 of the beta-galactosidase regulation process; more detailed versions showing additional regulatory steps,
 feedback mechanisms, or molecular interactions can be generated by specifying greater detail in the prompt.
 Interactive versions are available at https://huggingface.co/spaces/garywelz/glmp.
-Color Legend: Red (Triggers/Inputs), Yellow (Structures/Objects), Green (Processing/Operations), Blue
+Colour Legend: Red (Triggers/Inputs), Yellow (Structures/Objects), Green (Processing/Operations), Blue
 (Intermediates/States), Violet (Products/Outputs). Interactive versions of this and other biological process
 diagrams are available at the GLMP Hugging Face Space.
 Mermaid Markdown Code:
@@ -428,7 +425,7 @@ Sample Diagram - Catalytic Hydrogenation:
 **Figure 3:** Catalytic Hydrogenation Reaction. Note: This is one possible representation; more
 detailed versions showing molecular structures, energy diagrams, reaction mechanisms, or kinetic steps can
 be generated by specifying greater detail in the prompt.
-Color Legend: Red (Reactants/Inputs), Yellow (Catalyst/Structure), Green (Reactions/Operations), Blue
+Colour Legend: Red (Reactants/Inputs), Yellow (Catalyst/Structure), Green (Reactions/Operations), Blue
 (Intermediates), Violet (Products)
 Mermaid Markdown Code:
 ```mermaid
@@ -461,11 +458,11 @@ style L fill:#51cf66,color:#fff
 
 ### 4.3 Mathematical Processes
 
-The framework has been applied to mathematics across three structural categories: algorithmic flowcharts (e.g., Sieve of Eratosthenes, Merge Sort, Dijkstra's Algorithm, Euclidean Algorithm), axiomatic dependency graphs (e.g., Euclid's Elements, Peano Arithmetic, ZFC Set Theory, Group Theory, Category Theory), and proof graphs — hybrid dependency graphs with node colors encoding proof roles including source, assumption, construction, assertion, inference, algorithm capsule, contradiction, and conclusion (e.g., Euclid Book I pilot proofs, Infinitely Many Primes, Pythagorean Theorem proof comparison, Cantor Diagonal proofs).
+The framework has been applied to mathematics across three structural categories: algorithmic flowcharts (e.g., Sieve of Eratosthenes, Merge Sort, Dijkstra's Algorithm, Euclidean Algorithm), axiomatic dependency graphs (e.g., Euclid's Elements, Peano Arithmetic, ZFC Set Theory, Group Theory, Category Theory), and proof graphs — hybrid dependency graphs with node colours encoding proof roles including source, assumption, construction, assertion, inference, algorithm capsule, contradiction, and conclusion (e.g., Euclid Book I pilot proofs, Infinitely Many Primes, Pythagorean Theorem proof comparison, Cantor Diagonal proofs).
 
 The full mathematics database, including interactive viewers for all three graph types, is available at: https://storage.googleapis.com/regal-scholar-453620-r7-podcast-storage/mathematics-processes-database/mathematics-database-table.html
 
-The proof graph representation uses a domain-specific eight-role color scheme (source, assumption, construction, assertion, inference, algorithm capsule, contradiction, conclusion) rather than the standard five-category system — an instance of the domain-specific customization the Programming Framework explicitly supports.
+The proof graph representation uses a domain-specific eight-role colour scheme (source, assumption, construction, assertion, inference, algorithm capsule, contradiction, conclusion) rather than the standard five-category system — an instance of the domain-specific customisation the Programming Framework explicitly supports.
 
 The Euclidean algorithm example below (adapted from the PDF) illustrates an algorithmic flowchart with inputs (Red), decision and intermediate states (Blue), operations (Green), and final output (Violet).
 
@@ -504,12 +501,12 @@ Computer Security: Cryptographic processes, authentication workflows, security p
 Computer Networks: Protocol implementations, distributed systems, network routing
 Database Systems: Query processing, transaction management, data structures
 Computer Graphics: Rendering pipelines, game development workflows, graphics algorithms
-Example: Computational workflows demonstrate how software processes can be visualized with data inputs
+Example: Computational workflows demonstrate how software processes can be visualised with data inputs
 (Red: input data, parameters), data structures and algorithms (Yellow: data structures, algorithm designs),
 computational operations (Green: processing steps, transformations), intermediate states (Blue: temporary
-data, state variables), and final outputs (Violet: results, reports, visualizations).
-### 4.6 Comparison with Existing Visualization Tools
-The Programming Framework addresses gaps in existing process visualization tools across scientific domains. This section provides a consolidated comparison highlighting common themes and domain-specific
+data, state variables), and final outputs (Violet: results, reports, visualisations).
+### 4.6 Comparison with Existing Visualisation Tools
+The Programming Framework addresses gaps in existing process visualisation tools across scientific domains. This section provides a consolidated comparison highlighting common themes and domain-specific
 considerations.
 Domain-Specific Standards and Tools:
 Domain Standards Key Tools Primary Focus
@@ -519,7 +516,7 @@ CellDesigner [8],
 Cytoscape [9],
 PathVisio, V ANTED
 Precise biochemical notation,
-quantitative modeling
+quantitative modelling
 Chemistry None (lacks unified
 standard)
 ChemDraw,
@@ -527,7 +524,7 @@ ChemDoodle,
 ChemSketch
 Molecular structure drawing
 Mathematics None (lacks process
-visualization standard)
+visualisation standard)
 Coq, Isabelle, Lean
 (proof systems);
 MATLAB, Mathematica
@@ -551,20 +548,13 @@ Framework
 Mermaid Markdown
 (text-based standard)
 LLM + Mermaid.js Cross-disciplinary rapid
-visualization, accessible process
+visualisation, accessible process
 representation
 Common Limitations of Existing Tools:
-1. Cost Barriers: Many professional tools require expensive licenses (CellDesigner, Enterprise Architect,
-Visual Paradigm, commercial Cytoscape plugins)
-
-2. Complexity: Steep learning curves and specialized training requirements
-3. Software Dependencies: Require installation of specific software packages or cloud subscriptions
-4. Format Lock-in: Proprietary or specialized formats that limit portability
-5. Domain Isolation: Tools are typically domain-specific, preventing cross-domain comparison
-6. Limited Accessibility: Binary formats or complex interfaces create barriers to entry
+Existing tools share recurring limitations: costly licences, steep learning curves, dependence on installed or cloud software, proprietary formats that resist portability, domain silos that hinder cross-disciplinary comparison, and interfaces or binary formats that raise access barriers.
 Advantages of the Programming Framework’s Mermaid-Based Approach:
 1. Accessibility:
-• Text-based format readable by humans without specialized software
+• Text-based format readable by humans without specialised software
 • Can be edited in any text editor
 • No software installation required for viewing (renders in GitHub, documentation systems, web
 browsers)
@@ -573,7 +563,7 @@ browsers)
 • Enables collaborative editing and change tracking
 • Supports branching and merging workflows
 3. Low Barrier to Entry:
-• Minimal learning curve compared to specialized tools
+• Minimal learning curve compared to specialised tools
 • No licensing costs
 • Works on any platform with a web browser
 4. Integration:
@@ -583,22 +573,22 @@ browsers)
 5. Cross-Domain Consistency:
 • Same format works across biology, chemistry, mathematics, physics, and computer science
 • Enables comparison and integration across disciplines
-• Suggested color semantics can facilitate pattern recognition when consistently applied
+• Suggested colour semantics can facilitate pattern recognition when consistently applied
 6. Rapid Prototyping:
 • Fast iteration cycles for exploring process representations
 • LLM-assisted generation reduces initial authoring time
 • Easy to modify and refine
 Complementary Use Cases:
-The Programming Framework is not intended to replace specialized tools for high-precision quantitative
-modeling, formal verification, or standards compliance. Instead, it serves complementary purposes:
-• Educational contexts: Quick visualization for teaching and learning
-• Rapid exploration: Initial process mapping before detailed modeling
+The Programming Framework is not intended to replace specialised tools for high-precision quantitative
+modelling, formal verification, or standards compliance. Instead, it serves complementary purposes:
+• Educational contexts: Quick visualisation for teaching and learning
+• Rapid exploration: Initial process mapping before detailed modelling
 • Cross-disciplinary comparison: Comparing processes across domains using consistent representation
 • Documentation: Embedding process diagrams in documentation and web content
 • Collaborative workflows: Version-controlled, text-based collaboration
-• Integration: Embedding process visualizations in knowledge engines and research platforms
-For researchers requiring precise biochemical notation (SBGN), quantitative modeling, formal proof verification, or full UML notation, specialized tools remain the appropriate choice. The Programming Framework
-offers an accessible alternative for contexts where rapid visualization, cross-domain comparison, and ease of
+• Integration: Embedding process visualisations in knowledge engines and research platforms
+For researchers requiring precise biochemical notation (SBGN), quantitative modelling, formal proof verification, or full UML notation, specialised tools remain the appropriate choice. The Programming Framework
+offers an accessible alternative for contexts where rapid visualisation, cross-domain comparison, and ease of
 use are priorities.
 
 ## 5. Results and Discussion
@@ -615,57 +605,37 @@ security, networks, databases, and graphics
 This demonstrates that the method is flexible enough to handle diverse content across scientific disciplines,
 given appropriate prompts and scoping.
 ### 5.2 Benefits Observed
-1. Standardized representation:
-• Using Mermaid provides a simple, readable, and widely supported format
-• The five-category color system enables rapid visual parsing and cross-domain comparison
-• Textual diagrams facilitate version control and collaboration
-2. Reduced authoring burden:
-• LLMs handle the first-pass extraction and drafting
-• Humans focus on validation and refinement, not manual diagram creation from scratch
-• Color coding reduces cognitive load in understanding complex processes
-3. Improved comparability:
-• Processes in different domains share a common visual language
-• Color semantics enable pattern recognition across disciplines
-• JSON metadata enables filtering and grouping by domain, category, or entities
-4. Cross-disciplinary insights:
-• When a consistent color scheme is applied, it can reveal structural similarities between processes
-in different fields
-• Researchers can identify optimization opportunities by comparing processes across domains
-• The framework enables systematic analysis of process efficiency and bottlenecks
-5. Reusability and integration:
-• Diagrams can be linked to podcasts, papers, and metadata records
-• The same representation can support multiple interfaces (web viewer, documentation, educational
-materials)
-• JSON format enables programmatic access and integration with other tools
+Benefits observed across domains include: standardised representation via Mermaid, which is readable, widely supported, and amenable to version control; reduced authoring burden through LLM-assisted first-pass extraction with human validation; improved comparability through shared colour semantics and JSON metadata; cross-disciplinary insights when structurally similar processes from different fields are placed in the same representational space; and reusability through links to briefings, papers, web viewers, and programmatic access to diagram libraries.
 ### 5.3 Limitations and Failure Modes
 Despite its benefits, the Framework has clear limitations:
 
 1. LLM hallucinations and shortcuts:
 • The model may infer steps not present in the source text
 • It may oversimplify or omit important branches when the source is ambiguous
-• Color assignments may be inconsistent without careful prompt engineering
+• Colour assignments may be inconsistent without careful prompt engineering
 2. Granularity mismatch:
 • Without careful scoping, diagrams may be too coarse (missing key detail) or too fine-grained
 (overwhelming users)
 • Different domains may require different levels of detail
 3. Domain-specific nuance:
 • Some fields require notations or conventions that Mermaid cannot fully express
-• For biology, Mermaid lacks the precision of SBGN [5] or the quantitative modeling capabilities
-of specialized tools like CellDesigner [8] and Cytoscape [9]
+• For biology, Mermaid lacks the precision of SBGN [5] or the quantitative modelling capabilities
+of specialised tools like CellDesigner [8] and Cytoscape [9]
 • Subtle mechanistic distinctions can be lost in generic flowchart form
-• Color semantics may need domain-specific interpretation
-• The Framework is not a replacement for specialized tools when precision, quantitative modeling,
+• Colour semantics may need domain-specific interpretation
+• The Framework is not a replacement for specialised tools when precision, quantitative modelling,
 or standards compliance are required
 4. Human time cost for validation:
 • While authoring is faster, thorough validation still requires expert review
 • For high-stakes scientific use, domain experts must be involved
-• Color assignment verification requires domain knowledge
+• Colour assignment verification requires domain knowledge
 5. Quantitative evaluation limitations:
 • The current work provides qualitative demonstrations across multiple domains but lacks systematic quantitative validation
 • No formal accuracy metrics comparing LLM-generated diagrams to expert-created ground truth
 • No inter-rater reliability studies for diagram correctness
 • Future work should include validation studies with domain experts and quantitative accuracy
 measurements
+6. Format expressivity: Mermaid prioritises simplicity, human-readability, and version control over the full precision of specialist diagramming languages such as SBGN (see §3.4).
 Mitigation Strategies: The Framework addresses these limitations through systematic mitigation strategies:
 (1) Multi-checker workflows using multiple AI models for cross-validation, (2) Human-in-the-loop review
 processes with domain experts, (3) Iterative refinement cycles that improve accuracy over time, (4) Version
@@ -688,7 +658,7 @@ culturally biased representations
 • Validation by domain experts from diverse backgrounds helps mitigate these concerns
 3. Accessibility and Equity:
 • The Framework’s text-based approach improves accessibility compared to proprietary tools
-• However, color-coding may present challenges for colorblind users (addressed through customization options)
+• However, colour-coding may present challenges for colorblind users (addressed through customisation options)
 • Future work should include systematic evaluation of accessibility barriers
 4. Intellectual Property:
 • Diagrams derived from copyrighted source materials must respect original authorship
@@ -705,62 +675,31 @@ A)
 • Users should clearly indicate validation status and source materials
 Recommendations: - Always validate LLM-generated diagrams with domain experts before publication or
 high-stakes use - Maintain clear provenance and source attribution - Document validation status and reviewer
-qualifications - Consider accessibility needs when using color-coding - Use version control to enable error
+qualifications - Consider accessibility needs when using colour-coding - Use version control to enable error
 correction and rollback
-### 5.5 Design Choices and Trade-Offs
-1. Mermaid vs. other formats:
-• Chosen for: Simplicity, human-readability, broad tooling support, version control compatibility
-• Trade-off: Lacks the full expressivity of specialized diagramming languages (e.g., SBGN for
-biology)
-2. LLM-driven vs. rule-based extraction:
-• Chosen for: Flexibility across domains without bespoke parsers
-• Trade-off: Behavior is probabilistic and must be constrained by prompts and validation
-3. Suggested color system:
-• Chosen for: Provides a starting point for consistent visualization, simplicity, memorability
-• Trade-off: May not suit all processes; domains may require custom schemes (as demonstrated in
-GLMP with logical connectives)
-• Flexibility: The Framework allows customization, recognizing that different processes benefit
-from different color assignments
-4. JSON storage:
-• Chosen for: Interoperability and ease of integration
-• Trade-off: Does not inherently enforce schema constraints without additional tooling
-
 ## 6. Future Directions
 
 Discipline-specific process databases for biology, chemistry, physics, and computer science are under active development as part of the broader Programming Framework infrastructure, with the mathematics database already demonstrating the framework's extension from algorithmic flowcharts to axiomatic dependency graphs and proof graphs. These databases are intended as open, versioned corpora that others can query, extend, and contribute to.
 
-Several directions extend beyond the current implementation, organized by timeline:
-Short-term (6-12 months): 1. Stronger validation tooling: - Automated checks for structural consistency
-(e.g., no unreachable nodes, single entry/exit) - Rule-based validators for specific domains (e.g., biochemical
-constraints, conservation laws) - Color assignment validation against domain-specific rules
-2. Interactive editors:
-• Web interfaces where users can edit Mermaid diagrams directly and see live previews
-• Assisted editing with AI suggestions for color assignments and process improvements
-• Collaborative editing with version control
-Medium-term (1-2 years): 3. Formal semantics: - Mapping Mermaid diagrams to more formal representations (e.g., Petri nets, state machines) for analysis - Enabling automated reasoning about process properties -
-Supporting process simulation and optimization
-4. Integration with knowledge graphs:
-• Linking diagram nodes to entities in a knowledge graph (genes, chemicals, algorithms, etc.)
-• Supporting multi-diagram reasoning and comparison
-• Enabling cross-domain pattern discovery
-Long-term (2+ years): 5. Community-driven libraries: - Public repositories where researchers can submit,
-review, and reuse process diagrams - Versioned process libraries for specific domains - Community standards
-for color assignment in specialized domains
-6. Domain-specific extensions:
-• Specialized color schemes for specific domains (e.g., extended biology color scheme)
-• Domain-specific validation rules
-• Integration with domain-specific tools and databases
+Further work includes:
+
+1. Stronger validation tooling: automated checks for structural consistency (e.g., no unreachable nodes, single entry/exit); rule-based validators for specific domains (e.g., biochemical constraints, conservation laws); colour-assignment validation against domain-specific rules.
+2. Interactive editors: web interfaces for live Mermaid editing; AI-assisted colour and process suggestions; collaborative editing with version control.
+3. Formal semantics: mapping Mermaid diagrams to formal representations (e.g., Petri nets, state machines) for analysis; automated reasoning about process properties; simulation and optimisation support.
+4. Integration with knowledge graphs: linking nodes to entities (genes, chemicals, algorithms); multi-diagram reasoning; cross-domain pattern discovery.
+5. Community-driven libraries: public repositories to submit, review, and reuse diagrams; versioned domain libraries; community standards for colour assignment in specialised domains.
+6. Domain-specific extensions: specialised colour schemes; domain validation rules; integration with domain-specific tools and databases.
 ## 7. Conclusion
 The Programming Framework offers a practical, reusable method for turning textual process descriptions into
 structured, computable diagrams using LLMs and Mermaid, enhanced by a suggested five-category colorcoding system that can be customized for specific domains. It has been applied to biological
 pathways (via GLMP), chemical reactions, mathematical algorithms, physical processes, and computational
 workflows, demonstrating both domain-agnostic flexibility and the need for careful human validation.
-The framework’s suggested color-coding system provides a starting point for consistent visualization, but
-recognizes that different processes may benefit from custom color schemes, as demonstrated by GLMP’s use
-of domain-specific colors for logical connectives in biological regulatory networks.
-Rather than claiming to “solve” process modeling, the Framework is proposed as infrastructure: a starting
+The framework’s suggested colour-coding system provides a starting point for consistent visualisation, but
+recognises that different processes may benefit from custom colour schemes, as demonstrated by GLMP’s use
+of domain-specific colours for logical connectives in biological regulatory networks.
+Rather than claiming to “solve” process modelling, the Framework is proposed as infrastructure: a starting
 point that others can adopt, critique, and extend. By providing a clear pipeline—from text to Mermaid
-to JSON, with iterative refinement and a suggested color-coding system that can be customized—the
+to JSON, with iterative refinement and a suggested colour-coding system that can be customized—the
 Programming Framework lowers the barrier to creating and maintaining high-quality process representations
 across scientific disciplines.
 We invite researchers, educators, and practitioners to experiment with the method, contribute process examples,
@@ -770,15 +709,16 @@ Engine, the Programming Framework plays a central role in making processes visib
 computable—an essential step toward more transparent and navigable scientific workflows.
 Availability: The Programming Framework methodology, examples, and tools are available at:
 https://huggingface.co/spaces/garywelz/programming_framework
-Related Work: The Genome Logic Modeling Project (GLMP) demonstrates the Framework’s application to
+Related Work: The Genome Logic Modelling Project (GLMP) demonstrates the Framework’s application to
 biology: https://huggingface.co/spaces/garywelz/glmp
 ## Acknowledgments
 
-This work is part of the CopernicusAI Knowledge Engine project, which aims to create AI-powered tools for scientific research synthesis and knowledge discovery. The Programming Framework serves as a foundational methodological component enabling structured representation of processes across scientific disciplines. The author thanks the CUNY Graduate Center New Media Lab for institutional support.
-
-[^mermaid-press]: Informal technology press (e.g., coverage of Mermaid Chart) may be cited in running text with URL only; the TechCrunch and Lifehacker bibliography entries from an earlier draft were removed in favor of peer-reviewed sources in the numbered list.
+This work is part of the CopernicusAI Knowledge Engine project, which aims to create AI-powered tools for scientific research synthesis and knowledge discovery. The Programming Framework serves as a foundational methodological component enabling structured representation of processes across scientific disciplines. The author thanks the CUNY Graduate Center New Media Lab for institutional support. Large language models (including Claude by Anthropic and Gemini by Google) were used in the generation and iterative refinement of process diagrams described in this paper; all diagrams were reviewed and validated by the author. A preprint of this work is available on Zenodo.
 
 ## References
+
+<!-- In-text citations use numbered brackets as an interim format; convert to APA author–date for final Wiley submission (see submission-target.md). -->
+
 [1] Sveidqvist, K. (2014). Mermaid: Diagramming and charting software. GitHub Repository.
 https://github.com/mermaid-js/mermaid
 [2] Wikipedia contributors. (2025). Mermaid (software). In Wikipedia, The Free Encyclopedia. Retrieved
@@ -793,12 +733,12 @@ https://doi.org/10.1038/nbt.1666
 The systems biology markup language (SBML): a medium for representation and exchange of biochemical
 network models. Bioinformatics, 19(4), 524-531. https://doi.org/10.1093/bioinformatics/btg015
 [8] Funahashi, A., Matsuoka, Y ., Jouraku, A., Morohashi, M., Kikuchi, N., & Kitano, H. (2008). CellDesigner
-3.5: A versatile modeling tool for biochemical networks. Proceedings of the IEEE , 96(8), 1254-1265.
+3.5: A versatile modelling tool for biochemical networks. Proceedings of the IEEE , 96(8), 1254-1265.
 https://doi.org/10.1109/JPROC.2008.925458
 [9] Shannon, P., Markiel, A., Ozier, O., Baliga, N. S., Wang, J. T., Ramage, D., . . . & Ideker, T. (2003).
 Cytoscape: a software environment for integrated models of biomolecular interaction networks. Genome
 Research, 13(11), 2498-2504. https://doi.org/10.1101/gr.1239303
-[10] Object Management Group. (2017). Unified Modeling Language (UML), Version 2.5.1 .
+[10] Object Management Group. (2017). Unified Modelling Language (UML), Version 2.5.1 .
 https://www.omg.org/spec/UML/2.5.1/
 [11] Berners-Lee, T., Hendler, J., & Lassila, O. (2001). The semantic web.Scientific American, 284(5), 34-43.
 https://doi.org/10.1038/scientificamerican0501-34
@@ -811,7 +751,7 @@ https://protege.stanford.edu/publications/ontology_development/ontology101.pdf
 Engineering Review, 11(2), 93-136. https://doi.org/10.1017/S0269888900007797
 [15] Larkin, J. H., & Simon, H. A. (1987). Why a diagram is (sometimes) worth ten thousand words.
 Cognitive Science, 11(1), 65-100. https://doi.org/10.1016/S0364-0213(87)80026-5
-[16] Healey, C. G., & Enns, J. T. (2012). Attention and visual memory in visualization and computer graphics. IEEE Transactions on Visualization and Computer Graphics , 18(7), 1170-1188.
+[16] Healey, C. G., & Enns, J. T. (2012). Attention and visual memory in visualisation and computer graphics. IEEE Transactions on Visualisation and Computer Graphics , 18(7), 1170-1188.
 https://doi.org/10.1109/TVCG.2011.127
 [17] Brown, T., Mann, B., Ryder, N., Subbiah, M., Kaplan, J. D., Dhariwal, P., . . . & Amodei, D. (2020).
 Language models are few-shot learners. Advances in Neural Information Processing Systems, 33, 1877-1901.
@@ -838,7 +778,7 @@ The following citations reference publicly available implementations and demonst
 Framework methodology:
 Welz, G. (2024–2025). The Programming Framework: A Universal Method for Process Analysis. Hugging
 Face Spaces. https://huggingface.co/spaces/garywelz/programming_framework
-Welz, G. (2024–2025). GLMP: Genome Logic Modeling Project - A Microscope for Biological Processes.
+Welz, G. (2024–2025). GLMP: Genome Logic Modelling Project - A Microscope for Biological Processes.
 Hugging Face Spaces. https://huggingface.co/spaces/garywelz/glmp
 
 Welz, G. (2024).From Inspiration to AI: Biology as Visual Programming. Medium. https://medium.com/@garywelz_47126/frominspiration-to-ai-biology-as-visual-programming-520ee523029a
@@ -852,7 +792,7 @@ The following is a complete example of a prompt used for process extraction. The
 within standard page margins:
 Task Statement: You are a scientific process modeler. Given a textual description of a process, extract a
 sequence of steps, decisions, and flows. Classify each element according to the Programming Framework’s
-suggested color system.
+suggested colour system.
 Color System: - Red (#ff6b6b): Triggers & Inputs - Initial conditions, environmental inputs, starting materials,
 or data inputs - Yellow (#ffd43b): Structures & Objects - Physical structures, molecules, data structures,
 algorithms, or logical constructs - Green (#51cf66): Processing & Operations - Transformations, reactions,
@@ -881,7 +821,7 @@ Output Format (JSON):
 }
 Constraints: - No speculative steps beyond the text - Use consistent terminology for entities - Explicitly
 
-represent branching conditions - Maintain color consistency throughout
+represent branching conditions - Maintain colour consistency throughout
 Example:
 Input: “When lactose is present, the Lac repressor releases from the operator, allowing RNA polymerase to
 bind and transcribe the lac operon genes.”
@@ -901,7 +841,7 @@ Output:
 {"from": "s4", "to": "s5"}
 ]
 }
-Final Instruction: Now analyze the following process description: [PROCESS_TEXT_HERE]
+Final Instruction: Now analyse the following process description: [PROCESS_TEXT_HERE]
 Note on Prompt Sensitivity: Prompt design significantly influences extraction fidelity. Small variations
 in wording, example selection, or constraint specification can yield substantially different outputs. The
 Framework addresses this through iterative refinement and validation workflows, acknowledging that prompt
