@@ -224,6 +224,10 @@ AND gate count, OR gate count, loop count, graph type.
 - Euclidean Algorithm — minimal loop, elegant termination condition
 - Binary Search — logarithmic branching structure
 
+Figure 1 illustrates the Euclidean algorithm---one of the examples
+above---as an algorithmic flowchart in this colour vocabulary (informal
+caption; legend with the diagram).
+
 *Figure 1: Euclidean Algorithm — algorithmic flowchart.
 Color legend: Red = input, Blue = decision/intermediate,
 Green = operation, Violet = output.*
@@ -282,6 +286,10 @@ axiom-to-theorem ratio, number of distinct proof paths to key results.
   universal constructions
 - Lambda Calculus — foundational for type theory and functional programming;
   bridge between mathematics and computer science
+
+Figure 2 gives an illustrative dependency slice of Book I of *Euclid's
+Elements*---postulates, common notions, and early propositions---with colouring
+by object type (abbreviated node labels after Heath; informal caption).
 
 *Figure 2: Euclid's Elements Book I — axiomatic dependency graph
 (illustrative; abbreviated node labels after Heath).
@@ -364,6 +372,12 @@ proofs of the Pythagorean Theorem via geometric construction, the compass-
 and-straightedge procedure is an algorithm capsule. Making these explicit
 as a distinct node type reveals a structural relationship between proof and
 computation that is normally invisible in prose.
+
+This section develops the vocabulary in prose only; **Section 3.4**
+diagrams the infinitely-many-primes argument in both informal role-oriented
+and Lean-schematic form, **Section 3.5** illustrates loops and merged
+topologies, and the **Appendix** gives the same primes proof as a reference
+graph with full per-node role styling.
 
 **Examples in the database:**
 

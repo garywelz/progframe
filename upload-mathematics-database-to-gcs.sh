@@ -1,6 +1,8 @@
 #!/bin/bash
 # Upload Mathematics Processes Database (including Euclid's Elements chart) to GCS
-# Run from progframe: ./upload-mathematics-database-to-gcs.sh
+# Run from progframe:
+#   ./upload-mathematics-database-to-gcs.sh              # full corpus upload
+#   ./upload-mathematics-database-to-gcs.sh --quick       # metadata + table + proof-graphs + Gödel page only
 
 set -e
 
@@ -8,22 +10,55 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 DB_DIR="/home/gdubs/copernicus-web-public/huggingface-space/mathematics-processes-database"
 BUCKET="gs://regal-scholar-453620-r7-podcast-storage/mathematics-processes-database"
 
+QUICK=0
+for arg in "$@"; do
+  case "$arg" in
+    --quick) QUICK=1 ;;
+    -h|--help)
+      cat <<'EOF'
+Usage: upload-mathematics-database-to-gcs.sh [OPTIONS]
+
+  (default)  Full upload: run graph analysis + build, sync canonical files
+             from progframe into the local Copernicus DB copy, then gsutil
+             the entire mathematics-processes-database tree (Euclid, batches,
+             collections, etc.).
+
+  --quick    Sync only metadata.json, mathematics-database-table.html,
+             proof-graphs/, and number_theory-godel-numbering-algorithm.html
+             from progframe → local DB, then upload just those paths to GCS.
+             Skips python/node rebuilds and all bulk process uploads.
+
+  -h, --help Show this help.
+EOF
+      exit 0
+      ;;
+    *)
+      echo "Unknown option: $arg (use --help)" >&2
+      exit 1
+      ;;
+  esac
+done
+
 if [ ! -d "$DB_DIR" ]; then
     echo "Error: Mathematics database not found at $DB_DIR"
     exit 1
 fi
 
-echo "Uploading Mathematics Processes Database to GCS..."
+if [ "$QUICK" -eq 1 ]; then
+  echo "Quick upload: metadata, table, proof-graphs, Gödel page only..."
+else
+  echo "Uploading Mathematics Processes Database to GCS (full)..."
+fi
 cd "$DB_DIR"
 
-# Re-run graph analysis (OR gates, Loops, AND gates) before upload
-if [ -f "analyze-algorithm-graphs.py" ]; then
+# Re-run graph analysis (OR gates, Loops, AND gates) before full upload
+if [ "$QUICK" -ne 1 ] && [ -f "analyze-algorithm-graphs.py" ]; then
     echo "Running graph analysis..."
     python3 analyze-algorithm-graphs.py
 fi
 
 # Build Whole of Mathematics graph data
-if [ -f "build-graph-data.js" ]; then
+if [ "$QUICK" -ne 1 ] && [ -f "build-graph-data.js" ]; then
     echo "Building graph data..."
     node build-graph-data.js
 fi
@@ -50,6 +85,20 @@ if [ -f "$PF_GN_ALG" ]; then
   mkdir -p "$DB_DIR/processes/number_theory"
   cp "$PF_GN_ALG" "$DB_DIR/processes/number_theory/"
   echo "Synced Gödel numbering algorithm HTML → copernicus DB"
+fi
+
+if [ "$QUICK" -eq 1 ]; then
+  gsutil -h "Cache-Control:no-cache, max-age=0" cp metadata.json "$BUCKET/"
+  gsutil -h "Cache-Control:no-cache, max-age=0" cp mathematics-database-table.html "$BUCKET/"
+  if [ -d "proof-graphs" ]; then
+    echo "Uploading proof-graphs/ (quick)..."
+    gsutil -m -h "Cache-Control:no-cache, max-age=0" cp -r proof-graphs "$BUCKET/"
+  fi
+  if [ -f "processes/number_theory/number_theory-godel-numbering-algorithm.html" ]; then
+    gsutil -h "Cache-Control:no-cache, max-age=0" cp processes/number_theory/number_theory-godel-numbering-algorithm.html "$BUCKET/processes/number_theory/"
+  fi
+  echo "Quick upload done. View at: https://storage.googleapis.com/regal-scholar-453620-r7-podcast-storage/mathematics-processes-database/mathematics-database-table.html"
+  exit 0
 fi
 
 # Upload metadata (with cache bust for fresh fetch)
