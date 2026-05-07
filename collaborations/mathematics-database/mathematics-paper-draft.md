@@ -32,7 +32,9 @@ inference, algorithm capsule, contradiction, conclusion) that makes embedded
 algorithmic substructures within proofs explicitly visible. Together these
 three graph types constitute the Mathematics Database, a publicly accessible,
 machine-readable corpus spanning classical geometry, number theory, algebra,
-set theory, mathematical logic, and theoretical computer science. We argue that this unified
+set theory, mathematical logic, and theoretical computer science, with proof-graph
+pilots including Gödel completeness and first incompleteness, Cantor-style
+diagonalization, and a Kirby–Paris/Goodstein independence treatment. We argue that this unified
 representation reveals structural properties — including complexity metrics,
 algorithm capsule frequency, and cross-proof-family comparisons — that are
 obscured by conventional prose and static diagrams. The methodology is a
@@ -109,7 +111,7 @@ each graph type and the node/edge vocabularies that distinguish them.
 
 **Empirical:** The Mathematics Database — a publicly accessible corpus of
 LLM-generated graphs spanning algorithms (Sieve of Eratosthenes, Merge Sort,
-Dijkstra's Algorithm, Euclidean Algorithm, and others), axiomatic systems
+Dijkstra's Algorithm, Euclidean Algorithm, Gödel numbering, and others), axiomatic systems
 (Euclid's Elements, Peano Arithmetic, ZFC Set Theory, Group Theory, Ring
 Theory, Field Theory, Category Theory, Lambda Calculus), and proof graphs
 (Euclid Book I pilot proofs, Infinitely Many Primes, Pythagorean Theorem
@@ -589,7 +591,9 @@ files stored on Google Cloud Storage, with an interactive HTML viewer that
 renders the data in **three sortable tables** (algorithms, axiomatic theories,
 proof graphs) and generates live Mermaid diagram previews. The deployed manifest uses a `processType` field with values
 `algorithm`, `axiomatic_theory`, and `proof_graph` (parallel to the
-schema's `category` field below).
+schema's `category` field below). As of the May 2026 public `metadata.json`,
+the corpus lists 225 processes in total: 194 axiomatic theories, 23 algorithms,
+and eight proof graphs.
 
 Each entry in the database is a JSON object with the following schema [16]:
 
@@ -996,5 +1000,6 @@ flowchart TD
 
 ---
 
-*Draft status: Pre-submission. Corpus statistics in Section 5 require verification
-against current database state. Target submission: Fall 2026.*
+*Draft status: Pre-submission. Section 5 aggregates node and edge statistics from the
+public `metadata.json` served with the mathematics-database-table viewer (May 2026
+deploy). Target submission: Fall 2026.*
