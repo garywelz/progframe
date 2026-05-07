@@ -9,7 +9,8 @@ Rebuild with: `progframe/.venv-pdf/bin/python3 papers/programming-framework-pape
 Independent Researcher  
 Affiliate, New Media Lab, CUNY Graduate Center  
 Creator, CopernicusAI Knowledge Engine  
-Email: gwelz@gc.cuny.edu
+Email: gwelz@gc.cuny.edu  
+ORCID: https://orcid.org/0009-0005-7806-0892
 
 ## Abstract
 
