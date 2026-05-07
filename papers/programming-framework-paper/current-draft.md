@@ -803,9 +803,7 @@ Output Format (JSON):
 }
 ]
 }
-Constraints: - No speculative steps beyond the text - Use consistent terminology for entities - Explicitly
-
-represent branching conditions - Maintain colour consistency throughout
+Constraints: - No speculative steps beyond the text - Use consistent terminology for entities - Explicitly represent branching conditions - Maintain colour consistency throughout
 Example:
 Input: “When lactose is present, the Lac repressor releases from the operator, allowing RNA polymerase to
 bind and transcribe the lac operon genes.”
