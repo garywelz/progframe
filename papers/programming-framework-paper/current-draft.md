@@ -69,11 +69,11 @@ This section situates the Programming Framework within existing research on proc
 representation, and LLM-based diagram generation.
 ### 2.1 Process Modelling in Scientific Domains
 Process modelling has a long history in scientific computing and knowledge representation. In biology,
-standards like SBGN [5], BioPAX [6], and SBML [7] provide formal representations for biochemical
+standards like SBGN (Le Novère et al., 2009), BioPAX (Demir et al., 2010), and SBML (Hucka et al., 2003) provide formal representations for biochemical
 networks, enabling quantitative modelling and simulation. However, these standards require specialised
-tools (CellDesigner [8], Cytoscape [9]) and significant expertise, creating barriers to adoption for rapid
+tools (Funahashi et al., 2008; Shannon et al., 2003) and significant expertise, creating barriers to adoption for rapid
 visualisation and cross-domain comparison.
-In computer science, UML [10] provides comprehensive notation for software processes, but its complexity
+In computer science, UML (Object Management Group, 2017) provides comprehensive notation for software processes, but its complexity
 can be overwhelming for simple process flows. Chemistry lacks a unified process visualisation standard
 
 comparable to SBGN, with tools primarily focused on molecular structure drawing rather than reaction
@@ -88,7 +88,7 @@ The Framework’s JSON-based metadata schema draws from principles in ontology e
 web technologies. While not implementing full RDF/OWL semantics, the structured metadata approach
 enables entity linking, cross-referencing, and integration with knowledge graphs—core goals of semantic
 web research (Berners-Lee et al., 2001). The approach aligns with lightweight ontology principles (Uschold
-& Gruninger, 1996), prioritizing practical utility over formal completeness.
+& Gruninger, 1996), prioritising practical utility over formal completeness.
 The colour-coding system provides a lightweight ontology for process stages (input  structure  operation
  intermediate  output), enabling pattern recognition and cross-domain comparison without requiring
 formal ontology development. This aligns with research on visual knowledge representation (Larkin &
@@ -206,9 +206,9 @@ iterative refinement and validation workflows, acknowledging that prompt enginee
 rather than a one-time configuration.
 ### 3.4 Mermaid Syntax and Structure
 Mermaid is an open-source JavaScript-based diagramming and charting software that generates diagrams
-from text-based descriptions, created by Knut Sveidqvist in 2014 [1]. The project originated from a need to
+from text-based descriptions, created by Sveidqvist (2014). The project originated from a need to
 simplify diagram creation in documentation workflows and has since become widely adopted, with native
-support in GitHub, GitLab, Notion, Obsidian, and many other platforms [1,2]. The Framework primarily uses
+support in GitHub, GitLab, Notion, Obsidian, and many other platforms (Sveidqvist, 2014; Wikipedia contributors, 2025). The Framework primarily uses
 Mermaid flowcharts with colour styling. Mermaid’s text-based syntax enables version control, collaborative
 editing, and seamless integration into documentation systems.
 **Figure 1:** Basic Programming Framework Structure. Color Legend: Red (#ff6b6b) = Triggers/Inputs, Yellow
@@ -510,10 +510,10 @@ The Programming Framework addresses gaps in existing process visualisation tools
 considerations.
 Domain-Specific Standards and Tools:
 Domain Standards Key Tools Primary Focus
-Biology SBGN [5], BioPAX [6],
-SBML [7]
-CellDesigner [8],
-Cytoscape [9],
+Biology SBGN (Le Novère et al., 2009), BioPAX (Demir et al., 2010),
+SBML (Hucka et al., 2003)
+CellDesigner (Funahashi et al., 2008),
+Cytoscape (Shannon et al., 2003),
 PathVisio, V ANTED
 Precise biochemical notation,
 quantitative modelling
@@ -537,7 +537,7 @@ ANSYS, OpenFOAM
 Numerical simulation
 Computer
 Science
-UML [10] Enterprise Architect,
+UML (Object Management Group, 2017) Enterprise Architect,
 Visual Paradigm,
 Lucidchart, draw.io,
 PlantUML
@@ -619,8 +619,8 @@ Despite its benefits, the Framework has clear limitations:
 • Different domains may require different levels of detail
 3. Domain-specific nuance:
 • Some fields require notations or conventions that Mermaid cannot fully express
-• For biology, Mermaid lacks the precision of SBGN [5] or the quantitative modelling capabilities
-of specialised tools like CellDesigner [8] and Cytoscape [9]
+• For biology, Mermaid lacks the precision of SBGN (Le Novère et al., 2009) or the quantitative modelling capabilities
+of specialised tools like CellDesigner (Funahashi et al., 2008) and Cytoscape (Shannon et al., 2003)
 • Subtle mechanistic distinctions can be lost in generic flowchart form
 • Colour semantics may need domain-specific interpretation
 • The Framework is not a replacement for specialised tools when precision, quantitative modelling,
@@ -717,71 +717,54 @@ This work is part of the CopernicusAI Knowledge Engine project, which aims to cr
 
 ## References
 
-<!-- In-text citations use numbered brackets as an interim format; convert to APA author–date for final Wiley submission (see submission-target.md). -->
+Berners-Lee, T., Hendler, J., & Lassila, O. (2001). The Semantic Web. *Scientific American*, *284*(5), 34–43. https://doi.org/10.1038/scientificamerican0501-34
 
-[1] Sveidqvist, K. (2014). Mermaid: Diagramming and charting software. GitHub Repository.
-https://github.com/mermaid-js/mermaid
-[2] Wikipedia contributors. (2025). Mermaid (software). In Wikipedia, The Free Encyclopedia. Retrieved
-from https://en.wikipedia.org/wiki/Mermaid_(software)
+Brown, T., Mann, B., Ryder, N., Subbiah, M., Kaplan, J. D., Dhariwal, P., Neelakantan, A., Shyam, P., Sastry, G., Askell, A., Agarwal, S., Herbert-Voss, A., Krueger, G., Henighan, T., Child, R., Ramesh, A., Ziegler, D., Wu, J., Winter, C., Hesse, C., Chen, M., Sigler, E., Litwin, M., Gray, S., Chess, B., Clark, J., Berner, C., McCandlish, S., Radford, A., Sutskever, I., & Amodei, D. (2020). Language models are few-shot learners. *Advances in Neural Information Processing Systems*, *33*, 1877–1901. https://proceedings.neurips.cc/paper/2020/hash/1457c0d6bfcb4967418bfb8ac142f64a-Abstract.html
 
-[5] Le Novère, N., Hucka, M., Mi, H., Moodie, S., Schreiber, F., Sorokin, A., . . . & Kitano, H. (2009). The
-Systems Biology Graphical Notation. Nature Biotechnology, 27(8), 735-741. https://doi.org/10.1038/nbt.1558
-[6] Demir, E., Cary, M. P., Paley, S., Fukuda, K., Lemer, C., Vastrik, I., . . . & Bader, G. D. (2010).
-The BioPAX community standard for pathway data sharing. Nature Biotechnology, 28(9), 935-942.
-https://doi.org/10.1038/nbt.1666
-[7] Hucka, M., Finney, A., Sauro, H. M., Bolouri, H., Doyle, J. C., Kitano, H., . . . & Wang, J. (2003).
-The systems biology markup language (SBML): a medium for representation and exchange of biochemical
-network models. Bioinformatics, 19(4), 524-531. https://doi.org/10.1093/bioinformatics/btg015
-[8] Funahashi, A., Matsuoka, Y ., Jouraku, A., Morohashi, M., Kikuchi, N., & Kitano, H. (2008). CellDesigner
-3.5: A versatile modelling tool for biochemical networks. Proceedings of the IEEE , 96(8), 1254-1265.
-https://doi.org/10.1109/JPROC.2008.925458
-[9] Shannon, P., Markiel, A., Ozier, O., Baliga, N. S., Wang, J. T., Ramage, D., . . . & Ideker, T. (2003).
-Cytoscape: a software environment for integrated models of biomolecular interaction networks. Genome
-Research, 13(11), 2498-2504. https://doi.org/10.1101/gr.1239303
-[10] Object Management Group. (2017). Unified Modelling Language (UML), Version 2.5.1 .
-https://www.omg.org/spec/UML/2.5.1/
-[11] Berners-Lee, T., Hendler, J., & Lassila, O. (2001). The semantic web.Scientific American, 284(5), 34-43.
-https://doi.org/10.1038/scientificamerican0501-34
-[12] Gruber, T. R. (1993). A translation approach to portable ontology specifications. Knowledge Acquisition,
-5(2), 199-220. https://doi.org/10.1006/knac.1993.1008
+Demir, E., Cary, M. P., Paley, S., Fukuda, K., Lemer, C., Vastrik, I., Wu, G., D'Eustachio, P., Schaefer, C., Luciano, J., Schacherer, F., Martinez-Flores, I., Hu, Z., Jimenez-Jacinto, V., Joshi-Tope, G., Kandasamy, K., Lopez-Fuentes, A. C., Mi, H., Pichler, E., Rodchenkov, I., Splendiani, A., Tkachev, S., Zucker, J., Gopalakrishnan, H., Ratjan, A., Ramirez, L., Iglesias, P. A., Deasy, J., Alexander, N., Ayanwola, T., … Bader, G. D. (2010). The BioPAX community standard for pathway data sharing. *Nature Biotechnology*, *28*(9), 935–942. https://doi.org/10.1038/nbt.1666
 
-[13] Noy, N. F., & McGuinness, D. L. (2001). Ontology development 101: A guide to creating your first ontology. Stanford Knowledge Systems Laboratory Technical Report KSL-01-05 .
-https://protege.stanford.edu/publications/ontology_development/ontology101.pdf
-[14] Uschold, M., & Gruninger, M. (1996). Ontologies: Principles, methods and applications. Knowledge
-Engineering Review, 11(2), 93-136. https://doi.org/10.1017/S0269888900007797
-[15] Larkin, J. H., & Simon, H. A. (1987). Why a diagram is (sometimes) worth ten thousand words.
-Cognitive Science, 11(1), 65-100. https://doi.org/10.1016/S0364-0213(87)80026-5
-[16] Healey, C. G., & Enns, J. T. (2012). Attention and visual memory in visualisation and computer graphics. IEEE Transactions on Visualisation and Computer Graphics , 18(7), 1170-1188.
-https://doi.org/10.1109/TVCG.2011.127
-[17] Brown, T., Mann, B., Ryder, N., Subbiah, M., Kaplan, J. D., Dhariwal, P., . . . & Amodei, D. (2020).
-Language models are few-shot learners. Advances in Neural Information Processing Systems, 33, 1877-1901.
-https://proceedings.neurips.cc/paper/2020/hash/1457c0d6bfcb4967418bfb8ac142f64a-Abstract.html
-[18] OpenAI. (2023). GPT-4 Technical Report.arXiv preprint arXiv:2303.08774. https://arxiv.org/abs/2303.08774
-[19] Zelenko, D., Aone, C., & Richardella, A. (2003). Kernel methods for relation extraction. Journal of
-Machine Learning Research, 3, 1083-1106. https://www.jmlr.org/papers/v3/zelenko03a.html
-[20] Ahn, D. (2006). The stages of event extraction. Proceedings of the Workshop on Annotating and
-Reasoning about Time and Events, 1-8. https://aclanthology.org/W06-0901/
-[21] Ji, S., Pan, S., Cambria, E., Marttinen, P., & Yu, P. S. (2021). A survey on knowledge graphs:
-Representation, acquisition, and applications. IEEE Transactions on Neural Networks and Learning Systems,
-33(2), 494-514. https://doi.org/10.1109/TNNLS.2021.3070843
-[22] Ouyang, L., et al. (2022). Training language models to follow instructions with human feedback. *Advances in Neural Information Processing Systems*, *35*, 27730–27744.
-[23] White, J., Fu, Q., Hays, S., Sandborn, M., Olea, C., Gilbert, H., . . . & Schmidt, D. C. (2023). A
-prompt pattern catalog to enhance prompt engineering with ChatGPT. arXiv preprint arXiv:2302.11382.
-https://arxiv.org/abs/2302.11382
-[24] Kong, N., Agrawala, M., & Hartmann, B. (2019). Perfopticon: Visual querying for performance in
-large-scale graph databases. Proceedings of the 2019 CHI Conference on Human Factors in Computing
-Systems, 1-12. https://doi.org/10.1145/3290605.3300688
-[25] Liu, C., Wu, P., Li, C., & Zhu, J. (2020). Generating diagrams from natural language. Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing , 3637-3647.
-https://doi.org/10.18653/v1/2020.emnlp-main.295
+Funahashi, A., Matsuoka, Y., Jouraku, A., Morohashi, M., Kikuchi, N., & Kitano, H. (2008). CellDesigner 3.5: A versatile modelling tool for biochemical networks. *Proceedings of the IEEE*, *96*(8), 1254–1265. https://doi.org/10.1109/JPROC.2008.925458
+
+Gruber, T. R. (1993). A translation approach to portable ontology specifications. *Knowledge Acquisition*, *5*(2), 199–220. https://doi.org/10.1006/knac.1993.1008
+
+Healey, C. G., & Enns, J. T. (2012). Attention and visual memory in visualisation and computer graphics. *IEEE Transactions on Visualisation and Computer Graphics*, *18*(7), 1170–1188. https://doi.org/10.1109/TVCG.2011.127
+
+Hucka, M., Finney, A., Sauro, H. M., Bolouri, H., Doyle, J. C., Kitano, H., Arkin, A. P., Bornstein, B. J., Bray, D., Cornish-Bowden, A., Cuellar, A. A., Dronov, S., Gilles, E. D., Ginkel, M., Gor, V., Goryanin, I. I., Hedley, W. J., Hodgman, T. C., Hofmeyr, J., … Wang, J. (2003). The systems biology markup language (SBML): A medium for representation and exchange of biochemical network models. *Bioinformatics*, *19*(4), 524–531. https://doi.org/10.1093/bioinformatics/btg015
+
+Kong, N., Agrawala, M., & Hartmann, B. (2019). Perfopticon: Visual querying for performance in large-scale graph databases. In *Proceedings of the 2019 CHI Conference on Human Factors in Computing Systems* (pp. 1–12). Association for Computing Machinery. https://doi.org/10.1145/3290605.3300688
+
+Larkin, J. H., & Simon, H. A. (1987). Why a diagram is (sometimes) worth ten thousand words. *Cognitive Science*, *11*(1), 65–100. https://doi.org/10.1016/S0364-0213(87)80026-5
+
+Le Novère, N., Hucka, M., Mi, H., Moodie, S., Schreiber, F., Sorokin, A., Demir, E., Wegner, K., Aladjem, M. I., Wimalaratne, S. M., Bergman, F. T., Gauges, R., Ghazal, P., Kawaji, H., Li, L., Matsuoka, Y., Villéger, A., Boyd, S. E., Calzone, L., … Kitano, H. (2009). The systems biology graphical notation. *Nature Biotechnology*, *27*(8), 735–741. https://doi.org/10.1038/nbt.1558
+
+Liu, C., Wu, P., Li, C., & Zhu, J. (2020). Generating diagrams from natural language. In *Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing* (pp. 3637–3647). Association for Computational Linguistics. https://doi.org/10.18653/v1/2020.emnlp-main.295
+
+Noy, N. F., & McGuinness, D. L. (2001). *Ontology development 101: A guide to creating your first ontology* (Tech. Rep. No. KSL-01-05). Stanford Knowledge Systems Laboratory, Stanford University, Stanford, CA, USA. https://protege.stanford.edu/publications/ontology_development/ontology101.pdf
+
+Object Management Group. (2017). *Unified modeling language* (Version 2.5.1). https://www.omg.org/spec/UML/2.5.1/
+
+OpenAI. (2023). *GPT-4 technical report* (arXiv:2303.08774). arXiv. https://arxiv.org/abs/2303.08774
+
+Ouyang, L., Wu, J., Jiang, X., Almeida, D., Wainwright, C., Mishkin, P., Zhang, C., Agarwal, S., Slama, K., Ray, A., Schulman, J., Hilton, J., Kelton, F., Miller, L., Simens, M., Askell, A., Welinder, P., Christiano, P., Leike, J., & Lowe, R. (2022). Training language models to follow instructions with human feedback. *Advances in Neural Information Processing Systems*, *35*, 27730–27744.
+
+Shannon, P., Markiel, A., Ozier, O., Baliga, N. S., Wang, J. T., Ramage, D., Amin, N., Schwikowski, B., & Ideker, T. (2003). Cytoscape: A software environment for integrated models of biomolecular interaction networks. *Genome Research*, *13*(11), 2498–2504. https://doi.org/10.1101/gr.1239303
+
+Sveidqvist, K. (2014). *Mermaid: Diagramming and charting software* [Computer software]. GitHub. https://github.com/mermaid-js/mermaid
+
+Uschold, M., & Gruninger, M. (1996). Ontologies: Principles, methods and applications. *The Knowledge Engineering Review*, *11*(2), 93–136. https://doi.org/10.1017/S0269888900007797
+
+Welz, G. (2024). From inspiration to AI: Biology as visual programming. *Medium*. https://medium.com/@garywelz_47126/frominspiration-to-ai-biology-as-visual-programming-520ee523029a
+
+Welz, G. (2025a). *GLMP: Genome logic modelling project—A microscope for biological processes* [Hugging Face Space]. Hugging Face. https://huggingface.co/spaces/garywelz/glmp
+
+Welz, G. (2025b). *The Programming Framework: A universal method for process analysis* [Hugging Face Space]. Hugging Face. https://huggingface.co/spaces/garywelz/programming_framework
+
+White, J., Fu, Q., Hays, S., Sandborn, M., Olea, C., Gilbert, H., Elrad, T., … Schmidt, D. C. (2023). A prompt pattern catalog to enhance prompt engineering with ChatGPT. *arXiv*. https://arxiv.org/abs/2302.11382
+
+Wikipedia contributors. (2025). *Mermaid (software)*. *Wikipedia, The Free Encyclopedia*. Retrieved 7 May 2026, from https://en.wikipedia.org/wiki/Mermaid_(software)
+
 ## Prior Work and Related Artifacts
-The following citations reference publicly available implementations and demonstrations of the Programming
-Framework methodology:
-Welz, G. (2024–2025). The Programming Framework: A Universal Method for Process Analysis. Hugging
-Face Spaces. https://huggingface.co/spaces/garywelz/programming_framework
-Welz, G. (2024–2025). GLMP: Genome Logic Modelling Project - A Microscope for Biological Processes.
-Hugging Face Spaces. https://huggingface.co/spaces/garywelz/glmp
-
-Welz, G. (2024).From Inspiration to AI: Biology as Visual Programming. Medium. https://medium.com/@garywelz_47126/frominspiration-to-ai-biology-as-visual-programming-520ee523029a
+Interactive demonstrations of the methodology appear as Hugging Face Spaces (Welz, 2025a, 2025b); the Medium article (Welz, 2024) gives additional background. See also *Availability* in the Conclusion for direct links.
 Note on Diagram Rendering: All Mermaid diagram code blocks in this paper render as interactive flowchart diagrams in HTML/web versions. The Programming Framework Hugging
 Face Space (https://huggingface.co/spaces/garywelz/programming_framework) and GLMP Space
 (https://huggingface.co/spaces/garywelz/glmp) provide live, interactive examples where readers can view
