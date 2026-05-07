@@ -3,7 +3,6 @@
 **Gary Welz**  
 Independent Researcher  
 Affiliate, New Media Lab, CUNY Graduate Center  
-Creator, CopernicusAI Knowledge Engine  
 Email: gwelz@gc.cuny.edu
 
 **Status:** Pre-submission draft — May 2026  
@@ -366,6 +365,31 @@ graph where:
 | Contradiction | Purple | A contradiction reached (in proof by contradiction) |
 | Conclusion | Violet | The final conclusion establishing the theorem |
 
+#### Shapes, conjunctive joins, and palette
+
+In the Mathematics Database as currently published, proof steps are rendered in
+Mermaid primarily as **rectangles** (and standard flowchart diamonds for
+branches where used); **role** is carried by **color classing and labels**,
+not by a distinct shape per role. That keeps authoring simple but can blur an
+important proof-theoretic distinction: when several edges point to one node,
+an **algorithm** often means “control may arrive here from alternative
+paths,” whereas a **proof** often means “these premises must be used
+**together**” — **joint support** or conjunctive justification. A design
+iteration (not yet rolled out across the main proof-graph pages) adds an
+explicit, **compact hexagonal AND marker** for such joins so conjunction is
+visible in the graph without a large decorative node occupying most of the
+layout. A worked example applying this grammar to Euclid’s infinitude-of-primes
+argument, with a stronger (less pastel) proof-role palette and updated legend,
+is available at:
+https://storage.googleapis.com/regal-scholar-453620-r7-podcast-storage/mathematics-processes-database/proof-graphs/infinitely-many-primes-v2-demo.html  
+This URL should be understood as a **shape-and-palette demo**; corpus pages
+remain on the rectangular default until migration and validation complete.
+
+Cross-domain methodological note (cf. Genome Logic Modeling [14]): the **AND**
+primitive is analogous in **form** to conjunctive gates or required cofactors
+in regulatory diagrams, but here it encodes **joint justification** among proof
+steps — same logical stencil, **domain-specific reading**.
+
 **The algorithm capsule concept:** Many proofs contain embedded algorithmic
 substructures — explicit constructions or procedures that are carried out
 within the proof. In Euclid's proof of the infinitude of primes, the
@@ -671,6 +695,12 @@ https://huggingface.co/spaces/garywelz/programming_framework
 
 The main table presents all three processType categories in separate sortable sections — algorithms, axiomatic theories, and proof graphs — with columns specific to each type.
 
+An **experimental viewer grammar** for proof graphs—compact hexagonal **AND**
+markers for conjunctive premises and a stronger proof-role palette than the default corpus
+boxes—is illustrated for the infinitude-of-primes material in Section 3 and the Appendix
+on a standalone page not yet mirrored in the table workflow:
+https://storage.googleapis.com/regal-scholar-453620-r7-podcast-storage/mathematics-processes-database/proof-graphs/infinitely-many-primes-v2-demo.html
+
 ---
 
 ## 5. What the Representation Reveals
@@ -838,9 +868,12 @@ systematic expert validation — particularly by logicians and proof theorists
 
 **Mermaid expressivity.** Mermaid does not natively support some features
 that would be useful for proof graphs: parallel proof branches, multiple
-inheritance in axiomatic hierarchies, or quantifier structure. These
-limitations are managed by approximation and noted in individual entry
-metadata.
+inheritance in axiomatic hierarchies, or quantifier structure. Distinguishing
+**joint justification** (conjunctive premises) from **merge-by-control-flow**
+is also non-trivial in default flowchart syntax; proposed mitigations include
+compact **AND** join markers and, sparingly, branch markers analogous to
+**OR** / case splits (see §3.3 demo link). These limitations are otherwise
+managed by approximation and noted in individual entry metadata.
 
 **Corpus size.** Proof graphs are now first-class entries in the deployed
 manifest (eight entries across five mathematical domains), but *N* remains
@@ -891,6 +924,16 @@ interactive viewers suggest a natural application in mathematics education:
 students can explore the dependency structure of theorems, trace proof paths
 from axioms, and compare the structural complexity of different proofs of the
 same result. Development of educational interfaces is planned.
+
+**Proof-graph shape grammar.** The hexagonal AND marker and revised palette in
+the §3.3 v2 demo need stress-testing on **more branchy** proofs already in the
+corpus — e.g. **Cantor diagonal** families or the **Fundamental Theorem of
+Arithmetic** entry — to see whether explicit joins **scale** or add visual
+noise. If join markers proliferate without discipline, graphs may become harder
+to read than the rectangular baseline; the working rule is to reserve AND nodes
+for **semantically important** conjunction. A light-weight **OR** / case marker
+for genuine alternative cases is a natural complement but should likewise be
+used sparingly.
 
 ---
 
