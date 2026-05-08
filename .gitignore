@@ -79,6 +79,9 @@ glmp_analysis_report.json
 glmp_hybridization_pipeline.py
 genome_as_computer_v2 (1).html
 
+# Programming Framework paper — Word exports (regenerate with Pandoc locally; not source of truth)
+papers/programming-framework-paper/*.docx
+
 # Large result artifacts (derived, can be regenerated)
 results/celloracle_grn_coefficients.pkl
 results/celloracle_gene_names.npy
