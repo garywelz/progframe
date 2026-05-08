@@ -52,7 +52,6 @@ Single map of manuscripts and collaboration drafts **in active use**, with stabl
 **Consistency debt (non-blocking):**
 
 - **`copernicus-web` vision paper:** [knowledge_engine_vision.md](https://github.com/garywelz/copernicus-web/blob/main/papers/knowledge_engine_vision.md) still uses an older affiliation line and Gmail in the Markdown; it also cites operational counts (papers, processes) suited to an internal README, not PF submission rules — align author block when that file is next edited, and avoid porting stale counts into PF.
-- **Math paper abstract** currently refers to **“Genome Logic Modeling Project”** (US *Modeling*) in one sentence — consider aligning to **Genome Logic Modelling Project** for consistency with PF and GLMP naming.
 
 ---
 
@@ -69,7 +68,7 @@ Single map of manuscripts and collaboration drafts **in active use**, with stabl
 - Submission checklist / guidelines: [`papers/programming-framework-paper/submission-target.md`](https://github.com/garywelz/progframe/blob/main/papers/programming-framework-paper/submission-target.md)  
 - Cover letter: [`papers/programming-framework-paper/cover-letter-learned-publishing.md`](https://github.com/garywelz/progframe/blob/main/papers/programming-framework-paper/cover-letter-learned-publishing.md)  
 
-**Status:** Submission-ready contingent on author’s final read-through. Main-text prose for Wiley cap: rerun `papers/programming-framework-paper/count_prose_words.py` before submit (script excludes abstract, fenced code, references block; includes appendix prose). **`submission-target.md` still carries an outdated raw `wc` note** — ignore for limit; trust the prose script unless Wiley asks otherwise.  
+**Status:** Submission-ready contingent on author’s final read-through. Main-text prose versus the journal word cap is documented in [`submission-target.md`](papers/programming-framework-paper/submission-target.md) (section **Length check**): run `papers/programming-framework-paper/count_prose_words.py` before submit — it excludes abstract, fenced code, and the references block but **includes appendix prose** (confirm with Wiley whether appendices count toward the cap).  
 
 **Preprint:** [Zenodo 18463442](https://doi.org/10.5281/zenodo.18463442) — update metadata/PDF after final revision.  
 

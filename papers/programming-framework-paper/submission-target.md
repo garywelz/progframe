@@ -8,11 +8,17 @@
 
 ---
 
-## Length warning (verify before submission)
+## Length check (main text vs journal cap)
 
-For an **Original article**, the journal specifies **3,000–6,000 words** (main text). The working Markdown manuscript **`current-draft.md`** is approximately **7,500 words** (`wc -w`), i.e. **over the stated cap**.
+For an **Original article**, the journal specifies **3,000–6,000 words** (main text).
 
-**Next steps:** trim the draft to ≤6,000 words **or** send a **pre-submission enquiry** to Laura Dormer (`editor@alpsp.org`) to confirm whether a modest overrun is acceptable for this manuscript type. Other article types will **not** fit without heavy cut (**Industry update / Case study:** 2,000–4,000; **Opinion:** 1,000–4,000).
+The working Markdown manuscript **`papers/programming-framework-paper/current-draft.md`** is tracked with `papers/programming-framework-paper/count_prose_words.py`. That script estimates **prose** by excluding fenced code blocks (` ``` `), the **Abstract** section, the **References** list, and lines matching `**Figure N:**` captions. **Appendix and “Prior work” prose are included** — confirm with Wiley whether appendices should count toward the cap.
+
+**Last automated check (May 2026):** **~5,950 words** — **within** the 6,000-word upper bound. Re-run the script before submission after any substantive edit.
+
+Raw `wc -w` on the Markdown file is **not** a reliable gauge (it counts code, references, and captions).
+
+**Other article types will not fit without heavy cut:** **Industry update / Case study:** 2,000–4,000; **Opinion:** 1,000–4,000.
 
 ---
 

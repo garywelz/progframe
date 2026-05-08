@@ -39,7 +39,7 @@ algorithm capsule frequency, and cross-proof-family comparisons — that are
 obscured by conventional prose and static diagrams. The methodology is a
 domain-specific application of the Programming Framework, a general method
 for LLM-assisted process visualization across scientific disciplines, and
-makes a parallel argument to the Genome Logic Modeling Project's treatment
+makes a parallel argument to the Genome Logic Modelling Project's treatment
 of gene regulatory circuits: that formal structure is recoverable from
 natural language descriptions of complex systems and is meaningful,
 measurable, and comparable once recovered.
@@ -389,7 +389,7 @@ https://storage.googleapis.com/regal-scholar-453620-r7-podcast-storage/mathemati
 This URL should be understood as a **shape-and-palette demo**; corpus pages
 remain on the rectangular default until migration and validation complete.
 
-Cross-domain methodological note (cf. Genome Logic Modeling [14]): the **AND**
+Cross-domain methodological note (cf. Genome Logic Modelling [14]): the **AND**
 primitive is analogous in **form** to conjunctive gates or required cofactors
 in regulatory diagrams, but here it encodes **joint justification** among proof
 steps — same logical stencil, **domain-specific reading**.
@@ -760,7 +760,7 @@ the unified representation reveals structural relationships between proof and
 computation that are invisible when the two object types are represented
 separately.
 
-This connection extends beyond mathematics to the Genome Logic Modeling
+This connection extends beyond mathematics to the Genome Logic Modelling
 Project [14], which identifies parallel embedded structures in biological
 regulatory circuits — CONDITIONAL gates, NAND/NOR logic, and feedback loops
 that function as computational primitives within gene expression networks. In
@@ -1000,7 +1000,7 @@ mathematical knowledge representation.
 
 [13] S. Polu and I. Sutskever, “Generative language modeling for automated theorem proving,” *arXiv:2009.03393*, 2020.
 
-[14] G. Welz and A. Krampis, *Genome Logic Modeling Project: foundational typology* (working paper), 2026; companion materials at https://huggingface.co/spaces/garywelz/glmp
+[14] G. Welz and A. Krampis, *Genome Logic Modelling Project: foundational typology* (working paper), 2026; companion materials at https://huggingface.co/spaces/garywelz/glmp
 
 [15] K. Sveidqvist and contributors, *Mermaid* — diagram syntax and toolkit, https://www.mermaidjs.org/ (accessed May 2026). (Project initiated 2014.)
 
