@@ -71,7 +71,13 @@ Single map of manuscripts and collaboration papers **in active use**, with stabl
 
 **Consistency debt (non-blocking):**
 
-- **`copernicus-web` vision paper (Paper 8):** still uses an older affiliation line and Gmail in the Markdown; operational counts go stale — align author block on next edit and avoid porting unchecked stats into Paper 7.
+- **Paper 8** ([`copernicus-web`](https://github.com/garywelz/copernicus-web)): **Author block** updated to the canonical strip *locally* (May 2026) — commit and push when you sync that repo. **Still to do before submission:** replace or date-stamp operational counts (avoid stale “12,000+” / “100+” etc.); update ref to **Paper 7** from Hugging Face-only to **Zenodo/journal** once the Learned Publishing version is final; consider moving the introduction’s “What this paper does NOT contribute” list into the limitations section for a stronger vision-paper tone.
+- **Paper 3** (Circuit Class, [`glmp`](https://github.com/garywelz/glmp)): **Ref. rBio-1 / bioRxiv** — `10.1101/2025.08.18.670981` resolves (e.g. [bioRxiv landing](https://www.biorxiv.org/content/10.1101/2025.08.18.670981v4)); keep version number (e.g. v4) accurate in the citation.
+
+**Already aligned in `progframe` (May 2026):**
+
+- **Paper 6 abstract** — uses **Genome Logic Modelling Project** (UK); no remaining “Modeling” in GLMP name in [`mathematics-paper-draft.md`](https://github.com/garywelz/progframe/blob/main/collaborations/mathematics-database/mathematics-paper-draft.md).
+- **Paper 7** — scoped for Learned Publishing; no action from the recent cross-read beyond your submit/Zenodo workflow.
 
 ---
 
@@ -82,6 +88,7 @@ Single map of manuscripts and collaboration papers **in active use**, with stabl
 - **Paper 5** (*Genomic Regulatory Complexity…*) elevated from synthesis document to **standalone paper**; develop into full manuscript.
 - **Teaching deck** confirmed **presentation only** — not developed into a paper; excluded from the eight-paper inventory.
 - Full **eight-paper** program (Papers 1–8) documented here; Krampis arc is **five** papers under [krampis-virtual-cell](https://github.com/garywelz/glmp/tree/main/collaborations/krampis-virtual-cell).
+- **Cross-read backlog (biology arc, non-urgent):** Consider threading **attractive conditional / nucleation** (Paper 3, §10.5) earlier into Papers 1–2 as theory develops; foreground **rBio-1 independent validation** in Paper 3 abstract or conclusion if the venue allows; settle **UK vs US *Modelling/*** for GLMP wording with Krampis by **target journal** house style.
 
 ---
 
