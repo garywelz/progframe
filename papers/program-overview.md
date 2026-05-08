@@ -71,7 +71,7 @@ Single map of manuscripts and collaboration papers **in active use**, with stabl
 
 **Consistency debt (non-blocking):**
 
-- **Paper 8** ([`copernicus-web`](https://github.com/garywelz/copernicus-web)): **Author block** updated to the canonical strip *locally* (May 2026) — commit and push when you sync that repo. **Still to do before submission:** replace or date-stamp operational counts (avoid stale “12,000+” / “100+” etc.); update ref to **Paper 7** from Hugging Face-only to **Zenodo/journal** once the Learned Publishing version is final; consider moving the introduction’s “What this paper does NOT contribute” list into the limitations section for a stronger vision-paper tone.
+- **Paper 8** ([`copernicus-web`](https://github.com/garywelz/copernicus-web)): **Author block** now matches the canonical strip (Researcher, NML, `gwelz@gc.cuny.edu`, ORCID) — confirm it is **committed and pushed** on that repo. **Still to do before submission:** replace or date-stamp operational counts (avoid stale “12,000+” / “100+” etc.); update ref to **Paper 7** from Hugging Face-only to **Zenodo/journal** once the Learned Publishing version is final; consider moving the introduction’s “What this paper does NOT contribute” list into the limitations section for a stronger vision-paper tone.
 - **Paper 3** (Circuit Class, [`glmp`](https://github.com/garywelz/glmp)): **Ref. rBio-1 / bioRxiv** — `10.1101/2025.08.18.670981` resolves (e.g. [bioRxiv landing](https://www.biorxiv.org/content/10.1101/2025.08.18.670981v4)); keep version number (e.g. v4) accurate in the citation.
 
 **Already aligned in `progframe` (May 2026):**
