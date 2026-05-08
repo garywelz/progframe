@@ -23,8 +23,6 @@ Thank you for considering this work.
 Yours sincerely,
 
 Gary Welz  
-Independent Researcher  
-Affiliate, New Media Lab, CUNY Graduate Center  
-Creator, CopernicusAI Knowledge Engine  
+Researcher, New Media Lab, CUNY Graduate Center  
 gwelz@gc.cuny.edu  
 https://orcid.org/0009-0005-7806-0892

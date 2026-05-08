@@ -1,9 +1,9 @@
 # Algorithms, Axioms, and Proofs as Graphs: A Unified Diagrammatic Representation of Mathematical Structure
 
 **Gary Welz**  
-Independent Researcher  
-Affiliate, New Media Lab, CUNY Graduate Center  
-Email: gwelz@gc.cuny.edu
+Researcher, New Media Lab, CUNY Graduate Center  
+Email: gwelz@gc.cuny.edu  
+ORCID: https://orcid.org/0009-0005-7806-0892
 
 **Status:** Pre-submission draft — May 2026  
 **Repository:** garywelz/progframe  

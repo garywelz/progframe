@@ -92,15 +92,14 @@ Email: garywelz@gmail.com
 **Replace with:**
 ```
 Gary Welz  
-Independent Researcher  
-Affiliate, New Media Lab, CUNY Graduate Center  
-Creator, CopernicusAI Knowledge Engine  
-Email: gwelz@gc.cuny.edu
+Researcher, New Media Lab, CUNY Graduate Center  
+Email: gwelz@gc.cuny.edu  
+ORCID: https://orcid.org/0009-0005-7806-0892
 ```
 
 **Rationale:**  
 "Retired Faculty Member" is accurate but undersells the current positioning.
-"Independent Researcher; Affiliate, New Media Lab" is consistent with all
+"Researcher, New Media Lab, CUNY Graduate Center" is consistent with all
 outreach emails and the Krampis collaboration framing. Use the CUNY email,
 not Gmail, for submission.
 
