@@ -11,12 +11,12 @@
 
 ## Purpose
 
-Single map of manuscripts and collaboration drafts **in active use**, with stable links and cross-paper guardrails.
+Single map of manuscripts and collaboration papers **in active use**, with stable links and cross-paper guardrails.
 
 **Use for:**
 
 - Cross-paper consistency (claims, terminology, spelling).
-- Briefing collaborators (e.g. Krampis lab) without resending every draft.
+- Briefing collaborators (Krampis lab and others) without resending every draft.
 - Session context for tooling (Cursor, Claude, etc.) — read this first, then open the cited files.
 
 ---
@@ -24,11 +24,27 @@ Single map of manuscripts and collaboration drafts **in active use**, with stabl
 ## Repository map
 
 | Artifact | Repo | Role |
-|---------|------|------|
-| Programming Framework manuscript, submission notes, cover letter | [progframe](https://github.com/garywelz/progframe) | Canonical MD for LP submission |
-| Mathematics Database paper | [progframe](https://github.com/garywelz/progframe) | Methods + corpus paper |
-| Krampis / virtual-cell collaboration drafts | [glmp](https://github.com/garywelz/glmp) | Working papers under `collaborations/krampis-virtual-cell/` |
-| Knowledge Engine vision paper | [copernicus-web](https://github.com/garywelz/copernicus-web) | Vision / CopernicusAI framing |
+|----------|------|------|
+| PF manuscript, submission notes, cover letter | [progframe](https://github.com/garywelz/progframe) | **Paper 7** — *Learned Publishing* submission |
+| Mathematics Database paper | [progframe](https://github.com/garywelz/progframe) | **Paper 6** — methods + corpus |
+| `program-overview.md` (this file) | [progframe](https://github.com/garywelz/progframe) | Cross-paper map |
+| GLMP Papers **1–5** (Welz & Krampis) | [glmp](https://github.com/garywelz/glmp) | Under `collaborations/krampis-virtual-cell/` |
+| Knowledge Engine vision paper | [copernicus-web](https://github.com/garywelz/copernicus-web) | **Paper 8** — vision / CopernicusAI |
+
+---
+
+## Submission pipeline (inventory)
+
+| # | Paper | Authors | Status | Next action | Target |
+|---|-------|---------|--------|-------------|--------|
+| 7 | Programming Framework | Welz | Ready to submit | Final review → Zenodo update → Wiley portal | May 2026 |
+| 6 | Mathematics Database | Welz | Pre-submission draft | Hold; update corpus stats when ready | Fall 2026 |
+| 8 | Knowledge Engine | Welz | Holding | Wait for 100K CopernicusAI milestone | Aug 2026 |
+| 1 | Primitive Relations | Welz & Krampis | Working draft | Continue development | End of summer 2026 |
+| 2 | Genome as Computer | Welz & Krampis | Working draft | Continue development | End of summer 2026 |
+| 3 | Circuit Class | Welz & Krampis | Working draft | Continue development | End of summer 2026 |
+| 4 | Mermaid & Perturbation | Welz & Krampis | Elevate to standalone | Expand from methods doc | End of summer 2026 |
+| 5 | Synthesis for Biologists | Welz & Krampis | Elevate to full paper | Develop from synthesis doc | End of summer 2026 |
 
 ---
 
@@ -38,49 +54,128 @@ Single map of manuscripts and collaboration drafts **in active use**, with stabl
 
 | Term / rule | Canonical wording | Where it applies |
 |-------------|-------------------|----------------|
-| GLMP full name | **Genome Logic Modelling Project** (UK *Modelling*) | PF paper, math paper cross-references, GLMP-facing text |
+| GLMP full name | **Genome Logic Modelling Project** (UK *Modelling*) | PF paper, math paper, GLMP-facing text |
 | Mathematics programme name | **Algorithms, Axiomatic Theories, and Proofs** (not “Axioms” in the trilogy title) | Math paper title, PF paper, this overview |
-| Process / diagram **counts** in prose | **Do not use** (“100+”, “70+”, etc.) in journal-bound PF prose | PF manuscript (counts may appear in tooling/vision docs elsewhere — avoid copying into PF) |
-| GLMP validation claim | **Do not** claim GLMP is “under domain expert review” or name Hunter labs unless accurate and authorised | PF manuscript |
-| Chemistry / physics / CS in PF | **Early-stage / illustrative range** — not parity with GLMP + math programme | PF manuscript |
-| Author block | Gary Welz; Researcher, New Media Lab, CUNY Graduate Center; email; ORCID | All newly edited papers |
-| PF Space | https://huggingface.co/spaces/garywelz/programming_framework | PF, citations |
+| GLMP collaboration authorship | **Gary Welz & Konstantinos Krampis** | Papers 1–5; any cross-citations to that arc |
+| Krampis affiliation | **Hunter College / CUNY Graduate Center** | Papers 1–5 author blocks |
+| Papers 4 and 5 status | **Elevated to standalone papers May 2026** | This overview; status references |
+| Teaching deck | **Presentation material only — not a paper** | This overview; do not list as a manuscript |
+| Process / diagram **counts** in prose | **Do not use** (“100+”, “70+”, etc.) in journal-bound **Paper 7** prose | PF manuscript (elsewhere counts may appear — do not copy stale numbers into Paper 7) |
+| GLMP validation claim | **Do not** claim GLMP is “under domain expert review” or name labs unless accurate and authorised | Paper 7 manuscript |
+| Chemistry / physics / CS in Paper 7 | **Early-stage / illustrative range** — not parity with GLMP + math programme | Paper 7 manuscript |
+| Sole-author block (Welz) | Gary Welz; Researcher, New Media Lab, CUNY Graduate Center; email; ORCID | Papers 6–8 when edited |
+| PF Space | https://huggingface.co/spaces/garywelz/programming_framework | Citations |
 | GLMP Space | https://huggingface.co/spaces/garywelz/glmp | PF, math, biology text |
-| Math database table (public) | https://storage.googleapis.com/regal-scholar-453620-r7-podcast-storage/mathematics-processes-database/mathematics-database-table.html | Math paper, PF |
-| Zenodo PF preprint DOI | https://doi.org/10.5281/zenodo.18463442 | PF manuscript text, cover letter |
+| Math database table (public) | https://storage.googleapis.com/regal-scholar-453620-r7-podcast-storage/mathematics-processes-database/mathematics-database-table.html | Papers 6–7 |
+| Zenodo PF preprint DOI | https://doi.org/10.5281/zenodo.18463442 | Paper 7, cover letter |
 
 **Consistency debt (non-blocking):**
 
-- **`copernicus-web` vision paper:** [knowledge_engine_vision.md](https://github.com/garywelz/copernicus-web/blob/main/papers/knowledge_engine_vision.md) still uses an older affiliation line and Gmail in the Markdown; it also cites operational counts (papers, processes) suited to an internal README, not PF submission rules — align author block when that file is next edited, and avoid porting stale counts into PF.
+- **`copernicus-web` vision paper (Paper 8):** still uses an older affiliation line and Gmail in the Markdown; operational counts go stale — align author block on next edit and avoid porting unchecked stats into Paper 7.
 
 ---
 
-## Paper 1 — The Programming Framework
+## May 2026 — session notes
 
-**Title:** *The Programming Framework: A General Method for Process Analysis Using LLMs and Mermaid Visualisation*  
-
-**Source of truth:** [papers/programming-framework-paper/current-draft.md](https://github.com/garywelz/progframe/blob/main/papers/programming-framework-paper/current-draft.md)  
-
-**Venue / type:** [*Learned Publishing*](https://onlinelibrary.wiley.com/journal/17414857) (Wiley / ALPSP) — Original Article  
-
-**Supporting files in repo:**  
-
-- Submission checklist / guidelines: [`papers/programming-framework-paper/submission-target.md`](https://github.com/garywelz/progframe/blob/main/papers/programming-framework-paper/submission-target.md)  
-- Cover letter: [`papers/programming-framework-paper/cover-letter-learned-publishing.md`](https://github.com/garywelz/progframe/blob/main/papers/programming-framework-paper/cover-letter-learned-publishing.md)  
-
-**Status:** Submission-ready contingent on author’s final read-through. Main-text prose versus the journal word cap is documented in [`submission-target.md`](papers/programming-framework-paper/submission-target.md) (section **Length check**): run `papers/programming-framework-paper/count_prose_words.py` before submit — it excludes abstract, fenced code, and the references block but **includes appendix prose** (confirm with Wiley whether appendices count toward the cap).  
-
-**Preprint:** [Zenodo 18463442](https://doi.org/10.5281/zenodo.18463442) — update metadata/PDF after final revision.  
-
-**Core claim (one sentence):** A repeatable methodology for extracting structured, versionable **Mermaid** diagrams (with JSON/metadata) from text using **LLMs**, with **biology (GLMP)** and **mathematics (Algorithms, Axiomatic Theories, and Proofs)** as the two grounded applications; chemistry / physics / computer science framed as illustrative.  
-
-**Ties to other work:** Depends on math programme for extended graph types; depends on GLMP as biological application narrative; informs **Knowledge Engine** as downstream consumer of process artefacts.  
-
-**Recent alignment pass:** APA references, Oxford UK including abstract, standardised author block, removed inflated domain claims and numeric process brags per submission discipline.  
+- Confirmed **Papers 1–5** all co-authored **Welz & Krampis**; target **bioRxiv** then peer-reviewed biology / bioinformatics; first submissions **end of summer 2026** (working target).
+- **Paper 4** (*Mermaid Flowcharts and Smarter Perturbation Design*) elevated to **standalone methods paper**; draft exists — expand toward full submission.
+- **Paper 5** (*Genomic Regulatory Complexity…*) elevated from synthesis document to **standalone paper**; develop into full manuscript.
+- **Teaching deck** confirmed **presentation only** — not developed into a paper; excluded from the eight-paper inventory.
+- Full **eight-paper** program (Papers 1–8) documented here; Krampis arc is **five** papers under [krampis-virtual-cell](https://github.com/garywelz/glmp/tree/main/collaborations/krampis-virtual-cell).
 
 ---
 
-## Paper 2 — Algorithms, Axiomatic Theories, and Proofs (Mathematics Database)
+## Paper 1 — Primitive relations, complexity, genomic computational class
+
+**Authors:** Gary Welz & Konstantinos Krampis (Hunter College / CUNY Graduate Center)  
+
+**Title:** *Primitive Relations, Computational Complexity, and a Conjecture on the Genomic Computational Class*  
+
+**Markdown (canonical):** [primitive-relations-genomic-computational-class.md](https://github.com/garywelz/glmp/blob/main/collaborations/krampis-virtual-cell/primitive-relations-genomic-computational-class.md)  
+
+**HTML:** https://storage.googleapis.com/regal-scholar-453620-r7-podcast-storage/mathematics-processes-database/GLMP_Foundational_Typology.html  
+
+**Core claim:** Gene regulatory circuits implement recognisable logical primitives (CONDITIONAL, NAND/NOR, XOR, feedback) representable as typed flowcharts and assigned to computational complexity classes — a foundational typology for the genomic computational class conjecture.  
+
+**Status:** Working draft — active  
+
+---
+
+## Paper 2 — Genome as computer
+
+**Authors:** Gary Welz & Konstantinos Krampis  
+
+**Title:** *The Genome as Computer: Logical Primitives, Runtime States, and the Computational Limits of Biological Prediction*  
+
+**Markdown:** [genome-as-computer.md](https://github.com/garywelz/glmp/blob/main/collaborations/krampis-virtual-cell/genome-as-computer.md)  
+
+**HTML:** https://storage.googleapis.com/regal-scholar-453620-r7-podcast-storage/mathematics-processes-database/genome_as_computer_v2.html  
+
+**Core claim:** The genome implements computation through logical primitives and runtime states; the computational class of a regulatory circuit places fundamental limits on predictability of biological outcomes, independent of measurement quality or model sophistication.  
+
+**Status:** Working draft — active  
+
+---
+
+## Paper 3 — Circuit class and virtual cell accuracy
+
+**Authors:** Gary Welz & Konstantinos Krampis  
+
+**Title:** *Circuit Class Predicts Virtual Cell Model Accuracy: An Empirical Test of the Genomic Computational Complexity Hypothesis*  
+
+**Markdown:** [circuit-class-predicts-virtual-cell-model-accuracy.md](https://github.com/garywelz/glmp/blob/main/collaborations/krampis-virtual-cell/circuit-class-predicts-virtual-cell-model-accuracy.md)  
+
+**HTML:** https://storage.googleapis.com/regal-scholar-453620-r7-podcast-storage/mathematics-processes-database/empirical_sequel_draft.html  
+
+**Core claim:** The computational complexity class of a gene regulatory circuit predicts virtual cell model accuracy — an empirical test of the hypothesis in Papers 1 and 2.  
+
+**Status:** Working draft — active  
+
+---
+
+## Paper 4 — Mermaid flowcharts and perturbation design
+
+**Authors:** Gary Welz & Konstantinos Krampis  
+
+**Title:** *Mermaid Flowcharts and Smarter Perturbation Design*  
+
+**Markdown:** [mermaid-flowcharts-smarter-perturbation-design.md](https://github.com/garywelz/glmp/blob/main/collaborations/krampis-virtual-cell/mermaid-flowcharts-smarter-perturbation-design.md)  
+
+**HTML:** https://storage.googleapis.com/regal-scholar-453620-r7-podcast-storage/glmp-v2/slides/Mermaid_Flowcharts_and_Perturbation_Design.html  
+
+**Core claim:** LLM-generated Mermaid flowcharts of gene regulatory circuits can guide perturbation experiment design by making circuit logic and intervention points explicit and inspectable.  
+
+**Status:** Elevated to **standalone methods paper** — May 2026. Draft exists; expand from methods document toward full standalone submission.  
+
+**Companion (not a paper):** class-style deck — https://storage.googleapis.com/regal-scholar-453620-r7-podcast-storage/glmp-v2/slides/GLMP_Krampis_Combined_April_2026.html  
+
+---
+
+## Paper 5 — Synthesis for biologists
+
+**Authors:** Gary Welz & Konstantinos Krampis  
+
+**Title:** *Genomic Regulatory Complexity and the Limits of Perturbation Prediction: A Synthesis for Biologists*  
+
+**Markdown:** [glmp-genomic-complexity-synthesis.md](https://github.com/garywelz/glmp/blob/main/collaborations/krampis-virtual-cell/glmp-genomic-complexity-synthesis.md)  
+
+**Core claim:** Synthesis of the four-paper arc (Papers 1–4) for a biology audience: what genomic computational complexity implies for experimental design, prediction, and interpretation of perturbation results.  
+
+**Status:** Elevated from synthesis document to **standalone paper** — May 2026. Develop from working document to full manuscript.  
+
+---
+
+## Supporting documents (not papers)
+
+**Teaching deck (presentation only):** *Flowcharts, Mermaid & Smarter Perturbation Design* / combined Krampis materials — https://storage.googleapis.com/regal-scholar-453620-r7-podcast-storage/glmp-v2/slides/GLMP_Krampis_Combined_April_2026.html  
+
+**Status:** Presentation material only — **not** being developed into a paper. (Related Markdown snapshot may still exist in the glmp repo for convenience; inventory and submission planning treat it as **non-paper**.)
+
+---
+
+## Paper 6 — Algorithms, Axiomatic Theories, and Proofs (Mathematics Database)
+
+**Author:** Gary Welz  
 
 **Title:** *Algorithms, Axiomatic Theories, and Proofs as Graphs: A Unified Diagrammatic Representation of Mathematical Structure*  
 
@@ -90,63 +185,66 @@ Single map of manuscripts and collaboration drafts **in active use**, with stabl
 
 **Zenodo:** Not indicated in draft header — fill when deposited.  
 
-**Core claim:** Algorithms, axiomatic theories, and proofs are unified as labelled directed graphs (**Mermaid** + JSON), with **three** `processType` families and **eight-role** proof-graph vocabulary (**source, assumption, construction, assertion, inference, algorithm capsule, contradiction, conclusion**); public table viewer supplies manifest-backed counts for ongoing corpus discussion.  
+**Core claim:** Algorithms, axiomatic theories, and proofs are unified as labelled directed graphs (**Mermaid** + JSON), with **three** `processType` families and **eight-role** proof-graph vocabulary; public table viewer supplies manifest-backed counts.  
 
-**Quantitative anchors (draft §5.2 — may evolve with manifest):** Small proof-graph corpus *N* = 8 bundles in the analysed manifest slice; pooled average order of magnitude **~25 nodes, ~28 edges** per proof graph (with cited range across entries). Treat as **manifest-documented**, not epidemiological inference.  
+**Quantitative anchors (draft §5.2 — may evolve):** Proof-graph corpus slice *N* = 8 bundles; pooled average **~25 nodes, ~28 edges** per proof graph (ranges in draft). Manifest-documented, not extrapolated epidemiology.  
 
-**Ties:** Methodological parent — **Programming Framework**; parallels **GLMP** as domain instantiation (regulatory/process logic vs mathematical justification structure).  
-
-**Recent alignment:** Title uses **Axiomatic Theories**; figure set and references expanded per manuscript history.  
+**Ties:** Methodological generalisation — **Paper 7**; parallels **GLMP** / regulatory logic narratives via cross-domain methodological note and ref [14] in draft.  
 
 ---
 
-## Paper 3 — Knowledge Engine vision (CopernicusAI)
+## Paper 7 — The Programming Framework
+
+**Author:** Gary Welz  
+
+**Title:** *The Programming Framework: A General Method for Process Analysis Using LLMs and Mermaid Visualisation*  
+
+**Source of truth:** [papers/programming-framework-paper/current-draft.md](https://github.com/garywelz/progframe/blob/main/papers/programming-framework-paper/current-draft.md)  
+
+**Venue / type:** [*Learned Publishing*](https://onlinelibrary.wiley.com/journal/17414857) (Wiley / ALPSP) — Original Article  
+
+**Supporting files:**
+
+- [`submission-target.md`](https://github.com/garywelz/progframe/blob/main/papers/programming-framework-paper/submission-target.md)  
+- [`cover-letter-learned-publishing.md`](https://github.com/garywelz/progframe/blob/main/papers/programming-framework-paper/cover-letter-learned-publishing.md)  
+
+**Status:** Ready to submit pending final author read-through. Prose vs word cap: `papers/programming-framework-paper/count_prose_words.py` and **`submission-target.md`** section **Length check**; appendix prose is counted by script — confirm with Wiley if needed.  
+
+**Preprint:** [Zenodo 18463442](https://doi.org/10.5281/zenodo.18463442)  
+
+**Core claim:** Repeatable **LLM** + **Mermaid** (+ JSON/metadata) pipeline from text to structured diagrams; **biology (GLMP)** and **mathematics (Paper 6 programme)** as primary grounded applications; other domains illustrative / early-stage.  
+
+**Ties:** Feeds **Paper 8** as process-visualisation substrate; cites **Paper 6** and GLMP narratives; cite **Papers 1–5** only when a specific Krampis manuscript is jointly approved for citation.  
+
+---
+
+## Paper 8 — Knowledge Engine vision (CopernicusAI)
+
+**Author:** Gary Welz  
 
 **Title:** *A Vision for AI-Powered Knowledge Engines: A Framework for Systematic Knowledge Discovery and Integration*  
 
-**Source of truth:** [papers/knowledge_engine_vision.md](https://github.com/garywelz/copernicus-web/blob/main/papers/knowledge_engine_vision.md) in [garywelz/copernicus-web](https://github.com/garywelz/copernicus-web)  
+**Source of truth:** [papers/knowledge_engine_vision.md](https://github.com/garywelz/copernicus-web/blob/main/papers/knowledge_engine_vision.md)  
 
-**Nature:** Vision / taxonomy paper; operational stats in body will go stale quickly. Prefer **architecture and capability taxonomy** wording when briefing without locking numbers unless refreshed the same month. CopernicusAI Hugging Face entry point (if still accurate): https://huggingface.co/spaces/garywelz/copernicusai  
+**Nature:** Vision / taxonomy; numbers in body date quickly — prefer capability framing unless refreshed monthly. HF entry point (verify current): https://huggingface.co/spaces/garywelz/copernicusai  
 
-**Core claim:** “Knowledge engines” synthesise ingestion → communication through nine integrated capability classes; CopernicusAI is an existence proof instantiation, not final validation.  
+**Core claim:** Knowledge engines integrate nine capability classes ingestion → communication; CopernicusAI as existence proof, not final validation.  
 
-**Ties:** References **Programming Framework** for diagram/process representation; complements GLMP/Math DB as content inside a larger knowledge system.  
+**Ties:** **Paper 7** for diagram methodology; consumes content from Papers 6–7 and optionally GLMP-related artefacts operationally (do not silently copy unchecked counts into Paper 7).  
 
-**Action:** On next revision, unify **author block** with canonical ORCID/email/affiliation line used in progframe papers.  
-
----
-
-## Papers 4–9 — GLMP × Krampis “Virtual Cell” collaboration drafts
-
-**Folder (canonical Markdown):** [glmp/collaborations/krampis-virtual-cell](https://github.com/garywelz/glmp/tree/main/collaborations/krampis-virtual-cell)  
-
-**Collaboration README:** Describes workflow (fork → PR), draft status expectations, and [file manifest](https://github.com/garywelz/glmp/blob/main/collaborations/krampis-virtual-cell/README.md).  
-
-These are **six** linked working drafts (not merged into PF LP manuscript). Prefer linking here rather than pasting movable claims into PF until a single bioRxiv/journal manuscript is frozen.
-
-| # | Draft (canonical link) | Stated thrust (from repo README filenames / titles) |
-|---|-------------------------|------------------------------------------------------|
-| 4 | [primitive-relations-genomic-computational-class.md](https://github.com/garywelz/glmp/blob/main/collaborations/krampis-virtual-cell/primitive-relations-genomic-computational-class.md) | Foundational typology: primitive relations / genomic computational class |
-| 5 | [genome-as-computer.md](https://github.com/garywelz/glmp/blob/main/collaborations/krampis-virtual-cell/genome-as-computer.md) | Logical primitives / limits of biological prediction |
-| 6 | [circuit-class-predicts-virtual-cell-model-accuracy.md](https://github.com/garywelz/glmp/blob/main/collaborations/krampis-virtual-cell/circuit-class-predicts-virtual-cell-model-accuracy.md) | Empirical framing: circuit class vs VC model accuracy |
-| 7 | [glmp-genomic-complexity-synthesis.md](https://github.com/garywelz/glmp/blob/main/collaborations/krampis-virtual-cell/glmp-genomic-complexity-synthesis.md) | Biology-facing genomic regulatory complexity synthesis |
-| 8 | [mermaid-flowcharts-smarter-perturbation-design.md](https://github.com/garywelz/glmp/blob/main/collaborations/krampis-virtual-cell/mermaid-flowcharts-smarter-perturbation-design.md) | Methods-facing: flowcharts × perturbation design |
-| 9 | [teaching-deck-krampis-biochemical-process-modeling.md](https://github.com/garywelz/glmp/blob/main/collaborations/krampis-virtual-cell/teaching-deck-krampis-biochemical-process-modeling.md) | Teaching/proposal slide material (Markdown derivative) |
-
-**Cross-discipline glue:** Konstantinos Krampis (Hunter / CUNY GC) collaboration; methodological upstream **Programming Framework** + GLMP artefacts; downstream virtual-cell / perturbation narratives. PF manuscript should cite **released** artefacts only unless a specific Krampis draft is jointly approved for citation.
+**Next edit:** Canonical author/ORCID/email strip to match Papers 6–7.  
 
 ---
 
 ## Suggested workflows
 
-1. **Before LP submit:** Diff PF draft vs this overview; run `count_prose_words.py`; skim math paper §5.2 counts if corpus changed.  
-2. **Before math submit:** Align GLMP spelling in abstract; reconcile any corpus table numbers with prose.  
-3. **Before vision paper refresh:** Rewrite operational stats or date-stamp them; fix author strip.  
-4. **Krampis folder:** Discuss in PR on `garywelz/glmp`; avoid silent claim drift back into progframe manuscripts.  
+1. **Before Paper 7 submit:** Diff `current-draft.md` vs terminology table; run `count_prose_words.py`.  
+2. **Before Paper 6 submit:** Reconcile corpus stats with §5.2 prose; refresh Zenodo when used.  
+3. **Paper 8 refresh:** Date-stamp or remove operational counts; unify author block.  
+4. **Papers 1–5:** Work in [garywelz/glmp](https://github.com/garywelz/glmp) PRs; avoid claim drift back into progframe manuscripts without explicit sync.  
 
 ---
 
-## Why this replaces a multi-step Claude “handoff”
+## Why keep this file in-repo
 
-This file is maintained **in-repo** next to PF sources: URLs are primary, placeholders are eliminated, contradictory template lines (obsolete math title, faux “Welz & Krampis Paper I”) are omitted, Krampis work is enumerated as six drafts, and divergence notes tie **copernicus-web** ↔ **progframe** without duplicating brittle stats. Extend by appending sections or bumping versions when new manuscripts appear.
-
+URLs and inventory IDs stay versioned beside **Paper 7** sources; numbering **1–8** matches the submission pipeline table. Extend by updating the pipeline row and adding a Paper *n* section when the program grows.
