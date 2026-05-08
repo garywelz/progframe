@@ -1,4 +1,4 @@
-# Algorithms, Axioms, and Proofs as Graphs: A Unified Diagrammatic Representation of Mathematical Structure
+# Algorithms, Axiomatic Theories, and Proofs as Graphs: A Unified Diagrammatic Representation of Mathematical Structure
 
 **Gary Welz**  
 Researcher, New Media Lab, CUNY Graduate Center  
