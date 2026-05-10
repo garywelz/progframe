@@ -12,7 +12,7 @@ ORCID: https://orcid.org/0009-0005-7806-0892
 
 ## Abstract
 
-Scientific and technical fields rely heavily on textual process descriptions that are difficult to compare, analyse, or reuse computationally. We introduce the Programming Framework, a methodology for transforming textual process descriptions into structured, computable diagrams using large language models (LLMs) and Mermaid diagram syntax. Node colours, shapes, and edge types serve as lightweight semantic markers, providing flexible visual encoding that can be adapted to domain-specific conventions. We demonstrate the feasibility and cross-domain transferability of the methodology through application across biology (via the Genome Logic Modelling Project) and mathematics — where the framework extends naturally from algorithmic flowcharts to axiomatic dependency graphs and proof graphs, enabling unified structural comparison across procedural and logical forms. Additional applications in chemistry, physics, and computer science illustrate the methodology's range. The methodology is designed to lower the barrier to process visualisation for researchers, educators, and AI systems, enabling structured comparison and analysis across scientific disciplines without requiring specialised software or domain-specific diagramming expertise. The Programming Framework is proposed as reusable, open infrastructure — a starting point that others can adopt, extend, and critique — with all methodology, tools, and examples publicly available.
+Scientific and technical fields rely heavily on textual process descriptions that are difficult to compare, analyse, or reuse computationally. We introduce the Programming Framework, a methodology for transforming textual process descriptions into structured, computable diagrams using large language models (LLMs) and Mermaid diagram syntax. Node colours, shapes, and edge types serve as lightweight semantic markers, providing flexible visual encoding that can be adapted to domain-specific conventions. We demonstrate the feasibility and cross-domain transferability of the methodology through application across biology (via the Genome Logic Modelling Project) and mathematics — where the framework extends naturally from algorithmic flowcharts to axiomatic dependency graphs and proof graphs, enabling unified structural comparison across procedural and logical forms. The methodology is designed to lower the barrier to process visualisation for researchers, educators, and AI systems, enabling structured comparison and analysis across scientific disciplines without requiring specialised software or domain-specific diagramming expertise. The Programming Framework is proposed as reusable, open infrastructure — a starting point that others can adopt, extend, and critique — with all methodology, tools, and examples publicly available.
 
 ## Key Points
 
@@ -67,7 +67,6 @@ This paper contributes:
 
 **Empirical**
 - Feasibility demonstrations in biology (Genome Logic Modelling Project) and mathematics (Algorithms, Axiomatic Theories, and Proofs), both backed by draft research papers
-- Additional applications in chemistry, physics, and computer science illustrating methodological range
 ## 2. Related Work
 This section situates the Programming Framework within existing research on process modelling, knowledge
 representation, and LLM-based diagram generation.
@@ -255,7 +254,7 @@ Each process diagram is stored as a JSON object that includes:
 • prompt_version: version identifier for the specific prompt template used (enables reproducibility)
 • llm_version: version of the LLM used for generation (e.g., “Gemini 2.0 Flash”, “GPT-4”)
 2. Metadata fields (optional but recommended):
-• domain: e.g., biology, chemistry, mathematics, physics, computer_science
+• domain: e.g., biology, mathematics
 • category: subdomain or pathway family
 • source: reference to the originating paper, textbook, or URL
 • entities: key entities (genes, proteins, molecules, algorithms, etc.)
@@ -354,7 +353,7 @@ kappa) calculated for correctness assessments
 • Version history provides audit trail for all modifications
 
 ## 4. Applications Across Disciplines
-The Programming Framework has been applied across multiple scientific domains. The most developed deployments are the Genome Logic Modelling Project (biology) and the Algorithms, Axiomatic Theories, and Proofs work in mathematics; the sections below also summarise chemistry, physics, and computer science as further illustrations of methodological range.
+The Programming Framework has been applied across multiple scientific domains. The most developed deployments are the Genome Logic Modelling Project (biology) and the Algorithms, Axiomatic Theories, and Proofs work in mathematics. The sections below develop biology (§4.1) and mathematics (§4.2); §4.3 compares the Framework to specialised domain tools.
 ### 4.1 Biological Processes: Genome Logic Modelling Project (GLMP)
 The most extensive application to date is in the Genome Logic Modelling Project (GLMP), which applies the
 Framework to map biological processes.
@@ -412,47 +411,7 @@ style K fill:#51cf66,color:#fff
 style L fill:#b197fc,color:#fff
 ```
 
-### 4.2 Chemical Processes
-The Framework has been applied to chemical reactions and processes across major branches of chemistry,
-including organic reactions, synthesis pathways, thermodynamic processes, catalysis mechanisms, and
-electrochemical processes. The methodology demonstrates transferability from biological to chemical
-domains, with processes grouped across multiple batches.
-Sample Diagram - Catalytic Hydrogenation:
-**Figure 3:** Catalytic Hydrogenation Reaction. Note: This is one possible representation; more
-detailed versions showing molecular structures, energy diagrams, reaction mechanisms, or kinetic steps can
-be generated by specifying greater detail in the prompt.
-Colour Legend: Red (Reactants/Inputs), Yellow (Catalyst/Structure), Green (Reactions/Operations), Blue
-(Intermediates), Violet (Products)
-Mermaid Markdown Code:
-```mermaid
-flowchart TD
-A[Alkene Substrate] --> B[Catalyst: Pd/C]
-C[H2 Gas] --> B
-B --> D{Catalyst Activation}
-D -->|Active| E[H2 Adsorption]
-D -->|Inactive| F[No Reaction]
-E --> G[Substrate Binding]
-G --> H[Hydrogen Addition]
-H --> I[Intermediate Complex]
-I --> J[Product Release]
-J --> K[Alkane Product]
-K --> L[Catalyst Regeneration]
-style A fill:#ff6b6b,color:#fff
-style C fill:#ff6b6b,color:#fff
-
-style B fill:#ffd43b,color:#000
-style D fill:#74c0fc,color:#fff
-style E fill:#51cf66,color:#fff
-style F fill:#b197fc,color:#fff
-style G fill:#51cf66,color:#fff
-style H fill:#51cf66,color:#fff
-style I fill:#74c0fc,color:#fff
-style J fill:#51cf66,color:#fff
-style K fill:#b197fc,color:#fff
-style L fill:#51cf66,color:#fff
-```
-
-### 4.3 Mathematical Processes
+### 4.2 Mathematical Processes
 
 The framework has been applied to mathematics across three structural categories: algorithmic flowcharts (e.g., Sieve of Eratosthenes, Merge Sort, Dijkstra's Algorithm, Euclidean Algorithm), axiomatic dependency graphs (e.g., Euclid's Elements, Peano Arithmetic, ZFC Set Theory, Group Theory, Category Theory), and proof graphs — hybrid dependency graphs with node colours encoding proof roles including source, assumption, construction, assertion, inference, algorithm capsule, contradiction, and conclusion (e.g., Euclid Book I pilot proofs, Infinitely Many Primes, Pythagorean Theorem proof comparison, Cantor Diagonal proofs).
 
@@ -480,28 +439,9 @@ style F fill:#51cf66,color:#fff
 style G fill:#b197fc,color:#fff
 ```
 
-**Figure 4:** Euclidean Algorithm. Integer GCD workflow using the five-category palette; more detailed variants (extended Euclidean, complexity annotations) can be generated with richer prompts.
+**Figure 3:** Euclidean Algorithm. Integer GCD workflow using the five-category palette; more detailed variants (extended Euclidean, complexity annotations) can be generated with richer prompts.
 
-### 4.4 Physics Processes
-The Framework has been applied to physical processes including quantum mechanics, nuclear physics,
-electromagnetism, thermodynamics, and particle physics. Physical phenomena can be represented with
-energy inputs (Red), wave functions and fields (Yellow), quantum processing (Green), intermediate states
-(Blue), and final products (Violet).
-
-### 4.5 Computer Science Processes
-The Framework has been applied to computational processes including:
-Algorithms & Data Structures: Sorting algorithms, graph algorithms, search methods
-Software Engineering: Design patterns, architecture patterns, development workflows
-Artificial Intelligence: Machine learning pipelines, neural network training, inference processes
-Computer Security: Cryptographic processes, authentication workflows, security protocols
-Computer Networks: Protocol implementations, distributed systems, network routing
-Database Systems: Query processing, transaction management, data structures
-Computer Graphics: Rendering pipelines, game development workflows, graphics algorithms
-Example: Computational workflows demonstrate how software processes can be visualised with data inputs
-(Red: input data, parameters), data structures and algorithms (Yellow: data structures, algorithm designs),
-computational operations (Green: processing steps, transformations), intermediate states (Blue: temporary
-data, state variables), and final outputs (Violet: results, reports, visualisations).
-### 4.6 Comparison with Existing Visualisation Tools
+### 4.3 Comparison with Existing Visualisation Tools
 The Programming Framework addresses gaps in existing process visualisation tools across scientific domains. This section provides a consolidated comparison highlighting common themes and domain-specific considerations.
 
 **Domain-specific standards and tools**
@@ -509,10 +449,7 @@ The Programming Framework addresses gaps in existing process visualisation tools
 | Domain | Typical standards | Representative tools | Primary focus |
 |--------|-------------------|----------------------|---------------|
 | Biology | SBGN (Le Novère et al., 2009), BioPAX (Demir et al., 2010), SBML (Hucka et al., 2003) | CellDesigner (Funahashi et al., 2008), Cytoscape (Shannon et al., 2003), PathVisio, VANTED | Precise biochemical notation; quantitative modelling |
-| Chemistry | None (lacks unified standard) | ChemDraw, ChemDoodle, ChemSketch | Molecular structure drawing |
 | Mathematics | None (lacks process visualisation standard) | Coq, Isabelle, Lean (proof systems); MATLAB, Mathematica (computation) | Formal proof; computation |
-| Physics | None (lacks unified standard) | MATLAB, COMSOL, ANSYS, OpenFOAM | Numerical simulation |
-| Computer science | UML (Object Management Group, 2017) | Enterprise Architect, Visual Paradigm, Lucidchart, draw.io, PlantUML | Software design; architecture |
 | The Programming Framework | Mermaid Markdown (text-based) | LLM + Mermaid.js | Cross-disciplinary rapid visualisation; accessible process representation |
 
 **Common limitations of existing tools:**
@@ -535,8 +472,8 @@ Advantages of the Programming Framework’s Mermaid-Based Approach:
 • Can be embedded in Markdown documents, Jupyter notebooks, and documentation systems
 • JSON storage enables programmatic access and integration
 5. Cross-Domain Consistency:
-• Same format works across biology, chemistry, mathematics, physics, and computer science
-• Enables comparison and integration across disciplines
+• The same text-based format supports both biological (GLMP) and mathematical (Algorithms, Axiomatic Theories, and Proofs) deployments in one representational family
+• Enables comparison when diagram families are placed in the same tooling pipeline
 • Suggested colour semantics can facilitate pattern recognition when consistently applied
 6. Rapid Prototyping:
 • Fast iteration cycles for exploring process representations
@@ -562,9 +499,7 @@ across multiple domains.
 The two most developed applications are:
 
 1. **Biology (Genome Logic Modelling Project):** process diagrams spanning multiple pathway families and organisms, with a companion research paper in preparation.
-2. **Mathematics (Algorithms, Axiomatic Theories, and Proofs):** algorithmic flowcharts, axiomatic dependency graphs, and proof graphs across multiple structural categories — see Section 4.3 and the live database — with a companion research paper in preparation.
-
-Additional applications in chemistry, physics, and computer science demonstrate methodological range across reaction mechanisms, physical processes, and computational workflows, though these remain at an earlier stage of development.
+2. **Mathematics (Algorithms, Axiomatic Theories, and Proofs):** algorithmic flowcharts, axiomatic dependency graphs, and proof graphs across multiple structural categories — see Section 4.2 and the live database — with a companion research paper in preparation.
 
 This shows that the method is flexible enough to handle diverse content across scientific disciplines, given appropriate prompts and scoping.
 ### 5.2 Benefits Observed
@@ -640,7 +575,7 @@ A)
 - Use version control to enable error correction and rollback
 ## 6. Future Directions
 
-Discipline-specific process databases for biology, chemistry, physics, and computer science are under active development as part of the broader Programming Framework infrastructure, with the mathematics database already demonstrating the framework's extension from algorithmic flowcharts to axiomatic dependency graphs and proof graphs. These databases are intended as open, versioned corpora that others can query, extend, and contribute to.
+Discipline-specific process databases for **biology** (GLMP) and **mathematics** (Algorithms, Axiomatic Theories, and Proofs) are under active development as part of the broader Programming Framework infrastructure, with the mathematics database already demonstrating the framework's extension from algorithmic flowcharts to axiomatic dependency graphs and proof graphs. These databases are intended as open, versioned corpora that others can query, extend, and contribute to.
 
 Further work includes:
 
@@ -651,7 +586,7 @@ Further work includes:
 5. Community-driven libraries: public repositories to submit, review, and reuse diagrams; versioned domain libraries; community standards for colour assignment in specialised domains.
 6. Domain-specific extensions: specialised colour schemes; domain validation rules; integration with domain-specific tools and databases.
 ## 7. Conclusion
-The Programming Framework offers a practical, reusable method for turning textual process descriptions into structured, computable diagrams using LLMs and Mermaid, enhanced by a suggested five-category colour-coding system that can be customised for specific domains. It has been applied most extensively in biology (via GLMP) and mathematics (via the Algorithms, Axiomatic Theories, and Proofs project), each with a companion draft research paper; further applications in chemistry, physics, and computer science illustrate methodological range and the need for careful human validation.
+The Programming Framework offers a practical, reusable method for turning textual process descriptions into structured, computable diagrams using LLMs and Mermaid, enhanced by a suggested five-category colour-coding system that can be customised for specific domains. It has been applied most extensively in biology (via GLMP) and mathematics (via the Algorithms, Axiomatic Theories, and Proofs project), each with a companion draft research paper, and the need for careful human validation applies throughout.
 The framework’s suggested colour-coding system provides a starting point for consistent visualisation, but
 recognises that different processes may benefit from custom colour schemes, as demonstrated by GLMP’s use
 of domain-specific colours for logical connectives in biological regulatory networks.
