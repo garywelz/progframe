@@ -538,32 +538,32 @@ The Merge Sort example below illustrates a richer algorithmic flowchart than a m
 
 ```mermaid
 flowchart TD
-  IN([Input: sequence A with length n]) --> Q{n <= 1?}
-  Q -->|yes| OUT1[Return A]
-  Q -->|no| MID[mid ← floor(n/2)]
-  MID --> CUTL[L ← prefix segment of A before mid]
-  MID --> CUTR[R ← complementary suffix segment of A]
-  CUTL --> SL[[MergeSort on L]]
-  CUTR --> SR[[MergeSort on R]]
-  SL --> LS[L_sorted]
-  SR --> RS[R_sorted]
-  LS --> MG[Merge L_sorted with R_sorted]
+  IN["Input: sequence A with length n"] --> Q{"Length is 1 or 0?"}
+  Q -->|yes| OUT1["Return A"]
+  Q -->|no| MID["Compute mid equals floor(n/2)"]
+  MID --> CUTL["L is prefix segment of A before mid"]
+  MID --> CUTR["R is complementary suffix of A"]
+  CUTL --> SL[[Recursive sort L]]
+  CUTR --> SR[[Recursive sort R]]
+  SL --> LS["L sorted"]
+  SR --> RS["R sorted"]
+  LS --> MG["Merge L_sorted with R_sorted"]
   RS --> MG
-  MG --> INI[Pointers i,j,k ← 0; empty output buffer Out]
-  INI --> WH{i < length(L_sorted) AND j < length(R_sorted)}
-  WH -->|yes| CMP{L_sorted(i) <= R_sorted(j)}
-  CMP -->|yes| APL[Append L_sorted(i); i ← i + 1]
-  CMP -->|no| APR[Append R_sorted(j); j ← j + 1]
+  MG --> INI["i,j,k to 0; empty output buffer Out"]
+  INI --> WH{"Both halves have unmerged heads?"}
+  WH -->|yes| CMP{"Left head not after right head?"}
+  CMP -->|yes| APL["Take from L_sorted; advance i"]
+  CMP -->|no| APR["Take from R_sorted; advance j"]
   APL --> WH
   APR --> WH
-  WH -->|no| TDL{i < length(L_sorted)}
-  TDL -->|yes| FL[Append remainder of L_sorted from i onward]
-  TDL -->|no| TJ{j < length(R_sorted)}
-  FL --> TJ
-  TJ -->|yes| FR[Append remainder of R_sorted from j onward]
-  TJ -->|no| FIN[Concatenate fragments → merged order]
+  WH -->|no| HC{"Remainder in L_sorted?"}
+  HC -->|yes| FL["Append rest of L_sorted"]
+  HC -->|no| HR{"Remainder in R_sorted?"}
+  FL --> HR
+  HR -->|yes| FR["Append rest of R_sorted"]
+  HR -->|no| FIN["Build merged ordering"]
   FR --> FIN
-  FIN --> OUT2[Return merged sorted sequence]
+  FIN --> OUT2["Return merged sorted sequence"]
 
   style IN fill:#ff6b6b,color:#fff
   style OUT1 fill:#b197fc,color:#fff
@@ -577,8 +577,8 @@ flowchart TD
   style Q fill:#74c0fc,color:#fff
   style WH fill:#74c0fc,color:#fff
   style CMP fill:#74c0fc,color:#fff
-  style TDL fill:#74c0fc,color:#fff
-  style TJ fill:#74c0fc,color:#fff
+  style HC fill:#74c0fc,color:#fff
+  style HR fill:#74c0fc,color:#fff
   style MID fill:#51cf66,color:#fff
   style MG fill:#51cf66,color:#fff
   style INI fill:#51cf66,color:#fff
