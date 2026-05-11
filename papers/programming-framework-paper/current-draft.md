@@ -20,6 +20,7 @@ Scientific and technical fields rely heavily on textual process descriptions tha
 - A five-category colour scheme—customisable per domain—supports rapid visual parsing and cross-disciplinary comparison of processes.
 - The Genome Logic Modelling Project (GLMP) and the Algorithms, Axiomatic Theories, and Proofs project demonstrate feasibility in two research contexts with draft papers on GitHub.
 - GLMP demonstrates the framework's application to biological process visualisation—pairing LLM-assisted, diagrams-as-code flowcharts with optional reconciliation to curated regulatory resources for perturbation-oriented reasoning across regulatory networks, metabolic pathways, and cellular processes.
+- The mathematics deployment (Algorithms, Axiomatic Theories, and Proofs) stores **algorithms**, **axiomatic DAGs**, and **eight-role proof graphs** (with **algorithm capsules**) in versioned JSON with public table viewers.
 - Methodology, tools, and examples are open infrastructure on Hugging Face and public storage for adoption and extension.
 
 ## 1. Introduction
@@ -531,13 +532,19 @@ style GG fill:#b197fc,color:#fff
 
 ### 4.2 Mathematical Processes
 
-The framework has been applied to mathematics across three structural categories: algorithmic flowcharts (e.g., Sieve of Eratosthenes, Merge Sort, Dijkstra's Algorithm, Euclidean Algorithm), axiomatic dependency graphs (e.g., Euclid's Elements, Peano Arithmetic, ZFC Set Theory, Group Theory, Category Theory), and proof graphs — hybrid dependency graphs with node colours encoding proof roles including source, assumption, construction, assertion, inference, algorithm capsule, contradiction, and conclusion (e.g., Euclid Book I pilot proofs, Infinitely Many Primes, Pythagorean Theorem proof comparison, Cantor Diagonal proofs).
+Mathematics routinely mixes **three kinds of objects** that are usually published in disconnected notations: **algorithms** (procedures), **axiomatic theories** (dependency among statements), and **proofs** (justifications). The Programming Framework deployment *Algorithms, Axiomatic Theories, and Proofs* treats all three as **labeled directed graphs** in Mermaid, generated from natural-language descriptions with LLMs, reviewed by humans, and stored as **versioned JSON** in the public **Mathematics Database**—a domain-specific extension; a companion manuscript (in preparation) documents the corpus and schema in full.
 
-At the level of **abstract graphs**, these categories diverge in ways that inform how one thinks about structural **complexity** of the artefacts (interpretively—not as formal theorems proved here): axiom-and-theorem **dependency graphs for theories** are naturally read as **directed acyclic graphs (DAGs)**, since dependence should not cycle. **Algorithms** rendered as flowcharts are **directed graphs** that may contain **cycles** (loops, iteration, or recursion as repeated control). **Proof graphs** are often **predominantly DAG-like** along the inference backbone, but may **embed algorithmic substructures** (e.g. “algorithm capsule” nodes) that reintroduce **cyclic control** where a proof step invokes a procedural routine. This yields a simple **graph-theoretic vocabulary** for comparing objects—acyclic versus cyclic flow, branching, and the mix of logical dependency with embedded computation—without replacing standard proof theory or computational complexity.
+**Algorithmic flowcharts** use the Framework’s **five-category palette** (§3.2): nodes are steps, decisions, or states; edges are sequential or conditional flow with explicit **loops and branching**. Corpus metadata records coarse structural indicators for comparison. Representative entries include the Sieve of Eratosthenes, Merge Sort, Dijkstra’s algorithm, and the Euclidean algorithm.
 
-The full mathematics database, including interactive viewers for all three graph types, is available at: https://storage.googleapis.com/regal-scholar-453620-r7-podcast-storage/mathematics-processes-database/mathematics-database-table.html
+**Axiomatic dependency graphs** represent logical **depends-on** structure among axioms, definitions, lemmas, theorems, and related objects—naturally read as **DAGs** (edges: “*B* relies on *A*,” not temporal order). Colours encode **logical object type**. Examples include Euclid’s *Elements*, Peano Arithmetic, ZFC, and algebraic theories; **depth from axioms** is an informal readout.
 
-The proof graph representation uses a domain-specific eight-role colour scheme (source, assumption, construction, assertion, inference, algorithm capsule, contradiction, conclusion) rather than the standard five-category system — an instance of the domain-specific customisation the Programming Framework explicitly supports.
+**Proof graphs** annotate steps with an **eight-role vocabulary**—source, assumption, construction, assertion, inference, **algorithm capsule**, contradiction, conclusion—so **embedded procedures** (constructions, diagonal routines, arithmetisation bookkeeping) appear as **explicit types**, supporting cross-proof comparison without claiming machine-checked correctness.
+
+**Proof assistants** (Lean, Coq, Isabelle) target **verification** and proof terms; these diagrams target **human-facing layout** for inspection and teaching—**complementary** registers (companion draft contrasts a primes proof schematically).
+
+At the level of **abstract graphs**, theory graphs are **acyclic**; algorithms may **cycle**; proof graphs are often **DAG-like** but may show **cyclic control** inside capsules. This is **interpretive** vocabulary only.
+
+**Corpus.** The May 2026 manifest lists roughly **225** processes (mostly axiomatic theories, plus algorithms and proof graphs). Table and live previews: https://storage.googleapis.com/regal-scholar-453620-r7-podcast-storage/mathematics-processes-database/mathematics-database-table.html — https://huggingface.co/spaces/garywelz/programming_framework — Optional **AND-join** styling for conjunctive premises (primes pilot): https://storage.googleapis.com/regal-scholar-453620-r7-podcast-storage/mathematics-processes-database/proof-graphs/infinitely-many-primes-v2-demo.html
 
 The Merge Sort example below illustrates a richer algorithmic flowchart than a minimal loop: recursion appears as subroutine-style brackets, splitting and merging are explicit operations (Green), pointers and interim lists are intermediates (Blue), partitions are structures (Yellow), and returns are outputs (Violet). The iterative merge loop deliberately cycles on the merged pair of lists to show typical control-flow density in real algorithms—without expanding every recursive descent as a duplicate subgraph.
 
@@ -605,7 +612,7 @@ The Programming Framework addresses gaps in existing process visualisation tools
 | Domain | Typical standards | Representative tools | Primary focus |
 |--------|-------------------|----------------------|---------------|
 | Biology | SBGN (Le Novère et al., 2009), BioPAX (Demir et al., 2010), SBML (Hucka et al., 2003) | CellDesigner (Funahashi et al., 2008), Cytoscape (Shannon et al., 2003), PathVisio, VANTED | Precise biochemical notation; quantitative modelling |
-| Mathematics | None (lacks process visualisation standard) | Coq, Isabelle, Lean (proof systems); MATLAB, Mathematica (computation) | Formal proof; computation |
+| Mathematics | No single standard covering algorithms, axiomatics, and proofs together | Coq, Isabelle, Lean (formal proof); MATLAB, Mathematica (computation) | Formal verification or numeric work; not lightweight unified diagrams |
 | The Programming Framework | Mermaid Markdown (text-based) | LLM + Mermaid.js | Cross-disciplinary rapid visualisation; accessible process representation |
 
 **Common limitations of existing tools:**
@@ -659,7 +666,7 @@ The two most developed applications are:
 
 This shows that the method is flexible enough to handle diverse content across scientific disciplines, given appropriate prompts and scoping.
 ### 5.2 Benefits Observed
-Benefits observed across domains include: standardised representation via Mermaid, which is readable, widely supported, and amenable to version control; reduced authoring burden through LLM-assisted first-pass extraction with human validation; improved comparability through shared colour semantics and JSON metadata; cross-disciplinary insights when structurally similar processes from different fields are placed in the same representational space; and reusability through links to briefings, papers, web viewers, and programmatic access to diagram libraries. For GLMP, an additional benefit—in the sense of **affordances of the artefacts** rather than empirical outcomes—is that validated pathway maps can scaffold qualitative **experiment design**, **perturbation-oriented reasoning** about **diagram-level downstream structure**, and informal **comparison of processes by feedback and loop density**, especially when diagrams are **cross-checked** against curated regulatory wiring (see §4.1). For mathematics, unified flowchart handling makes the **DAG-like** dependency structure of axiomatic graphs, **cyclic algorithmic** flow, and **mostly acyclic proof graphs with possible algorithmic inclusions** easier to discuss side by side as a **structural** lens on complexity (§4.2).
+Benefits observed across domains include: standardised representation via Mermaid, which is readable, widely supported, and amenable to version control; reduced authoring burden through LLM-assisted first-pass extraction with human validation; improved comparability through shared colour semantics and JSON metadata; cross-disciplinary insights when structurally similar processes from different fields are placed in the same representational space; and reusability through links to briefings, papers, web viewers, and programmatic access to diagram libraries. For GLMP, an additional benefit—in the sense of **affordances of the artefacts** rather than empirical outcomes—is that validated pathway maps can scaffold qualitative **experiment design**, **perturbation-oriented reasoning** about **diagram-level downstream structure**, and informal **comparison of processes by feedback and loop density**, especially when diagrams are **cross-checked** against curated regulatory wiring (see §4.1). For mathematics, the corpus places **algorithms**, **axiomatic DAGs**, and **proof graphs** (with **algorithm capsules**) in one pipeline—**complementary to proof assistants** for verification—and supports informal comparison of **acyclic**, **cyclic**, and **capsule-heavy** topologies (§4.2).
 ### 5.3 Limitations and Failure Modes
 Despite its benefits, the Framework has clear limitations:
 
@@ -731,16 +738,15 @@ A)
 - Use version control to enable error correction and rollback
 ## 6. Future Directions
 
-Discipline-specific process databases for **biology** (GLMP) and **mathematics** (Algorithms, Axiomatic Theories, and Proofs) are under active development as part of the broader Programming Framework infrastructure, with the mathematics database already demonstrating the framework's extension from algorithmic flowcharts to axiomatic dependency graphs and proof graphs. These databases are intended as open, versioned corpora that others can query, extend, and contribute to.
+Discipline-specific corpora for **biology** (GLMP) and **mathematics** (Algorithms, Axiomatic Theories, and Proofs) continue to grow as open, versioned resources.
 
 Further work includes:
 
-1. Stronger validation tooling: automated checks for structural consistency (e.g., no unreachable nodes, single entry/exit); rule-based validators for specific domains (e.g., biochemical constraints, conservation laws); colour-assignment validation against domain-specific rules.
-2. Interactive editors: web interfaces for live Mermaid editing; AI-assisted colour and process suggestions; collaborative editing with version control.
-3. Formal semantics: mapping Mermaid diagrams to formal representations (e.g., Petri nets, state machines) for analysis; automated reasoning about process properties; simulation and optimisation support.
-4. Integration with knowledge graphs: linking nodes to entities (genes, chemicals, algorithms); multi-diagram reasoning; cross-domain pattern discovery.
-5. Community-driven libraries: public repositories to submit, review, and reuse diagrams; versioned domain libraries; community standards for colour assignment in specialised domains.
-6. Domain-specific extensions: specialised colour schemes; domain validation rules; integration with domain-specific tools and databases.
+1. Stronger validation tooling: structural checks (unreachable nodes, entry/exit); domain rules where applicable.
+2. Interactive editors: live Mermaid editing; AI-assisted suggestions; collaborative versioned workflows.
+3. Formal semantics: optional maps to Petri nets, state machines, or other analyzable formalisms.
+4. Knowledge-graph linking: entity resolution for nodes; multi-diagram queries.
+5. Community libraries and domain extensions: public submission/review; specialised palettes and tool integration.
 ## 7. Conclusion
 The Programming Framework offers a practical, reusable method for turning textual process descriptions into structured, computable diagrams using LLMs and Mermaid, enhanced by a suggested five-category colour-coding system that can be customised for specific domains. It has been applied most extensively in biology (via GLMP) and mathematics (via the Algorithms, Axiomatic Theories, and Proofs project), each with a companion draft research paper, and the need for careful human validation applies throughout.
 The framework’s suggested colour-coding system provides a starting point for consistent visualisation, but
