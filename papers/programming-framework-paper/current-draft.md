@@ -881,9 +881,16 @@ You are a scientific process modeler. Given a textual description of a process, 
 }
 ```
 
-### Final instruction
+### Applying this template with an LLM
 
-Now analyse the following process description: `[PROCESS_TEXT_HERE]`
+The sections above (task, colours, JSON schema, constraints, **Example**) form a **reusable** extraction prompt. In interactive use, you typically send that entire block first, then send the **target** process description as a **follow-up message**, or concatenate it after the example. In scripts or “single-shot” prompts, you substitute your source paragraph(s) wherever a placeholder would otherwise go—**not** a literal string from a publication.
+
+**Optional single-message closing line (only if you are not pasting source text separately):**  
+Now analyse the following process description:
+
+*(In the same message, paste the scoped process description immediately after this line. In a chat UI, it is often clearer to send the description as the **next** user message instead.)*
+
+The worked **Example** above already shows the expected JSON shape; the model should respond in the same format for your supplied text.
 
 ### Note on prompt sensitivity
 
