@@ -362,14 +362,14 @@ Outcomes: - A coherent collection of biological process diagrams with consistent
 - A living demonstration of the Framework’s applicability in a complex scientific domain - Integration with the broader
 CopernicusAI Knowledge Engine
 
-**Affordances for experiment-oriented reasoning (proposed, not evaluated).** Once a GLMP diagram has been extracted and reviewed, it can be read as an explicit map of regulatory and metabolic logic. In that capacity it can *support* qualitative **experiment design** and **perturbation-oriented discussion**: which nodes correspond to signals, regulators, or enzymes that might be intervened on, and—*within the diagram alone*—which downstream steps are **structurally downstream** of such a change (reachability in the flowchart), as distinct from quantitative prediction. The same corpus also **invites stratification** among processes—e.g. dense **feedback** and **closed-loop** structure versus predominantly feed-forward stretches, or the number of decision-like branch points—so that collections can be compared or grouped by **degree of feedback / loop content** as well as by biological category. Any such use remains **dependent on expert validation** of the underlying map; the present paper does not report a user study of these practices.
+**Affordances for experiment-oriented reasoning (proposed, not evaluated).** Once a GLMP diagram has been extracted and reviewed, it can be read as an explicit map of regulatory and metabolic logic. In that capacity it can *support* qualitative **experiment design** and **perturbation-oriented discussion**: which nodes correspond to signals, regulators, or enzymes that might be intervened on, and—*within the diagram alone*—which downstream steps are **structurally downstream** of such a change (reachability in the flowchart), as distinct from quantitative prediction. The same corpus also **invites stratification** among processes—e.g. dense **feedback** and **closed-loop** structure versus predominantly feed-forward stretches, or the number of decision-like branch points—so that collections can be compared or grouped by **degree of feedback / loop content** as well as by biological category. Any such use remains **dependent on expert validation** of the underlying map; the present paper does not report a user study of these practices. **Large diagrams** with many nodes (e.g. Figure 2) also demand **stronger prompting and iterative expert review** before they should be read as **publication-ready** accounts of mechanism.
 
 Example: The beta-galactosidase regulation system in E. coli demonstrates complex regulatory logic
 with environmental inputs (Red), regulatory proteins and enzymes (Yellow), metabolic reactions (Green),
 intermediate states (Blue), and final products (Violet). The colour coding enables rapid identification of
 regulatory checkpoints and feedback mechanisms.
 Sample Diagram - Beta-Galactosidase Regulation:
-**Figure 2:** Lac operon and β-galactosidase regulation in E. coli (expanded view). Compared with textbook cartoons, this diagram aligns with richer GLMP table entries by threading environmental inputs (lactose availability, glucose catabolite control, energetic stress signals), layered regulatory logic including Lac repressor and CAP–cAMP control, polycistronic transcription and translation across lacZ/Y/A, metabolic outputs, and feedback toward homeostatic equilibrium—all under the recommended five-category palette. Figures of this calibre require additional prompt detail and iterative expert review before publication-ready accuracy is claimed; interactive versions reside at https://huggingface.co/spaces/garywelz/glmp.
+**Figure 2:** Expanded lac operon / β-galactosidase regulation in *E. coli*: environmental inputs; LacI and CAP–cAMP regulatory logic; lacZ/Y/A transcription and translation; metabolic outputs and feedback toward equilibrium; five-category palette. Interactive viewer: https://huggingface.co/spaces/garywelz/glmp
 Colour Legend: Red (Triggers/Inputs), Yellow (Structures/Objects), Green (Processing/Operations), Blue
 (Intermediates/States), Violet (Products/Outputs). Interactive versions of this and other biological process
 diagrams are available at the GLMP Hugging Face Space.
@@ -806,13 +806,11 @@ Wikipedia contributors. (2025). Mermaid (software). In *Wikipedia, The Free Ency
 
 ## Prior Work and Related Artifacts
 
-Interactive demonstrations of the methodology appear as Hugging Face Spaces (Welz, 2024–2025a, 2024–2025b); the Medium article (Welz, 2024) gives additional background. See also *Availability* in the Conclusion for direct links.
-
-**Note on diagram rendering:** All Mermaid diagram code blocks in this paper render as interactive flowchart diagrams in HTML/web versions. The Programming Framework Hugging Face Space (https://huggingface.co/spaces/garywelz/programming_framework) and GLMP Space (https://huggingface.co/spaces/garywelz/glmp) provide live, interactive examples where readers can view rendered diagrams. For PDF versions, the Mermaid code is included for reference and can be rendered using the Mermaid Live Editor (https://mermaid.live) or any Mermaid-compatible viewer.
+Live demos and repositories are listed under *Availability* in the Conclusion. Mermaid sources in this file can be rendered at https://mermaid.live or in any Mermaid-capable viewer.
 
 ## Appendix A: Complete Prompt Template
 
-The following is a complete example of a prompt used for process extraction. The prompt is formatted to fit within standard page margins.
+Self-contained extraction prompt (the colour categories match §3.2; hex codes are repeated here so the block can be copied as-is).
 
 ### Task statement
 
@@ -820,11 +818,7 @@ You are a scientific process modeler. Given a textual description of a process, 
 
 ### Colour system
 
-- **Red (#ff6b6b): Triggers and inputs** — Initial conditions, environmental inputs, starting materials, or data inputs
-- **Yellow (#ffd43b): Structures and objects** — Physical structures, molecules, data structures, algorithms, or logical constructs
-- **Green (#51cf66): Processing and operations** — Transformations, reactions, computations, or operations that change state
-- **Blue (#74c0fc): Intermediates and states** — Intermediate products, temporary states, or transitional conditions
-- **Violet (#b197fc): Products and outputs** — Final outputs, end products, or results
+Use the five categories from §3.2 with these labels: **Red (#ff6b6b)** triggers/inputs; **Yellow (#ffd43b)** structures/objects; **Green (#51cf66)** processing/operations; **Blue (#74c0fc)** intermediates/states; **Violet (#b197fc)** products/outputs.
 
 ### Output format (JSON)
 
@@ -883,15 +877,4 @@ You are a scientific process modeler. Given a textual description of a process, 
 
 ### Applying this template with an LLM
 
-The sections above (task, colours, JSON schema, constraints, **Example**) form a **reusable** extraction prompt. In interactive use, you typically send that entire block first, then send the **target** process description as a **follow-up message**, or concatenate it after the example. In scripts or “single-shot” prompts, you substitute your source paragraph(s) wherever a placeholder would otherwise go—**not** a literal string from a publication.
-
-**Optional single-message closing line (only if you are not pasting source text separately):**  
-Now analyse the following process description:
-
-*(In the same message, paste the scoped process description immediately after this line. In a chat UI, it is often clearer to send the description as the **next** user message instead.)*
-
-The worked **Example** above already shows the expected JSON shape; the model should respond in the same format for your supplied text.
-
-### Note on prompt sensitivity
-
-Prompt design significantly influences extraction fidelity. Small variations in wording, example selection, or constraint specification can yield substantially different outputs. The Framework addresses this through iterative refinement and validation workflows, acknowledging that prompt engineering is an ongoing process rather than a one-time configuration.
+Send everything from **Task statement** through the **Example** output, then either (a) paste the target process description as the **next** user message, or (b) append it in the same message after: *Now analyse the following process description.* Prompt wording is sensitive to small changes (see §3.3).

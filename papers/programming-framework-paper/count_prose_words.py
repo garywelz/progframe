@@ -3,12 +3,16 @@
 
 Excludes:
 - Fenced code blocks (``` ... ```)
-- ## Abstract through the next ## heading (abstract is counted separately by the journal)
-- ## References through the next ## heading (reference list words)
+- ## Abstract until the next ## heading (count abstract separately for the journal)
+- ## References until the next ## heading (the reference list)
 - Lines starting with **Figure N:** (caption lead-ins)
 
-Includes appendix and prior-work sections as body text — confirm against Wiley
-if they should be excluded from the 3,000–6,000 word cap.
+Prints two totals (confirm with the journal which one matches the word cap):
+- **Main article:** narrative from Key Points through Acknowledgments (everything before ## Prior Work).
+- **Including post-references:** also ## Prior Work and ## Appendix A (still no abstract, references list,
+  fenced code, or **Figure caption lines).
+
+Many limits apply to “main article” only; if so, use the first number.
 """
 
 from __future__ import annotations
@@ -54,13 +58,28 @@ def main() -> None:
         path = Path(sys.argv[1])
     raw = path.read_text(encoding="utf-8")
 
+    abstract = re.search(r"^## Abstract\s*\n+([\s\S]*?)(?=^## )", raw, re.MULTILINE)
+    if abstract:
+        ab_words = re.findall(
+            r"[A-Za-z0-9]+(?:['’-][A-Za-z0-9]+)*", abstract.group(1).strip()
+        )
+        print(f"Abstract (approximately): {len(ab_words)} words")
+
     t = strip_fenced_code(raw)
     t = strip_section(t, "## Abstract", r"^## ")
     t = strip_section(t, "## References", r"^## ")
     t = strip_figure_caption_lines(t)
 
     words = re.findall(r"[A-Za-z0-9]+(?:['’-][A-Za-z0-9]+)*", t)
-    print(f"Prose estimate (no fenced blocks, no abstract, no ## References block, no **Figure lines): {len(words)} words")
+    main = t.split("## Prior Work and Related Artifacts", 1)[0].strip()
+    words_main = re.findall(r"[A-Za-z0-9]+(?:['’-][A-Za-z0-9]+)*", main)
+    print(
+        f"Main article prose (through Acknowledgments; no Prior Work/Appendix; "
+        f"no fenced blocks, no abstract, no reference list, no **Figure lines): {len(words_main)} words"
+    )
+    print(
+        f"With Prior Work + Appendix prose (same exclusions otherwise): {len(words)} words"
+    )
     print(f"Source: {path}")
 
 
