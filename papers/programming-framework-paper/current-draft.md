@@ -19,7 +19,7 @@ Scientific and technical fields rely heavily on textual process descriptions tha
 - A repeatable LLM pipeline turns textual process descriptions into structured Mermaid flowcharts across multiple scientific domains.
 - A five-category colour scheme—customisable per domain—supports rapid visual parsing and cross-disciplinary comparison of processes.
 - The Genome Logic Modelling Project (GLMP) and the Algorithms, Axiomatic Theories, and Proofs project demonstrate feasibility in two research contexts with draft papers on GitHub.
-- GLMP demonstrates the framework's application to biological process visualisation across regulatory networks, metabolic pathways, and cellular processes.
+- GLMP demonstrates the framework's application to biological process visualisation—pairing LLM-assisted, diagrams-as-code flowcharts with optional reconciliation to curated regulatory resources for perturbation-oriented reasoning across regulatory networks, metabolic pathways, and cellular processes.
 - Methodology, tools, and examples are open infrastructure on Hugging Face and public storage for adoption and extension.
 
 ## 1. Introduction
@@ -346,30 +346,30 @@ kappa) calculated for correctness assessments
 ## 4. Applications Across Disciplines
 The Programming Framework has been applied across multiple scientific domains. The most developed deployments are the Genome Logic Modelling Project (biology) and the Algorithms, Axiomatic Theories, and Proofs work in mathematics. The sections below develop biology (§4.1) and mathematics (§4.2); §4.3 compares the Framework to specialised domain tools.
 ### 4.1 Biological Processes: Genome Logic Modelling Project (GLMP)
-The most extensive application to date is in the Genome Logic Modelling Project (GLMP), which applies the
-Framework to map biological processes.
-Scope: - Many processes analysed across multiple organisms and systems - Processes span major
-categories: Central Dogma, Metabolism, Signaling, Proteins, Photosynthesis, DNA Repair - Comprehensive
-coverage of regulatory networks, metabolic pathways, and cellular processes
+The most extensive application to date is the Genome Logic Modelling Project (GLMP), which applies the Framework to map biological processes as text-based Mermaid flowcharts stored with metadata—**diagrams-as-code** that diff cleanly in version control and can sit beside analysis scripts, lab notes, and supplementary materials.
 
-Data sources: - Textbook descriptions - Review articles - Online open-education resources - Primary research
-papers
-Pipeline: 1. Select a process (e.g., “beta-galactosidase regulation”) 2. Identify canonical description and
-supporting references 3. Run the Programming Framework pipeline to generate initial Mermaid diagram
-with colour coding 4. Refine the diagram in collaboration with domain knowledge 5. Store final diagram and
-metadata in JSON in Google Cloud Storage 6. Expose diagrams via web-based interactive viewer
-Outcomes: - A coherent collection of biological process diagrams with consistent style
-- A living demonstration of the Framework’s applicability in a complex scientific domain - Integration with the broader
-CopernicusAI Knowledge Engine
+**Complement to databases and quantitative models.** GLMP charts are not substitutes for kinetic models, single-cell atlases, or predictive machine-learning systems; they make **conditional structure** and **branching logic** explicit—inputs, regulators, branch points, feedback, and candidate levers or readouts—before major experimental or computational commitments, as **reviewable hypothesis artefacts** rather than fitted simulations.
 
-**Affordances for experiment-oriented reasoning (proposed, not evaluated).** Once a GLMP diagram has been extracted and reviewed, it can be read as an explicit map of regulatory and metabolic logic. In that capacity it can *support* qualitative **experiment design** and **perturbation-oriented discussion**: which nodes correspond to signals, regulators, or enzymes that might be intervened on, and—*within the diagram alone*—which downstream steps are **structurally downstream** of such a change (reachability in the flowchart), as distinct from quantitative prediction. The same corpus also **invites stratification** among processes—e.g. dense **feedback** and **closed-loop** structure versus predominantly feed-forward stretches, or the number of decision-like branch points—so that collections can be compared or grouped by **degree of feedback / loop content** as well as by biological category. Any such use remains **dependent on expert validation** of the underlying map; the present paper does not report a user study of these practices. **Large diagrams** with many nodes (e.g. Figure 2) also demand **stronger prompting and iterative expert review** before they should be read as **publication-ready** accounts of mechanism.
+**Curated wiring versus interpretive overlays.** For bacterial gene regulation, RegulonDB (Salgado et al., 2024) foregrounds **who regulates whom** with strong entity completeness; textbook and LLM-assisted charts often add **explicit gate-style** questions (e.g. simultaneous relief of repression and favourable catabolite control for strong induction). These are **different abstraction levels**: database exports rarely include the same **Boolean-style** simultaneous conditions as pedagogical diamonds, and fusing all node types from incompatible ontologies can **obscure** branch logic. **Layered hybridization** works better: a **regulatory backbone** from a trusted interaction resource; a **literature- or LLM-assisted overlay** for gates, feedback, and conditionality; then optional enzyme, reaction, and identifier audits once topology stabilises. **Disagreements** (e.g. *lacI* transcription explicit versus folded into a “repressor” node) signal where to refine.
+
+**Scope.** Many processes across organisms and systems; categories include Central Dogma, metabolism, signalling, proteins, photosynthesis, DNA repair, and broad coverage of regulatory networks, metabolic pathways, and cellular processes.
+
+**Data sources.** Textbooks, reviews, open-education resources, and primary literature—combined, in curated deployments, with cross-checks to database-backed facts where available.
+
+**Pipeline.** 1. Select a process (e.g. *lac* regulation). 2. Canonical description + references. 3. LLM pipeline → initial Mermaid + colours. 4. Refine with experts (and database anchors if used). 5. Store JSON in cloud. 6. Publish via interactive viewer.
+
+**Outcomes.** A coherent styled collection of biological process diagrams; a public demonstration of the Framework in a complex domain; integration with the broader CopernicusAI Knowledge Engine.
+
+**Affordances for experiment-oriented reasoning (proposed, not evaluated).** Reviewed GLMP maps can *support* qualitative **experiment design** and **perturbation-oriented discussion** (plausible levers; **structural downstream** reachability in the diagram, not quantitative prediction) and **stratification** by feedback density, loop content, and **source mixture**. Expert validation remains essential; **large diagrams** (e.g. Figure 2) need **stronger prompting and iterative review** before being read as **publication-ready** summaries.
+
+A companion methods draft (bioRxiv-oriented) contrasts literature-first, database-emphasis, and hybrid encodings of the *lac* operon for readers who want side-by-side figures.
 
 Example: The beta-galactosidase regulation system in E. coli demonstrates complex regulatory logic
 with environmental inputs (Red), regulatory proteins and enzymes (Yellow), metabolic reactions (Green),
 intermediate states (Blue), and final products (Violet). The colour coding enables rapid identification of
 regulatory checkpoints and feedback mechanisms.
 Sample Diagram - Beta-Galactosidase Regulation:
-**Figure 2:** Expanded lac operon / β-galactosidase regulation in *E. coli*: environmental inputs; LacI and CAP–cAMP regulatory logic; lacZ/Y/A transcription and translation; metabolic outputs and feedback toward equilibrium; five-category palette. Interactive viewer: https://huggingface.co/spaces/garywelz/glmp
+**Figure 2:** Expanded lac operon / β-galactosidase regulation in *E. coli* (Programming Framework palette): environmental inputs; LacI and CAP–cAMP regulatory logic; lacZ/Y/A transcription and translation; metabolic outputs and feedback. Multi-encoding comparisons for the same operon in the public corpus: https://storage.googleapis.com/regal-scholar-453620-r7-podcast-storage/glmp-v2/viewer_demo/glmp-viewer-demo-v1-v6.html?process=ecoli_lac_operon&version=v1 — GLMP Hugging Face Space: https://huggingface.co/spaces/garywelz/glmp
 Colour Legend: Red (Triggers/Inputs), Yellow (Structures/Objects), Green (Processing/Operations), Blue
 (Intermediates/States), Violet (Products/Outputs). Interactive versions of this and other biological process
 diagrams are available at the GLMP Hugging Face Space.
@@ -659,7 +659,7 @@ The two most developed applications are:
 
 This shows that the method is flexible enough to handle diverse content across scientific disciplines, given appropriate prompts and scoping.
 ### 5.2 Benefits Observed
-Benefits observed across domains include: standardised representation via Mermaid, which is readable, widely supported, and amenable to version control; reduced authoring burden through LLM-assisted first-pass extraction with human validation; improved comparability through shared colour semantics and JSON metadata; cross-disciplinary insights when structurally similar processes from different fields are placed in the same representational space; and reusability through links to briefings, papers, web viewers, and programmatic access to diagram libraries. For GLMP, an additional benefit—in the sense of **affordances of the artefacts** rather than empirical outcomes—is that validated pathway maps can scaffold qualitative **experiment design**, **perturbation-oriented reasoning** about **diagram-level downstream structure**, and informal **comparison of processes by feedback and loop density** (see §4.1). For mathematics, unified flowchart handling makes the **DAG-like** dependency structure of axiomatic graphs, **cyclic algorithmic** flow, and **mostly acyclic proof graphs with possible algorithmic inclusions** easier to discuss side by side as a **structural** lens on complexity (§4.2).
+Benefits observed across domains include: standardised representation via Mermaid, which is readable, widely supported, and amenable to version control; reduced authoring burden through LLM-assisted first-pass extraction with human validation; improved comparability through shared colour semantics and JSON metadata; cross-disciplinary insights when structurally similar processes from different fields are placed in the same representational space; and reusability through links to briefings, papers, web viewers, and programmatic access to diagram libraries. For GLMP, an additional benefit—in the sense of **affordances of the artefacts** rather than empirical outcomes—is that validated pathway maps can scaffold qualitative **experiment design**, **perturbation-oriented reasoning** about **diagram-level downstream structure**, and informal **comparison of processes by feedback and loop density**, especially when diagrams are **cross-checked** against curated regulatory wiring (see §4.1). For mathematics, unified flowchart handling makes the **DAG-like** dependency structure of axiomatic graphs, **cyclic algorithmic** flow, and **mostly acyclic proof graphs with possible algorithmic inclusions** easier to discuss side by side as a **structural** lens on complexity (§4.2).
 ### 5.3 Limitations and Failure Modes
 Despite its benefits, the Framework has clear limitations:
 
@@ -788,6 +788,8 @@ OpenAI. (2023). GPT-4 technical report. *arXiv*. https://arxiv.org/abs/2303.0877
 
 Ouyang, L., Wu, J., Jiang, X., Almeida, D., Wainwright, C. L., Mishkin, P., Zhang, C., Agarwal, S., Slama, K., Ray, A., Schulman, J., Hilton, J., Kelton, F., Miller, L., Simens, M., Askell, A., Welinder, P., Christiano, P., Leike, J., … Ziegler, D. M. (2022). Training language models to follow instructions with human feedback. *Advances in Neural Information Processing Systems*, *35*, 27730–27744.
 
+Salgado, H., Gama-Castro, S., Lara, P., … Collado-Vides, J. (2024). RegulonDB v12.0: A comprehensive resource of transcriptional regulation in *Escherichia coli* K-12. *Nucleic Acids Research*, *52*(D1), D255–D264. https://doi.org/10.1093/nar/gkad1072
+
 Shannon, P., Markiel, A., Ozier, O., Baliga, N. S., Wang, J. T., Ramage, D., Amin, N., Schwikowski, B., & Ideker, T. (2003). Cytoscape: A software environment for integrated models of biomolecular interaction networks. *Genome Research*, *13*(11), 2498–2504. https://doi.org/10.1101/gr.1239303
 
 Sveidqvist, K. (2014). Mermaid: Diagramming and charting software [GitHub repository]. https://github.com/mermaid-js/mermaid
@@ -806,11 +808,11 @@ Wikipedia contributors. (2025). Mermaid (software). In *Wikipedia, The Free Ency
 
 ## Prior Work and Related Artifacts
 
-Live demos and repositories are listed under *Availability* in the Conclusion. Mermaid sources in this file can be rendered at https://mermaid.live or in any Mermaid-capable viewer.
+Live demos and repositories are listed under *Availability* in the Conclusion. Render Mermaid at https://mermaid.live or any compatible viewer.
 
 ## Appendix A: Complete Prompt Template
 
-Self-contained extraction prompt (the colour categories match §3.2; hex codes are repeated here so the block can be copied as-is).
+Self-contained extraction prompt (colours match §3.2; hex codes repeated for copy-paste).
 
 ### Task statement
 
@@ -877,4 +879,4 @@ Use the five categories from §3.2 with these labels: **Red (#ff6b6b)** triggers
 
 ### Applying this template with an LLM
 
-Send everything from **Task statement** through the **Example** output, then either (a) paste the target process description as the **next** user message, or (b) append it in the same message after: *Now analyse the following process description.* Prompt wording is sensitive to small changes (see §3.3).
+Send **Task statement** through **Example** output, then paste the target description in a **follow-up message** (or append after a closing “Analyse this text:” line in scripts). Prompt wording is sensitive (§3.3).
