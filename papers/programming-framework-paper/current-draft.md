@@ -176,10 +176,7 @@ Node Shape Alternatives for Accessibility: Mermaid supports different node shape
 - **Trapezoids** for products/outputs: `E[/Output\]`
 
 The present manuscript uses the suggested five-category fills in **Figures 1, 3, and 4**. **Figure 2** reproduces a **Class III** oxygen-sensing schematic from the empirical sequel companion (see §4.1) using that document’s illustration palette (environmental signal, gene / protein roles, transcriptional outcome, and a distinct treatment of the degradation arm)—chosen to foreground **positive feedback** and alignment with circuit-topology exposition, not to assert a single universal colour law. Authors may optionally add Mermaid’s auxiliary shapes (stadium inputs, cylindrical states, subroutine brackets for nested procedures, and so forth) when additional visual cues are warranted for accessibility. Future work should include systematic evaluation of colorblind accessibility and development of alternative visual encoding schemes.
-Customisation and Adaptation: The colour scheme is not rigidly enforced. Different processes may require
-different colour assignments based on domain-specific needs. Some GLMP and companion empirical figures adopt the **five-category Programming Framework palette** for pedagogy; others standardise **signal / gene / outcome** styles (as in topology illustrations for circuit-class papers). Older public snapshots may still show legacy palettes until refreshed. Other processes might benefit
-from domain-specific colour schemes that highlight particular aspects of the process (e.g., energy levels, time
-sequences, or hierarchical relationships).
+Customisation and Adaptation: Deployments routinely mix the **five-category** palette with domain-specific hues (signals, gene roles, outcomes in topology diagrams, or palettes tuned to hierarchy and time). Legacy public snapshots sometimes retain outdated schemes until refreshed.
 The suggested colour system can enable:
 
 - Rapid visual parsing of process flow when consistently applied
@@ -630,22 +627,19 @@ The Programming Framework addresses gaps in existing process visualisation tools
 
 **Common limitations of existing tools:**
 
-Existing tools share recurring limitations: costly licences, steep learning curves, dependence on installed or cloud software, proprietary formats that resist portability, domain silos that hinder cross-disciplinary comparison, and interfaces or binary formats that raise access barriers.
+Existing tools often impose recurring limitations: steep learning curves, costly licences and cloud lock-in, proprietary or binary interchange formats that impede portability, and domain-specific silos that make cross-disciplinary comparison laborious.
 
 **Advantages of the Programming Framework’s Mermaid-Based Approach:**
 
 1. Accessibility:
     - Text-based format readable by humans without specialised software
-    - Can be edited in any text editor
     - No software installation required for viewing (renders in GitHub, documentation systems, web browsers)
 2. Version Control:
     - Native compatibility with Git and other version control systems
     - Enables collaborative editing and change tracking
-    - Supports branching and merging workflows
 3. Low Barrier to Entry:
     - Minimal learning curve compared to specialised tools
     - No licensing costs
-    - Works on any platform with a web browser
 4. Integration:
     - Easy integration into documentation, websites, and web applications
     - Can be embedded in Markdown documents, Jupyter notebooks, and documentation systems
@@ -667,7 +661,6 @@ The Programming Framework is not intended to replace specialised tools for high-
 - Rapid exploration: initial process mapping before detailed modelling
 - Cross-disciplinary comparison: comparing processes across domains using consistent representation
 - Documentation: embedding process diagrams in documentation and web content
-- Collaborative workflows: version-controlled, text-based collaboration
 - Integration: embedding process visualisations in knowledge engines and research platforms
 
 For researchers requiring precise biochemical notation (SBGN), quantitative modelling, formal proof verification, or full UML notation, specialised tools remain the appropriate choice. The Programming Framework offers an accessible alternative for contexts where rapid visualisation, cross-domain comparison, and ease of use are priorities.
@@ -725,40 +718,9 @@ Despite its benefits, the Framework has clear limitations:
 These approaches reduce—but do not remove—the need for careful validation in high-stakes scientific applications.
 
 ### 5.4 Ethical Considerations
-The use of LLMs for scientific process extraction raises several ethical considerations that must be addressed:
+Diagrams may **err or hallucinate**; **human validators** remain accountable before publication or high-stakes teaching. Models may inherit **training-data bias** or thin coverage of niche domains; widen reviewer coverage accordingly. Mitigate **colour-only** distinctions with labels and customisation; respect **copyright** and **sources** via metadata and fair-use norms. Outputs shift across **prompts and model versions**—document both (Appendix A), record validation status, and rely on **version control** for transparent correction.
 
-1. Accuracy and Responsibility:
-    - LLM-generated diagrams may contain errors or hallucinations that could mislead researchers or students
-    - The Framework mitigates this through human validation, but users must understand that diagrams require expert review before use in high-stakes contexts
-    - Responsibility for scientific accuracy ultimately lies with human validators, not the AI system
-2. Bias in Process Extraction:
-    - LLMs may reflect biases present in training data, potentially emphasising certain process aspects while de-emphasising others
-    - Domain-specific knowledge may be underrepresented in training data, leading to incomplete or culturally biased representations
-    - Validation by domain experts from diverse backgrounds helps mitigate these concerns
-3. Accessibility and Equity:
-    - The Framework’s text-based approach improves accessibility compared to proprietary tools
-    - However, colour-coding may present challenges for colorblind users (addressed through customisation options)
-    - Future work should include systematic evaluation of accessibility barriers
-4. Intellectual Property:
-    - Diagrams derived from copyrighted source materials must respect original authorship
-    - The Framework’s metadata system tracks sources, enabling proper attribution
-    - Users should ensure compliance with copyright and fair use guidelines
-5. Reproducibility:
-    - LLM outputs can vary across model versions and prompt variations
-    - The Framework addresses this through version control and prompt documentation (see Appendix A)
-    - Users should document LLM versions and prompt configurations for reproducibility
-6. Scientific Misinformation:
-    - Incorrect process diagrams could propagate scientific misinformation
-    - The Framework’s validation requirements and version control help prevent this
-    - Users should clearly indicate validation status and source materials
-
-**Recommendations**
-
-- Always validate LLM-generated diagrams with domain experts before publication or high-stakes use
-- Maintain clear provenance and source attribution
-- Document validation status and reviewer qualifications
-- Consider accessibility needs when using colour-coding
-- Use version control to enable error correction and rollback
+**Recommendations.** Expert validation before publication-grade use; preserve provenance, validation stance, and non-colour cues for crucial distinctions when feasible.
 
 ## 6. Future Directions
 
