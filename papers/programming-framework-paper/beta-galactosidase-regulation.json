@@ -1,0 +1,41 @@
+{
+  "id": "beta-galactosidase-regulation",
+  "title": "Beta-Galactosidase Regulation System",
+  "description": "Regulatory system controlling lactose metabolism in E. coli (condensed lacZYA schematic for manuscript Figure 3).",
+  "mermaid": "flowchart TD\n    LacExt[Lactose outside cell] --> ImpL[Lactose uptake LacY]\n    GlcExt[Glucose outside cell] --> ImpG[Glucose uptake]\n    ImpL --> LacIn[Intracellular lactose]\n    ImpG --> GlcHi[High intracellular glucose]\n\n    LacIn --> Qlac{Lactose present}\n    Qlac -->|no| RepBlock[LacI blocks operator]\n    Qlac -->|yes| PromOk[Promoter accessible]\n\n    RepBlock --> TxBlocked[Transcription blocked]\n\n    PromOk --> TxGate{Glucose low}\n    GlcHi --> TxGate\n\n    TxGate -->|no| TxWeak[Weak lacZYA transcription]\n    TxGate -->|yes| TxStrong[Strong lacZYA transcription]\n\n    TxWeak --> lacRNA[lacZYA mRNA]\n    TxStrong --> lacRNA\n\n    lacRNA --> TrZ[Translate LacZ]\n    lacRNA --> TrY[Translate LacY]\n    TrZ --> LacZ[Beta-galactosidase]\n    TrY --> LacY[Lactose permease LacY]\n\n    LacZ --> Hydro[Lactose hydrolysis]\n    Hydro --> Sugars[Glucose and galactose]\n\n    Sugars --> Relax[Metabolic flux relieves lactose dependence]\n    Relax --> LacIn\n    LacY --> ImpL\n\n    TxBlocked --> NoProt[No lac enzymes expressed]\n\n    style LacExt fill:#ff6b6b,color:#fff\n    style GlcExt fill:#ff6b6b,color:#fff\n\n    style ImpL fill:#51cf66,color:#fff\n    style ImpG fill:#51cf66,color:#fff\n\n    style LacIn fill:#74c0fc,color:#fff\n    style GlcHi fill:#74c0fc,color:#fff\n    style PromOk fill:#74c0fc,color:#fff\n    style lacRNA fill:#74c0fc,color:#fff\n    style Relax fill:#74c0fc,color:#fff\n    style TxBlocked fill:#74c0fc,color:#fff\n\n    style Qlac fill:#74c0fc,color:#fff\n    style TxGate fill:#74c0fc,color:#fff\n\n    style RepBlock fill:#ffd43b,color:#000\n    style LacZ fill:#ffd43b,color:#000\n    style LacY fill:#ffd43b,color:#000\n\n    style TxWeak fill:#51cf66,color:#fff\n    style TxStrong fill:#51cf66,color:#fff\n    style TrZ fill:#51cf66,color:#fff\n    style TrY fill:#51cf66,color:#fff\n    style Hydro fill:#51cf66,color:#fff\n\n    style Sugars fill:#b197fc,color:#fff\n    style NoProt fill:#b197fc,color:#fff\n",
+  "mermaid_file": "beta-galactosidase-regulation.mmd",
+  "version": "1.2",
+  "prompt_version": "v2.1",
+  "llm_version": "Gemini 2.0 Flash",
+  "domain": "biology",
+  "category": "gene_regulation",
+  "source": "Lac Operon: A Paradigm of Gene Regulation. Nature Reviews Genetics, 2005.",
+  "entities": [
+    "LacI",
+    "beta-galactosidase",
+    "lactose",
+    "cAMP",
+    "CAP"
+  ],
+  "color_distribution": {
+    "red": 2,
+    "yellow": 3,
+    "green": 7,
+    "blue": 8,
+    "violet": 2
+  },
+  "annotations": "Condensed pedagogical schematic paired with Programming Framework manuscript Figure 3; not identical to full GLMP ecoli_lac_operon encoding.",
+  "created_by": "LLM-assisted extraction + manual condensation",
+  "reviewed_by": "Author",
+  "links": {
+    "related_diagrams": [
+      "lactose-transport",
+      "glucose-metabolism"
+    ],
+    "external": {
+      "glmp": "https://huggingface.co/spaces/garywelz/glmp",
+      "glmp_viewer_lac": "https://storage.googleapis.com/regal-scholar-453620-r7-podcast-storage/glmp-v2/viewer_demo/glmp-viewer-demo-v1-v6.html?process=ecoli_lac_operon&version=v1",
+      "source_paper": "https://doi.org/10.1038/nrg1234"
+    }
+  }
+}

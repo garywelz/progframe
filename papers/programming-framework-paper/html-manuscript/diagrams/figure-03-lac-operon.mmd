@@ -1,0 +1,63 @@
+flowchart TD
+    LacExt[Lactose outside cell] --> ImpL[Lactose uptake LacY]
+    GlcExt[Glucose outside cell] --> ImpG[Glucose uptake]
+    ImpL --> LacIn[Intracellular lactose]
+    ImpG --> GlcHi[High intracellular glucose]
+
+    LacIn --> Qlac{Lactose present}
+    Qlac -->|no| RepBlock[LacI blocks operator]
+    Qlac -->|yes| PromOk[Promoter accessible]
+
+    RepBlock --> TxBlocked[Transcription blocked]
+
+    PromOk --> TxGate{Glucose low}
+    GlcHi --> TxGate
+
+    TxGate -->|no| TxWeak[Weak lacZYA transcription]
+    TxGate -->|yes| TxStrong[Strong lacZYA transcription]
+
+    TxWeak --> lacRNA[lacZYA mRNA]
+    TxStrong --> lacRNA
+
+    lacRNA --> TrZ[Translate LacZ]
+    lacRNA --> TrY[Translate LacY]
+    TrZ --> LacZ[Beta-galactosidase]
+    TrY --> LacY[Lactose permease LacY]
+
+    LacZ --> Hydro[Lactose hydrolysis]
+    Hydro --> Sugars[Glucose and galactose]
+
+    Sugars --> Relax[Metabolic flux relieves lactose dependence]
+    Relax --> LacIn
+    LacY --> ImpL
+
+    TxBlocked --> NoProt[No lac enzymes expressed]
+
+    style LacExt fill:#ff6b6b,color:#fff
+    style GlcExt fill:#ff6b6b,color:#fff
+
+    style ImpL fill:#51cf66,color:#fff
+    style ImpG fill:#51cf66,color:#fff
+
+    style LacIn fill:#74c0fc,color:#fff
+    style GlcHi fill:#74c0fc,color:#fff
+    style PromOk fill:#74c0fc,color:#fff
+    style lacRNA fill:#74c0fc,color:#fff
+    style Relax fill:#74c0fc,color:#fff
+    style TxBlocked fill:#74c0fc,color:#fff
+
+    style Qlac fill:#74c0fc,color:#fff
+    style TxGate fill:#74c0fc,color:#fff
+
+    style RepBlock fill:#ffd43b,color:#000
+    style LacZ fill:#ffd43b,color:#000
+    style LacY fill:#ffd43b,color:#000
+
+    style TxWeak fill:#51cf66,color:#fff
+    style TxStrong fill:#51cf66,color:#fff
+    style TrZ fill:#51cf66,color:#fff
+    style TrY fill:#51cf66,color:#fff
+    style Hydro fill:#51cf66,color:#fff
+
+    style Sugars fill:#b197fc,color:#fff
+    style NoProt fill:#b197fc,color:#fff

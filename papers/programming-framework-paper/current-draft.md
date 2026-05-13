@@ -155,7 +155,7 @@ This system provides a baseline semantic meaning that can be adapted for specifi
 - **Blue (#74c0fc):** Intermediates & States — intermediate products, temporary states, or transitional conditions (uses white text for contrast)
 - **Violet (#b197fc):** Products & Outputs — final outputs, end products, or results (uses white text for contrast)
 
-**Decision diamonds (`{…}` branch predicates)** use **Blue** alongside other intermediates/states: they denote conditions or checkpoint tests rather than a sixth semantic category. **Diamond shape** already distinguishes them from rectangles; keeping them on-palette avoids an extra legend entry and matches the algorithmic convention in Figure 3.
+**Decision diamonds (`{…}` branch predicates)** use **Blue** alongside other intermediates/states: they denote conditions or checkpoint tests rather than a sixth semantic category. **Diamond shape** already distinguishes them from rectangles; keeping them on-palette avoids an extra legend entry and matches the algorithmic convention in Figure 4 (Merge Sort).
 
 Rationale for Five Categories: The five-category system balances cognitive load with visual distinctiveness.
 Five colours provide sufficient semantic granularity to capture the primary stages of most processes (input →
@@ -175,7 +175,7 @@ Node Shape Alternatives for Accessibility: Mermaid supports different node shape
 - **Cylinders** for intermediates/states: `D[(State)]`
 - **Trapezoids** for products/outputs: `E[/Output\]`
 
-The present manuscript uses the suggested five-category fills in **Figure 1** and **Figure 3**. **Figure 2** reproduces a **Class III** oxygen-sensing schematic from the empirical sequel companion (see §4.1) using that document’s illustration palette (environmental signal, gene / protein roles, transcriptional outcome, and a distinct treatment of the degradation arm)—chosen to foreground **positive feedback** and alignment with circuit-topology exposition, not to assert a single universal colour law. Authors may optionally add Mermaid’s auxiliary shapes (stadium inputs, cylindrical states, subroutine brackets for nested procedures, and so forth) when additional visual cues are warranted for accessibility. Future work should include systematic evaluation of colorblind accessibility and development of alternative visual encoding schemes.
+The present manuscript uses the suggested five-category fills in **Figures 1, 3, and 4**. **Figure 2** reproduces a **Class III** oxygen-sensing schematic from the empirical sequel companion (see §4.1) using that document’s illustration palette (environmental signal, gene / protein roles, transcriptional outcome, and a distinct treatment of the degradation arm)—chosen to foreground **positive feedback** and alignment with circuit-topology exposition, not to assert a single universal colour law. Authors may optionally add Mermaid’s auxiliary shapes (stadium inputs, cylindrical states, subroutine brackets for nested procedures, and so forth) when additional visual cues are warranted for accessibility. Future work should include systematic evaluation of colorblind accessibility and development of alternative visual encoding schemes.
 Customisation and Adaptation: The colour scheme is not rigidly enforced. Different processes may require
 different colour assignments based on domain-specific needs. Some GLMP and companion empirical figures adopt the **five-category Programming Framework palette** for pedagogy; others standardise **signal / gene / outcome** styles (as in topology illustrations for circuit-class papers). Older public snapshots may still show legacy palettes until refreshed. Other processes might benefit
 from domain-specific colour schemes that highlight particular aspects of the process (e.g., energy levels, time
@@ -287,6 +287,8 @@ Each process diagram is stored as a JSON object that includes:
 
 This JSON format allows the diagrams to be treated as first-class data objects that can be indexed, searched, and cross-referenced. The schema is intentionally minimal and extensible, allowing domain-specific additions while maintaining core interoperability across disciplines.
 
+The illustrative JSON record below (`beta-galactosidase-regulation`) matches the fields discussed above; **Figure 3** (§4.1) renders the companion `mermaid` graph at manuscript scale (`beta-galactosidase-regulation.mmd` alongside that JSON).
+
 Example JSON Schema:
 
 ```json
@@ -294,7 +296,7 @@ Example JSON Schema:
 "id": "beta-galactosidase-regulation",
 "title": "Beta-Galactosidase Regulation System",
 "description": "Regulatory system controlling lactose metabolism in E. coli",
-"mermaid": "flowchart TD\n A[Lactose Present] --> B[LacI Repressor]\n ...",
+"mermaid": "(see Figure 3 / beta-galactosidase-regulation.mmd — lacZYA schematic)",
 "mermaid_file": "beta-galactosidase-regulation.mmd",
 "version": "1.2",
 "prompt_version": "v2.1",
@@ -304,11 +306,11 @@ Example JSON Schema:
 "source": "Lac Operon: A Paradigm of Gene Regulation. Nature Reviews Genetics, 2005.",
 "entities": ["LacI", "beta-galactosidase", "lactose", "cAMP", "CAP"],
 "color_distribution": {
-"red": 3,
-"yellow": 8,
-"green": 27,
-"blue": 15,
-"violet": 8
+"red": 2,
+"yellow": 3,
+"green": 7,
+"blue": 8,
+"violet": 2
 },
 "annotations": "Validated against textbook description. Reviewed by domain expert.",
 "created_by": "LLM (Gemini 2.0 Flash)",
@@ -422,7 +424,7 @@ Example: **Class III — VHL–HIF oxygen sensing** (from the empirical sequel c
 
 Sample Diagram — Class III: VHL–HIF oxygen sensing (empirical sequel illustration palette)
 
-**Figure 2:** VHL–HIF oxygen sensing as a **Class III** schematic (after the empirical sequel companion). Colours follow that publication’s illustration convention—**not** the five-category §3.2 default used in Figures 1 and 3. Companion HTML: https://storage.googleapis.com/regal-scholar-453620-r7-podcast-storage/mathematics-processes-database/empirical_sequel_draft.html — GLMP: https://huggingface.co/spaces/garywelz/glmp
+**Figure 2:** VHL–HIF oxygen sensing as a **Class III** schematic (after the empirical sequel companion). Colours follow that publication’s illustration convention—**not** the five-category §3.2 default used in Figures 1, 3, and 4. Companion HTML: https://storage.googleapis.com/regal-scholar-453620-r7-podcast-storage/mathematics-processes-database/empirical_sequel_draft.html — GLMP: https://huggingface.co/spaces/garywelz/glmp
 
 **Legend (this figure only):** Blue — environmental signal (oxygen); teal — protein nodes (VHL E3 ligase, HIF1α); orange — transcriptional programme output (representative targets); dashed degradation arm — normoxic proteolytic targeting of HIF1α (emphasis stroke); solid arrows — transcriptional activation and **positive feedback** onto HIF1α.
 
@@ -440,6 +442,79 @@ flowchart TD
     style Targets fill:#f39c12,stroke:#e67e22,color:#fff
 
     linkStyle 1 stroke:#e74c3c,stroke-width:2px
+```
+
+Sample Diagram — *lac* operon / beta-galactosidase regulation (*E. coli*, Programming Framework palette)
+
+**Figure 3:** Condensed *lac* regulatory schematic (§3.2 colours): lactose and glucose inputs; LacI-mediated operator control; cAMP–CAP catabolite regulation; polycistronic *lacZYA* expression; lactose hydrolysis and feedback via permease and metabolic signals. Full multi-encoding corpus entry: https://storage.googleapis.com/regal-scholar-453620-r7-podcast-storage/glmp-v2/viewer_demo/glmp-viewer-demo-v1-v6.html?process=ecoli_lac_operon&version=v1 — JSON schema illustration: §3.5 (`beta-galactosidase-regulation`).
+
+Colour Legend: Red (Triggers/Inputs), Yellow (Structures/Objects), Green (Processing/Operations), Blue (Intermediates/States; branch predicates), Violet (Products/Outputs).
+
+Mermaid Markdown Code:
+```mermaid
+flowchart TD
+    LacExt[Lactose outside cell] --> ImpL[Lactose uptake LacY]
+    GlcExt[Glucose outside cell] --> ImpG[Glucose uptake]
+    ImpL --> LacIn[Intracellular lactose]
+    ImpG --> GlcHi[High intracellular glucose]
+
+    LacIn --> Qlac{Lactose present}
+    Qlac -->|no| RepBlock[LacI blocks operator]
+    Qlac -->|yes| PromOk[Promoter accessible]
+
+    RepBlock --> TxBlocked[Transcription blocked]
+
+    PromOk --> TxGate{Glucose low}
+    GlcHi --> TxGate
+
+    TxGate -->|no| TxWeak[Weak lacZYA transcription]
+    TxGate -->|yes| TxStrong[Strong lacZYA transcription]
+
+    TxWeak --> lacRNA[lacZYA mRNA]
+    TxStrong --> lacRNA
+
+    lacRNA --> TrZ[Translate LacZ]
+    lacRNA --> TrY[Translate LacY]
+    TrZ --> LacZ[Beta-galactosidase]
+    TrY --> LacY[Lactose permease LacY]
+
+    LacZ --> Hydro[Lactose hydrolysis]
+    Hydro --> Sugars[Glucose and galactose]
+
+    Sugars --> Relax[Metabolic flux relieves lactose dependence]
+    Relax --> LacIn
+    LacY --> ImpL
+
+    TxBlocked --> NoProt[No lac enzymes expressed]
+
+    style LacExt fill:#ff6b6b,color:#fff
+    style GlcExt fill:#ff6b6b,color:#fff
+
+    style ImpL fill:#51cf66,color:#fff
+    style ImpG fill:#51cf66,color:#fff
+
+    style LacIn fill:#74c0fc,color:#fff
+    style GlcHi fill:#74c0fc,color:#fff
+    style PromOk fill:#74c0fc,color:#fff
+    style lacRNA fill:#74c0fc,color:#fff
+    style Relax fill:#74c0fc,color:#fff
+    style TxBlocked fill:#74c0fc,color:#fff
+
+    style Qlac fill:#74c0fc,color:#fff
+    style TxGate fill:#74c0fc,color:#fff
+
+    style RepBlock fill:#ffd43b,color:#000
+    style LacZ fill:#ffd43b,color:#000
+    style LacY fill:#ffd43b,color:#000
+
+    style TxWeak fill:#51cf66,color:#fff
+    style TxStrong fill:#51cf66,color:#fff
+    style TrZ fill:#51cf66,color:#fff
+    style TrY fill:#51cf66,color:#fff
+    style Hydro fill:#51cf66,color:#fff
+
+    style Sugars fill:#b197fc,color:#fff
+    style NoProt fill:#b197fc,color:#fff
 ```
 
 ### 4.2 Mathematical Processes
@@ -513,7 +588,7 @@ flowchart TD
   style FIN fill:#51cf66,color:#fff
 ```
 
-**Figure 3:** Merge Sort. Recursive divide phase with subroutine-style calls, concatenated with an explicit iterative merge sweep (compare–append cycle and tail flushing). Larger composite layouts (multiple recursive levels unfolded, cost annotations) can be generated with richer prompts; the live mathematics-process database hosts additional variants.
+**Figure 4:** Merge Sort. Recursive divide phase with subroutine-style calls, concatenated with an explicit iterative merge sweep (compare–append cycle and tail flushing). Larger composite layouts (multiple recursive levels unfolded, cost annotations) can be generated with richer prompts; the live mathematics-process database hosts additional variants.
 
 
 ### 4.3 Comparison with Existing Visualisation Tools

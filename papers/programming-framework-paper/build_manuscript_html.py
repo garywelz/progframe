@@ -25,7 +25,8 @@ MERMAID_BLOCK = re.compile(
 FIGURE_SLUGS_AND_TITLES: list[tuple[str, str]] = [
     ("figure-01-basic-framework", "Figure 1 — Basic Programming Framework Structure"),
     ("figure-02-vhl-hif-class3", "Figure 2 — Class III VHL–HIF oxygen sensing (empirical sequel palette)"),
-    ("figure-03-merge-sort", "Figure 3 — Merge Sort"),
+    ("figure-03-lac-operon", "Figure 3 — lac operon / beta-galactosidase regulation (Programming Framework palette)"),
+    ("figure-04-merge-sort", "Figure 4 — Merge Sort"),
 ]
 
 HTML_TEMPLATE = """<!doctype html>
@@ -120,8 +121,8 @@ HTML_TEMPLATE = """<!doctype html>
     </header>
     <div id="diagram-sections"></div>
     <div class="legend">
-      <strong>Colour conventions:</strong> Figures 1 and 3 use the suggested five-category §3.2 palette (Red through Violet).
-      Figure 2 uses the empirical sequel companion illustration palette (signal / gene / outcome + degradation-edge emphasis)—see manuscript §4.1.
+      <strong>Colour conventions:</strong> Figures 1, 3, and 4 use the suggested five-category §3.2 palette (Red through Violet).
+      Figure 2 uses the empirical sequel companion illustration palette (signal / gene / outcome + degradation-edge emphasis)—see §4.1.
       Raw sources: <code>diagrams/&lt;slug&gt;.mmd</code> next to this file.
     </div>
   </main>

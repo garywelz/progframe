@@ -11,7 +11,7 @@ HTML_OUT="html-manuscript"
 
 sed -e '3,6d' current-draft.md > "$STRIPPED"
 python3 ensure_markdown_block_separation.py "$STRIPPED"
-python3 build_manuscript_html.py "$STRIPPED" "$HTML_OUT" empirical_sequel_class3_vhl_hif.json
+python3 build_manuscript_html.py "$STRIPPED" "$HTML_OUT" empirical_sequel_class3_vhl_hif.json beta-galactosidase-regulation.json
 cp "$STRIPPED" "$WITH_IMAGES"
 
 PANDOC_RES=".:$DIR"
