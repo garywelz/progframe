@@ -1,12 +1,11 @@
 #!/usr/bin/env python3
 """
-Legacy: replace ```mermaid ... ``` blocks with PNG via @mermaid-js/mermaid-cli (mmdc).
+Replace ```mermaid ... ``` blocks in Markdown with PNG images via @mermaid-js/mermaid-cli (mmdc).
 
-The default manuscript build uses ``build_manuscript_html.py`` (browser-rendered Mermaid + ``.mmd``
-extracts) instead of raster diagrams. Keep this script only if you explicitly want Pandoc PDFs with
-embedded PNG figures and have Chromium + ``mmdc`` available.
+Used by ``build_programming_framework_outputs.sh`` so **PDF/DOCX** embed rendered flowcharts.
+The same source ``current-draft.md`` also feeds ``build_manuscript_html.py`` for browser Mermaid + ``.mmd``.
 
-Requires Chromium for Puppeteer. Set PUPPETE_EXECUTABLE_PATH if auto-detection fails.
+Requires Chromium for Puppeteer and ``mmdc`` on PATH. Set PUPPETE_EXECUTABLE_PATH if auto-detection fails.
 """
 from __future__ import annotations
 
@@ -17,11 +16,12 @@ import subprocess
 import sys
 from pathlib import Path
 
-# Canvas (width px, height px, puppeteer scale) — preset 1 (Figure 1) kept compact to avoid orphaned pages.
+# Canvas (width px, height px, puppeteer scale) — one preset per manuscript figure order.
 MERMAID_RENDER_PRESETS = [
-    (980, 720, 1.85),
-    (3600, 5200, 1.2),
-    (2000, 3200, 2.0),
+    (980, 720, 1.85),  # Fig 1 — basic framework
+    (1400, 1100, 1.75),  # Fig 2 — VHL–HIF (compact)
+    (2600, 3400, 1.35),  # Fig 3 — lac operon (medium)
+    (3800, 5400, 1.15),  # Fig 4 — Merge Sort (large)
 ]
 DEFAULT_PRESET = (1600, 2000, 1.75)
 
@@ -120,7 +120,7 @@ def main() -> None:
         )
         render_one(mmdc_path, chromium, body, outfile, width, height, scale)
         rel = os.path.relpath(outfile, start=out_path.parent).replace("\\", "/")
-        w = "72%" if idx == 0 else "92%"
+        w = "72%" if idx == 0 else "90%" if idx == 3 else "88%"
         return f"\n![]({rel}){{ width={w} }}\n\n"
 
     new_md = MERMAID_BLOCK.sub(repl, md)

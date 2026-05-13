@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Strip editor-only meta lines from current-draft.md, extract Mermaid → .mmd + HTML viewer,
-# then Pandoc PDF/DOCX (diagrams remain fenced ```mermaid in the Markdown passed to Pandoc).
+# render Mermaid → PNG for Pandoc PDF/DOCX, then run Pandoc.
 set -euo pipefail
 DIR="$(cd "$(dirname "$0")" && pwd)"
 cd "$DIR"
@@ -12,7 +12,7 @@ HTML_OUT="html-manuscript"
 sed -e '3,6d' current-draft.md > "$STRIPPED"
 python3 ensure_markdown_block_separation.py "$STRIPPED"
 python3 build_manuscript_html.py "$STRIPPED" "$HTML_OUT" empirical_sequel_class3_vhl_hif.json beta-galactosidase-regulation.json
-cp "$STRIPPED" "$WITH_IMAGES"
+python3 render_mermaid_for_pandoc.py "$STRIPPED" "$WITH_IMAGES"
 
 PANDOC_RES=".:$DIR"
 PDF_FLAGS=(
@@ -32,3 +32,4 @@ pandoc "$WITH_IMAGES" -o programming_framework.docx \
 
 echo "Outputs: programming_framework.pdf programming_framework.docx"
 echo "HTML + .mmd: ${HTML_OUT}/index.html and ${HTML_OUT}/diagrams/*.mmd"
+echo "PNG (for PDF): .pdf-build/mermaid-png/*.png"

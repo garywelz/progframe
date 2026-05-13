@@ -2,7 +2,7 @@
 
 > **Source:** Converted May 2026 from `programming_framework.pdf`. Readable from WSL as `/mnt/c/Users/garyw/Downloads/programming_framework.pdf` when the file is in Windows Downloads.
 
-Rebuild PDF/DOCX and the HTML figure pack: `./papers/programming-framework-paper/build_programming_framework_outputs.sh` — writes `papers/programming-framework-paper/html-manuscript/index.html`, plain-text `diagrams/*.mmd` extracts, syncs sibling `*.mmd` files for process JSON entries that declare `mermaid_file`, and runs Pandoc on Markdown that still contains fenced Mermaid code blocks (PDF/DOCX treat them as monospace code unless a separate PNG pipeline is used). Reverse PDF→MD only: `progframe/.venv-pdf/bin/python3 papers/programming-framework-paper/build_current_draft_from_pdf.py`.
+Rebuild PDF/DOCX and the HTML figure pack: `./papers/programming-framework-paper/build_programming_framework_outputs.sh` — renders fenced Mermaid to **PNG** via `mmdc` + Chromium for Pandoc PDF/DOCX, writes `html-manuscript/index.html` and `diagrams/*.mmd`, and syncs sibling `*.mmd` files from listed JSON entries. Requires `@mermaid-js/mermaid-cli` (`mmdc`) and Chromium (or set `PUPPETEER_EXECUTABLE_PATH`). Reverse PDF→MD only: `progframe/.venv-pdf/bin/python3 papers/programming-framework-paper/build_current_draft_from_pdf.py`.
 
 **Gary Welz**
 
