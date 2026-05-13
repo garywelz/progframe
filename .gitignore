@@ -66,6 +66,8 @@ benchmark_data/
 
 # Personal documents
 *.pdf
+# Built manuscript (repo tracks this one PDF for GitHub convenience)
+!papers/programming-framework-paper/programming_framework.pdf
 
 # Intermediate/deprecated files
 scPerturBench_Results/
@@ -81,6 +83,10 @@ genome_as_computer_v2 (1).html
 
 # Programming Framework paper — Word exports (regenerate with Pandoc locally; not source of truth)
 papers/programming-framework-paper/*.docx
+
+# Generated Mermaid PNGs and stripped markdown for pandoc PDF/DOCX
+papers/programming-framework-paper/.pdf-build/
+papers/programming-framework-paper/_build_*.md
 
 # Large result artifacts (derived, can be regenerated)
 results/celloracle_grn_coefficients.pkl

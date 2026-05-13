@@ -1,0 +1,11 @@
+{
+  "id": "empirical_sequel_class3_vhl_hif",
+  "name": "Class III bistable switch: VHL–HIF oxygen sensing",
+  "description": "Under normoxia, VHL degrades HIF1α; under hypoxia, HIF1α accumulates and activates VEGF, GLUT1, and glycolytic genes that positive-feedback stabilize the hypoxic state (bistability around oxygen threshold). Illustration palette matches empirical sequel topology figures—not §3.2 five-category defaults.",
+  "mermaid": "flowchart TD\n    O2[\"Oxygen<br/>level\"]:::signal --> VHL[\"VHL<br/>E3 ligase\"]:::gene\n    VHL -.->|degrades<br/>(normoxia)| HIF[\"HIF1α\"]:::gene\n    HIF -->|activates<br/>(hypoxia)| Targets[\"VEGF, GLUT1,<br/>glycolytic genes\"]:::outcome\n    Targets -->|positive<br/>feedback| HIF\n\n    classDef signal fill:#2E75B6,stroke:#1a5276,color:#fff\n    classDef gene fill:#1abc9c,stroke:#16a085,color:#fff\n    classDef outcome fill:#f39c12,stroke:#e67e22,color:#fff\n\n    linkStyle 1 stroke:#e74c3c,stroke-width:2px\n",
+  "mermaid_file": "empirical_sequel_class3_vhl_hif.mmd",
+  "source_url": "https://storage.googleapis.com/regal-scholar-453620-r7-podcast-storage/mathematics-processes-database/empirical_sequel_draft.html",
+  "circuit_class": "III",
+  "benchmark_note": "Companion reports mean Pearson r = 0.921 for VHL-associated Class III illustration panel (highest among Class III schematic examples shown there); aggregate Class III difficulty vs Class I assessed separately in that paper.",
+  "palette": "empirical_sequel_topology (signal / gene / outcome; degradation-edge emphasis)"
+}

@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Programming Framework — manuscript figures (Mermaid)</title>
+  <style>
+    :root {{
+      color-scheme: light dark;
+      --bg: #f8fafc;
+      --panel: #ffffff;
+      --text: #111827;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --accent: #2563eb;
+    }}
+    @media (prefers-color-scheme: dark) {{
+      :root {{
+        --bg: #0f172a;
+        --panel: #111827;
+        --text: #e5e7eb;
+        --muted: #94a3b8;
+        --border: #334155;
+        --accent: #60a5fa;
+      }}
+    }}
+    * {{ box-sizing: border-box; }}
+    body {{
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+    }}
+    main {{ max-width: 1120px; margin: 0 auto; padding: 28px 18px 56px; }}
+    header {{
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 18px;
+      margin-bottom: 28px;
+    }}
+    h1 {{ margin: 0 0 8px; font-size: 1.65rem; }}
+    .meta {{ color: var(--muted); font-size: 0.95rem; }}
+    section {{
+      margin-bottom: 42px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 22px;
+      background: var(--panel);
+    }}
+    section h2 {{
+      margin: 0 0 6px;
+      font-size: 1.15rem;
+      border-bottom: 0;
+      padding-top: 0;
+    }}
+    .mmd-path {{
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin-bottom: 14px;
+      font-family: ui-monospace, monospace;
+    }}
+    .mmd-path code {{ background: color-mix(in srgb, var(--panel) 70%, var(--border)); padding: 2px 6px; border-radius: 4px; }}
+    pre.mermaid {{
+      margin: 0;
+      padding: 18px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: #ffffff;
+      color: #111827;
+      overflow-x: auto;
+    }}
+    pre.mermaid svg {{ max-width: 100%; height: auto; }}
+    .legend {{
+      margin-top: 36px;
+      padding: 16px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      font-size: 0.92rem;
+      color: var(--muted);
+    }}
+    .legend strong {{ color: var(--text); }}
+    a {{ color: var(--accent); }}
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Programming Framework — figures</h1>
+      <p class="meta">Rendered in-browser via Mermaid from extracted <code>.mmd</code> sources (no raster PNG step).</p>
+    </header>
+    <div id="diagram-sections"></div>
+    <div class="legend">
+      <strong>Colour conventions:</strong> Figures 1 and 3 use the suggested five-category §3.2 palette (Red through Violet).
+      Figure 2 uses the empirical sequel companion illustration palette (signal / gene / outcome + degradation-edge emphasis)—see manuscript §4.1.
+      Raw sources: <code>diagrams/&lt;slug&gt;.mmd</code> next to this file.
+    </div>
+  </main>
+  <script type="application/json" id="figure-json-data">[{"slug": "figure-01-basic-framework", "title": "Figure 1 — Basic Programming Framework Structure", "source": "flowchart TD\nA[Start/Input] --> B[Process Step]\nB --> C{Decision Point}\n\nC -->|Yes| D[Operation Path 1]\nC -->|No| E[Operation Path 2]\nD --> F[Intermediate State]\nE --> F\nF --> G[Final Output]\nstyle A fill:#ff6b6b,color:#fff\nstyle B fill:#51cf66,color:#fff\nstyle C fill:#74c0fc,color:#fff\nstyle D fill:#51cf66,color:#fff\nstyle E fill:#51cf66,color:#fff\nstyle F fill:#74c0fc,color:#fff\nstyle G fill:#b197fc,color:#fff"}, {"slug": "figure-02-vhl-hif-class3", "title": "Figure 2 — Class III VHL–HIF oxygen sensing (empirical sequel palette)", "source": "flowchart TD\n    O2[\"Oxygen<br/>level\"]:::signal --> VHL[\"VHL<br/>E3 ligase\"]:::gene\n    VHL -.->|degrades<br/>(normoxia)| HIF[\"HIF1α\"]:::gene\n    HIF -->|activates<br/>(hypoxia)| Targets[\"VEGF, GLUT1,<br/>glycolytic genes\"]:::outcome\n    Targets -->|positive<br/>feedback| HIF\n\n    classDef signal fill:#2E75B6,stroke:#1a5276,color:#fff\n    classDef gene fill:#1abc9c,stroke:#16a085,color:#fff\n    classDef outcome fill:#f39c12,stroke:#e67e22,color:#fff\n\n    linkStyle 1 stroke:#e74c3c,stroke-width:2px"}, {"slug": "figure-03-merge-sort", "title": "Figure 3 — Merge Sort", "source": "flowchart TD\n  IN[\"Input: sequence A with length n\"] --> Q{\"Length is 1 or 0?\"}\n  Q -->|yes| OUT1[\"Return A\"]\n  Q -->|no| MID[\"Compute mid equals floor(n/2)\"]\n  MID --> CUTL[\"L is prefix segment of A before mid\"]\n  MID --> CUTR[\"R is complementary suffix of A\"]\n  CUTL --> SL[[Recursive sort L]]\n  CUTR --> SR[[Recursive sort R]]\n  SL --> LS[\"L sorted\"]\n  SR --> RS[\"R sorted\"]\n  LS --> MG[\"Merge L_sorted with R_sorted\"]\n  RS --> MG\n  MG --> INI[\"i,j,k to 0; empty output buffer Out\"]\n  INI --> WH{\"Both halves have unmerged heads?\"}\n  WH -->|yes| CMP{\"Left head not after right head?\"}\n  CMP -->|yes| APL[\"Take from L_sorted; advance i\"]\n  CMP -->|no| APR[\"Take from R_sorted; advance j\"]\n  APL --> WH\n  APR --> WH\n  WH -->|no| HC{\"Remainder in L_sorted?\"}\n  HC -->|yes| FL[\"Append rest of L_sorted\"]\n  HC -->|no| HR{\"Remainder in R_sorted?\"}\n  FL --> HR\n  HR -->|yes| FR[\"Append rest of R_sorted\"]\n  HR -->|no| FIN[\"Build merged ordering\"]\n  FR --> FIN\n  FIN --> OUT2[\"Return merged sorted sequence\"]\n\n  style IN fill:#ff6b6b,color:#fff\n  style OUT1 fill:#b197fc,color:#fff\n  style OUT2 fill:#b197fc,color:#fff\n  style CUTL fill:#ffd43b,color:#000\n  style CUTR fill:#ffd43b,color:#000\n  style LS fill:#74c0fc,color:#fff\n  style RS fill:#74c0fc,color:#fff\n  style SL fill:#ffd43b,color:#000\n  style SR fill:#ffd43b,color:#000\n  style Q fill:#74c0fc,color:#fff\n  style WH fill:#74c0fc,color:#fff\n  style CMP fill:#74c0fc,color:#fff\n  style HC fill:#74c0fc,color:#fff\n  style HR fill:#74c0fc,color:#fff\n  style MID fill:#51cf66,color:#fff\n  style MG fill:#51cf66,color:#fff\n  style INI fill:#51cf66,color:#fff\n  style APL fill:#51cf66,color:#fff\n  style APR fill:#51cf66,color:#fff\n  style FL fill:#51cf66,color:#fff\n  style FR fill:#51cf66,color:#fff\n  style FIN fill:#51cf66,color:#fff"}]</script>
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+
+    const raw = document.getElementById('figure-json-data').textContent;
+    const figures = JSON.parse(raw);
+
+    mermaid.initialize({{
+      startOnLoad: false,
+      theme: 'default',
+      securityLevel: 'loose',
+      flowchart: {{ htmlLabels: true, curve: 'basis', useMaxWidth: true }},
+    }});
+
+    const host = document.getElementById('diagram-sections');
+    for (const fig of figures) {{
+      const sec = document.createElement('section');
+      sec.id = fig.slug;
+      const h2 = document.createElement('h2');
+      h2.textContent = fig.title;
+      sec.appendChild(h2);
+      const pathLine = document.createElement('p');
+      pathLine.className = 'mmd-path';
+      pathLine.innerHTML = 'Source file: <code>diagrams/' + fig.slug + '.mmd</code>';
+      sec.appendChild(pathLine);
+      const pre = document.createElement('pre');
+      pre.className = 'mermaid';
+      pre.textContent = fig.source;
+      sec.appendChild(pre);
+      host.appendChild(sec);
+    }}
+
+    await mermaid.run({{ querySelector: 'pre.mermaid' }});
+  </script>
+</body>
+</html>

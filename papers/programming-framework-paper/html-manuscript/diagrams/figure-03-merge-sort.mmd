@@ -1,0 +1,50 @@
+flowchart TD
+  IN["Input: sequence A with length n"] --> Q{"Length is 1 or 0?"}
+  Q -->|yes| OUT1["Return A"]
+  Q -->|no| MID["Compute mid equals floor(n/2)"]
+  MID --> CUTL["L is prefix segment of A before mid"]
+  MID --> CUTR["R is complementary suffix of A"]
+  CUTL --> SL[[Recursive sort L]]
+  CUTR --> SR[[Recursive sort R]]
+  SL --> LS["L sorted"]
+  SR --> RS["R sorted"]
+  LS --> MG["Merge L_sorted with R_sorted"]
+  RS --> MG
+  MG --> INI["i,j,k to 0; empty output buffer Out"]
+  INI --> WH{"Both halves have unmerged heads?"}
+  WH -->|yes| CMP{"Left head not after right head?"}
+  CMP -->|yes| APL["Take from L_sorted; advance i"]
+  CMP -->|no| APR["Take from R_sorted; advance j"]
+  APL --> WH
+  APR --> WH
+  WH -->|no| HC{"Remainder in L_sorted?"}
+  HC -->|yes| FL["Append rest of L_sorted"]
+  HC -->|no| HR{"Remainder in R_sorted?"}
+  FL --> HR
+  HR -->|yes| FR["Append rest of R_sorted"]
+  HR -->|no| FIN["Build merged ordering"]
+  FR --> FIN
+  FIN --> OUT2["Return merged sorted sequence"]
+
+  style IN fill:#ff6b6b,color:#fff
+  style OUT1 fill:#b197fc,color:#fff
+  style OUT2 fill:#b197fc,color:#fff
+  style CUTL fill:#ffd43b,color:#000
+  style CUTR fill:#ffd43b,color:#000
+  style LS fill:#74c0fc,color:#fff
+  style RS fill:#74c0fc,color:#fff
+  style SL fill:#ffd43b,color:#000
+  style SR fill:#ffd43b,color:#000
+  style Q fill:#74c0fc,color:#fff
+  style WH fill:#74c0fc,color:#fff
+  style CMP fill:#74c0fc,color:#fff
+  style HC fill:#74c0fc,color:#fff
+  style HR fill:#74c0fc,color:#fff
+  style MID fill:#51cf66,color:#fff
+  style MG fill:#51cf66,color:#fff
+  style INI fill:#51cf66,color:#fff
+  style APL fill:#51cf66,color:#fff
+  style APR fill:#51cf66,color:#fff
+  style FL fill:#51cf66,color:#fff
+  style FR fill:#51cf66,color:#fff
+  style FIN fill:#51cf66,color:#fff
