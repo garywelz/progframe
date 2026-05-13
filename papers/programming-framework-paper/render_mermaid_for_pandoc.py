@@ -18,7 +18,7 @@ from pathlib import Path
 
 # Canvas (width px, height px, puppeteer scale) — one preset per manuscript figure order.
 MERMAID_RENDER_PRESETS = [
-    (980, 720, 1.85),  # Fig 1 — basic framework
+    (1000, 1080, 1.62),  # Fig 1 — stacked flow + legend, white subgraphs
     (1400, 1100, 1.75),  # Fig 2 — VHL–HIF (compact)
     (2600, 3400, 1.35),  # Fig 3 — lac operon (medium)
     (3800, 5400, 1.15),  # Fig 4 — Merge Sort (large)

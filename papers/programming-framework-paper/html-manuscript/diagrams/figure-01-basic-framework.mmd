@@ -1,16 +1,42 @@
-flowchart TD
-A[Start/Input] --> B[Process Step]
-B --> C{Decision Point}
+%%{init:{'theme':'base','themeVariables':{'background':'#ffffff','clusterBkg':'#ffffff','clusterBorder':'#cccccc','mainBkg':'#ffffff','primaryColor':'#ffffff','secondaryColor':'#ffffff','tertiaryColor':'#ffffff'}}}%%
+flowchart TB
+  subgraph STACK[" "]
+    direction TB
+    subgraph MAIN["Minimal example"]
+      direction TB
+      A([Trigger / Input]) --> Y[Structure / Object]
+      Y --> B[Processing step]
+      B --> C{Branch predicate}
+      C -->|Yes| D[Operation path A]
+      C -->|"No"| E[Operation path B]
+      D --> F[Intermediate state]
+      E --> F
+      F --> OUT([Final output])
+    end
+    subgraph LEG["Legend — Programming Framework palette"]
+      direction LR
+      LG_R[Triggers /<br/>inputs]
+      LG_Y[Structures /<br/>objects]
+      LG_G[Operations]
+      LG_B[Intermediate<br/>states · branch<br/>predicate tests]
+      LG_V[Products /<br/>outputs]
+    end
+  end
 
-C -->|Yes| D[Operation Path 1]
-C -->|No| E[Operation Path 2]
-D --> F[Intermediate State]
-E --> F
-F --> G[Final Output]
+style STACK fill:#ffffff,stroke:none
+style MAIN fill:#ffffff,stroke:#cccccc
+style LEG fill:#ffffff,stroke:#cccccc
+
 style A fill:#ff6b6b,color:#fff
+style OUT fill:#b197fc,color:#fff
+style Y fill:#ffd43b,color:#000
 style B fill:#51cf66,color:#fff
 style C fill:#74c0fc,color:#fff
 style D fill:#51cf66,color:#fff
 style E fill:#51cf66,color:#fff
 style F fill:#74c0fc,color:#fff
-style G fill:#b197fc,color:#fff
+style LG_R fill:#ff6b6b,color:#fff
+style LG_Y fill:#ffd43b,color:#000
+style LG_G fill:#51cf66,color:#fff
+style LG_B fill:#74c0fc,color:#fff
+style LG_V fill:#b197fc,color:#fff
