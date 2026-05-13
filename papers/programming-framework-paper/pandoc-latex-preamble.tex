@@ -2,6 +2,10 @@
 \usepackage[T1]{fontenc}
 \usepackage{textcomp}
 \usepackage{graphicx}
+% Pandoc LaTeX with `width=NN%%` omits explicit height ⇒ it injects height=\textheight. Without
+% keepaspectratio this can overstretch vertically; Gin defaults normalize scaling to preserve aspect ratio
+% inside the width×height bounding box.
+\setkeys{Gin}{keepaspectratio}
 % Loosen float placement so large figures are less likely to leave an almost-empty page before them.
 \setcounter{topnumber}{9}
 \setcounter{bottomnumber}{9}

@@ -450,10 +450,6 @@ Example: **Class III — VHL–HIF oxygen sensing** (from the empirical sequel c
 
 Sample Diagram — Class III: VHL–HIF oxygen sensing (empirical sequel illustration palette)
 
-**Figure 2:** VHL–HIF oxygen sensing as a **Class III** schematic (after the empirical sequel companion). Colours follow that publication’s illustration convention—**not** the five-category §3.2 default used in Figures 1, 3, and 4. Companion HTML: https://storage.googleapis.com/regal-scholar-453620-r7-podcast-storage/mathematics-processes-database/empirical_sequel_draft.html — GLMP: https://huggingface.co/spaces/garywelz/glmp
-
-**Legend (this figure only):** Blue — environmental signal (oxygen); teal — protein nodes (VHL E3 ligase, HIF1α); orange — transcriptional programme output (representative targets); dashed degradation arm — normoxic proteolytic targeting of HIF1α (emphasis stroke); solid arrows — transcriptional activation and **positive feedback** onto HIF1α.
-
 Mermaid Markdown Code:
 ```mermaid
 flowchart TD
@@ -469,6 +465,10 @@ flowchart TD
 
     linkStyle 1 stroke:#e74c3c,stroke-width:2px
 ```
+
+**Figure 2:** VHL–HIF oxygen sensing as a **Class III** schematic (after the empirical sequel companion). Colours follow that publication’s illustration convention—**not** the five-category §3.2 default used in Figures 1, 3, and 4. Companion HTML: https://storage.googleapis.com/regal-scholar-453620-r7-podcast-storage/mathematics-processes-database/empirical_sequel_draft.html — GLMP: https://huggingface.co/spaces/garywelz/glmp
+
+**Legend (this figure only):** Blue — environmental signal (oxygen); teal — protein nodes (VHL E3 ligase, HIF1α); orange — transcriptional programme output (representative targets); dashed degradation arm — normoxic proteolytic targeting of HIF1α (emphasis stroke); solid arrows — transcriptional activation and **positive feedback** onto HIF1α.
 
 Sample Diagram — *lac* operon / beta-galactosidase regulation (*E. coli*, Programming Framework palette)
 

@@ -30,6 +30,15 @@ MERMAID_BLOCK = re.compile(
     re.MULTILINE | re.DOTALL,
 )
 
+# ![](path){...}: Pandoc LaTeX adds height=\textheight when only width=NN% — pin both dimensions.
+# Matching \setkeys{Gin}{keepaspectratio} in pandoc-latex-preamble.tex scales uniformly inside the box.
+PNG_ATTR = [
+    "width=68% height=195mm",
+    "width=50% height=78mm",
+    "width=80% height=230mm",
+    "width=80% height=240mm",
+]
+
 
 def find_chromium() -> str | None:
     env = (
@@ -120,8 +129,8 @@ def main() -> None:
         )
         render_one(mmdc_path, chromium, body, outfile, width, height, scale)
         rel = os.path.relpath(outfile, start=out_path.parent).replace("\\", "/")
-        w = "72%" if idx == 0 else "90%" if idx == 3 else "88%"
-        return f"\n![]({rel}){{ width={w} }}\n\n"
+        attr = PNG_ATTR[idx] if idx < len(PNG_ATTR) else "width=78% height=220mm"
+        return f"\n![]({rel}){{{attr}}}\n\n"
 
     new_md = MERMAID_BLOCK.sub(repl, md)
     if counter["i"] == 0:
