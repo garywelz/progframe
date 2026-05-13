@@ -1,8 +1,8 @@
 flowchart TD
-    O2["Oxygen<br/>level"]:::signal --> VHL["VHL<br/>E3 ligase"]:::gene
-    VHL -.->|degrades<br/>(normoxia)| HIF["HIF1α"]:::gene
-    HIF -->|activates<br/>(hypoxia)| Targets["VEGF, GLUT1,<br/>glycolytic genes"]:::outcome
-    Targets -->|positive<br/>feedback| HIF
+    O2["Oxygen\nlevel"]:::signal --> VHL["VHL\nE3 ligase"]:::gene
+    VHL -.->|degrades (normoxia)| HIF["HIF1α"]:::gene
+    HIF -->|activates (hypoxia)| Targets["VEGF, GLUT1,\nglycolytic genes"]:::outcome
+    Targets -->|positive feedback| HIF
 
     classDef signal fill:#2E75B6,stroke:#1a5276,color:#fff
     classDef gene fill:#1abc9c,stroke:#16a085,color:#fff
