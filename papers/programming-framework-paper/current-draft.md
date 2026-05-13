@@ -225,7 +225,7 @@ support in GitHub, GitLab, Notion, Obsidian, and many other platforms (Sveidqvis
 Mermaid flowcharts with colour styling. Mermaid’s text-based syntax enables version control, collaborative
 editing, and seamless integration into documentation systems.
 
-GitHub’s built-in diagram renderer applies a constrained Mermaid grammar: **HTML tags such as `<br/>` inside edge labels** (`|…|`) typically cause parse failures; keep edge labels plain text, and use `\n` inside **quoted node labels** when multi-line stacking is needed (Figure 2 illustrates this pattern).
+GitHub’s built-in diagram renderer applies a constrained Mermaid grammar: **parentheses or angle brackets inside edge labels** (`|…|`) must be wrapped as **quoted strings** (e.g. `|"degrades (normoxia)"|`); otherwise the lexer fails. Avoid HTML in edge labels; `<br>` inside **node** brackets is usually tolerated for line breaks.
 
 Mermaid Markdown Code:
 ```mermaid
@@ -429,14 +429,15 @@ Sample Diagram — Class III: VHL–HIF oxygen sensing (empirical sequel illustr
 Mermaid Markdown Code:
 ```mermaid
 flowchart TD
-    O2["Oxygen\nlevel"]:::signal --> VHL["VHL\nE3 ligase"]:::gene
-    VHL -.->|degrades (normoxia)| HIF["HIF1α"]:::gene
-    HIF -->|activates (hypoxia)| Targets["VEGF, GLUT1,\nglycolytic genes"]:::outcome
-    Targets -->|positive feedback| HIF
+    O2[Oxygen level] --> VHL[VHL E3 ligase]
+    VHL -.->|"degrades (normoxia)"| HIF[HIF1α]
+    HIF -->|"activates (hypoxia)"| Targets["VEGF, GLUT1<br>glycolytic genes"]
+    Targets -->|"positive feedback"| HIF
 
-    classDef signal fill:#2E75B6,stroke:#1a5276,color:#fff
-    classDef gene fill:#1abc9c,stroke:#16a085,color:#fff
-    classDef outcome fill:#f39c12,stroke:#e67e22,color:#fff
+    style O2 fill:#2E75B6,stroke:#1a5276,color:#fff
+    style VHL fill:#1abc9c,stroke:#16a085,color:#fff
+    style HIF fill:#1abc9c,stroke:#16a085,color:#fff
+    style Targets fill:#f39c12,stroke:#e67e22,color:#fff
 
     linkStyle 1 stroke:#e74c3c,stroke-width:2px
 ```

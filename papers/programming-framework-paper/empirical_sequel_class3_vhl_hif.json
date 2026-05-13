@@ -2,7 +2,7 @@
   "id": "empirical_sequel_class3_vhl_hif",
   "name": "Class III bistable switch: VHL–HIF oxygen sensing",
   "description": "Under normoxia, VHL degrades HIF1α; under hypoxia, HIF1α accumulates and activates VEGF, GLUT1, and glycolytic genes that positive-feedback stabilize the hypoxic state (bistability around oxygen threshold). Illustration palette matches empirical sequel topology figures—not §3.2 five-category defaults.",
-  "mermaid": "flowchart TD\n    O2[\"Oxygen\\nlevel\"]:::signal --> VHL[\"VHL\\nE3 ligase\"]:::gene\n    VHL -.->|degrades (normoxia)| HIF[\"HIF1α\"]:::gene\n    HIF -->|activates (hypoxia)| Targets[\"VEGF, GLUT1,\\nglycolytic genes\"]:::outcome\n    Targets -->|positive feedback| HIF\n\n    classDef signal fill:#2E75B6,stroke:#1a5276,color:#fff\n    classDef gene fill:#1abc9c,stroke:#16a085,color:#fff\n    classDef outcome fill:#f39c12,stroke:#e67e22,color:#fff\n\n    linkStyle 1 stroke:#e74c3c,stroke-width:2px\n",
+  "mermaid": "flowchart TD\n    O2[Oxygen level] --> VHL[VHL E3 ligase]\n    VHL -.->|\"degrades (normoxia)\"| HIF[HIF1α]\n    HIF -->|\"activates (hypoxia)\"| Targets[\"VEGF, GLUT1<br>glycolytic genes\"]\n    Targets -->|\"positive feedback\"| HIF\n\n    style O2 fill:#2E75B6,stroke:#1a5276,color:#fff\n    style VHL fill:#1abc9c,stroke:#16a085,color:#fff\n    style HIF fill:#1abc9c,stroke:#16a085,color:#fff\n    style Targets fill:#f39c12,stroke:#e67e22,color:#fff\n\n    linkStyle 1 stroke:#e74c3c,stroke-width:2px\n",
   "mermaid_file": "empirical_sequel_class3_vhl_hif.mmd",
   "source_url": "https://storage.googleapis.com/regal-scholar-453620-r7-podcast-storage/mathematics-processes-database/empirical_sequel_draft.html",
   "circuit_class": "III",
