@@ -6,6 +6,7 @@
 **Fallback:** *PLOS ONE* (dataset/methods framing)
 **Preprint:** Zenodo, 2 June 2026 — DOI 10.5281/zenodo.20510603
 **Submission file:** `algorithms-axiomatic-theories-proofs-welz-2026.pdf`
+**Submitted:** June 2, 2026 — email to Jane Spurr (jane@janespurr.net), subject `JLC Submission`, from gwelz@gc.cuny.edu
 
 ---
 
@@ -125,9 +126,9 @@ Provide name, affiliation, email, and one-line rationale for each.
 
 ## 7. Pre-submission checklist
 
-- [ ] PDF renders correctly, all 8 figures legible, 2 tables intact
-- [ ] AI-use disclosure present in Acknowledgments ✔
-- [ ] Email to jane@janespurr.net with subject **JLC Submission**
-- [ ] PDF attached: `algorithms-axiomatic-theories-proofs-welz-2026.pdf`
-- [ ] Covering message pasted from §3 (edit as needed)
-- [ ] Send from gwelz@gc.cuny.edu (or note alternate reply address in email)
+- [x] PDF renders correctly, all 8 figures legible, 2 tables intact
+- [x] AI-use disclosure present in Acknowledgments
+- [x] Email to jane@janespurr.net with subject **JLC Submission**
+- [x] PDF attached: `algorithms-axiomatic-theories-proofs-welz-2026.pdf`
+- [x] Covering message sent (June 2, 2026)
+- [x] Sent from gwelz@gc.cuny.edu

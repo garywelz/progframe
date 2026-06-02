@@ -5,7 +5,7 @@ Researcher, New Media Lab, CUNY Graduate Center
 Email: gwelz@gc.cuny.edu
 ORCID: https://orcid.org/0009-0005-7806-0892
 
-**Status:** Preprint — Zenodo, June 2, 2026 | DOI: 10.5281/zenodo.20510603
+**Status:** Submitted to *Journal of Logic and Computation*, June 2, 2026 | Preprint: Zenodo DOI 10.5281/zenodo.20510603
 **Repository:** garywelz/progframe
 **Path:** collaborations/mathematics-database/algorithms-axiomatic-theories-proofs-revised.md
 
