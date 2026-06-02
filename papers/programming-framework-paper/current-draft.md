@@ -16,12 +16,12 @@ Scientific and technical fields rely heavily on textual process descriptions tha
 
 ## Key Points
 
-- A repeatable LLM pipeline turns textual process descriptions into structured Mermaid flowcharts across multiple scientific domains.
-- A suggested five-category colour scheme—optional and customisable per domain—supports rapid visual parsing where authors adopt it; companion manuscripts may instead use palette conventions tuned to their figures (signals, activations, feedback topology).
-- The Genome Logic Modelling Project (GLMP) and the Algorithms, Axiomatic Theories, and Proofs project demonstrate feasibility in two research contexts with draft papers on GitHub.
-- GLMP demonstrates the framework's application to biological process visualisation—pairing LLM-assisted, diagrams-as-code flowcharts with optional reconciliation to curated regulatory resources for perturbation-oriented reasoning across regulatory networks, metabolic pathways, and cellular processes.
-- The mathematics deployment (Algorithms, Axiomatic Theories, and Proofs) stores **algorithms**, **axiomatic DAGs**, and **eight-role proof graphs** (with **algorithm capsules**) in versioned JSON with public table viewers.
-- Methodology, tools, and examples are open infrastructure on Hugging Face and public storage for adoption and extension.
+- A repeatable LLM pipeline turns textual descriptions into structured Mermaid flowcharts across scientific domains.
+- A five-category colour scheme supports visual parsing; domains may use custom palettes for signals, roles, and topology.
+- GLMP and the mathematics companion project demonstrate feasibility in biology and formal proof representation.
+- GLMP links LLM diagrams-as-code to curated regulatory data for networks, metabolism, and cellular processes.
+- Mathematics stores algorithms, axiomatic DAGs, and eight-role proof graphs in versioned JSON with public viewers.
+- Methodology, tools, and examples are open on Hugging Face and public storage for adoption and extension.
 
 ## 1. Introduction
 
@@ -739,7 +739,7 @@ The Programming Framework offers a practical, reusable method for turning textua
 The framework’s suggested colour-coding system provides a starting point for consistent visualisation, but
 recognises that different processes may benefit from custom colour schemes; curated GLMP charts increasingly
 adopt the five-category palette above, while legacy snapshots may retain older biology-specific encodings until refreshed.
-Rather than claiming to “solve” process modelling, the Framework is proposed as infrastructure: a starting point that others can adopt, critique, and extend. By providing a clear pipeline—from text to Mermaid to JSON, with iterative refinement and a suggested colour-coding system that can be customised—the Programming Framework lowers the barrier to creating and maintaining high-quality process representations across scientific disciplines.
+Rather than claiming to “solve” process modelling, the Framework is proposed as infrastructure: a starting point that others can adopt, critique, and extend. A clear pipeline—from text to Mermaid to JSON, with iterative refinement and customisable colour coding—lowers the barrier to high-quality process representations across disciplines.
 We invite researchers, educators, and practitioners to experiment with the method, contribute process examples, and help refine both the prompts and the underlying schemas. In the broader CopernicusAI Knowledge Engine, the Programming Framework plays a central role in making processes visible, comparable, and computable—an essential step toward more transparent and navigable scientific workflows.
 Availability: The Programming Framework methodology, examples, and tools are available at:
 https://huggingface.co/spaces/garywelz/programming_framework — A static HTML pack with in-browser Mermaid rendering and plain ``.mmd`` sources is produced beside the manuscript sources (see build script output: ``html-manuscript/index.html`` and ``html-manuscript/diagrams/*.mmd``).

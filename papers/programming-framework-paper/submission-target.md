@@ -14,7 +14,7 @@ For an **Original article**, the journal specifies **3,000–6,000 words** (main
 
 The working Markdown manuscript **`papers/programming-framework-paper/current-draft.md`** is tracked with `papers/programming-framework-paper/count_prose_words.py`. That script estimates **prose** by excluding fenced code blocks (` ``` `), the **Abstract** section, the **References** list, and lines matching `**Figure N:**` captions. **Appendix and “Prior work” prose are included** — confirm with Wiley whether appendices should count toward the cap.
 
-**Last automated check (May 2026):** **~5,950 words** — **within** the 6,000-word upper bound. Re-run the script before submission after any substantive edit.
+**Last automated check (June 2026):** **~5,930 words** — **within** the 6,000-word upper bound. Re-run the script before submission after any substantive edit.
 
 Raw `wc -w` on the Markdown file is **not** a reliable gauge (it counts code, references, and captions).
 
