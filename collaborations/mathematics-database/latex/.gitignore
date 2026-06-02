@@ -1,0 +1,10 @@
+# Build artifacts (regenerate via build_latex.sh)
+paper.pdf
+paper.aux
+paper.log
+paper.out
+paper-latex.md
+paper.md
+paper-fig.md
+paper-fig-*.pdf
+test-pdf*
