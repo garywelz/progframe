@@ -68,6 +68,7 @@ benchmark_data/
 *.pdf
 # Built manuscript (repo tracks this one PDF for GitHub convenience)
 !papers/programming-framework-paper/programming_framework.pdf
+!collaborations/mathematics-database/latex/figures/*.pdf
 
 # Intermediate/deprecated files
 scPerturBench_Results/
