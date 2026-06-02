@@ -91,6 +91,9 @@ papers/programming-framework-paper/_build_*.md
 # Scratch build folder for the mathematics paper PDF (regenerable from the .md)
 **/zenodo_build/
 
+# Chart audit output (regenerable via audit_charts.py)
+chart_audit/
+
 # Large result artifacts (derived, can be regenerated)
 results/celloracle_grn_coefficients.pkl
 results/celloracle_gene_names.npy

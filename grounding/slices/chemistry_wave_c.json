@@ -1,0 +1,420 @@
+{
+  "discipline": "chemistry",
+  "slice": "electrochemistry",
+  "charts": [
+    {
+      "id": "electrochemistry-electrochemical-cell-design",
+      "name": "Galvanic Cell & the Nernst Equation",
+      "description": "Design a galvanic cell by assigning anode and cathode half-reactions, computing the standard cell potential, correcting for non-standard conditions with the Nernst equation, and judging spontaneity from the sign of the cell potential.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Electrochemical cells",
+      "namedCollections": ["electrochemistry"],
+      "keywords": ["galvanic cell", "nernst equation", "cell potential", "half-reaction", "electrode potential"],
+      "basis": "source_extraction:electrochemistry-electrochemical-cell-design",
+      "sources": [
+        {"title": "Die elektromotorische Wirksamkeit der Ionen (Nernst equation)", "authors": "Nernst, W.", "journal": "Zeitschrift für physikalische Chemie", "year": "1889", "doi": "10.1515/zpch-1889-0408", "url": "https://doi.org/10.1515/zpch-1889-0408"},
+        {"title": "Electrochemical Methods: Fundamentals and Applications, 3rd ed.", "authors": "Bard, A. J.; Faulkner, L. R.; White, H. S.", "journal": "Wiley", "year": "2022", "doi": null, "url": "https://www.wiley.com/en-us/Electrochemical+Methods%3A+Fundamentals+and+Applications%2C+3rd+Edition-p-9781119334064"},
+        {"title": "Gold Book: standard electrode potential", "authors": "IUPAC", "journal": "IUPAC Compendium of Chemical Terminology", "year": "2019", "doi": "10.1351/goldbook.S05912", "url": "https://goldbook.iupac.org/terms/view/S05912"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Two half-reactions", "role": "red", "shape": "process", "detail": "Candidate redox couples", "sourceRef": 2},
+        {"id": "N2", "label": "Assign anode (oxidation)", "role": "green", "shape": "process", "detail": "Lower reduction potential", "sourceRef": 2},
+        {"id": "N3", "label": "Assign cathode (reduction)", "role": "green", "shape": "process", "detail": "Higher reduction potential", "sourceRef": 2},
+        {"id": "N4", "label": "E°cell = E°cat − E°an", "role": "green", "shape": "process", "detail": "Standard cell potential", "sourceRef": 2},
+        {"id": "N5", "label": "Non-standard conditions?", "role": "blue", "shape": "decision", "detail": "Concentrations ≠ 1 M", "sourceRef": 0},
+        {"id": "N6", "label": "Nernst: E = E° − (RT/nF)lnQ", "role": "green", "shape": "process", "detail": "Correct for activities", "sourceRef": 0},
+        {"id": "N7", "label": "E_cell > 0?", "role": "blue", "shape": "decision", "detail": "Spontaneity test", "sourceRef": 1},
+        {"id": "N8", "label": "Spontaneous: galvanic", "role": "violet", "shape": "process", "detail": "Delivers electrical work", "sourceRef": 1},
+        {"id": "N9", "label": "Electrolytic: needs power", "role": "violet", "shape": "process", "detail": "Non-spontaneous as written", "sourceRef": 1},
+        {"id": "N10", "label": "Salt bridge balances charge", "role": "green", "shape": "process", "detail": "Maintains electroneutrality", "sourceRef": 1}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N1", "to": "N3"}, {"from": "N2", "to": "N4"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"},
+        {"from": "N5", "to": "N6", "label": "yes"}, {"from": "N5", "to": "N7", "label": "standard"}, {"from": "N6", "to": "N7"},
+        {"from": "N7", "to": "N8", "label": "> 0"}, {"from": "N7", "to": "N9", "label": "< 0"}, {"from": "N8", "to": "N10"}
+      ]
+    },
+    {
+      "id": "electrochemistry-electrolysis",
+      "name": "Electrolysis of Water and Brine",
+      "description": "Electrolysis uses an external voltage above the decomposition potential to drive reduction at the cathode and oxidation at the anode; competing anode reactions (O2 vs Cl2) depend on overpotential, and Faraday's laws relate product amounts to charge passed.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Industrial electrolysis",
+      "namedCollections": ["electrochemistry"],
+      "keywords": ["electrolysis", "faraday's laws", "overpotential", "chlor-alkali", "decomposition potential"],
+      "basis": "source_extraction:electrochemistry-electrolysis",
+      "sources": [
+        {"title": "Experimental Researches in Electricity (laws of electrolysis)", "authors": "Faraday, M.", "journal": "Philosophical Transactions of the Royal Society", "year": "1834", "doi": "10.1098/rstl.1834.0008", "url": "https://doi.org/10.1098/rstl.1834.0008"},
+        {"title": "Recent progress in alkaline water electrolysis for hydrogen production and applications", "authors": "Zeng, K.; Zhang, D.", "journal": "Progress in Energy and Combustion Science", "year": "2010", "doi": "10.1016/j.pecs.2009.11.002", "url": "https://doi.org/10.1016/j.pecs.2009.11.002"},
+        {"title": "Physical Chemistry, 11th ed. — Electrochemistry", "authors": "Atkins, P.; de Paula, J.; Keeler, J.", "journal": "Oxford University Press", "year": "2018", "doi": null, "url": "https://global.oup.com/ukhe/product/atkins-physical-chemistry-9780198769866"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Electrolyte + power supply", "role": "red", "shape": "process", "detail": "Cell with external EMF", "sourceRef": 2},
+        {"id": "N2", "label": "Apply V > decomposition", "role": "green", "shape": "process", "detail": "Exceed thermodynamic threshold", "sourceRef": 2},
+        {"id": "N3", "label": "Cathode reduction (H2)", "role": "green", "shape": "process", "detail": "Hydrogen evolution", "sourceRef": 2},
+        {"id": "N4", "label": "Anode oxidation", "role": "green", "shape": "process", "detail": "O2 or Cl2 evolution", "sourceRef": 1},
+        {"id": "N5", "label": "Which anode product?", "role": "blue", "shape": "decision", "detail": "Set by overpotential, not just E°", "sourceRef": 1},
+        {"id": "N6", "label": "Brine: Cl2 evolved", "role": "green", "shape": "process", "detail": "Kinetics favor chlorine", "sourceRef": 1},
+        {"id": "N7", "label": "Water: O2 evolved", "role": "green", "shape": "process", "detail": "Oxygen evolution reaction", "sourceRef": 1},
+        {"id": "N8", "label": "Faraday: n ∝ charge", "role": "green", "shape": "process", "detail": "Moles from current × time", "sourceRef": 0},
+        {"id": "N9", "label": "Overpotential adds voltage", "role": "green", "shape": "process", "detail": "Raises energy cost", "sourceRef": 1},
+        {"id": "N10", "label": "Products collected", "role": "violet", "shape": "process", "detail": "Gases/metals harvested", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N2", "to": "N4"}, {"from": "N4", "to": "N5"},
+        {"from": "N5", "to": "N6", "label": "brine"}, {"from": "N5", "to": "N7", "label": "water"},
+        {"from": "N3", "to": "N8"}, {"from": "N6", "to": "N8"}, {"from": "N7", "to": "N8"}, {"from": "N8", "to": "N10"}, {"from": "N2", "to": "N9"}, {"from": "N9", "to": "N10"}
+      ]
+    },
+    {
+      "id": "electrochemistry-electroplating",
+      "name": "Electroplating",
+      "description": "Electroplating reduces metal cations from a bath onto a cathodic workpiece; adatoms diffuse, nucleate and grow into a coating, while a sacrificial anode of the plating metal dissolves to replenish the bath and additives control deposit uniformity.",
+      "graphType": "cyclic_pathway",
+      "domainContext": "Metal finishing",
+      "namedCollections": ["electrochemistry"],
+      "keywords": ["electroplating", "deposition", "current density", "leveling additives", "sacrificial anode"],
+      "basis": "source_extraction:electrochemistry-electroplating",
+      "sources": [
+        {"title": "Modern Electroplating, 5th ed.", "authors": "Schlesinger, M.; Paunovic, M.", "journal": "Wiley", "year": "2010", "doi": "10.1002/9780470602638", "url": "https://doi.org/10.1002/9780470602638"},
+        {"title": "Fundamentals of Electrochemical Deposition, 2nd ed.", "authors": "Paunovic, M.; Schlesinger, M.", "journal": "Wiley", "year": "2006", "doi": "10.1002/0471712566", "url": "https://doi.org/10.1002/0471712566"},
+        {"title": "Experimental Researches in Electricity (Faraday's laws)", "authors": "Faraday, M.", "journal": "Philosophical Transactions of the Royal Society", "year": "1834", "doi": "10.1098/rstl.1834.0008", "url": "https://doi.org/10.1098/rstl.1834.0008"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Workpiece (cathode) + bath", "role": "red", "shape": "process", "detail": "Object in metal-salt solution", "sourceRef": 0},
+        {"id": "N2", "label": "Plating-metal anode", "role": "green", "shape": "process", "detail": "Sacrificial source of ions", "sourceRef": 0},
+        {"id": "N3", "label": "Apply current", "role": "green", "shape": "process", "detail": "Drive reduction", "sourceRef": 2},
+        {"id": "N4", "label": "Cations reduced at cathode", "role": "green", "shape": "process", "detail": "M^n+ + ne− -> M", "sourceRef": 2},
+        {"id": "N5", "label": "Anode dissolves, replenishes", "role": "green", "shape": "process", "detail": "Keeps ion concentration steady", "sourceRef": 0},
+        {"id": "N6", "label": "Adatoms diffuse on surface", "role": "green", "shape": "process", "detail": "Migration to growth sites", "sourceRef": 1},
+        {"id": "N7", "label": "Nucleation + grain growth", "role": "green", "shape": "process", "detail": "Crystal build-up", "sourceRef": 1},
+        {"id": "N8", "label": "Deposit uniform?", "role": "blue", "shape": "decision", "detail": "Coverage and brightness", "sourceRef": 0},
+        {"id": "N9", "label": "Tune additives / density", "role": "green", "shape": "process", "detail": "Levelers, brighteners", "sourceRef": 0},
+        {"id": "N10", "label": "Plated coating", "role": "violet", "shape": "process", "detail": "Finished layer", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"}, {"from": "N5", "to": "N6"},
+        {"from": "N6", "to": "N7"}, {"from": "N7", "to": "N8"}, {"from": "N8", "to": "N9", "label": "no"}, {"from": "N9", "to": "N3", "label": "adjust"}, {"from": "N8", "to": "N10", "label": "yes"}
+      ]
+    },
+    {
+      "id": "electrochemistry-cyclic-voltammetry",
+      "name": "Cyclic Voltammetry",
+      "description": "Cyclic voltammetry sweeps the electrode potential forward and back at a three-electrode cell, producing diffusion-limited current peaks; peak separation and scan-rate dependence reveal reversibility, redox potentials, electron count and kinetics.",
+      "graphType": "cyclic_pathway",
+      "domainContext": "Electroanalytical technique",
+      "namedCollections": ["electrochemistry"],
+      "keywords": ["cyclic voltammetry", "peak separation", "reversibility", "scan rate", "diffusion"],
+      "basis": "source_extraction:electrochemistry-cyclic-voltammetry",
+      "sources": [
+        {"title": "Theory of stationary electrode polarography (CV theory)", "authors": "Nicholson, R. S.; Shain, I.", "journal": "Analytical Chemistry", "year": "1964", "doi": "10.1021/ac60214a047", "url": "https://doi.org/10.1021/ac60214a047"},
+        {"title": "A practical beginner's guide to cyclic voltammetry", "authors": "Elgrishi, N.; et al.", "journal": "Journal of Chemical Education", "year": "2018", "doi": "10.1021/acs.jchemed.7b00361", "url": "https://doi.org/10.1021/acs.jchemed.7b00361"},
+        {"title": "Electrochemical Methods: Fundamentals and Applications, 3rd ed.", "authors": "Bard, A. J.; Faulkner, L. R.; White, H. S.", "journal": "Wiley", "year": "2022", "doi": null, "url": "https://www.wiley.com/en-us/Electrochemical+Methods%3A+Fundamentals+and+Applications%2C+3rd+Edition-p-9781119334064"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Analyte + 3-electrode cell", "role": "red", "shape": "process", "detail": "Working, reference, counter", "sourceRef": 2},
+        {"id": "N2", "label": "Sweep potential linearly", "role": "green", "shape": "process", "detail": "Forward scan at set rate", "sourceRef": 1},
+        {"id": "N3", "label": "Faradaic reaction occurs", "role": "green", "shape": "process", "detail": "Oxidation/reduction at electrode", "sourceRef": 0},
+        {"id": "N4", "label": "Diffusion-limited peak", "role": "blue", "shape": "process", "detail": "Current peak then decay", "sourceRef": 0},
+        {"id": "N5", "label": "Reverse the scan", "role": "green", "shape": "process", "detail": "Return sweep", "sourceRef": 1},
+        {"id": "N6", "label": "Reverse peak seen?", "role": "blue", "shape": "decision", "detail": "Is the couple reversible?", "sourceRef": 0},
+        {"id": "N7", "label": "Reversible: ΔEp ≈ 59/n mV", "role": "green", "shape": "process", "detail": "Fast electron transfer", "sourceRef": 0},
+        {"id": "N8", "label": "Quasi/irreversible", "role": "green", "shape": "process", "detail": "Sluggish kinetics or follow-up", "sourceRef": 1},
+        {"id": "N9", "label": "Extract E1/2, n, kinetics", "role": "green", "shape": "process", "detail": "From peaks and scan rate", "sourceRef": 0},
+        {"id": "N10", "label": "Redox + mechanistic data", "role": "violet", "shape": "process", "detail": "Thermodynamics and kinetics", "sourceRef": 1}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"}, {"from": "N5", "to": "N6"},
+        {"from": "N6", "to": "N7", "label": "yes"}, {"from": "N6", "to": "N8", "label": "no"}, {"from": "N7", "to": "N9"}, {"from": "N8", "to": "N9"},
+        {"from": "N9", "to": "N10"}, {"from": "N9", "to": "N2", "label": "vary scan rate"}
+      ]
+    },
+    {
+      "id": "electrochemistry-corrosion-mechanisms",
+      "name": "Galvanic Corrosion Mechanism",
+      "description": "Electrochemical corrosion couples an anodic metal-dissolution site to a cathodic reduction site through electron flow in the metal and ion flow in the electrolyte; galvanic coupling accelerates attack while a passive oxide film can slow it.",
+      "graphType": "cyclic_pathway",
+      "domainContext": "Corrosion science",
+      "namedCollections": ["electrochemistry"],
+      "keywords": ["corrosion", "anodic dissolution", "galvanic couple", "passivation", "pitting"],
+      "basis": "source_extraction:electrochemistry-corrosion-mechanisms",
+      "sources": [
+        {"title": "Corrosion and Corrosion Control, 4th ed.", "authors": "Revie, R. W.; Uhlig, H. H.", "journal": "Wiley", "year": "2008", "doi": "10.1002/9780470277270", "url": "https://doi.org/10.1002/9780470277270"},
+        {"title": "Revised Pourbaix diagrams for iron at 25–300 °C", "authors": "Beverskog, B.; Puigdomenech, I.", "journal": "Corrosion Science", "year": "1996", "doi": "10.1016/S0010-938X(97)00072-7", "url": "https://doi.org/10.1016/S0010-938X(97)00072-7"},
+        {"title": "Gold Book: corrosion", "authors": "IUPAC", "journal": "IUPAC Compendium of Chemical Terminology", "year": "2019", "doi": "10.1351/goldbook.C01342", "url": "https://goldbook.iupac.org/terms/view/C01342"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Metal in electrolyte", "role": "red", "shape": "process", "detail": "Exposed surface", "sourceRef": 0},
+        {"id": "N2", "label": "Anodic: M -> M^n+ + ne−", "role": "green", "shape": "process", "detail": "Metal dissolution", "sourceRef": 0},
+        {"id": "N3", "label": "Cathodic: O2/H+ reduction", "role": "green", "shape": "process", "detail": "Electron-consuming reaction", "sourceRef": 0},
+        {"id": "N4", "label": "Electrons flow in metal", "role": "green", "shape": "process", "detail": "Anode to cathode", "sourceRef": 0},
+        {"id": "N5", "label": "Ions flow in electrolyte", "role": "green", "shape": "process", "detail": "Completes the circuit", "sourceRef": 0},
+        {"id": "N6", "label": "Galvanic couple?", "role": "blue", "shape": "decision", "detail": "Dissimilar metals in contact", "sourceRef": 1},
+        {"id": "N7", "label": "Active metal corrodes fast", "role": "green", "shape": "process", "detail": "Less noble member sacrificed", "sourceRef": 1},
+        {"id": "N8", "label": "Passive film forms?", "role": "blue", "shape": "decision", "detail": "Protective oxide", "sourceRef": 1},
+        {"id": "N9", "label": "Oxide slows dissolution", "role": "green", "shape": "process", "detail": "Passivation", "sourceRef": 1},
+        {"id": "N10", "label": "Degradation / pitting", "role": "violet", "shape": "process", "detail": "Material failure mode", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N1", "to": "N3"}, {"from": "N2", "to": "N4"}, {"from": "N4", "to": "N3"}, {"from": "N3", "to": "N5"}, {"from": "N5", "to": "N2", "label": "circuit"},
+        {"from": "N2", "to": "N6"}, {"from": "N6", "to": "N7", "label": "yes"}, {"from": "N7", "to": "N10"}, {"from": "N6", "to": "N8", "label": "no"},
+        {"from": "N8", "to": "N9", "label": "yes"}, {"from": "N9", "to": "N10"}, {"from": "N8", "to": "N10", "label": "no film"}
+      ]
+    },
+    {
+      "id": "electrochemistry-fuel-cell-operation",
+      "name": "PEM Fuel Cell Operation",
+      "description": "A proton-exchange-membrane fuel cell oxidizes hydrogen at the anode, conducts protons through the membrane while electrons do work in the external circuit, and reduces oxygen at the cathode; the sluggish oxygen reduction is accelerated by a Pt catalyst.",
+      "graphType": "mechanism_flowchart",
+      "domainContext": "Electrochemical energy conversion",
+      "namedCollections": ["electrochemistry"],
+      "keywords": ["fuel cell", "pemfc", "hydrogen oxidation", "oxygen reduction", "proton exchange membrane"],
+      "basis": "source_extraction:electrochemistry-fuel-cell-operation",
+      "sources": [
+        {"title": "Electrocatalyst approaches and challenges for automotive fuel cells", "authors": "Debe, M. K.", "journal": "Nature", "year": "2012", "doi": "10.1038/nature11115", "url": "https://doi.org/10.1038/nature11115"},
+        {"title": "Fuel Cell Fundamentals, 3rd ed.", "authors": "O'Hayre, R.; Cha, S.-W.; Colella, W.; Prinz, F. B.", "journal": "Wiley", "year": "2016", "doi": "10.1002/9781119191766", "url": "https://doi.org/10.1002/9781119191766"},
+        {"title": "Fuel Cell Systems Explained, 3rd ed.", "authors": "Dicks, A. L.; Rand, D. A. J.", "journal": "Wiley", "year": "2018", "doi": "10.1002/9781118878330", "url": "https://doi.org/10.1002/9781118878330"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "H2 fuel + O2 oxidant", "role": "red", "shape": "process", "detail": "Reactants fed to electrodes", "sourceRef": 2},
+        {"id": "N2", "label": "Anode HOR: H2 -> 2H+ + 2e−", "role": "green", "shape": "process", "detail": "Hydrogen oxidation", "sourceRef": 1},
+        {"id": "N3", "label": "Protons cross membrane", "role": "green", "shape": "process", "detail": "PEM conducts H+", "sourceRef": 1},
+        {"id": "N4", "label": "Electrons via external circuit", "role": "green", "shape": "process", "detail": "Drive the load", "sourceRef": 1},
+        {"id": "N5", "label": "Electric work delivered", "role": "blue", "shape": "process", "detail": "Usable power", "sourceRef": 2},
+        {"id": "N6", "label": "Cathode ORR: O2 -> H2O", "role": "green", "shape": "process", "detail": "Oxygen reduction", "sourceRef": 1},
+        {"id": "N7", "label": "ORR limits performance?", "role": "blue", "shape": "decision", "detail": "Large cathodic overpotential", "sourceRef": 0},
+        {"id": "N8", "label": "Pt catalyst lowers barrier", "role": "green", "shape": "process", "detail": "Accelerate sluggish ORR", "sourceRef": 0},
+        {"id": "N9", "label": "Water + heat removed", "role": "green", "shape": "process", "detail": "Product and thermal management", "sourceRef": 2},
+        {"id": "N10", "label": "Continuous power output", "role": "violet", "shape": "process", "detail": "Steady electricity", "sourceRef": 2}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N2", "to": "N4"}, {"from": "N3", "to": "N6"}, {"from": "N4", "to": "N5"}, {"from": "N5", "to": "N6"},
+        {"from": "N6", "to": "N7"}, {"from": "N7", "to": "N8", "label": "yes"}, {"from": "N8", "to": "N9"}, {"from": "N7", "to": "N9", "label": "no"}, {"from": "N9", "to": "N10"}
+      ]
+    },
+    {
+      "id": "electrochemistry-battery-chemistry",
+      "name": "Lithium-Ion Battery Operation",
+      "description": "A lithium-ion cell shuttles Li+ between a graphite anode and a layered-oxide cathode: during discharge lithium leaves the anode and intercalates into the cathode while electrons power the load, and charging reverses the flow, with SEI growth driving aging.",
+      "graphType": "cyclic_pathway",
+      "domainContext": "Electrochemical energy storage",
+      "namedCollections": ["electrochemistry"],
+      "keywords": ["lithium-ion battery", "intercalation", "discharge", "charge", "solid electrolyte interphase"],
+      "basis": "source_extraction:electrochemistry-battery-chemistry",
+      "sources": [
+        {"title": "The Li-ion rechargeable battery: a perspective", "authors": "Goodenough, J. B.; Park, K.-S.", "journal": "Journal of the American Chemical Society", "year": "2013", "doi": "10.1021/ja3091438", "url": "https://doi.org/10.1021/ja3091438"},
+        {"title": "Lithium batteries and cathode materials", "authors": "Whittingham, M. S.", "journal": "Chemical Reviews", "year": "2004", "doi": "10.1021/cr020731c", "url": "https://doi.org/10.1021/cr020731c"},
+        {"title": "Issues and challenges facing rechargeable lithium batteries", "authors": "Tarascon, J.-M.; Armand, M.", "journal": "Nature", "year": "2001", "doi": "10.1038/35104644", "url": "https://doi.org/10.1038/35104644"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Charged cell (C / LiMO2)", "role": "red", "shape": "process", "detail": "Graphite anode, oxide cathode", "sourceRef": 0},
+        {"id": "N2", "label": "Discharge or charge?", "role": "blue", "shape": "decision", "detail": "Direction of operation", "sourceRef": 1},
+        {"id": "N3", "label": "Discharge: Li+ leaves anode", "role": "green", "shape": "process", "detail": "De-intercalation from graphite", "sourceRef": 0},
+        {"id": "N4", "label": "Li+ crosses electrolyte", "role": "green", "shape": "process", "detail": "Ion transport across separator", "sourceRef": 0},
+        {"id": "N5", "label": "Intercalate into cathode", "role": "green", "shape": "process", "detail": "Li inserts into host lattice", "sourceRef": 1},
+        {"id": "N6", "label": "Electrons power load", "role": "green", "shape": "process", "detail": "External circuit current", "sourceRef": 0},
+        {"id": "N7", "label": "Charge: source reverses", "role": "green", "shape": "process", "detail": "Applied voltage drives Li back", "sourceRef": 0},
+        {"id": "N8", "label": "Li+ returns to anode", "role": "green", "shape": "process", "detail": "Re-intercalation", "sourceRef": 1},
+        {"id": "N9", "label": "SEI growth / aging", "role": "green", "shape": "process", "detail": "Capacity fade over cycles", "sourceRef": 2},
+        {"id": "N10", "label": "Reversible energy storage", "role": "violet", "shape": "process", "detail": "Rechargeable operation", "sourceRef": 2}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3", "label": "discharge"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"}, {"from": "N3", "to": "N6"},
+        {"from": "N5", "to": "N10"}, {"from": "N6", "to": "N10"}, {"from": "N2", "to": "N7", "label": "charge"}, {"from": "N7", "to": "N8"}, {"from": "N8", "to": "N1", "label": "recharged"},
+        {"from": "N5", "to": "N9"}, {"from": "N9", "to": "N10"}
+      ]
+    },
+    {
+      "id": "electrochemistry-electrodeposition",
+      "name": "Electrodeposition: Nucleation & Growth",
+      "description": "At an applied overpotential, metal ions are reduced to adatoms that diffuse on the surface; only clusters exceeding a critical size survive to grow, following instantaneous or progressive nucleation before coalescing into a continuous film.",
+      "graphType": "cyclic_pathway",
+      "domainContext": "Electrochemical phase formation",
+      "namedCollections": ["electrochemistry"],
+      "keywords": ["electrodeposition", "nucleation", "overpotential", "adatom", "crystal growth"],
+      "basis": "source_extraction:electrochemistry-electrodeposition",
+      "sources": [
+        {"title": "Electrochemical Phase Formation and Growth", "authors": "Budevski, E.; Staikov, G.; Lorenz, W. J.", "journal": "Wiley-VCH", "year": "1996", "doi": "10.1002/9783527614936", "url": "https://doi.org/10.1002/9783527614936"},
+        {"title": "Fundamentals of Electrochemical Deposition, 2nd ed.", "authors": "Paunovic, M.; Schlesinger, M.", "journal": "Wiley", "year": "2006", "doi": "10.1002/0471712566", "url": "https://doi.org/10.1002/0471712566"},
+        {"title": "Theory of the potentiostatic current transient (nucleation)", "authors": "Scharifker, B.; Hills, G.", "journal": "Electrochimica Acta", "year": "1983", "doi": "10.1016/0013-4686(83)85163-9", "url": "https://doi.org/10.1016/0013-4686(83)85163-9"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Metal ions in solution", "role": "red", "shape": "process", "detail": "Electroactive cations", "sourceRef": 1},
+        {"id": "N2", "label": "Apply overpotential", "role": "green", "shape": "process", "detail": "Drive reduction past E_eq", "sourceRef": 0},
+        {"id": "N3", "label": "Ion reduced to adatom", "role": "green", "shape": "process", "detail": "Charge transfer at surface", "sourceRef": 1},
+        {"id": "N4", "label": "Surface diffusion to site", "role": "green", "shape": "process", "detail": "Adatom migration", "sourceRef": 0},
+        {"id": "N5", "label": "Cluster > critical size?", "role": "blue", "shape": "decision", "detail": "Nucleation barrier", "sourceRef": 0},
+        {"id": "N6", "label": "Subcritical: dissolves", "role": "green", "shape": "process", "detail": "Unstable embryo lost", "sourceRef": 0},
+        {"id": "N7", "label": "Stable nucleus grows", "role": "green", "shape": "process", "detail": "Crystallite expands", "sourceRef": 2},
+        {"id": "N8", "label": "Instantaneous vs progressive", "role": "green", "shape": "process", "detail": "Nucleation kinetics regime", "sourceRef": 2},
+        {"id": "N9", "label": "Nuclei coalesce", "role": "green", "shape": "process", "detail": "Islands merge", "sourceRef": 1},
+        {"id": "N10", "label": "Continuous deposit", "role": "violet", "shape": "process", "detail": "Complete film", "sourceRef": 1}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"},
+        {"from": "N5", "to": "N6", "label": "no"}, {"from": "N6", "to": "N3", "label": "redeposit"}, {"from": "N5", "to": "N7", "label": "yes"},
+        {"from": "N7", "to": "N8"}, {"from": "N8", "to": "N9"}, {"from": "N9", "to": "N10"}
+      ]
+    },
+    {
+      "id": "electrochemistry-reaction-pathways",
+      "name": "Electrocatalytic Oxygen Reduction Pathway",
+      "description": "The oxygen reduction reaction can follow a four-electron path to water or a two-electron path to peroxide; the rate is governed by intermediate binding energies, and the Sabatier optimum (volcano peak) gives the lowest overpotential.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Electrocatalysis",
+      "namedCollections": ["electrochemistry"],
+      "keywords": ["oxygen reduction", "electrocatalysis", "binding energy", "sabatier principle", "overpotential"],
+      "basis": "source_extraction:electrochemistry-reaction-pathways",
+      "sources": [
+        {"title": "Origin of the overpotential for oxygen reduction at a fuel-cell cathode", "authors": "Nørskov, J. K.; et al.", "journal": "Journal of Physical Chemistry B", "year": "2004", "doi": "10.1021/jp047349j", "url": "https://doi.org/10.1021/jp047349j"},
+        {"title": "Combining theory and experiment in electrocatalysis: Insights into materials design", "authors": "Seh, Z. W.; et al.", "journal": "Science", "year": "2017", "doi": "10.1126/science.aad4998", "url": "https://doi.org/10.1126/science.aad4998"},
+        {"title": "Theory of the kinetics of multistep electrocatalytic reactions", "authors": "Koper, M. T. M.", "journal": "Chemical Science", "year": "2013", "doi": "10.1039/c3sc50205h", "url": "https://doi.org/10.1039/c3sc50205h"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "O2 adsorbs on catalyst", "role": "red", "shape": "process", "detail": "Reactant binds the active site", "sourceRef": 0},
+        {"id": "N2", "label": "Which pathway?", "role": "blue", "shape": "decision", "detail": "4e− vs 2e− route", "sourceRef": 2},
+        {"id": "N3", "label": "4e−: *OOH, *O, *OH", "role": "green", "shape": "process", "detail": "Associative intermediates", "sourceRef": 0},
+        {"id": "N4", "label": "Proton-electron transfers", "role": "green", "shape": "process", "detail": "Sequential PCET to water", "sourceRef": 2},
+        {"id": "N5", "label": "2e−: H2O2 forms", "role": "green", "shape": "process", "detail": "Peroxide branch", "sourceRef": 2},
+        {"id": "N6", "label": "Descriptor: *O binding", "role": "blue", "shape": "process", "detail": "Scaling-relation descriptor", "sourceRef": 1},
+        {"id": "N7", "label": "Binding optimal?", "role": "blue", "shape": "decision", "detail": "Sabatier criterion", "sourceRef": 1},
+        {"id": "N8", "label": "Too strong/weak: high η", "role": "green", "shape": "process", "detail": "Off-peak of the volcano", "sourceRef": 1},
+        {"id": "N9", "label": "Sabatier optimum", "role": "green", "shape": "process", "detail": "Volcano apex", "sourceRef": 1},
+        {"id": "N10", "label": "Efficient 4e− ORR", "role": "violet", "shape": "process", "detail": "Low overpotential to water", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3", "label": "4e−"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N6"},
+        {"from": "N2", "to": "N5", "label": "2e−"}, {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7"},
+        {"from": "N7", "to": "N8", "label": "no"}, {"from": "N8", "to": "N6", "label": "tune catalyst"}, {"from": "N7", "to": "N9", "label": "yes"}, {"from": "N9", "to": "N10"}
+      ]
+    },
+    {
+      "id": "electrochemistry-computational-methods",
+      "name": "Computational Electrochemistry (DFT)",
+      "description": "Computational electrocatalysis models an electrode reaction with DFT and the computational hydrogen electrode: intermediate energies build a potential-dependent free-energy diagram, identifying the potential-determining step and theoretical overpotential to screen catalysts.",
+      "graphType": "cyclic_pathway",
+      "domainContext": "Computational electrocatalysis",
+      "namedCollections": ["electrochemistry"],
+      "keywords": ["density functional theory", "computational hydrogen electrode", "free-energy diagram", "overpotential", "catalyst screening"],
+      "basis": "source_extraction:electrochemistry-computational-methods",
+      "sources": [
+        {"title": "Origin of the overpotential for oxygen reduction at a fuel-cell cathode (CHE model)", "authors": "Nørskov, J. K.; et al.", "journal": "Journal of Physical Chemistry B", "year": "2004", "doi": "10.1021/jp047349j", "url": "https://doi.org/10.1021/jp047349j"},
+        {"title": "Towards the computational design of solid catalysts", "authors": "Nørskov, J. K.; Bligaard, T.; Rossmeisl, J.; Christensen, C. H.", "journal": "Nature Chemistry", "year": "2009", "doi": "10.1038/nchem.121", "url": "https://doi.org/10.1038/nchem.121"},
+        {"title": "Toward an atomic-scale understanding of electrochemical interface structure and dynamics", "authors": "Magnussen, O. M.; Groß, A.", "journal": "Journal of the American Chemical Society", "year": "2019", "doi": "10.1021/jacs.8b10723", "url": "https://doi.org/10.1021/jacs.8b10723"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Electrode reaction of interest", "role": "red", "shape": "process", "detail": "Target electrocatalytic step", "sourceRef": 0},
+        {"id": "N2", "label": "Build slab + adsorbate model", "role": "green", "shape": "process", "detail": "Periodic surface model", "sourceRef": 2},
+        {"id": "N3", "label": "Computational H electrode", "role": "green", "shape": "process", "detail": "Reference proton-electron pair", "sourceRef": 0},
+        {"id": "N4", "label": "DFT energies of intermediates", "role": "green", "shape": "process", "detail": "Adsorption free energies", "sourceRef": 0},
+        {"id": "N5", "label": "Apply −eU potential shift", "role": "green", "shape": "process", "detail": "Potential dependence", "sourceRef": 0},
+        {"id": "N6", "label": "Free-energy diagram vs U", "role": "blue", "shape": "process", "detail": "Step energetics", "sourceRef": 0},
+        {"id": "N7", "label": "Potential-determining step?", "role": "blue", "shape": "decision", "detail": "Largest uphill step", "sourceRef": 0},
+        {"id": "N8", "label": "Identify limiting step", "role": "green", "shape": "process", "detail": "Bottleneck reaction", "sourceRef": 0},
+        {"id": "N9", "label": "Theoretical overpotential", "role": "green", "shape": "process", "detail": "From the limiting step", "sourceRef": 1},
+        {"id": "N10", "label": "Screen new catalyst", "role": "green", "shape": "process", "detail": "Vary composition / descriptor", "sourceRef": 1},
+        {"id": "N11", "label": "Activity prediction", "role": "violet", "shape": "process", "detail": "Ranked candidates", "sourceRef": 1}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"}, {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7"},
+        {"from": "N7", "to": "N8"}, {"from": "N8", "to": "N9"}, {"from": "N9", "to": "N10"}, {"from": "N10", "to": "N2", "label": "new model"}, {"from": "N9", "to": "N11"}
+      ]
+    },
+    {
+      "id": "electrochemistry-electronic-transitions",
+      "name": "Electrochemical Impedance Spectroscopy",
+      "description": "EIS applies a small AC perturbation across a range of frequencies, measures the complex impedance, and fits Nyquist/Bode data to an equivalent circuit to extract charge-transfer resistance, double-layer capacitance and diffusional (Warburg) behavior.",
+      "graphType": "cyclic_pathway",
+      "domainContext": "Electroanalytical technique",
+      "namedCollections": ["electrochemistry"],
+      "keywords": ["impedance spectroscopy", "equivalent circuit", "nyquist plot", "charge-transfer resistance", "warburg"],
+      "basis": "source_extraction:electrochemistry-electronic-transitions",
+      "sources": [
+        {"title": "Electrochemical Impedance Spectroscopy and its Applications", "authors": "Lasia, A.", "journal": "Springer", "year": "2014", "doi": "10.1007/978-1-4614-8933-7", "url": "https://doi.org/10.1007/978-1-4614-8933-7"},
+        {"title": "Electrochemical Impedance Spectroscopy, 2nd ed.", "authors": "Orazem, M. E.; Tribollet, B.", "journal": "Wiley", "year": "2017", "doi": "10.1002/9781119363682", "url": "https://doi.org/10.1002/9781119363682"},
+        {"title": "Reflections on impedance spectroscopy", "authors": "Macdonald, D. D.", "journal": "Electrochimica Acta", "year": "2006", "doi": "10.1016/j.electacta.2005.02.107", "url": "https://doi.org/10.1016/j.electacta.2005.02.107"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Cell at steady state", "role": "red", "shape": "process", "detail": "Defined DC bias", "sourceRef": 0},
+        {"id": "N2", "label": "Apply small AC signal", "role": "green", "shape": "process", "detail": "Linear perturbation", "sourceRef": 0},
+        {"id": "N3", "label": "Sweep frequency", "role": "green", "shape": "process", "detail": "mHz to MHz range", "sourceRef": 1},
+        {"id": "N4", "label": "Measure response + phase", "role": "green", "shape": "process", "detail": "Amplitude and phase shift", "sourceRef": 0},
+        {"id": "N5", "label": "Compute impedance Z(ω)", "role": "green", "shape": "process", "detail": "Complex impedance", "sourceRef": 0},
+        {"id": "N6", "label": "Nyquist / Bode plots", "role": "blue", "shape": "process", "detail": "Visualize spectrum", "sourceRef": 1},
+        {"id": "N7", "label": "Fit equivalent circuit", "role": "green", "shape": "process", "detail": "Physical model of interface", "sourceRef": 2},
+        {"id": "N8", "label": "Good fit?", "role": "blue", "shape": "decision", "detail": "Residuals acceptable", "sourceRef": 2},
+        {"id": "N9", "label": "Revise circuit model", "role": "green", "shape": "process", "detail": "Add/replace elements", "sourceRef": 2},
+        {"id": "N10", "label": "Extract Rct, Cdl, Warburg", "role": "green", "shape": "process", "detail": "Interfacial parameters", "sourceRef": 0},
+        {"id": "N11", "label": "Kinetic + transport data", "role": "violet", "shape": "process", "detail": "Mechanistic insight", "sourceRef": 1}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"}, {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7"}, {"from": "N7", "to": "N8"},
+        {"from": "N8", "to": "N9", "label": "no"}, {"from": "N9", "to": "N7", "label": "refit"}, {"from": "N8", "to": "N10", "label": "yes"}, {"from": "N10", "to": "N11"}
+      ]
+    },
+    {
+      "id": "electrochemistry-molecular-orbitals",
+      "name": "Pourbaix (E–pH) Diagram Construction",
+      "description": "A Pourbaix diagram maps the thermodynamically stable species of an element in water as a function of potential and pH: redox-only equilibria give horizontal lines, acid-base equilibria vertical lines, and combined proton-electron equilibria sloped Nernst lines.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Electrochemical equilibria",
+      "namedCollections": ["electrochemistry"],
+      "keywords": ["pourbaix diagram", "potential-ph", "passivation", "immunity", "nernst"],
+      "basis": "source_extraction:electrochemistry-molecular-orbitals",
+      "sources": [
+        {"title": "Atlas of Electrochemical Equilibria in Aqueous Solutions", "authors": "Pourbaix, M.", "journal": "NACE International", "year": "1974", "doi": null, "url": "https://search.worldcat.org/title/1119839"},
+        {"title": "Revised Pourbaix diagrams for iron at 25–300 °C", "authors": "Beverskog, B.; Puigdomenech, I.", "journal": "Corrosion Science", "year": "1996", "doi": "10.1016/S0010-938X(97)00072-7", "url": "https://doi.org/10.1016/S0010-938X(97)00072-7"},
+        {"title": "Physical Chemistry, 11th ed. — Equilibrium Electrochemistry", "authors": "Atkins, P.; de Paula, J.; Keeler, J.", "journal": "Oxford University Press", "year": "2018", "doi": null, "url": "https://global.oup.com/ukhe/product/atkins-physical-chemistry-9780198769866"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Element + water system", "role": "red", "shape": "process", "detail": "Choose element and conditions", "sourceRef": 0},
+        {"id": "N2", "label": "List species + redox states", "role": "green", "shape": "process", "detail": "Ions, oxides, hydroxides", "sourceRef": 0},
+        {"id": "N3", "label": "Write half-reactions", "role": "green", "shape": "process", "detail": "Equilibria among species", "sourceRef": 2},
+        {"id": "N4", "label": "Reaction type?", "role": "blue", "shape": "decision", "detail": "Depends on H+ and/or e−", "sourceRef": 2},
+        {"id": "N5", "label": "pH + redox: sloped line", "role": "green", "shape": "process", "detail": "Nernst slope vs pH", "sourceRef": 2},
+        {"id": "N6", "label": "Redox only: horizontal", "role": "green", "shape": "process", "detail": "pH-independent potential", "sourceRef": 2},
+        {"id": "N7", "label": "Acid-base only: vertical", "role": "green", "shape": "process", "detail": "Potential-independent", "sourceRef": 2},
+        {"id": "N8", "label": "Assemble E–pH regions", "role": "green", "shape": "process", "detail": "Stability domains", "sourceRef": 1},
+        {"id": "N9", "label": "Immunity / corrosion / passive", "role": "blue", "shape": "process", "detail": "Interpret each region", "sourceRef": 1},
+        {"id": "N10", "label": "Predict stable phase", "role": "violet", "shape": "process", "detail": "Thermodynamic stability map", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"},
+        {"from": "N4", "to": "N5", "label": "H+ & e−"}, {"from": "N4", "to": "N6", "label": "e− only"}, {"from": "N4", "to": "N7", "label": "H+ only"},
+        {"from": "N5", "to": "N8"}, {"from": "N6", "to": "N8"}, {"from": "N7", "to": "N8"}, {"from": "N8", "to": "N9"}, {"from": "N9", "to": "N10"}
+      ]
+    },
+    {
+      "id": "electrochemistry-spectroscopic-calculations",
+      "name": "Spectroelectrochemistry",
+      "description": "Spectroelectrochemistry couples potential control with in-situ spectroscopy: stepping the potential in an optically transparent cell generates redox species whose UV-Vis, IR or EPR signatures are recorded simultaneously to correlate spectra with oxidation states and intermediates.",
+      "graphType": "cyclic_pathway",
+      "domainContext": "Hyphenated electroanalysis",
+      "namedCollections": ["electrochemistry"],
+      "keywords": ["spectroelectrochemistry", "OTTLE cell", "in-situ spectroscopy", "redox intermediate", "oxidation state"],
+      "basis": "source_extraction:electrochemistry-spectroscopic-calculations",
+      "sources": [
+        {"title": "Spectroelectrochemistry: the best of two worlds", "authors": "Kaim, W.; Fiedler, J.", "journal": "Chemical Society Reviews", "year": "2009", "doi": "10.1039/b811468b", "url": "https://doi.org/10.1039/b811468b"},
+        {"title": "Recent advances in the field of spectroelectrochemistry", "authors": "Dunsch, L.", "journal": "Journal of Solid State Electrochemistry", "year": "2011", "doi": "10.1007/s10008-011-1453-1", "url": "https://doi.org/10.1007/s10008-011-1453-1"},
+        {"title": "Electrochemical Methods: Fundamentals and Applications, 3rd ed.", "authors": "Bard, A. J.; Faulkner, L. R.; White, H. S.", "journal": "Wiley", "year": "2022", "doi": null, "url": "https://www.wiley.com/en-us/Electrochemical+Methods%3A+Fundamentals+and+Applications%2C+3rd+Edition-p-9781119334064"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Analyte in OTTLE cell", "role": "red", "shape": "process", "detail": "Optically transparent thin-layer cell", "sourceRef": 0},
+        {"id": "N2", "label": "Apply controlled potential", "role": "green", "shape": "process", "detail": "Step to a redox potential", "sourceRef": 2},
+        {"id": "N3", "label": "Generate redox species", "role": "green", "shape": "process", "detail": "Oxidize or reduce in situ", "sourceRef": 0},
+        {"id": "N4", "label": "Acquire spectrum in situ", "role": "green", "shape": "process", "detail": "Simultaneous measurement", "sourceRef": 0},
+        {"id": "N5", "label": "Which spectroscopy?", "role": "blue", "shape": "decision", "detail": "UV-Vis / IR / EPR", "sourceRef": 1},
+        {"id": "N6", "label": "Electronic absorption shift", "role": "green", "shape": "process", "detail": "UV-Vis bands change", "sourceRef": 0},
+        {"id": "N7", "label": "Vibrational band shift", "role": "green", "shape": "process", "detail": "IR marker modes", "sourceRef": 1},
+        {"id": "N8", "label": "Radical EPR signal", "role": "green", "shape": "process", "detail": "Detect unpaired spin", "sourceRef": 1},
+        {"id": "N9", "label": "Correlate spectrum + state", "role": "green", "shape": "process", "detail": "Assign oxidation state", "sourceRef": 0},
+        {"id": "N10", "label": "Identify intermediate", "role": "violet", "shape": "process", "detail": "Mechanism elucidated", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"},
+        {"from": "N5", "to": "N6", "label": "UV-Vis"}, {"from": "N5", "to": "N7", "label": "IR"}, {"from": "N5", "to": "N8", "label": "EPR"},
+        {"from": "N6", "to": "N9"}, {"from": "N7", "to": "N9"}, {"from": "N8", "to": "N9"}, {"from": "N9", "to": "N10"}, {"from": "N9", "to": "N2", "label": "next step"}
+      ]
+    }
+  ]
+}

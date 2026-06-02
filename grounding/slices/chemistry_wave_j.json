@@ -1,0 +1,382 @@
+{
+  "discipline": "chemistry",
+  "slice": "environmental+physical",
+  "charts": [
+    {
+      "id": "environmental_chemistry-atmospheric-aerosol-formation",
+      "name": "Secondary Organic Aerosol Formation",
+      "description": "Secondary organic aerosol forms when volatile organic compounds are oxidized by OH, ozone, or nitrate radicals into lower-volatility products; once these vapors are supersaturated they partition onto existing particles or nucleate new ones, then grow by condensation and aging to build atmospheric aerosol mass.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Atmospheric chemistry",
+      "namedCollections": ["environmental-chemistry"],
+      "keywords": ["secondary organic aerosol", "VOC oxidation", "gas-particle partitioning", "nucleation", "volatility"],
+      "basis": "source_extraction:environmental_chemistry-atmospheric-aerosol-formation",
+      "sources": [
+        {"title": "The formation, properties and impact of secondary organic aerosol: current and emerging issues", "authors": "Hallquist, M.; et al.", "journal": "Atmospheric Chemistry and Physics", "year": "2009", "doi": "10.5194/acp-9-5155-2009", "url": "https://doi.org/10.5194/acp-9-5155-2009"},
+        {"title": "Atmospheric Chemistry and Physics: From Air Pollution to Climate Change (3rd ed.)", "authors": "Seinfeld, J. H.; Pandis, S. N.", "journal": "Wiley", "year": "2016", "doi": "10.1002/9781118947401", "url": "https://doi.org/10.1002/9781118947401"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "VOC emissions", "role": "red", "shape": "process", "detail": "Biogenic / anthropogenic", "sourceRef": 1},
+        {"id": "N2", "label": "Oxidation by OH/O3/NO3", "role": "green", "shape": "process", "detail": "Radical attack", "sourceRef": 0},
+        {"id": "N3", "label": "Lower-volatility products", "role": "blue", "shape": "process", "detail": "Oxygenated species", "sourceRef": 0},
+        {"id": "N4", "label": "Vapors supersaturated?", "role": "blue", "shape": "decision", "detail": "Below saturation conc", "sourceRef": 0},
+        {"id": "N5", "label": "Partition to particles", "role": "green", "shape": "process", "detail": "Condense on aerosol", "sourceRef": 0},
+        {"id": "N6", "label": "New particle nucleation", "role": "green", "shape": "process", "detail": "Cluster formation", "sourceRef": 1},
+        {"id": "N7", "label": "Condensational growth", "role": "green", "shape": "process", "detail": "Mass accumulation", "sourceRef": 1},
+        {"id": "N8", "label": "Aging / oligomerization", "role": "green", "shape": "process", "detail": "Further reactions", "sourceRef": 0},
+        {"id": "N9", "label": "Secondary organic aerosol", "role": "violet", "shape": "process", "detail": "Particulate matter", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"},
+        {"from": "N4", "to": "N2", "label": "no: oxidize more"}, {"from": "N4", "to": "N5", "label": "yes"},
+        {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7"}, {"from": "N7", "to": "N8"}, {"from": "N8", "to": "N9"}
+      ]
+    },
+    {
+      "id": "environmental_chemistry-atmospheric-chemistry",
+      "name": "Tropospheric Ozone (Photochemical Smog)",
+      "description": "Tropospheric ozone builds through the photochemical NOx cycle: NO2 photolysis makes ozone while ozone titrates NO back to NO2 in a null cycle, but VOC oxidation produces peroxy radicals that convert NO to NO2 without consuming ozone, so net ozone accumulates and depends on the VOC-to-NOx balance.",
+      "graphType": "cyclic_pathway",
+      "domainContext": "Atmospheric photochemistry",
+      "namedCollections": ["environmental-chemistry"],
+      "keywords": ["tropospheric ozone", "photochemical smog", "NOx cycle", "peroxy radicals", "Leighton relationship"],
+      "basis": "source_extraction:environmental_chemistry-atmospheric-chemistry",
+      "sources": [
+        {"title": "Atmospheric Chemistry and Physics: From Air Pollution to Climate Change (3rd ed.)", "authors": "Seinfeld, J. H.; Pandis, S. N.", "journal": "Wiley", "year": "2016", "doi": "10.1002/9781118947401", "url": "https://doi.org/10.1002/9781118947401"},
+        {"title": "The role of NO and NO2 in the chemistry of the troposphere and stratosphere", "authors": "Crutzen, P. J.", "journal": "Annual Review of Earth and Planetary Sciences", "year": "1979", "doi": "10.1146/annurev.ea.07.050179.002303", "url": "https://doi.org/10.1146/annurev.ea.07.050179.002303"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "NOx + VOCs + sunlight", "role": "red", "shape": "process", "detail": "Polluted boundary layer", "sourceRef": 0},
+        {"id": "N2", "label": "NO2 photolysis (hv)", "role": "green", "shape": "process", "detail": "Yields O atom", "sourceRef": 0},
+        {"id": "N3", "label": "O + O2 -> O3", "role": "green", "shape": "process", "detail": "Ozone production", "sourceRef": 0},
+        {"id": "N4", "label": "O3 + NO -> NO2 (null)", "role": "blue", "shape": "process", "detail": "Titration cycle", "sourceRef": 1},
+        {"id": "N5", "label": "VOC oxidation -> RO2/HO2", "role": "green", "shape": "process", "detail": "Peroxy radicals", "sourceRef": 0},
+        {"id": "N6", "label": "RO2 converts NO->NO2", "role": "green", "shape": "process", "detail": "No O3 consumed", "sourceRef": 1},
+        {"id": "N7", "label": "Extra NO2 photolyzed", "role": "green", "shape": "process", "detail": "More ozone", "sourceRef": 0},
+        {"id": "N8", "label": "Net O3 accumulates?", "role": "blue", "shape": "decision", "detail": "VOC/NOx regime", "sourceRef": 0},
+        {"id": "N9", "label": "VOC-limited: cut VOC", "role": "green", "shape": "process", "detail": "Control strategy", "sourceRef": 0},
+        {"id": "N10", "label": "Photochemical smog", "role": "violet", "shape": "process", "detail": "Ozone episode", "sourceRef": 1}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"},
+        {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7"}, {"from": "N7", "to": "N8"},
+        {"from": "N8", "to": "N9", "label": "no"}, {"from": "N9", "to": "N5", "label": "limit"}, {"from": "N8", "to": "N10", "label": "yes"}
+      ]
+    },
+    {
+      "id": "environmental_chemistry-green-chemistry",
+      "name": "Green Chemistry Process Design",
+      "description": "Green chemistry redesigns a synthesis around its twelve principles: a candidate route is scored for atom economy, safer solvents and reagents are chosen, and the E-factor (mass of waste per mass of product) is estimated; the route is iterated with catalysis and waste reduction until both metrics are acceptable.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Green / sustainable chemistry",
+      "namedCollections": ["environmental-chemistry"],
+      "keywords": ["green chemistry", "atom economy", "E-factor", "catalysis", "twelve principles"],
+      "basis": "source_extraction:environmental_chemistry-green-chemistry",
+      "sources": [
+        {"title": "The atom economy - a search for synthetic efficiency", "authors": "Trost, B. M.", "journal": "Science", "year": "1991", "doi": "10.1126/science.1962206", "url": "https://doi.org/10.1126/science.1962206"},
+        {"title": "The E factor 25 years on: the rise of green chemistry and sustainability", "authors": "Sheldon, R. A.", "journal": "Green Chemistry", "year": "2017", "doi": "10.1039/C6GC02157C", "url": "https://doi.org/10.1039/C6GC02157C"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Target product", "role": "red", "shape": "process", "detail": "Define goal", "sourceRef": 0},
+        {"id": "N2", "label": "Design synthesis route", "role": "green", "shape": "process", "detail": "Candidate pathway", "sourceRef": 0},
+        {"id": "N3", "label": "Compute atom economy", "role": "green", "shape": "process", "detail": "Atoms into product", "sourceRef": 0},
+        {"id": "N4", "label": "High atom economy?", "role": "blue", "shape": "decision", "detail": "Minimize byproducts", "sourceRef": 0},
+        {"id": "N5", "label": "Redesign route", "role": "green", "shape": "process", "detail": "Fewer steps", "sourceRef": 0},
+        {"id": "N6", "label": "Choose safer solvent/reagents", "role": "green", "shape": "process", "detail": "Reduce hazard", "sourceRef": 1},
+        {"id": "N7", "label": "Estimate E-factor", "role": "green", "shape": "process", "detail": "Waste / product mass", "sourceRef": 1},
+        {"id": "N8", "label": "E-factor acceptable?", "role": "blue", "shape": "decision", "detail": "Low waste", "sourceRef": 1},
+        {"id": "N9", "label": "Reduce waste / catalysis", "role": "green", "shape": "process", "detail": "Recover, recycle", "sourceRef": 1},
+        {"id": "N10", "label": "Green process", "role": "violet", "shape": "process", "detail": "Sustainable route", "sourceRef": 1}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"},
+        {"from": "N4", "to": "N5", "label": "no"}, {"from": "N5", "to": "N2", "label": "redesign"}, {"from": "N4", "to": "N6", "label": "yes"},
+        {"from": "N6", "to": "N7"}, {"from": "N7", "to": "N8"},
+        {"from": "N8", "to": "N9", "label": "no"}, {"from": "N9", "to": "N6", "label": "improve"}, {"from": "N8", "to": "N10", "label": "yes"}
+      ]
+    },
+    {
+      "id": "environmental_chemistry-soil-contaminant-remediation",
+      "name": "Soil Contaminant Remediation",
+      "description": "Remediating contaminated soil begins with site assessment to map the contaminant and plume, then branches by whether the contaminant is dissolved or sorbed: dissolved plumes are pumped and treated while sorbed contaminants are mobilized or degraded in situ, with treatment iterated until concentrations fall below cleanup targets.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Environmental remediation",
+      "namedCollections": ["environmental-chemistry"],
+      "keywords": ["soil remediation", "pump-and-treat", "in-situ", "contaminant plume", "sorption"],
+      "basis": "source_extraction:environmental_chemistry-soil-contaminant-remediation",
+      "sources": [
+        {"title": "An overview and analysis of site remediation technologies", "authors": "Khan, F. I.; Husain, T.; Hejazi, R.", "journal": "Journal of Environmental Management", "year": "2004", "doi": "10.1016/j.jenvman.2004.02.003", "url": "https://doi.org/10.1016/j.jenvman.2004.02.003"},
+        {"title": "Environmental Organic Chemistry (3rd ed.)", "authors": "Schwarzenbach, R. P.; Gschwend, P. M.; Imboden, D. M.", "journal": "Wiley", "year": "2016", "doi": "10.1002/9781118767443", "url": "https://doi.org/10.1002/9781118767443"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Contaminated site", "role": "red", "shape": "process", "detail": "Polluted soil/water", "sourceRef": 0},
+        {"id": "N2", "label": "Site assessment + sampling", "role": "green", "shape": "process", "detail": "Characterize extent", "sourceRef": 0},
+        {"id": "N3", "label": "Identify contaminant + plume", "role": "blue", "shape": "process", "detail": "Map distribution", "sourceRef": 1},
+        {"id": "N4", "label": "Sorbed or dissolved?", "role": "blue", "shape": "decision", "detail": "Partitioning behavior", "sourceRef": 1},
+        {"id": "N5", "label": "Dissolved: pump-and-treat", "role": "green", "shape": "process", "detail": "Extract groundwater", "sourceRef": 0},
+        {"id": "N6", "label": "Sorbed: in-situ method", "role": "green", "shape": "process", "detail": "Surfactant / bioremed.", "sourceRef": 0},
+        {"id": "N7", "label": "Mobilize / degrade", "role": "green", "shape": "process", "detail": "Release or transform", "sourceRef": 1},
+        {"id": "N8", "label": "Treat extracted water", "role": "green", "shape": "process", "detail": "Above-ground cleanup", "sourceRef": 0},
+        {"id": "N9", "label": "Below cleanup target?", "role": "blue", "shape": "decision", "detail": "Regulatory limit", "sourceRef": 0},
+        {"id": "N10", "label": "Continue / add reagent", "role": "green", "shape": "process", "detail": "Sustain treatment", "sourceRef": 0},
+        {"id": "N11", "label": "Remediated soil", "role": "violet", "shape": "process", "detail": "Cleanup achieved", "sourceRef": 1}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"},
+        {"from": "N4", "to": "N5", "label": "dissolved"}, {"from": "N4", "to": "N6", "label": "sorbed"},
+        {"from": "N5", "to": "N8"}, {"from": "N6", "to": "N7"}, {"from": "N7", "to": "N8"}, {"from": "N8", "to": "N9"},
+        {"from": "N9", "to": "N10", "label": "no"}, {"from": "N10", "to": "N7", "label": "repeat"}, {"from": "N9", "to": "N11", "label": "yes"}
+      ]
+    },
+    {
+      "id": "environmental_chemistry-water-chemistry",
+      "name": "Carbonate System & Alkalinity",
+      "description": "Natural water chemistry is governed by the carbonate system: dissolved CO2 forms carbonic acid that dissociates stepwise to bicarbonate and carbonate, setting speciation versus pH; treating the system as open (fixed pCO2) or closed (fixed total carbon) and applying mass and charge balance yields the equilibrium pH and alkalinity.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Aquatic chemistry",
+      "namedCollections": ["environmental-chemistry"],
+      "keywords": ["carbonate system", "alkalinity", "bicarbonate", "pH speciation", "mass balance"],
+      "basis": "source_extraction:environmental_chemistry-water-chemistry",
+      "sources": [
+        {"title": "Aquatic Chemistry: Chemical Equilibria and Rates in Natural Waters (3rd ed.)", "authors": "Stumm, W.; Morgan, J. J.", "journal": "Wiley", "year": "1996", "url": "https://www.wiley.com/en-us/Aquatic+Chemistry%3A+Chemical+Equilibria+and+Rates+in+Natural+Waters%2C+3rd+Edition-p-9780471511847"},
+        {"title": "Water Chemistry", "authors": "Snoeyink, V. L.; Jenkins, D.", "journal": "Wiley", "year": "1980", "url": "https://www.wiley.com/en-us/Water+Chemistry-p-9780471051961"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Water + dissolved CO2", "role": "red", "shape": "process", "detail": "Define system", "sourceRef": 0},
+        {"id": "N2", "label": "CO2 + H2O <=> H2CO3", "role": "green", "shape": "process", "detail": "Hydration", "sourceRef": 0},
+        {"id": "N3", "label": "H2CO3 <=> H+ + HCO3-", "role": "green", "shape": "process", "detail": "Ka1", "sourceRef": 0},
+        {"id": "N4", "label": "HCO3- <=> H+ + CO3^2-", "role": "green", "shape": "process", "detail": "Ka2", "sourceRef": 0},
+        {"id": "N5", "label": "Speciation vs pH", "role": "blue", "shape": "process", "detail": "Distribution diagram", "sourceRef": 1},
+        {"id": "N6", "label": "Open or closed system?", "role": "blue", "shape": "decision", "detail": "Gas exchange?", "sourceRef": 0},
+        {"id": "N7", "label": "Open: fix pCO2 (Henry)", "role": "green", "shape": "process", "detail": "Atmosphere coupled", "sourceRef": 0},
+        {"id": "N8", "label": "Closed: fix total CT", "role": "green", "shape": "process", "detail": "Conserved carbon", "sourceRef": 1},
+        {"id": "N9", "label": "Charge + mass balance", "role": "green", "shape": "process", "detail": "Electroneutrality", "sourceRef": 1},
+        {"id": "N10", "label": "Solve pH + alkalinity", "role": "green", "shape": "process", "detail": "Buffer capacity", "sourceRef": 0},
+        {"id": "N11", "label": "Equilibrium water chemistry", "role": "violet", "shape": "process", "detail": "Speciation solved", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"}, {"from": "N5", "to": "N6"},
+        {"from": "N6", "to": "N7", "label": "open"}, {"from": "N6", "to": "N8", "label": "closed"},
+        {"from": "N7", "to": "N9"}, {"from": "N8", "to": "N9"}, {"from": "N9", "to": "N10"}, {"from": "N10", "to": "N11"}
+      ]
+    },
+    {
+      "id": "environmental_chemistry-water-treatment-coagulation-flocculation",
+      "name": "Coagulation-Flocculation Treatment",
+      "description": "Coagulation-flocculation clarifies turbid water: a metal-salt coagulant is rapidly mixed to neutralize colloid surface charge and destabilize particles, then slow mixing promotes collisions that grow flocs; if flocs are large enough they settle out, otherwise aids are added and mixing continues before sedimentation yields clarified water.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Water treatment engineering",
+      "namedCollections": ["environmental-chemistry"],
+      "keywords": ["coagulation", "flocculation", "charge neutralization", "floc", "sedimentation"],
+      "basis": "source_extraction:environmental_chemistry-water-treatment-coagulation-flocculation",
+      "sources": [
+        {"title": "Coagulation and Flocculation in Water and Wastewater Treatment (3rd ed.)", "authors": "Bratby, J.", "journal": "IWA Publishing", "year": "2016", "doi": "10.2166/9781780407500", "url": "https://doi.org/10.2166/9781780407500"},
+        {"title": "MWH's Water Treatment: Principles and Design (3rd ed.)", "authors": "Crittenden, J. C.; et al.", "journal": "Wiley", "year": "2012", "doi": "10.1002/9781118131473", "url": "https://doi.org/10.1002/9781118131473"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Turbid water (colloids)", "role": "red", "shape": "process", "detail": "Stable suspension", "sourceRef": 1},
+        {"id": "N2", "label": "Add coagulant (Al/Fe salt)", "role": "green", "shape": "process", "detail": "Hydrolyzing metal", "sourceRef": 0},
+        {"id": "N3", "label": "Rapid mix / dispersion", "role": "green", "shape": "process", "detail": "Fast distribution", "sourceRef": 1},
+        {"id": "N4", "label": "Charge neutralization", "role": "green", "shape": "process", "detail": "Compress double layer", "sourceRef": 0},
+        {"id": "N5", "label": "Destabilized colloids", "role": "blue", "shape": "process", "detail": "Ready to aggregate", "sourceRef": 0},
+        {"id": "N6", "label": "Slow mix (flocculation)", "role": "green", "shape": "process", "detail": "Gentle stirring", "sourceRef": 1},
+        {"id": "N7", "label": "Floc growth by collisions", "role": "green", "shape": "process", "detail": "Aggregate larger", "sourceRef": 1},
+        {"id": "N8", "label": "Floc large + settleable?", "role": "blue", "shape": "decision", "detail": "Size / density", "sourceRef": 1},
+        {"id": "N9", "label": "Add flocculant aid", "role": "green", "shape": "process", "detail": "Polymer bridging", "sourceRef": 0},
+        {"id": "N10", "label": "Sedimentation", "role": "green", "shape": "process", "detail": "Gravity settling", "sourceRef": 1},
+        {"id": "N11", "label": "Clarified water", "role": "violet", "shape": "process", "detail": "Low turbidity", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"},
+        {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7"}, {"from": "N7", "to": "N8"},
+        {"from": "N8", "to": "N9", "label": "no"}, {"from": "N9", "to": "N6", "label": "more mixing"}, {"from": "N8", "to": "N10", "label": "yes"}, {"from": "N10", "to": "N11"}
+      ]
+    },
+    {
+      "id": "physical_chemistry-chemical-kinetics",
+      "name": "Rate Law by Initial Rates",
+      "description": "The method of initial rates determines a rate law empirically: a series of experiments varies one reactant concentration at a time while measuring the initial rate, the order in each reactant is read from how the rate scales, and once all orders are known the overall rate law is assembled and the rate constant is fitted.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Chemical kinetics",
+      "namedCollections": ["physical-chemistry"],
+      "keywords": ["initial rates", "rate law", "reaction order", "rate constant", "kinetics"],
+      "basis": "source_extraction:physical_chemistry-chemical-kinetics",
+      "sources": [
+        {"title": "Atkins' Physical Chemistry (11th ed.)", "authors": "Atkins, P.; de Paula, J.; Keeler, J.", "journal": "Oxford University Press", "year": "2018", "url": "https://global.oup.com/academic/product/atkins-physical-chemistry-9780198769866"},
+        {"title": "Chemical Kinetics and Reaction Mechanisms (2nd ed.)", "authors": "Espenson, J. H.", "journal": "McGraw-Hill", "year": "1995", "url": "https://www.mheducation.com/highered/product/chemical-kinetics-reaction-mechanisms-espenson.html"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Reaction of interest", "role": "red", "shape": "process", "detail": "Reactants A, B...", "sourceRef": 0},
+        {"id": "N2", "label": "Vary one [A], hold rest", "role": "green", "shape": "process", "detail": "Experiment series", "sourceRef": 1},
+        {"id": "N3", "label": "Measure initial rate", "role": "green", "shape": "process", "detail": "t -> 0 slope", "sourceRef": 0},
+        {"id": "N4", "label": "Rate vs [A] dependence", "role": "blue", "shape": "process", "detail": "Scaling pattern", "sourceRef": 0},
+        {"id": "N5", "label": "Determine order in A", "role": "green", "shape": "process", "detail": "Exponent found", "sourceRef": 1},
+        {"id": "N6", "label": "All reactants done?", "role": "blue", "shape": "decision", "detail": "Each order known", "sourceRef": 0},
+        {"id": "N7", "label": "Vary next reactant", "role": "green", "shape": "process", "detail": "Repeat series", "sourceRef": 1},
+        {"id": "N8", "label": "Assemble rate law", "role": "green", "shape": "process", "detail": "Combine orders", "sourceRef": 0},
+        {"id": "N9", "label": "Fit rate constant k", "role": "green", "shape": "process", "detail": "From data", "sourceRef": 1},
+        {"id": "N10", "label": "Validated rate law", "role": "violet", "shape": "process", "detail": "r = k[A]^m[B]^n", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"}, {"from": "N5", "to": "N6"},
+        {"from": "N6", "to": "N7", "label": "no"}, {"from": "N7", "to": "N2", "label": "next"}, {"from": "N6", "to": "N8", "label": "yes"}, {"from": "N8", "to": "N9"}, {"from": "N9", "to": "N10"}
+      ]
+    },
+    {
+      "id": "physical_chemistry-phase-diagram-construction",
+      "name": "Phase Diagram (Gibbs Phase Rule)",
+      "description": "A phase diagram is constructed from the Gibbs phase rule F = C - P + 2, which fixes the degrees of freedom: single-phase regions and the boundaries between them are mapped on temperature-composition axes, the lever rule gives phase amounts inside two-phase regions, and invariant points complete the diagram.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Chemical thermodynamics / phase equilibria",
+      "namedCollections": ["physical-chemistry"],
+      "keywords": ["phase diagram", "Gibbs phase rule", "lever rule", "two-phase region", "invariant point"],
+      "basis": "source_extraction:physical_chemistry-phase-diagram-construction",
+      "sources": [
+        {"title": "Atkins' Physical Chemistry (11th ed.)", "authors": "Atkins, P.; de Paula, J.; Keeler, J.", "journal": "Oxford University Press", "year": "2018", "url": "https://global.oup.com/academic/product/atkins-physical-chemistry-9780198769866"},
+        {"title": "Materials Science and Engineering: An Introduction (10th ed.)", "authors": "Callister, W. D.; Rethwisch, D. G.", "journal": "Wiley", "year": "2018", "url": "https://www.wiley.com/en-us/Materials+Science+and+Engineering%3A+An+Introduction%2C+10th+Edition-p-9781119405498"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "System: components C", "role": "red", "shape": "process", "detail": "Define species", "sourceRef": 0},
+        {"id": "N2", "label": "Apply F = C - P + 2", "role": "green", "shape": "process", "detail": "Degrees of freedom", "sourceRef": 0},
+        {"id": "N3", "label": "Choose axes (T, comp)", "role": "green", "shape": "process", "detail": "Variables to plot", "sourceRef": 1},
+        {"id": "N4", "label": "Map single-phase regions", "role": "green", "shape": "process", "detail": "Stable phases", "sourceRef": 1},
+        {"id": "N5", "label": "Locate phase boundaries", "role": "green", "shape": "process", "detail": "Coexistence lines", "sourceRef": 0},
+        {"id": "N6", "label": "In two-phase region?", "role": "blue", "shape": "decision", "detail": "Tie-line applies", "sourceRef": 1},
+        {"id": "N7", "label": "Apply lever rule", "role": "green", "shape": "process", "detail": "Phase fractions", "sourceRef": 1},
+        {"id": "N8", "label": "Mark invariant points", "role": "blue", "shape": "process", "detail": "Eutectic, peritectic", "sourceRef": 1},
+        {"id": "N9", "label": "Assemble phase diagram", "role": "green", "shape": "process", "detail": "Complete map", "sourceRef": 0},
+        {"id": "N10", "label": "Predict phases vs T,x", "role": "violet", "shape": "process", "detail": "Equilibrium readout", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"}, {"from": "N5", "to": "N6"},
+        {"from": "N6", "to": "N7", "label": "yes"}, {"from": "N7", "to": "N9"}, {"from": "N6", "to": "N8", "label": "no"}, {"from": "N8", "to": "N9"}, {"from": "N9", "to": "N10"}
+      ]
+    },
+    {
+      "id": "physical_chemistry-reaction-rate-measurement",
+      "name": "Measuring Reaction Rates",
+      "description": "Reaction rates are measured by tracking a concentration-dependent observable over time: the technique is chosen by reaction speed (stopped-flow mixing for fast reactions, periodic sampling for slow ones), the recorded signal is converted to concentration, and tangents or integrated fits yield the instantaneous rate.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Experimental kinetics",
+      "namedCollections": ["physical-chemistry"],
+      "keywords": ["reaction rate", "stopped-flow", "concentration-time", "kinetics measurement", "integrated rate law"],
+      "basis": "source_extraction:physical_chemistry-reaction-rate-measurement",
+      "sources": [
+        {"title": "Atkins' Physical Chemistry (11th ed.)", "authors": "Atkins, P.; de Paula, J.; Keeler, J.", "journal": "Oxford University Press", "year": "2018", "url": "https://global.oup.com/academic/product/atkins-physical-chemistry-9780198769866"},
+        {"title": "Chemical Kinetics and Reaction Mechanisms (2nd ed.)", "authors": "Espenson, J. H.", "journal": "McGraw-Hill", "year": "1995", "url": "https://www.mheducation.com/highered/product/chemical-kinetics-reaction-mechanisms-espenson.html"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Reacting system", "role": "red", "shape": "process", "detail": "Choose to monitor", "sourceRef": 0},
+        {"id": "N2", "label": "Pick observable signal", "role": "green", "shape": "process", "detail": "Absorbance, conductivity", "sourceRef": 0},
+        {"id": "N3", "label": "Fast or slow reaction?", "role": "blue", "shape": "decision", "detail": "Timescale", "sourceRef": 1},
+        {"id": "N4", "label": "Fast: stopped-flow", "role": "green", "shape": "process", "detail": "Rapid mixing", "sourceRef": 1},
+        {"id": "N5", "label": "Slow: periodic sampling", "role": "green", "shape": "process", "detail": "Aliquots / quench", "sourceRef": 1},
+        {"id": "N6", "label": "Record signal vs time", "role": "blue", "shape": "process", "detail": "Raw kinetic trace", "sourceRef": 0},
+        {"id": "N7", "label": "Convert signal to conc", "role": "green", "shape": "process", "detail": "Calibration", "sourceRef": 0},
+        {"id": "N8", "label": "Compute rate", "role": "green", "shape": "process", "detail": "d[C]/dt", "sourceRef": 1},
+        {"id": "N9", "label": "Tangent / integrated fit", "role": "green", "shape": "process", "detail": "Extract parameters", "sourceRef": 0},
+        {"id": "N10", "label": "Reaction rate vs time", "role": "violet", "shape": "process", "detail": "Kinetic result", "sourceRef": 1}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"},
+        {"from": "N3", "to": "N4", "label": "fast"}, {"from": "N3", "to": "N5", "label": "slow"},
+        {"from": "N4", "to": "N6"}, {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7"}, {"from": "N7", "to": "N8"}, {"from": "N8", "to": "N9"}, {"from": "N9", "to": "N10"}
+      ]
+    },
+    {
+      "id": "physical_chemistry-spectroscopic-line-broadening",
+      "name": "Spectral Line Broadening",
+      "description": "An observed spectral line is broadened by several mechanisms: finite state lifetimes give a Lorentzian natural width, thermal motion adds a Gaussian Doppler width, and collisions add pressure broadening; the dominant mechanism sets the limiting shape, and convolving Gaussian and Lorentzian contributions yields the Voigt profile.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Molecular spectroscopy",
+      "namedCollections": ["physical-chemistry"],
+      "keywords": ["line broadening", "Doppler broadening", "lifetime broadening", "Voigt profile", "Lorentzian"],
+      "basis": "source_extraction:physical_chemistry-spectroscopic-line-broadening",
+      "sources": [
+        {"title": "Laser Spectroscopy 1: Basic Principles (5th ed.)", "authors": "Demtroder, W.", "journal": "Springer", "year": "2014", "doi": "10.1007/978-3-642-53859-9", "url": "https://doi.org/10.1007/978-3-642-53859-9"},
+        {"title": "Atkins' Physical Chemistry (11th ed.)", "authors": "Atkins, P.; de Paula, J.; Keeler, J.", "journal": "Oxford University Press", "year": "2018", "url": "https://global.oup.com/academic/product/atkins-physical-chemistry-9780198769866"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Spectral transition", "role": "red", "shape": "process", "detail": "Idealized sharp line", "sourceRef": 1},
+        {"id": "N2", "label": "Natural lifetime broadening", "role": "green", "shape": "process", "detail": "Uncertainty principle", "sourceRef": 1},
+        {"id": "N3", "label": "Lorentzian profile", "role": "blue", "shape": "process", "detail": "Homogeneous width", "sourceRef": 0},
+        {"id": "N4", "label": "Add Doppler (thermal)", "role": "green", "shape": "process", "detail": "Velocity distribution", "sourceRef": 0},
+        {"id": "N5", "label": "Gaussian profile", "role": "blue", "shape": "process", "detail": "Inhomogeneous width", "sourceRef": 0},
+        {"id": "N6", "label": "Add pressure/collisions", "role": "green", "shape": "process", "detail": "Collisional dephasing", "sourceRef": 0},
+        {"id": "N7", "label": "Dominant mechanism?", "role": "blue", "shape": "decision", "detail": "Compare widths", "sourceRef": 0},
+        {"id": "N8", "label": "Doppler-dominated", "role": "green", "shape": "process", "detail": "Gaussian limit", "sourceRef": 1},
+        {"id": "N9", "label": "Lifetime-dominated", "role": "green", "shape": "process", "detail": "Lorentzian limit", "sourceRef": 1},
+        {"id": "N10", "label": "Convolve -> Voigt", "role": "green", "shape": "process", "detail": "Combined profile", "sourceRef": 0},
+        {"id": "N11", "label": "Observed line shape", "role": "violet", "shape": "process", "detail": "Measured profile", "sourceRef": 1}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"}, {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7"},
+        {"from": "N7", "to": "N8", "label": "doppler"}, {"from": "N7", "to": "N9", "label": "lifetime"},
+        {"from": "N8", "to": "N10"}, {"from": "N9", "to": "N10"}, {"from": "N10", "to": "N11"}
+      ]
+    },
+    {
+      "id": "physical_chemistry-spectroscopy-analysis",
+      "name": "Beer-Lambert Quantitative Analysis",
+      "description": "Quantitative absorption spectroscopy relies on the Beer-Lambert law A = epsilon*b*c: a wavelength near the absorption maximum is selected, absorbance is kept within the linear range by dilution, a calibration curve is built from standards, and the unknown concentration is interpolated from its measured absorbance.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Analytical spectroscopy",
+      "namedCollections": ["physical-chemistry"],
+      "keywords": ["Beer-Lambert law", "absorbance", "calibration curve", "molar absorptivity", "quantitative analysis"],
+      "basis": "source_extraction:physical_chemistry-spectroscopy-analysis",
+      "sources": [
+        {"title": "Principles of Instrumental Analysis (7th ed.)", "authors": "Skoog, D. A.; Holler, F. J.; Crouch, S. R.", "journal": "Cengage", "year": "2017", "url": "https://www.cengage.com/c/principles-of-instrumental-analysis-7e-skoog"},
+        {"title": "Atkins' Physical Chemistry (11th ed.)", "authors": "Atkins, P.; de Paula, J.; Keeler, J.", "journal": "Oxford University Press", "year": "2018", "url": "https://global.oup.com/academic/product/atkins-physical-chemistry-9780198769866"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Analyte in solution", "role": "red", "shape": "process", "detail": "Sample to quantify", "sourceRef": 0},
+        {"id": "N2", "label": "Select lambda (max)", "role": "green", "shape": "process", "detail": "Absorption maximum", "sourceRef": 0},
+        {"id": "N3", "label": "Measure absorbance A", "role": "green", "shape": "process", "detail": "Spectrophotometer", "sourceRef": 0},
+        {"id": "N4", "label": "In linear range?", "role": "blue", "shape": "decision", "detail": "A < ~1", "sourceRef": 0},
+        {"id": "N5", "label": "Dilute sample", "role": "green", "shape": "process", "detail": "Reduce absorbance", "sourceRef": 0},
+        {"id": "N6", "label": "Prepare standards", "role": "green", "shape": "process", "detail": "Known concentrations", "sourceRef": 1},
+        {"id": "N7", "label": "Build calibration curve", "role": "green", "shape": "process", "detail": "A vs c", "sourceRef": 1},
+        {"id": "N8", "label": "Fit A = epsilon b c", "role": "blue", "shape": "process", "detail": "Slope = epsilon b", "sourceRef": 0},
+        {"id": "N9", "label": "Interpolate unknown", "role": "green", "shape": "process", "detail": "Read concentration", "sourceRef": 1},
+        {"id": "N10", "label": "Quantified concentration", "role": "violet", "shape": "process", "detail": "Result + uncertainty", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"},
+        {"from": "N4", "to": "N5", "label": "no"}, {"from": "N5", "to": "N3", "label": "remeasure"}, {"from": "N4", "to": "N6", "label": "yes"},
+        {"from": "N6", "to": "N7"}, {"from": "N7", "to": "N8"}, {"from": "N8", "to": "N9"}, {"from": "N9", "to": "N10"}
+      ]
+    },
+    {
+      "id": "physical_chemistry-thermodynamic-calculations",
+      "name": "Hess's Law Thermochemical Cycle",
+      "description": "Because enthalpy is a state function, a reaction enthalpy can be obtained indirectly via Hess's law: if standard formation enthalpies are available they are combined directly, otherwise a thermochemical cycle of known reactions is built and scaled, summed, and cross-checked against bond enthalpies to give the reaction enthalpy.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Thermochemistry",
+      "namedCollections": ["physical-chemistry"],
+      "keywords": ["Hess's law", "state function", "formation enthalpy", "thermochemical cycle", "reaction enthalpy"],
+      "basis": "source_extraction:physical_chemistry-thermodynamic-calculations",
+      "sources": [
+        {"title": "Atkins' Physical Chemistry (11th ed.)", "authors": "Atkins, P.; de Paula, J.; Keeler, J.", "journal": "Oxford University Press", "year": "2018", "url": "https://global.oup.com/academic/product/atkins-physical-chemistry-9780198769866"},
+        {"title": "NIST Chemistry WebBook, SRD 69", "authors": "Linstrom, P. J.; Mallard, W. G. (eds.)", "journal": "National Institute of Standards and Technology", "year": "2023", "doi": "10.18434/T4D303", "url": "https://doi.org/10.18434/T4D303"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Target reaction ΔH?", "role": "red", "shape": "process", "detail": "Unknown enthalpy", "sourceRef": 0},
+        {"id": "N2", "label": "Find known reactions", "role": "green", "shape": "process", "detail": "Tabulated data", "sourceRef": 1},
+        {"id": "N3", "label": "Have ΔHf data?", "role": "blue", "shape": "decision", "detail": "Formation enthalpies", "sourceRef": 1},
+        {"id": "N4", "label": "Use formation enthalpies", "role": "green", "shape": "process", "detail": "Sum products - reactants", "sourceRef": 0},
+        {"id": "N5", "label": "Build thermochemical cycle", "role": "green", "shape": "process", "detail": "Link known steps", "sourceRef": 0},
+        {"id": "N6", "label": "Scale / reverse steps", "role": "green", "shape": "process", "detail": "Match target", "sourceRef": 0},
+        {"id": "N7", "label": "Sum via Hess's law", "role": "green", "shape": "process", "detail": "Add step enthalpies", "sourceRef": 0},
+        {"id": "N8", "label": "State-function check", "role": "blue", "shape": "process", "detail": "Path-independent", "sourceRef": 0},
+        {"id": "N9", "label": "Cross-check bond enthalpies", "role": "blue", "shape": "process", "detail": "Sanity estimate", "sourceRef": 1},
+        {"id": "N10", "label": "Reaction enthalpy ΔHrxn", "role": "violet", "shape": "process", "detail": "Computed value", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"},
+        {"from": "N3", "to": "N4", "label": "yes"}, {"from": "N4", "to": "N7"},
+        {"from": "N3", "to": "N5", "label": "no"}, {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7"},
+        {"from": "N7", "to": "N8"}, {"from": "N8", "to": "N9"}, {"from": "N9", "to": "N10"}
+      ]
+    }
+  ]
+}

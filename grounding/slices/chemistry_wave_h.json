@@ -1,0 +1,356 @@
+{
+  "discipline": "chemistry",
+  "slice": "theoretical+inorganic",
+  "charts": [
+    {
+      "id": "theoretical_chemistry-enzyme-catalysis",
+      "name": "Transition State Theory (Eyring)",
+      "description": "Transition state theory treats reactants as in quasi-equilibrium with an activated complex at the saddle point of the potential energy surface; the Eyring equation converts the activation free energy into a rate constant, with corrections for recrossing and tunneling.",
+      "graphType": "cyclic_pathway",
+      "domainContext": "Theoretical chemical kinetics",
+      "namedCollections": ["theoretical-chemistry"],
+      "keywords": ["transition state theory", "eyring equation", "activated complex", "activation free energy", "saddle point"],
+      "basis": "source_extraction:theoretical_chemistry-enzyme-catalysis",
+      "sources": [
+        {"title": "The activated complex in chemical reactions", "authors": "Eyring, H.", "journal": "Journal of Chemical Physics", "year": "1935", "doi": "10.1063/1.1749604", "url": "https://doi.org/10.1063/1.1749604"},
+        {"title": "A lifetime of transition-state theory", "authors": "Laidler, K. J.; King, M. C.", "journal": "Journal of Physical Chemistry", "year": "1983", "doi": "10.1021/j100238a002", "url": "https://doi.org/10.1021/j100238a002"},
+        {"title": "Current status of transition-state theory", "authors": "Truhlar, D. G.; Garrett, B. C.; Klippenstein, S. J.", "journal": "Journal of Physical Chemistry", "year": "1996", "doi": "10.1021/jp953748q", "url": "https://doi.org/10.1021/jp953748q"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Reactants", "role": "red", "shape": "process", "detail": "Defined potential surface", "sourceRef": 0},
+        {"id": "N2", "label": "Climb to transition state", "role": "green", "shape": "process", "detail": "Toward the barrier", "sourceRef": 0},
+        {"id": "N3", "label": "Activated complex (‡)", "role": "blue", "shape": "process", "detail": "Configuration at the top", "sourceRef": 0},
+        {"id": "N4", "label": "Quasi-equilibrium R ⇌ ‡", "role": "green", "shape": "process", "detail": "Population of the TS", "sourceRef": 1},
+        {"id": "N5", "label": "TS at saddle point?", "role": "blue", "shape": "decision", "detail": "First-order saddle", "sourceRef": 2},
+        {"id": "N6", "label": "Re-locate saddle", "role": "green", "shape": "process", "detail": "Refine the TS", "sourceRef": 2},
+        {"id": "N7", "label": "Rate = (kBT/h)·K‡", "role": "green", "shape": "process", "detail": "Universal frequency factor", "sourceRef": 0},
+        {"id": "N8", "label": "Eyring: ΔG‡ -> rate", "role": "green", "shape": "process", "detail": "Activation free energy", "sourceRef": 1},
+        {"id": "N9", "label": "Recrossing / tunneling", "role": "green", "shape": "process", "detail": "Transmission coefficient", "sourceRef": 2},
+        {"id": "N10", "label": "Predicted rate constant", "role": "violet", "shape": "process", "detail": "Theoretical k(T)", "sourceRef": 1}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"},
+        {"from": "N5", "to": "N6", "label": "no"}, {"from": "N6", "to": "N2", "label": "refine"}, {"from": "N5", "to": "N7", "label": "yes"}, {"from": "N7", "to": "N8"}, {"from": "N8", "to": "N9"}, {"from": "N9", "to": "N10"}
+      ]
+    },
+    {
+      "id": "theoretical_chemistry-heterogeneous-catalysis",
+      "name": "Marcus Theory of Electron Transfer",
+      "description": "Marcus theory describes outer-sphere electron transfer with parabolic free-energy curves for reactants and products; the activation free energy depends on the reorganization energy and driving force, predicting the celebrated inverted region at large driving force.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Electron-transfer theory",
+      "namedCollections": ["theoretical-chemistry"],
+      "keywords": ["marcus theory", "electron transfer", "reorganization energy", "inverted region", "driving force"],
+      "basis": "source_extraction:theoretical_chemistry-heterogeneous-catalysis",
+      "sources": [
+        {"title": "On the theory of oxidation–reduction reactions involving electron transfer", "authors": "Marcus, R. A.", "journal": "Journal of Chemical Physics", "year": "1956", "doi": "10.1063/1.1742723", "url": "https://doi.org/10.1063/1.1742723"},
+        {"title": "Electron transfer reactions in chemistry: theory and experiment (Nobel Lecture)", "authors": "Marcus, R. A.", "journal": "Angewandte Chemie International Edition", "year": "1993", "doi": "10.1002/anie.199311111", "url": "https://doi.org/10.1002/anie.199311111"},
+        {"title": "Electron transfers in chemistry and biology", "authors": "Marcus, R. A.; Sutin, N.", "journal": "Biochimica et Biophysica Acta", "year": "1985", "doi": "10.1016/0304-4173(85)90014-X", "url": "https://doi.org/10.1016/0304-4173(85)90014-X"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Donor + acceptor", "role": "red", "shape": "process", "detail": "Redox pair", "sourceRef": 0},
+        {"id": "N2", "label": "Reorganization energy λ", "role": "green", "shape": "process", "detail": "Nuclear rearrangement cost", "sourceRef": 0},
+        {"id": "N3", "label": "Driving force ΔG°", "role": "green", "shape": "process", "detail": "Thermodynamic bias", "sourceRef": 0},
+        {"id": "N4", "label": "Parabolic free-energy curves", "role": "green", "shape": "process", "detail": "Harmonic R and P wells", "sourceRef": 0},
+        {"id": "N5", "label": "Fluctuate to crossing", "role": "green", "shape": "process", "detail": "Reach intersection", "sourceRef": 2},
+        {"id": "N6", "label": "−ΔG° vs λ?", "role": "blue", "shape": "decision", "detail": "Regime selector", "sourceRef": 1},
+        {"id": "N7", "label": "Normal region", "role": "green", "shape": "process", "detail": "Rate rises with −ΔG°", "sourceRef": 1},
+        {"id": "N8", "label": "Inverted region", "role": "green", "shape": "process", "detail": "Rate falls at large −ΔG°", "sourceRef": 1},
+        {"id": "N9", "label": "ΔG‡ = (λ+ΔG°)²/4λ", "role": "green", "shape": "process", "detail": "Marcus barrier", "sourceRef": 0},
+        {"id": "N10", "label": "Electron-transfer rate", "role": "violet", "shape": "process", "detail": "k_ET predicted", "sourceRef": 2}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N1", "to": "N3"}, {"from": "N2", "to": "N4"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"}, {"from": "N5", "to": "N6"},
+        {"from": "N6", "to": "N7", "label": "−ΔG° < λ"}, {"from": "N6", "to": "N8", "label": "−ΔG° > λ"}, {"from": "N7", "to": "N9"}, {"from": "N8", "to": "N9"}, {"from": "N9", "to": "N10"}
+      ]
+    },
+    {
+      "id": "theoretical_chemistry-photocatalysis",
+      "name": "Born–Oppenheimer Approximation",
+      "description": "Because nuclei are far heavier than electrons, the Born-Oppenheimer approximation separates nuclear and electronic motion: electrons are solved for fixed nuclei to give a potential energy surface on which nuclei then move, valid unless electronic states approach degeneracy.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Foundations of quantum chemistry",
+      "namedCollections": ["theoretical-chemistry"],
+      "keywords": ["born-oppenheimer", "adiabatic approximation", "potential energy surface", "nonadiabatic coupling", "separation of motion"],
+      "basis": "source_extraction:theoretical_chemistry-photocatalysis",
+      "sources": [
+        {"title": "Zur Quantentheorie der Molekeln", "authors": "Born, M.; Oppenheimer, R.", "journal": "Annalen der Physik", "year": "1927", "doi": "10.1002/andp.19273892002", "url": "https://doi.org/10.1002/andp.19273892002"},
+        {"title": "Quantum Chemistry, 7th ed. — The Born–Oppenheimer Approximation", "authors": "Levine, I. N.", "journal": "Pearson", "year": "2014", "doi": null, "url": "https://www.pearson.com/en-us/subject-catalog/p/quantum-chemistry/P200000003505"},
+        {"title": "Beyond Born–Oppenheimer: conical intersections and electronic nonadiabatic coupling terms", "authors": "Baer, M.", "journal": "Wiley", "year": "2006", "doi": "10.1002/0471780081", "url": "https://doi.org/10.1002/0471780081"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Molecular Hamiltonian", "role": "red", "shape": "process", "detail": "Electrons + nuclei coupled", "sourceRef": 1},
+        {"id": "N2", "label": "Nuclei ≫ electron mass", "role": "green", "shape": "process", "detail": "Timescale separation", "sourceRef": 0},
+        {"id": "N3", "label": "Separate nuclear & electronic", "role": "green", "shape": "process", "detail": "Factorize the wavefunction", "sourceRef": 0},
+        {"id": "N4", "label": "Fix nuclei, solve electrons", "role": "green", "shape": "process", "detail": "Clamped-nuclei equation", "sourceRef": 1},
+        {"id": "N5", "label": "Electronic energy E(R)", "role": "blue", "shape": "process", "detail": "Depends parametrically on R", "sourceRef": 1},
+        {"id": "N6", "label": "Build PES", "role": "green", "shape": "process", "detail": "Energy vs geometry", "sourceRef": 1},
+        {"id": "N7", "label": "Surfaces well-separated?", "role": "blue", "shape": "decision", "detail": "Validity of approximation", "sourceRef": 2},
+        {"id": "N8", "label": "Nonadiabatic coupling", "role": "green", "shape": "process", "detail": "Conical intersection regime", "sourceRef": 2},
+        {"id": "N9", "label": "Solve nuclear motion", "role": "blue", "shape": "process", "detail": "Vibration/rotation on PES", "sourceRef": 1},
+        {"id": "N10", "label": "Separable wavefunction", "role": "violet", "shape": "process", "detail": "Adiabatic description", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"}, {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7"},
+        {"from": "N7", "to": "N8", "label": "no"}, {"from": "N8", "to": "N10"}, {"from": "N7", "to": "N9", "label": "yes"}, {"from": "N9", "to": "N10"}
+      ]
+    },
+    {
+      "id": "theoretical_chemistry-supported-catalysts",
+      "name": "Rayleigh–Schrödinger Perturbation Theory",
+      "description": "Perturbation theory treats a Hamiltonian as a solvable reference plus a small perturbation, expanding the energy and wavefunction in powers of the coupling; first- and second-order corrections (as in Møller–Plesset MP2) improve the energy when the series converges.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Approximation methods",
+      "namedCollections": ["theoretical-chemistry"],
+      "keywords": ["perturbation theory", "moller-plesset", "energy correction", "series expansion", "reference hamiltonian"],
+      "basis": "source_extraction:theoretical_chemistry-supported-catalysts",
+      "sources": [
+        {"title": "Note on an approximation treatment for many-electron systems (Møller–Plesset)", "authors": "Møller, C.; Plesset, M. S.", "journal": "Physical Review", "year": "1934", "doi": "10.1103/PhysRev.46.618", "url": "https://doi.org/10.1103/PhysRev.46.618"},
+        {"title": "Quantum Chemistry, 7th ed. — Perturbation Theory", "authors": "Levine, I. N.", "journal": "Pearson", "year": "2014", "doi": null, "url": "https://www.pearson.com/en-us/subject-catalog/p/quantum-chemistry/P200000003505"},
+        {"title": "Modern Quantum Chemistry — Many-Body Perturbation Theory", "authors": "Szabo, A.; Ostlund, N. S.", "journal": "Dover Publications", "year": "1996", "doi": null, "url": "https://store.doverpublications.com/products/9780486691862"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "H = H0 + λV", "role": "red", "shape": "process", "detail": "Reference plus perturbation", "sourceRef": 1},
+        {"id": "N2", "label": "Known H0 eigenstates", "role": "green", "shape": "process", "detail": "Solvable zeroth order", "sourceRef": 1},
+        {"id": "N3", "label": "Expand in powers of λ", "role": "green", "shape": "process", "detail": "Series for E and ψ", "sourceRef": 1},
+        {"id": "N4", "label": "First order ⟨0|V|0⟩", "role": "green", "shape": "process", "detail": "Leading correction", "sourceRef": 1},
+        {"id": "N5", "label": "Second-order sum", "role": "green", "shape": "process", "detail": "Couples excited states", "sourceRef": 0},
+        {"id": "N6", "label": "Series converging?", "role": "blue", "shape": "decision", "detail": "Small-perturbation test", "sourceRef": 2},
+        {"id": "N7", "label": "Diverges (strong V)", "role": "green", "shape": "process", "detail": "Expansion fails", "sourceRef": 2},
+        {"id": "N8", "label": "Switch to variational", "role": "green", "shape": "process", "detail": "Non-perturbative method", "sourceRef": 2},
+        {"id": "N9", "label": "Sum corrections (MP2)", "role": "green", "shape": "process", "detail": "Add correlation energy", "sourceRef": 0},
+        {"id": "N10", "label": "Improved energy", "role": "violet", "shape": "process", "detail": "Better estimate", "sourceRef": 1}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"}, {"from": "N5", "to": "N6"},
+        {"from": "N6", "to": "N7", "label": "no"}, {"from": "N7", "to": "N8"}, {"from": "N8", "to": "N10"}, {"from": "N6", "to": "N9", "label": "yes"}, {"from": "N9", "to": "N10"}
+      ]
+    },
+    {
+      "id": "theoretical_chemistry-zeolite-catalysis",
+      "name": "The Variational Method",
+      "description": "The variational principle guarantees that the expectation value of the Hamiltonian for any trial wavefunction is an upper bound to the true ground-state energy; minimizing over adjustable parameters and improving the trial form drives the estimate toward the exact energy.",
+      "graphType": "cyclic_pathway",
+      "domainContext": "Approximation methods",
+      "namedCollections": ["theoretical-chemistry"],
+      "keywords": ["variational method", "variational principle", "trial wavefunction", "upper bound", "energy minimization"],
+      "basis": "source_extraction:theoretical_chemistry-zeolite-catalysis",
+      "sources": [
+        {"title": "Successive approximations by the Rayleigh–Ritz variation method", "authors": "MacDonald, J. K. L.", "journal": "Physical Review", "year": "1933", "doi": "10.1103/PhysRev.43.830", "url": "https://doi.org/10.1103/PhysRev.43.830"},
+        {"title": "Quantum Chemistry, 7th ed. — The Variation Method", "authors": "Levine, I. N.", "journal": "Pearson", "year": "2014", "doi": null, "url": "https://www.pearson.com/en-us/subject-catalog/p/quantum-chemistry/P200000003505"},
+        {"title": "Modern Quantum Chemistry — The Variational Principle", "authors": "Szabo, A.; Ostlund, N. S.", "journal": "Dover Publications", "year": "1996", "doi": null, "url": "https://store.doverpublications.com/products/9780486691862"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Unsolvable Hamiltonian", "role": "red", "shape": "process", "detail": "No exact solution", "sourceRef": 1},
+        {"id": "N2", "label": "Choose trial wavefunction", "role": "green", "shape": "process", "detail": "Physically motivated form", "sourceRef": 1},
+        {"id": "N3", "label": "Add adjustable parameters", "role": "green", "shape": "process", "detail": "Variational freedom", "sourceRef": 1},
+        {"id": "N4", "label": "Compute ⟨H⟩", "role": "green", "shape": "process", "detail": "Expectation value", "sourceRef": 0},
+        {"id": "N5", "label": "⟨H⟩ ≥ E_exact", "role": "blue", "shape": "process", "detail": "Variational upper bound", "sourceRef": 0},
+        {"id": "N6", "label": "Minimize wrt parameters", "role": "green", "shape": "process", "detail": "∂⟨H⟩/∂c = 0", "sourceRef": 1},
+        {"id": "N7", "label": "Energy minimized?", "role": "blue", "shape": "decision", "detail": "Optimization converged", "sourceRef": 1},
+        {"id": "N8", "label": "Adjust parameters", "role": "green", "shape": "process", "detail": "Iterate the minimization", "sourceRef": 1},
+        {"id": "N9", "label": "Improve trial form?", "role": "blue", "shape": "decision", "detail": "Add basis flexibility", "sourceRef": 2},
+        {"id": "N10", "label": "Add functions", "role": "green", "shape": "process", "detail": "Richer trial space", "sourceRef": 2},
+        {"id": "N11", "label": "Best variational energy", "role": "violet", "shape": "process", "detail": "Tightest upper bound", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"}, {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7"},
+        {"from": "N7", "to": "N8", "label": "no"}, {"from": "N8", "to": "N4", "label": "iterate"}, {"from": "N7", "to": "N9", "label": "yes"},
+        {"from": "N9", "to": "N10", "label": "improve"}, {"from": "N10", "to": "N3", "label": "re-expand"}, {"from": "N9", "to": "N11", "label": "satisfied"}
+      ]
+    },
+    {
+      "id": "inorganic_chemistry-coordination-chemistry",
+      "name": "Crystal Field Theory",
+      "description": "Crystal field theory models ligands as point charges that split a metal's d-orbitals according to coordination geometry; comparing the splitting to the electron pairing energy predicts high- or low-spin configurations, color, and magnetic properties.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Coordination chemistry",
+      "namedCollections": ["inorganic-chemistry"],
+      "keywords": ["crystal field theory", "d-orbital splitting", "high spin low spin", "ligand field", "magnetism"],
+      "basis": "source_extraction:inorganic_chemistry-coordination-chemistry",
+      "sources": [
+        {"title": "Ligand-field theory", "authors": "Griffith, J. S.; Orgel, L. E.", "journal": "Quarterly Reviews, Chemical Society", "year": "1957", "doi": "10.1039/qr9571100381", "url": "https://doi.org/10.1039/qr9571100381"},
+        {"title": "Inorganic Chemistry, 6th ed. — d-Block Chemistry: Coordination Complexes", "authors": "Housecroft, C. E.; Sharpe, A. G.", "journal": "Pearson", "year": "2018", "doi": null, "url": "https://www.pearson.com/en-gb/subject-catalog/p/inorganic-chemistry/P200000005860"},
+        {"title": "Gold Book: crystal-field splitting", "authors": "IUPAC", "journal": "IUPAC Compendium of Chemical Terminology", "year": "2019", "doi": "10.1351/goldbook.C01419", "url": "https://goldbook.iupac.org/terms/view/C01419"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Metal ion + ligands", "role": "red", "shape": "process", "detail": "Coordination complex", "sourceRef": 1},
+        {"id": "N2", "label": "Ligands as point charges", "role": "green", "shape": "process", "detail": "Electrostatic model", "sourceRef": 0},
+        {"id": "N3", "label": "d-orbitals split", "role": "green", "shape": "process", "detail": "By approaching ligands", "sourceRef": 0},
+        {"id": "N4", "label": "Geometry?", "role": "blue", "shape": "decision", "detail": "Octahedral vs tetrahedral", "sourceRef": 1},
+        {"id": "N5", "label": "Oh: t2g below eg", "role": "green", "shape": "process", "detail": "Splitting Δo", "sourceRef": 0},
+        {"id": "N6", "label": "Td: e below t2", "role": "green", "shape": "process", "detail": "Smaller Δt", "sourceRef": 0},
+        {"id": "N7", "label": "Δo vs pairing energy?", "role": "blue", "shape": "decision", "detail": "Field strength", "sourceRef": 1},
+        {"id": "N8", "label": "Strong field: low spin", "role": "green", "shape": "process", "detail": "Pair before promoting", "sourceRef": 1},
+        {"id": "N9", "label": "Weak field: high spin", "role": "green", "shape": "process", "detail": "Maximize unpaired", "sourceRef": 1},
+        {"id": "N10", "label": "d-config, color, magnetism", "role": "violet", "shape": "process", "detail": "Predicted properties", "sourceRef": 1}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"},
+        {"from": "N4", "to": "N5", "label": "octahedral"}, {"from": "N4", "to": "N6", "label": "tetrahedral"},
+        {"from": "N5", "to": "N7"}, {"from": "N6", "to": "N10"}, {"from": "N7", "to": "N8", "label": "Δo > P"}, {"from": "N7", "to": "N9", "label": "Δo < P"}, {"from": "N8", "to": "N10"}, {"from": "N9", "to": "N10"}
+      ]
+    },
+    {
+      "id": "inorganic_chemistry-catalysis",
+      "name": "Organometallic Catalytic Cycle",
+      "description": "Homogeneous organometallic catalysis turns over through elementary organometallic steps - substrate coordination, oxidative addition, migratory insertion, and reductive elimination - with the 16/18-electron rule governing whether a vacant site is available for the next step.",
+      "graphType": "cyclic_pathway",
+      "domainContext": "Homogeneous catalysis",
+      "namedCollections": ["inorganic-chemistry"],
+      "keywords": ["organometallic", "catalytic cycle", "oxidative addition", "migratory insertion", "18-electron rule"],
+      "basis": "source_extraction:inorganic_chemistry-catalysis",
+      "sources": [
+        {"title": "The 16 and 18 electron rule in organometallic chemistry and homogeneous catalysis", "authors": "Tolman, C. A.", "journal": "Chemical Society Reviews", "year": "1972", "doi": "10.1039/cs9720100337", "url": "https://doi.org/10.1039/cs9720100337"},
+        {"title": "The Organometallic Chemistry of the Transition Metals, 6th ed.", "authors": "Crabtree, R. H.", "journal": "Wiley", "year": "2014", "doi": "10.1002/9781118788301", "url": "https://doi.org/10.1002/9781118788301"},
+        {"title": "Inorganic Chemistry, 6th ed. — Organometallic Catalysis", "authors": "Housecroft, C. E.; Sharpe, A. G.", "journal": "Pearson", "year": "2018", "doi": null, "url": "https://www.pearson.com/en-gb/subject-catalog/p/inorganic-chemistry/P200000005860"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Precatalyst complex", "role": "red", "shape": "process", "detail": "Metal complex", "sourceRef": 1},
+        {"id": "N2", "label": "Generate active species", "role": "green", "shape": "process", "detail": "Open coordination site", "sourceRef": 1},
+        {"id": "N3", "label": "Count electrons (16/18)", "role": "green", "shape": "process", "detail": "Electron bookkeeping", "sourceRef": 0},
+        {"id": "N4", "label": "Substrate coordinates", "role": "green", "shape": "process", "detail": "Binds the metal", "sourceRef": 1},
+        {"id": "N5", "label": "Oxidative addition", "role": "green", "shape": "process", "detail": "Metal oxidation state +2", "sourceRef": 2},
+        {"id": "N6", "label": "Migratory insertion", "role": "green", "shape": "process", "detail": "Build the new bond", "sourceRef": 2},
+        {"id": "N7", "label": "18-electron saturated?", "role": "blue", "shape": "decision", "detail": "Need a vacant site?", "sourceRef": 0},
+        {"id": "N8", "label": "Ligand dissociates", "role": "green", "shape": "process", "detail": "Opens a site", "sourceRef": 0},
+        {"id": "N9", "label": "Reductive elimination", "role": "green", "shape": "process", "detail": "Release product", "sourceRef": 2},
+        {"id": "N10", "label": "Regenerate catalyst", "role": "green", "shape": "process", "detail": "Return to active form", "sourceRef": 1},
+        {"id": "N11", "label": "Catalytic turnover", "role": "violet", "shape": "process", "detail": "Net product made", "sourceRef": 2}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"}, {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7"},
+        {"from": "N7", "to": "N8", "label": "yes"}, {"from": "N8", "to": "N4", "label": "reopen"}, {"from": "N7", "to": "N9", "label": "no"}, {"from": "N9", "to": "N10"}, {"from": "N10", "to": "N3", "label": "next turn"}, {"from": "N9", "to": "N11"}
+      ]
+    },
+    {
+      "id": "inorganic_chemistry-solid-state-chemistry",
+      "name": "Born–Haber Cycle",
+      "description": "The Born-Haber cycle applies Hess's law to ionic-solid formation, summing atomization, ionization, electron affinity and lattice enthalpy; comparing the cycle's predicted formation enthalpy with experiment lets one solve for or validate the lattice energy.",
+      "graphType": "cyclic_pathway",
+      "domainContext": "Solid-state energetics",
+      "namedCollections": ["inorganic-chemistry"],
+      "keywords": ["born-haber cycle", "lattice enthalpy", "ionization energy", "electron affinity", "hess's law"],
+      "basis": "source_extraction:inorganic_chemistry-solid-state-chemistry",
+      "sources": [
+        {"title": "Inorganic Chemistry, 6th ed. — Lattice Energy and the Born–Haber Cycle", "authors": "Housecroft, C. E.; Sharpe, A. G.", "journal": "Pearson", "year": "2018", "doi": null, "url": "https://www.pearson.com/en-gb/subject-catalog/p/inorganic-chemistry/P200000005860"},
+        {"title": "Physical Chemistry, 11th ed. — The Born–Haber Cycle", "authors": "Atkins, P.; de Paula, J.; Keeler, J.", "journal": "Oxford University Press", "year": "2018", "doi": null, "url": "https://global.oup.com/ukhe/product/atkins-physical-chemistry-9780198769866"},
+        {"title": "Gold Book: lattice energy", "authors": "IUPAC", "journal": "IUPAC Compendium of Chemical Terminology", "year": "2019", "doi": "10.1351/goldbook.L03488", "url": "https://goldbook.iupac.org/terms/view/L03488"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Target ionic solid MX", "role": "red", "shape": "process", "detail": "Formation from elements", "sourceRef": 0},
+        {"id": "N2", "label": "Atomize metal (ΔH_sub)", "role": "green", "shape": "process", "detail": "Solid to gaseous atoms", "sourceRef": 0},
+        {"id": "N3", "label": "Ionize metal (IE)", "role": "green", "shape": "process", "detail": "Remove electron(s)", "sourceRef": 1},
+        {"id": "N4", "label": "Atomize + EA of X", "role": "green", "shape": "process", "detail": "Form gaseous anion", "sourceRef": 1},
+        {"id": "N5", "label": "Lattice enthalpy U", "role": "green", "shape": "process", "detail": "Ions to crystal", "sourceRef": 2},
+        {"id": "N6", "label": "Sum via Hess's law", "role": "green", "shape": "process", "detail": "Close the cycle", "sourceRef": 0},
+        {"id": "N7", "label": "Compute ΔHf", "role": "green", "shape": "process", "detail": "Predicted formation enthalpy", "sourceRef": 1},
+        {"id": "N8", "label": "Matches experiment?", "role": "blue", "shape": "decision", "detail": "Validate the cycle", "sourceRef": 0},
+        {"id": "N9", "label": "Refine lattice / EA", "role": "green", "shape": "process", "detail": "Adjust a term", "sourceRef": 1},
+        {"id": "N10", "label": "Validated energetics", "role": "violet", "shape": "process", "detail": "Lattice energy obtained", "sourceRef": 2}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"}, {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7"}, {"from": "N7", "to": "N8"},
+        {"from": "N8", "to": "N9", "label": "no"}, {"from": "N9", "to": "N5", "label": "re-evaluate"}, {"from": "N8", "to": "N10", "label": "yes"}
+      ]
+    },
+    {
+      "id": "inorganic_chemistry-metal-oxide-formation",
+      "name": "Metal Oxidation (Ellingham)",
+      "description": "Metal oxidation is analyzed with an Ellingham diagram of the oxidation free energy versus temperature: a negative free energy means the oxide is favored, and a reductant whose oxidation line lies below the metal's allows the oxide to be reduced (e.g. carbothermic reduction).",
+      "graphType": "decision_flowchart",
+      "domainContext": "Extractive metallurgy",
+      "namedCollections": ["inorganic-chemistry"],
+      "keywords": ["ellingham diagram", "metal oxidation", "gibbs energy", "carbothermic reduction", "oxide stability"],
+      "basis": "source_extraction:inorganic_chemistry-metal-oxide-formation",
+      "sources": [
+        {"title": "Transactions and reducibility of oxides and sulphides in metallurgical processes (Ellingham diagrams)", "authors": "Ellingham, H. J. T.", "journal": "Journal of the Society of Chemical Industry", "year": "1944", "doi": "10.1002/jctb.5000630501", "url": "https://doi.org/10.1002/jctb.5000630501"},
+        {"title": "Introduction to the Thermodynamics of Materials, 6th ed.", "authors": "Gaskell, D. R.; Laughlin, D. E.", "journal": "CRC Press", "year": "2017", "doi": "10.1201/9781315119175", "url": "https://doi.org/10.1201/9781315119175"},
+        {"title": "Inorganic Chemistry, 6th ed. — Extraction of the Elements", "authors": "Housecroft, C. E.; Sharpe, A. G.", "journal": "Pearson", "year": "2018", "doi": null, "url": "https://www.pearson.com/en-gb/subject-catalog/p/inorganic-chemistry/P200000005860"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Metal + O2", "role": "red", "shape": "process", "detail": "Oxidation reaction", "sourceRef": 2},
+        {"id": "N2", "label": "Form oxide MOx", "role": "green", "shape": "process", "detail": "Metal-oxygen compound", "sourceRef": 2},
+        {"id": "N3", "label": "ΔG of oxidation vs T", "role": "green", "shape": "process", "detail": "Temperature dependence", "sourceRef": 0},
+        {"id": "N4", "label": "Plot Ellingham diagram", "role": "green", "shape": "process", "detail": "Lines of ΔG vs T", "sourceRef": 0},
+        {"id": "N5", "label": "ΔG negative?", "role": "blue", "shape": "decision", "detail": "Oxide favored?", "sourceRef": 1},
+        {"id": "N6", "label": "Oxidation spontaneous", "role": "green", "shape": "process", "detail": "Stable oxide forms", "sourceRef": 1},
+        {"id": "N7", "label": "Oxide unstable", "role": "green", "shape": "process", "detail": "Metal favored", "sourceRef": 1},
+        {"id": "N8", "label": "Reductant line below?", "role": "blue", "shape": "decision", "detail": "Compare oxidation lines", "sourceRef": 2},
+        {"id": "N9", "label": "Carbothermic/H2 works", "role": "green", "shape": "process", "detail": "Reduce the oxide", "sourceRef": 2},
+        {"id": "N10", "label": "No accessible reductant", "role": "green", "shape": "process", "detail": "Electrolysis needed", "sourceRef": 2},
+        {"id": "N11", "label": "Oxide stability map", "role": "violet", "shape": "process", "detail": "Processing route", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"},
+        {"from": "N5", "to": "N6", "label": "yes"}, {"from": "N5", "to": "N7", "label": "no"}, {"from": "N6", "to": "N8"},
+        {"from": "N8", "to": "N9", "label": "yes"}, {"from": "N8", "to": "N10", "label": "no"}, {"from": "N9", "to": "N11"}, {"from": "N10", "to": "N11"}, {"from": "N7", "to": "N11"}
+      ]
+    },
+    {
+      "id": "inorganic_chemistry-coordination-complex-synthesis",
+      "name": "Coordination Complex Synthesis",
+      "description": "Synthesizing a coordination complex selects solvent and conditions so ligands displace labile aqua/halide ligands; the chelate effect favors stable polydentate products, and the target geometry/isomer is reached by tuning stoichiometry or templating before crystallization.",
+      "graphType": "cyclic_pathway",
+      "domainContext": "Synthetic inorganic chemistry",
+      "namedCollections": ["inorganic-chemistry"],
+      "keywords": ["coordination complex", "chelate effect", "ligand", "isomer", "crystallization"],
+      "basis": "source_extraction:inorganic_chemistry-coordination-complex-synthesis",
+      "sources": [
+        {"title": "Inorganic Chemistry, 6th ed. — Synthesis of Coordination Compounds", "authors": "Housecroft, C. E.; Sharpe, A. G.", "journal": "Pearson", "year": "2018", "doi": null, "url": "https://www.pearson.com/en-gb/subject-catalog/p/inorganic-chemistry/P200000005860"},
+        {"title": "The chelate, macrocyclic and cryptate effects", "authors": "Lindoy, L. F.", "journal": "Advances in Inorganic Chemistry", "year": "1998", "doi": "10.1016/S0898-8838(08)60026-6", "url": "https://doi.org/10.1016/S0898-8838(08)60026-6"},
+        {"title": "Gold Book: chelation", "authors": "IUPAC", "journal": "IUPAC Compendium of Chemical Terminology", "year": "2019", "doi": "10.1351/goldbook.C01012", "url": "https://goldbook.iupac.org/terms/view/C01012"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Metal salt + ligand", "role": "red", "shape": "process", "detail": "Starting materials", "sourceRef": 0},
+        {"id": "N2", "label": "Choose solvent + conditions", "role": "green", "shape": "process", "detail": "pH, temperature", "sourceRef": 0},
+        {"id": "N3", "label": "Ligand displaces aqua/halide", "role": "green", "shape": "process", "detail": "Substitution at metal", "sourceRef": 0},
+        {"id": "N4", "label": "Chelate effect favors?", "role": "blue", "shape": "decision", "detail": "Polydentate stability", "sourceRef": 1},
+        {"id": "N5", "label": "Polydentate: chelate", "role": "green", "shape": "process", "detail": "Entropically stabilized", "sourceRef": 1},
+        {"id": "N6", "label": "Monodentate: stepwise", "role": "green", "shape": "process", "detail": "Sequential binding", "sourceRef": 0},
+        {"id": "N7", "label": "Right geometry/isomer?", "role": "blue", "shape": "decision", "detail": "Target structure", "sourceRef": 0},
+        {"id": "N8", "label": "Tune stoichiometry/template", "role": "green", "shape": "process", "detail": "Direct the assembly", "sourceRef": 0},
+        {"id": "N9", "label": "Crystallize product", "role": "green", "shape": "process", "detail": "Isolate solid", "sourceRef": 0},
+        {"id": "N10", "label": "Characterize (XRD/UV-Vis)", "role": "green", "shape": "process", "detail": "Confirm structure", "sourceRef": 0},
+        {"id": "N11", "label": "Isolated complex", "role": "violet", "shape": "process", "detail": "Pure product", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"},
+        {"from": "N4", "to": "N5", "label": "yes"}, {"from": "N4", "to": "N6", "label": "no"}, {"from": "N5", "to": "N7"}, {"from": "N6", "to": "N7"},
+        {"from": "N7", "to": "N8", "label": "no"}, {"from": "N8", "to": "N3", "label": "retry"}, {"from": "N7", "to": "N9", "label": "yes"}, {"from": "N9", "to": "N10"}, {"from": "N10", "to": "N11"}
+      ]
+    },
+    {
+      "id": "inorganic_chemistry-ligand-substitution",
+      "name": "Ligand Substitution Mechanisms",
+      "description": "Ligand substitution at a metal center proceeds by associative or dissociative pathways distinguished by the rate law: associative paths form a higher-coordinate intermediate by binding the incoming ligand first, while dissociative paths first lose a ligand to a lower-coordinate intermediate.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Inorganic reaction mechanisms",
+      "namedCollections": ["inorganic-chemistry"],
+      "keywords": ["ligand substitution", "associative", "dissociative", "reaction mechanism", "intermediate"],
+      "basis": "source_extraction:inorganic_chemistry-ligand-substitution",
+      "sources": [
+        {"title": "Inorganic Reaction Mechanisms, 2nd ed.", "authors": "Tobe, M. L.; Burgess, J.", "journal": "Longman", "year": "1999", "doi": null, "url": "https://search.worldcat.org/title/40193029"},
+        {"title": "Ligand Substitution Processes", "authors": "Langford, C. H.; Gray, H. B.", "journal": "W. A. Benjamin", "year": "1965", "doi": null, "url": "https://search.worldcat.org/title/1031840"},
+        {"title": "Inorganic Chemistry, 6th ed. — Reaction Mechanisms of d-Block Complexes", "authors": "Housecroft, C. E.; Sharpe, A. G.", "journal": "Pearson", "year": "2018", "doi": null, "url": "https://www.pearson.com/en-gb/subject-catalog/p/inorganic-chemistry/P200000005860"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "ML5X + incoming Y", "role": "red", "shape": "process", "detail": "Substitution reactants", "sourceRef": 2},
+        {"id": "N2", "label": "Observe rate law", "role": "green", "shape": "process", "detail": "Kinetic probe", "sourceRef": 0},
+        {"id": "N3", "label": "Rate depends on [Y]?", "role": "blue", "shape": "decision", "detail": "Distinguish pathway", "sourceRef": 0},
+        {"id": "N4", "label": "Associative (A/Ia)", "role": "green", "shape": "process", "detail": "Bond to Y forms first", "sourceRef": 1},
+        {"id": "N5", "label": "7-coordinate intermediate", "role": "blue", "shape": "process", "detail": "Higher coordination", "sourceRef": 1},
+        {"id": "N6", "label": "Dissociative (D/Id)", "role": "green", "shape": "process", "detail": "X leaves first", "sourceRef": 1},
+        {"id": "N7", "label": "5-coordinate intermediate", "role": "blue", "shape": "process", "detail": "Lower coordination", "sourceRef": 1},
+        {"id": "N8", "label": "Y enters vacated site", "role": "green", "shape": "process", "detail": "Complete substitution", "sourceRef": 0},
+        {"id": "N9", "label": "Stereochemistry result", "role": "green", "shape": "process", "detail": "Retention or change", "sourceRef": 2},
+        {"id": "N10", "label": "Product ML5Y", "role": "violet", "shape": "process", "detail": "Substituted complex", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"},
+        {"from": "N3", "to": "N4", "label": "yes"}, {"from": "N4", "to": "N5"}, {"from": "N3", "to": "N6", "label": "no"}, {"from": "N6", "to": "N7"},
+        {"from": "N5", "to": "N8"}, {"from": "N7", "to": "N8"}, {"from": "N8", "to": "N9"}, {"from": "N9", "to": "N10"}
+      ]
+    }
+  ]
+}

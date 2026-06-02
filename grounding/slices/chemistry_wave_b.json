@@ -1,0 +1,388 @@
+{
+  "discipline": "chemistry",
+  "slice": "kinetics+medicinal",
+  "charts": [
+    {
+      "id": "kinetics-concentration-effects",
+      "name": "Rate Law from Concentration",
+      "description": "Determine a reaction's rate law by the method of initial rates: vary reactant concentrations, measure initial rates, deduce the order in each reactant, then assemble the rate law and solve for the rate constant.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Chemical kinetics",
+      "namedCollections": ["kinetics"],
+      "keywords": ["rate law", "reaction order", "initial rates", "rate constant", "concentration"],
+      "basis": "source_extraction:kinetics-concentration-effects",
+      "sources": [
+        {"title": "Chemical Kinetics, 3rd ed. — Rate Laws and Reaction Order", "authors": "Laidler, K. J.", "journal": "Harper & Row", "year": "1987", "doi": null, "url": "https://search.worldcat.org/title/14905898"},
+        {"title": "Physical Chemistry, 11th ed. — Chemical Kinetics", "authors": "Atkins, P.; de Paula, J.; Keeler, J.", "journal": "Oxford University Press", "year": "2018", "doi": null, "url": "https://global.oup.com/ukhe/product/atkins-physical-chemistry-9780198769866"},
+        {"title": "Gold Book: rate of reaction", "authors": "IUPAC", "journal": "IUPAC Compendium of Chemical Terminology", "year": "2019", "doi": "10.1351/goldbook.R05156", "url": "https://goldbook.iupac.org/terms/view/R05156"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Reaction to study", "role": "red", "shape": "process", "detail": "Reactants of interest", "sourceRef": 1},
+        {"id": "N2", "label": "Vary initial [reactant]", "role": "green", "shape": "process", "detail": "Change one concentration at a time", "sourceRef": 0},
+        {"id": "N3", "label": "Measure initial rate", "role": "green", "shape": "process", "detail": "Rate before products accumulate", "sourceRef": 0},
+        {"id": "N4", "label": "Rate vs concentration", "role": "green", "shape": "process", "detail": "How rate scales with each species", "sourceRef": 0},
+        {"id": "N5", "label": "Orders determined?", "role": "blue", "shape": "decision", "detail": "Exponents in the rate law", "sourceRef": 0},
+        {"id": "N6", "label": "Collect more rate data", "role": "green", "shape": "process", "detail": "Additional concentration sets", "sourceRef": 0},
+        {"id": "N7", "label": "r = k[A]^m[B]^n", "role": "green", "shape": "process", "detail": "Assemble the rate law", "sourceRef": 2},
+        {"id": "N8", "label": "Solve for k", "role": "green", "shape": "process", "detail": "Rate constant with units", "sourceRef": 1},
+        {"id": "N9", "label": "Validated rate law", "role": "violet", "shape": "process", "detail": "Predictive kinetic model", "sourceRef": 1}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"},
+        {"from": "N5", "to": "N6", "label": "no"}, {"from": "N6", "to": "N2", "label": "repeat"}, {"from": "N5", "to": "N7", "label": "yes"},
+        {"from": "N7", "to": "N8"}, {"from": "N8", "to": "N9"}
+      ]
+    },
+    {
+      "id": "kinetics-catalyst-effects",
+      "name": "Catalysis Lowers Activation Energy",
+      "description": "A catalyst opens an alternative reaction pathway with lower activation energy by binding reactants and stabilizing the transition state, accelerating the rate and being regenerated, without changing the position of equilibrium.",
+      "graphType": "cyclic_pathway",
+      "domainContext": "Catalytic kinetics",
+      "namedCollections": ["kinetics"],
+      "keywords": ["catalyst", "activation energy", "transition state", "turnover", "rate enhancement"],
+      "basis": "source_extraction:kinetics-catalyst-effects",
+      "sources": [
+        {"title": "Gold Book: catalyst", "authors": "IUPAC", "journal": "IUPAC Compendium of Chemical Terminology", "year": "2019", "doi": "10.1351/goldbook.C00876", "url": "https://goldbook.iupac.org/terms/view/C00876"},
+        {"title": "The activated complex in chemical reactions", "authors": "Eyring, H.", "journal": "Journal of Chemical Physics", "year": "1935", "doi": "10.1063/1.1749604", "url": "https://doi.org/10.1063/1.1749604"},
+        {"title": "Physical Chemistry, 11th ed. — Reaction Dynamics and Catalysis", "authors": "Atkins, P.; de Paula, J.; Keeler, J.", "journal": "Oxford University Press", "year": "2018", "doi": null, "url": "https://global.oup.com/ukhe/product/atkins-physical-chemistry-9780198769866"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Slow uncatalyzed reaction", "role": "red", "shape": "process", "detail": "High activation barrier", "sourceRef": 2},
+        {"id": "N2", "label": "Introduce catalyst", "role": "green", "shape": "process", "detail": "Adds a new pathway", "sourceRef": 0},
+        {"id": "N3", "label": "Catalyst binds reactant", "role": "green", "shape": "process", "detail": "Forms catalyst–substrate complex", "sourceRef": 0},
+        {"id": "N4", "label": "Lower-Ea pathway", "role": "green", "shape": "process", "detail": "Alternative route over a smaller barrier", "sourceRef": 1},
+        {"id": "N5", "label": "Transition state stabilized", "role": "blue", "shape": "process", "detail": "Activated complex lowered in energy", "sourceRef": 1},
+        {"id": "N6", "label": "Reaction proceeds faster", "role": "green", "shape": "process", "detail": "Larger rate constant", "sourceRef": 2},
+        {"id": "N7", "label": "Product forms", "role": "green", "shape": "process", "detail": "Bond reorganization complete", "sourceRef": 2},
+        {"id": "N8", "label": "Catalyst regenerated?", "role": "blue", "shape": "decision", "detail": "Released unchanged for turnover", "sourceRef": 0},
+        {"id": "N9", "label": "Catalyst recycles", "role": "green", "shape": "process", "detail": "Returns to bind more substrate", "sourceRef": 0},
+        {"id": "N10", "label": "Faster rate, same K", "role": "violet", "shape": "process", "detail": "Equilibrium position unchanged", "sourceRef": 2}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"}, {"from": "N5", "to": "N6"},
+        {"from": "N6", "to": "N7"}, {"from": "N7", "to": "N10"}, {"from": "N7", "to": "N8"},
+        {"from": "N8", "to": "N9", "label": "yes"}, {"from": "N9", "to": "N3", "label": "turnover"}, {"from": "N8", "to": "N10", "label": "deactivated"}
+      ]
+    },
+    {
+      "id": "kinetics-pressure-effects",
+      "name": "Pressure Effects on Gas Reactions",
+      "description": "Raising pressure increases gas-phase partial pressures and collision frequency, accelerating bimolecular reactions; unimolecular reactions show Lindemann fall-off where the apparent order changes with pressure, and changes in gas moles shift equilibrium.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Gas-phase kinetics",
+      "namedCollections": ["kinetics"],
+      "keywords": ["pressure", "collision frequency", "lindemann", "fall-off", "gas-phase"],
+      "basis": "source_extraction:kinetics-pressure-effects",
+      "sources": [
+        {"title": "Discussion on the radiation theory of chemical action (Lindemann mechanism)", "authors": "Lindemann, F. A.", "journal": "Transactions of the Faraday Society", "year": "1922", "doi": "10.1039/tf9221700598", "url": "https://doi.org/10.1039/tf9221700598"},
+        {"title": "Chemical Kinetics, 3rd ed. — Unimolecular Reactions", "authors": "Laidler, K. J.", "journal": "Harper & Row", "year": "1987", "doi": null, "url": "https://search.worldcat.org/title/14905898"},
+        {"title": "Physical Chemistry, 11th ed. — Reaction Rates and Pressure", "authors": "Atkins, P.; de Paula, J.; Keeler, J.", "journal": "Oxford University Press", "year": "2018", "doi": null, "url": "https://global.oup.com/ukhe/product/atkins-physical-chemistry-9780198769866"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Gas-phase reaction", "role": "red", "shape": "process", "detail": "Reactants in the gas state", "sourceRef": 2},
+        {"id": "N2", "label": "Increase total pressure", "role": "green", "shape": "process", "detail": "Compress or add inert gas", "sourceRef": 2},
+        {"id": "N3", "label": "Partial pressures rise", "role": "green", "shape": "process", "detail": "Higher effective concentrations", "sourceRef": 2},
+        {"id": "N4", "label": "Collision frequency up", "role": "green", "shape": "process", "detail": "More reactive encounters", "sourceRef": 1},
+        {"id": "N5", "label": "Molecularity?", "role": "blue", "shape": "decision", "detail": "Bimolecular vs unimolecular", "sourceRef": 0},
+        {"id": "N6", "label": "Bimolecular: rate rises", "role": "green", "shape": "process", "detail": "Rate ∝ product of pressures", "sourceRef": 1},
+        {"id": "N7", "label": "Unimolecular (Lindemann)", "role": "green", "shape": "process", "detail": "Collisional activation step", "sourceRef": 0},
+        {"id": "N8", "label": "Fall-off: order shifts", "role": "blue", "shape": "process", "detail": "1st order at high P, 2nd at low P", "sourceRef": 0},
+        {"id": "N9", "label": "Δn(gas) shifts equilibrium", "role": "green", "shape": "process", "detail": "Le Chatelier with pressure", "sourceRef": 2},
+        {"id": "N10", "label": "New rate and position", "role": "violet", "shape": "process", "detail": "Kinetic and equilibrium response", "sourceRef": 2}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"},
+        {"from": "N5", "to": "N6", "label": "bimolecular"}, {"from": "N6", "to": "N9"},
+        {"from": "N5", "to": "N7", "label": "unimolecular"}, {"from": "N7", "to": "N8"}, {"from": "N8", "to": "N9"}, {"from": "N9", "to": "N10"}
+      ]
+    },
+    {
+      "id": "kinetics-reaction-mechanisms",
+      "name": "Elementary Steps & Rate-Determining Step",
+      "description": "Build a mechanism from elementary steps and intermediates, derive the rate law either from a clear rate-determining step or via the steady-state approximation, and accept the mechanism only if its predicted rate law matches experiment.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Reaction mechanisms",
+      "namedCollections": ["kinetics"],
+      "keywords": ["elementary step", "rate-determining step", "steady-state approximation", "intermediate", "mechanism"],
+      "basis": "source_extraction:kinetics-reaction-mechanisms",
+      "sources": [
+        {"title": "Chemical Kinetics, 3rd ed. — Reaction Mechanisms", "authors": "Laidler, K. J.", "journal": "Harper & Row", "year": "1987", "doi": null, "url": "https://search.worldcat.org/title/14905898"},
+        {"title": "Gold Book: rate-determining step", "authors": "IUPAC", "journal": "IUPAC Compendium of Chemical Terminology", "year": "2019", "doi": "10.1351/goldbook.R05139", "url": "https://goldbook.iupac.org/terms/view/R05139"},
+        {"title": "Gold Book: steady-state approximation", "authors": "IUPAC", "journal": "IUPAC Compendium of Chemical Terminology", "year": "2019", "doi": "10.1351/goldbook.S05962", "url": "https://goldbook.iupac.org/terms/view/S05962"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Overall reaction", "role": "red", "shape": "process", "detail": "Net stoichiometry", "sourceRef": 0},
+        {"id": "N2", "label": "Propose elementary steps", "role": "green", "shape": "process", "detail": "Molecular-level events", "sourceRef": 0},
+        {"id": "N3", "label": "Identify intermediates", "role": "blue", "shape": "process", "detail": "Species formed then consumed", "sourceRef": 0},
+        {"id": "N4", "label": "Clear slow step?", "role": "blue", "shape": "decision", "detail": "Is there a single RDS?", "sourceRef": 1},
+        {"id": "N5", "label": "Rate law from RDS", "role": "green", "shape": "process", "detail": "Slow step controls the rate", "sourceRef": 1},
+        {"id": "N6", "label": "Steady-state approximation", "role": "green", "shape": "process", "detail": "d[intermediate]/dt ≈ 0", "sourceRef": 2},
+        {"id": "N7", "label": "Derive rate law", "role": "green", "shape": "process", "detail": "Eliminate intermediates", "sourceRef": 2},
+        {"id": "N8", "label": "Matches experiment?", "role": "blue", "shape": "decision", "detail": "Compare to observed rate law", "sourceRef": 0},
+        {"id": "N9", "label": "Revise mechanism", "role": "green", "shape": "process", "detail": "Propose alternative steps", "sourceRef": 0},
+        {"id": "N10", "label": "Accepted mechanism", "role": "violet", "shape": "process", "detail": "Consistent with kinetics", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"},
+        {"from": "N4", "to": "N5", "label": "yes"}, {"from": "N4", "to": "N6", "label": "no"}, {"from": "N6", "to": "N7"},
+        {"from": "N5", "to": "N8"}, {"from": "N7", "to": "N8"}, {"from": "N8", "to": "N9", "label": "no"}, {"from": "N9", "to": "N2", "label": "iterate"}, {"from": "N8", "to": "N10", "label": "yes"}
+      ]
+    },
+    {
+      "id": "kinetics-temperature-effects",
+      "name": "Collision Theory & Temperature",
+      "description": "Collision theory explains temperature dependence: only collisions with energy above the activation energy and correct orientation react, and raising temperature broadens the Maxwell-Boltzmann distribution so a larger fraction of collisions is effective.",
+      "graphType": "cyclic_pathway",
+      "domainContext": "Collision theory",
+      "namedCollections": ["kinetics"],
+      "keywords": ["collision theory", "activation energy", "maxwell-boltzmann", "orientation", "temperature"],
+      "basis": "source_extraction:kinetics-temperature-effects",
+      "sources": [
+        {"title": "Physical Chemistry, 11th ed. — Collision Theory of Reaction Rates", "authors": "Atkins, P.; de Paula, J.; Keeler, J.", "journal": "Oxford University Press", "year": "2018", "doi": null, "url": "https://global.oup.com/ukhe/product/atkins-physical-chemistry-9780198769866"},
+        {"title": "Chemical Kinetics, 3rd ed. — Collision Theory", "authors": "Laidler, K. J.", "journal": "Harper & Row", "year": "1987", "doi": null, "url": "https://search.worldcat.org/title/14905898"},
+        {"title": "Gold Book: activation energy (Arrhenius)", "authors": "IUPAC", "journal": "IUPAC Compendium of Chemical Terminology", "year": "2019", "doi": "10.1351/goldbook.A00102", "url": "https://goldbook.iupac.org/terms/view/A00102"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Reaction at temperature T", "role": "red", "shape": "process", "detail": "Gas or solution reactants", "sourceRef": 0},
+        {"id": "N2", "label": "Maxwell–Boltzmann spread", "role": "green", "shape": "process", "detail": "Distribution of molecular energies", "sourceRef": 0},
+        {"id": "N3", "label": "Molecules collide", "role": "green", "shape": "process", "detail": "Encounter frequency", "sourceRef": 1},
+        {"id": "N4", "label": "Energy ≥ Ea?", "role": "blue", "shape": "decision", "detail": "Activation-energy threshold", "sourceRef": 2},
+        {"id": "N5", "label": "Ineffective: bounce apart", "role": "green", "shape": "process", "detail": "Too little energy", "sourceRef": 1},
+        {"id": "N6", "label": "Correct orientation?", "role": "blue", "shape": "decision", "detail": "Steric factor", "sourceRef": 1},
+        {"id": "N7", "label": "Wrong geometry", "role": "green", "shape": "process", "detail": "No reaction despite energy", "sourceRef": 1},
+        {"id": "N8", "label": "Effective collision -> product", "role": "green", "shape": "process", "detail": "Bonds rearrange", "sourceRef": 0},
+        {"id": "N9", "label": "Increase temperature?", "role": "blue", "shape": "decision", "detail": "Shift the energy distribution", "sourceRef": 0},
+        {"id": "N10", "label": "More exceed Ea: faster", "role": "violet", "shape": "process", "detail": "Rate rises steeply with T", "sourceRef": 2}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"},
+        {"from": "N4", "to": "N5", "label": "no"}, {"from": "N5", "to": "N3", "label": "retry"},
+        {"from": "N4", "to": "N6", "label": "yes"}, {"from": "N6", "to": "N7", "label": "no"}, {"from": "N7", "to": "N3", "label": "retry"},
+        {"from": "N6", "to": "N8", "label": "yes"}, {"from": "N8", "to": "N9"},
+        {"from": "N9", "to": "N2", "label": "raise T"}, {"from": "N9", "to": "N10", "label": "report"}
+      ]
+    },
+    {
+      "id": "kinetics-arrhenius-analysis",
+      "name": "Arrhenius Plot for Activation Energy",
+      "description": "Extract the activation energy and pre-exponential factor by measuring rate constants at several temperatures, linearizing the Arrhenius equation as ln k versus 1/T, and reading the activation energy from the slope and the pre-factor from the intercept.",
+      "graphType": "mechanism_flowchart",
+      "domainContext": "Arrhenius analysis",
+      "namedCollections": ["kinetics"],
+      "keywords": ["arrhenius equation", "activation energy", "pre-exponential factor", "linearization", "rate constant"],
+      "basis": "source_extraction:kinetics-arrhenius-analysis",
+      "sources": [
+        {"title": "Über die Reaktionsgeschwindigkeit bei der Inversion von Rohrzucker durch Säuren", "authors": "Arrhenius, S.", "journal": "Zeitschrift für physikalische Chemie", "year": "1889", "doi": "10.1515/zpch-1889-0416", "url": "https://doi.org/10.1515/zpch-1889-0416"},
+        {"title": "Gold Book: Arrhenius equation", "authors": "IUPAC", "journal": "IUPAC Compendium of Chemical Terminology", "year": "2019", "doi": "10.1351/goldbook.A00446", "url": "https://goldbook.iupac.org/terms/view/A00446"},
+        {"title": "Physical Chemistry, 11th ed. — Temperature Dependence of Reaction Rates", "authors": "Atkins, P.; de Paula, J.; Keeler, J.", "journal": "Oxford University Press", "year": "2018", "doi": null, "url": "https://global.oup.com/ukhe/product/atkins-physical-chemistry-9780198769866"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Rate constants at many T", "role": "red", "shape": "process", "detail": "k measured over a temperature range", "sourceRef": 2},
+        {"id": "N2", "label": "k = A e^(−Ea/RT)", "role": "green", "shape": "process", "detail": "Arrhenius equation", "sourceRef": 0},
+        {"id": "N3", "label": "Linearize: ln k vs 1/T", "role": "green", "shape": "process", "detail": "Take natural log", "sourceRef": 1},
+        {"id": "N4", "label": "Plot the data", "role": "green", "shape": "process", "detail": "Arrhenius plot", "sourceRef": 2},
+        {"id": "N5", "label": "Plot linear?", "role": "blue", "shape": "decision", "detail": "Single mechanism across range", "sourceRef": 2},
+        {"id": "N6", "label": "Single Arrhenius regime", "role": "green", "shape": "process", "detail": "Constant Ea", "sourceRef": 1},
+        {"id": "N7", "label": "Non-Arrhenius curvature", "role": "green", "shape": "process", "detail": "Mechanism or tunneling changes", "sourceRef": 0},
+        {"id": "N8", "label": "Slope = −Ea/R", "role": "green", "shape": "process", "detail": "Activation energy from slope", "sourceRef": 0},
+        {"id": "N9", "label": "Intercept = ln A", "role": "green", "shape": "process", "detail": "Pre-exponential factor", "sourceRef": 0},
+        {"id": "N10", "label": "Report Ea and A", "role": "violet", "shape": "process", "detail": "Kinetic parameters", "sourceRef": 1}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"},
+        {"from": "N5", "to": "N6", "label": "yes"}, {"from": "N6", "to": "N8"}, {"from": "N5", "to": "N7", "label": "no"}, {"from": "N7", "to": "N8"},
+        {"from": "N8", "to": "N9"}, {"from": "N9", "to": "N10"}
+      ]
+    },
+    {
+      "id": "kinetics-reaction-mechanism-elucidation",
+      "name": "Mechanism Elucidation from Probes",
+      "description": "Elucidate a mechanism by combining experimental probes - the measured rate law, trapped intermediates, kinetic isotope effects, and stereochemical outcome - proposing a mechanism, testing it against all evidence and computation, and iterating.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Mechanistic investigation",
+      "namedCollections": ["kinetics"],
+      "keywords": ["mechanism", "kinetic isotope effect", "intermediate trapping", "stereochemistry", "elucidation"],
+      "basis": "source_extraction:kinetics-reaction-mechanism-elucidation",
+      "sources": [
+        {"title": "Modern Physical Organic Chemistry — Mechanisms and Probes", "authors": "Anslyn, E. V.; Dougherty, D. A.", "journal": "University Science Books", "year": "2006", "doi": null, "url": "https://uscibooks.aip.org/books/modern-physical-organic-chemistry/"},
+        {"title": "The kinetic isotope effect and its use in studying reaction mechanisms", "authors": "Westheimer, F. H.", "journal": "Chemical Reviews", "year": "1961", "doi": "10.1021/cr60211a004", "url": "https://doi.org/10.1021/cr60211a004"},
+        {"title": "Chemical Kinetics, 3rd ed. — Determining Mechanisms", "authors": "Laidler, K. J.", "journal": "Harper & Row", "year": "1987", "doi": null, "url": "https://search.worldcat.org/title/14905898"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Unknown mechanism", "role": "red", "shape": "process", "detail": "Reaction to be explained", "sourceRef": 2},
+        {"id": "N2", "label": "Measure the rate law", "role": "green", "shape": "process", "detail": "Order in each species", "sourceRef": 2},
+        {"id": "N3", "label": "Trap / detect intermediates", "role": "green", "shape": "process", "detail": "Spectroscopy or trapping agents", "sourceRef": 0},
+        {"id": "N4", "label": "Kinetic isotope effect", "role": "green", "shape": "process", "detail": "Probe bond changes at the TS", "sourceRef": 1},
+        {"id": "N5", "label": "Stereochemical probe", "role": "green", "shape": "process", "detail": "Inversion/retention outcome", "sourceRef": 0},
+        {"id": "N6", "label": "Propose mechanism", "role": "green", "shape": "process", "detail": "Hypothesis consistent so far", "sourceRef": 0},
+        {"id": "N7", "label": "Consistent with all data?", "role": "blue", "shape": "decision", "detail": "Cross-check every probe", "sourceRef": 2},
+        {"id": "N8", "label": "Gather further evidence", "role": "green", "shape": "process", "detail": "New probe or condition", "sourceRef": 0},
+        {"id": "N9", "label": "Computational support (DFT)", "role": "green", "shape": "process", "detail": "Energetics match observations", "sourceRef": 0},
+        {"id": "N10", "label": "Validated mechanism", "role": "violet", "shape": "process", "detail": "Best-supported pathway", "sourceRef": 2}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"}, {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7"},
+        {"from": "N7", "to": "N8", "label": "no"}, {"from": "N8", "to": "N3", "label": "more probes"}, {"from": "N7", "to": "N9", "label": "yes"}, {"from": "N9", "to": "N10"}
+      ]
+    },
+    {
+      "id": "medicinal_chemistry-concentration-effects",
+      "name": "Dose–Response & EC50",
+      "description": "Pharmacodynamic characterization: apply a range of doses, measure the response, fit a sigmoidal concentration-response (Hill) curve to extract potency (EC50/IC50) and efficacy, and assess cooperativity and the therapeutic window.",
+      "graphType": "mechanism_flowchart",
+      "domainContext": "Pharmacodynamics",
+      "namedCollections": ["medicinal-chemistry"],
+      "keywords": ["dose-response", "ec50", "hill equation", "potency", "efficacy"],
+      "basis": "source_extraction:medicinal_chemistry-concentration-effects",
+      "sources": [
+        {"title": "The possible effects of the aggregation of haemoglobin on its dissociation curves (Hill equation)", "authors": "Hill, A. V.", "journal": "Journal of Physiology", "year": "1910", "doi": "10.1113/jphysiol.1910.sp001386", "url": "https://doi.org/10.1113/jphysiol.1910.sp001386"},
+        {"title": "International Union of Pharmacology Committee on Receptor Nomenclature and Drug Classification", "authors": "Neubig, R. R.; Spedding, M.; Kenakin, T.; Christopoulos, A.", "journal": "Pharmacological Reviews", "year": "2003", "doi": "10.1124/pr.55.4.4", "url": "https://doi.org/10.1124/pr.55.4.4"},
+        {"title": "Goodman & Gilman's The Pharmacological Basis of Therapeutics, 13th ed.", "authors": "Brunton, L. L.; Hilal-Dandan, R.; Knollmann, B. C.", "journal": "McGraw-Hill", "year": "2017", "doi": null, "url": "https://accessmedicine.mhmedical.com/book.aspx?bookid=2189"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Compound + target/cells", "role": "red", "shape": "process", "detail": "Assay system prepared", "sourceRef": 2},
+        {"id": "N2", "label": "Apply range of doses", "role": "green", "shape": "process", "detail": "Serial dilutions", "sourceRef": 2},
+        {"id": "N3", "label": "Measure response per dose", "role": "green", "shape": "process", "detail": "Functional or binding readout", "sourceRef": 2},
+        {"id": "N4", "label": "Plot response vs log[dose]", "role": "green", "shape": "process", "detail": "Concentration–response data", "sourceRef": 1},
+        {"id": "N5", "label": "Fit sigmoidal (Hill) curve", "role": "green", "shape": "process", "detail": "Hill equation regression", "sourceRef": 0},
+        {"id": "N6", "label": "Extract EC50 / IC50", "role": "blue", "shape": "process", "detail": "Midpoint potency", "sourceRef": 1},
+        {"id": "N7", "label": "Steep Hill slope?", "role": "blue", "shape": "decision", "detail": "Cooperativity indicator", "sourceRef": 0},
+        {"id": "N8", "label": "Cooperative binding", "role": "green", "shape": "process", "detail": "Hill coefficient > 1", "sourceRef": 0},
+        {"id": "N9", "label": "Quantify potency/efficacy", "role": "green", "shape": "process", "detail": "Emax and potency", "sourceRef": 1},
+        {"id": "N10", "label": "Therapeutic window", "role": "violet", "shape": "process", "detail": "Efficacy vs toxicity margin", "sourceRef": 2}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"}, {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7"},
+        {"from": "N7", "to": "N8", "label": "yes"}, {"from": "N8", "to": "N9"}, {"from": "N7", "to": "N9", "label": "no"}, {"from": "N9", "to": "N10"}
+      ]
+    },
+    {
+      "id": "medicinal_chemistry-pressure-effects",
+      "name": "Structure–Activity Relationship Cycle",
+      "description": "An SAR optimization cycle: hypothesize how structure affects activity, design and synthesize analogues, assay potency and selectivity, update the SAR model when activity is not yet optimal, and converge on a pharmacophore and optimized candidate.",
+      "graphType": "cyclic_pathway",
+      "domainContext": "Medicinal chemistry optimization",
+      "namedCollections": ["medicinal-chemistry"],
+      "keywords": ["structure-activity relationship", "analogue", "pharmacophore", "selectivity", "lead optimization"],
+      "basis": "source_extraction:medicinal_chemistry-pressure-effects",
+      "sources": [
+        {"title": "Utilization of operational schemes for analog synthesis in drug design (Topliss scheme)", "authors": "Topliss, J. G.", "journal": "Journal of Medicinal Chemistry", "year": "1972", "doi": "10.1021/jm00279a008", "url": "https://doi.org/10.1021/jm00279a008"},
+        {"title": "Glossary of terms used in medicinal chemistry (pharmacophore)", "authors": "Wermuth, C. G.; et al.", "journal": "Pure and Applied Chemistry", "year": "1998", "doi": "10.1351/pac199870051129", "url": "https://doi.org/10.1351/pac199870051129"},
+        {"title": "The Practice of Medicinal Chemistry, 4th ed.", "authors": "Wermuth, C. G.; Aldous, D.; Raboisson, P.; Rognan, D.", "journal": "Academic Press", "year": "2015", "doi": "10.1016/C2010-0-67705-0", "url": "https://doi.org/10.1016/C2010-0-67705-0"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Lead compound + assay", "role": "red", "shape": "process", "detail": "Starting active molecule", "sourceRef": 2},
+        {"id": "N2", "label": "Hypothesize SAR", "role": "green", "shape": "process", "detail": "Which groups drive activity", "sourceRef": 0},
+        {"id": "N3", "label": "Design analogues", "role": "green", "shape": "process", "detail": "Systematic substitutions", "sourceRef": 0},
+        {"id": "N4", "label": "Synthesize analogues", "role": "green", "shape": "process", "detail": "Make target molecules", "sourceRef": 2},
+        {"id": "N5", "label": "Assay potency/selectivity", "role": "green", "shape": "process", "detail": "Measure activity", "sourceRef": 2},
+        {"id": "N6", "label": "Activity improved?", "role": "blue", "shape": "decision", "detail": "Compare to current best", "sourceRef": 0},
+        {"id": "N7", "label": "Update SAR model", "role": "green", "shape": "process", "detail": "Refine the hypothesis", "sourceRef": 0},
+        {"id": "N8", "label": "Identify pharmacophore", "role": "green", "shape": "process", "detail": "Essential features mapped", "sourceRef": 1},
+        {"id": "N9", "label": "Optimized candidate", "role": "violet", "shape": "process", "detail": "Best analogue selected", "sourceRef": 2}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"}, {"from": "N5", "to": "N6"},
+        {"from": "N6", "to": "N7", "label": "not yet"}, {"from": "N7", "to": "N2", "label": "iterate"}, {"from": "N6", "to": "N8", "label": "yes"}, {"from": "N8", "to": "N9"}
+      ]
+    },
+    {
+      "id": "medicinal_chemistry-reaction-mechanisms",
+      "name": "Prodrug Activation",
+      "description": "A prodrug is administered inactive, absorbed and distributed, then converted to the active drug at the target site by enzymatic or chemical triggers; the active species binds its target to produce the effect before being metabolized and cleared.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Prodrug design",
+      "namedCollections": ["medicinal-chemistry"],
+      "keywords": ["prodrug", "bioactivation", "esterase", "cytochrome p450", "clearance"],
+      "basis": "source_extraction:medicinal_chemistry-reaction-mechanisms",
+      "sources": [
+        {"title": "Prodrugs: design and clinical applications", "authors": "Rautio, J.; et al.", "journal": "Nature Reviews Drug Discovery", "year": "2008", "doi": "10.1038/nrd2468", "url": "https://doi.org/10.1038/nrd2468"},
+        {"title": "The expanding role of prodrugs in contemporary drug design and development", "authors": "Rautio, J.; Meanwell, N. A.; Di, L.; Hageman, M. J.", "journal": "Nature Reviews Drug Discovery", "year": "2018", "doi": "10.1038/nrd.2018.46", "url": "https://doi.org/10.1038/nrd.2018.46"},
+        {"title": "Hydrolysis in Drug and Prodrug Metabolism", "authors": "Testa, B.; Mayer, J. M.", "journal": "Wiley-VCH", "year": "2003", "doi": "10.1002/9783906390444", "url": "https://doi.org/10.1002/9783906390444"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Administer prodrug", "role": "red", "shape": "process", "detail": "Inactive parent molecule", "sourceRef": 0},
+        {"id": "N2", "label": "Absorption / distribution", "role": "green", "shape": "process", "detail": "Improved by prodrug design", "sourceRef": 0},
+        {"id": "N3", "label": "Reach activation site", "role": "green", "shape": "process", "detail": "Tissue or compartment", "sourceRef": 1},
+        {"id": "N4", "label": "Activation trigger?", "role": "blue", "shape": "decision", "detail": "Enzymatic vs chemical", "sourceRef": 2},
+        {"id": "N5", "label": "Esterase / CYP cleavage", "role": "green", "shape": "process", "detail": "Enzyme unmasks the drug", "sourceRef": 2},
+        {"id": "N6", "label": "pH / chemical conversion", "role": "green", "shape": "process", "detail": "Non-enzymatic release", "sourceRef": 2},
+        {"id": "N7", "label": "Active drug released", "role": "blue", "shape": "process", "detail": "Pharmacologically active form", "sourceRef": 0},
+        {"id": "N8", "label": "Bind target", "role": "green", "shape": "process", "detail": "Engage receptor/enzyme", "sourceRef": 1},
+        {"id": "N9", "label": "Therapeutic effect", "role": "violet", "shape": "process", "detail": "Desired pharmacology", "sourceRef": 1},
+        {"id": "N10", "label": "Metabolized + cleared", "role": "green", "shape": "process", "detail": "Elimination from the body", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"},
+        {"from": "N4", "to": "N5", "label": "enzymatic"}, {"from": "N4", "to": "N6", "label": "chemical"},
+        {"from": "N5", "to": "N7"}, {"from": "N6", "to": "N7"}, {"from": "N7", "to": "N8"}, {"from": "N8", "to": "N9"}, {"from": "N9", "to": "N10"}
+      ]
+    },
+    {
+      "id": "medicinal_chemistry-temperature-effects",
+      "name": "Hit-to-Lead ADMET Optimization",
+      "description": "Hit-to-lead progression: confirm and triage hits, assess potency, profile ADMET, and iteratively modify structure to satisfy drug-likeness, improve solubility and metabolic stability, and clear toxicity flags before nominating a lead series.",
+      "graphType": "cyclic_pathway",
+      "domainContext": "Early drug discovery",
+      "namedCollections": ["medicinal-chemistry"],
+      "keywords": ["hit-to-lead", "admet", "lipinski", "drug-likeness", "metabolic stability"],
+      "basis": "source_extraction:medicinal_chemistry-temperature-effects",
+      "sources": [
+        {"title": "Experimental and computational approaches to estimate solubility and permeability (Rule of Five)", "authors": "Lipinski, C. A.; Lombardo, F.; Dominy, B. W.; Feeney, P. J.", "journal": "Advanced Drug Delivery Reviews", "year": "2001", "doi": "10.1016/S0169-409X(00)00129-0", "url": "https://doi.org/10.1016/S0169-409X(00)00129-0"},
+        {"title": "Principles of early drug discovery", "authors": "Hughes, J. P.; Rees, S.; Kalindjian, S. B.; Philpott, K. L.", "journal": "British Journal of Pharmacology", "year": "2011", "doi": "10.1111/j.1476-5381.2010.01127.x", "url": "https://doi.org/10.1111/j.1476-5381.2010.01127.x"},
+        {"title": "The influence of lead discovery strategies on the properties of drug candidates", "authors": "Keserű, G. M.; Makara, G. M.", "journal": "Nature Reviews Drug Discovery", "year": "2009", "doi": "10.1038/nrd2796", "url": "https://doi.org/10.1038/nrd2796"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Screening hits", "role": "red", "shape": "process", "detail": "Actives from HTS", "sourceRef": 1},
+        {"id": "N2", "label": "Confirm + triage hits", "role": "green", "shape": "process", "detail": "Remove artifacts/PAINS", "sourceRef": 1},
+        {"id": "N3", "label": "Assess potency", "role": "green", "shape": "process", "detail": "Establish activity baseline", "sourceRef": 1},
+        {"id": "N4", "label": "ADMET profiling", "role": "green", "shape": "process", "detail": "Absorption to toxicity panel", "sourceRef": 2},
+        {"id": "N5", "label": "Drug-likeness OK?", "role": "blue", "shape": "decision", "detail": "Rule-of-Five and properties", "sourceRef": 0},
+        {"id": "N6", "label": "Modify structure", "role": "green", "shape": "process", "detail": "Adjust physicochemistry", "sourceRef": 2},
+        {"id": "N7", "label": "Solubility / stability", "role": "green", "shape": "process", "detail": "Improve key liabilities", "sourceRef": 2},
+        {"id": "N8", "label": "Toxicity flags?", "role": "blue", "shape": "decision", "detail": "hERG, genotox, etc.", "sourceRef": 2},
+        {"id": "N9", "label": "Redesign / deprioritize", "role": "green", "shape": "process", "detail": "Mitigate the liability", "sourceRef": 1},
+        {"id": "N10", "label": "Lead series nominated", "role": "violet", "shape": "process", "detail": "Advance to optimization", "sourceRef": 1}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"},
+        {"from": "N5", "to": "N6", "label": "no"}, {"from": "N6", "to": "N3", "label": "re-test"}, {"from": "N5", "to": "N7", "label": "yes"},
+        {"from": "N7", "to": "N8"}, {"from": "N8", "to": "N9", "label": "yes"}, {"from": "N9", "to": "N3", "label": "iterate"}, {"from": "N8", "to": "N10", "label": "clean"}
+      ]
+    },
+    {
+      "id": "medicinal_chemistry-catalyst-effects",
+      "name": "Fragment-Based Drug Discovery",
+      "description": "Fragment-based discovery screens a library of small fragments by biophysical methods, confirms weak binders and their binding site by structure, then grows or links fragments through iterative medicinal chemistry to build a high-affinity lead.",
+      "graphType": "cyclic_pathway",
+      "domainContext": "Fragment-based design",
+      "namedCollections": ["medicinal-chemistry"],
+      "keywords": ["fragment-based", "sar by nmr", "fragment growing", "fragment linking", "biophysical screening"],
+      "basis": "source_extraction:medicinal_chemistry-catalyst-effects",
+      "sources": [
+        {"title": "Discovering high-affinity ligands for proteins: SAR by NMR", "authors": "Shuker, S. B.; Hajduk, P. J.; Meadows, R. P.; Fesik, S. W.", "journal": "Science", "year": "1996", "doi": "10.1126/science.274.5292.1531", "url": "https://doi.org/10.1126/science.274.5292.1531"},
+        {"title": "Twenty years on: the impact of fragments on drug discovery", "authors": "Erlanson, D. A.; Fesik, S. W.; Hubbard, R. E.; Jahnke, W.; Jhoti, H.", "journal": "Nature Reviews Drug Discovery", "year": "2016", "doi": "10.1038/nrd.2016.109", "url": "https://doi.org/10.1038/nrd.2016.109"},
+        {"title": "The rise of fragment-based drug discovery", "authors": "Murray, C. W.; Rees, D. C.", "journal": "Nature Chemistry", "year": "2009", "doi": "10.1038/nchem.217", "url": "https://doi.org/10.1038/nchem.217"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Fragment library", "role": "red", "shape": "process", "detail": "Low-MW chemical space", "sourceRef": 1},
+        {"id": "N2", "label": "Biophysical screen (SPR/NMR)", "role": "green", "shape": "process", "detail": "Detect weak binding", "sourceRef": 0},
+        {"id": "N3", "label": "Weak binders found?", "role": "blue", "shape": "decision", "detail": "Sensitive detection of mM-µM hits", "sourceRef": 2},
+        {"id": "N4", "label": "Expand / rescreen", "role": "green", "shape": "process", "detail": "Broaden the library", "sourceRef": 2},
+        {"id": "N5", "label": "Confirm site by X-ray", "role": "green", "shape": "process", "detail": "Map binding pose", "sourceRef": 1},
+        {"id": "N6", "label": "Fragment growing", "role": "green", "shape": "process", "detail": "Add groups into pockets", "sourceRef": 2},
+        {"id": "N7", "label": "Fragment linking/merging", "role": "green", "shape": "process", "detail": "Join adjacent fragments", "sourceRef": 0},
+        {"id": "N8", "label": "Affinity improved?", "role": "blue", "shape": "decision", "detail": "Track potency gains", "sourceRef": 2},
+        {"id": "N9", "label": "Iterate chemistry", "role": "green", "shape": "process", "detail": "Structure-guided cycles", "sourceRef": 1},
+        {"id": "N10", "label": "Optimized lead", "role": "violet", "shape": "process", "detail": "High-affinity ligand", "sourceRef": 1}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"},
+        {"from": "N3", "to": "N4", "label": "no"}, {"from": "N4", "to": "N2", "label": "rescreen"}, {"from": "N3", "to": "N5", "label": "yes"},
+        {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7"}, {"from": "N7", "to": "N8"},
+        {"from": "N8", "to": "N9", "label": "no"}, {"from": "N9", "to": "N6", "label": "grow more"}, {"from": "N8", "to": "N10", "label": "yes"}
+      ]
+    }
+  ]
+}

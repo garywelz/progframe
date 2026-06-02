@@ -1,0 +1,258 @@
+{
+  "discipline": "computer-science",
+  "slice": "algorithms_data_structures",
+  "charts": [
+    {
+      "id": "algorithms_data_structures-hash-table-operations",
+      "name": "Hash Table Operations (Open Addressing)",
+      "description": "A hash table stores key-value pairs by hashing the key to a bucket index; with open addressing, collisions are resolved by probing successive slots until an empty one is found, and when the load factor grows too large the table is resized and all keys are rehashed, keeping average insert and lookup at O(1).",
+      "graphType": "decision_flowchart",
+      "domainContext": "Data structures",
+      "keywords": ["hash table", "open addressing", "collision resolution", "load factor", "rehashing"],
+      "basis": "source_extraction:algorithms_data_structures-hash-table-operations",
+      "sources": [
+        {"title": "The Art of Computer Programming, Vol. 3: Sorting and Searching (2nd ed.)", "authors": "Knuth, D. E.", "journal": "Addison-Wesley", "year": "1998", "url": "https://www-cs-faculty.stanford.edu/~knuth/taocp.html"},
+        {"title": "Introduction to Algorithms (4th ed.)", "authors": "Cormen, T. H.; Leiserson, C. E.; Rivest, R. L.; Stein, C.", "journal": "MIT Press", "year": "2022", "url": "https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Key-value pair to store", "role": "red", "shape": "process", "detail": "Insert request", "sourceRef": 1},
+        {"id": "N2", "label": "Compute hash h(key)", "role": "green", "shape": "process", "detail": "Hash function", "sourceRef": 0},
+        {"id": "N3", "label": "Map to bucket index", "role": "green", "shape": "process", "detail": "h(key) mod m", "sourceRef": 0},
+        {"id": "N4", "label": "Slot occupied?", "role": "blue", "shape": "decision", "detail": "Collision check", "sourceRef": 0},
+        {"id": "N5", "label": "Probe next slot", "role": "green", "shape": "process", "detail": "Linear / quadratic", "sourceRef": 0},
+        {"id": "N6", "label": "Insert at empty slot", "role": "green", "shape": "process", "detail": "Place entry", "sourceRef": 1},
+        {"id": "N7", "label": "Load factor too high?", "role": "blue", "shape": "decision", "detail": "alpha = n/m", "sourceRef": 1},
+        {"id": "N8", "label": "Resize + rehash all", "role": "green", "shape": "process", "detail": "Grow table", "sourceRef": 0},
+        {"id": "N9", "label": "Lookup: hash + probe", "role": "green", "shape": "process", "detail": "Same probe sequence", "sourceRef": 1},
+        {"id": "N10", "label": "O(1) average access", "role": "blue", "shape": "process", "detail": "Amortized cost", "sourceRef": 1},
+        {"id": "N11", "label": "Hash table state", "role": "violet", "shape": "process", "detail": "Updated structure", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"},
+        {"from": "N4", "to": "N5", "label": "yes"}, {"from": "N5", "to": "N4", "label": "next"}, {"from": "N4", "to": "N6", "label": "no"},
+        {"from": "N6", "to": "N7"}, {"from": "N7", "to": "N8", "label": "yes"}, {"from": "N8", "to": "N2", "label": "rehash"}, {"from": "N7", "to": "N9", "label": "no"}, {"from": "N9", "to": "N10"}, {"from": "N10", "to": "N11"}
+      ]
+    },
+    {
+      "id": "algorithms_data_structures-minimum-spanning-tree",
+      "name": "Minimum Spanning Tree (Kruskal / Prim)",
+      "description": "A minimum spanning tree connects all vertices of a weighted graph with least total edge weight by a greedy rule: Kruskal sorts edges and adds the lightest that does not form a cycle (using union-find), while Prim grows a tree by repeatedly adding the lightest edge leaving it, until every vertex is connected.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Graph algorithms",
+      "keywords": ["minimum spanning tree", "Kruskal", "Prim", "greedy algorithm", "union-find"],
+      "basis": "source_extraction:algorithms_data_structures-minimum-spanning-tree",
+      "sources": [
+        {"title": "On the shortest spanning subtree of a graph and the traveling salesman problem", "authors": "Kruskal, J. B.", "journal": "Proceedings of the American Mathematical Society", "year": "1956", "doi": "10.1090/S0002-9939-1956-0078686-7", "url": "https://doi.org/10.1090/S0002-9939-1956-0078686-7"},
+        {"title": "Shortest connection networks and some generalizations", "authors": "Prim, R. C.", "journal": "Bell System Technical Journal", "year": "1957", "doi": "10.1002/j.1538-7305.1957.tb01515.x", "url": "https://doi.org/10.1002/j.1538-7305.1957.tb01515.x"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Weighted connected graph", "role": "red", "shape": "process", "detail": "Edges have weights", "sourceRef": 0},
+        {"id": "N2", "label": "Greedy strategy?", "role": "blue", "shape": "decision", "detail": "Kruskal or Prim", "sourceRef": 0},
+        {"id": "N3", "label": "Kruskal: sort edges", "role": "green", "shape": "process", "detail": "Ascending weight", "sourceRef": 0},
+        {"id": "N4", "label": "Prim: grow from vertex", "role": "green", "shape": "process", "detail": "Frontier of tree", "sourceRef": 1},
+        {"id": "N5", "label": "Pick min-weight safe edge", "role": "green", "shape": "process", "detail": "Cut property", "sourceRef": 1},
+        {"id": "N6", "label": "Creates a cycle?", "role": "blue", "shape": "decision", "detail": "Union-find query", "sourceRef": 0},
+        {"id": "N7", "label": "Reject edge", "role": "green", "shape": "process", "detail": "Skip it", "sourceRef": 0},
+        {"id": "N8", "label": "Add edge to MST", "role": "green", "shape": "process", "detail": "Safe edge", "sourceRef": 1},
+        {"id": "N9", "label": "Union / extend tree", "role": "blue", "shape": "process", "detail": "Merge components", "sourceRef": 0},
+        {"id": "N10", "label": "All vertices connected?", "role": "blue", "shape": "decision", "detail": "V-1 edges added", "sourceRef": 1},
+        {"id": "N11", "label": "Minimum spanning tree", "role": "violet", "shape": "process", "detail": "Least total weight", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3", "label": "kruskal"}, {"from": "N2", "to": "N4", "label": "prim"},
+        {"from": "N3", "to": "N5"}, {"from": "N4", "to": "N5"}, {"from": "N5", "to": "N6"},
+        {"from": "N6", "to": "N7", "label": "yes"}, {"from": "N7", "to": "N5", "label": "next edge"}, {"from": "N6", "to": "N8", "label": "no"},
+        {"from": "N8", "to": "N9"}, {"from": "N9", "to": "N10"}, {"from": "N10", "to": "N5", "label": "no"}, {"from": "N10", "to": "N11", "label": "yes"}
+      ]
+    },
+    {
+      "id": "algorithms_data_structures-graph-traversal",
+      "name": "Graph Traversal (BFS / DFS)",
+      "description": "Graph traversal visits every reachable vertex from a start node using a worklist: breadth-first search uses a FIFO queue to explore level by level, depth-first search uses a LIFO stack to dive deep first; vertices are marked visited to avoid revisiting, and traversal ends when the container is empty.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Graph algorithms",
+      "keywords": ["graph traversal", "breadth-first search", "depth-first search", "queue", "stack"],
+      "basis": "source_extraction:algorithms_data_structures-graph-traversal",
+      "sources": [
+        {"title": "Introduction to Algorithms (4th ed.)", "authors": "Cormen, T. H.; Leiserson, C. E.; Rivest, R. L.; Stein, C.", "journal": "MIT Press", "year": "2022", "url": "https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/"},
+        {"title": "Algorithms (4th ed.)", "authors": "Sedgewick, R.; Wayne, K.", "journal": "Addison-Wesley", "year": "2011", "url": "https://algs4.cs.princeton.edu/home/"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Graph + start vertex", "role": "red", "shape": "process", "detail": "Adjacency lists", "sourceRef": 0},
+        {"id": "N2", "label": "Mark start visited", "role": "green", "shape": "process", "detail": "Add to container", "sourceRef": 0},
+        {"id": "N3", "label": "BFS or DFS?", "role": "blue", "shape": "decision", "detail": "Choose order", "sourceRef": 1},
+        {"id": "N4", "label": "BFS: enqueue (queue)", "role": "green", "shape": "process", "detail": "FIFO frontier", "sourceRef": 0},
+        {"id": "N5", "label": "DFS: push (stack)", "role": "green", "shape": "process", "detail": "LIFO frontier", "sourceRef": 0},
+        {"id": "N6", "label": "Remove next vertex", "role": "green", "shape": "process", "detail": "Dequeue / pop", "sourceRef": 1},
+        {"id": "N7", "label": "Visit unvisited neighbors", "role": "green", "shape": "process", "detail": "Scan adjacency", "sourceRef": 0},
+        {"id": "N8", "label": "Container empty?", "role": "blue", "shape": "decision", "detail": "Frontier exhausted", "sourceRef": 0},
+        {"id": "N9", "label": "Add neighbor to container", "role": "green", "shape": "process", "detail": "Mark + insert", "sourceRef": 1},
+        {"id": "N10", "label": "All reachable visited", "role": "blue", "shape": "process", "detail": "Component covered", "sourceRef": 0},
+        {"id": "N11", "label": "Traversal order", "role": "violet", "shape": "process", "detail": "Visit sequence", "sourceRef": 1}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4", "label": "bfs"}, {"from": "N3", "to": "N5", "label": "dfs"},
+        {"from": "N4", "to": "N6"}, {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7"}, {"from": "N7", "to": "N8"},
+        {"from": "N8", "to": "N9", "label": "no"}, {"from": "N9", "to": "N6", "label": "continue"}, {"from": "N8", "to": "N10", "label": "yes"}, {"from": "N10", "to": "N11"}
+      ]
+    },
+    {
+      "id": "algorithms_data_structures-balanced-search-trees",
+      "name": "Balanced Search Trees (Rotations)",
+      "description": "Self-balancing search trees keep operations at O(log n) by restoring a balance invariant after each insertion: a standard BST insert is followed by checking the height or color invariant, and when it is violated, single or double rotations and recoloring are applied up the path until the tree property is restored.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Data structures",
+      "keywords": ["balanced search tree", "red-black tree", "AVL tree", "rotation", "logarithmic height"],
+      "basis": "source_extraction:algorithms_data_structures-balanced-search-trees",
+      "sources": [
+        {"title": "A dichromatic framework for balanced trees", "authors": "Guibas, L. J.; Sedgewick, R.", "journal": "19th Annual Symposium on Foundations of Computer Science", "year": "1978", "doi": "10.1109/SFCS.1978.3", "url": "https://doi.org/10.1109/SFCS.1978.3"},
+        {"title": "Introduction to Algorithms (4th ed.)", "authors": "Cormen, T. H.; Leiserson, C. E.; Rivest, R. L.; Stein, C.", "journal": "MIT Press", "year": "2022", "url": "https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Insert key into BST", "role": "red", "shape": "process", "detail": "New element", "sourceRef": 1},
+        {"id": "N2", "label": "Standard BST insert", "role": "green", "shape": "process", "detail": "By key order", "sourceRef": 1},
+        {"id": "N3", "label": "Update height / color", "role": "green", "shape": "process", "detail": "Along the path", "sourceRef": 0},
+        {"id": "N4", "label": "Balance violated?", "role": "blue", "shape": "decision", "detail": "Invariant check", "sourceRef": 0},
+        {"id": "N5", "label": "Detect rotation case", "role": "green", "shape": "process", "detail": "LL, LR, RL, RR", "sourceRef": 0},
+        {"id": "N6", "label": "Single or double?", "role": "blue", "shape": "decision", "detail": "Rotation type", "sourceRef": 0},
+        {"id": "N7", "label": "Single rotation", "role": "green", "shape": "process", "detail": "Left or right", "sourceRef": 0},
+        {"id": "N8", "label": "Double rotation", "role": "green", "shape": "process", "detail": "Two-step", "sourceRef": 0},
+        {"id": "N9", "label": "Recolor / fix up", "role": "green", "shape": "process", "detail": "Restore coloring", "sourceRef": 0},
+        {"id": "N10", "label": "Rebalance ancestors", "role": "green", "shape": "process", "detail": "Propagate upward", "sourceRef": 0},
+        {"id": "N11", "label": "Property restored?", "role": "blue", "shape": "decision", "detail": "Root reached", "sourceRef": 0},
+        {"id": "N12", "label": "Balanced tree O(log n)", "role": "violet", "shape": "process", "detail": "Bounded height", "sourceRef": 1}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"},
+        {"from": "N4", "to": "N12", "label": "no"}, {"from": "N4", "to": "N5", "label": "yes"}, {"from": "N5", "to": "N6"},
+        {"from": "N6", "to": "N7", "label": "single"}, {"from": "N6", "to": "N8", "label": "double"}, {"from": "N7", "to": "N9"}, {"from": "N8", "to": "N9"},
+        {"from": "N9", "to": "N10"}, {"from": "N10", "to": "N11"}, {"from": "N11", "to": "N5", "label": "no"}, {"from": "N11", "to": "N12", "label": "yes"}
+      ]
+    },
+    {
+      "id": "algorithms_data_structures-shortest-path-algorithms",
+      "name": "Shortest Path (Dijkstra)",
+      "description": "Dijkstra's algorithm finds shortest paths from a source in a graph with non-negative weights: distances start at infinity except the source, and a priority queue repeatedly extracts the closest unfinalized vertex, finalizes it, and relaxes its outgoing edges, updating tentative distances until the queue is empty and the shortest-path tree is complete.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Graph algorithms",
+      "keywords": ["Dijkstra's algorithm", "shortest path", "priority queue", "edge relaxation", "greedy"],
+      "basis": "source_extraction:algorithms_data_structures-shortest-path-algorithms",
+      "sources": [
+        {"title": "A note on two problems in connexion with graphs", "authors": "Dijkstra, E. W.", "journal": "Numerische Mathematik", "year": "1959", "doi": "10.1007/BF01386390", "url": "https://doi.org/10.1007/BF01386390"},
+        {"title": "Introduction to Algorithms (4th ed.)", "authors": "Cormen, T. H.; Leiserson, C. E.; Rivest, R. L.; Stein, C.", "journal": "MIT Press", "year": "2022", "url": "https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Weighted graph (non-neg)", "role": "red", "shape": "process", "detail": "Source vertex given", "sourceRef": 0},
+        {"id": "N2", "label": "Init dist: src=0, rest=inf", "role": "green", "shape": "process", "detail": "Tentative distances", "sourceRef": 0},
+        {"id": "N3", "label": "Priority queue of vertices", "role": "green", "shape": "process", "detail": "Keyed by distance", "sourceRef": 1},
+        {"id": "N4", "label": "Extract min-dist vertex u", "role": "green", "shape": "process", "detail": "Closest unsettled", "sourceRef": 0},
+        {"id": "N5", "label": "Mark u finalized", "role": "blue", "shape": "process", "detail": "Distance is optimal", "sourceRef": 0},
+        {"id": "N6", "label": "Relax each edge (u,v)", "role": "green", "shape": "process", "detail": "Examine neighbors", "sourceRef": 1},
+        {"id": "N7", "label": "dist[u]+w < dist[v]?", "role": "blue", "shape": "decision", "detail": "Shorter route found", "sourceRef": 0},
+        {"id": "N8", "label": "Update dist[v], parent", "role": "green", "shape": "process", "detail": "Decrease-key", "sourceRef": 0},
+        {"id": "N9", "label": "Queue empty?", "role": "blue", "shape": "decision", "detail": "All settled", "sourceRef": 0},
+        {"id": "N10", "label": "Back to extract-min", "role": "green", "shape": "process", "detail": "Next vertex", "sourceRef": 1},
+        {"id": "N11", "label": "Shortest-path tree", "role": "violet", "shape": "process", "detail": "Distances + parents", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"}, {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7"},
+        {"from": "N7", "to": "N8", "label": "yes"}, {"from": "N8", "to": "N9"}, {"from": "N7", "to": "N9", "label": "no"},
+        {"from": "N9", "to": "N10", "label": "no"}, {"from": "N10", "to": "N4", "label": "loop"}, {"from": "N9", "to": "N11", "label": "yes"}
+      ]
+    },
+    {
+      "id": "algorithms_data_structures-graph-algorithms",
+      "name": "Topological Sort (Kahn's Algorithm)",
+      "description": "Topological sorting linearly orders the vertices of a directed acyclic graph so every edge points forward: Kahn's algorithm computes in-degrees, repeatedly removes a zero in-degree vertex into the order while decrementing its neighbors, and enqueues newly freed vertices; if fewer than all vertices are output, the graph contained a cycle.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Graph algorithms",
+      "keywords": ["topological sort", "Kahn's algorithm", "directed acyclic graph", "in-degree", "cycle detection"],
+      "basis": "source_extraction:algorithms_data_structures-graph-algorithms",
+      "sources": [
+        {"title": "Topological sorting of large networks", "authors": "Kahn, A. B.", "journal": "Communications of the ACM", "year": "1962", "doi": "10.1145/368996.369025", "url": "https://doi.org/10.1145/368996.369025"},
+        {"title": "Introduction to Algorithms (4th ed.)", "authors": "Cormen, T. H.; Leiserson, C. E.; Rivest, R. L.; Stein, C.", "journal": "MIT Press", "year": "2022", "url": "https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Directed acyclic graph", "role": "red", "shape": "process", "detail": "Vertices + arcs", "sourceRef": 0},
+        {"id": "N2", "label": "Compute in-degrees", "role": "green", "shape": "process", "detail": "Incoming edge counts", "sourceRef": 0},
+        {"id": "N3", "label": "Enqueue zero in-degree", "role": "green", "shape": "process", "detail": "No prerequisites", "sourceRef": 0},
+        {"id": "N4", "label": "Dequeue node u", "role": "green", "shape": "process", "detail": "Ready vertex", "sourceRef": 1},
+        {"id": "N5", "label": "Append u to order", "role": "blue", "shape": "process", "detail": "Extend sequence", "sourceRef": 0},
+        {"id": "N6", "label": "Reduce neighbor in-deg", "role": "green", "shape": "process", "detail": "Remove u's edges", "sourceRef": 0},
+        {"id": "N7", "label": "Any neighbor now zero?", "role": "blue", "shape": "decision", "detail": "Newly ready", "sourceRef": 1},
+        {"id": "N8", "label": "Enqueue those neighbors", "role": "green", "shape": "process", "detail": "Add to worklist", "sourceRef": 0},
+        {"id": "N9", "label": "Queue empty?", "role": "blue", "shape": "decision", "detail": "Worklist drained", "sourceRef": 0},
+        {"id": "N10", "label": "Output == all nodes?", "role": "blue", "shape": "decision", "detail": "Else cycle exists", "sourceRef": 1},
+        {"id": "N11", "label": "Topological order / cycle", "role": "violet", "shape": "process", "detail": "Linear order or fail", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"}, {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7"},
+        {"from": "N7", "to": "N8", "label": "yes"}, {"from": "N8", "to": "N9"}, {"from": "N7", "to": "N9", "label": "no"},
+        {"from": "N9", "to": "N4", "label": "no"}, {"from": "N9", "to": "N10", "label": "yes"}, {"from": "N10", "to": "N11"}
+      ]
+    },
+    {
+      "id": "algorithms_data_structures-sorting-algorithms",
+      "name": "Sorting by Divide and Conquer",
+      "description": "Comparison sorts like merge sort and quicksort use divide and conquer to reach O(n log n): merge sort splits the array in half, recursively sorts each part, and merges the sorted halves, while quicksort partitions around a pivot and recurses on each side; recursion bottoms out on subarrays of size one.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Algorithms",
+      "keywords": ["sorting", "merge sort", "quicksort", "divide and conquer", "pivot partition"],
+      "basis": "source_extraction:algorithms_data_structures-sorting-algorithms",
+      "sources": [
+        {"title": "Quicksort", "authors": "Hoare, C. A. R.", "journal": "The Computer Journal", "year": "1962", "doi": "10.1093/comjnl/5.1.10", "url": "https://doi.org/10.1093/comjnl/5.1.10"},
+        {"title": "The Art of Computer Programming, Vol. 3: Sorting and Searching (2nd ed.)", "authors": "Knuth, D. E.", "journal": "Addison-Wesley", "year": "1998", "url": "https://www-cs-faculty.stanford.edu/~knuth/taocp.html"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Unsorted array", "role": "red", "shape": "process", "detail": "Input sequence", "sourceRef": 1},
+        {"id": "N2", "label": "Merge or quick?", "role": "blue", "shape": "decision", "detail": "Choose method", "sourceRef": 1},
+        {"id": "N3", "label": "Merge: split in half", "role": "green", "shape": "process", "detail": "Two subarrays", "sourceRef": 1},
+        {"id": "N4", "label": "Quick: pivot + partition", "role": "green", "shape": "process", "detail": "Smaller / larger", "sourceRef": 0},
+        {"id": "N5", "label": "Subarray size <= 1?", "role": "blue", "shape": "decision", "detail": "Base case", "sourceRef": 1},
+        {"id": "N6", "label": "Recurse on subproblems", "role": "green", "shape": "process", "detail": "Divide further", "sourceRef": 0},
+        {"id": "N7", "label": "Base case reached", "role": "blue", "shape": "process", "detail": "Trivially sorted", "sourceRef": 1},
+        {"id": "N8", "label": "Merge sorted halves", "role": "green", "shape": "process", "detail": "Linear merge", "sourceRef": 1},
+        {"id": "N9", "label": "Concatenate partitions", "role": "green", "shape": "process", "detail": "In-place order", "sourceRef": 0},
+        {"id": "N10", "label": "Sorted array", "role": "violet", "shape": "process", "detail": "O(n log n)", "sourceRef": 1}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3", "label": "merge"}, {"from": "N2", "to": "N4", "label": "quick"},
+        {"from": "N3", "to": "N5"}, {"from": "N4", "to": "N5"}, {"from": "N5", "to": "N6", "label": "no"}, {"from": "N6", "to": "N5", "label": "recurse"},
+        {"from": "N5", "to": "N7", "label": "yes"}, {"from": "N7", "to": "N8"}, {"from": "N7", "to": "N9"}, {"from": "N8", "to": "N10"}, {"from": "N9", "to": "N10"}
+      ]
+    },
+    {
+      "id": "algorithms_data_structures-dynamic-programming",
+      "name": "Dynamic Programming",
+      "description": "Dynamic programming solves optimization problems that have optimal substructure and overlapping subproblems: a recurrence relating a solution to smaller subproblems is defined and solved either top-down with memoization or bottom-up by filling a table, after which the stored results are combined and the optimal solution is reconstructed.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Algorithm design",
+      "keywords": ["dynamic programming", "optimal substructure", "overlapping subproblems", "memoization", "tabulation"],
+      "basis": "source_extraction:algorithms_data_structures-dynamic-programming",
+      "sources": [
+        {"title": "Dynamic Programming", "authors": "Bellman, R.", "journal": "Princeton University Press", "year": "1957", "url": "https://press.princeton.edu/books/paperback/9780691146683/dynamic-programming"},
+        {"title": "Introduction to Algorithms (4th ed.)", "authors": "Cormen, T. H.; Leiserson, C. E.; Rivest, R. L.; Stein, C.", "journal": "MIT Press", "year": "2022", "url": "https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Optimization problem", "role": "red", "shape": "process", "detail": "Minimize / maximize", "sourceRef": 0},
+        {"id": "N2", "label": "Optimal substructure?", "role": "blue", "shape": "decision", "detail": "Build from subparts", "sourceRef": 1},
+        {"id": "N3", "label": "Not DP-suitable", "role": "green", "shape": "process", "detail": "Use other method", "sourceRef": 1},
+        {"id": "N4", "label": "Overlapping subproblems?", "role": "blue", "shape": "decision", "detail": "Repeated work", "sourceRef": 1},
+        {"id": "N5", "label": "Define recurrence", "role": "green", "shape": "process", "detail": "Bellman equation", "sourceRef": 0},
+        {"id": "N6", "label": "Top-down or bottom-up?", "role": "blue", "shape": "decision", "detail": "Implementation style", "sourceRef": 1},
+        {"id": "N7", "label": "Top-down: recurse+cache", "role": "green", "shape": "process", "detail": "Memoization", "sourceRef": 1},
+        {"id": "N8", "label": "Bottom-up: fill table", "role": "green", "shape": "process", "detail": "Tabulation", "sourceRef": 1},
+        {"id": "N9", "label": "Solve subproblems in order", "role": "green", "shape": "process", "detail": "Dependency order", "sourceRef": 0},
+        {"id": "N10", "label": "Combine to optimal", "role": "green", "shape": "process", "detail": "Aggregate results", "sourceRef": 0},
+        {"id": "N11", "label": "Reconstruct solution", "role": "green", "shape": "process", "detail": "Trace choices", "sourceRef": 0},
+        {"id": "N12", "label": "Optimal answer", "role": "violet", "shape": "process", "detail": "Provably best", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3", "label": "no"}, {"from": "N3", "to": "N12", "label": "alt"},
+        {"from": "N2", "to": "N4", "label": "yes"}, {"from": "N4", "to": "N3", "label": "no"}, {"from": "N4", "to": "N5", "label": "yes"},
+        {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7", "label": "top-down"}, {"from": "N6", "to": "N8", "label": "bottom-up"},
+        {"from": "N7", "to": "N9"}, {"from": "N8", "to": "N9"}, {"from": "N9", "to": "N10"}, {"from": "N10", "to": "N11"}, {"from": "N11", "to": "N12"}
+      ]
+    }
+  ]
+}

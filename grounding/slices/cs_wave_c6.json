@@ -1,0 +1,232 @@
+{
+  "discipline": "computer-science",
+  "slice": "security",
+  "charts": [
+    {
+      "id": "security-authentication-and-authorization",
+      "name": "Authentication & Authorization",
+      "description": "Access control separates proving identity from granting rights: a user submits credentials that are verified (authentication), and on success a session or token is issued; when a protected resource is later requested, the system checks the subject's permissions (authorization) and grants or denies the specific action.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Security",
+      "keywords": ["authentication", "authorization", "access control", "session token", "permissions"],
+      "basis": "source_extraction:security-authentication-and-authorization",
+      "sources": [
+        {"title": "Access control: principles and practice", "authors": "Sandhu, R. S.; Samarati, P.", "journal": "IEEE Communications Magazine", "year": "1994", "doi": "10.1109/35.312842", "url": "https://doi.org/10.1109/35.312842"},
+        {"title": "The OAuth 2.0 Authorization Framework (RFC 6749)", "authors": "Hardt, D.", "journal": "IETF", "year": "2012", "doi": "10.17487/RFC6749", "url": "https://doi.org/10.17487/RFC6749"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "User requests access", "role": "red", "shape": "process", "detail": "Login attempt", "sourceRef": 0},
+        {"id": "N2", "label": "Provide credentials", "role": "green", "shape": "process", "detail": "Password/MFA", "sourceRef": 0},
+        {"id": "N3", "label": "Verify identity", "role": "green", "shape": "process", "detail": "Authentication", "sourceRef": 0},
+        {"id": "N4", "label": "Credentials valid?", "role": "blue", "shape": "decision", "detail": "Match record", "sourceRef": 0},
+        {"id": "N5", "label": "Reject / lockout", "role": "green", "shape": "process", "detail": "Throttle attempts", "sourceRef": 0},
+        {"id": "N6", "label": "Issue session/token", "role": "green", "shape": "process", "detail": "Bearer credential", "sourceRef": 1},
+        {"id": "N7", "label": "Request resource", "role": "green", "shape": "process", "detail": "Protected action", "sourceRef": 0},
+        {"id": "N8", "label": "Check permissions", "role": "green", "shape": "process", "detail": "Authorization", "sourceRef": 0},
+        {"id": "N9", "label": "Authorized?", "role": "blue", "shape": "decision", "detail": "Has the right", "sourceRef": 0},
+        {"id": "N10", "label": "Deny (403)", "role": "green", "shape": "process", "detail": "Forbidden", "sourceRef": 0},
+        {"id": "N11", "label": "Grant access", "role": "violet", "shape": "process", "detail": "Operation allowed", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"},
+        {"from": "N4", "to": "N5", "label": "no"}, {"from": "N5", "to": "N2", "label": "retry"}, {"from": "N4", "to": "N6", "label": "yes"},
+        {"from": "N6", "to": "N7"}, {"from": "N7", "to": "N8"}, {"from": "N8", "to": "N9"},
+        {"from": "N9", "to": "N10", "label": "no"}, {"from": "N9", "to": "N11", "label": "yes"}
+      ]
+    },
+    {
+      "id": "security-public-key-infrastructure-pki",
+      "name": "Public Key Infrastructure (PKI)",
+      "description": "PKI binds identities to public keys through trusted certificate authorities: an entity generates a key pair and certificate signing request, the CA validates its identity and signs a certificate that chains to a trusted root; relying parties later verify the signature chain and revocation status before trusting it.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Security / cryptography",
+      "keywords": ["public key infrastructure", "certificate authority", "X.509", "chain of trust", "revocation"],
+      "basis": "source_extraction:security-public-key-infrastructure-pki",
+      "sources": [
+        {"title": "Internet X.509 Public Key Infrastructure Certificate and CRL Profile (RFC 5280)", "authors": "Cooper, D.; Santesson, S.; Farrell, S.; et al.", "journal": "IETF", "year": "2008", "doi": "10.17487/RFC5280", "url": "https://doi.org/10.17487/RFC5280"},
+        {"title": "New directions in cryptography", "authors": "Diffie, W.; Hellman, M. E.", "journal": "IEEE Transactions on Information Theory", "year": "1976", "doi": "10.1109/TIT.1976.1055638", "url": "https://doi.org/10.1109/TIT.1976.1055638"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Needs certificate", "role": "red", "shape": "process", "detail": "Entity identity", "sourceRef": 0},
+        {"id": "N2", "label": "Generate key pair", "role": "green", "shape": "process", "detail": "Public + private", "sourceRef": 1},
+        {"id": "N3", "label": "Create CSR", "role": "green", "shape": "process", "detail": "Sign request", "sourceRef": 0},
+        {"id": "N4", "label": "Submit to CA", "role": "green", "shape": "process", "detail": "Registration", "sourceRef": 0},
+        {"id": "N5", "label": "CA validates identity", "role": "green", "shape": "process", "detail": "Vet subject", "sourceRef": 0},
+        {"id": "N6", "label": "Validation passes?", "role": "blue", "shape": "decision", "detail": "Identity proven", "sourceRef": 0},
+        {"id": "N7", "label": "Reject request", "role": "green", "shape": "process", "detail": "No certificate", "sourceRef": 0},
+        {"id": "N8", "label": "CA signs certificate", "role": "green", "shape": "process", "detail": "Bind key+name", "sourceRef": 0},
+        {"id": "N9", "label": "Distribute + chain", "role": "green", "shape": "process", "detail": "To trusted root", "sourceRef": 0},
+        {"id": "N10", "label": "Relying party verifies", "role": "green", "shape": "process", "detail": "Check signature", "sourceRef": 0},
+        {"id": "N11", "label": "Valid + not revoked?", "role": "blue", "shape": "decision", "detail": "CRL/OCSP check", "sourceRef": 0},
+        {"id": "N12", "label": "Trusted channel", "role": "violet", "shape": "process", "detail": "Authenticated key", "sourceRef": 1}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"}, {"from": "N5", "to": "N6"},
+        {"from": "N6", "to": "N7", "label": "no"}, {"from": "N6", "to": "N8", "label": "yes"}, {"from": "N8", "to": "N9"}, {"from": "N9", "to": "N10"}, {"from": "N10", "to": "N11"},
+        {"from": "N11", "to": "N7", "label": "no"}, {"from": "N11", "to": "N12", "label": "yes"}
+      ]
+    },
+    {
+      "id": "security-secure-software-update",
+      "name": "Secure Software Update",
+      "description": "Secure update mechanisms ensure only authentic, current code is installed: the vendor signs each release, the client downloads it and verifies the signature against the trusted key, rejects tampered packages, guards against downgrade attacks, and applies the update atomically with a post-install verification.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Security",
+      "keywords": ["secure update", "code signing", "signature verification", "rollback protection", "atomic update"],
+      "basis": "source_extraction:security-secure-software-update",
+      "sources": [
+        {"title": "Survivable key compromise in software update systems (TUF)", "authors": "Samuel, J.; Mathewson, N.; Cappos, J.; Dingledine, R.", "journal": "ACM Conference on Computer and Communications Security (CCS)", "year": "2010", "doi": "10.1145/1866307.1866315", "url": "https://doi.org/10.1145/1866307.1866315"},
+        {"title": "A look in the mirror: attacks on package managers", "authors": "Cappos, J.; Samuel, J.; Baker, S.; Hartman, J. H.", "journal": "ACM Conference on Computer and Communications Security (CCS)", "year": "2008", "doi": "10.1145/1455770.1455841", "url": "https://doi.org/10.1145/1455770.1455841"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "New update released", "role": "red", "shape": "process", "detail": "Vendor build", "sourceRef": 0},
+        {"id": "N2", "label": "Sign update (vendor)", "role": "green", "shape": "process", "detail": "Private signing key", "sourceRef": 0},
+        {"id": "N3", "label": "Check for update", "role": "green", "shape": "process", "detail": "Client polls", "sourceRef": 0},
+        {"id": "N4", "label": "Download package", "role": "green", "shape": "process", "detail": "Fetch artifact", "sourceRef": 1},
+        {"id": "N5", "label": "Verify signature", "role": "green", "shape": "process", "detail": "Against trusted key", "sourceRef": 0},
+        {"id": "N6", "label": "Signature valid?", "role": "blue", "shape": "decision", "detail": "Authentic + intact", "sourceRef": 0},
+        {"id": "N7", "label": "Reject + alert", "role": "green", "shape": "process", "detail": "Tampered package", "sourceRef": 1},
+        {"id": "N8", "label": "Check version/rollback", "role": "green", "shape": "process", "detail": "Anti-downgrade", "sourceRef": 0},
+        {"id": "N9", "label": "Downgrade attempt?", "role": "blue", "shape": "decision", "detail": "Older than current", "sourceRef": 0},
+        {"id": "N10", "label": "Apply atomically", "role": "green", "shape": "process", "detail": "All-or-nothing", "sourceRef": 0},
+        {"id": "N11", "label": "Verify post-install", "role": "green", "shape": "process", "detail": "Integrity check", "sourceRef": 0},
+        {"id": "N12", "label": "Updated + trusted", "role": "violet", "shape": "process", "detail": "Authentic state", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"}, {"from": "N5", "to": "N6"},
+        {"from": "N6", "to": "N7", "label": "no"}, {"from": "N6", "to": "N8", "label": "yes"}, {"from": "N8", "to": "N9"},
+        {"from": "N9", "to": "N7", "label": "yes"}, {"from": "N9", "to": "N10", "label": "no"}, {"from": "N10", "to": "N11"}, {"from": "N11", "to": "N12"}
+      ]
+    },
+    {
+      "id": "security-intrusion-detection",
+      "name": "Intrusion Detection",
+      "description": "An intrusion detection system continuously watches network or host activity: events are collected and evaluated either by signature matching against known attacks or by comparison to an anomaly baseline; suspicious activity raises an alert, false positives feed back to tune the rules or model, and confirmed events trigger response.",
+      "graphType": "cyclic_pathway",
+      "domainContext": "Security",
+      "keywords": ["intrusion detection", "signature-based", "anomaly detection", "alerting", "false positives"],
+      "basis": "source_extraction:security-intrusion-detection",
+      "sources": [
+        {"title": "An intrusion-detection model", "authors": "Denning, D. E.", "journal": "IEEE Transactions on Software Engineering", "year": "1987", "doi": "10.1109/TSE.1987.232894", "url": "https://doi.org/10.1109/TSE.1987.232894"},
+        {"title": "Snort: lightweight intrusion detection for networks", "authors": "Roesch, M.", "journal": "USENIX Systems Administration Conference (LISA)", "year": "1999", "url": "https://www.usenix.org/legacy/publications/library/proceedings/lisa99/full_papers/roesch/roesch.pdf"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Monitor net/host", "role": "red", "shape": "process", "detail": "Sensors deployed", "sourceRef": 0},
+        {"id": "N2", "label": "Collect events", "role": "green", "shape": "process", "detail": "Traffic + logs", "sourceRef": 0},
+        {"id": "N3", "label": "Detection method?", "role": "blue", "shape": "decision", "detail": "Approach", "sourceRef": 1},
+        {"id": "N4", "label": "Signature matching", "role": "green", "shape": "process", "detail": "Known patterns", "sourceRef": 1},
+        {"id": "N5", "label": "Anomaly baseline", "role": "green", "shape": "process", "detail": "Model of normal", "sourceRef": 0},
+        {"id": "N6", "label": "Compare to normal", "role": "green", "shape": "process", "detail": "Score deviation", "sourceRef": 0},
+        {"id": "N7", "label": "Suspicious?", "role": "blue", "shape": "decision", "detail": "Above threshold", "sourceRef": 0},
+        {"id": "N8", "label": "Continue monitoring", "role": "green", "shape": "process", "detail": "Keep watching", "sourceRef": 0},
+        {"id": "N9", "label": "Raise alert", "role": "green", "shape": "process", "detail": "Notify analyst", "sourceRef": 0},
+        {"id": "N10", "label": "False positive?", "role": "blue", "shape": "decision", "detail": "Benign event", "sourceRef": 0},
+        {"id": "N11", "label": "Tune rules / model", "role": "green", "shape": "process", "detail": "Reduce noise", "sourceRef": 0},
+        {"id": "N12", "label": "Respond + log", "role": "violet", "shape": "process", "detail": "Contain incident", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4", "label": "signature"}, {"from": "N3", "to": "N5", "label": "anomaly"},
+        {"from": "N4", "to": "N6"}, {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7"},
+        {"from": "N7", "to": "N8", "label": "no"}, {"from": "N8", "to": "N2", "label": "loop"}, {"from": "N7", "to": "N9", "label": "yes"},
+        {"from": "N9", "to": "N10"}, {"from": "N10", "to": "N11", "label": "yes"}, {"from": "N11", "to": "N2", "label": "retune"}, {"from": "N10", "to": "N12", "label": "no"}
+      ]
+    },
+    {
+      "id": "security-memory-management",
+      "name": "Buffer Overflow Exploit & Defense",
+      "description": "A buffer overflow occurs when unchecked input is copied past a buffer's bounds, overwriting the return address to redirect control flow to attacker code; modern defenses such as stack canaries, ASLR, and non-executable memory detect or block the attack, while proper bounds checking rejects the input outright.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Security",
+      "keywords": ["buffer overflow", "stack smashing", "stack canary", "ASLR", "control-flow hijack"],
+      "basis": "source_extraction:security-memory-management",
+      "sources": [
+        {"title": "Smashing the stack for fun and profit", "authors": "Aleph One (Levy, E.)", "journal": "Phrack Magazine", "year": "1996", "url": "http://phrack.org/issues/49/14.html"},
+        {"title": "StackGuard: automatic adaptive detection and prevention of buffer-overflow attacks", "authors": "Cowan, C.; Pu, C.; Maier, D.; et al.", "journal": "USENIX Security Symposium", "year": "1998", "url": "https://www.usenix.org/legacy/publications/library/proceedings/sec98/full_papers/cowan/cowan.pdf"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Program reads input", "role": "red", "shape": "process", "detail": "Untrusted data", "sourceRef": 0},
+        {"id": "N2", "label": "Copy to fixed buffer", "role": "green", "shape": "process", "detail": "strcpy-style", "sourceRef": 0},
+        {"id": "N3", "label": "Bounds checked?", "role": "blue", "shape": "decision", "detail": "Length validated", "sourceRef": 1},
+        {"id": "N4", "label": "Reject oversized input", "role": "green", "shape": "process", "detail": "Safe path", "sourceRef": 1},
+        {"id": "N5", "label": "Overflow buffer", "role": "green", "shape": "process", "detail": "Write past end", "sourceRef": 0},
+        {"id": "N6", "label": "Overwrite return addr", "role": "green", "shape": "process", "detail": "Corrupt stack", "sourceRef": 0},
+        {"id": "N7", "label": "Defenses enabled?", "role": "blue", "shape": "decision", "detail": "Hardening on", "sourceRef": 1},
+        {"id": "N8", "label": "Stack canary detects", "role": "green", "shape": "process", "detail": "Guard value", "sourceRef": 1},
+        {"id": "N9", "label": "ASLR + NX block", "role": "green", "shape": "process", "detail": "No exec payload", "sourceRef": 1},
+        {"id": "N10", "label": "Abort safely", "role": "green", "shape": "process", "detail": "Terminate process", "sourceRef": 1},
+        {"id": "N11", "label": "Hijack control flow", "role": "green", "shape": "process", "detail": "Run shellcode", "sourceRef": 0},
+        {"id": "N12", "label": "Prevented vs success", "role": "violet", "shape": "process", "detail": "Outcome", "sourceRef": 1}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"},
+        {"from": "N3", "to": "N4", "label": "yes"}, {"from": "N4", "to": "N12"}, {"from": "N3", "to": "N5", "label": "no"},
+        {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7"}, {"from": "N7", "to": "N8", "label": "yes"}, {"from": "N8", "to": "N9"}, {"from": "N9", "to": "N10"}, {"from": "N10", "to": "N12"},
+        {"from": "N7", "to": "N11", "label": "no"}, {"from": "N11", "to": "N12"}
+      ]
+    },
+    {
+      "id": "security-process-management",
+      "name": "Diffie-Hellman Key Exchange",
+      "description": "Diffie-Hellman lets two parties derive a shared secret over a public channel: they agree on public parameters, each picks a private exponent and exchanges its public power, then both compute the same shared value; because passive eavesdroppers cannot, but active attackers can, the exchange must be authenticated to resist man-in-the-middle.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Cryptography",
+      "keywords": ["Diffie-Hellman", "key exchange", "shared secret", "discrete logarithm", "man-in-the-middle"],
+      "basis": "source_extraction:security-process-management",
+      "sources": [
+        {"title": "New directions in cryptography", "authors": "Diffie, W.; Hellman, M. E.", "journal": "IEEE Transactions on Information Theory", "year": "1976", "doi": "10.1109/TIT.1976.1055638", "url": "https://doi.org/10.1109/TIT.1976.1055638"},
+        {"title": "Secure communications over insecure channels", "authors": "Merkle, R. C.", "journal": "Communications of the ACM", "year": "1978", "doi": "10.1145/359460.359473", "url": "https://doi.org/10.1145/359460.359473"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "No shared key", "role": "red", "shape": "process", "detail": "Two parties", "sourceRef": 0},
+        {"id": "N2", "label": "Agree params (p,g)", "role": "green", "shape": "process", "detail": "Public group", "sourceRef": 0},
+        {"id": "N3", "label": "Pick secrets a,b", "role": "green", "shape": "process", "detail": "Private exponents", "sourceRef": 0},
+        {"id": "N4", "label": "Compute g^a, g^b", "role": "green", "shape": "process", "detail": "mod p", "sourceRef": 0},
+        {"id": "N5", "label": "Exchange public vals", "role": "green", "shape": "process", "detail": "Over channel", "sourceRef": 0},
+        {"id": "N6", "label": "MITM possible?", "role": "blue", "shape": "decision", "detail": "Active attacker", "sourceRef": 1},
+        {"id": "N7", "label": "Authenticate (sign)", "role": "green", "shape": "process", "detail": "Bind to identity", "sourceRef": 1},
+        {"id": "N8", "label": "Compute g^ab", "role": "blue", "shape": "process", "detail": "Both sides equal", "sourceRef": 0},
+        {"id": "N9", "label": "Keys match?", "role": "blue", "shape": "decision", "detail": "Same secret", "sourceRef": 0},
+        {"id": "N10", "label": "Abort (tampering)", "role": "green", "shape": "process", "detail": "Mismatch", "sourceRef": 1},
+        {"id": "N11", "label": "Derive session key", "role": "green", "shape": "process", "detail": "KDF on secret", "sourceRef": 0},
+        {"id": "N12", "label": "Shared secret set", "role": "violet", "shape": "process", "detail": "Encrypted channel", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"}, {"from": "N5", "to": "N6"},
+        {"from": "N6", "to": "N7", "label": "yes"}, {"from": "N7", "to": "N8"}, {"from": "N6", "to": "N8", "label": "no"},
+        {"from": "N8", "to": "N9"}, {"from": "N9", "to": "N10", "label": "no"}, {"from": "N9", "to": "N11", "label": "yes"}, {"from": "N11", "to": "N12"}
+      ]
+    },
+    {
+      "id": "security-file-system",
+      "name": "Role-Based Access Control (RBAC)",
+      "description": "RBAC grants permissions through roles rather than to users directly: an authenticated subject's assigned roles are activated in a session, and a requested operation is allowed only if some active role carries the permission and no separation-of-duty constraint is violated; every decision is logged for audit.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Security",
+      "keywords": ["role-based access control", "RBAC", "permissions", "separation of duty", "least privilege"],
+      "basis": "source_extraction:security-file-system",
+      "sources": [
+        {"title": "Role-based access control models", "authors": "Sandhu, R. S.; Coyne, E. J.; Feinstein, H. L.; Youman, C. E.", "journal": "IEEE Computer", "year": "1996", "doi": "10.1109/2.485845", "url": "https://doi.org/10.1109/2.485845"},
+        {"title": "Role-based access controls", "authors": "Ferraiolo, D. F.; Kuhn, D. R.", "journal": "15th National Computer Security Conference (NIST)", "year": "1992", "url": "https://csrc.nist.gov/CSRC/media/Publications/conference-paper/1992/10/13/proceedings-15th-national-computer-security-conference-1992/documents/1992-15th-NCSC-proceedings-vol-2.pdf"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Request operation", "role": "red", "shape": "process", "detail": "Subject acts", "sourceRef": 0},
+        {"id": "N2", "label": "Authenticate subject", "role": "green", "shape": "process", "detail": "Establish identity", "sourceRef": 1},
+        {"id": "N3", "label": "Look up roles", "role": "green", "shape": "process", "detail": "Assigned roles", "sourceRef": 0},
+        {"id": "N4", "label": "Activate session roles", "role": "green", "shape": "process", "detail": "Subset enabled", "sourceRef": 0},
+        {"id": "N5", "label": "Roles grant perm?", "role": "blue", "shape": "decision", "detail": "Role-permission", "sourceRef": 0},
+        {"id": "N6", "label": "Deny operation", "role": "green", "shape": "process", "detail": "No matching role", "sourceRef": 0},
+        {"id": "N7", "label": "Check SoD constraints", "role": "green", "shape": "process", "detail": "Conflicting roles", "sourceRef": 0},
+        {"id": "N8", "label": "Constraint violated?", "role": "blue", "shape": "decision", "detail": "Mutual exclusion", "sourceRef": 0},
+        {"id": "N9", "label": "Block (conflict)", "role": "green", "shape": "process", "detail": "Policy breach", "sourceRef": 0},
+        {"id": "N10", "label": "Permit operation", "role": "green", "shape": "process", "detail": "Authorized", "sourceRef": 0},
+        {"id": "N11", "label": "Log decision", "role": "green", "shape": "process", "detail": "Audit trail", "sourceRef": 1},
+        {"id": "N12", "label": "Enforced policy", "role": "violet", "shape": "process", "detail": "Least privilege", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"},
+        {"from": "N5", "to": "N6", "label": "no"}, {"from": "N6", "to": "N11"}, {"from": "N5", "to": "N7", "label": "yes"},
+        {"from": "N7", "to": "N8"}, {"from": "N8", "to": "N9", "label": "yes"}, {"from": "N9", "to": "N11"}, {"from": "N8", "to": "N10", "label": "no"}, {"from": "N10", "to": "N11"}, {"from": "N11", "to": "N12"}
+      ]
+    }
+  ]
+}

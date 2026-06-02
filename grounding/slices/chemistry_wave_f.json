@@ -1,0 +1,418 @@
+{
+  "discipline": "chemistry",
+  "slice": "spectroscopy+analytical",
+  "charts": [
+    {
+      "id": "spectroscopy_advanced-ir-spectroscopy",
+      "name": "FT-IR Spectroscopy",
+      "description": "FT-IR passes broadband infrared light through an interferometer and sample; bonds whose dipole moment changes absorb at characteristic frequencies, the interferogram is Fourier-transformed to a spectrum, and functional-group and fingerprint regions identify the compound.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Vibrational spectroscopy",
+      "namedCollections": ["spectroscopy"],
+      "keywords": ["ft-ir", "infrared", "dipole moment", "interferogram", "functional groups"],
+      "basis": "source_extraction:spectroscopy_advanced-ir-spectroscopy",
+      "sources": [
+        {"title": "Fourier Transform Infrared Spectrometry, 2nd ed.", "authors": "Griffiths, P. R.; de Haseth, J. A.", "journal": "Wiley-Interscience", "year": "2007", "doi": "10.1002/047010631X", "url": "https://doi.org/10.1002/047010631X"},
+        {"title": "Principles of Instrumental Analysis, 7th ed. — Infrared Spectrometry", "authors": "Skoog, D. A.; Holler, F. J.; Crouch, S. R.", "journal": "Cengage Learning", "year": "2018", "doi": null, "url": "https://www.cengage.com/c/principles-of-instrumental-analysis-7e-skoog/9781305577213/"},
+        {"title": "Gold Book: infrared spectroscopy", "authors": "IUPAC", "journal": "IUPAC Compendium of Chemical Terminology", "year": "2019", "doi": "10.1351/goldbook.IT07424", "url": "https://goldbook.iupac.org/terms/view/IT07424"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Sample in IR beam", "role": "red", "shape": "process", "detail": "Thin film, KBr, or ATR", "sourceRef": 1},
+        {"id": "N2", "label": "Beam through interferometer", "role": "green", "shape": "process", "detail": "Michelson modulation", "sourceRef": 0},
+        {"id": "N3", "label": "Bonds absorb IR", "role": "green", "shape": "process", "detail": "Match vibrational frequencies", "sourceRef": 1},
+        {"id": "N4", "label": "Dipole moment changes?", "role": "blue", "shape": "decision", "detail": "IR selection rule", "sourceRef": 2},
+        {"id": "N5", "label": "IR-inactive mode", "role": "green", "shape": "process", "detail": "Symmetric, no absorption", "sourceRef": 2},
+        {"id": "N6", "label": "Record interferogram", "role": "blue", "shape": "process", "detail": "Detector signal vs path", "sourceRef": 0},
+        {"id": "N7", "label": "Fourier transform", "role": "green", "shape": "process", "detail": "Convert to spectrum", "sourceRef": 0},
+        {"id": "N8", "label": "Functional-group region", "role": "green", "shape": "process", "detail": "4000–1500 cm⁻¹", "sourceRef": 1},
+        {"id": "N9", "label": "Fingerprint comparison", "role": "green", "shape": "process", "detail": "<1500 cm⁻¹ pattern", "sourceRef": 1},
+        {"id": "N10", "label": "Identified groups", "role": "violet", "shape": "process", "detail": "Structural assignment", "sourceRef": 1}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"},
+        {"from": "N4", "to": "N5", "label": "no"}, {"from": "N4", "to": "N6", "label": "yes"}, {"from": "N5", "to": "N8"},
+        {"from": "N6", "to": "N7"}, {"from": "N7", "to": "N8"}, {"from": "N8", "to": "N9"}, {"from": "N9", "to": "N10"}
+      ]
+    },
+    {
+      "id": "spectroscopy_advanced-mass-spectrometry",
+      "name": "Mass Spectrometry",
+      "description": "Mass spectrometry ionizes a sample to molecular and fragment ions, accelerates them into a mass analyzer that separates by mass-to-charge ratio, and detects abundances; identifying the molecular ion and interpreting fragmentation reveals mass and structure.",
+      "graphType": "cyclic_pathway",
+      "domainContext": "Mass spectrometry",
+      "namedCollections": ["spectroscopy"],
+      "keywords": ["mass spectrometry", "ionization", "mass-to-charge", "fragmentation", "molecular ion"],
+      "basis": "source_extraction:spectroscopy_advanced-mass-spectrometry",
+      "sources": [
+        {"title": "Electrospray ionization for mass spectrometry of large biomolecules", "authors": "Fenn, J. B.; Mann, M.; Meng, C. K.; Wong, S. F.; Whitehouse, C. M.", "journal": "Science", "year": "1989", "doi": "10.1126/science.2675315", "url": "https://doi.org/10.1126/science.2675315"},
+        {"title": "Mass Spectrometry: Principles and Applications, 3rd ed.", "authors": "de Hoffmann, E.; Stroobant, V.", "journal": "Wiley", "year": "2007", "doi": null, "url": "https://www.wiley.com/en-us/Mass+Spectrometry%3A+Principles+and+Applications%2C+3rd+Edition-p-9780470033104"},
+        {"title": "Principles of Instrumental Analysis, 7th ed. — Molecular Mass Spectrometry", "authors": "Skoog, D. A.; Holler, F. J.; Crouch, S. R.", "journal": "Cengage Learning", "year": "2018", "doi": null, "url": "https://www.cengage.com/c/principles-of-instrumental-analysis-7e-skoog/9781305577213/"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Sample introduced", "role": "red", "shape": "process", "detail": "Inlet to source", "sourceRef": 2},
+        {"id": "N2", "label": "Ionization (EI / ESI)", "role": "green", "shape": "process", "detail": "Create gas-phase ions", "sourceRef": 0},
+        {"id": "N3", "label": "Molecular ion + fragments", "role": "blue", "shape": "process", "detail": "M+• and product ions", "sourceRef": 2},
+        {"id": "N4", "label": "Accelerate into analyzer", "role": "green", "shape": "process", "detail": "Electric field", "sourceRef": 2},
+        {"id": "N5", "label": "Separate by m/z", "role": "green", "shape": "process", "detail": "Quadrupole / TOF", "sourceRef": 2},
+        {"id": "N6", "label": "Detect ion abundance", "role": "green", "shape": "process", "detail": "Mass spectrum", "sourceRef": 2},
+        {"id": "N7", "label": "Molecular ion clear?", "role": "blue", "shape": "decision", "detail": "Find M+ peak", "sourceRef": 0},
+        {"id": "N8", "label": "Use soft ionization", "role": "green", "shape": "process", "detail": "Preserve molecular ion", "sourceRef": 0},
+        {"id": "N9", "label": "Interpret fragmentation", "role": "green", "shape": "process", "detail": "Neutral losses, series", "sourceRef": 1},
+        {"id": "N10", "label": "Structure / mass", "role": "violet", "shape": "process", "detail": "Identification", "sourceRef": 1}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"}, {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7"},
+        {"from": "N7", "to": "N8", "label": "no"}, {"from": "N8", "to": "N2", "label": "re-ionize"}, {"from": "N7", "to": "N9", "label": "yes"}, {"from": "N9", "to": "N10"}
+      ]
+    },
+    {
+      "id": "spectroscopy_advanced-nmr-spectroscopy",
+      "name": "NMR Spectroscopy",
+      "description": "In NMR, nuclei in a magnetic field are excited by an RF pulse; the recorded free-induction decay is Fourier-transformed to a spectrum where chemical shifts report electronic environment and spin-spin coupling splits signals, while integration counts equivalent nuclei.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Nuclear magnetic resonance",
+      "namedCollections": ["spectroscopy"],
+      "keywords": ["nmr", "chemical shift", "spin-spin coupling", "free induction decay", "integration"],
+      "basis": "source_extraction:spectroscopy_advanced-nmr-spectroscopy",
+      "sources": [
+        {"title": "Understanding NMR Spectroscopy, 2nd ed.", "authors": "Keeler, J.", "journal": "Wiley", "year": "2010", "doi": null, "url": "https://www.wiley.com/en-us/Understanding+NMR+Spectroscopy%2C+2nd+Edition-p-9780470746080"},
+        {"title": "Application of Fourier transform spectroscopy to magnetic resonance", "authors": "Ernst, R. R.; Anderson, W. A.", "journal": "Review of Scientific Instruments", "year": "1966", "doi": "10.1063/1.1719961", "url": "https://doi.org/10.1063/1.1719961"},
+        {"title": "Principles of Instrumental Analysis, 7th ed. — NMR Spectroscopy", "authors": "Skoog, D. A.; Holler, F. J.; Crouch, S. R.", "journal": "Cengage Learning", "year": "2018", "doi": null, "url": "https://www.cengage.com/c/principles-of-instrumental-analysis-7e-skoog/9781305577213/"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Sample in magnetic field", "role": "red", "shape": "process", "detail": "Strong B0", "sourceRef": 0},
+        {"id": "N2", "label": "Nuclei align (Zeeman)", "role": "green", "shape": "process", "detail": "Spin states split", "sourceRef": 0},
+        {"id": "N3", "label": "RF pulse excites spins", "role": "green", "shape": "process", "detail": "Tip magnetization", "sourceRef": 1},
+        {"id": "N4", "label": "Free induction decay", "role": "blue", "shape": "process", "detail": "Time-domain signal", "sourceRef": 1},
+        {"id": "N5", "label": "Fourier transform", "role": "green", "shape": "process", "detail": "Frequency-domain spectrum", "sourceRef": 1},
+        {"id": "N6", "label": "Chemical shifts", "role": "green", "shape": "process", "detail": "Electronic shielding", "sourceRef": 2},
+        {"id": "N7", "label": "Spin-spin coupling?", "role": "blue", "shape": "decision", "detail": "Neighboring nuclei", "sourceRef": 2},
+        {"id": "N8", "label": "Multiplet (n+1 rule)", "role": "green", "shape": "process", "detail": "J-coupling splitting", "sourceRef": 2},
+        {"id": "N9", "label": "Singlet (no neighbors)", "role": "green", "shape": "process", "detail": "Unsplit peak", "sourceRef": 2},
+        {"id": "N10", "label": "Integrate + assign", "role": "violet", "shape": "process", "detail": "Structure determination", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"}, {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7"},
+        {"from": "N7", "to": "N8", "label": "yes"}, {"from": "N7", "to": "N9", "label": "no"}, {"from": "N8", "to": "N10"}, {"from": "N9", "to": "N10"}
+      ]
+    },
+    {
+      "id": "spectroscopy_advanced-uv-vis-spectroscopy",
+      "name": "UV-Vis Spectroscopy",
+      "description": "UV-Vis measures electronic absorption: light is scanned through a sample, chromophores promote electrons (pi->pi*, n->pi*), the absorbance is computed from transmitted intensity, and within the linear range Beer's law relates absorbance to concentration.",
+      "graphType": "cyclic_pathway",
+      "domainContext": "Electronic absorption spectroscopy",
+      "namedCollections": ["spectroscopy"],
+      "keywords": ["uv-vis", "absorbance", "chromophore", "beer-lambert", "lambda max"],
+      "basis": "source_extraction:spectroscopy_advanced-uv-vis-spectroscopy",
+      "sources": [
+        {"title": "Bestimmung der Absorption des rothen Lichts in farbigen Flüssigkeiten (Beer's law)", "authors": "Beer, A.", "journal": "Annalen der Physik und Chemie", "year": "1852", "doi": "10.1002/andp.18521620505", "url": "https://doi.org/10.1002/andp.18521620505"},
+        {"title": "UV-VIS Spectroscopy and Its Applications", "authors": "Perkampus, H.-H.", "journal": "Springer", "year": "1992", "doi": "10.1007/978-3-642-77477-5", "url": "https://doi.org/10.1007/978-3-642-77477-5"},
+        {"title": "Principles of Instrumental Analysis, 7th ed. — UV-Visible Molecular Absorption", "authors": "Skoog, D. A.; Holler, F. J.; Crouch, S. R.", "journal": "Cengage Learning", "year": "2018", "doi": null, "url": "https://www.cengage.com/c/principles-of-instrumental-analysis-7e-skoog/9781305577213/"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Sample in cuvette", "role": "red", "shape": "process", "detail": "Solution of known path length", "sourceRef": 2},
+        {"id": "N2", "label": "Scan UV-Vis light", "role": "green", "shape": "process", "detail": "Vary wavelength", "sourceRef": 2},
+        {"id": "N3", "label": "Chromophore absorbs", "role": "green", "shape": "process", "detail": "π→π*, n→π* transitions", "sourceRef": 1},
+        {"id": "N4", "label": "Measure transmitted I", "role": "green", "shape": "process", "detail": "Detector reading", "sourceRef": 2},
+        {"id": "N5", "label": "A = log(I0/I)", "role": "green", "shape": "process", "detail": "Absorbance", "sourceRef": 1},
+        {"id": "N6", "label": "λmax identified", "role": "blue", "shape": "process", "detail": "Peak absorption", "sourceRef": 2},
+        {"id": "N7", "label": "Within linear range?", "role": "blue", "shape": "decision", "detail": "A roughly 0.1–1", "sourceRef": 1},
+        {"id": "N8", "label": "Dilute sample", "role": "green", "shape": "process", "detail": "Reduce absorbance", "sourceRef": 1},
+        {"id": "N9", "label": "Beer's law A = εbc", "role": "green", "shape": "process", "detail": "Linear absorbance law", "sourceRef": 0},
+        {"id": "N10", "label": "Concentration / identity", "role": "violet", "shape": "process", "detail": "Quantitation", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"}, {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7"},
+        {"from": "N7", "to": "N8", "label": "no"}, {"from": "N8", "to": "N2", "label": "rescan"}, {"from": "N7", "to": "N9", "label": "yes"}, {"from": "N9", "to": "N10"}
+      ]
+    },
+    {
+      "id": "spectroscopy_advanced-x-ray-diffraction-analysis",
+      "name": "X-ray Diffraction Analysis",
+      "description": "X-ray diffraction probes crystal structure: X-rays scatter off lattice planes and interfere constructively only when Bragg's law is satisfied, producing peaks versus 2-theta that are indexed and refined (e.g. Rietveld) to determine the unit cell and phase.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Crystallography",
+      "namedCollections": ["spectroscopy"],
+      "keywords": ["x-ray diffraction", "bragg's law", "lattice planes", "indexing", "rietveld refinement"],
+      "basis": "source_extraction:spectroscopy_advanced-x-ray-diffraction-analysis",
+      "sources": [
+        {"title": "The reflection of X-rays by crystals (Bragg's law)", "authors": "Bragg, W. H.; Bragg, W. L.", "journal": "Proceedings of the Royal Society A", "year": "1913", "doi": "10.1098/rspa.1913.0040", "url": "https://doi.org/10.1098/rspa.1913.0040"},
+        {"title": "A profile refinement method for nuclear and magnetic structures (Rietveld)", "authors": "Rietveld, H. M.", "journal": "Journal of Applied Crystallography", "year": "1969", "doi": "10.1107/S0021889869006558", "url": "https://doi.org/10.1107/S0021889869006558"},
+        {"title": "Elements of X-Ray Diffraction, 3rd ed.", "authors": "Cullity, B. D.; Stock, S. R.", "journal": "Pearson", "year": "2001", "doi": null, "url": "https://www.pearson.com/en-us/subject-catalog/p/elements-of-x-ray-diffraction/P200000003441"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Crystalline sample", "role": "red", "shape": "process", "detail": "Powder or single crystal", "sourceRef": 2},
+        {"id": "N2", "label": "Irradiate with X-rays", "role": "green", "shape": "process", "detail": "Monochromatic beam", "sourceRef": 2},
+        {"id": "N3", "label": "Scatter off lattice planes", "role": "green", "shape": "process", "detail": "Interference of waves", "sourceRef": 0},
+        {"id": "N4", "label": "Bragg: nλ = 2d sinθ?", "role": "blue", "shape": "decision", "detail": "Constructive condition", "sourceRef": 0},
+        {"id": "N5", "label": "Out of phase: no peak", "role": "green", "shape": "process", "detail": "Destructive interference", "sourceRef": 0},
+        {"id": "N6", "label": "Diffraction peak", "role": "green", "shape": "process", "detail": "Constructive reflection", "sourceRef": 0},
+        {"id": "N7", "label": "Record pattern vs 2θ", "role": "blue", "shape": "process", "detail": "Diffractogram", "sourceRef": 2},
+        {"id": "N8", "label": "Index reflections", "role": "green", "shape": "process", "detail": "Assign (hkl)", "sourceRef": 2},
+        {"id": "N9", "label": "Refine structure (Rietveld)", "role": "green", "shape": "process", "detail": "Fit the full pattern", "sourceRef": 1},
+        {"id": "N10", "label": "Crystal structure / phase", "role": "violet", "shape": "process", "detail": "Unit cell, phase ID", "sourceRef": 1}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"},
+        {"from": "N4", "to": "N5", "label": "no"}, {"from": "N4", "to": "N6", "label": "yes"}, {"from": "N5", "to": "N7"}, {"from": "N6", "to": "N7"},
+        {"from": "N7", "to": "N8"}, {"from": "N8", "to": "N9"}, {"from": "N9", "to": "N10"}
+      ]
+    },
+    {
+      "id": "spectroscopy_advanced-raman-spectroscopy-analysis",
+      "name": "Raman Spectroscopy",
+      "description": "Raman spectroscopy detects inelastically scattered laser light: modes that change polarizability produce Stokes/anti-Stokes shifts after the intense Rayleigh line is filtered, giving a vibrational fingerprint that complements IR through the rule of mutual exclusion.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Raman scattering",
+      "namedCollections": ["spectroscopy"],
+      "keywords": ["raman", "polarizability", "stokes shift", "rayleigh scattering", "mutual exclusion"],
+      "basis": "source_extraction:spectroscopy_advanced-raman-spectroscopy-analysis",
+      "sources": [
+        {"title": "A new type of secondary radiation", "authors": "Raman, C. V.; Krishnan, K. S.", "journal": "Nature", "year": "1928", "doi": "10.1038/121501c0", "url": "https://doi.org/10.1038/121501c0"},
+        {"title": "Introductory Raman Spectroscopy, 2nd ed.", "authors": "Ferraro, J. R.; Nakamoto, K.; Brown, C. W.", "journal": "Academic Press", "year": "2003", "doi": "10.1016/B978-0-12-254105-6.X5000-8", "url": "https://doi.org/10.1016/B978-0-12-254105-6.X5000-8"},
+        {"title": "Principles of Instrumental Analysis, 7th ed. — Raman Spectroscopy", "authors": "Skoog, D. A.; Holler, F. J.; Crouch, S. R.", "journal": "Cengage Learning", "year": "2018", "doi": null, "url": "https://www.cengage.com/c/principles-of-instrumental-analysis-7e-skoog/9781305577213/"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Sample + laser", "role": "red", "shape": "process", "detail": "Monochromatic excitation", "sourceRef": 1},
+        {"id": "N2", "label": "Photons scatter", "role": "green", "shape": "process", "detail": "Interact with molecules", "sourceRef": 0},
+        {"id": "N3", "label": "Polarizability changes?", "role": "blue", "shape": "decision", "detail": "Raman selection rule", "sourceRef": 2},
+        {"id": "N4", "label": "Inactive: only Rayleigh", "role": "green", "shape": "process", "detail": "Elastic scattering", "sourceRef": 2},
+        {"id": "N5", "label": "Stokes / anti-Stokes shift", "role": "blue", "shape": "process", "detail": "Energy gained/lost", "sourceRef": 0},
+        {"id": "N6", "label": "Inelastic scattering", "role": "blue", "shape": "process", "detail": "Raman-active mode", "sourceRef": 0},
+        {"id": "N7", "label": "Filter Rayleigh line", "role": "green", "shape": "process", "detail": "Notch filter", "sourceRef": 1},
+        {"id": "N8", "label": "Record Raman shift", "role": "green", "shape": "process", "detail": "Intensity vs cm⁻¹", "sourceRef": 1},
+        {"id": "N9", "label": "Complement IR modes", "role": "green", "shape": "process", "detail": "Mutual exclusion rule", "sourceRef": 2},
+        {"id": "N10", "label": "Vibrational fingerprint", "role": "violet", "shape": "process", "detail": "Identification", "sourceRef": 1}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"},
+        {"from": "N3", "to": "N4", "label": "no"}, {"from": "N4", "to": "N7"}, {"from": "N3", "to": "N5", "label": "yes"},
+        {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7"}, {"from": "N7", "to": "N8"}, {"from": "N8", "to": "N9"}, {"from": "N9", "to": "N10"}
+      ]
+    },
+    {
+      "id": "spectroscopy_advanced-chromatography",
+      "name": "Chromatographic Separation",
+      "description": "Chromatography separates a mixture by differential partitioning between a mobile and a stationary phase: components with stronger stationary-phase affinity are retained longer; band broadening (van Deemter) limits resolution, which is tuned by adjusting phase and flow.",
+      "graphType": "cyclic_pathway",
+      "domainContext": "Separation science",
+      "namedCollections": ["spectroscopy"],
+      "keywords": ["chromatography", "partition", "retention", "van deemter", "resolution"],
+      "basis": "source_extraction:spectroscopy_advanced-chromatography",
+      "sources": [
+        {"title": "Longitudinal diffusion and resistance to mass transfer (van Deemter equation)", "authors": "van Deemter, J. J.; Zuiderweg, F. J.; Klinkenberg, A.", "journal": "Chemical Engineering Science", "year": "1956", "doi": "10.1016/0009-2509(56)80003-1", "url": "https://doi.org/10.1016/0009-2509(56)80003-1"},
+        {"title": "A new form of chromatogram employing two liquid phases (partition chromatography)", "authors": "Martin, A. J. P.; Synge, R. L. M.", "journal": "Biochemical Journal", "year": "1941", "doi": "10.1042/bj0351358", "url": "https://doi.org/10.1042/bj0351358"},
+        {"title": "Principles of Instrumental Analysis, 7th ed. — Introduction to Chromatography", "authors": "Skoog, D. A.; Holler, F. J.; Crouch, S. R.", "journal": "Cengage Learning", "year": "2018", "doi": null, "url": "https://www.cengage.com/c/principles-of-instrumental-analysis-7e-skoog/9781305577213/"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Mixture injected", "role": "red", "shape": "process", "detail": "Sample on column", "sourceRef": 1},
+        {"id": "N2", "label": "Carried by mobile phase", "role": "green", "shape": "process", "detail": "Gas or liquid eluent", "sourceRef": 2},
+        {"id": "N3", "label": "Partition w/ stationary phase", "role": "green", "shape": "process", "detail": "Repeated equilibria", "sourceRef": 1},
+        {"id": "N4", "label": "Stronger affinity?", "role": "blue", "shape": "decision", "detail": "Distribution constant", "sourceRef": 1},
+        {"id": "N5", "label": "Retained longer", "role": "green", "shape": "process", "detail": "Higher retention time", "sourceRef": 2},
+        {"id": "N6", "label": "Elutes later", "role": "green", "shape": "process", "detail": "Late peak", "sourceRef": 2},
+        {"id": "N7", "label": "Weak affinity: elutes early", "role": "green", "shape": "process", "detail": "Low retention", "sourceRef": 2},
+        {"id": "N8", "label": "Band broadening", "role": "green", "shape": "process", "detail": "van Deemter contributions", "sourceRef": 0},
+        {"id": "N9", "label": "Peaks resolved?", "role": "blue", "shape": "decision", "detail": "Resolution criterion", "sourceRef": 2},
+        {"id": "N10", "label": "Adjust phase / flow", "role": "green", "shape": "process", "detail": "Optimize conditions", "sourceRef": 0},
+        {"id": "N11", "label": "Separated components", "role": "violet", "shape": "process", "detail": "Baseline separation", "sourceRef": 1}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"},
+        {"from": "N4", "to": "N5", "label": "strong"}, {"from": "N5", "to": "N6"}, {"from": "N4", "to": "N7", "label": "weak"},
+        {"from": "N6", "to": "N8"}, {"from": "N7", "to": "N8"}, {"from": "N8", "to": "N9"},
+        {"from": "N9", "to": "N10", "label": "no"}, {"from": "N10", "to": "N2", "label": "re-run"}, {"from": "N9", "to": "N11", "label": "yes"}
+      ]
+    },
+    {
+      "id": "analytical_chemistry-electrochemical-analysis",
+      "name": "Potentiometry (Ion-Selective Electrode)",
+      "description": "Potentiometry measures an ion's activity at zero current: a selective membrane develops a potential against a reference electrode following the Nernst/Nikolsky equation, and after calibration against standards the measured EMF is converted to concentration.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Electroanalytical chemistry",
+      "namedCollections": ["analytical-chemistry"],
+      "keywords": ["potentiometry", "ion-selective electrode", "membrane potential", "nernst", "selectivity"],
+      "basis": "source_extraction:analytical_chemistry-electrochemical-analysis",
+      "sources": [
+        {"title": "Carrier-based ion-selective electrodes and bulk optodes. 1. General characteristics", "authors": "Bühlmann, P.; Pretsch, E.; Bakker, E.", "journal": "Chemical Reviews", "year": "1998", "doi": "10.1021/cr970113+", "url": "https://doi.org/10.1021/cr970113+"},
+        {"title": "Quantitative Chemical Analysis, 9th ed. — Electrode Measurements", "authors": "Harris, D. C.", "journal": "W. H. Freeman", "year": "2015", "doi": null, "url": "https://www.macmillanlearning.com/college/us/product/Quantitative-Chemical-Analysis/p/146413538X"},
+        {"title": "Principles of Instrumental Analysis, 7th ed. — Potentiometry", "authors": "Skoog, D. A.; Holler, F. J.; Crouch, S. R.", "journal": "Cengage Learning", "year": "2018", "doi": null, "url": "https://www.cengage.com/c/principles-of-instrumental-analysis-7e-skoog/9781305577213/"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Sample solution", "role": "red", "shape": "process", "detail": "Contains target ion", "sourceRef": 1},
+        {"id": "N2", "label": "Immerse ISE + reference", "role": "green", "shape": "process", "detail": "Two-electrode cell", "sourceRef": 2},
+        {"id": "N3", "label": "Selective membrane responds", "role": "blue", "shape": "process", "detail": "Ion partitions into membrane", "sourceRef": 0},
+        {"id": "N4", "label": "Membrane potential develops", "role": "blue", "shape": "process", "detail": "Phase-boundary potential", "sourceRef": 0},
+        {"id": "N5", "label": "Measure cell EMF", "role": "green", "shape": "process", "detail": "Zero-current potential", "sourceRef": 2},
+        {"id": "N6", "label": "Nernstian response?", "role": "blue", "shape": "decision", "detail": "Check selectivity/slope", "sourceRef": 0},
+        {"id": "N7", "label": "Correct for interferents", "role": "green", "shape": "process", "detail": "Nikolsky–Eisenman", "sourceRef": 0},
+        {"id": "N8", "label": "Calibrate vs standards", "role": "green", "shape": "process", "detail": "EMF vs log activity", "sourceRef": 2},
+        {"id": "N9", "label": "EMF -> activity", "role": "green", "shape": "process", "detail": "Apply Nernst slope", "sourceRef": 1},
+        {"id": "N10", "label": "Ion concentration", "role": "violet", "shape": "process", "detail": "Reported result", "sourceRef": 1}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"}, {"from": "N5", "to": "N6"},
+        {"from": "N6", "to": "N7", "label": "no"}, {"from": "N7", "to": "N8"}, {"from": "N6", "to": "N8", "label": "yes"}, {"from": "N8", "to": "N9"}, {"from": "N9", "to": "N10"}
+      ]
+    },
+    {
+      "id": "analytical_chemistry-spectroscopy-analysis",
+      "name": "Beer–Lambert Quantitation",
+      "description": "Quantitative spectrophotometry chooses an analytical wavelength, builds a calibration from standards, verifies Beer's-law linearity, fits a calibration line, then measures the sample absorbance and interpolates its concentration.",
+      "graphType": "cyclic_pathway",
+      "domainContext": "Quantitative spectroscopy",
+      "namedCollections": ["analytical-chemistry"],
+      "keywords": ["beer-lambert", "calibration", "molar absorptivity", "linearity", "spectrophotometry"],
+      "basis": "source_extraction:analytical_chemistry-spectroscopy-analysis",
+      "sources": [
+        {"title": "Quantitative Chemical Analysis, 9th ed. — Spectrophotometry", "authors": "Harris, D. C.", "journal": "W. H. Freeman", "year": "2015", "doi": null, "url": "https://www.macmillanlearning.com/college/us/product/Quantitative-Chemical-Analysis/p/146413538X"},
+        {"title": "Gold Book: Beer–Lambert law", "authors": "IUPAC", "journal": "IUPAC Compendium of Chemical Terminology", "year": "2019", "doi": "10.1351/goldbook.B00626", "url": "https://goldbook.iupac.org/terms/view/B00626"},
+        {"title": "Principles of Instrumental Analysis, 7th ed. — Molecular Absorption Methods", "authors": "Skoog, D. A.; Holler, F. J.; Crouch, S. R.", "journal": "Cengage Learning", "year": "2018", "doi": null, "url": "https://www.cengage.com/c/principles-of-instrumental-analysis-7e-skoog/9781305577213/"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Analyte with chromophore", "role": "red", "shape": "process", "detail": "Absorbing species", "sourceRef": 0},
+        {"id": "N2", "label": "Choose analytical λ", "role": "green", "shape": "process", "detail": "Usually λmax", "sourceRef": 2},
+        {"id": "N3", "label": "Prepare standards", "role": "green", "shape": "process", "detail": "Known concentrations", "sourceRef": 0},
+        {"id": "N4", "label": "Measure A of standards", "role": "green", "shape": "process", "detail": "Absorbance readings", "sourceRef": 0},
+        {"id": "N5", "label": "Plot A vs concentration", "role": "green", "shape": "process", "detail": "Calibration data", "sourceRef": 0},
+        {"id": "N6", "label": "Linear (Beer's law)?", "role": "blue", "shape": "decision", "detail": "Check deviations", "sourceRef": 1},
+        {"id": "N7", "label": "Dilute / narrow range", "role": "green", "shape": "process", "detail": "Restore linearity", "sourceRef": 0},
+        {"id": "N8", "label": "Fit calibration line", "role": "green", "shape": "process", "detail": "Slope = εb", "sourceRef": 1},
+        {"id": "N9", "label": "Measure sample A", "role": "green", "shape": "process", "detail": "Unknown absorbance", "sourceRef": 0},
+        {"id": "N10", "label": "Interpolate concentration", "role": "violet", "shape": "process", "detail": "Read from the line", "sourceRef": 1}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"}, {"from": "N5", "to": "N6"},
+        {"from": "N6", "to": "N7", "label": "no"}, {"from": "N7", "to": "N3", "label": "re-prepare"}, {"from": "N6", "to": "N8", "label": "yes"}, {"from": "N8", "to": "N9"}, {"from": "N9", "to": "N10"}
+      ]
+    },
+    {
+      "id": "analytical_chemistry-chromatography",
+      "name": "Quantitative Chromatography (Internal Standard)",
+      "description": "Quantitative chromatography spikes a sample with an internal standard, separates and detects the analytes, confirms baseline resolution, integrates peak areas, applies response factors relative to the internal standard, and converts to concentration via calibration.",
+      "graphType": "cyclic_pathway",
+      "domainContext": "Chromatographic quantitation",
+      "namedCollections": ["analytical-chemistry"],
+      "keywords": ["internal standard", "peak integration", "response factor", "resolution", "quantitation"],
+      "basis": "source_extraction:analytical_chemistry-chromatography",
+      "sources": [
+        {"title": "Quantitative Chemical Analysis, 9th ed. — Chromatographic Methods", "authors": "Harris, D. C.", "journal": "W. H. Freeman", "year": "2015", "doi": null, "url": "https://www.macmillanlearning.com/college/us/product/Quantitative-Chemical-Analysis/p/146413538X"},
+        {"title": "Modern HPLC for Practicing Scientists", "authors": "Dong, M. W.", "journal": "Wiley", "year": "2006", "doi": "10.1002/0471973106", "url": "https://doi.org/10.1002/0471973106"},
+        {"title": "Principles of Instrumental Analysis, 7th ed. — Chromatographic Quantitation", "authors": "Skoog, D. A.; Holler, F. J.; Crouch, S. R.", "journal": "Cengage Learning", "year": "2018", "doi": null, "url": "https://www.cengage.com/c/principles-of-instrumental-analysis-7e-skoog/9781305577213/"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Sample + internal standard", "role": "red", "shape": "process", "detail": "Known IS amount added", "sourceRef": 0},
+        {"id": "N2", "label": "Inject onto column", "role": "green", "shape": "process", "detail": "HPLC or GC", "sourceRef": 1},
+        {"id": "N3", "label": "Separate analytes", "role": "green", "shape": "process", "detail": "Differential elution", "sourceRef": 1},
+        {"id": "N4", "label": "Detect peaks", "role": "green", "shape": "process", "detail": "UV / MS / FID", "sourceRef": 2},
+        {"id": "N5", "label": "Baseline resolved?", "role": "blue", "shape": "decision", "detail": "Resolution > 1.5", "sourceRef": 2},
+        {"id": "N6", "label": "Optimize gradient", "role": "green", "shape": "process", "detail": "Improve separation", "sourceRef": 1},
+        {"id": "N7", "label": "Integrate peak areas", "role": "green", "shape": "process", "detail": "Analyte and IS", "sourceRef": 0},
+        {"id": "N8", "label": "Response factor vs IS", "role": "green", "shape": "process", "detail": "Area ratio normalization", "sourceRef": 0},
+        {"id": "N9", "label": "Apply calibration", "role": "green", "shape": "process", "detail": "Ratio to concentration", "sourceRef": 0},
+        {"id": "N10", "label": "Analyte concentration", "role": "violet", "shape": "process", "detail": "Reported result", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"},
+        {"from": "N5", "to": "N6", "label": "no"}, {"from": "N6", "to": "N2", "label": "re-run"}, {"from": "N5", "to": "N7", "label": "yes"},
+        {"from": "N7", "to": "N8"}, {"from": "N8", "to": "N9"}, {"from": "N9", "to": "N10"}
+      ]
+    },
+    {
+      "id": "analytical_chemistry-sample-preparation-workflow",
+      "name": "Sample Preparation Workflow",
+      "description": "Sample preparation turns a raw sample into an analysis-ready solution: take a representative subsample, digest solids or extract/clean up liquids, remove matrix interferences, adjust to the working concentration range, then preserve and label the aliquot.",
+      "graphType": "cyclic_pathway",
+      "domainContext": "Sample preparation",
+      "namedCollections": ["analytical-chemistry"],
+      "keywords": ["sample preparation", "digestion", "solid-phase extraction", "matrix effect", "clean-up"],
+      "basis": "source_extraction:analytical_chemistry-sample-preparation-workflow",
+      "sources": [
+        {"title": "Sample Preparation Techniques in Analytical Chemistry", "authors": "Mitra, S. (ed.)", "journal": "Wiley-Interscience", "year": "2003", "doi": "10.1002/0471457817", "url": "https://doi.org/10.1002/0471457817"},
+        {"title": "Quantitative Chemical Analysis, 9th ed. — Sample Preparation", "authors": "Harris, D. C.", "journal": "W. H. Freeman", "year": "2015", "doi": null, "url": "https://www.macmillanlearning.com/college/us/product/Quantitative-Chemical-Analysis/p/146413538X"},
+        {"title": "Solid-phase extraction: principles, techniques, and applications", "authors": "Simpson, N. J. K. (ed.)", "journal": "Marcel Dekker", "year": "2000", "doi": "10.1201/9780367801069", "url": "https://doi.org/10.1201/9780367801069"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Raw sample", "role": "red", "shape": "process", "detail": "As received", "sourceRef": 1},
+        {"id": "N2", "label": "Representative subsample", "role": "green", "shape": "process", "detail": "Homogenize + aliquot", "sourceRef": 1},
+        {"id": "N3", "label": "Solid or liquid?", "role": "blue", "shape": "decision", "detail": "Choose pathway", "sourceRef": 0},
+        {"id": "N4", "label": "Digest / dissolve", "role": "green", "shape": "process", "detail": "Acid or microwave digestion", "sourceRef": 0},
+        {"id": "N5", "label": "Extract / clean-up (SPE)", "role": "green", "shape": "process", "detail": "Isolate analytes", "sourceRef": 2},
+        {"id": "N6", "label": "Interference removed?", "role": "blue", "shape": "decision", "detail": "Matrix effects check", "sourceRef": 0},
+        {"id": "N7", "label": "Additional clean-up", "role": "green", "shape": "process", "detail": "Further purification", "sourceRef": 2},
+        {"id": "N8", "label": "Adjust to working range", "role": "green", "shape": "process", "detail": "Concentrate or dilute", "sourceRef": 1},
+        {"id": "N9", "label": "Preserve + label aliquot", "role": "green", "shape": "process", "detail": "Stabilize, document", "sourceRef": 1},
+        {"id": "N10", "label": "Analysis-ready sample", "role": "violet", "shape": "process", "detail": "Ready for instrument", "sourceRef": 1}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"},
+        {"from": "N3", "to": "N4", "label": "solid"}, {"from": "N3", "to": "N5", "label": "liquid"}, {"from": "N4", "to": "N5"},
+        {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7", "label": "no"}, {"from": "N7", "to": "N5", "label": "repeat"}, {"from": "N6", "to": "N8", "label": "yes"}, {"from": "N8", "to": "N9"}, {"from": "N9", "to": "N10"}
+      ]
+    },
+    {
+      "id": "analytical_chemistry-quality-control-and-method-validation",
+      "name": "Method Validation (QC)",
+      "description": "Validating an analytical method demonstrates fitness for purpose by establishing specificity, linearity and range, accuracy and precision, and detection/quantitation limits; failing criteria trigger method adjustment, and robustness plus system suitability finalize validation.",
+      "graphType": "cyclic_pathway",
+      "domainContext": "Method validation",
+      "namedCollections": ["analytical-chemistry"],
+      "keywords": ["method validation", "specificity", "accuracy precision", "LOD LOQ", "robustness"],
+      "basis": "source_extraction:analytical_chemistry-quality-control-and-method-validation",
+      "sources": [
+        {"title": "ICH Q2(R1): Validation of Analytical Procedures: Text and Methodology", "authors": "International Council for Harmonisation", "journal": "ICH Harmonised Tripartite Guideline", "year": "2005", "doi": null, "url": "https://database.ich.org/sites/default/files/Q2%28R1%29%20Guideline.pdf"},
+        {"title": "The Fitness for Purpose of Analytical Methods (Eurachem Guide), 2nd ed.", "authors": "Magnusson, B.; Örnemark, U. (eds.)", "journal": "Eurachem", "year": "2014", "doi": null, "url": "https://www.eurachem.org/index.php/publications/guides/mv"},
+        {"title": "Quantitative Chemical Analysis, 9th ed. — Quality Assurance and Calibration", "authors": "Harris, D. C.", "journal": "W. H. Freeman", "year": "2015", "doi": null, "url": "https://www.macmillanlearning.com/college/us/product/Quantitative-Chemical-Analysis/p/146413538X"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Analytical method", "role": "red", "shape": "process", "detail": "Procedure to validate", "sourceRef": 0},
+        {"id": "N2", "label": "Define parameters", "role": "green", "shape": "process", "detail": "Validation plan", "sourceRef": 1},
+        {"id": "N3", "label": "Assess specificity", "role": "green", "shape": "process", "detail": "Resolve analyte from matrix", "sourceRef": 0},
+        {"id": "N4", "label": "Linearity + range", "role": "green", "shape": "process", "detail": "Calibration behavior", "sourceRef": 0},
+        {"id": "N5", "label": "Accuracy + precision", "role": "green", "shape": "process", "detail": "Recovery and repeatability", "sourceRef": 0},
+        {"id": "N6", "label": "LOD / LOQ", "role": "green", "shape": "process", "detail": "Detection limits", "sourceRef": 0},
+        {"id": "N7", "label": "Criteria met?", "role": "blue", "shape": "decision", "detail": "Acceptance thresholds", "sourceRef": 1},
+        {"id": "N8", "label": "Adjust method", "role": "green", "shape": "process", "detail": "Modify and revalidate", "sourceRef": 1},
+        {"id": "N9", "label": "Robustness + suitability", "role": "green", "shape": "process", "detail": "Stress and system checks", "sourceRef": 0},
+        {"id": "N10", "label": "Validated method", "role": "violet", "shape": "process", "detail": "Fit for purpose", "sourceRef": 2}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"}, {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7"},
+        {"from": "N7", "to": "N8", "label": "no"}, {"from": "N8", "to": "N2", "label": "revalidate"}, {"from": "N7", "to": "N9", "label": "yes"}, {"from": "N9", "to": "N10"}
+      ]
+    },
+    {
+      "id": "analytical_chemistry-calibration-curve-construction",
+      "name": "Calibration Curve Construction",
+      "description": "A calibration curve relates instrument signal to concentration: measure a standard series, regress signal on concentration, reject outliers or re-prepare if the fit is poor, confirm the linear dynamic range, and use the fitted equation to quantify unknowns.",
+      "graphType": "cyclic_pathway",
+      "domainContext": "Instrument calibration",
+      "namedCollections": ["analytical-chemistry"],
+      "keywords": ["calibration curve", "linear regression", "linear dynamic range", "standards", "quantitation"],
+      "basis": "source_extraction:analytical_chemistry-calibration-curve-construction",
+      "sources": [
+        {"title": "Statistics and Chemometrics for Analytical Chemistry, 6th ed. — Calibration", "authors": "Miller, J. N.; Miller, J. C.", "journal": "Pearson", "year": "2010", "doi": null, "url": "https://www.pearson.com/en-gb/subject-catalog/p/statistics-and-chemometrics-for-analytical-chemistry/P200000005060"},
+        {"title": "Quantitative Chemical Analysis, 9th ed. — Calibration Methods", "authors": "Harris, D. C.", "journal": "W. H. Freeman", "year": "2015", "doi": null, "url": "https://www.macmillanlearning.com/college/us/product/Quantitative-Chemical-Analysis/p/146413538X"},
+        {"title": "Guidelines for calibration in analytical chemistry (IUPAC)", "authors": "Danzer, K.; Currie, L. A.", "journal": "Pure and Applied Chemistry", "year": "1998", "doi": "10.1351/pac199870040993", "url": "https://doi.org/10.1351/pac199870040993"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Prepare standard series", "role": "red", "shape": "process", "detail": "Range of concentrations", "sourceRef": 1},
+        {"id": "N2", "label": "Measure response", "role": "green", "shape": "process", "detail": "Instrument signal per standard", "sourceRef": 1},
+        {"id": "N3", "label": "Plot signal vs conc", "role": "green", "shape": "process", "detail": "Calibration data", "sourceRef": 0},
+        {"id": "N4", "label": "Linear regression", "role": "green", "shape": "process", "detail": "Least-squares fit", "sourceRef": 2},
+        {"id": "N5", "label": "R² acceptable?", "role": "blue", "shape": "decision", "detail": "Goodness of fit", "sourceRef": 0},
+        {"id": "N6", "label": "Reject outlier / re-prep", "role": "green", "shape": "process", "detail": "Diagnose deviation", "sourceRef": 0},
+        {"id": "N7", "label": "Within dynamic range?", "role": "blue", "shape": "decision", "detail": "Saturation at high end", "sourceRef": 2},
+        {"id": "N8", "label": "Dilute high standards", "role": "green", "shape": "process", "detail": "Stay in linear range", "sourceRef": 0},
+        {"id": "N9", "label": "Equation y = mx + b", "role": "green", "shape": "process", "detail": "Calibration model", "sourceRef": 2},
+        {"id": "N10", "label": "Quantify unknowns", "role": "violet", "shape": "process", "detail": "Apply to samples", "sourceRef": 1}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"},
+        {"from": "N5", "to": "N6", "label": "no"}, {"from": "N6", "to": "N1", "label": "re-prepare"}, {"from": "N5", "to": "N7", "label": "yes"},
+        {"from": "N7", "to": "N8", "label": "no"}, {"from": "N8", "to": "N1", "label": "re-prepare"}, {"from": "N7", "to": "N9", "label": "yes"}, {"from": "N9", "to": "N10"}
+      ]
+    }
+  ]
+}

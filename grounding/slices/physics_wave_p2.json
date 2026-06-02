@@ -1,0 +1,190 @@
+{
+  "discipline": "physics",
+  "slice": "optics+classical_mechanics",
+  "charts": [
+    {
+      "id": "optics-wave-optics",
+      "name": "Wave Optics (Interference & Diffraction)",
+      "description": "Wave optics explains interference and diffraction through the Huygens-Fresnel principle: each point on a wavefront emits secondary wavelets whose amplitudes superpose, and the path difference between contributions decides constructive versus destructive interference, producing the characteristic fringe intensity pattern set by wavelength and aperture geometry.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Physical (wave) optics",
+      "keywords": ["wave optics", "interference", "diffraction", "Huygens-Fresnel", "fringe pattern"],
+      "basis": "source_extraction:optics-wave-optics",
+      "sources": [
+        {"title": "The Bakerian Lecture: Experiments and calculations relative to physical optics", "authors": "Young, T.", "journal": "Philosophical Transactions of the Royal Society", "year": "1804", "doi": "10.1098/rstl.1804.0001", "url": "https://doi.org/10.1098/rstl.1804.0001"},
+        {"title": "Principles of Optics (7th ed.)", "authors": "Born, M.; Wolf, E.", "journal": "Cambridge University Press", "year": "1999", "doi": "10.1017/CBO9781139644181", "url": "https://doi.org/10.1017/CBO9781139644181"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Coherent light source", "role": "red", "shape": "process", "detail": "Fixed phase relation", "sourceRef": 0},
+        {"id": "N2", "label": "Huygens-Fresnel wavelets", "role": "green", "shape": "process", "detail": "Secondary sources", "sourceRef": 1},
+        {"id": "N3", "label": "Superpose amplitudes", "role": "green", "shape": "process", "detail": "Add complex fields", "sourceRef": 1},
+        {"id": "N4", "label": "Path difference delta", "role": "blue", "shape": "process", "detail": "Optical path gap", "sourceRef": 0},
+        {"id": "N5", "label": "Constructive or destructive?", "role": "blue", "shape": "decision", "detail": "Phase relationship", "sourceRef": 0},
+        {"id": "N6", "label": "delta = m*lambda: bright", "role": "green", "shape": "process", "detail": "In phase", "sourceRef": 0},
+        {"id": "N7", "label": "Half-integer: dark fringe", "role": "green", "shape": "process", "detail": "Out of phase", "sourceRef": 0},
+        {"id": "N8", "label": "Build fringe pattern", "role": "green", "shape": "process", "detail": "Maxima and minima", "sourceRef": 1},
+        {"id": "N9", "label": "Aperture / slit width", "role": "green", "shape": "process", "detail": "Diffraction envelope", "sourceRef": 1},
+        {"id": "N10", "label": "Intensity pattern I(theta)", "role": "violet", "shape": "process", "detail": "Observable result", "sourceRef": 1}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"},
+        {"from": "N5", "to": "N6", "label": "integer"}, {"from": "N5", "to": "N7", "label": "half"},
+        {"from": "N6", "to": "N8"}, {"from": "N7", "to": "N8"}, {"from": "N8", "to": "N9"}, {"from": "N9", "to": "N10"}
+      ]
+    },
+    {
+      "id": "optics-geometric-optics",
+      "name": "Geometric Optics (Ray Tracing)",
+      "description": "Geometric optics treats light as rays governed by reflection and refraction: principal rays are traced through a mirror or lens, the law of reflection or Snell's law sets ray directions, and the thin-lens/mirror equation locates the image, classifying it as real or virtual with a magnification from the object and image distances.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Ray (geometric) optics",
+      "keywords": ["geometric optics", "ray tracing", "Snell's law", "thin-lens equation", "image formation"],
+      "basis": "source_extraction:optics-geometric-optics",
+      "sources": [
+        {"title": "Optics (5th ed.)", "authors": "Hecht, E.", "journal": "Pearson", "year": "2017", "url": "https://www.pearson.com/en-us/subject-catalog/p/optics/P200000006793"},
+        {"title": "Principles of Optics (7th ed.)", "authors": "Born, M.; Wolf, E.", "journal": "Cambridge University Press", "year": "1999", "doi": "10.1017/CBO9781139644181", "url": "https://doi.org/10.1017/CBO9781139644181"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Object + optical element", "role": "red", "shape": "process", "detail": "Lens or mirror", "sourceRef": 0},
+        {"id": "N2", "label": "Treat light as rays", "role": "green", "shape": "process", "detail": "Short-wavelength limit", "sourceRef": 1},
+        {"id": "N3", "label": "Reflection or refraction?", "role": "blue", "shape": "decision", "detail": "Element type", "sourceRef": 0},
+        {"id": "N4", "label": "Law of reflection", "role": "green", "shape": "process", "detail": "Angle in = angle out", "sourceRef": 0},
+        {"id": "N5", "label": "Refraction: Snell's law", "role": "green", "shape": "process", "detail": "n1 sin = n2 sin", "sourceRef": 0},
+        {"id": "N6", "label": "Trace principal rays", "role": "green", "shape": "process", "detail": "Parallel, focal, center", "sourceRef": 0},
+        {"id": "N7", "label": "Thin-lens / mirror eqn", "role": "green", "shape": "process", "detail": "Gaussian formula", "sourceRef": 1},
+        {"id": "N8", "label": "Solve 1/f = 1/do + 1/di", "role": "blue", "shape": "process", "detail": "Image distance di", "sourceRef": 1},
+        {"id": "N9", "label": "Real or virtual image?", "role": "blue", "shape": "decision", "detail": "Sign of di", "sourceRef": 0},
+        {"id": "N10", "label": "Image position & sign", "role": "violet", "shape": "process", "detail": "m = -di/do", "sourceRef": 1}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"},
+        {"from": "N3", "to": "N4", "label": "reflect"}, {"from": "N3", "to": "N5", "label": "refract"},
+        {"from": "N4", "to": "N6"}, {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7"}, {"from": "N7", "to": "N8"}, {"from": "N8", "to": "N9"},
+        {"from": "N9", "to": "N10", "label": "real"}, {"from": "N9", "to": "N10", "label": "virtual"}
+      ]
+    },
+    {
+      "id": "optics-quantum-optics",
+      "name": "Quantum Optics (Photon Statistics)",
+      "description": "Quantum optics quantizes the electromagnetic field into photon number states and characterizes light by photon statistics: a Hanbury Brown-Twiss setup measures the second-order correlation g2(0), distinguishing coherent, thermal, and single-photon sources, where antibunching with g2(0) < 1 signals genuinely nonclassical light.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Quantum optics",
+      "keywords": ["quantum optics", "photon statistics", "Hanbury Brown-Twiss", "antibunching", "second-order coherence"],
+      "basis": "source_extraction:optics-quantum-optics",
+      "sources": [
+        {"title": "Correlation between photons in two coherent beams of light", "authors": "Hanbury Brown, R.; Twiss, R. Q.", "journal": "Nature", "year": "1956", "doi": "10.1038/178058a0", "url": "https://doi.org/10.1038/178058a0"},
+        {"title": "The quantum theory of optical coherence", "authors": "Glauber, R. J.", "journal": "Physical Review", "year": "1963", "doi": "10.1103/PhysRev.130.2529", "url": "https://doi.org/10.1103/PhysRev.130.2529"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Quantize EM field", "role": "red", "shape": "process", "detail": "Field as oscillators", "sourceRef": 1},
+        {"id": "N2", "label": "Photon number states |n>", "role": "green", "shape": "process", "detail": "Fock basis", "sourceRef": 1},
+        {"id": "N3", "label": "Choose light source", "role": "blue", "shape": "decision", "detail": "Statistical character", "sourceRef": 1},
+        {"id": "N4", "label": "Coherent state (laser)", "role": "green", "shape": "process", "detail": "Poissonian", "sourceRef": 1},
+        {"id": "N5", "label": "Single-photon source", "role": "green", "shape": "process", "detail": "Sub-Poissonian", "sourceRef": 0},
+        {"id": "N6", "label": "Thermal source", "role": "green", "shape": "process", "detail": "Super-Poissonian", "sourceRef": 0},
+        {"id": "N7", "label": "Hanbury Brown-Twiss", "role": "green", "shape": "process", "detail": "Beam splitter + 2 detectors", "sourceRef": 0},
+        {"id": "N8", "label": "Measure g2(0)", "role": "blue", "shape": "process", "detail": "Coincidence rate", "sourceRef": 1},
+        {"id": "N9", "label": "g2(0) < 1?", "role": "blue", "shape": "decision", "detail": "Antibunching test", "sourceRef": 1},
+        {"id": "N10", "label": "Antibunched: nonclassical", "role": "green", "shape": "process", "detail": "No classical analog", "sourceRef": 1},
+        {"id": "N11", "label": "Photon statistics result", "role": "violet", "shape": "process", "detail": "Source classified", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"},
+        {"from": "N3", "to": "N4", "label": "coherent"}, {"from": "N3", "to": "N5", "label": "single"}, {"from": "N3", "to": "N6", "label": "thermal"},
+        {"from": "N4", "to": "N7"}, {"from": "N5", "to": "N7"}, {"from": "N6", "to": "N7"}, {"from": "N7", "to": "N8"}, {"from": "N8", "to": "N9"},
+        {"from": "N9", "to": "N10", "label": "yes"}, {"from": "N10", "to": "N11"}, {"from": "N9", "to": "N11", "label": "no"}
+      ]
+    },
+    {
+      "id": "classical_mechanics-newtonian-dynamics",
+      "name": "Newtonian Dynamics",
+      "description": "Newtonian dynamics solves motion from forces: free-body diagrams identify every force on each body, a coordinate system is chosen, and Newton's second law F = ma is written per body; constraint forces are added as needed, giving equations of motion that integrate to the trajectory x(t) and velocity v(t).",
+      "graphType": "decision_flowchart",
+      "domainContext": "Classical mechanics",
+      "keywords": ["Newton's laws", "free-body diagram", "equations of motion", "force", "trajectory"],
+      "basis": "source_extraction:classical_mechanics-newtonian-dynamics",
+      "sources": [
+        {"title": "Philosophiae Naturalis Principia Mathematica", "authors": "Newton, I.", "journal": "Royal Society", "year": "1687", "url": "https://www.gutenberg.org/ebooks/28233"},
+        {"title": "Classical Mechanics", "authors": "Taylor, J. R.", "journal": "University Science Books", "year": "2005", "url": "https://uscibooks.aip.org/books/classical-mechanics/"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "System of bodies", "role": "red", "shape": "process", "detail": "Define what moves", "sourceRef": 1},
+        {"id": "N2", "label": "Draw free-body diagrams", "role": "green", "shape": "process", "detail": "Isolate each body", "sourceRef": 1},
+        {"id": "N3", "label": "Identify all forces", "role": "green", "shape": "process", "detail": "Gravity, normal, friction", "sourceRef": 1},
+        {"id": "N4", "label": "Choose coordinates", "role": "green", "shape": "process", "detail": "Axes / frame", "sourceRef": 1},
+        {"id": "N5", "label": "Apply F = ma each body", "role": "green", "shape": "process", "detail": "Second law", "sourceRef": 0},
+        {"id": "N6", "label": "Constraints present?", "role": "blue", "shape": "decision", "detail": "Contacts, rigid links", "sourceRef": 1},
+        {"id": "N7", "label": "Add constraint forces", "role": "green", "shape": "process", "detail": "Tension, normal", "sourceRef": 1},
+        {"id": "N8", "label": "Equations of motion", "role": "blue", "shape": "process", "detail": "Coupled ODEs", "sourceRef": 1},
+        {"id": "N9", "label": "Integrate for x(t), v(t)", "role": "green", "shape": "process", "detail": "With initial data", "sourceRef": 1},
+        {"id": "N10", "label": "Trajectory & dynamics", "role": "violet", "shape": "process", "detail": "Full motion", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"}, {"from": "N5", "to": "N6"},
+        {"from": "N6", "to": "N7", "label": "yes"}, {"from": "N7", "to": "N5", "label": "include"}, {"from": "N6", "to": "N8", "label": "no"}, {"from": "N8", "to": "N9"}, {"from": "N9", "to": "N10"}
+      ]
+    },
+    {
+      "id": "classical_mechanics-lagrangian-mechanics",
+      "name": "Lagrangian Mechanics",
+      "description": "Lagrangian mechanics derives equations of motion from a scalar: generalized coordinates are chosen, the Lagrangian L = T - V is formed, holonomic constraints reduce the degrees of freedom, and the Euler-Lagrange equations following from the principle of stationary action yield the equations of motion to be solved.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Analytical mechanics",
+      "keywords": ["Lagrangian mechanics", "generalized coordinates", "Euler-Lagrange equations", "principle of least action", "holonomic constraints"],
+      "basis": "source_extraction:classical_mechanics-lagrangian-mechanics",
+      "sources": [
+        {"title": "Mechanique Analytique", "authors": "Lagrange, J. L.", "journal": "Paris", "year": "1788", "url": "https://archive.org/details/mcaniqueanalyt01lagr"},
+        {"title": "Classical Mechanics (3rd ed.)", "authors": "Goldstein, H.; Poole, C.; Safko, J.", "journal": "Addison-Wesley", "year": "2002", "url": "https://www.pearson.com/en-us/subject-catalog/p/classical-mechanics/P200000006108"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Mechanical system", "role": "red", "shape": "process", "detail": "Particles + potentials", "sourceRef": 1},
+        {"id": "N2", "label": "Choose generalized coords", "role": "green", "shape": "process", "detail": "q_i fit constraints", "sourceRef": 1},
+        {"id": "N3", "label": "Write kinetic T, potential V", "role": "green", "shape": "process", "detail": "Energies in q, qdot", "sourceRef": 1},
+        {"id": "N4", "label": "Lagrangian L = T - V", "role": "blue", "shape": "process", "detail": "Scalar function", "sourceRef": 0},
+        {"id": "N5", "label": "Holonomic constraints?", "role": "blue", "shape": "decision", "detail": "Reduce coordinates", "sourceRef": 1},
+        {"id": "N6", "label": "Reduce DOF / multipliers", "role": "green", "shape": "process", "detail": "Lagrange multipliers", "sourceRef": 1},
+        {"id": "N7", "label": "Euler-Lagrange equations", "role": "green", "shape": "process", "detail": "Stationary action", "sourceRef": 0},
+        {"id": "N8", "label": "d/dt(dL/dqdot)=dL/dq", "role": "green", "shape": "process", "detail": "Per coordinate", "sourceRef": 0},
+        {"id": "N9", "label": "Equations of motion", "role": "blue", "shape": "process", "detail": "Second-order ODEs", "sourceRef": 1},
+        {"id": "N10", "label": "Solve trajectories", "role": "green", "shape": "process", "detail": "Apply initial data", "sourceRef": 1},
+        {"id": "N11", "label": "System evolution", "role": "violet", "shape": "process", "detail": "q_i(t)", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"},
+        {"from": "N5", "to": "N6", "label": "yes"}, {"from": "N6", "to": "N7"}, {"from": "N5", "to": "N7", "label": "no"},
+        {"from": "N7", "to": "N8"}, {"from": "N8", "to": "N9"}, {"from": "N9", "to": "N10"}, {"from": "N10", "to": "N11"}
+      ]
+    },
+    {
+      "id": "classical_mechanics-hamiltonian-mechanics",
+      "name": "Hamiltonian Mechanics",
+      "description": "Hamiltonian mechanics recasts dynamics in phase space: conjugate momenta are defined from the Lagrangian and a Legendre transform builds the Hamiltonian H(q,p,t); when time does not appear explicitly H is the conserved energy, and Hamilton's canonical equations give first-order flow of position and momentum.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Analytical mechanics",
+      "keywords": ["Hamiltonian mechanics", "phase space", "Legendre transform", "canonical equations", "conjugate momentum"],
+      "basis": "source_extraction:classical_mechanics-hamiltonian-mechanics",
+      "sources": [
+        {"title": "On a general method in dynamics", "authors": "Hamilton, W. R.", "journal": "Philosophical Transactions of the Royal Society", "year": "1834", "doi": "10.1098/rstl.1834.0017", "url": "https://doi.org/10.1098/rstl.1834.0017"},
+        {"title": "Mechanics (3rd ed., Course of Theoretical Physics Vol. 1)", "authors": "Landau, L. D.; Lifshitz, E. M.", "journal": "Butterworth-Heinemann", "year": "1976", "url": "https://www.elsevier.com/books/mechanics/landau/978-0-7506-2896-9"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Start from Lagrangian", "role": "red", "shape": "process", "detail": "L(q, qdot, t)", "sourceRef": 1},
+        {"id": "N2", "label": "Define conjugate momenta", "role": "green", "shape": "process", "detail": "p = dL/dqdot", "sourceRef": 1},
+        {"id": "N3", "label": "Legendre transform", "role": "green", "shape": "process", "detail": "Swap qdot for p", "sourceRef": 0},
+        {"id": "N4", "label": "Hamiltonian H(q,p,t)", "role": "blue", "shape": "process", "detail": "Phase-space function", "sourceRef": 0},
+        {"id": "N5", "label": "H = total energy?", "role": "blue", "shape": "decision", "detail": "Time dependence", "sourceRef": 1},
+        {"id": "N6", "label": "Time-indep: H conserved", "role": "green", "shape": "process", "detail": "Energy constant", "sourceRef": 1},
+        {"id": "N7", "label": "Explicit time dependence", "role": "green", "shape": "process", "detail": "dH/dt = -dL/dt", "sourceRef": 1},
+        {"id": "N8", "label": "Hamilton's equations", "role": "green", "shape": "process", "detail": "Canonical form", "sourceRef": 0},
+        {"id": "N9", "label": "qdot=dH/dp, pdot=-dH/dq", "role": "green", "shape": "process", "detail": "First-order flow", "sourceRef": 0},
+        {"id": "N10", "label": "Evolve in phase space", "role": "green", "shape": "process", "detail": "Integrate (q,p)", "sourceRef": 1},
+        {"id": "N11", "label": "Phase-space trajectory", "role": "violet", "shape": "process", "detail": "Flow in (q,p)", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"},
+        {"from": "N5", "to": "N6", "label": "yes"}, {"from": "N5", "to": "N7", "label": "no"},
+        {"from": "N6", "to": "N8"}, {"from": "N7", "to": "N8"}, {"from": "N8", "to": "N9"}, {"from": "N9", "to": "N10"}, {"from": "N10", "to": "N11"}
+      ]
+    }
+  ]
+}

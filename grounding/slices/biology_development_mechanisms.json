@@ -1,0 +1,538 @@
+{
+  "discipline": "biology",
+  "slice": "development+mechanisms",
+  "charts": [
+    {
+      "id": "development-cell-differentiation",
+      "description": "Cell differentiation: niche signals drive a master transcription-factor network that resolves a bistable lineage decision, with chromatin remodeling and cross-antagonism locking in a stable differentiated state.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Developmental cell-fate control",
+      "namedCollections": ["signaling-cell-fate"],
+      "keywords": ["differentiation", "transcription factor", "lineage", "bistability", "chromatin"],
+      "basis": "source_extraction:development-cell-differentiation",
+      "sources": [
+        {"title": "Induction of pluripotent stem cells from mouse embryonic and adult fibroblast cultures by defined factors", "authors": "Takahashi, K.; Yamanaka, S.", "journal": "Cell", "year": "2006", "pubmed": "16904174", "doi": "10.1016/j.cell.2006.07.024", "url": "https://doi.org/10.1016/j.cell.2006.07.024"},
+        {"title": "Forcing cells to change lineages", "authors": "Graf, T.; Enver, T.", "journal": "Nature", "year": "2009", "pubmed": "20010808", "doi": "10.1038/nature08533", "url": "https://doi.org/10.1038/nature08533"},
+        {"title": "Bistability, bifurcations, and Waddington's epigenetic landscape", "authors": "Ferrell, J. E. Jr.", "journal": "Current Biology", "year": "2012", "pubmed": "22575475", "doi": "10.1016/j.cub.2012.03.045", "url": "https://doi.org/10.1016/j.cub.2012.03.045"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Stem/progenitor cell", "role": "red", "shape": "process", "detail": "Multipotent starting cell", "sourceRef": 1},
+        {"id": "N2", "label": "Niche / inductive signal", "role": "red", "shape": "process", "detail": "Extracellular cue specifying fate", "sourceRef": 1},
+        {"id": "N3", "label": "Signal transduction to TFs", "role": "green", "shape": "process", "detail": "Pathway activation reaches transcription factors", "sourceRef": 1},
+        {"id": "N4", "label": "Master TF network activated", "role": "green", "shape": "process", "detail": "Lineage-determining transcription factors engaged", "sourceRef": 0},
+        {"id": "N5", "label": "Lineage decision point", "role": "blue", "shape": "decision", "detail": "Bistable choice between alternative fates", "sourceRef": 2},
+        {"id": "N6", "label": "Lineage A program", "role": "green", "shape": "process", "detail": "Lineage-A gene expression program", "sourceRef": 2},
+        {"id": "N7", "label": "Lineage B program", "role": "green", "shape": "process", "detail": "Lineage-B gene expression program", "sourceRef": 2},
+        {"id": "N8", "label": "Chromatin remodeling locks fate", "role": "green", "shape": "process", "detail": "Epigenetic marks stabilize the chosen program", "sourceRef": 0},
+        {"id": "N9", "label": "Cross-antagonism stabilizes", "role": "green", "shape": "process", "detail": "Mutual repression reinforces the decision", "sourceRef": 2},
+        {"id": "N10", "label": "Differentiated cell type", "role": "violet", "shape": "process", "detail": "Stable, specialized cell", "sourceRef": 1}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N3"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"},
+        {"from": "N5", "to": "N6", "label": "lineage A"}, {"from": "N5", "to": "N7", "label": "lineage B"},
+        {"from": "N6", "to": "N8"}, {"from": "N7", "to": "N8"}, {"from": "N8", "to": "N9"}, {"from": "N9", "to": "N10"},
+        {"from": "N9", "to": "N5", "label": "reinforce"}
+      ]
+    },
+    {
+      "id": "development-circadian-clock-regulation",
+      "description": "Circadian clock: a transcription-translation feedback loop in which CLOCK-BMAL1 drives Per/Cry expression, and accumulating PER/CRY repress their own activators, generating a self-sustaining ~24 h oscillation.",
+      "graphType": "mechanism_flowchart",
+      "domainContext": "Circadian timekeeping",
+      "namedCollections": ["signaling-cell-fate"],
+      "keywords": ["circadian", "clock-bmal1", "per", "cry", "feedback loop", "oscillation"],
+      "basis": "source_extraction:development-circadian-clock-regulation",
+      "sources": [
+        {"title": "Transcriptional architecture of the mammalian circadian clock", "authors": "Takahashi, J. S.", "journal": "Nature Reviews Genetics", "year": "2017", "pubmed": "27990019", "doi": "10.1038/nrg.2016.150", "url": "https://doi.org/10.1038/nrg.2016.150"},
+        {"title": "Circadian rhythms from multiple oscillators: lessons from diverse organisms", "authors": "Bell-Pedersen, D.; Cassone, V. M.; Earnest, D. J.; Golden, S. S.; Hardin, P. E.; Thomas, T. L.; Zoran, M. J.", "journal": "Nature Reviews Genetics", "year": "2005", "pubmed": "15883588", "doi": "10.1038/nrg1633", "url": "https://doi.org/10.1038/nrg1633"},
+        {"title": "Molecular architecture of the mammalian circadian clock", "authors": "Partch, C. L.; Green, C. B.; Takahashi, J. S.", "journal": "Trends in Cell Biology", "year": "2014", "pubmed": "23916625", "doi": "10.1016/j.tcb.2013.07.002", "url": "https://doi.org/10.1016/j.tcb.2013.07.002"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Light entrainment cue", "role": "red", "shape": "process", "detail": "Environmental light resets the clock", "sourceRef": 1},
+        {"id": "N2", "label": "CLOCK-BMAL1 activator", "role": "green", "shape": "process", "detail": "Positive-arm transcriptional activator", "sourceRef": 0},
+        {"id": "N3", "label": "Activate Per/Cry (E-box)", "role": "green", "shape": "process", "detail": "Drives transcription of Period and Cryptochrome", "sourceRef": 2},
+        {"id": "N4", "label": "PER/CRY accumulate", "role": "blue", "shape": "process", "detail": "Repressor proteins build up in cytoplasm", "sourceRef": 0},
+        {"id": "N5", "label": "PER/CRY enter nucleus", "role": "green", "shape": "process", "detail": "Repressor complex translocates", "sourceRef": 2},
+        {"id": "N6", "label": "Repress CLOCK-BMAL1", "role": "green", "shape": "process", "detail": "Negative feedback on the activator", "sourceRef": 0},
+        {"id": "N7", "label": "Repressor threshold?", "role": "blue", "shape": "decision", "detail": "Has repressor reached the level for turnover?", "sourceRef": 2},
+        {"id": "N8", "label": "PER/CRY degraded (CK1)", "role": "green", "shape": "process", "detail": "Phosphorylation-timed degradation", "sourceRef": 2},
+        {"id": "N9", "label": "Derepression; new cycle", "role": "green", "shape": "process", "detail": "Activator freed, restarting the loop", "sourceRef": 0},
+        {"id": "N10", "label": "~24h rhythmic output", "role": "violet", "shape": "process", "detail": "Clock-controlled gene rhythms", "sourceRef": 1}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"},
+        {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7"},
+        {"from": "N7", "to": "N8", "label": "yes"}, {"from": "N7", "to": "N5", "label": "no"},
+        {"from": "N8", "to": "N9"}, {"from": "N9", "to": "N2", "label": "new cycle"}, {"from": "N6", "to": "N10"}
+      ]
+    },
+    {
+      "id": "development-epithelial-mesenchymal-transition",
+      "description": "Epithelial-mesenchymal transition: TGF-beta/Wnt signals induce Snail/Zeb/Twist factors that repress E-cadherin, dissolve junctions and polarity, and confer a migratory mesenchymal phenotype that can revert via MET.",
+      "graphType": "mechanism_flowchart",
+      "domainContext": "Developmental cell plasticity",
+      "namedCollections": ["signaling-cell-fate"],
+      "keywords": ["emt", "e-cadherin", "snail", "twist", "migration", "met"],
+      "basis": "source_extraction:development-epithelial-mesenchymal-transition",
+      "sources": [
+        {"title": "Epithelial-mesenchymal transitions in development and disease", "authors": "Thiery, J. P.; Acloque, H.; Huang, R. Y.; Nieto, M. A.", "journal": "Cell", "year": "2009", "pubmed": "19945376", "doi": "10.1016/j.cell.2009.11.007", "url": "https://doi.org/10.1016/j.cell.2009.11.007"},
+        {"title": "EMT: 2016", "authors": "Nieto, M. A.; Huang, R. Y.; Jackson, R. A.; Thiery, J. P.", "journal": "Cell", "year": "2016", "pubmed": "27368099", "doi": "10.1016/j.cell.2016.06.028", "url": "https://doi.org/10.1016/j.cell.2016.06.028"},
+        {"title": "Molecular mechanisms of epithelial-mesenchymal transition", "authors": "Lamouille, S.; Xu, J.; Derynck, R.", "journal": "Nature Reviews Molecular Cell Biology", "year": "2014", "pubmed": "24556840", "doi": "10.1038/nrm3758", "url": "https://doi.org/10.1038/nrm3758"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "TGF-b / Wnt signal", "role": "red", "shape": "process", "detail": "EMT-inducing extracellular signal", "sourceRef": 2},
+        {"id": "N2", "label": "Receptor signaling (SMAD)", "role": "green", "shape": "process", "detail": "Intracellular transduction to the nucleus", "sourceRef": 2},
+        {"id": "N3", "label": "EMT-TFs: Snail/Zeb/Twist", "role": "green", "shape": "process", "detail": "Induction of EMT transcription factors", "sourceRef": 0},
+        {"id": "N4", "label": "Repress E-cadherin (CDH1)", "role": "green", "shape": "process", "detail": "Transcriptional repression of E-cadherin", "sourceRef": 0},
+        {"id": "N5", "label": "Loss of cell-cell junctions", "role": "blue", "shape": "process", "detail": "Adherens junctions dismantled", "sourceRef": 0},
+        {"id": "N6", "label": "Cytoskeletal remodeling", "role": "green", "shape": "process", "detail": "Actin reorganization for motility", "sourceRef": 2},
+        {"id": "N7", "label": "Gain N-cadherin/vimentin", "role": "green", "shape": "process", "detail": "Mesenchymal marker expression", "sourceRef": 1},
+        {"id": "N8", "label": "Apical-basal polarity lost", "role": "blue", "shape": "process", "detail": "Front-rear polarity established", "sourceRef": 2},
+        {"id": "N9", "label": "Migratory/invasive cell", "role": "violet", "shape": "process", "detail": "Motile mesenchymal cell", "sourceRef": 1},
+        {"id": "N10", "label": "Revert via MET?", "role": "blue", "shape": "decision", "detail": "Mesenchymal-epithelial transition checkpoint", "sourceRef": 1},
+        {"id": "N11", "label": "Epithelial state restored", "role": "violet", "shape": "process", "detail": "Re-epithelialization at destination", "sourceRef": 1}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"},
+        {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7"}, {"from": "N7", "to": "N8"}, {"from": "N8", "to": "N9"}, {"from": "N9", "to": "N10"},
+        {"from": "N10", "to": "N11", "label": "MET"}, {"from": "N10", "to": "N9", "label": "persist"}
+      ]
+    },
+    {
+      "id": "development-morphogen-gradient-patterning",
+      "description": "Morphogen gradient patterning: a localized source secretes a diffusible morphogen whose concentration gradient is read by cells against thresholds to switch on distinct target genes, with feedback shaping the gradient.",
+      "graphType": "mechanism_flowchart",
+      "domainContext": "Developmental spatial patterning",
+      "namedCollections": ["signaling-cell-fate"],
+      "keywords": ["morphogen", "gradient", "positional information", "threshold", "patterning"],
+      "basis": "source_extraction:development-morphogen-gradient-patterning",
+      "sources": [
+        {"title": "Positional information and the spatial pattern of cellular differentiation", "authors": "Wolpert, L.", "journal": "Journal of Theoretical Biology", "year": "1969", "pubmed": "4390734", "doi": "10.1016/S0022-5193(69)80016-0", "url": "https://doi.org/10.1016/S0022-5193(69)80016-0"},
+        {"title": "Morphogen gradients: from generation to interpretation", "authors": "Rogers, K. W.; Schier, A. F.", "journal": "Annual Review of Cell and Developmental Biology", "year": "2011", "pubmed": "21801015", "doi": "10.1146/annurev-cellbio-092910-154148", "url": "https://doi.org/10.1146/annurev-cellbio-092910-154148"},
+        {"title": "Morphogen rules: design principles of gradient-mediated embryo patterning", "authors": "Briscoe, J.; Small, S.", "journal": "Development", "year": "2015", "pubmed": "26534981", "doi": "10.1242/dev.129452", "url": "https://doi.org/10.1242/dev.129452"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Localized morphogen source", "role": "red", "shape": "process", "detail": "Cells producing the morphogen", "sourceRef": 0},
+        {"id": "N2", "label": "Secretion + diffusion", "role": "green", "shape": "process", "detail": "Morphogen spreads from the source", "sourceRef": 1},
+        {"id": "N3", "label": "Concentration gradient forms", "role": "blue", "shape": "process", "detail": "Graded distribution across the field", "sourceRef": 1},
+        {"id": "N4", "label": "Cell senses local conc.", "role": "green", "shape": "process", "detail": "Receptor reads local morphogen level", "sourceRef": 0},
+        {"id": "N5", "label": "Above threshold?", "role": "blue", "shape": "decision", "detail": "Concentration compared to gene thresholds", "sourceRef": 2},
+        {"id": "N6", "label": "High-threshold gene on", "role": "green", "shape": "process", "detail": "High-concentration target gene activated", "sourceRef": 2},
+        {"id": "N7", "label": "Low-threshold gene on", "role": "green", "shape": "process", "detail": "Low-concentration target gene activated", "sourceRef": 2},
+        {"id": "N8", "label": "Distinct expression domains", "role": "green", "shape": "process", "detail": "Sharp boundaries of gene expression", "sourceRef": 2},
+        {"id": "N9", "label": "Feedback shapes gradient", "role": "green", "shape": "process", "detail": "Receptor/inhibitor feedback refines the profile", "sourceRef": 1},
+        {"id": "N10", "label": "Spatial pattern of fates", "role": "violet", "shape": "process", "detail": "Ordered array of cell identities", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"},
+        {"from": "N5", "to": "N6", "label": "high"}, {"from": "N5", "to": "N7", "label": "low"},
+        {"from": "N6", "to": "N8"}, {"from": "N7", "to": "N8"}, {"from": "N8", "to": "N9"}, {"from": "N9", "to": "N10"},
+        {"from": "N9", "to": "N3", "label": "refine"}
+      ]
+    },
+    {
+      "id": "development-plant-hormone-auxin-signaling",
+      "description": "Auxin signaling: rising auxin promotes TIR1/AFB-mediated ubiquitination and degradation of Aux/IAA repressors, freeing ARF transcription factors to drive auxin-response genes, with negative feedback from re-synthesized repressors.",
+      "graphType": "mechanism_flowchart",
+      "domainContext": "Plant hormone signaling",
+      "namedCollections": ["signaling-cell-fate"],
+      "keywords": ["auxin", "tir1", "aux/iaa", "arf", "ubiquitin", "tropism"],
+      "basis": "source_extraction:development-plant-hormone-auxin-signaling",
+      "sources": [
+        {"title": "Auxin Signaling", "authors": "Leyser, O.", "journal": "Plant Physiology", "year": "2018", "pubmed": "29109178", "doi": "10.1104/pp.17.00765", "url": "https://doi.org/10.1104/pp.17.00765"},
+        {"title": "Mechanisms of auxin signaling", "authors": "Lavy, M.; Estelle, M.", "journal": "Development", "year": "2016", "pubmed": "27578174", "doi": "10.1242/dev.131870", "url": "https://doi.org/10.1242/dev.131870"},
+        {"title": "Transcriptional Responses to the Auxin Hormone", "authors": "Weijers, D.; Wagner, D.", "journal": "Annual Review of Plant Biology", "year": "2016", "pubmed": "26905656", "doi": "10.1146/annurev-arplant-043015-112122", "url": "https://doi.org/10.1146/annurev-arplant-043015-112122"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Auxin (IAA) level rises", "role": "red", "shape": "process", "detail": "Increase in cellular auxin", "sourceRef": 0},
+        {"id": "N2", "label": "Auxin binds TIR1/AFB", "role": "green", "shape": "process", "detail": "Auxin acts as molecular glue for the SCF-TIR1 receptor", "sourceRef": 1},
+        {"id": "N3", "label": "Aux/IAA ubiquitinated", "role": "green", "shape": "process", "detail": "Repressors tagged for degradation", "sourceRef": 1},
+        {"id": "N4", "label": "Aux/IAA degraded", "role": "green", "shape": "process", "detail": "Proteasome removes the repressors", "sourceRef": 1},
+        {"id": "N5", "label": "ARF factors freed", "role": "green", "shape": "process", "detail": "Auxin Response Factors de-repressed", "sourceRef": 2},
+        {"id": "N6", "label": "Auxin-response genes on", "role": "green", "shape": "process", "detail": "Transcription of auxin targets", "sourceRef": 2},
+        {"id": "N7", "label": "Auxin now low?", "role": "blue", "shape": "decision", "detail": "Has auxin dropped below the response level?", "sourceRef": 0},
+        {"id": "N8", "label": "Aux/IAA re-accumulate", "role": "green", "shape": "process", "detail": "Newly made repressors restore repression", "sourceRef": 0},
+        {"id": "N9", "label": "Growth / tropism response", "role": "violet", "shape": "process", "detail": "Differential growth output", "sourceRef": 2}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"},
+        {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7"},
+        {"from": "N7", "to": "N8", "label": "low"}, {"from": "N8", "to": "N5", "label": "repress"},
+        {"from": "N7", "to": "N9", "label": "sufficient"}
+      ]
+    },
+    {
+      "id": "mechanisms-central-dogma",
+      "description": "Central dogma: genetic information flows from DNA to RNA by transcription, mRNA is processed and exported, and ribosomes translate codons into a polypeptide that folds into a functional protein.",
+      "graphType": "mechanism_flowchart",
+      "domainContext": "Molecular information flow",
+      "namedCollections": ["gene-expression"],
+      "keywords": ["central dogma", "transcription", "translation", "mrna", "protein"],
+      "basis": "source_extraction:mechanisms-central-dogma",
+      "sources": [
+        {"title": "Central dogma of molecular biology", "authors": "Crick, F.", "journal": "Nature", "year": "1970", "pubmed": "4913914", "doi": "10.1038/227561a0", "url": "https://doi.org/10.1038/227561a0"},
+        {"title": "Molecular Biology of the Cell (From DNA to RNA / RNA to Protein)", "authors": "Alberts, B.; Johnson, A.; Lewis, J.; Raff, M.; Roberts, K.; Walter, P.", "journal": "Garland Science (NCBI Bookshelf)", "year": "2002", "doi": null, "url": "https://www.ncbi.nlm.nih.gov/books/NBK26887/"},
+        {"title": "Molecular Cell Biology (Transcription and Translation)", "authors": "Lodish, H.; Berk, A.; Zipursky, S. L.; Matsudaira, P.; Baltimore, D.; Darnell, J.", "journal": "W. H. Freeman (NCBI Bookshelf)", "year": "2000", "doi": null, "url": "https://www.ncbi.nlm.nih.gov/books/NBK21475/"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "DNA gene", "role": "red", "shape": "process", "detail": "Template gene in the genome", "sourceRef": 0},
+        {"id": "N2", "label": "RNA polymerase transcribes", "role": "green", "shape": "process", "detail": "Synthesis of pre-mRNA from DNA", "sourceRef": 1},
+        {"id": "N3", "label": "Pre-mRNA", "role": "blue", "shape": "process", "detail": "Primary transcript", "sourceRef": 1},
+        {"id": "N4", "label": "Cap, splice, polyA", "role": "green", "shape": "process", "detail": "RNA processing in the nucleus", "sourceRef": 1},
+        {"id": "N5", "label": "Mature mRNA exported", "role": "green", "shape": "process", "detail": "mRNA travels to the cytoplasm", "sourceRef": 1},
+        {"id": "N6", "label": "Ribosome reads codons", "role": "green", "shape": "process", "detail": "Translation of the coding sequence", "sourceRef": 2},
+        {"id": "N7", "label": "tRNA delivers amino acids", "role": "green", "shape": "process", "detail": "Charged tRNAs decode codons", "sourceRef": 2},
+        {"id": "N8", "label": "Polypeptide synthesized", "role": "blue", "shape": "process", "detail": "Growing amino-acid chain", "sourceRef": 2},
+        {"id": "N9", "label": "Folding / modification", "role": "green", "shape": "process", "detail": "Folding and post-translational modification", "sourceRef": 1},
+        {"id": "N10", "label": "Functional protein", "role": "violet", "shape": "process", "detail": "Mature, active protein", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"},
+        {"from": "N5", "to": "N6"}, {"from": "N7", "to": "N6"}, {"from": "N6", "to": "N8"}, {"from": "N8", "to": "N9"}, {"from": "N9", "to": "N10"}
+      ]
+    },
+    {
+      "id": "mechanisms-crispr-cas9",
+      "description": "CRISPR-Cas9: a guide-RNA-programmed Cas9 nuclease locates a PAM, checks guide-target complementarity, and cleaves both DNA strands, creating a double-strand break repaired by NHEJ or HDR to edit the locus.",
+      "graphType": "algorithm_flowchart",
+      "domainContext": "Genome-editing mechanism",
+      "namedCollections": ["gene-expression"],
+      "keywords": ["crispr", "cas9", "guide rna", "pam", "double-strand break", "genome editing"],
+      "basis": "source_extraction:mechanisms-crispr-cas9",
+      "sources": [
+        {"title": "A programmable dual-RNA-guided DNA endonuclease in adaptive bacterial immunity", "authors": "Jinek, M.; Chylinski, K.; Fonfara, I.; Hauer, M.; Doudna, J. A.; Charpentier, E.", "journal": "Science", "year": "2012", "pubmed": "22745249", "doi": "10.1126/science.1225829", "url": "https://doi.org/10.1126/science.1225829"},
+        {"title": "The new frontier of genome engineering with CRISPR-Cas9", "authors": "Doudna, J. A.; Charpentier, E.", "journal": "Science", "year": "2014", "pubmed": "25430774", "doi": "10.1126/science.1258096", "url": "https://doi.org/10.1126/science.1258096"},
+        {"title": "CRISPR-Cas9 Structures and Mechanisms", "authors": "Jiang, F.; Doudna, J. A.", "journal": "Annual Review of Biophysics", "year": "2017", "pubmed": "28375731", "doi": "10.1146/annurev-biophys-062215-010822", "url": "https://doi.org/10.1146/annurev-biophys-062215-010822"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Target DNA sequence", "role": "red", "shape": "process", "detail": "Genomic locus to edit", "sourceRef": 0},
+        {"id": "N2", "label": "Single guide RNA", "role": "red", "shape": "process", "detail": "Programmable guide specifying the target", "sourceRef": 0},
+        {"id": "N3", "label": "Cas9-sgRNA complex", "role": "green", "shape": "process", "detail": "Ribonucleoprotein surveillance complex", "sourceRef": 0},
+        {"id": "N4", "label": "Scan for PAM (NGG)", "role": "green", "shape": "process", "detail": "Cas9 probes DNA for a PAM", "sourceRef": 2},
+        {"id": "N5", "label": "PAM found?", "role": "blue", "shape": "decision", "detail": "PAM licenses local unwinding", "sourceRef": 2},
+        {"id": "N6", "label": "RNA-DNA pairing (R-loop)", "role": "green", "shape": "process", "detail": "Guide hybridizes with target strand", "sourceRef": 2},
+        {"id": "N7", "label": "Complementary enough?", "role": "blue", "shape": "decision", "detail": "Seed/full complementarity proofreading", "sourceRef": 1},
+        {"id": "N8", "label": "HNH + RuvC cleave", "role": "green", "shape": "process", "detail": "Both DNA strands cut", "sourceRef": 0},
+        {"id": "N9", "label": "Double-strand break", "role": "blue", "shape": "process", "detail": "DSB at the target site", "sourceRef": 1},
+        {"id": "N10", "label": "Repair: NHEJ or HDR", "role": "green", "shape": "process", "detail": "Cellular repair introduces edits", "sourceRef": 1},
+        {"id": "N11", "label": "Edited locus", "role": "violet", "shape": "process", "detail": "Modified genomic sequence", "sourceRef": 1}
+      ],
+      "edges": [
+        {"from": "N2", "to": "N3"}, {"from": "N1", "to": "N4"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"},
+        {"from": "N5", "to": "N4", "label": "no"}, {"from": "N5", "to": "N6", "label": "yes"}, {"from": "N6", "to": "N7"},
+        {"from": "N7", "to": "N4", "label": "mismatch"}, {"from": "N7", "to": "N8", "label": "yes"},
+        {"from": "N8", "to": "N9"}, {"from": "N9", "to": "N10"}, {"from": "N10", "to": "N11"}
+      ]
+    },
+    {
+      "id": "mechanisms-dna-replication",
+      "description": "DNA replication: helicase unwinds the origin, primase/polymerase synthesize the continuous leading strand and discontinuous Okazaki fragments on the lagging strand, which are matured and ligated as the fork advances.",
+      "graphType": "mechanism_flowchart",
+      "domainContext": "Genome duplication",
+      "namedCollections": ["gene-expression"],
+      "keywords": ["dna replication", "helicase", "okazaki", "leading strand", "lagging strand", "ligase"],
+      "basis": "source_extraction:mechanisms-dna-replication",
+      "sources": [
+        {"title": "Principles and concepts of DNA replication in bacteria, archaea, and eukarya", "authors": "O'Donnell, M.; Langston, L.; Stillman, B.", "journal": "Cold Spring Harbor Perspectives in Biology", "year": "2013", "pubmed": "23818497", "doi": "10.1101/cshperspect.a010108", "url": "https://doi.org/10.1101/cshperspect.a010108"},
+        {"title": "Molecular Biology of the Cell (DNA Replication Mechanisms)", "authors": "Alberts, B.; Johnson, A.; Lewis, J.; Raff, M.; Roberts, K.; Walter, P.", "journal": "Garland Science (NCBI Bookshelf)", "year": "2002", "doi": null, "url": "https://www.ncbi.nlm.nih.gov/books/NBK26850/"},
+        {"title": "Chromosome Duplication in Saccharomyces cerevisiae", "authors": "Bell, S. P.; Labib, K.", "journal": "Genetics", "year": "2016", "pubmed": "27516616", "doi": "10.1534/genetics.115.186452", "url": "https://doi.org/10.1534/genetics.115.186452"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Origin of replication", "role": "red", "shape": "process", "detail": "Licensed start site", "sourceRef": 1},
+        {"id": "N2", "label": "Helicase unwinds duplex", "role": "green", "shape": "process", "detail": "Strand separation at the fork", "sourceRef": 0},
+        {"id": "N3", "label": "Primase makes RNA primer", "role": "green", "shape": "process", "detail": "SSB coats ssDNA; primer laid down", "sourceRef": 0},
+        {"id": "N4", "label": "Pol extends leading strand", "role": "green", "shape": "process", "detail": "Continuous 5'->3' synthesis", "sourceRef": 1},
+        {"id": "N5", "label": "Lagging: Okazaki fragments", "role": "green", "shape": "process", "detail": "Discontinuous synthesis on the lagging strand", "sourceRef": 1},
+        {"id": "N6", "label": "Primers removed; gaps filled", "role": "green", "shape": "process", "detail": "RNA primers replaced with DNA", "sourceRef": 0},
+        {"id": "N7", "label": "Ligase seals nicks", "role": "green", "shape": "process", "detail": "Fragments joined into a continuous strand", "sourceRef": 0},
+        {"id": "N8", "label": "Fork continues?", "role": "blue", "shape": "decision", "detail": "Has the replicon finished?", "sourceRef": 2},
+        {"id": "N9", "label": "Two daughter duplexes", "role": "violet", "shape": "process", "detail": "Semiconservative products", "sourceRef": 1}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N3", "to": "N5"},
+        {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7"}, {"from": "N4", "to": "N8"}, {"from": "N7", "to": "N8"},
+        {"from": "N8", "to": "N2", "label": "continue"}, {"from": "N8", "to": "N9", "label": "done"}
+      ]
+    },
+    {
+      "id": "mechanisms-feedback-inhibition",
+      "description": "Feedback inhibition: the end product of a biosynthetic pathway binds an allosteric site on the first committed enzyme (e.g., ATCase), shifting it to a low-activity state and reducing flux when product is abundant.",
+      "graphType": "mechanism_flowchart",
+      "domainContext": "Allosteric metabolic control",
+      "namedCollections": ["metabolism"],
+      "keywords": ["feedback inhibition", "allosteric", "atcase", "rate-limiting", "end product"],
+      "basis": "source_extraction:mechanisms-feedback-inhibition",
+      "sources": [
+        {"title": "Evidence for a negative-feedback mechanism in the biosynthesis of isoleucine", "authors": "Umbarger, H. E.", "journal": "Science", "year": "1956", "pubmed": "13324101", "doi": "10.1126/science.123.3202.848", "url": "https://doi.org/10.1126/science.123.3202.848"},
+        {"title": "On the nature of allosteric transitions: a plausible model", "authors": "Monod, J.; Wyman, J.; Changeux, J. P.", "journal": "Journal of Molecular Biology", "year": "1965", "pubmed": "14343300", "doi": "10.1016/S0022-2836(65)80285-6", "url": "https://doi.org/10.1016/S0022-2836(65)80285-6"},
+        {"title": "The enzymology of control by feedback inhibition", "authors": "Gerhart, J. C.; Pardee, A. B.", "journal": "Journal of Biological Chemistry", "year": "1962", "pubmed": "13898874", "doi": "10.1016/S0021-9258(18)97500-7", "url": "https://doi.org/10.1016/S0021-9258(18)97500-7"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Substrate enters pathway", "role": "red", "shape": "process", "detail": "Starting metabolite", "sourceRef": 0},
+        {"id": "N2", "label": "First committed enzyme", "role": "yellow", "shape": "process", "detail": "Regulatory enzyme (e.g., ATCase)", "sourceRef": 2},
+        {"id": "N3", "label": "Catalyze rate-limiting step", "role": "green", "shape": "process", "detail": "Committed, flux-controlling reaction", "sourceRef": 2},
+        {"id": "N4", "label": "Intermediate metabolites", "role": "blue", "shape": "process", "detail": "Pathway intermediates", "sourceRef": 0},
+        {"id": "N5", "label": "End product synthesized", "role": "violet", "shape": "process", "detail": "Final biosynthetic product", "sourceRef": 0},
+        {"id": "N6", "label": "End product abundant?", "role": "blue", "shape": "decision", "detail": "Is product above the set point?", "sourceRef": 0},
+        {"id": "N7", "label": "Binds allosteric site", "role": "green", "shape": "process", "detail": "Product binds a regulatory site", "sourceRef": 1},
+        {"id": "N8", "label": "Enzyme T-state; activity down", "role": "green", "shape": "process", "detail": "Allosteric shift lowers activity", "sourceRef": 1},
+        {"id": "N9", "label": "Flux reduced (feedback)", "role": "green", "shape": "process", "detail": "Pathway throughput decreases", "sourceRef": 2}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"}, {"from": "N5", "to": "N6"},
+        {"from": "N6", "to": "N7", "label": "yes"}, {"from": "N7", "to": "N8"}, {"from": "N8", "to": "N9"}, {"from": "N9", "to": "N3", "label": "inhibit"},
+        {"from": "N6", "to": "N3", "label": "no: flux on"}
+      ]
+    },
+    {
+      "id": "mechanisms-homologous-recombination-repair",
+      "description": "Homologous recombination repair: a double-strand break is resected to 3' ssDNA, coated by RPA then RAD51, which searches for a homologous template and invades it, with resolution via double-Holliday-junction or SDSA for accurate repair.",
+      "graphType": "mechanism_flowchart",
+      "domainContext": "DNA double-strand-break repair",
+      "namedCollections": ["gene-expression"],
+      "keywords": ["homologous recombination", "double-strand break", "rad51", "resection", "holliday junction", "sdsa"],
+      "basis": "source_extraction:mechanisms-homologous-recombination-repair",
+      "sources": [
+        {"title": "Mechanism of eukaryotic homologous recombination", "authors": "San Filippo, J.; Sung, P.; Klein, H.", "journal": "Annual Review of Biochemistry", "year": "2008", "pubmed": "18166979", "doi": "10.1146/annurev.biochem.77.061306.125255", "url": "https://doi.org/10.1146/annurev.biochem.77.061306.125255"},
+        {"title": "Regulation of homologous recombination in eukaryotes", "authors": "Heyer, W. D.; Ehmsen, K. T.; Liu, J.", "journal": "Annual Review of Genetics", "year": "2010", "pubmed": "20690856", "doi": "10.1146/annurev-genet-051710-150955", "url": "https://doi.org/10.1146/annurev-genet-051710-150955"},
+        {"title": "Homologous recombination and the repair of DNA double-strand breaks", "authors": "Wright, W. D.; Shah, S. S.; Heyer, W. D.", "journal": "Journal of Biological Chemistry", "year": "2018", "pubmed": "29643144", "doi": "10.1074/jbc.TM118.000372", "url": "https://doi.org/10.1074/jbc.TM118.000372"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Double-strand break", "role": "red", "shape": "process", "detail": "DSB requiring template-based repair", "sourceRef": 2},
+        {"id": "N2", "label": "MRN detects break", "role": "green", "shape": "process", "detail": "MRN complex senses and initiates processing", "sourceRef": 0},
+        {"id": "N3", "label": "5' resection -> 3' ssDNA", "role": "green", "shape": "process", "detail": "Nucleolytic resection exposes 3' tails", "sourceRef": 0},
+        {"id": "N4", "label": "RPA coats ssDNA", "role": "green", "shape": "process", "detail": "RPA protects single-stranded DNA", "sourceRef": 0},
+        {"id": "N5", "label": "RAD51 filament (BRCA2)", "role": "green", "shape": "process", "detail": "RAD51 replaces RPA to form the presynaptic filament", "sourceRef": 1},
+        {"id": "N6", "label": "Homology search + invasion", "role": "green", "shape": "process", "detail": "Filament invades a homologous duplex", "sourceRef": 0},
+        {"id": "N7", "label": "D-loop; DNA synthesis", "role": "green", "shape": "process", "detail": "Extension primed from the invading strand", "sourceRef": 0},
+        {"id": "N8", "label": "Resolution pathway?", "role": "blue", "shape": "decision", "detail": "dHJ vs SDSA outcome", "sourceRef": 1},
+        {"id": "N9", "label": "Double Holliday junction", "role": "green", "shape": "process", "detail": "Junctions resolved (crossover/non-crossover)", "sourceRef": 2},
+        {"id": "N10", "label": "SDSA (non-crossover)", "role": "green", "shape": "process", "detail": "Strand displacement and annealing", "sourceRef": 2},
+        {"id": "N11", "label": "Accurate repair restored", "role": "violet", "shape": "process", "detail": "Error-free repair of the break", "sourceRef": 2}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"},
+        {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7"}, {"from": "N7", "to": "N8"},
+        {"from": "N8", "to": "N9", "label": "dHJ"}, {"from": "N8", "to": "N10", "label": "SDSA"},
+        {"from": "N9", "to": "N11"}, {"from": "N10", "to": "N11"}
+      ]
+    },
+    {
+      "id": "mechanisms-mrna-splicing",
+      "description": "mRNA splicing: the spliceosome assembles on a pre-mRNA (U1 at the 5' site, U2 at the branch point, then the tri-snRNP), catalyzes two transesterifications through a lariat intermediate, and joins exons, iterating over each intron.",
+      "graphType": "mechanism_flowchart",
+      "domainContext": "RNA processing",
+      "namedCollections": ["gene-expression"],
+      "keywords": ["splicing", "spliceosome", "snrnp", "lariat", "exon", "intron"],
+      "basis": "source_extraction:mechanisms-mrna-splicing",
+      "sources": [
+        {"title": "The spliceosome: design principles of a dynamic RNP machine", "authors": "Wahl, M. C.; Will, C. L.; Lührmann, R.", "journal": "Cell", "year": "2009", "pubmed": "19239890", "doi": "10.1016/j.cell.2009.02.009", "url": "https://doi.org/10.1016/j.cell.2009.02.009"},
+        {"title": "Spliceosome structure and function", "authors": "Will, C. L.; Lührmann, R.", "journal": "Cold Spring Harbor Perspectives in Biology", "year": "2011", "pubmed": "21441581", "doi": "10.1101/cshperspect.a003707", "url": "https://doi.org/10.1101/cshperspect.a003707"},
+        {"title": "A day in the life of the spliceosome", "authors": "Matera, A. G.; Wang, Z.", "journal": "Nature Reviews Molecular Cell Biology", "year": "2014", "pubmed": "24452469", "doi": "10.1038/nrm3742", "url": "https://doi.org/10.1038/nrm3742"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Pre-mRNA (exon-intron)", "role": "red", "shape": "process", "detail": "Primary transcript with introns", "sourceRef": 0},
+        {"id": "N2", "label": "U1 binds 5' splice site", "role": "green", "shape": "process", "detail": "Early (E) complex formation", "sourceRef": 1},
+        {"id": "N3", "label": "U2 binds branch point", "role": "green", "shape": "process", "detail": "A complex formation", "sourceRef": 1},
+        {"id": "N4", "label": "U4/U6.U5 tri-snRNP joins", "role": "green", "shape": "process", "detail": "B complex assembly", "sourceRef": 0},
+        {"id": "N5", "label": "Spliceosome activation", "role": "green", "shape": "process", "detail": "Rearrangement to the catalytic state", "sourceRef": 2},
+        {"id": "N6", "label": "Branch-point attacks 5'SS", "role": "green", "shape": "process", "detail": "First transesterification", "sourceRef": 2},
+        {"id": "N7", "label": "Lariat intermediate", "role": "blue", "shape": "process", "detail": "Intron lariat with free 5' exon", "sourceRef": 2},
+        {"id": "N8", "label": "Exon ligation (3'SS)", "role": "green", "shape": "process", "detail": "Second transesterification joins exons", "sourceRef": 2},
+        {"id": "N9", "label": "More introns?", "role": "blue", "shape": "decision", "detail": "Additional introns to remove?", "sourceRef": 0},
+        {"id": "N10", "label": "Mature spliced mRNA", "role": "violet", "shape": "process", "detail": "Intron-free mRNA", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"},
+        {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7"}, {"from": "N7", "to": "N8"}, {"from": "N8", "to": "N9"},
+        {"from": "N9", "to": "N2", "label": "next intron"}, {"from": "N9", "to": "N10", "label": "no"}
+      ]
+    },
+    {
+      "id": "mechanisms-nucleotide-excision-repair",
+      "description": "Nucleotide excision repair: bulky DNA lesions are recognized by global-genome (XPC) or transcription-coupled sensing, TFIIH opens the helix, the damage is verified, dual incision excises a short oligonucleotide, and the gap is filled and ligated.",
+      "graphType": "mechanism_flowchart",
+      "domainContext": "DNA damage repair",
+      "namedCollections": ["gene-expression"],
+      "keywords": ["nucleotide excision repair", "xpc", "tfiih", "dual incision", "uv lesion"],
+      "basis": "source_extraction:mechanisms-nucleotide-excision-repair",
+      "sources": [
+        {"title": "Understanding nucleotide excision repair and its roles in cancer and ageing", "authors": "Marteijn, J. A.; Lans, H.; Vermeulen, W.; Hoeijmakers, J. H.", "journal": "Nature Reviews Molecular Cell Biology", "year": "2014", "pubmed": "24905631", "doi": "10.1038/nrm3822", "url": "https://doi.org/10.1038/nrm3822"},
+        {"title": "Nucleotide excision repair in eukaryotes", "authors": "Schärer, O. D.", "journal": "Cold Spring Harbor Perspectives in Biology", "year": "2013", "pubmed": "24086042", "doi": "10.1101/cshperspect.a012609", "url": "https://doi.org/10.1101/cshperspect.a012609"},
+        {"title": "Molecular mechanisms of mammalian global genome nucleotide excision repair", "authors": "Gillet, L. C.; Schärer, O. D.", "journal": "Chemical Reviews", "year": "2006", "pubmed": "16464012", "doi": "10.1021/cr040483f", "url": "https://doi.org/10.1021/cr040483f"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Bulky DNA lesion (UV)", "role": "red", "shape": "process", "detail": "Helix-distorting lesion", "sourceRef": 0},
+        {"id": "N2", "label": "Recognition route?", "role": "blue", "shape": "decision", "detail": "Global-genome vs transcription-coupled NER", "sourceRef": 0},
+        {"id": "N3", "label": "XPC detects distortion", "role": "green", "shape": "process", "detail": "GG-NER damage sensor", "sourceRef": 2},
+        {"id": "N4", "label": "Stalled RNA pol signals", "role": "green", "shape": "process", "detail": "TC-NER triggered at lesions blocking transcription", "sourceRef": 0},
+        {"id": "N5", "label": "TFIIH unwinds lesion", "role": "green", "shape": "process", "detail": "Helicases open DNA around the damage", "sourceRef": 1},
+        {"id": "N6", "label": "XPA/RPA verify damage", "role": "green", "shape": "process", "detail": "Damage verification and positioning", "sourceRef": 1},
+        {"id": "N7", "label": "XPF + XPG dual incision", "role": "green", "shape": "process", "detail": "Endonucleases bracket the lesion", "sourceRef": 2},
+        {"id": "N8", "label": "Excise ~24-32 nt oligo", "role": "green", "shape": "process", "detail": "Damaged segment removed", "sourceRef": 0},
+        {"id": "N9", "label": "Gap-filling synthesis", "role": "green", "shape": "process", "detail": "DNA polymerase fills the gap", "sourceRef": 1},
+        {"id": "N10", "label": "Ligation", "role": "green", "shape": "process", "detail": "Ligase seals the patch", "sourceRef": 1},
+        {"id": "N11", "label": "Repaired DNA", "role": "violet", "shape": "process", "detail": "Restored duplex", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"},
+        {"from": "N2", "to": "N3", "label": "GG-NER"}, {"from": "N2", "to": "N4", "label": "TC-NER"},
+        {"from": "N3", "to": "N5"}, {"from": "N4", "to": "N5"}, {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7"},
+        {"from": "N7", "to": "N8"}, {"from": "N8", "to": "N9"}, {"from": "N9", "to": "N10"}, {"from": "N10", "to": "N11"}
+      ]
+    },
+    {
+      "id": "mechanisms-riboswitch-regulation",
+      "description": "TPP riboswitch: an aptamer in the mRNA leader senses thiamine pyrophosphate; ligand binding refolds the expression platform into a terminator/sequestering structure that switches the downstream gene off, while the ligand-free form keeps it on.",
+      "graphType": "decision_flowchart",
+      "domainContext": "RNA-based gene regulation",
+      "namedCollections": ["gene-expression"],
+      "keywords": ["riboswitch", "tpp", "aptamer", "terminator", "gene regulation"],
+      "basis": "source_extraction:mechanisms-riboswitch-regulation",
+      "sources": [
+        {"title": "Thiamine derivatives bind messenger RNAs directly to regulate bacterial gene expression", "authors": "Winkler, W.; Nahvi, A.; Breaker, R. R.", "journal": "Nature", "year": "2002", "pubmed": "12410317", "doi": "10.1038/nature01145", "url": "https://doi.org/10.1038/nature01145"},
+        {"title": "Sensing small molecules by nascent RNA: a mechanism to control transcription in bacteria", "authors": "Mironov, A. S.; Gusarov, I.; Rafikov, R.; Lopez, L. E.; Shatalin, K.; Kreneva, R. A.; Perumov, D. A.; Nudler, E.", "journal": "Cell", "year": "2002", "pubmed": "12464182", "doi": "10.1016/S0092-8674(02)01134-0", "url": "https://doi.org/10.1016/S0092-8674(02)01134-0"},
+        {"title": "A decade of riboswitches", "authors": "Serganov, A.; Nudler, E.", "journal": "Cell", "year": "2013", "pubmed": "23332744", "doi": "10.1016/j.cell.2012.12.024", "url": "https://doi.org/10.1016/j.cell.2012.12.024"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Nascent mRNA w/ aptamer", "role": "red", "shape": "process", "detail": "Leader RNA bearing a TPP aptamer", "sourceRef": 1},
+        {"id": "N2", "label": "TPP metabolite present?", "role": "blue", "shape": "decision", "detail": "Is thiamine pyrophosphate abundant?", "sourceRef": 0},
+        {"id": "N3", "label": "TPP binds aptamer", "role": "green", "shape": "process", "detail": "Ligand binds the sensing domain", "sourceRef": 0},
+        {"id": "N4", "label": "Expression platform refolds", "role": "green", "shape": "process", "detail": "Conformational switch in the leader", "sourceRef": 2},
+        {"id": "N5", "label": "Terminator hairpin forms", "role": "green", "shape": "process", "detail": "Sequestered RBS / terminator", "sourceRef": 0},
+        {"id": "N6", "label": "Gene expression OFF", "role": "violet", "shape": "process", "detail": "Downstream gene repressed", "sourceRef": 0},
+        {"id": "N7", "label": "Anti-terminator default", "role": "green", "shape": "process", "detail": "Ligand-free permissive fold", "sourceRef": 2},
+        {"id": "N8", "label": "Gene expression ON", "role": "violet", "shape": "process", "detail": "Downstream gene expressed", "sourceRef": 2}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"},
+        {"from": "N2", "to": "N3", "label": "TPP high"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"}, {"from": "N5", "to": "N6"},
+        {"from": "N2", "to": "N7", "label": "TPP low"}, {"from": "N7", "to": "N8"}
+      ]
+    },
+    {
+      "id": "mechanisms-rna-interference-sirna-pathway",
+      "description": "RNA interference: Dicer cleaves long double-stranded RNA into siRNAs that load into Argonaute/RISC; the passenger strand is discarded and the guide strand directs Ago2-catalyzed slicing of complementary mRNA, silencing the gene.",
+      "graphType": "mechanism_flowchart",
+      "domainContext": "Post-transcriptional gene silencing",
+      "namedCollections": ["gene-expression"],
+      "keywords": ["rna interference", "sirna", "dicer", "risc", "argonaute", "silencing"],
+      "basis": "source_extraction:mechanisms-rna-interference-sirna-pathway",
+      "sources": [
+        {"title": "Potent and specific genetic interference by double-stranded RNA in Caenorhabditis elegans", "authors": "Fire, A.; Xu, S.; Montgomery, M. K.; Kostas, S. A.; Driver, S. E.; Mello, C. C.", "journal": "Nature", "year": "1998", "pubmed": "9486653", "doi": "10.1038/35888", "url": "https://doi.org/10.1038/35888"},
+        {"title": "An RNA-directed nuclease mediates post-transcriptional gene silencing in Drosophila cells", "authors": "Hammond, S. M.; Bernstein, E.; Beach, D.; Hannon, G. J.", "journal": "Nature", "year": "2000", "pubmed": "10746727", "doi": "10.1038/35005107", "url": "https://doi.org/10.1038/35005107"},
+        {"title": "Molecular mechanisms of RNA interference", "authors": "Wilson, R. C.; Doudna, J. A.", "journal": "Annual Review of Biophysics", "year": "2013", "pubmed": "23654304", "doi": "10.1146/annurev-biophys-083012-130404", "url": "https://doi.org/10.1146/annurev-biophys-083012-130404"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Long dsRNA", "role": "red", "shape": "process", "detail": "Double-stranded RNA trigger", "sourceRef": 0},
+        {"id": "N2", "label": "Dicer cleaves to siRNA", "role": "green", "shape": "process", "detail": "Dicer processes dsRNA into short duplexes", "sourceRef": 1},
+        {"id": "N3", "label": "siRNA duplex (~21 nt)", "role": "blue", "shape": "process", "detail": "Small interfering RNA duplex", "sourceRef": 2},
+        {"id": "N4", "label": "Load into RISC (Ago)", "role": "green", "shape": "process", "detail": "Argonaute-containing RISC loading", "sourceRef": 2},
+        {"id": "N5", "label": "Passenger strand discarded", "role": "green", "shape": "process", "detail": "RISC retains the guide strand", "sourceRef": 2},
+        {"id": "N6", "label": "Guide scans mRNA", "role": "green", "shape": "process", "detail": "Guide strand searches for targets", "sourceRef": 2},
+        {"id": "N7", "label": "Complementary target?", "role": "blue", "shape": "decision", "detail": "Sufficient guide-mRNA complementarity?", "sourceRef": 2},
+        {"id": "N8", "label": "Ago2 slices mRNA", "role": "green", "shape": "process", "detail": "Endonucleolytic cleavage of target", "sourceRef": 1},
+        {"id": "N9", "label": "mRNA degraded; silenced", "role": "violet", "shape": "process", "detail": "Target destroyed, gene silenced", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"},
+        {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7"},
+        {"from": "N7", "to": "N6", "label": "no"}, {"from": "N7", "to": "N8", "label": "yes"}, {"from": "N8", "to": "N9"}
+      ]
+    },
+    {
+      "id": "mechanisms-transcription-initiation-in-eukaryotes",
+      "description": "Eukaryotic transcription initiation: TFIID/TBP recognizes the core promoter, general factors recruit RNA polymerase II to form the pre-initiation complex, TFIIH melts the DNA, and CTD phosphorylation drives promoter escape into elongation.",
+      "graphType": "mechanism_flowchart",
+      "domainContext": "Gene transcription",
+      "namedCollections": ["gene-expression"],
+      "keywords": ["transcription initiation", "rna polymerase ii", "tfiid", "preinitiation complex", "promoter escape"],
+      "basis": "source_extraction:mechanisms-transcription-initiation-in-eukaryotes",
+      "sources": [
+        {"title": "Structural basis of transcription initiation by RNA polymerase II", "authors": "Sainsbury, S.; Bernecky, C.; Cramer, P.", "journal": "Nature Reviews Molecular Cell Biology", "year": "2015", "pubmed": "25693126", "doi": "10.1038/nrm3952", "url": "https://doi.org/10.1038/nrm3952"},
+        {"title": "Eukaryotic core promoters and the functional basis of transcription initiation", "authors": "Haberle, V.; Stark, A.", "journal": "Nature Reviews Molecular Cell Biology", "year": "2018", "pubmed": "29643443", "doi": "10.1038/s41580-018-0028-8", "url": "https://doi.org/10.1038/s41580-018-0028-8"},
+        {"title": "The role of general initiation factors in transcription by RNA polymerase II", "authors": "Roeder, R. G.", "journal": "Trends in Biochemical Sciences", "year": "1996", "pubmed": "8870495", "doi": "10.1016/S0968-0004(96)10050-5", "url": "https://doi.org/10.1016/S0968-0004(96)10050-5"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Core promoter (TATA)", "role": "red", "shape": "process", "detail": "Promoter sequence elements", "sourceRef": 1},
+        {"id": "N2", "label": "TFIID (TBP) binds TATA", "role": "green", "shape": "process", "detail": "Core promoter recognition", "sourceRef": 2},
+        {"id": "N3", "label": "TFIIB/F recruit Pol II", "role": "green", "shape": "process", "detail": "Polymerase recruited to the promoter", "sourceRef": 0},
+        {"id": "N4", "label": "TFIIE/H join: PIC", "role": "green", "shape": "process", "detail": "Pre-initiation complex assembled", "sourceRef": 0},
+        {"id": "N5", "label": "TFIIH opens DNA", "role": "green", "shape": "process", "detail": "ATP-dependent promoter melting", "sourceRef": 0},
+        {"id": "N6", "label": "Open complex", "role": "blue", "shape": "process", "detail": "Transcription bubble formed", "sourceRef": 0},
+        {"id": "N7", "label": "Productive escape?", "role": "blue", "shape": "decision", "detail": "Abortive synthesis vs promoter escape", "sourceRef": 0},
+        {"id": "N8", "label": "CTD phosphorylation", "role": "green", "shape": "process", "detail": "CDK7 phosphorylates the CTD, releasing Pol II", "sourceRef": 0},
+        {"id": "N9", "label": "Elongation begins", "role": "violet", "shape": "process", "detail": "Processive transcription", "sourceRef": 1}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"},
+        {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7"},
+        {"from": "N7", "to": "N6", "label": "abortive"}, {"from": "N7", "to": "N8", "label": "escape"}, {"from": "N8", "to": "N9"}
+      ]
+    },
+    {
+      "id": "mechanisms-translation-initiation",
+      "description": "Eukaryotic translation initiation: eIF4F binds the 5' cap, the 43S pre-initiation complex scans the 5' UTR for an AUG start codon, recognition triggers eIF2 GTP hydrolysis, and 60S joining forms an elongation-competent 80S ribosome.",
+      "graphType": "mechanism_flowchart",
+      "domainContext": "Protein synthesis initiation",
+      "namedCollections": ["gene-expression"],
+      "keywords": ["translation initiation", "eif4f", "43s", "scanning", "start codon", "80s ribosome"],
+      "basis": "source_extraction:mechanisms-translation-initiation",
+      "sources": [
+        {"title": "The mechanism of eukaryotic translation initiation and principles of its regulation", "authors": "Jackson, R. J.; Hellen, C. U.; Pestova, T. V.", "journal": "Nature Reviews Molecular Cell Biology", "year": "2010", "pubmed": "20094052", "doi": "10.1038/nrm2838", "url": "https://doi.org/10.1038/nrm2838"},
+        {"title": "Regulation of translation initiation in eukaryotes: mechanisms and biological targets", "authors": "Sonenberg, N.; Hinnebusch, A. G.", "journal": "Cell", "year": "2009", "pubmed": "19239892", "doi": "10.1016/j.cell.2009.01.042", "url": "https://doi.org/10.1016/j.cell.2009.01.042"},
+        {"title": "The scanning mechanism of eukaryotic translation initiation", "authors": "Hinnebusch, A. G.", "journal": "Annual Review of Biochemistry", "year": "2014", "pubmed": "24499181", "doi": "10.1146/annurev-biochem-060713-035802", "url": "https://doi.org/10.1146/annurev-biochem-060713-035802"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "mRNA with 5' cap", "role": "red", "shape": "process", "detail": "Capped mRNA to be translated", "sourceRef": 1},
+        {"id": "N2", "label": "eIF4F binds cap", "role": "green", "shape": "process", "detail": "Cap-binding complex assembles", "sourceRef": 0},
+        {"id": "N3", "label": "43S complex recruited", "role": "green", "shape": "process", "detail": "40S + eIF2-GTP-Met-tRNAi joins mRNA", "sourceRef": 0},
+        {"id": "N4", "label": "Scan 5' UTR", "role": "green", "shape": "process", "detail": "Ribosome scans toward the start codon", "sourceRef": 2},
+        {"id": "N5", "label": "AUG start codon?", "role": "blue", "shape": "decision", "detail": "Start-codon recognition in good context", "sourceRef": 2},
+        {"id": "N6", "label": "Continue scanning", "role": "green", "shape": "process", "detail": "Move to the next codon", "sourceRef": 2},
+        {"id": "N7", "label": "eIF2 GTP hydrolysis", "role": "green", "shape": "process", "detail": "Start recognition triggers factor release", "sourceRef": 1},
+        {"id": "N8", "label": "60S joins: 80S complex", "role": "green", "shape": "process", "detail": "Large subunit joins", "sourceRef": 1},
+        {"id": "N9", "label": "Elongation-ready ribosome", "role": "violet", "shape": "process", "detail": "Competent for peptide synthesis", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"},
+        {"from": "N5", "to": "N6", "label": "no"}, {"from": "N6", "to": "N4", "label": "scan"}, {"from": "N5", "to": "N7", "label": "yes"},
+        {"from": "N7", "to": "N8"}, {"from": "N8", "to": "N9"}
+      ]
+    },
+    {
+      "id": "mechanisms-trp-operon",
+      "description": "Trp operon control: high tryptophan lets the Trp repressor block the operator, while at low tryptophan transcription proceeds and attenuation via leader-peptide ribosome stalling decides whether RNA polymerase reads through to the structural genes.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Bacterial operon regulation",
+      "namedCollections": ["gene-expression"],
+      "keywords": ["trp operon", "attenuation", "repressor", "leader peptide", "terminator"],
+      "basis": "source_extraction:mechanisms-trp-operon",
+      "sources": [
+        {"title": "Attenuation in the control of expression of bacterial operons", "authors": "Yanofsky, C.", "journal": "Nature", "year": "1981", "pubmed": "6259542", "doi": "10.1038/289751a0", "url": "https://doi.org/10.1038/289751a0"},
+        {"title": "Transcription attenuation: once viewed as a novel regulatory strategy, it has been found in many forms", "authors": "Yanofsky, C.", "journal": "Journal of Bacteriology", "year": "2000", "pubmed": "10613855", "doi": "10.1128/JB.182.1.1-8.2000", "url": "https://doi.org/10.1128/JB.182.1.1-8.2000"},
+        {"title": "Transcription attenuation: a highly conserved regulatory strategy used by bacteria", "authors": "Merino, E.; Yanofsky, C.", "journal": "Trends in Genetics", "year": "2005", "pubmed": "15922833", "doi": "10.1016/j.tig.2005.04.013", "url": "https://doi.org/10.1016/j.tig.2005.04.013"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Tryptophan level", "role": "red", "shape": "process", "detail": "Intracellular tryptophan concentration", "sourceRef": 1},
+        {"id": "N2", "label": "Trp high?", "role": "blue", "shape": "decision", "detail": "Repression-level decision", "sourceRef": 0},
+        {"id": "N3", "label": "Repressor binds operator", "role": "green", "shape": "process", "detail": "Trp-activated repressor blocks transcription", "sourceRef": 0},
+        {"id": "N4", "label": "Transcription blocked", "role": "violet", "shape": "process", "detail": "Operon repressed", "sourceRef": 0},
+        {"id": "N5", "label": "Pol transcribes leader", "role": "green", "shape": "process", "detail": "Low Trp: transcription of the leader region", "sourceRef": 1},
+        {"id": "N6", "label": "Ribosome stalls at Trp codons?", "role": "blue", "shape": "decision", "detail": "Leader-peptide translation senses Trp-tRNA", "sourceRef": 1},
+        {"id": "N7", "label": "Antiterminator (2-3) forms", "role": "green", "shape": "process", "detail": "Stalling favors the antiterminator", "sourceRef": 2},
+        {"id": "N8", "label": "Read through to genes", "role": "green", "shape": "process", "detail": "Transcription of trpE-A", "sourceRef": 2},
+        {"id": "N9", "label": "Terminator (3-4) forms", "role": "green", "shape": "process", "detail": "No stalling favors the terminator", "sourceRef": 0},
+        {"id": "N10", "label": "Attenuation: stops", "role": "violet", "shape": "process", "detail": "Premature termination", "sourceRef": 1},
+        {"id": "N11", "label": "Trp biosynthesis enzymes", "role": "violet", "shape": "process", "detail": "Structural genes expressed", "sourceRef": 2}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"},
+        {"from": "N2", "to": "N3", "label": "high"}, {"from": "N3", "to": "N4"},
+        {"from": "N2", "to": "N5", "label": "low"}, {"from": "N5", "to": "N6"},
+        {"from": "N6", "to": "N7", "label": "stall"}, {"from": "N7", "to": "N8"}, {"from": "N8", "to": "N11"},
+        {"from": "N6", "to": "N9", "label": "no stall"}, {"from": "N9", "to": "N10"}
+      ]
+    }
+  ]
+}

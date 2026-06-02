@@ -1,0 +1,389 @@
+{
+  "discipline": "chemistry",
+  "slice": "nuclear+organic",
+  "charts": [
+    {
+      "id": "nuclear_chemistry-corrosion-mechanisms",
+      "name": "Radioactive Decay Kinetics",
+      "description": "An unstable nuclide decays by a mode set by its neutron-to-proton ratio (beta-minus, beta-plus/electron capture, or alpha), emitting particles and energy; decay follows first-order kinetics with a characteristic half-life, sometimes through a chain to a stable nuclide.",
+      "graphType": "cyclic_pathway",
+      "domainContext": "Nuclear chemistry",
+      "namedCollections": ["nuclear-chemistry"],
+      "keywords": ["radioactive decay", "half-life", "beta decay", "alpha decay", "decay chain"],
+      "basis": "source_extraction:nuclear_chemistry-corrosion-mechanisms",
+      "sources": [
+        {"title": "Radioactive change (exponential decay law)", "authors": "Rutherford, E.; Soddy, F.", "journal": "Philosophical Magazine", "year": "1903", "doi": "10.1080/14786440309462960", "url": "https://doi.org/10.1080/14786440309462960"},
+        {"title": "Introductory Nuclear Physics", "authors": "Krane, K. S.", "journal": "Wiley", "year": "1987", "doi": null, "url": "https://www.wiley.com/en-us/Introductory+Nuclear+Physics-p-9780471805533"},
+        {"title": "The NUBASE2020 evaluation of nuclear physics properties", "authors": "Kondev, F. G.; Wang, M.; Huang, W. J.; Naimi, S.; Audi, G.", "journal": "Chinese Physics C", "year": "2021", "doi": "10.1088/1674-1137/abddae", "url": "https://doi.org/10.1088/1674-1137/abddae"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Unstable nuclide", "role": "red", "shape": "process", "detail": "Parent radioisotope", "sourceRef": 2},
+        {"id": "N2", "label": "N/Z ratio sets mode", "role": "blue", "shape": "decision", "detail": "Position vs band of stability", "sourceRef": 1},
+        {"id": "N3", "label": "Neutron-rich: β− decay", "role": "green", "shape": "process", "detail": "n -> p + e− + antineutrino", "sourceRef": 1},
+        {"id": "N4", "label": "Proton-rich: β+ / EC", "role": "green", "shape": "process", "detail": "p -> n via positron or capture", "sourceRef": 1},
+        {"id": "N5", "label": "Heavy: α decay", "role": "green", "shape": "process", "detail": "Emit a helium-4 nucleus", "sourceRef": 1},
+        {"id": "N6", "label": "Emit particle + energy", "role": "green", "shape": "process", "detail": "Q-value released", "sourceRef": 2},
+        {"id": "N7", "label": "N = N0 e^(−λt)", "role": "green", "shape": "process", "detail": "First-order decay law", "sourceRef": 0},
+        {"id": "N8", "label": "Half-life t½ = ln2/λ", "role": "blue", "shape": "process", "detail": "Characteristic timescale", "sourceRef": 0},
+        {"id": "N9", "label": "Daughter stable?", "role": "blue", "shape": "decision", "detail": "Check the product nuclide", "sourceRef": 2},
+        {"id": "N10", "label": "Decay chain continues", "role": "green", "shape": "process", "detail": "Successive decays", "sourceRef": 1},
+        {"id": "N11", "label": "Stable nuclide reached", "role": "violet", "shape": "process", "detail": "End of the chain", "sourceRef": 2}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3", "label": "n-rich"}, {"from": "N2", "to": "N4", "label": "p-rich"}, {"from": "N2", "to": "N5", "label": "heavy"},
+        {"from": "N3", "to": "N6"}, {"from": "N4", "to": "N6"}, {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7"}, {"from": "N7", "to": "N8"}, {"from": "N8", "to": "N9"},
+        {"from": "N9", "to": "N10", "label": "no"}, {"from": "N10", "to": "N2", "label": "next decay"}, {"from": "N9", "to": "N11", "label": "yes"}
+      ]
+    },
+    {
+      "id": "nuclear_chemistry-electrochemical-cell-design",
+      "name": "Nuclear Fission Chain Reaction",
+      "description": "A fissile nucleus absorbs a neutron, deforms and splits into fragments, releasing energy and two to three neutrons; whether the chain is self-sustaining depends on neutron moderation and losses, captured by the effective multiplication factor.",
+      "graphType": "cyclic_pathway",
+      "domainContext": "Nuclear fission",
+      "namedCollections": ["nuclear-chemistry"],
+      "keywords": ["nuclear fission", "chain reaction", "criticality", "moderator", "multiplication factor"],
+      "basis": "source_extraction:nuclear_chemistry-electrochemical-cell-design",
+      "sources": [
+        {"title": "Disintegration of uranium by neutrons: a new type of nuclear reaction", "authors": "Meitner, L.; Frisch, O. R.", "journal": "Nature", "year": "1939", "doi": "10.1038/143239a0", "url": "https://doi.org/10.1038/143239a0"},
+        {"title": "Über den Nachweis und das Verhalten der bei der Bestrahlung des Urans entstehenden Erdalkalimetalle", "authors": "Hahn, O.; Strassmann, F.", "journal": "Naturwissenschaften", "year": "1939", "doi": "10.1007/BF01488241", "url": "https://doi.org/10.1007/BF01488241"},
+        {"title": "Introductory Nuclear Physics — Nuclear Fission", "authors": "Krane, K. S.", "journal": "Wiley", "year": "1987", "doi": null, "url": "https://www.wiley.com/en-us/Introductory+Nuclear+Physics-p-9780471805533"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Fissile nucleus (U-235)", "role": "red", "shape": "process", "detail": "Target for thermal neutrons", "sourceRef": 0},
+        {"id": "N2", "label": "Neutron absorbed", "role": "green", "shape": "process", "detail": "Forms compound nucleus", "sourceRef": 0},
+        {"id": "N3", "label": "Compound nucleus deforms", "role": "green", "shape": "process", "detail": "Liquid-drop oscillation", "sourceRef": 0},
+        {"id": "N4", "label": "Splits into fragments", "role": "green", "shape": "process", "detail": "Two daughter nuclei", "sourceRef": 1},
+        {"id": "N5", "label": "Energy + 2–3 neutrons", "role": "green", "shape": "process", "detail": "~200 MeV per event", "sourceRef": 0},
+        {"id": "N6", "label": "Neutrons moderated?", "role": "blue", "shape": "decision", "detail": "Slowed to thermal energies", "sourceRef": 2},
+        {"id": "N7", "label": "Thermalized: more fission", "role": "green", "shape": "process", "detail": "Higher fission cross-section", "sourceRef": 2},
+        {"id": "N8", "label": "Lost or captured", "role": "green", "shape": "process", "detail": "Leakage or non-fission capture", "sourceRef": 2},
+        {"id": "N9", "label": "k_eff vs 1?", "role": "blue", "shape": "decision", "detail": "Multiplication factor", "sourceRef": 2},
+        {"id": "N10", "label": "Critical: sustained chain", "role": "violet", "shape": "process", "detail": "Steady or growing reaction", "sourceRef": 2},
+        {"id": "N11", "label": "Subcritical: dies out", "role": "violet", "shape": "process", "detail": "Chain not sustained", "sourceRef": 2}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"}, {"from": "N5", "to": "N6"},
+        {"from": "N6", "to": "N7", "label": "yes"}, {"from": "N6", "to": "N8", "label": "no"}, {"from": "N7", "to": "N9"}, {"from": "N8", "to": "N9"},
+        {"from": "N9", "to": "N10", "label": "k ≥ 1"}, {"from": "N10", "to": "N2", "label": "sustains"}, {"from": "N9", "to": "N11", "label": "k < 1"}
+      ]
+    },
+    {
+      "id": "nuclear_chemistry-electrolysis",
+      "name": "Radioisotope Production (Neutron Activation)",
+      "description": "Neutron activation produces radioisotopes by irradiating a stable target so it captures neutrons via (n,γ) to form a radioactive nuclide; after sufficient activity is reached, the product is chemically separated, purified and used as a tracer or radiopharmaceutical.",
+      "graphType": "cyclic_pathway",
+      "domainContext": "Radiochemistry",
+      "namedCollections": ["nuclear-chemistry"],
+      "keywords": ["neutron activation", "radioisotope production", "neutron capture", "radiopharmaceutical", "specific activity"],
+      "basis": "source_extraction:nuclear_chemistry-electrolysis",
+      "sources": [
+        {"title": "Manual for reactor produced radioisotopes (IAEA-TECDOC-1340)", "authors": "International Atomic Energy Agency", "journal": "IAEA", "year": "2003", "doi": null, "url": "https://www.iaea.org/publications/6407/manual-for-reactor-produced-radioisotopes"},
+        {"title": "Chemistry of the Elements, 2nd ed. — Production of the Elements / Radiochemistry", "authors": "Greenwood, N. N.; Earnshaw, A.", "journal": "Butterworth-Heinemann", "year": "1997", "doi": "10.1016/C2009-0-30414-6", "url": "https://doi.org/10.1016/C2009-0-30414-6"},
+        {"title": "Introductory Nuclear Physics — Neutron Reactions", "authors": "Krane, K. S.", "journal": "Wiley", "year": "1987", "doi": null, "url": "https://www.wiley.com/en-us/Introductory+Nuclear+Physics-p-9780471805533"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Stable target isotope", "role": "red", "shape": "process", "detail": "High-purity material", "sourceRef": 1},
+        {"id": "N2", "label": "Irradiate in reactor flux", "role": "green", "shape": "process", "detail": "Expose to thermal neutrons", "sourceRef": 0},
+        {"id": "N3", "label": "Neutron capture (n,γ)", "role": "green", "shape": "process", "detail": "Forms heavier isotope", "sourceRef": 2},
+        {"id": "N4", "label": "Radioactive product", "role": "green", "shape": "process", "detail": "New radionuclide created", "sourceRef": 0},
+        {"id": "N5", "label": "Sufficient activity?", "role": "blue", "shape": "decision", "detail": "Saturation vs target yield", "sourceRef": 0},
+        {"id": "N6", "label": "Continue irradiation", "role": "green", "shape": "process", "detail": "More neutron exposure", "sourceRef": 0},
+        {"id": "N7", "label": "Radiochemical separation", "role": "green", "shape": "process", "detail": "Isolate from matrix", "sourceRef": 1},
+        {"id": "N8", "label": "Purify + quality control", "role": "green", "shape": "process", "detail": "Radionuclidic purity checks", "sourceRef": 1},
+        {"id": "N9", "label": "Decays with t½", "role": "green", "shape": "process", "detail": "Characteristic emission", "sourceRef": 2},
+        {"id": "N10", "label": "Tracer / radiopharmaceutical", "role": "violet", "shape": "process", "detail": "Application-ready isotope", "sourceRef": 1}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"},
+        {"from": "N5", "to": "N6", "label": "no"}, {"from": "N6", "to": "N2", "label": "more flux"}, {"from": "N5", "to": "N7", "label": "yes"},
+        {"from": "N7", "to": "N8"}, {"from": "N8", "to": "N10"}, {"from": "N4", "to": "N9"}, {"from": "N9", "to": "N10"}
+      ]
+    },
+    {
+      "id": "nuclear_chemistry-battery-chemistry",
+      "name": "Radiocarbon Dating",
+      "description": "Radiocarbon dating exploits the fixed atmospheric 14C/12C ratio in living tissue: when an organism dies, uptake stops and 14C decays with a 5730-year half-life, so measuring the residual 14C and calibrating against tree-ring records yields a calendar age.",
+      "graphType": "mechanism_flowchart",
+      "domainContext": "Radiometric dating",
+      "namedCollections": ["nuclear-chemistry"],
+      "keywords": ["radiocarbon dating", "carbon-14", "half-life", "AMS", "calibration"],
+      "basis": "source_extraction:nuclear_chemistry-battery-chemistry",
+      "sources": [
+        {"title": "Age determination by radiocarbon content: world-wide assay of natural radiocarbon", "authors": "Libby, W. F.; Anderson, E. C.; Arnold, J. R.", "journal": "Science", "year": "1949", "doi": "10.1126/science.109.2827.227", "url": "https://doi.org/10.1126/science.109.2827.227"},
+        {"title": "Age determinations by radiocarbon content: checks with samples of known age", "authors": "Arnold, J. R.; Libby, W. F.", "journal": "Science", "year": "1949", "doi": "10.1126/science.110.2869.678", "url": "https://doi.org/10.1126/science.110.2869.678"},
+        {"title": "The IntCal20 Northern Hemisphere radiocarbon age calibration curve (0–55 cal kBP)", "authors": "Reimer, P. J.; et al.", "journal": "Radiocarbon", "year": "2020", "doi": "10.1017/RDC.2020.41", "url": "https://doi.org/10.1017/RDC.2020.41"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Organism dies", "role": "red", "shape": "process", "detail": "Carbon exchange ceases", "sourceRef": 0},
+        {"id": "N2", "label": "14C uptake stops", "role": "green", "shape": "process", "detail": "Clock starts", "sourceRef": 0},
+        {"id": "N3", "label": "Initial 14C/12C known", "role": "blue", "shape": "process", "detail": "Atmospheric reference ratio", "sourceRef": 0},
+        {"id": "N4", "label": "14C decays (t½ 5730 yr)", "role": "green", "shape": "process", "detail": "β− emission over time", "sourceRef": 1},
+        {"id": "N5", "label": "Measure remaining 14C", "role": "green", "shape": "process", "detail": "Accelerator mass spectrometry", "sourceRef": 2},
+        {"id": "N6", "label": "t = (1/λ) ln(N0/N)", "role": "green", "shape": "process", "detail": "Solve for elapsed time", "sourceRef": 1},
+        {"id": "N7", "label": "Within ~50,000 yr?", "role": "blue", "shape": "decision", "detail": "Detection-limit check", "sourceRef": 2},
+        {"id": "N8", "label": "Calibrate vs IntCal curve", "role": "green", "shape": "process", "detail": "Correct for past 14C variation", "sourceRef": 2},
+        {"id": "N9", "label": "Beyond range: lower bound", "role": "green", "shape": "process", "detail": "Report minimum age", "sourceRef": 2},
+        {"id": "N10", "label": "Calendar age", "role": "violet", "shape": "process", "detail": "Dated sample", "sourceRef": 2}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"}, {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7"},
+        {"from": "N7", "to": "N8", "label": "yes"}, {"from": "N8", "to": "N10"}, {"from": "N7", "to": "N9", "label": "too old"}, {"from": "N9", "to": "N10"}
+      ]
+    },
+    {
+      "id": "nuclear_chemistry-electroplating",
+      "name": "Nuclear Fusion (D–T)",
+      "description": "Fusion joins light nuclei into a heavier one: only when enough energy is supplied to tunnel through the Coulomb barrier do deuterium and tritium fuse, releasing energy from the mass defect, and net power requires meeting the Lawson confinement criterion.",
+      "graphType": "cyclic_pathway",
+      "domainContext": "Nuclear fusion",
+      "namedCollections": ["nuclear-chemistry"],
+      "keywords": ["nuclear fusion", "coulomb barrier", "mass defect", "lawson criterion", "deuterium-tritium"],
+      "basis": "source_extraction:nuclear_chemistry-electroplating",
+      "sources": [
+        {"title": "Energy production in stars", "authors": "Bethe, H. A.", "journal": "Physical Review", "year": "1939", "doi": "10.1103/PhysRev.55.434", "url": "https://doi.org/10.1103/PhysRev.55.434"},
+        {"title": "Some criteria for a power producing thermonuclear reactor (Lawson criterion)", "authors": "Lawson, J. D.", "journal": "Proceedings of the Physical Society B", "year": "1957", "doi": "10.1088/0370-1301/70/1/303", "url": "https://doi.org/10.1088/0370-1301/70/1/303"},
+        {"title": "Introductory Nuclear Physics — Nuclear Reactions and Fusion", "authors": "Krane, K. S.", "journal": "Wiley", "year": "1987", "doi": null, "url": "https://www.wiley.com/en-us/Introductory+Nuclear+Physics-p-9780471805533"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Light nuclei (D, T)", "role": "red", "shape": "process", "detail": "Fusion fuel", "sourceRef": 2},
+        {"id": "N2", "label": "Overcome Coulomb barrier?", "role": "blue", "shape": "decision", "detail": "Electrostatic repulsion", "sourceRef": 2},
+        {"id": "N3", "label": "Too cold: nuclei repel", "role": "green", "shape": "process", "detail": "No fusion at low energy", "sourceRef": 2},
+        {"id": "N4", "label": "High T/P: tunnel through", "role": "green", "shape": "process", "detail": "Quantum tunneling at MK temps", "sourceRef": 0},
+        {"id": "N5", "label": "Nuclei fuse", "role": "green", "shape": "process", "detail": "Strong force binds them", "sourceRef": 2},
+        {"id": "N6", "label": "He-4 + neutron formed", "role": "green", "shape": "process", "detail": "D + T -> He + n", "sourceRef": 2},
+        {"id": "N7", "label": "Mass defect -> energy", "role": "green", "shape": "process", "detail": "E = mc² release (17.6 MeV)", "sourceRef": 0},
+        {"id": "N8", "label": "Lawson criterion met?", "role": "blue", "shape": "decision", "detail": "nτT threshold for net gain", "sourceRef": 1},
+        {"id": "N9", "label": "Confinement losses", "role": "green", "shape": "process", "detail": "Energy escapes the plasma", "sourceRef": 1},
+        {"id": "N10", "label": "Ignition / net energy", "role": "violet", "shape": "process", "detail": "Self-sustaining burn", "sourceRef": 1}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3", "label": "no"}, {"from": "N3", "to": "N2", "label": "add energy"}, {"from": "N2", "to": "N4", "label": "yes"},
+        {"from": "N4", "to": "N5"}, {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7"}, {"from": "N7", "to": "N8"},
+        {"from": "N8", "to": "N9", "label": "no"}, {"from": "N9", "to": "N4", "label": "improve confinement"}, {"from": "N8", "to": "N10", "label": "yes"}
+      ]
+    },
+    {
+      "id": "organic_chemistry-suzuki-coupling",
+      "name": "Suzuki–Miyaura Coupling",
+      "description": "The palladium-catalyzed Suzuki–Miyaura coupling joins an aryl halide and an organoboron compound through a catalytic cycle of oxidative addition, base-assisted transmetalation, and reductive elimination, regenerating the Pd(0) catalyst each turn.",
+      "graphType": "cyclic_pathway",
+      "domainContext": "Cross-coupling catalysis",
+      "namedCollections": ["organic-chemistry"],
+      "keywords": ["suzuki coupling", "palladium catalysis", "oxidative addition", "transmetalation", "reductive elimination"],
+      "basis": "source_extraction:organic_chemistry-suzuki-coupling",
+      "sources": [
+        {"title": "Palladium-catalyzed cross-coupling reactions of organoboron compounds", "authors": "Miyaura, N.; Suzuki, A.", "journal": "Chemical Reviews", "year": "1995", "doi": "10.1021/cr00039a007", "url": "https://doi.org/10.1021/cr00039a007"},
+        {"title": "Cross-coupling reactions of organoboranes: an easy way to construct C–C bonds (Nobel Lecture)", "authors": "Suzuki, A.", "journal": "Angewandte Chemie International Edition", "year": "2011", "doi": "10.1002/anie.201101379", "url": "https://doi.org/10.1002/anie.201101379"},
+        {"title": "A new stereospecific cross-coupling by the palladium-catalyzed reaction of 1-alkenylboranes", "authors": "Miyaura, N.; Yamada, K.; Suzuki, A.", "journal": "Tetrahedron Letters", "year": "1979", "doi": "10.1016/S0040-4039(01)95429-2", "url": "https://doi.org/10.1016/S0040-4039(01)95429-2"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Aryl halide + boronic acid", "role": "red", "shape": "process", "detail": "Coupling partners + base", "sourceRef": 0},
+        {"id": "N2", "label": "Pd(0) catalyst", "role": "green", "shape": "process", "detail": "Active low-valent palladium", "sourceRef": 0},
+        {"id": "N3", "label": "Oxidative addition of Ar–X", "role": "green", "shape": "process", "detail": "Ar–Pd(II)–X formed", "sourceRef": 1},
+        {"id": "N4", "label": "Base activates boronate", "role": "green", "shape": "process", "detail": "Forms nucleophilic boronate", "sourceRef": 0},
+        {"id": "N5", "label": "Transmetalation", "role": "green", "shape": "process", "detail": "Aryl transfers to Pd", "sourceRef": 0},
+        {"id": "N6", "label": "Ar–Pd(II)–Ar′ complex", "role": "blue", "shape": "process", "detail": "Diorganopalladium intermediate", "sourceRef": 1},
+        {"id": "N7", "label": "Reductive elimination", "role": "green", "shape": "process", "detail": "Forms C–C bond", "sourceRef": 0},
+        {"id": "N8", "label": "Biaryl product released", "role": "green", "shape": "process", "detail": "Coupled product", "sourceRef": 2},
+        {"id": "N9", "label": "Pd(0) regenerated", "role": "green", "shape": "process", "detail": "Catalyst re-enters cycle", "sourceRef": 0},
+        {"id": "N10", "label": "Coupled product", "role": "violet", "shape": "process", "detail": "Isolated biaryl", "sourceRef": 2}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N3"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"}, {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7"},
+        {"from": "N7", "to": "N8"}, {"from": "N7", "to": "N9"}, {"from": "N9", "to": "N3", "label": "next turn"}, {"from": "N8", "to": "N10"}
+      ]
+    },
+    {
+      "id": "organic_chemistry-grignard-reaction",
+      "name": "Grignard Reaction",
+      "description": "A Grignard reagent forms when magnesium inserts into a carbon-halogen bond, giving a strongly nucleophilic carbanion equivalent that adds to electrophilic carbonyls (or CO2); aqueous workup then protonates the alkoxide to give an alcohol or carboxylic acid.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Organometallic addition",
+      "namedCollections": ["organic-chemistry"],
+      "keywords": ["grignard reagent", "organomagnesium", "nucleophilic addition", "carbonyl", "alcohol"],
+      "basis": "source_extraction:organic_chemistry-grignard-reaction",
+      "sources": [
+        {"title": "The Grignard Reagents", "authors": "Seyferth, D.", "journal": "Organometallics", "year": "2009", "doi": "10.1021/om900345n", "url": "https://doi.org/10.1021/om900345n"},
+        {"title": "Sur quelques nouvelles combinaisons organométalliques du magnésium", "authors": "Grignard, V.", "journal": "Comptes Rendus de l'Académie des Sciences", "year": "1900", "doi": null, "url": "https://gallica.bnf.fr/ark:/12148/bpt6k3086n/f1322"},
+        {"title": "Organic Chemistry, 2nd ed. — Nucleophilic addition to carbonyls", "authors": "Clayden, J.; Greeves, N.; Warren, S.", "journal": "Oxford University Press", "year": "2012", "doi": null, "url": "https://global.oup.com/academic/product/organic-chemistry-9780199270293"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Halide + Mg in dry ether", "role": "red", "shape": "process", "detail": "Anhydrous conditions", "sourceRef": 0},
+        {"id": "N2", "label": "Form R–MgX", "role": "green", "shape": "process", "detail": "Oxidative insertion of Mg", "sourceRef": 1},
+        {"id": "N3", "label": "Carbanion-like nucleophile", "role": "blue", "shape": "process", "detail": "Polarized Cδ−–Mgδ+", "sourceRef": 2},
+        {"id": "N4", "label": "Electrophile type?", "role": "blue", "shape": "decision", "detail": "Choose the carbon electrophile", "sourceRef": 2},
+        {"id": "N5", "label": "Aldehyde -> 2° alcohol", "role": "green", "shape": "process", "detail": "Addition to RCHO", "sourceRef": 2},
+        {"id": "N6", "label": "Ketone -> 3° alcohol", "role": "green", "shape": "process", "detail": "Addition to R2CO", "sourceRef": 2},
+        {"id": "N7", "label": "CO2 -> carboxylic acid", "role": "green", "shape": "process", "detail": "Carboxylation", "sourceRef": 2},
+        {"id": "N8", "label": "Tetrahedral alkoxide", "role": "blue", "shape": "process", "detail": "Magnesium alkoxide salt", "sourceRef": 2},
+        {"id": "N9", "label": "Aqueous workup", "role": "green", "shape": "process", "detail": "Protonate the alkoxide", "sourceRef": 0},
+        {"id": "N10", "label": "Alcohol / acid product", "role": "violet", "shape": "process", "detail": "Isolated product", "sourceRef": 2}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"},
+        {"from": "N4", "to": "N5", "label": "aldehyde"}, {"from": "N4", "to": "N6", "label": "ketone"}, {"from": "N4", "to": "N7", "label": "CO2"},
+        {"from": "N5", "to": "N8"}, {"from": "N6", "to": "N8"}, {"from": "N7", "to": "N9"}, {"from": "N8", "to": "N9"}, {"from": "N9", "to": "N10"}
+      ]
+    },
+    {
+      "id": "organic_chemistry-aldol-condensation",
+      "name": "Aldol Condensation",
+      "description": "In the aldol reaction an enol/enolate generated from a carbonyl with an alpha-hydrogen attacks a second carbonyl to give a beta-hydroxy carbonyl; on heating, E1cb dehydration eliminates water to form a conjugated alpha,beta-unsaturated product.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Carbonyl chemistry",
+      "namedCollections": ["organic-chemistry"],
+      "keywords": ["aldol reaction", "enolate", "beta-hydroxy carbonyl", "dehydration", "condensation"],
+      "basis": "source_extraction:organic_chemistry-aldol-condensation",
+      "sources": [
+        {"title": "Organic Chemistry, 2nd ed. — Enols, enolates and the aldol reaction", "authors": "Clayden, J.; Greeves, N.; Warren, S.", "journal": "Oxford University Press", "year": "2012", "doi": null, "url": "https://global.oup.com/academic/product/organic-chemistry-9780199270293"},
+        {"title": "Modern Aldol Reactions", "authors": "Mahrwald, R. (ed.)", "journal": "Wiley-VCH", "year": "2004", "doi": "10.1002/9783527619566", "url": "https://doi.org/10.1002/9783527619566"},
+        {"title": "Gold Book: aldol reaction", "authors": "IUPAC", "journal": "IUPAC Compendium of Chemical Terminology", "year": "2019", "doi": "10.1351/goldbook.A00211", "url": "https://goldbook.iupac.org/terms/view/A00211"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Carbonyl with α-H", "role": "red", "shape": "process", "detail": "Aldol donor", "sourceRef": 0},
+        {"id": "N2", "label": "Form enol / enolate", "role": "green", "shape": "process", "detail": "Acid or base catalysis", "sourceRef": 0},
+        {"id": "N3", "label": "Nucleophilic enolate", "role": "blue", "shape": "process", "detail": "Reactive carbon nucleophile", "sourceRef": 0},
+        {"id": "N4", "label": "Attack second carbonyl", "role": "green", "shape": "process", "detail": "C–C bond formation", "sourceRef": 1},
+        {"id": "N5", "label": "β-hydroxy carbonyl (aldol)", "role": "blue", "shape": "process", "detail": "Addition product", "sourceRef": 0},
+        {"id": "N6", "label": "Heat to dehydrate?", "role": "blue", "shape": "decision", "detail": "Condensation step", "sourceRef": 1},
+        {"id": "N7", "label": "E1cb: lose water", "role": "green", "shape": "process", "detail": "Eliminate β-hydroxyl", "sourceRef": 1},
+        {"id": "N8", "label": "α,β-unsaturated product", "role": "green", "shape": "process", "detail": "Conjugated enone/enal", "sourceRef": 1},
+        {"id": "N9", "label": "Stop at aldol", "role": "violet", "shape": "process", "detail": "β-hydroxy product isolated", "sourceRef": 0},
+        {"id": "N10", "label": "Conjugated enone", "role": "violet", "shape": "process", "detail": "Condensation product", "sourceRef": 1}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"}, {"from": "N5", "to": "N6"},
+        {"from": "N6", "to": "N7", "label": "yes"}, {"from": "N7", "to": "N8"}, {"from": "N8", "to": "N10"}, {"from": "N6", "to": "N9", "label": "no"}
+      ]
+    },
+    {
+      "id": "organic_chemistry-esterification",
+      "name": "Fischer Esterification",
+      "description": "Acid-catalyzed Fischer esterification condenses a carboxylic acid and an alcohol: protonation activates the carbonyl, the alcohol adds to form a tetrahedral intermediate, and loss of water gives the ester; the reaction is an equilibrium driven by removing water or using excess reagent.",
+      "graphType": "cyclic_pathway",
+      "domainContext": "Acyl substitution",
+      "namedCollections": ["organic-chemistry"],
+      "keywords": ["fischer esterification", "acid catalysis", "tetrahedral intermediate", "equilibrium", "ester"],
+      "basis": "source_extraction:organic_chemistry-esterification",
+      "sources": [
+        {"title": "Darstellung der Ester (Fischer esterification)", "authors": "Fischer, E.; Speier, A.", "journal": "Berichte der deutschen chemischen Gesellschaft", "year": "1895", "doi": "10.1002/cber.18950280333", "url": "https://doi.org/10.1002/cber.18950280333"},
+        {"title": "Organic Chemistry, 2nd ed. — Nucleophilic substitution at the carbonyl group", "authors": "Clayden, J.; Greeves, N.; Warren, S.", "journal": "Oxford University Press", "year": "2012", "doi": null, "url": "https://global.oup.com/academic/product/organic-chemistry-9780199270293"},
+        {"title": "Gold Book: esterification", "authors": "IUPAC", "journal": "IUPAC Compendium of Chemical Terminology", "year": "2019", "doi": "10.1351/goldbook.E02194", "url": "https://goldbook.iupac.org/terms/view/E02194"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Carboxylic acid + alcohol", "role": "red", "shape": "process", "detail": "Reactants with acid catalyst", "sourceRef": 0},
+        {"id": "N2", "label": "Protonate carbonyl", "role": "green", "shape": "process", "detail": "Activates electrophile", "sourceRef": 1},
+        {"id": "N3", "label": "Alcohol attacks carbonyl", "role": "green", "shape": "process", "detail": "Nucleophilic addition", "sourceRef": 1},
+        {"id": "N4", "label": "Tetrahedral intermediate", "role": "blue", "shape": "process", "detail": "sp3 carbon adduct", "sourceRef": 1},
+        {"id": "N5", "label": "Proton transfers", "role": "green", "shape": "process", "detail": "Make a good leaving group", "sourceRef": 1},
+        {"id": "N6", "label": "Lose water", "role": "green", "shape": "process", "detail": "Eliminate H2O", "sourceRef": 1},
+        {"id": "N7", "label": "Equilibrium reached?", "role": "blue", "shape": "decision", "detail": "Reversible reaction", "sourceRef": 2},
+        {"id": "N8", "label": "Remove water / excess ROH", "role": "green", "shape": "process", "detail": "Le Chatelier shift", "sourceRef": 0},
+        {"id": "N9", "label": "Ester product", "role": "violet", "shape": "process", "detail": "Isolated ester", "sourceRef": 2}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"}, {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7"},
+        {"from": "N7", "to": "N8", "label": "shift right"}, {"from": "N8", "to": "N3", "label": "more conversion"}, {"from": "N7", "to": "N9", "label": "at equilibrium"}
+      ]
+    },
+    {
+      "id": "organic_chemistry-stereochemistry-analysis",
+      "name": "R/S Stereochemistry Assignment",
+      "description": "Assign absolute configuration with the Cahn-Ingold-Prelog rules: locate each stereocenter, rank its four substituents by priority, orient the lowest priority away, and read 1->2->3 as clockwise (R) or counterclockwise (S), iterating over all centers.",
+      "graphType": "cyclic_pathway",
+      "domainContext": "Stereochemistry",
+      "namedCollections": ["organic-chemistry"],
+      "keywords": ["stereochemistry", "cahn-ingold-prelog", "absolute configuration", "chirality", "R/S"],
+      "basis": "source_extraction:organic_chemistry-stereochemistry-analysis",
+      "sources": [
+        {"title": "Specification of molecular chirality (CIP rules)", "authors": "Cahn, R. S.; Ingold, C.; Prelog, V.", "journal": "Angewandte Chemie International Edition", "year": "1966", "doi": "10.1002/anie.196603851", "url": "https://doi.org/10.1002/anie.196603851"},
+        {"title": "Organic Chemistry, 2nd ed. — Stereochemistry", "authors": "Clayden, J.; Greeves, N.; Warren, S.", "journal": "Oxford University Press", "year": "2012", "doi": null, "url": "https://global.oup.com/academic/product/organic-chemistry-9780199270293"},
+        {"title": "Gold Book: Cahn–Ingold–Prelog (CIP) priority", "authors": "IUPAC", "journal": "IUPAC Compendium of Chemical Terminology", "year": "2019", "doi": "10.1351/goldbook.C00772", "url": "https://goldbook.iupac.org/terms/view/C00772"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Chiral molecule", "role": "red", "shape": "process", "detail": "Has stereocenters", "sourceRef": 1},
+        {"id": "N2", "label": "Locate a stereocenter", "role": "green", "shape": "process", "detail": "Four different groups", "sourceRef": 1},
+        {"id": "N3", "label": "Rank substituents (CIP)", "role": "green", "shape": "process", "detail": "By atomic number, then outward", "sourceRef": 0},
+        {"id": "N4", "label": "Lowest priority in back?", "role": "blue", "shape": "decision", "detail": "Viewing orientation", "sourceRef": 0},
+        {"id": "N5", "label": "Reorient / swap + invert", "role": "green", "shape": "process", "detail": "Account for the swap", "sourceRef": 1},
+        {"id": "N6", "label": "1->2->3 clockwise?", "role": "blue", "shape": "decision", "detail": "Trace decreasing priority", "sourceRef": 0},
+        {"id": "N7", "label": "Assign R", "role": "green", "shape": "process", "detail": "Clockwise", "sourceRef": 0},
+        {"id": "N8", "label": "Assign S", "role": "green", "shape": "process", "detail": "Counterclockwise", "sourceRef": 0},
+        {"id": "N9", "label": "More stereocenters?", "role": "blue", "shape": "decision", "detail": "Repeat for each center", "sourceRef": 1},
+        {"id": "N10", "label": "Full descriptor", "role": "violet", "shape": "process", "detail": "e.g. (2R,3S)", "sourceRef": 1}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"},
+        {"from": "N4", "to": "N5", "label": "no"}, {"from": "N5", "to": "N6"}, {"from": "N4", "to": "N6", "label": "yes"},
+        {"from": "N6", "to": "N7", "label": "cw"}, {"from": "N6", "to": "N8", "label": "ccw"}, {"from": "N7", "to": "N9"}, {"from": "N8", "to": "N9"},
+        {"from": "N9", "to": "N2", "label": "next center"}, {"from": "N9", "to": "N10", "label": "done"}
+      ]
+    },
+    {
+      "id": "organic_chemistry-organic-reaction-mechanisms",
+      "name": "Nucleophilic Substitution: SN1 vs SN2",
+      "description": "Whether an aliphatic nucleophilic substitution follows SN1 or SN2 depends mainly on substrate class: methyl/primary substrates favor concerted backside SN2 with inversion, tertiary favor stepwise SN1 via a carbocation with racemization, and secondary depend on conditions.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Reaction mechanism",
+      "namedCollections": ["organic-chemistry"],
+      "keywords": ["nucleophilic substitution", "sn1", "sn2", "carbocation", "inversion"],
+      "basis": "source_extraction:organic_chemistry-organic-reaction-mechanisms",
+      "sources": [
+        {"title": "Mechanism of substitution at a saturated carbon atom (SN1/SN2)", "authors": "Hughes, E. D.; Ingold, C. K.", "journal": "Journal of the Chemical Society", "year": "1935", "doi": "10.1039/jr9350000244", "url": "https://doi.org/10.1039/jr9350000244"},
+        {"title": "Organic Chemistry, 2nd ed. — Nucleophilic substitution at saturated carbon", "authors": "Clayden, J.; Greeves, N.; Warren, S.", "journal": "Oxford University Press", "year": "2012", "doi": null, "url": "https://global.oup.com/academic/product/organic-chemistry-9780199270293"},
+        {"title": "Gold Book: SN1 / SN2 reaction", "authors": "IUPAC", "journal": "IUPAC Compendium of Chemical Terminology", "year": "2019", "doi": "10.1351/goldbook.S05765", "url": "https://goldbook.iupac.org/terms/view/S05765"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "R–LG + nucleophile", "role": "red", "shape": "process", "detail": "Substrate and nucleophile", "sourceRef": 1},
+        {"id": "N2", "label": "Substrate class?", "role": "blue", "shape": "decision", "detail": "Degree of substitution", "sourceRef": 1},
+        {"id": "N3", "label": "Methyl/1°: SN2", "role": "green", "shape": "process", "detail": "Steric access favors concerted", "sourceRef": 0},
+        {"id": "N4", "label": "3°: SN1", "role": "green", "shape": "process", "detail": "Stable carbocation", "sourceRef": 0},
+        {"id": "N5", "label": "2°: depends on conditions", "role": "green", "shape": "process", "detail": "Solvent, nucleophile strength", "sourceRef": 0},
+        {"id": "N6", "label": "SN2: backside attack", "role": "green", "shape": "process", "detail": "Single concerted step", "sourceRef": 0},
+        {"id": "N7", "label": "Inversion of config", "role": "blue", "shape": "process", "detail": "Walden inversion", "sourceRef": 0},
+        {"id": "N8", "label": "SN1: ionize to R+", "role": "green", "shape": "process", "detail": "Rate-determining ionization", "sourceRef": 0},
+        {"id": "N9", "label": "Racemization", "role": "blue", "shape": "process", "detail": "Planar carbocation", "sourceRef": 0},
+        {"id": "N10", "label": "Substituted product", "role": "violet", "shape": "process", "detail": "Nu replaces LG", "sourceRef": 2}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"},
+        {"from": "N2", "to": "N3", "label": "1°"}, {"from": "N2", "to": "N4", "label": "3°"}, {"from": "N2", "to": "N5", "label": "2°"},
+        {"from": "N3", "to": "N6"}, {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7"},
+        {"from": "N4", "to": "N8"}, {"from": "N5", "to": "N8"}, {"from": "N8", "to": "N9"}, {"from": "N7", "to": "N10"}, {"from": "N9", "to": "N10"}
+      ]
+    },
+    {
+      "id": "organic_chemistry-organic-synthesis-pathways",
+      "name": "Retrosynthetic Analysis",
+      "description": "Retrosynthesis works backward from a target: identify functional groups, make strategic bond disconnections into synthons and their reagent equivalents, check that each maps to a known reaction, and recurse on the precursors until commercially available starting materials are reached.",
+      "graphType": "cyclic_pathway",
+      "domainContext": "Synthetic strategy",
+      "namedCollections": ["organic-chemistry"],
+      "keywords": ["retrosynthesis", "disconnection", "synthon", "precursor", "synthetic route"],
+      "basis": "source_extraction:organic_chemistry-organic-synthesis-pathways",
+      "sources": [
+        {"title": "The logic of chemical synthesis (Nobel Lecture)", "authors": "Corey, E. J.", "journal": "Angewandte Chemie International Edition", "year": "1991", "doi": "10.1002/anie.199104553", "url": "https://doi.org/10.1002/anie.199104553"},
+        {"title": "The Logic of Chemical Synthesis", "authors": "Corey, E. J.; Cheng, X.-M.", "journal": "Wiley", "year": "1989", "doi": null, "url": "https://www.wiley.com/en-us/The+Logic+of+Chemical+Synthesis-p-9780471115946"},
+        {"title": "Organic Chemistry, 2nd ed. — Retrosynthetic analysis", "authors": "Clayden, J.; Greeves, N.; Warren, S.", "journal": "Oxford University Press", "year": "2012", "doi": null, "url": "https://global.oup.com/academic/product/organic-chemistry-9780199270293"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Target molecule", "role": "red", "shape": "process", "detail": "Synthesis goal", "sourceRef": 0},
+        {"id": "N2", "label": "Identify groups/bonds", "role": "green", "shape": "process", "detail": "Functional-group analysis", "sourceRef": 2},
+        {"id": "N3", "label": "Disconnect strategic bond", "role": "green", "shape": "process", "detail": "Break to simpler pieces", "sourceRef": 0},
+        {"id": "N4", "label": "Synthons + equivalents", "role": "blue", "shape": "process", "detail": "Idealized fragments and reagents", "sourceRef": 0},
+        {"id": "N5", "label": "Maps to known reaction?", "role": "blue", "shape": "decision", "detail": "Feasible forward step", "sourceRef": 2},
+        {"id": "N6", "label": "Try other disconnection", "role": "green", "shape": "process", "detail": "Alternative strategy", "sourceRef": 1},
+        {"id": "N7", "label": "Simpler precursors", "role": "green", "shape": "process", "detail": "One step back", "sourceRef": 0},
+        {"id": "N8", "label": "Precursors available?", "role": "blue", "shape": "decision", "detail": "Commercial starting point", "sourceRef": 1},
+        {"id": "N9", "label": "Recurse on precursor", "role": "green", "shape": "process", "detail": "Repeat the analysis", "sourceRef": 0},
+        {"id": "N10", "label": "Forward synthetic route", "role": "violet", "shape": "process", "detail": "Executable plan", "sourceRef": 1}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"},
+        {"from": "N5", "to": "N6", "label": "no"}, {"from": "N6", "to": "N3", "label": "re-disconnect"}, {"from": "N5", "to": "N7", "label": "yes"},
+        {"from": "N7", "to": "N8"}, {"from": "N8", "to": "N9", "label": "no"}, {"from": "N9", "to": "N3", "label": "deeper"}, {"from": "N8", "to": "N10", "label": "yes"}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,128 @@
+{
+  "discipline": "physics",
+  "slice": "thermodynamics_statistical+pilot",
+  "charts": [
+    {
+      "id": "thermodynamics_statistical-heat-engine",
+      "name": "Carnot Heat Engine",
+      "description": "The Carnot engine sets the maximum efficiency of any heat engine: a working substance runs a reversible cycle of isothermal expansion absorbing heat from the hot reservoir, adiabatic expansion, isothermal compression rejecting heat to the cold reservoir, and adiabatic compression, giving efficiency eta = 1 - Tc/Th.",
+      "graphType": "cyclic_pathway",
+      "domainContext": "Classical thermodynamics",
+      "keywords": ["Carnot cycle", "heat engine", "thermal efficiency", "reversible process", "second law"],
+      "basis": "source_extraction:thermodynamics_statistical-heat-engine",
+      "sources": [
+        {"title": "Reflections on the Motive Power of Fire", "authors": "Carnot, S.", "journal": "Bachelier, Paris", "year": "1824", "url": "https://www.gutenberg.org/ebooks/52204"},
+        {"title": "Thermodynamics", "authors": "Fermi, E.", "journal": "Dover", "year": "1956", "url": "https://store.doverpublications.com/products/9780486603612"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Hot + cold reservoirs", "role": "red", "shape": "process", "detail": "Th > Tc", "sourceRef": 1},
+        {"id": "N2", "label": "Working substance", "role": "green", "shape": "process", "detail": "Ideal gas in cylinder", "sourceRef": 1},
+        {"id": "N3", "label": "Isothermal expansion (Th)", "role": "green", "shape": "process", "detail": "Contact hot reservoir", "sourceRef": 0},
+        {"id": "N4", "label": "Absorb heat Qh", "role": "blue", "shape": "process", "detail": "At constant Th", "sourceRef": 0},
+        {"id": "N5", "label": "Adiabatic expansion", "role": "green", "shape": "process", "detail": "Cools to Tc", "sourceRef": 0},
+        {"id": "N6", "label": "Isothermal compression (Tc)", "role": "green", "shape": "process", "detail": "Contact cold reservoir", "sourceRef": 0},
+        {"id": "N7", "label": "Reject heat Qc", "role": "blue", "shape": "process", "detail": "At constant Tc", "sourceRef": 0},
+        {"id": "N8", "label": "Adiabatic compression", "role": "green", "shape": "process", "detail": "Back to Th", "sourceRef": 0},
+        {"id": "N9", "label": "Reversible cycle?", "role": "blue", "shape": "decision", "detail": "No dissipation", "sourceRef": 1},
+        {"id": "N10", "label": "Reduce irreversibilities", "role": "green", "shape": "process", "detail": "Quasi-static limit", "sourceRef": 1},
+        {"id": "N11", "label": "eta = 1 - Tc/Th", "role": "violet", "shape": "process", "detail": "Carnot efficiency", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"}, {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7"}, {"from": "N7", "to": "N8"}, {"from": "N8", "to": "N9"},
+        {"from": "N9", "to": "N10", "label": "no"}, {"from": "N10", "to": "N3", "label": "idealize"}, {"from": "N9", "to": "N11", "label": "yes"}
+      ]
+    },
+    {
+      "id": "thermodynamics_statistical-entropy",
+      "name": "Statistical Entropy (Boltzmann)",
+      "description": "Statistical mechanics defines entropy by counting microstates: for an isolated system the multiplicity of microstates consistent with the macrostate gives Boltzmann's S = k ln(Omega); maximizing entropy subject to constraints selects the most probable macrostate, defines temperature through 1/T = dS/dE, and yields the second law dS >= 0.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Statistical mechanics",
+      "keywords": ["Boltzmann entropy", "microstates", "multiplicity", "maximum entropy", "second law"],
+      "basis": "source_extraction:thermodynamics_statistical-entropy",
+      "sources": [
+        {"title": "Information theory and statistical mechanics", "authors": "Jaynes, E. T.", "journal": "Physical Review", "year": "1957", "doi": "10.1103/PhysRev.106.620", "url": "https://doi.org/10.1103/PhysRev.106.620"},
+        {"title": "Statistical Mechanics (3rd ed.)", "authors": "Pathria, R. K.; Beale, P. D.", "journal": "Academic Press", "year": "2011", "doi": "10.1016/C2009-0-62310-2", "url": "https://doi.org/10.1016/C2009-0-62310-2"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Isolated system, energy E", "role": "red", "shape": "process", "detail": "Fixed N, V, E", "sourceRef": 1},
+        {"id": "N2", "label": "Enumerate microstates", "role": "green", "shape": "process", "detail": "Accessible configs", "sourceRef": 1},
+        {"id": "N3", "label": "Count multiplicity Omega", "role": "green", "shape": "process", "detail": "States per macrostate", "sourceRef": 1},
+        {"id": "N4", "label": "Boltzmann S = k ln Omega", "role": "blue", "shape": "process", "detail": "Entropy definition", "sourceRef": 1},
+        {"id": "N5", "label": "System can exchange?", "role": "blue", "shape": "decision", "detail": "Energy with others", "sourceRef": 0},
+        {"id": "N6", "label": "Maximize S at equilibrium", "role": "green", "shape": "process", "detail": "Most likely state", "sourceRef": 0},
+        {"id": "N7", "label": "Constraint: fixed E", "role": "green", "shape": "process", "detail": "Lagrange constraint", "sourceRef": 0},
+        {"id": "N8", "label": "Most probable macrostate", "role": "blue", "shape": "process", "detail": "Sharp peak", "sourceRef": 1},
+        {"id": "N9", "label": "Define T: 1/T = dS/dE", "role": "green", "shape": "process", "detail": "Thermal contact", "sourceRef": 1},
+        {"id": "N10", "label": "Second law: dS >= 0", "role": "green", "shape": "process", "detail": "Irreversible increase", "sourceRef": 0},
+        {"id": "N11", "label": "Equilibrium entropy", "role": "violet", "shape": "process", "detail": "Macroscopic S", "sourceRef": 1}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"},
+        {"from": "N5", "to": "N6", "label": "yes"}, {"from": "N5", "to": "N7", "label": "no"},
+        {"from": "N6", "to": "N8"}, {"from": "N7", "to": "N8"}, {"from": "N8", "to": "N9"}, {"from": "N9", "to": "N10"}, {"from": "N10", "to": "N11"}
+      ]
+    },
+    {
+      "id": "thermodynamics_statistical-phase-transition",
+      "name": "Ising Model Phase Transition",
+      "description": "The Ising model captures a continuous phase transition: from the spin Hamiltonian the partition function gives the free energy and the magnetization order parameter; below the critical temperature the system spontaneously breaks symmetry into an ordered phase, with critical exponents describing behavior near Tc.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Statistical mechanics / critical phenomena",
+      "keywords": ["Ising model", "phase transition", "order parameter", "spontaneous symmetry breaking", "critical exponents"],
+      "basis": "source_extraction:thermodynamics_statistical-phase-transition",
+      "sources": [
+        {"title": "Crystal statistics. I. A two-dimensional model with an order-disorder transition", "authors": "Onsager, L.", "journal": "Physical Review", "year": "1944", "doi": "10.1103/PhysRev.65.117", "url": "https://doi.org/10.1103/PhysRev.65.117"},
+        {"title": "Beitrag zur Theorie des Ferromagnetismus", "authors": "Ising, E.", "journal": "Zeitschrift fur Physik", "year": "1925", "doi": "10.1007/BF02980577", "url": "https://doi.org/10.1007/BF02980577"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Many interacting spins", "role": "red", "shape": "process", "detail": "Lattice of +/-1", "sourceRef": 1},
+        {"id": "N2", "label": "Ising Hamiltonian", "role": "green", "shape": "process", "detail": "Nearest-neighbor J", "sourceRef": 1},
+        {"id": "N3", "label": "Compute partition function", "role": "green", "shape": "process", "detail": "Sum over states", "sourceRef": 0},
+        {"id": "N4", "label": "Free energy F=-kT ln Z", "role": "blue", "shape": "process", "detail": "Thermodynamic potential", "sourceRef": 0},
+        {"id": "N5", "label": "Order parameter m", "role": "green", "shape": "process", "detail": "Net magnetization", "sourceRef": 0},
+        {"id": "N6", "label": "Below critical temp Tc?", "role": "blue", "shape": "decision", "detail": "Compare T to Tc", "sourceRef": 0},
+        {"id": "N7", "label": "Disordered: m = 0", "role": "green", "shape": "process", "detail": "Paramagnetic", "sourceRef": 0},
+        {"id": "N8", "label": "Ordered: m != 0", "role": "green", "shape": "process", "detail": "Ferromagnetic", "sourceRef": 0},
+        {"id": "N9", "label": "Symmetry breaking", "role": "blue", "shape": "process", "detail": "Pick a direction", "sourceRef": 0},
+        {"id": "N10", "label": "Critical exponents near Tc", "role": "green", "shape": "process", "detail": "Universality", "sourceRef": 0},
+        {"id": "N11", "label": "Phase transition described", "role": "violet", "shape": "process", "detail": "Order vs disorder", "sourceRef": 1}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"}, {"from": "N5", "to": "N6"},
+        {"from": "N6", "to": "N7", "label": "no"}, {"from": "N6", "to": "N8", "label": "yes"},
+        {"from": "N7", "to": "N11"}, {"from": "N8", "to": "N9"}, {"from": "N9", "to": "N10"}, {"from": "N10", "to": "N11"}
+      ]
+    },
+    {
+      "id": "state-transition-matter-phases",
+      "name": "States of Matter Transitions",
+      "description": "The states of matter form a transition diagram driven by temperature and pressure: adding energy carries a substance from solid to liquid to gas and then to plasma through melting, vaporization, and ionization, while removing energy reverses these transitions; the equilibrium phase is fixed by position on the pressure-temperature diagram.",
+      "graphType": "state_transition",
+      "domainContext": "Phases of matter",
+      "namedCollections": ["graph-type-pilots", "state-transition"],
+      "keywords": ["states of matter", "phase transition", "melting", "vaporization", "ionization"],
+      "basis": "source_extraction:state-transition-matter-phases",
+      "sources": [
+        {"title": "Atkins' Physical Chemistry (11th ed.)", "authors": "Atkins, P.; de Paula, J.; Keeler, J.", "journal": "Oxford University Press", "year": "2018", "url": "https://global.oup.com/academic/product/atkins-physical-chemistry-9780198769866"},
+        {"title": "Introduction to Phase Transitions and Critical Phenomena", "authors": "Stanley, H. E.", "journal": "Oxford University Press", "year": "1971", "url": "https://global.oup.com/academic/product/introduction-to-phase-transitions-and-critical-phenomena-9780195053166"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Solid phase", "role": "red", "shape": "process", "detail": "Fixed lattice", "sourceRef": 0},
+        {"id": "N2", "label": "Heat or cool?", "role": "blue", "shape": "decision", "detail": "Energy added/removed", "sourceRef": 0},
+        {"id": "N3", "label": "Melt to liquid", "role": "green", "shape": "process", "detail": "Fusion at Tm", "sourceRef": 0},
+        {"id": "N4", "label": "Liquid phase", "role": "blue", "shape": "process", "detail": "Flows, fixed volume", "sourceRef": 0},
+        {"id": "N5", "label": "Vaporize to gas", "role": "green", "shape": "process", "detail": "Boiling at Tb", "sourceRef": 0},
+        {"id": "N6", "label": "Gas phase", "role": "blue", "shape": "process", "detail": "Fills container", "sourceRef": 0},
+        {"id": "N7", "label": "Ionize to plasma", "role": "green", "shape": "process", "detail": "Strip electrons", "sourceRef": 1},
+        {"id": "N8", "label": "Plasma phase", "role": "blue", "shape": "process", "detail": "Ionized gas", "sourceRef": 1},
+        {"id": "N9", "label": "Cool: reverse transitions", "role": "green", "shape": "process", "detail": "Condense / freeze", "sourceRef": 0},
+        {"id": "N10", "label": "Equilibrium phase (P,T)", "role": "violet", "shape": "process", "detail": "Phase-diagram point", "sourceRef": 1}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3", "label": "heat"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"}, {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7"}, {"from": "N7", "to": "N8"},
+        {"from": "N2", "to": "N9", "label": "cool"}, {"from": "N9", "to": "N1", "label": "reverse"}, {"from": "N8", "to": "N10"}, {"from": "N6", "to": "N10"}
+      ]
+    }
+  ]
+}

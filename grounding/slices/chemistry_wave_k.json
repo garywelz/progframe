@@ -1,0 +1,132 @@
+{
+  "discipline": "chemistry",
+  "slice": "biochemistry+pilots",
+  "charts": [
+    {
+      "id": "biochemistry-enzyme-kinetics",
+      "name": "Michaelis-Menten Enzyme Kinetics",
+      "description": "Michaelis-Menten kinetics models an enzyme binding substrate into an ES complex that turns over to product; under the steady-state assumption that [ES] is constant, the rate becomes v = Vmax[S]/(Km+[S]), and varying substrate concentration lets Km and Vmax be fitted from the saturation curve.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Enzyme kinetics",
+      "namedCollections": ["biochemistry"],
+      "keywords": ["Michaelis-Menten", "enzyme kinetics", "steady state", "Km", "Vmax"],
+      "basis": "source_extraction:biochemistry-enzyme-kinetics",
+      "sources": [
+        {"title": "The original Michaelis constant: translation of the 1913 Michaelis-Menten paper", "authors": "Johnson, K. A.; Goody, R. S.", "journal": "Biochemistry", "year": "2011", "doi": "10.1021/bi201284u", "url": "https://doi.org/10.1021/bi201284u"},
+        {"title": "A note on the kinetics of enzyme action", "authors": "Briggs, G. E.; Haldane, J. B. S.", "journal": "Biochemical Journal", "year": "1925", "doi": "10.1042/bj0190338", "url": "https://doi.org/10.1042/bj0190338"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Enzyme + substrate", "role": "red", "shape": "process", "detail": "E and S in solution", "sourceRef": 0},
+        {"id": "N2", "label": "Form ES (E+S <=> ES)", "role": "green", "shape": "process", "detail": "Binding step", "sourceRef": 0},
+        {"id": "N3", "label": "ES complex", "role": "blue", "shape": "process", "detail": "Enzyme-substrate", "sourceRef": 0},
+        {"id": "N4", "label": "Steady state assumed?", "role": "blue", "shape": "decision", "detail": "[ES] approx constant", "sourceRef": 1},
+        {"id": "N5", "label": "Pre-steady-state regime", "role": "green", "shape": "process", "detail": "Transient buildup", "sourceRef": 1},
+        {"id": "N6", "label": "d[ES]/dt ~ 0", "role": "green", "shape": "process", "detail": "Briggs-Haldane", "sourceRef": 1},
+        {"id": "N7", "label": "Catalysis ES -> E + P", "role": "green", "shape": "process", "detail": "Turnover kcat", "sourceRef": 0},
+        {"id": "N8", "label": "v = Vmax[S]/(Km+[S])", "role": "green", "shape": "process", "detail": "Rate equation", "sourceRef": 0},
+        {"id": "N9", "label": "Vary [S], fit Km/Vmax", "role": "green", "shape": "process", "detail": "Saturation curve", "sourceRef": 1},
+        {"id": "N10", "label": "Kinetic parameters", "role": "violet", "shape": "process", "detail": "Km, Vmax, kcat", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"},
+        {"from": "N4", "to": "N5", "label": "no"}, {"from": "N5", "to": "N2", "label": "relax"}, {"from": "N4", "to": "N6", "label": "yes"},
+        {"from": "N6", "to": "N7"}, {"from": "N7", "to": "N8"}, {"from": "N8", "to": "N9"}, {"from": "N9", "to": "N10"}
+      ]
+    },
+    {
+      "id": "biochemistry-metabolism",
+      "name": "Glycolysis (Embden-Meyerhof-Parnas)",
+      "description": "Glycolysis converts glucose to two pyruvate through an energy-investment phase that spends ATP to make fructose-1,6-bisphosphate, cleavage to two triose phosphates, and a payoff phase that oxidizes glyceraldehyde-3-phosphate to generate NADH and substrate-level ATP, requiring NAD+ regeneration to continue.",
+      "graphType": "cyclic_pathway",
+      "domainContext": "Metabolic biochemistry",
+      "namedCollections": ["biochemistry"],
+      "keywords": ["glycolysis", "Embden-Meyerhof-Parnas", "ATP investment", "NADH", "pyruvate"],
+      "basis": "source_extraction:biochemistry-metabolism",
+      "sources": [
+        {"title": "Lehninger Principles of Biochemistry (7th ed.)", "authors": "Nelson, D. L.; Cox, M. M.", "journal": "W. H. Freeman", "year": "2017", "url": "https://www.macmillanlearning.com/college/us/product/Lehninger-Principles-of-Biochemistry/p/1464126119"},
+        {"title": "Biochemistry (8th ed.)", "authors": "Berg, J. M.; Tymoczko, J. L.; Gatto, G. J.; Stryer, L.", "journal": "W. H. Freeman", "year": "2015", "url": "https://www.macmillanlearning.com/college/us/product/Biochemistry/p/1464126100"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Glucose", "role": "red", "shape": "process", "detail": "6-carbon sugar", "sourceRef": 0},
+        {"id": "N2", "label": "Investment: phosphorylate", "role": "green", "shape": "process", "detail": "Spend 2 ATP", "sourceRef": 0},
+        {"id": "N3", "label": "Fructose-1,6-bisP", "role": "blue", "shape": "process", "detail": "Committed intermediate", "sourceRef": 1},
+        {"id": "N4", "label": "Cleave to two trioses", "role": "green", "shape": "process", "detail": "Aldolase split", "sourceRef": 0},
+        {"id": "N5", "label": "G3P x2", "role": "blue", "shape": "process", "detail": "Glyceraldehyde-3-P", "sourceRef": 1},
+        {"id": "N6", "label": "Oxidation + NAD+ -> NADH", "role": "green", "shape": "process", "detail": "GAPDH step", "sourceRef": 0},
+        {"id": "N7", "label": "Payoff: substrate-level ATP", "role": "green", "shape": "process", "detail": "Generate 4 ATP", "sourceRef": 0},
+        {"id": "N8", "label": "Net 2 ATP + 2 NADH?", "role": "blue", "shape": "decision", "detail": "Balance check", "sourceRef": 1},
+        {"id": "N9", "label": "Regenerate NAD+", "role": "green", "shape": "process", "detail": "Fermentation / resp.", "sourceRef": 1},
+        {"id": "N10", "label": "2 Pyruvate", "role": "violet", "shape": "process", "detail": "End products", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"},
+        {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7"}, {"from": "N7", "to": "N8"},
+        {"from": "N8", "to": "N9", "label": "need NAD+"}, {"from": "N9", "to": "N6", "label": "recycle"}, {"from": "N8", "to": "N10", "label": "yes"}
+      ]
+    },
+    {
+      "id": "biochemistry-protein-structure",
+      "name": "Protein Folding (Anfinsen)",
+      "description": "Protein folding builds higher-order structure from the primary sequence: local secondary structure forms, hydrophobic collapse drives a tertiary fold toward the native free-energy minimum down a folding funnel, subunits assemble into quaternary structure, and misfolded chains are refolded with chaperones to reach the functional native state.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Structural biochemistry",
+      "namedCollections": ["biochemistry"],
+      "keywords": ["protein folding", "Anfinsen", "folding funnel", "hydrophobic collapse", "native structure"],
+      "basis": "source_extraction:biochemistry-protein-structure",
+      "sources": [
+        {"title": "Principles that govern the folding of protein chains", "authors": "Anfinsen, C. B.", "journal": "Science", "year": "1973", "doi": "10.1126/science.181.4096.223", "url": "https://doi.org/10.1126/science.181.4096.223"},
+        {"title": "The protein-folding problem, 50 years on", "authors": "Dill, K. A.; MacCallum, J. L.", "journal": "Science", "year": "2012", "doi": "10.1126/science.1219021", "url": "https://doi.org/10.1126/science.1219021"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Polypeptide (primary seq)", "role": "red", "shape": "process", "detail": "Amino acid chain", "sourceRef": 0},
+        {"id": "N2", "label": "Local secondary structure", "role": "green", "shape": "process", "detail": "Backbone H-bonds", "sourceRef": 1},
+        {"id": "N3", "label": "Helices / sheets", "role": "blue", "shape": "process", "detail": "Alpha, beta motifs", "sourceRef": 1},
+        {"id": "N4", "label": "Hydrophobic collapse", "role": "green", "shape": "process", "detail": "Bury nonpolar core", "sourceRef": 1},
+        {"id": "N5", "label": "Tertiary fold", "role": "blue", "shape": "process", "detail": "3D arrangement", "sourceRef": 0},
+        {"id": "N6", "label": "Native fold reached?", "role": "blue", "shape": "decision", "detail": "Free-energy minimum", "sourceRef": 0},
+        {"id": "N7", "label": "Explore folding funnel", "role": "green", "shape": "process", "detail": "Search conformations", "sourceRef": 1},
+        {"id": "N8", "label": "Assemble subunits", "role": "green", "shape": "process", "detail": "Quaternary structure", "sourceRef": 0},
+        {"id": "N9", "label": "Misfolded / aggregated?", "role": "blue", "shape": "decision", "detail": "Off-pathway", "sourceRef": 1},
+        {"id": "N10", "label": "Chaperone refold", "role": "green", "shape": "process", "detail": "Rescue + retry", "sourceRef": 1},
+        {"id": "N11", "label": "Functional native protein", "role": "violet", "shape": "process", "detail": "Active conformation", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"}, {"from": "N5", "to": "N6"},
+        {"from": "N6", "to": "N7", "label": "no"}, {"from": "N7", "to": "N4", "label": "re-search"}, {"from": "N6", "to": "N8", "label": "yes"},
+        {"from": "N8", "to": "N9"}, {"from": "N9", "to": "N10", "label": "yes"}, {"from": "N10", "to": "N4", "label": "refold"}, {"from": "N9", "to": "N11", "label": "no"}
+      ]
+    },
+    {
+      "id": "influence-catalyst-design",
+      "name": "Catalyst Design Influence Network",
+      "description": "Computational catalyst design links structure to performance through reactivity descriptors: the active-site structure sets the d-band center, which shifts adsorption energy; linear scaling relations tie adsorption energy to activation barriers and turnover frequency, and the Sabatier principle predicts an optimal intermediate binding that, balanced against selectivity and stability, determines overall catalyst performance.",
+      "graphType": "influence_network",
+      "domainContext": "Computational catalysis",
+      "namedCollections": ["graph-type-pilots", "catalysis"],
+      "keywords": ["Sabatier principle", "volcano plot", "d-band center", "scaling relations", "reactivity descriptor"],
+      "basis": "source_extraction:influence-catalyst-design",
+      "sources": [
+        {"title": "Towards the computational design of solid catalysts", "authors": "Norskov, J. K.; Bligaard, T.; Rossmeisl, J.; Christensen, C. H.", "journal": "Nature Chemistry", "year": "2009", "doi": "10.1038/nchem.121", "url": "https://doi.org/10.1038/nchem.121"},
+        {"title": "From the Sabatier principle to a predictive theory of transition-metal heterogeneous catalysis", "authors": "Medford, A. J.; et al.", "journal": "Journal of Catalysis", "year": "2015", "doi": "10.1016/j.jcat.2014.12.033", "url": "https://doi.org/10.1016/j.jcat.2014.12.033"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Active-site structure", "role": "red", "shape": "process", "detail": "Composition + facet", "sourceRef": 0},
+        {"id": "N2", "label": "d-band center", "role": "green", "shape": "process", "detail": "Electronic descriptor", "sourceRef": 0},
+        {"id": "N3", "label": "Adsorption energy", "role": "blue", "shape": "process", "detail": "Binding strength", "sourceRef": 0},
+        {"id": "N4", "label": "Scaling relations", "role": "green", "shape": "process", "detail": "BEP correlations", "sourceRef": 1},
+        {"id": "N5", "label": "Activation barrier", "role": "blue", "shape": "process", "detail": "Rate-limiting TS", "sourceRef": 1},
+        {"id": "N6", "label": "Turnover frequency", "role": "green", "shape": "process", "detail": "Activity metric", "sourceRef": 1},
+        {"id": "N7", "label": "Sabatier optimum?", "role": "blue", "shape": "decision", "detail": "Volcano peak", "sourceRef": 0},
+        {"id": "N8", "label": "Selectivity + stability", "role": "blue", "shape": "process", "detail": "Competing factors", "sourceRef": 0},
+        {"id": "N9", "label": "Tune composition/support", "role": "green", "shape": "process", "detail": "Shift descriptor", "sourceRef": 1},
+        {"id": "N10", "label": "Catalyst performance", "role": "violet", "shape": "process", "detail": "Design outcome", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2", "label": "sets"}, {"from": "N2", "to": "N3", "label": "shifts"}, {"from": "N3", "to": "N4"},
+        {"from": "N4", "to": "N5", "label": "predicts"}, {"from": "N5", "to": "N6", "label": "-"}, {"from": "N6", "to": "N7"},
+        {"from": "N7", "to": "N9", "label": "no"}, {"from": "N9", "to": "N1", "label": "redesign"}, {"from": "N7", "to": "N8", "label": "yes"},
+        {"from": "N3", "to": "N8", "label": "affects"}, {"from": "N8", "to": "N10"}, {"from": "N6", "to": "N10", "label": "+"}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,194 @@
+{
+  "id": "immunology-antigen-processing-and-mhc-presentation",
+  "name": "Antigen Processing and MHC Presentation",
+  "category": "biology",
+  "subcategory": "immunology",
+  "subcategory_name": "Immunology",
+  "description": "Research-standard flowchart for Antigen Processing and MHC Presentation.",
+  "keywords": [
+    "antigen",
+    "processing",
+    "and",
+    "mhc",
+    "presentation"
+  ],
+  "namedCollections": [
+    "immunology"
+  ],
+  "colorScheme": {
+    "red": {
+      "hex": "#ff6b6b",
+      "category": "Triggers & Inputs"
+    },
+    "yellow": {
+      "hex": "#ffd43b",
+      "category": "Structures & Objects"
+    },
+    "green": {
+      "hex": "#51cf66",
+      "category": "Processing & Operations"
+    },
+    "blue": {
+      "hex": "#74c0fc",
+      "category": "Intermediates & States"
+    },
+    "violet": {
+      "hex": "#b197fc",
+      "category": "Products & Outputs"
+    }
+  },
+  "complexity": {
+    "nodes": 10,
+    "edges": 10,
+    "conditionals": 2,
+    "logicGates": {
+      "orGates": 2,
+      "andGates": 1,
+      "notGates": 0,
+      "total": 3
+    },
+    "level": "high",
+    "detailLevel": "source_grounded_rebuild",
+    "loops": 1
+  },
+  "graphMetrics": {
+    "nodes": 10,
+    "edges": 10,
+    "conditionals": 2,
+    "andGates": 1,
+    "orGates": 2,
+    "notGates": 0,
+    "loops": 1
+  },
+  "mermaid": "graph TD\n    N1[\"Antigen Processing and MHC...\"]\n    N2[\"Antigen Processing and MHC...\"]\n    N3[\"Core biological components...\"]\n    N4[\"Recognition or activation step\"]\n    N5[\"Intermediate regulatory state\"]\n    N6[\"Committed mechanistic step\"]\n    N7{\"Feedback/checkpoint control\"}\n    N8[\"Measured phenotype or product\"]\n    N9{\"Source-grounded check: Innate...\"}\n    N10[\"Antigen Processing and MHC...\"]\n\n    N1 --> N2\n    N2 --> N3\n    N3 --> N4\n    N4 --> N5\n    N5 --> N6\n    N6 --> N7\n    N7 -->|yes| N8\n    N8 --> N9\n    N9 -->|yes| N10\n    N5 -->|feedback| N3\n\n    style N1 fill:#ff6b6b,color:#fff\n    style N2 fill:#ff6b6b,color:#fff\n    style N3 fill:#ffd43b,color:#000\n    style N4 fill:#51cf66,color:#fff\n    style N5 fill:#74c0fc,color:#fff\n    style N6 fill:#51cf66,color:#fff\n    style N7 fill:#74c0fc,color:#fff\n    style N8 fill:#b197fc,color:#fff\n    style N9 fill:#ffd43b,color:#000\n    style N10 fill:#b197fc,color:#fff",
+  "nodeDetails": [
+    {
+      "id": "N1",
+      "label": "Antigen Processing and MHC...",
+      "detail": "Antigen Processing and MHC Presentation research question",
+      "type": "process",
+      "role": "Triggers & Inputs"
+    },
+    {
+      "id": "N2",
+      "label": "Antigen Processing and MHC...",
+      "detail": "Antigen Processing and MHC Presentation initiating condition",
+      "type": "process",
+      "role": "Triggers & Inputs"
+    },
+    {
+      "id": "N3",
+      "label": "Core biological components...",
+      "detail": "Core biological components: antigen/processing",
+      "type": "process",
+      "role": "Structures & Objects"
+    },
+    {
+      "id": "N4",
+      "label": "Recognition or activation step",
+      "detail": "Recognition or activation step",
+      "type": "process",
+      "role": "Processing & Operations"
+    },
+    {
+      "id": "N5",
+      "label": "Intermediate regulatory state",
+      "detail": "Intermediate regulatory state",
+      "type": "process",
+      "role": "Intermediates & States"
+    },
+    {
+      "id": "N6",
+      "label": "Committed mechanistic step",
+      "detail": "Committed mechanistic step",
+      "type": "process",
+      "role": "Processing & Operations"
+    },
+    {
+      "id": "N7",
+      "label": "Feedback/checkpoint control",
+      "detail": "Feedback/checkpoint control",
+      "type": "decision",
+      "role": "Intermediates & States"
+    },
+    {
+      "id": "N8",
+      "label": "Measured phenotype or product",
+      "detail": "Measured phenotype or product",
+      "type": "process",
+      "role": "Products & Outputs"
+    },
+    {
+      "id": "N9",
+      "label": "Source-grounded check: Innate...",
+      "detail": "Source-grounded check: Innate immunity",
+      "type": "decision",
+      "role": "Structures & Objects"
+    },
+    {
+      "id": "N10",
+      "label": "Antigen Processing and MHC...",
+      "detail": "Antigen Processing and MHC Presentation prediction/readout",
+      "type": "process",
+      "role": "Products & Outputs"
+    }
+  ],
+  "flowchartStandard": {
+    "name": "source_grounded_rebuild_v1",
+    "applied": "2026-04-30",
+    "curationStatus": "source_grounded_draft",
+    "basis": "biology_process_or_subcategory:immunology",
+    "topologySignature": "0dc3c4c497fecfee",
+    "sourceGrounding": "Graph steps are derived from the process title, existing source metadata, and curated process/subfield templates; citations support the process topic and should be reviewed for node-level claims before marking verified."
+  },
+  "lastUpdated": "2026-04-30",
+  "verified": false,
+  "notes": "Corrective rebuild: replaces the generic scaffold with a process-specific step structure and records topology for duplicate detection.",
+  "sources": [
+    {
+      "title": "Innate immunity: the virtues of a nonclonal system of recognition",
+      "authors": "Janeway, C. A. Jr.",
+      "journal": "Cold Spring Harbor Symposia on Quantitative Biology",
+      "year": "1989",
+      "pubmed": "2700931",
+      "doi": "10.1101/SQB.1989.054.01.013",
+      "url": "https://doi.org/10.1101/SQB.1989.054.01.013"
+    },
+    {
+      "title": "The inflammasomes",
+      "authors": "Martinon, F.; Burns, K.; Tschopp, J.",
+      "journal": "Molecular Cell",
+      "year": "2002",
+      "pubmed": "12191486",
+      "doi": "10.1016/S1097-2765(02)00599-3",
+      "url": "https://doi.org/10.1016/S1097-2765(02)00599-3"
+    },
+    {
+      "title": "The complement system and innate immunity",
+      "authors": "Ricklin, D.; Hajishengallis, G.; Yang, K.; Lambris, J. D.",
+      "journal": "Immunological Reviews",
+      "year": "2010",
+      "pubmed": "20636843",
+      "doi": "10.1111/j.0105-2896.2010.00931.x",
+      "url": "https://doi.org/10.1111/j.0105-2896.2010.00931.x"
+    },
+    {
+      "title": "Molecular biology of the cell",
+      "authors": "Alberts, B.; Johnson, A.; Lewis, J.; Morgan, D.; Raff, M.; Roberts, K.; Walter, P.",
+      "journal": "Garland Science",
+      "year": "2014",
+      "pubmed": null,
+      "doi": null,
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK21054/"
+    },
+    {
+      "title": "Molecular cell biology",
+      "authors": "Lodish, H.; Berk, A.; Kaiser, C. A.; Krieger, M.; Bretscher, A.; Ploegh, H.; Amon, A.; Scott, M. P.",
+      "journal": "W. H. Freeman",
+      "year": "2016",
+      "pubmed": null,
+      "doi": null,
+      "url": "https://www.ncbi.nlm.nih.gov/books/"
+    }
+  ]
+}

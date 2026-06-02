@@ -1,0 +1,259 @@
+{
+  "discipline": "computer-science",
+  "slice": "theory",
+  "charts": [
+    {
+      "id": "theory-computational-complexity-analysis",
+      "name": "Computational Complexity Analysis",
+      "description": "Complexity analysis bounds the resources an algorithm uses as input grows: basic operations are counted as a function of n, the relevant case (worst or average) is chosen, and the dominant term gives an asymptotic class; the analysis is refined until a tight bound is established and expressed in Big-O, Theta, or Omega notation.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Theory of computation",
+      "keywords": ["computational complexity", "asymptotic analysis", "Big-O notation", "worst case", "time complexity"],
+      "basis": "source_extraction:theory-computational-complexity-analysis",
+      "sources": [
+        {"title": "Introduction to the Theory of Computation (3rd ed.)", "authors": "Sipser, M.", "journal": "Cengage Learning", "year": "2012", "url": "https://math.mit.edu/~sipser/book.html"},
+        {"title": "Introduction to Algorithms (4th ed.)", "authors": "Cormen, T. H.; Leiserson, C. E.; Rivest, R. L.; Stein, C.", "journal": "MIT Press", "year": "2022", "url": "https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Algorithm + input model", "role": "red", "shape": "process", "detail": "Cost model fixed", "sourceRef": 1},
+        {"id": "N2", "label": "Count basic operations", "role": "green", "shape": "process", "detail": "Per input size", "sourceRef": 1},
+        {"id": "N3", "label": "Express as f(n)", "role": "green", "shape": "process", "detail": "Running time", "sourceRef": 1},
+        {"id": "N4", "label": "Worst or average case?", "role": "blue", "shape": "decision", "detail": "Analysis regime", "sourceRef": 0},
+        {"id": "N5", "label": "Worst-case bound", "role": "green", "shape": "process", "detail": "Max over inputs", "sourceRef": 1},
+        {"id": "N6", "label": "Average-case analysis", "role": "green", "shape": "process", "detail": "Expected cost", "sourceRef": 1},
+        {"id": "N7", "label": "Find asymptotic class", "role": "green", "shape": "process", "detail": "Dominant term", "sourceRef": 0},
+        {"id": "N8", "label": "Tight bound?", "role": "blue", "shape": "decision", "detail": "Upper = lower", "sourceRef": 0},
+        {"id": "N9", "label": "Refine analysis", "role": "green", "shape": "process", "detail": "Sharper estimate", "sourceRef": 1},
+        {"id": "N10", "label": "Big-O / Theta / Omega", "role": "blue", "shape": "process", "detail": "Formal bound", "sourceRef": 0},
+        {"id": "N11", "label": "Complexity class", "role": "violet", "shape": "process", "detail": "Resource profile", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"},
+        {"from": "N4", "to": "N5", "label": "worst"}, {"from": "N4", "to": "N6", "label": "average"}, {"from": "N5", "to": "N7"}, {"from": "N6", "to": "N7"},
+        {"from": "N7", "to": "N8"}, {"from": "N8", "to": "N9", "label": "no"}, {"from": "N9", "to": "N7", "label": "redo"}, {"from": "N8", "to": "N10", "label": "yes"}, {"from": "N10", "to": "N11"}
+      ]
+    },
+    {
+      "id": "theory-automata-construction",
+      "name": "Automata Construction (NFA to DFA)",
+      "description": "A regular language is recognized by a deterministic automaton built in stages: Thompson's construction turns a regex into an NFA, then the subset construction explores sets of NFA states reachable under each symbol to form DFA states; accepting states are marked and the DFA is minimized into an equivalent canonical machine.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Theory of computation",
+      "keywords": ["finite automata", "subset construction", "NFA to DFA", "regular language", "DFA minimization"],
+      "basis": "source_extraction:theory-automata-construction",
+      "sources": [
+        {"title": "Finite automata and their decision problems", "authors": "Rabin, M. O.; Scott, D.", "journal": "IBM Journal of Research and Development", "year": "1959", "doi": "10.1147/rd.32.0114", "url": "https://doi.org/10.1147/rd.32.0114"},
+        {"title": "Programming techniques: regular expression search algorithm", "authors": "Thompson, K.", "journal": "Communications of the ACM", "year": "1968", "doi": "10.1145/363347.363387", "url": "https://doi.org/10.1145/363347.363387"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Regular language / regex", "role": "red", "shape": "process", "detail": "Pattern to recognize", "sourceRef": 1},
+        {"id": "N2", "label": "Build NFA (Thompson)", "role": "green", "shape": "process", "detail": "From regex", "sourceRef": 1},
+        {"id": "N3", "label": "Epsilon-closure of start", "role": "green", "shape": "process", "detail": "Initial DFA state", "sourceRef": 0},
+        {"id": "N4", "label": "Subset construction", "role": "green", "shape": "process", "detail": "Move + closure", "sourceRef": 0},
+        {"id": "N5", "label": "New DFA state?", "role": "blue", "shape": "decision", "detail": "Unseen subset", "sourceRef": 0},
+        {"id": "N6", "label": "Add to worklist", "role": "green", "shape": "process", "detail": "Queue subset", "sourceRef": 0},
+        {"id": "N7", "label": "Compute transitions", "role": "green", "shape": "process", "detail": "Per input symbol", "sourceRef": 0},
+        {"id": "N8", "label": "All subsets processed?", "role": "blue", "shape": "decision", "detail": "Worklist empty", "sourceRef": 0},
+        {"id": "N9", "label": "Mark accepting states", "role": "green", "shape": "process", "detail": "Contain NFA final", "sourceRef": 0},
+        {"id": "N10", "label": "Minimize DFA", "role": "green", "shape": "process", "detail": "Merge equivalents", "sourceRef": 1},
+        {"id": "N11", "label": "Equivalent DFA", "role": "violet", "shape": "process", "detail": "Canonical machine", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"},
+        {"from": "N5", "to": "N6", "label": "yes"}, {"from": "N6", "to": "N7"}, {"from": "N5", "to": "N7", "label": "no"},
+        {"from": "N7", "to": "N8"}, {"from": "N8", "to": "N4", "label": "no"}, {"from": "N8", "to": "N9", "label": "yes"}, {"from": "N9", "to": "N10"}, {"from": "N10", "to": "N11"}
+      ]
+    },
+    {
+      "id": "theory-formal-verification",
+      "name": "Formal Verification",
+      "description": "Formal verification mathematically proves a system meets its specification: a formal model and a property (often in temporal logic) are built, and either model checking explores the state space or theorem proving derives a proof; a failed check yields a counterexample that refines the model until the property is guaranteed.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Theory of computation / formal methods",
+      "keywords": ["formal verification", "model checking", "theorem proving", "temporal logic", "counterexample"],
+      "basis": "source_extraction:theory-formal-verification",
+      "sources": [
+        {"title": "Model checking: algorithmic verification and debugging", "authors": "Clarke, E. M.; Emerson, E. A.; Sifakis, J.", "journal": "Communications of the ACM", "year": "2009", "doi": "10.1145/1592761.1592781", "url": "https://doi.org/10.1145/1592761.1592781"},
+        {"title": "Principles of Model Checking", "authors": "Baier, C.; Katoen, J.-P.", "journal": "MIT Press", "year": "2008", "url": "https://mitpress.mit.edu/9780262026499/principles-of-model-checking/"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "System + specification", "role": "red", "shape": "process", "detail": "What to verify", "sourceRef": 0},
+        {"id": "N2", "label": "Build formal model", "role": "green", "shape": "process", "detail": "Transition system", "sourceRef": 1},
+        {"id": "N3", "label": "Express property", "role": "green", "shape": "process", "detail": "Temporal logic", "sourceRef": 0},
+        {"id": "N4", "label": "Choose technique", "role": "blue", "shape": "decision", "detail": "Proof method", "sourceRef": 1},
+        {"id": "N5", "label": "Model checking", "role": "green", "shape": "process", "detail": "Automated search", "sourceRef": 0},
+        {"id": "N6", "label": "Theorem proving", "role": "green", "shape": "process", "detail": "Deductive proof", "sourceRef": 1},
+        {"id": "N7", "label": "Explore state space", "role": "green", "shape": "process", "detail": "Reachable states", "sourceRef": 1},
+        {"id": "N8", "label": "Property holds?", "role": "blue", "shape": "decision", "detail": "Spec satisfied", "sourceRef": 0},
+        {"id": "N9", "label": "Produce counterexample", "role": "green", "shape": "process", "detail": "Violating trace", "sourceRef": 0},
+        {"id": "N10", "label": "Refine model/spec", "role": "green", "shape": "process", "detail": "Fix and retry", "sourceRef": 1},
+        {"id": "N11", "label": "Proof / guarantee", "role": "blue", "shape": "process", "detail": "Property proven", "sourceRef": 0},
+        {"id": "N12", "label": "Verified system", "role": "violet", "shape": "process", "detail": "Correct by proof", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"},
+        {"from": "N4", "to": "N5", "label": "model check"}, {"from": "N4", "to": "N6", "label": "prove"}, {"from": "N5", "to": "N7"}, {"from": "N6", "to": "N7"},
+        {"from": "N7", "to": "N8"}, {"from": "N8", "to": "N9", "label": "no"}, {"from": "N9", "to": "N10"}, {"from": "N10", "to": "N2", "label": "refine"}, {"from": "N8", "to": "N11", "label": "yes"}, {"from": "N11", "to": "N12"}
+      ]
+    },
+    {
+      "id": "theory-type-system-checking",
+      "name": "Type System Checking",
+      "description": "A type checker proves a program respects its type discipline: it traverses the syntax tree under a typing environment, inferring or looking up types and applying typing rules to each construct; type variables are unified, incompatibilities raise type errors, and a program with no errors is certified well-typed.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Programming language theory",
+      "keywords": ["type system", "type checking", "type inference", "unification", "typing rules"],
+      "basis": "source_extraction:theory-type-system-checking",
+      "sources": [
+        {"title": "A theory of type polymorphism in programming", "authors": "Milner, R.", "journal": "Journal of Computer and System Sciences", "year": "1978", "doi": "10.1016/0022-0000(78)90014-4", "url": "https://doi.org/10.1016/0022-0000(78)90014-4"},
+        {"title": "Types and Programming Languages", "authors": "Pierce, B. C.", "journal": "MIT Press", "year": "2002", "url": "https://www.cis.upenn.edu/~bcpierce/tapl/"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Program AST", "role": "red", "shape": "process", "detail": "Parsed syntax", "sourceRef": 1},
+        {"id": "N2", "label": "Build type environment", "role": "green", "shape": "process", "detail": "Bindings in scope", "sourceRef": 1},
+        {"id": "N3", "label": "Traverse expression", "role": "green", "shape": "process", "detail": "Visit node", "sourceRef": 1},
+        {"id": "N4", "label": "Infer / look up types", "role": "green", "shape": "process", "detail": "Subterm types", "sourceRef": 0},
+        {"id": "N5", "label": "Apply typing rules", "role": "green", "shape": "process", "detail": "Judgment", "sourceRef": 1},
+        {"id": "N6", "label": "Types compatible?", "role": "blue", "shape": "decision", "detail": "Rule premises met", "sourceRef": 1},
+        {"id": "N7", "label": "Report type error", "role": "green", "shape": "process", "detail": "Reject program", "sourceRef": 1},
+        {"id": "N8", "label": "Unify type variables", "role": "green", "shape": "process", "detail": "Solve constraints", "sourceRef": 0},
+        {"id": "N9", "label": "Unification succeeds?", "role": "blue", "shape": "decision", "detail": "Consistent types", "sourceRef": 0},
+        {"id": "N10", "label": "More expressions?", "role": "blue", "shape": "decision", "detail": "AST remaining", "sourceRef": 1},
+        {"id": "N11", "label": "Next subexpression", "role": "green", "shape": "process", "detail": "Continue walk", "sourceRef": 1},
+        {"id": "N12", "label": "Well-typed program", "role": "violet", "shape": "process", "detail": "Type-safe", "sourceRef": 1}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"}, {"from": "N5", "to": "N6"},
+        {"from": "N6", "to": "N7", "label": "no"}, {"from": "N7", "to": "N12", "label": "reject"}, {"from": "N6", "to": "N8", "label": "yes"},
+        {"from": "N8", "to": "N9"}, {"from": "N9", "to": "N7", "label": "no"}, {"from": "N9", "to": "N10", "label": "yes"},
+        {"from": "N10", "to": "N11", "label": "yes"}, {"from": "N11", "to": "N3", "label": "loop"}, {"from": "N10", "to": "N12", "label": "no"}
+      ]
+    },
+    {
+      "id": "theory-rendering",
+      "name": "CYK Parsing of Context-Free Grammars",
+      "description": "The CYK algorithm decides membership in a context-free language in cubic time using dynamic programming: the grammar is put in Chomsky normal form, a table is filled for substrings of length one, then for increasing spans every split point is tried to derive nonterminals; the string is accepted if the start symbol spans the whole input.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Formal language theory",
+      "keywords": ["CYK algorithm", "context-free grammar", "parsing", "Chomsky normal form", "dynamic programming"],
+      "basis": "source_extraction:theory-rendering",
+      "sources": [
+        {"title": "Recognition and parsing of context-free languages in time n^3", "authors": "Younger, D. H.", "journal": "Information and Control", "year": "1967", "doi": "10.1016/S0019-9958(67)80007-X", "url": "https://doi.org/10.1016/S0019-9958(67)80007-X"},
+        {"title": "Introduction to Automata Theory, Languages, and Computation (3rd ed.)", "authors": "Hopcroft, J. E.; Motwani, R.; Ullman, J. D.", "journal": "Pearson", "year": "2006", "url": "https://www.pearson.com/en-us/subject-catalog/p/introduction-to-automata-theory-languages-and-computation/P200000003671"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "String + CFG", "role": "red", "shape": "process", "detail": "Membership query", "sourceRef": 0},
+        {"id": "N2", "label": "Convert to CNF", "role": "green", "shape": "process", "detail": "Binary rules", "sourceRef": 1},
+        {"id": "N3", "label": "Init DP table", "role": "green", "shape": "process", "detail": "Triangular grid", "sourceRef": 0},
+        {"id": "N4", "label": "Fill length-1 cells", "role": "green", "shape": "process", "detail": "Terminal rules", "sourceRef": 0},
+        {"id": "N5", "label": "Increase span length", "role": "green", "shape": "process", "detail": "Substrings", "sourceRef": 0},
+        {"id": "N6", "label": "Try all split points", "role": "green", "shape": "process", "detail": "Combine subcells", "sourceRef": 0},
+        {"id": "N7", "label": "Production matches?", "role": "blue", "shape": "decision", "detail": "A -> BC found", "sourceRef": 0},
+        {"id": "N8", "label": "Add nonterminal to cell", "role": "green", "shape": "process", "detail": "Record derivation", "sourceRef": 0},
+        {"id": "N9", "label": "More spans?", "role": "blue", "shape": "decision", "detail": "Longer substrings", "sourceRef": 0},
+        {"id": "N10", "label": "Next span", "role": "green", "shape": "process", "detail": "Grow length", "sourceRef": 0},
+        {"id": "N11", "label": "Start symbol on top?", "role": "blue", "shape": "decision", "detail": "Spans whole string", "sourceRef": 1},
+        {"id": "N12", "label": "Accept / reject", "role": "violet", "shape": "process", "detail": "Membership result", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"}, {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7"},
+        {"from": "N7", "to": "N8", "label": "yes"}, {"from": "N8", "to": "N9"}, {"from": "N7", "to": "N9", "label": "no"},
+        {"from": "N9", "to": "N10", "label": "yes"}, {"from": "N10", "to": "N5", "label": "loop"}, {"from": "N9", "to": "N11", "label": "no"}, {"from": "N11", "to": "N12"}
+      ]
+    },
+    {
+      "id": "theory-geometric-modeling",
+      "name": "Decidability & the Halting Problem",
+      "description": "A problem is decidable if a Turing machine halts with the correct answer on every input: after formalizing the problem as a language, one either constructs a total decider or, failing that, reduces the halting problem to it; a valid reduction proves undecidability, as Turing showed the halting problem itself is undecidable.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Computability theory",
+      "keywords": ["decidability", "halting problem", "Turing machine", "undecidable", "reduction"],
+      "basis": "source_extraction:theory-geometric-modeling",
+      "sources": [
+        {"title": "On computable numbers, with an application to the Entscheidungsproblem", "authors": "Turing, A. M.", "journal": "Proceedings of the London Mathematical Society", "year": "1936", "doi": "10.1112/plms/s2-42.1.230", "url": "https://doi.org/10.1112/plms/s2-42.1.230"},
+        {"title": "Introduction to the Theory of Computation (3rd ed.)", "authors": "Sipser, M.", "journal": "Cengage Learning", "year": "2012", "url": "https://math.mit.edu/~sipser/book.html"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Decision problem stated", "role": "red", "shape": "process", "detail": "Yes/no question", "sourceRef": 1},
+        {"id": "N2", "label": "Formalize as language", "role": "green", "shape": "process", "detail": "Set of strings", "sourceRef": 1},
+        {"id": "N3", "label": "Decidable? (seek TM)", "role": "blue", "shape": "decision", "detail": "Algorithm sought", "sourceRef": 1},
+        {"id": "N4", "label": "Construct decider TM", "role": "green", "shape": "process", "detail": "Always halts", "sourceRef": 0},
+        {"id": "N5", "label": "Halts on all inputs?", "role": "blue", "shape": "decision", "detail": "Total function", "sourceRef": 0},
+        {"id": "N6", "label": "Recognizer only", "role": "green", "shape": "process", "detail": "Semi-decidable", "sourceRef": 1},
+        {"id": "N7", "label": "Reduce from HALT", "role": "green", "shape": "process", "detail": "Map known undecidable", "sourceRef": 1},
+        {"id": "N8", "label": "Reduction valid?", "role": "blue", "shape": "decision", "detail": "Preserves answer", "sourceRef": 0},
+        {"id": "N9", "label": "Refine reduction", "role": "green", "shape": "process", "detail": "Fix mapping", "sourceRef": 1},
+        {"id": "N10", "label": "Undecidable (proven)", "role": "blue", "shape": "process", "detail": "No decider exists", "sourceRef": 0},
+        {"id": "N11", "label": "Decidable (algorithm)", "role": "blue", "shape": "process", "detail": "Decider found", "sourceRef": 0},
+        {"id": "N12", "label": "Classification result", "role": "violet", "shape": "process", "detail": "Decidability verdict", "sourceRef": 1}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"},
+        {"from": "N3", "to": "N4", "label": "try"}, {"from": "N4", "to": "N5"}, {"from": "N5", "to": "N11", "label": "yes"}, {"from": "N5", "to": "N6", "label": "no"}, {"from": "N6", "to": "N12"},
+        {"from": "N3", "to": "N7", "label": "suspect no"}, {"from": "N7", "to": "N8"}, {"from": "N8", "to": "N9", "label": "no"}, {"from": "N9", "to": "N7", "label": "retry"},
+        {"from": "N8", "to": "N10", "label": "yes"}, {"from": "N10", "to": "N12"}, {"from": "N11", "to": "N12"}
+      ]
+    },
+    {
+      "id": "theory-animation",
+      "name": "NP-Completeness via Reduction",
+      "description": "To prove a problem NP-complete one shows it lies in NP and is NP-hard: membership is shown with a polynomial-time verifier, then a known NP-complete problem is reduced to it by a polynomial-time mapping that preserves yes-instances; verifying the reduction's size and correctness completes the proof.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Complexity theory",
+      "keywords": ["NP-completeness", "polynomial reduction", "NP-hard", "verifier", "Cook-Levin"],
+      "basis": "source_extraction:theory-animation",
+      "sources": [
+        {"title": "The complexity of theorem-proving procedures", "authors": "Cook, S. A.", "journal": "ACM Symposium on Theory of Computing (STOC)", "year": "1971", "doi": "10.1145/800157.805047", "url": "https://doi.org/10.1145/800157.805047"},
+        {"title": "Reducibility among combinatorial problems", "authors": "Karp, R. M.", "journal": "Complexity of Computer Computations", "year": "1972", "doi": "10.1007/978-1-4684-2001-2_9", "url": "https://doi.org/10.1007/978-1-4684-2001-2_9"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Target problem X", "role": "red", "shape": "process", "detail": "Decision problem", "sourceRef": 1},
+        {"id": "N2", "label": "Show X in NP", "role": "green", "shape": "process", "detail": "Poly-time verifier", "sourceRef": 0},
+        {"id": "N3", "label": "In NP?", "role": "blue", "shape": "decision", "detail": "Certificate checkable", "sourceRef": 0},
+        {"id": "N4", "label": "Not NP-complete here", "role": "green", "shape": "process", "detail": "Membership fails", "sourceRef": 0},
+        {"id": "N5", "label": "Pick known NPC Y", "role": "green", "shape": "process", "detail": "e.g. 3-SAT", "sourceRef": 1},
+        {"id": "N6", "label": "Construct reduction", "role": "green", "shape": "process", "detail": "Map Y to X", "sourceRef": 1},
+        {"id": "N7", "label": "Map Y instance to X", "role": "green", "shape": "process", "detail": "Transform input", "sourceRef": 0},
+        {"id": "N8", "label": "Reduction polynomial?", "role": "blue", "shape": "decision", "detail": "Poly time/size", "sourceRef": 0},
+        {"id": "N9", "label": "Fix mapping", "role": "green", "shape": "process", "detail": "Reduce blowup", "sourceRef": 0},
+        {"id": "N10", "label": "Y yes iff X yes?", "role": "blue", "shape": "decision", "detail": "Answer preserved", "sourceRef": 1},
+        {"id": "N11", "label": "Repair correctness", "role": "green", "shape": "process", "detail": "Adjust gadget", "sourceRef": 0},
+        {"id": "N12", "label": "X is NP-complete", "role": "violet", "shape": "process", "detail": "In NP + NP-hard", "sourceRef": 1}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4", "label": "no"}, {"from": "N4", "to": "N12", "label": "result"}, {"from": "N3", "to": "N5", "label": "yes"},
+        {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7"}, {"from": "N7", "to": "N8"},
+        {"from": "N8", "to": "N9", "label": "no"}, {"from": "N9", "to": "N6", "label": "retry"}, {"from": "N8", "to": "N10", "label": "yes"},
+        {"from": "N10", "to": "N11", "label": "no"}, {"from": "N11", "to": "N6", "label": "rework"}, {"from": "N10", "to": "N12", "label": "yes"}
+      ]
+    },
+    {
+      "id": "dependency-web-service-stack",
+      "name": "Web Service Stack Dependency Graph",
+      "description": "A dependency graph captures which components a web service relies on to function: the load balancer depends on web/API servers, which depend on the auth service and application logic; the application in turn depends on a cache, primary database, and message queue, and queue workers depend on object storage, so a failure propagates up the chain.",
+      "graphType": "dependency_graph",
+      "domainContext": "Distributed systems architecture",
+      "keywords": ["dependency graph", "service architecture", "microservices", "fault propagation", "system topology"],
+      "basis": "source_extraction:dependency-web-service-stack",
+      "sources": [
+        {"title": "Designing Data-Intensive Applications", "authors": "Kleppmann, M.", "journal": "O'Reilly Media", "year": "2017", "url": "https://www.oreilly.com/library/view/designing-data-intensive-applications/9781491903063/"},
+        {"title": "Patterns of Enterprise Application Architecture", "authors": "Fowler, M.", "journal": "Addison-Wesley", "year": "2002", "url": "https://martinfowler.com/books/eaa.html"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Load balancer", "role": "red", "shape": "process", "detail": "Traffic entry", "sourceRef": 0},
+        {"id": "N2", "label": "Web / API server", "role": "green", "shape": "process", "detail": "Request handler", "sourceRef": 1},
+        {"id": "N3", "label": "Auth service", "role": "blue", "shape": "process", "detail": "Identity + tokens", "sourceRef": 0},
+        {"id": "N4", "label": "Application logic", "role": "green", "shape": "process", "detail": "Business rules", "sourceRef": 1},
+        {"id": "N5", "label": "Cache (Redis)", "role": "blue", "shape": "process", "detail": "Hot data", "sourceRef": 0},
+        {"id": "N6", "label": "Primary database", "role": "blue", "shape": "process", "detail": "System of record", "sourceRef": 0},
+        {"id": "N7", "label": "Message queue", "role": "blue", "shape": "process", "detail": "Async work", "sourceRef": 0},
+        {"id": "N8", "label": "Object storage", "role": "violet", "shape": "process", "detail": "Blobs / backups", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2", "label": "depends on"}, {"from": "N2", "to": "N3", "label": "depends on"}, {"from": "N2", "to": "N4", "label": "depends on"},
+        {"from": "N4", "to": "N5", "label": "depends on"}, {"from": "N4", "to": "N6", "label": "depends on"}, {"from": "N4", "to": "N7", "label": "depends on"},
+        {"from": "N3", "to": "N6", "label": "depends on"}, {"from": "N7", "to": "N8", "label": "depends on"}
+      ]
+    }
+  ]
+}

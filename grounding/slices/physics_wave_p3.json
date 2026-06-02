@@ -1,0 +1,188 @@
+{
+  "discipline": "physics",
+  "slice": "solid_state+astrophysics",
+  "charts": [
+    {
+      "id": "solid_state-nuclear-decay",
+      "name": "Electronic Band Structure (Bloch)",
+      "description": "Band structure follows from electrons in a periodic crystal potential: Bloch's theorem writes eigenstates as a plane wave times a lattice-periodic function, solving within the first Brillouin zone produces allowed bands separated by gaps at the zone boundaries, and filling states to the Fermi level classifies the solid as metal, semiconductor, or insulator.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Solid-state physics",
+      "keywords": ["band structure", "Bloch's theorem", "Brillouin zone", "band gap", "Fermi level"],
+      "basis": "source_extraction:solid_state-nuclear-decay",
+      "sources": [
+        {"title": "Uber die Quantenmechanik der Elektronen in Kristallgittern", "authors": "Bloch, F.", "journal": "Zeitschrift fur Physik", "year": "1929", "doi": "10.1007/BF01339455", "url": "https://doi.org/10.1007/BF01339455"},
+        {"title": "Solid State Physics", "authors": "Ashcroft, N. W.; Mermin, N. D.", "journal": "Holt, Rinehart and Winston", "year": "1976", "url": "https://www.cengage.com/c/solid-state-physics-1e-ashcroft"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Periodic crystal lattice", "role": "red", "shape": "process", "detail": "Repeating ions", "sourceRef": 1},
+        {"id": "N2", "label": "Periodic potential V(r)", "role": "green", "shape": "process", "detail": "V(r+R) = V(r)", "sourceRef": 0},
+        {"id": "N3", "label": "Bloch's theorem applies", "role": "blue", "shape": "process", "detail": "Translation symmetry", "sourceRef": 0},
+        {"id": "N4", "label": "psi = e^{ik.r} u_k(r)", "role": "green", "shape": "process", "detail": "Bloch wavefunction", "sourceRef": 0},
+        {"id": "N5", "label": "Solve in 1st Brillouin zone", "role": "green", "shape": "process", "detail": "Reduced k-space", "sourceRef": 1},
+        {"id": "N6", "label": "Gaps at zone edges?", "role": "blue", "shape": "decision", "detail": "Bragg reflection", "sourceRef": 1},
+        {"id": "N7", "label": "Nearly-free e- mixing", "role": "green", "shape": "process", "detail": "Opens gaps", "sourceRef": 1},
+        {"id": "N8", "label": "Allowed bands + gaps", "role": "blue", "shape": "process", "detail": "Dispersion E(k)", "sourceRef": 1},
+        {"id": "N9", "label": "Fill states to Fermi level", "role": "green", "shape": "process", "detail": "Occupy up to E_F", "sourceRef": 1},
+        {"id": "N10", "label": "Metal, semicond., insulator", "role": "green", "shape": "process", "detail": "Gap vs E_F", "sourceRef": 1},
+        {"id": "N11", "label": "Band structure & transport", "role": "violet", "shape": "process", "detail": "Electronic properties", "sourceRef": 1}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"}, {"from": "N5", "to": "N6"},
+        {"from": "N6", "to": "N7", "label": "yes"}, {"from": "N7", "to": "N8"}, {"from": "N6", "to": "N8", "label": "no"}, {"from": "N8", "to": "N9"}, {"from": "N9", "to": "N10"}, {"from": "N10", "to": "N11"}
+      ]
+    },
+    {
+      "id": "solid_state-nuclear-fission",
+      "name": "BCS Superconductivity (Cooper Pairing)",
+      "description": "BCS theory explains superconductivity below a critical temperature: a phonon-mediated attraction between electrons, when it overcomes Coulomb repulsion near the Fermi surface, binds them into Cooper pairs that condense into a coherent ground state; an energy gap opens, producing zero resistance and the Meissner effect.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Solid-state physics / superconductivity",
+      "keywords": ["BCS theory", "Cooper pairs", "electron-phonon coupling", "energy gap", "Meissner effect"],
+      "basis": "source_extraction:solid_state-nuclear-fission",
+      "sources": [
+        {"title": "Theory of superconductivity", "authors": "Bardeen, J.; Cooper, L. N.; Schrieffer, J. R.", "journal": "Physical Review", "year": "1957", "doi": "10.1103/PhysRev.108.1175", "url": "https://doi.org/10.1103/PhysRev.108.1175"},
+        {"title": "Bound electron pairs in a degenerate Fermi gas", "authors": "Cooper, L. N.", "journal": "Physical Review", "year": "1956", "doi": "10.1103/PhysRev.104.1189", "url": "https://doi.org/10.1103/PhysRev.104.1189"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Electrons in metal < Tc", "role": "red", "shape": "process", "detail": "Below critical temp", "sourceRef": 0},
+        {"id": "N2", "label": "Electron-phonon attraction", "role": "green", "shape": "process", "detail": "Lattice polarization", "sourceRef": 0},
+        {"id": "N3", "label": "Beats Coulomb repulsion?", "role": "blue", "shape": "decision", "detail": "Net interaction sign", "sourceRef": 1},
+        {"id": "N4", "label": "Cool / improve coupling", "role": "green", "shape": "process", "detail": "Lower T, tune material", "sourceRef": 0},
+        {"id": "N5", "label": "Net attractive near E_F", "role": "blue", "shape": "process", "detail": "Within Debye shell", "sourceRef": 1},
+        {"id": "N6", "label": "Cooper pair forms", "role": "green", "shape": "process", "detail": "Bound (k up, -k down)", "sourceRef": 1},
+        {"id": "N7", "label": "Pairs condense (BCS)", "role": "green", "shape": "process", "detail": "Coherent ground state", "sourceRef": 0},
+        {"id": "N8", "label": "Energy gap Delta opens", "role": "blue", "shape": "process", "detail": "At Fermi surface", "sourceRef": 0},
+        {"id": "N9", "label": "Zero resistance + Meissner", "role": "green", "shape": "process", "detail": "Expel magnetic field", "sourceRef": 0},
+        {"id": "N10", "label": "Superconducting state", "role": "violet", "shape": "process", "detail": "Macroscopic coherence", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"},
+        {"from": "N3", "to": "N4", "label": "no"}, {"from": "N4", "to": "N2", "label": "retry"}, {"from": "N3", "to": "N5", "label": "yes"},
+        {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7"}, {"from": "N7", "to": "N8"}, {"from": "N8", "to": "N9"}, {"from": "N9", "to": "N10"}
+      ]
+    },
+    {
+      "id": "solid_state-nuclear-fusion",
+      "name": "Phonons & Debye Heat Capacity",
+      "description": "Lattice vibrations quantized as phonons set a crystal's heat capacity: normal modes have a dispersion that the Debye model approximates as linear up to a cutoff frequency; integrating the phonon density of states gives a specific heat scaling as T-cubed at low temperature and approaching the Dulong-Petit value at high temperature.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Solid-state physics / lattice dynamics",
+      "keywords": ["phonons", "Debye model", "specific heat", "lattice vibrations", "Dulong-Petit"],
+      "basis": "source_extraction:solid_state-nuclear-fusion",
+      "sources": [
+        {"title": "Zur Theorie der spezifischen Warmen", "authors": "Debye, P.", "journal": "Annalen der Physik", "year": "1912", "doi": "10.1002/andp.19123441404", "url": "https://doi.org/10.1002/andp.19123441404"},
+        {"title": "Introduction to Solid State Physics (8th ed.)", "authors": "Kittel, C.", "journal": "Wiley", "year": "2005", "url": "https://www.wiley.com/en-us/Introduction+to+Solid+State+Physics%2C+8th+Edition-p-9780471415268"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Crystal lattice of atoms", "role": "red", "shape": "process", "detail": "Coupled oscillators", "sourceRef": 1},
+        {"id": "N2", "label": "Atoms vibrate about equil.", "role": "green", "shape": "process", "detail": "Harmonic approximation", "sourceRef": 1},
+        {"id": "N3", "label": "Quantize: phonons", "role": "blue", "shape": "process", "detail": "Vibrational quanta", "sourceRef": 1},
+        {"id": "N4", "label": "Dispersion omega(k)", "role": "green", "shape": "process", "detail": "Mode frequencies", "sourceRef": 1},
+        {"id": "N5", "label": "Debye approximation", "role": "green", "shape": "process", "detail": "Continuum elastic", "sourceRef": 0},
+        {"id": "N6", "label": "Linear omega = v_s k", "role": "green", "shape": "process", "detail": "Sound-speed slope", "sourceRef": 0},
+        {"id": "N7", "label": "Debye cutoff + temp", "role": "blue", "shape": "process", "detail": "omega_D, Theta_D", "sourceRef": 0},
+        {"id": "N8", "label": "T below Debye temp?", "role": "blue", "shape": "decision", "detail": "Compare to Theta_D", "sourceRef": 0},
+        {"id": "N9", "label": "Low-T: C ~ T^3", "role": "green", "shape": "process", "detail": "Debye T-cubed law", "sourceRef": 0},
+        {"id": "N10", "label": "High-T: Dulong-Petit", "role": "green", "shape": "process", "detail": "C -> 3N kB", "sourceRef": 1},
+        {"id": "N11", "label": "Heat capacity C(T)", "role": "violet", "shape": "process", "detail": "Full curve", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"}, {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7"}, {"from": "N7", "to": "N8"},
+        {"from": "N8", "to": "N9", "label": "yes"}, {"from": "N8", "to": "N10", "label": "no"}, {"from": "N9", "to": "N11"}, {"from": "N10", "to": "N11"}
+      ]
+    },
+    {
+      "id": "astrophysics-standard-model",
+      "name": "Stellar Nucleosynthesis (pp-chain)",
+      "description": "A protostar becomes a main-sequence star through hydrogen fusion: gravitational contraction heats the core until the proton-proton chain ignites, fusing hydrogen to helium-4 and releasing energy by mass defect; the resulting radiation pressure balances gravity, establishing hydrostatic equilibrium.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Stellar astrophysics",
+      "keywords": ["stellar nucleosynthesis", "proton-proton chain", "hydrogen fusion", "hydrostatic equilibrium", "main sequence"],
+      "basis": "source_extraction:astrophysics-standard-model",
+      "sources": [
+        {"title": "Energy production in stars", "authors": "Bethe, H. A.", "journal": "Physical Review", "year": "1939", "doi": "10.1103/PhysRev.55.434", "url": "https://doi.org/10.1103/PhysRev.55.434"},
+        {"title": "Synthesis of the elements in stars", "authors": "Burbidge, E. M.; Burbidge, G. R.; Fowler, W. A.; Hoyle, F.", "journal": "Reviews of Modern Physics", "year": "1957", "doi": "10.1103/RevModPhys.29.547", "url": "https://doi.org/10.1103/RevModPhys.29.547"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Protostar contracts", "role": "red", "shape": "process", "detail": "Gas cloud collapse", "sourceRef": 1},
+        {"id": "N2", "label": "Core heats by gravity", "role": "green", "shape": "process", "detail": "Virial heating", "sourceRef": 1},
+        {"id": "N3", "label": "Core hot enough to fuse?", "role": "blue", "shape": "decision", "detail": "~10^7 K threshold", "sourceRef": 0},
+        {"id": "N4", "label": "Keep contracting", "role": "green", "shape": "process", "detail": "Raise temperature", "sourceRef": 1},
+        {"id": "N5", "label": "p + p -> deuterium", "role": "green", "shape": "process", "detail": "Weak interaction", "sourceRef": 0},
+        {"id": "N6", "label": "d + p -> He-3", "role": "green", "shape": "process", "detail": "Plus gamma", "sourceRef": 0},
+        {"id": "N7", "label": "He-3 + He-3 -> He-4", "role": "green", "shape": "process", "detail": "Releases 2 protons", "sourceRef": 0},
+        {"id": "N8", "label": "Release energy E=mc^2", "role": "blue", "shape": "process", "detail": "Mass defect", "sourceRef": 0},
+        {"id": "N9", "label": "Radiation pressure builds", "role": "green", "shape": "process", "detail": "Outward push", "sourceRef": 1},
+        {"id": "N10", "label": "Hydrostatic equilibrium", "role": "blue", "shape": "process", "detail": "Gravity balanced", "sourceRef": 1},
+        {"id": "N11", "label": "Main-sequence star", "role": "violet", "shape": "process", "detail": "Stable burning", "sourceRef": 1}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"},
+        {"from": "N3", "to": "N4", "label": "no"}, {"from": "N4", "to": "N2", "label": "heat more"}, {"from": "N3", "to": "N5", "label": "yes"},
+        {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7"}, {"from": "N7", "to": "N8"}, {"from": "N8", "to": "N9"}, {"from": "N9", "to": "N10"}, {"from": "N10", "to": "N11"}
+      ]
+    },
+    {
+      "id": "astrophysics-particle-collision",
+      "name": "Stellar Collapse & Chandrasekhar Limit",
+      "description": "When a star exhausts its core fuel, the core contracts until electron degeneracy pressure resists gravity: below the Chandrasekhar mass of about 1.4 solar masses it settles as a white dwarf, but above it degeneracy fails and the core collapses, ending as a neutron star halted by neutron degeneracy or, if too massive, a black hole.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Stellar astrophysics / compact objects",
+      "keywords": ["Chandrasekhar limit", "electron degeneracy", "white dwarf", "core collapse", "neutron star"],
+      "basis": "source_extraction:astrophysics-particle-collision",
+      "sources": [
+        {"title": "The maximum mass of ideal white dwarfs", "authors": "Chandrasekhar, S.", "journal": "Astrophysical Journal", "year": "1931", "doi": "10.1086/143324", "url": "https://doi.org/10.1086/143324"},
+        {"title": "Black Holes, White Dwarfs, and Neutron Stars", "authors": "Shapiro, S. L.; Teukolsky, S. A.", "journal": "Wiley", "year": "1983", "doi": "10.1002/9783527617661", "url": "https://doi.org/10.1002/9783527617661"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Star exhausts core fuel", "role": "red", "shape": "process", "detail": "Fusion ceases", "sourceRef": 1},
+        {"id": "N2", "label": "Core contracts", "role": "green", "shape": "process", "detail": "Gravity dominates", "sourceRef": 1},
+        {"id": "N3", "label": "Electron degeneracy push", "role": "green", "shape": "process", "detail": "Pauli pressure", "sourceRef": 0},
+        {"id": "N4", "label": "Core mass < 1.4 Msun?", "role": "blue", "shape": "decision", "detail": "Chandrasekhar mass", "sourceRef": 0},
+        {"id": "N5", "label": "Stable white dwarf", "role": "green", "shape": "process", "detail": "Degeneracy holds", "sourceRef": 0},
+        {"id": "N6", "label": "Exceeds Chandrasekhar", "role": "blue", "shape": "process", "detail": "Pressure insufficient", "sourceRef": 0},
+        {"id": "N7", "label": "Degeneracy fails", "role": "green", "shape": "process", "detail": "Relativistic electrons", "sourceRef": 0},
+        {"id": "N8", "label": "Core collapses", "role": "green", "shape": "process", "detail": "Implosion", "sourceRef": 1},
+        {"id": "N9", "label": "Neutron star or BH?", "role": "blue", "shape": "decision", "detail": "Remnant mass", "sourceRef": 1},
+        {"id": "N10", "label": "Neutron degeneracy halts", "role": "green", "shape": "process", "detail": "Below TOV limit", "sourceRef": 1},
+        {"id": "N11", "label": "Compact remnant", "role": "violet", "shape": "process", "detail": "WD / NS / BH", "sourceRef": 1}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"},
+        {"from": "N4", "to": "N5", "label": "yes"}, {"from": "N5", "to": "N11"},
+        {"from": "N4", "to": "N6", "label": "no"}, {"from": "N6", "to": "N7"}, {"from": "N7", "to": "N8"}, {"from": "N8", "to": "N9"},
+        {"from": "N9", "to": "N10", "label": "neutron star"}, {"from": "N10", "to": "N11"}, {"from": "N9", "to": "N11", "label": "black hole"}
+      ]
+    },
+    {
+      "id": "astrophysics-higgs-mechanism",
+      "name": "Big Bang Nucleosynthesis",
+      "description": "Big Bang nucleosynthesis forms the light elements in the first minutes: as the universe expands and cools, the neutron-to-proton ratio freezes out, and once photons are too cool to photodissociate deuterium the bottleneck clears and nucleons fuse to helium-4 with trace deuterium and lithium, fixing the primordial abundances.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Cosmology / early universe",
+      "keywords": ["Big Bang nucleosynthesis", "primordial abundances", "deuterium bottleneck", "neutron-proton ratio", "helium-4"],
+      "basis": "source_extraction:astrophysics-higgs-mechanism",
+      "sources": [
+        {"title": "The origin of chemical elements", "authors": "Alpher, R. A.; Bethe, H.; Gamow, G.", "journal": "Physical Review", "year": "1948", "doi": "10.1103/PhysRev.73.803", "url": "https://doi.org/10.1103/PhysRev.73.803"},
+        {"title": "Big bang nucleosynthesis: Present status", "authors": "Cyburt, R. H.; Fields, B. D.; Olive, K. A.; Yeh, T.-H.", "journal": "Reviews of Modern Physics", "year": "2016", "doi": "10.1103/RevModPhys.88.015004", "url": "https://doi.org/10.1103/RevModPhys.88.015004"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Hot dense early universe", "role": "red", "shape": "process", "detail": "First seconds", "sourceRef": 0},
+        {"id": "N2", "label": "Universe expands + cools", "role": "green", "shape": "process", "detail": "Temperature falls", "sourceRef": 1},
+        {"id": "N3", "label": "Quark-hadron transition", "role": "green", "shape": "process", "detail": "Free nucleons form", "sourceRef": 0},
+        {"id": "N4", "label": "p and n freeze out", "role": "blue", "shape": "process", "detail": "Weak rates lag", "sourceRef": 1},
+        {"id": "N5", "label": "n/p ratio set by T", "role": "green", "shape": "process", "detail": "About 1:7", "sourceRef": 1},
+        {"id": "N6", "label": "Below D threshold?", "role": "blue", "shape": "decision", "detail": "Photon energy vs binding", "sourceRef": 1},
+        {"id": "N7", "label": "Deuterium dissociated", "role": "green", "shape": "process", "detail": "Photons too hot", "sourceRef": 0},
+        {"id": "N8", "label": "D bottleneck clears", "role": "blue", "shape": "process", "detail": "Deuterium survives", "sourceRef": 1},
+        {"id": "N9", "label": "Fuse to He-4 (+ Li)", "role": "green", "shape": "process", "detail": "Light-element chains", "sourceRef": 0},
+        {"id": "N10", "label": "Primordial abundances", "role": "violet", "shape": "process", "detail": "~25% helium by mass", "sourceRef": 1}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"}, {"from": "N5", "to": "N6"},
+        {"from": "N6", "to": "N7", "label": "no"}, {"from": "N7", "to": "N2", "label": "cool more"}, {"from": "N6", "to": "N8", "label": "yes"}, {"from": "N8", "to": "N9"}, {"from": "N9", "to": "N10"}
+      ]
+    }
+  ]
+}

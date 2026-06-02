@@ -1,0 +1,222 @@
+{
+  "discipline": "computer-science",
+  "slice": "networks",
+  "charts": [
+    {
+      "id": "networks-routing-protocol-operation",
+      "name": "Routing Protocol Operation",
+      "description": "Routing protocols build forwarding tables by sharing reachability information: distance-vector protocols exchange distance tables with neighbors while link-state protocols flood link advertisements to build a full topology, each then computes shortest paths and recomputes routes whenever the topology changes, converging on a consistent routing table.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Computer networks",
+      "keywords": ["routing protocol", "distance vector", "link state", "convergence", "shortest path"],
+      "basis": "source_extraction:networks-routing-protocol-operation",
+      "sources": [
+        {"title": "OSPF Version 2 (RFC 2328)", "authors": "Moy, J.", "journal": "IETF", "year": "1998", "doi": "10.17487/RFC2328", "url": "https://doi.org/10.17487/RFC2328"},
+        {"title": "Computer Networks (5th ed.)", "authors": "Tanenbaum, A. S.; Wetherall, D. J.", "journal": "Pearson", "year": "2011", "url": "https://www.pearson.com/en-us/subject-catalog/p/computer-networks/P200000003188"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Router knows neighbors", "role": "red", "shape": "process", "detail": "Adjacent links up", "sourceRef": 1},
+        {"id": "N2", "label": "Exchange routing info", "role": "green", "shape": "process", "detail": "Advertise reachability", "sourceRef": 0},
+        {"id": "N3", "label": "DV or link-state?", "role": "blue", "shape": "decision", "detail": "Protocol class", "sourceRef": 1},
+        {"id": "N4", "label": "DV: share distance table", "role": "green", "shape": "process", "detail": "Bellman-Ford", "sourceRef": 1},
+        {"id": "N5", "label": "LS: flood link states", "role": "green", "shape": "process", "detail": "Topology DB", "sourceRef": 0},
+        {"id": "N6", "label": "Build topology / table", "role": "green", "shape": "process", "detail": "Assemble view", "sourceRef": 0},
+        {"id": "N7", "label": "Run shortest-path", "role": "green", "shape": "process", "detail": "Dijkstra / BF", "sourceRef": 0},
+        {"id": "N8", "label": "Topology changed?", "role": "blue", "shape": "decision", "detail": "Link up/down", "sourceRef": 1},
+        {"id": "N9", "label": "Recompute routes", "role": "green", "shape": "process", "detail": "Reconverge", "sourceRef": 0},
+        {"id": "N10", "label": "Converged routing table", "role": "blue", "shape": "process", "detail": "Stable next-hops", "sourceRef": 0},
+        {"id": "N11", "label": "Forward by routing table", "role": "violet", "shape": "process", "detail": "Per-packet lookup", "sourceRef": 1}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4", "label": "distance-vector"}, {"from": "N3", "to": "N5", "label": "link-state"},
+        {"from": "N4", "to": "N6"}, {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7"}, {"from": "N7", "to": "N8"},
+        {"from": "N8", "to": "N9", "label": "yes"}, {"from": "N9", "to": "N6", "label": "update"}, {"from": "N8", "to": "N10", "label": "no"}, {"from": "N10", "to": "N11"}
+      ]
+    },
+    {
+      "id": "networks-tcp-congestion-control",
+      "name": "TCP Congestion Control",
+      "description": "TCP congestion control regulates the sending rate via a congestion window: it begins in slow start with exponential growth, switches to linear congestion avoidance at the slow-start threshold, and on loss reacts differently to triple duplicate ACKs (fast retransmit and recovery) versus a timeout (reset window), seeking steady throughput.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Computer networks",
+      "keywords": ["TCP congestion control", "slow start", "congestion avoidance", "fast retransmit", "AIMD"],
+      "basis": "source_extraction:networks-tcp-congestion-control",
+      "sources": [
+        {"title": "Congestion avoidance and control", "authors": "Jacobson, V.", "journal": "ACM SIGCOMM Computer Communication Review", "year": "1988", "doi": "10.1145/52325.52356", "url": "https://doi.org/10.1145/52325.52356"},
+        {"title": "TCP Congestion Control (RFC 5681)", "authors": "Allman, M.; Paxson, V.; Blanton, E.", "journal": "IETF", "year": "2009", "doi": "10.17487/RFC5681", "url": "https://doi.org/10.17487/RFC5681"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "TCP connection up", "role": "red", "shape": "process", "detail": "Handshake done", "sourceRef": 1},
+        {"id": "N2", "label": "Slow start: cwnd=1", "role": "green", "shape": "process", "detail": "Probe capacity", "sourceRef": 0},
+        {"id": "N3", "label": "Exponential cwnd growth", "role": "green", "shape": "process", "detail": "Double per RTT", "sourceRef": 0},
+        {"id": "N4", "label": "Reached ssthresh?", "role": "blue", "shape": "decision", "detail": "Threshold crossed", "sourceRef": 1},
+        {"id": "N5", "label": "Congestion avoidance", "role": "green", "shape": "process", "detail": "Additive increase", "sourceRef": 0},
+        {"id": "N6", "label": "Packet loss detected?", "role": "blue", "shape": "decision", "detail": "Signal of congestion", "sourceRef": 0},
+        {"id": "N7", "label": "Dup-ACK or timeout?", "role": "blue", "shape": "decision", "detail": "Loss type", "sourceRef": 1},
+        {"id": "N8", "label": "Fast retransmit/recovery", "role": "green", "shape": "process", "detail": "Halve cwnd", "sourceRef": 1},
+        {"id": "N9", "label": "Timeout: reset cwnd", "role": "green", "shape": "process", "detail": "Back to slow start", "sourceRef": 0},
+        {"id": "N10", "label": "Adjust window", "role": "blue", "shape": "process", "detail": "New cwnd/ssthresh", "sourceRef": 1},
+        {"id": "N11", "label": "Steady throughput", "role": "violet", "shape": "process", "detail": "AIMD sawtooth", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"},
+        {"from": "N4", "to": "N3", "label": "no"}, {"from": "N4", "to": "N5", "label": "yes"}, {"from": "N5", "to": "N6"},
+        {"from": "N6", "to": "N5", "label": "no"}, {"from": "N6", "to": "N7", "label": "yes"},
+        {"from": "N7", "to": "N8", "label": "dup-ack"}, {"from": "N7", "to": "N9", "label": "timeout"}, {"from": "N8", "to": "N10"}, {"from": "N9", "to": "N10"}, {"from": "N10", "to": "N11"}
+      ]
+    },
+    {
+      "id": "networks-dns-resolution",
+      "name": "DNS Resolution",
+      "description": "DNS resolution maps a hostname to an IP address through a hierarchy: the resolver first checks its cache, and on a miss queries the root server, which refers it to the TLD server and then to the authoritative name server that returns the record; the answer is cached with its TTL before being returned.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Computer networks",
+      "keywords": ["DNS", "name resolution", "recursive resolver", "authoritative server", "TTL caching"],
+      "basis": "source_extraction:networks-dns-resolution",
+      "sources": [
+        {"title": "Domain Names - Concepts and Facilities (RFC 1034)", "authors": "Mockapetris, P.", "journal": "IETF", "year": "1987", "doi": "10.17487/RFC1034", "url": "https://doi.org/10.17487/RFC1034"},
+        {"title": "Development of the Domain Name System", "authors": "Mockapetris, P. V.; Dunlap, K. J.", "journal": "ACM SIGCOMM Computer Communication Review", "year": "1988", "doi": "10.1145/52325.52338", "url": "https://doi.org/10.1145/52325.52338"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "App requests hostname", "role": "red", "shape": "process", "detail": "Resolve a name", "sourceRef": 0},
+        {"id": "N2", "label": "Check local cache", "role": "green", "shape": "process", "detail": "Recent lookups", "sourceRef": 1},
+        {"id": "N3", "label": "Cached + valid TTL?", "role": "blue", "shape": "decision", "detail": "Not expired", "sourceRef": 1},
+        {"id": "N4", "label": "Return cached IP", "role": "green", "shape": "process", "detail": "Fast path", "sourceRef": 1},
+        {"id": "N5", "label": "Query recursive resolver", "role": "green", "shape": "process", "detail": "Delegate lookup", "sourceRef": 0},
+        {"id": "N6", "label": "Resolver asks root", "role": "green", "shape": "process", "detail": "Top of hierarchy", "sourceRef": 0},
+        {"id": "N7", "label": "Referral to TLD server", "role": "green", "shape": "process", "detail": ".com, .org, etc.", "sourceRef": 0},
+        {"id": "N8", "label": "TLD -> authoritative NS", "role": "green", "shape": "process", "detail": "Zone delegation", "sourceRef": 0},
+        {"id": "N9", "label": "Authoritative answers", "role": "blue", "shape": "process", "detail": "Returns A/AAAA", "sourceRef": 0},
+        {"id": "N10", "label": "Cache with TTL", "role": "green", "shape": "process", "detail": "Store for reuse", "sourceRef": 1},
+        {"id": "N11", "label": "Resolved IP address", "role": "violet", "shape": "process", "detail": "Returned to app", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"},
+        {"from": "N3", "to": "N4", "label": "yes"}, {"from": "N4", "to": "N11"}, {"from": "N3", "to": "N5", "label": "no"},
+        {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7"}, {"from": "N7", "to": "N8"}, {"from": "N8", "to": "N9"}, {"from": "N9", "to": "N10"}, {"from": "N10", "to": "N11"}
+      ]
+    },
+    {
+      "id": "networks-load-balancing",
+      "name": "Load Balancing",
+      "description": "A load balancer spreads incoming requests across backend servers: it selects a target by an algorithm such as round-robin, least-connections, or weighted hashing, checks backend health and removes unhealthy nodes from the pool, then forwards the request, achieving an even and resilient distribution of load.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Distributed systems / networks",
+      "keywords": ["load balancing", "round-robin", "least connections", "health check", "request distribution"],
+      "basis": "source_extraction:networks-load-balancing",
+      "sources": [
+        {"title": "Dynamic load balancing on Web-server systems", "authors": "Cardellini, V.; Colajanni, M.; Yu, P. S.", "journal": "IEEE Internet Computing", "year": "1999", "doi": "10.1109/4236.769420", "url": "https://doi.org/10.1109/4236.769420"},
+        {"title": "Computer Networks (5th ed.)", "authors": "Tanenbaum, A. S.; Wetherall, D. J.", "journal": "Pearson", "year": "2011", "url": "https://www.pearson.com/en-us/subject-catalog/p/computer-networks/P200000003188"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Incoming requests", "role": "red", "shape": "process", "detail": "Client traffic", "sourceRef": 0},
+        {"id": "N2", "label": "Load balancer receives", "role": "green", "shape": "process", "detail": "Front-end VIP", "sourceRef": 1},
+        {"id": "N3", "label": "Choose algorithm", "role": "blue", "shape": "decision", "detail": "Selection policy", "sourceRef": 0},
+        {"id": "N4", "label": "Round-robin", "role": "green", "shape": "process", "detail": "Rotate servers", "sourceRef": 0},
+        {"id": "N5", "label": "Least connections", "role": "green", "shape": "process", "detail": "Pick least loaded", "sourceRef": 0},
+        {"id": "N6", "label": "Weighted / hash", "role": "green", "shape": "process", "detail": "Capacity or affinity", "sourceRef": 1},
+        {"id": "N7", "label": "Health-check backends", "role": "green", "shape": "process", "detail": "Probe liveness", "sourceRef": 1},
+        {"id": "N8", "label": "Backend healthy?", "role": "blue", "shape": "decision", "detail": "Responds ok", "sourceRef": 0},
+        {"id": "N9", "label": "Remove from pool", "role": "green", "shape": "process", "detail": "Stop routing", "sourceRef": 0},
+        {"id": "N10", "label": "Forward to server", "role": "green", "shape": "process", "detail": "Proxy request", "sourceRef": 1},
+        {"id": "N11", "label": "Balanced distribution", "role": "violet", "shape": "process", "detail": "Even, resilient", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4", "label": "round-robin"}, {"from": "N3", "to": "N5", "label": "least-conn"}, {"from": "N3", "to": "N6", "label": "weighted"},
+        {"from": "N4", "to": "N7"}, {"from": "N5", "to": "N7"}, {"from": "N6", "to": "N7"}, {"from": "N7", "to": "N8"},
+        {"from": "N8", "to": "N9", "label": "no"}, {"from": "N9", "to": "N7", "label": "recheck"}, {"from": "N8", "to": "N10", "label": "yes"}, {"from": "N10", "to": "N11"}
+      ]
+    },
+    {
+      "id": "networks-query-processing",
+      "name": "Reliable Transfer with Sliding Window",
+      "description": "Sliding-window ARQ provides reliable, in-order delivery over an unreliable channel: the sender segments data and transmits a window of packets while running timers; arriving ACKs slide the window and admit new packets, while timeouts trigger retransmission of unacknowledged segments, continuing until all data is delivered.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Computer networks",
+      "keywords": ["sliding window", "ARQ", "reliable transfer", "acknowledgement", "retransmission"],
+      "basis": "source_extraction:networks-query-processing",
+      "sources": [
+        {"title": "Transmission Control Protocol (RFC 793)", "authors": "Postel, J.", "journal": "IETF", "year": "1981", "doi": "10.17487/RFC0793", "url": "https://doi.org/10.17487/RFC0793"},
+        {"title": "Computer Networks (5th ed.)", "authors": "Tanenbaum, A. S.; Wetherall, D. J.", "journal": "Pearson", "year": "2011", "url": "https://www.pearson.com/en-us/subject-catalog/p/computer-networks/P200000003188"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Sender data stream", "role": "red", "shape": "process", "detail": "Bytes to send", "sourceRef": 1},
+        {"id": "N2", "label": "Segment into packets", "role": "green", "shape": "process", "detail": "Sequence numbers", "sourceRef": 0},
+        {"id": "N3", "label": "Send window of packets", "role": "green", "shape": "process", "detail": "Up to window size", "sourceRef": 0},
+        {"id": "N4", "label": "Await ACKs (timers)", "role": "green", "shape": "process", "detail": "Per-packet timeout", "sourceRef": 0},
+        {"id": "N5", "label": "ACK in time?", "role": "blue", "shape": "decision", "detail": "Before timeout", "sourceRef": 1},
+        {"id": "N6", "label": "Slide window, send new", "role": "green", "shape": "process", "detail": "Advance base", "sourceRef": 0},
+        {"id": "N7", "label": "Retransmit unacked", "role": "green", "shape": "process", "detail": "Resend on loss", "sourceRef": 1},
+        {"id": "N8", "label": "All data delivered?", "role": "blue", "shape": "decision", "detail": "Stream complete", "sourceRef": 0},
+        {"id": "N9", "label": "Continue", "role": "green", "shape": "process", "detail": "More segments", "sourceRef": 0},
+        {"id": "N10", "label": "Reliable in-order delivery", "role": "violet", "shape": "process", "detail": "Receiver reassembles", "sourceRef": 1}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"},
+        {"from": "N5", "to": "N6", "label": "yes"}, {"from": "N5", "to": "N7", "label": "no"}, {"from": "N7", "to": "N4", "label": "resend"},
+        {"from": "N6", "to": "N8"}, {"from": "N8", "to": "N9", "label": "no"}, {"from": "N9", "to": "N3", "label": "next window"}, {"from": "N8", "to": "N10", "label": "yes"}
+      ]
+    },
+    {
+      "id": "networks-transaction-management",
+      "name": "Network Address Translation (NAT)",
+      "description": "Network address translation lets many private hosts share public addresses: the NAT gateway rewrites the source address and port of outbound packets and records the mapping, and for inbound packets it looks up that mapping to rewrite the destination back to the private host, dropping packets with no matching entry.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Computer networks",
+      "keywords": ["NAT", "address translation", "port mapping", "private addressing", "gateway"],
+      "basis": "source_extraction:networks-transaction-management",
+      "sources": [
+        {"title": "Traditional IP Network Address Translator (Traditional NAT) (RFC 3022)", "authors": "Srisuresh, P.; Egevang, K.", "journal": "IETF", "year": "2001", "doi": "10.17487/RFC3022", "url": "https://doi.org/10.17487/RFC3022"},
+        {"title": "Computer Networks (5th ed.)", "authors": "Tanenbaum, A. S.; Wetherall, D. J.", "journal": "Pearson", "year": "2011", "url": "https://www.pearson.com/en-us/subject-catalog/p/computer-networks/P200000003188"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Host sends packet", "role": "red", "shape": "process", "detail": "Private source IP", "sourceRef": 1},
+        {"id": "N2", "label": "NAT gateway intercepts", "role": "green", "shape": "process", "detail": "At network edge", "sourceRef": 0},
+        {"id": "N3", "label": "Outbound or inbound?", "role": "blue", "shape": "decision", "detail": "Traffic direction", "sourceRef": 0},
+        {"id": "N4", "label": "Rewrite source IP:port", "role": "green", "shape": "process", "detail": "To public address", "sourceRef": 0},
+        {"id": "N5", "label": "Store mapping in table", "role": "blue", "shape": "process", "detail": "Private <-> public", "sourceRef": 0},
+        {"id": "N6", "label": "Send to public Internet", "role": "green", "shape": "process", "detail": "Forward out", "sourceRef": 0},
+        {"id": "N7", "label": "Lookup mapping (inbound)", "role": "green", "shape": "process", "detail": "Match table entry", "sourceRef": 0},
+        {"id": "N8", "label": "Mapping found?", "role": "blue", "shape": "decision", "detail": "Known session", "sourceRef": 0},
+        {"id": "N9", "label": "Drop packet", "role": "green", "shape": "process", "detail": "Unsolicited", "sourceRef": 1},
+        {"id": "N10", "label": "Rewrite dest to private", "role": "green", "shape": "process", "detail": "Restore host addr", "sourceRef": 0},
+        {"id": "N11", "label": "Packet delivered", "role": "violet", "shape": "process", "detail": "To correct host", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"},
+        {"from": "N3", "to": "N4", "label": "outbound"}, {"from": "N4", "to": "N5"}, {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N11"},
+        {"from": "N3", "to": "N7", "label": "inbound"}, {"from": "N7", "to": "N8"}, {"from": "N8", "to": "N9", "label": "no"}, {"from": "N8", "to": "N10", "label": "yes"}, {"from": "N10", "to": "N11"}
+      ]
+    },
+    {
+      "id": "networks-database-design",
+      "name": "IP Addressing & Subnetting (CIDR)",
+      "description": "Subnetting divides an address block to fit host requirements: from the needed host count the required host bits and prefix length are computed, the block is split into subnets, and if a subnet is too small more host bits are borrowed; network and broadcast addresses are reserved and routes are aggregated with CIDR.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Computer networks",
+      "keywords": ["IP addressing", "subnetting", "CIDR", "subnet mask", "route aggregation"],
+      "basis": "source_extraction:networks-database-design",
+      "sources": [
+        {"title": "Classless Inter-domain Routing (CIDR): The Internet Address Assignment and Aggregation Plan (RFC 4632)", "authors": "Fuller, V.; Li, T.", "journal": "IETF", "year": "2006", "doi": "10.17487/RFC4632", "url": "https://doi.org/10.17487/RFC4632"},
+        {"title": "Computer Networks (5th ed.)", "authors": "Tanenbaum, A. S.; Wetherall, D. J.", "journal": "Pearson", "year": "2011", "url": "https://www.pearson.com/en-us/subject-catalog/p/computer-networks/P200000003188"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Network address block", "role": "red", "shape": "process", "detail": "Base prefix", "sourceRef": 0},
+        {"id": "N2", "label": "Determine host count", "role": "green", "shape": "process", "detail": "Per subnet need", "sourceRef": 1},
+        {"id": "N3", "label": "Compute required bits", "role": "green", "shape": "process", "detail": "2^h - 2 hosts", "sourceRef": 1},
+        {"id": "N4", "label": "Set subnet mask / prefix", "role": "green", "shape": "process", "detail": "/n length", "sourceRef": 0},
+        {"id": "N5", "label": "Split into subnets", "role": "green", "shape": "process", "detail": "Partition block", "sourceRef": 0},
+        {"id": "N6", "label": "Enough addresses?", "role": "blue", "shape": "decision", "detail": "Fits all hosts", "sourceRef": 1},
+        {"id": "N7", "label": "Borrow more host bits", "role": "green", "shape": "process", "detail": "Widen subnet", "sourceRef": 1},
+        {"id": "N8", "label": "Reserve net + broadcast", "role": "green", "shape": "process", "detail": "First and last", "sourceRef": 0},
+        {"id": "N9", "label": "Usable host range", "role": "blue", "shape": "process", "detail": "Assignable IPs", "sourceRef": 0},
+        {"id": "N10", "label": "Aggregate routes (CIDR)", "role": "green", "shape": "process", "detail": "Supernet summary", "sourceRef": 0},
+        {"id": "N11", "label": "Subnet plan", "role": "violet", "shape": "process", "detail": "Address scheme", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"}, {"from": "N5", "to": "N6"},
+        {"from": "N6", "to": "N7", "label": "no"}, {"from": "N7", "to": "N3", "label": "recompute"}, {"from": "N6", "to": "N8", "label": "yes"}, {"from": "N8", "to": "N9"}, {"from": "N9", "to": "N10"}, {"from": "N10", "to": "N11"}
+      ]
+    }
+  ]
+}

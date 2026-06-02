@@ -1,0 +1,384 @@
+{
+  "discipline": "chemistry",
+  "slice": "surface_chemistry",
+  "charts": [
+    {
+      "id": "surface_chemistry-adsorption-isotherm-analysis",
+      "name": "Langmuir Adsorption Isotherm",
+      "description": "The Langmuir model treats adsorption as molecules occupying a finite set of equivalent surface sites: molecules that strike an empty site adsorb, adsorption and desorption reach equilibrium, and coverage follows theta = KP/(1+KP), saturating at a monolayer.",
+      "graphType": "cyclic_pathway",
+      "domainContext": "Surface adsorption",
+      "namedCollections": ["surface-chemistry"],
+      "keywords": ["langmuir isotherm", "adsorption", "surface coverage", "monolayer", "equilibrium"],
+      "basis": "source_extraction:surface_chemistry-adsorption-isotherm-analysis",
+      "sources": [
+        {"title": "The adsorption of gases on plane surfaces of glass, mica and platinum", "authors": "Langmuir, I.", "journal": "Journal of the American Chemical Society", "year": "1918", "doi": "10.1021/ja02242a004", "url": "https://doi.org/10.1021/ja02242a004"},
+        {"title": "Introduction to Surface Chemistry and Catalysis, 2nd ed.", "authors": "Somorjai, G. A.; Li, Y.", "journal": "Wiley", "year": "2010", "doi": null, "url": "https://www.wiley.com/en-us/Introduction+to+Surface+Chemistry+and+Catalysis%2C+2nd+Edition-p-9780470508237"},
+        {"title": "Gold Book: Langmuir adsorption isotherm", "authors": "IUPAC", "journal": "IUPAC Compendium of Chemical Terminology", "year": "2019", "doi": "10.1351/goldbook.L03442", "url": "https://goldbook.iupac.org/terms/view/L03442"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Gas + solid surface", "role": "red", "shape": "process", "detail": "Adsorbate and adsorbent", "sourceRef": 0},
+        {"id": "N2", "label": "Molecule strikes surface", "role": "green", "shape": "process", "detail": "Collision with surface", "sourceRef": 0},
+        {"id": "N3", "label": "Empty site available?", "role": "blue", "shape": "decision", "detail": "Finite equivalent sites", "sourceRef": 0},
+        {"id": "N4", "label": "Bounce off (no adsorption)", "role": "green", "shape": "process", "detail": "Site occupied", "sourceRef": 0},
+        {"id": "N5", "label": "Adsorb on site", "role": "green", "shape": "process", "detail": "Occupy a vacancy", "sourceRef": 0},
+        {"id": "N6", "label": "Adsorption = desorption", "role": "blue", "shape": "process", "detail": "Dynamic equilibrium", "sourceRef": 1},
+        {"id": "N7", "label": "θ = KP/(1+KP)", "role": "green", "shape": "process", "detail": "Coverage isotherm", "sourceRef": 0},
+        {"id": "N8", "label": "Monolayer saturates", "role": "green", "shape": "process", "detail": "θ -> 1 at high P", "sourceRef": 2},
+        {"id": "N9", "label": "Vary P, fit isotherm", "role": "green", "shape": "process", "detail": "Extract K", "sourceRef": 1},
+        {"id": "N10", "label": "Adsorption parameters", "role": "violet", "shape": "process", "detail": "Equilibrium constant, capacity", "sourceRef": 1}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4", "label": "no"}, {"from": "N4", "to": "N2", "label": "retry"}, {"from": "N3", "to": "N5", "label": "yes"},
+        {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7"}, {"from": "N7", "to": "N8"}, {"from": "N8", "to": "N9"}, {"from": "N9", "to": "N10"}
+      ]
+    },
+    {
+      "id": "surface_chemistry-nanomaterials",
+      "name": "BET Surface Area Analysis",
+      "description": "BET analysis measures specific surface area from multilayer gas physisorption: after degassing, nitrogen is dosed at increasing relative pressures, the BET equation is fit over its linear region to extract monolayer capacity, and the surface area follows from molecular cross-section.",
+      "graphType": "cyclic_pathway",
+      "domainContext": "Surface characterization",
+      "namedCollections": ["surface-chemistry"],
+      "keywords": ["bet", "surface area", "physisorption", "monolayer capacity", "nitrogen adsorption"],
+      "basis": "source_extraction:surface_chemistry-nanomaterials",
+      "sources": [
+        {"title": "Adsorption of gases in multimolecular layers (BET theory)", "authors": "Brunauer, S.; Emmett, P. H.; Teller, E.", "journal": "Journal of the American Chemical Society", "year": "1938", "doi": "10.1021/ja01269a023", "url": "https://doi.org/10.1021/ja01269a023"},
+        {"title": "Physisorption of gases, with special reference to the evaluation of surface area (IUPAC technical report)", "authors": "Thommes, M.; et al.", "journal": "Pure and Applied Chemistry", "year": "2015", "doi": "10.1515/pac-2014-1117", "url": "https://doi.org/10.1515/pac-2014-1117"},
+        {"title": "Introduction to Surface Chemistry and Catalysis, 2nd ed. — Surface Area", "authors": "Somorjai, G. A.; Li, Y.", "journal": "Wiley", "year": "2010", "doi": null, "url": "https://www.wiley.com/en-us/Introduction+to+Surface+Chemistry+and+Catalysis%2C+2nd+Edition-p-9780470508237"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Porous / powder sample", "role": "red", "shape": "process", "detail": "Material to characterize", "sourceRef": 2},
+        {"id": "N2", "label": "Degas + cool (LN2)", "role": "green", "shape": "process", "detail": "Clean surface, 77 K", "sourceRef": 1},
+        {"id": "N3", "label": "Dose N2 at varied P/P0", "role": "green", "shape": "process", "detail": "Adsorption isotherm", "sourceRef": 0},
+        {"id": "N4", "label": "Measure adsorbed volume", "role": "green", "shape": "process", "detail": "Volumetric uptake", "sourceRef": 0},
+        {"id": "N5", "label": "Plot BET equation", "role": "green", "shape": "process", "detail": "Linearized form", "sourceRef": 0},
+        {"id": "N6", "label": "Linear in 0.05–0.3?", "role": "blue", "shape": "decision", "detail": "Valid BET range", "sourceRef": 1},
+        {"id": "N7", "label": "Narrow P/P0 window", "role": "green", "shape": "process", "detail": "Restrict fit range", "sourceRef": 1},
+        {"id": "N8", "label": "Monolayer capacity Vm", "role": "green", "shape": "process", "detail": "From slope + intercept", "sourceRef": 0},
+        {"id": "N9", "label": "Area = Vm·N·σ", "role": "green", "shape": "process", "detail": "Molecular cross-section", "sourceRef": 0},
+        {"id": "N10", "label": "Specific surface area", "role": "violet", "shape": "process", "detail": "m²/g reported", "sourceRef": 2}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"}, {"from": "N5", "to": "N6"},
+        {"from": "N6", "to": "N7", "label": "no"}, {"from": "N7", "to": "N3", "label": "re-dose"}, {"from": "N6", "to": "N8", "label": "yes"}, {"from": "N8", "to": "N9"}, {"from": "N9", "to": "N10"}
+      ]
+    },
+    {
+      "id": "surface_chemistry-composite-materials",
+      "name": "Physisorption vs Chemisorption",
+      "description": "Adsorption on a surface is classified by the interaction: weak van der Waals attraction gives reversible physisorption, while electron sharing gives chemisorption with a chemical bond, which may be activated (with a barrier) or non-activated.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Adsorption thermodynamics",
+      "namedCollections": ["surface-chemistry"],
+      "keywords": ["physisorption", "chemisorption", "van der waals", "activation barrier", "adsorption energy"],
+      "basis": "source_extraction:surface_chemistry-composite-materials",
+      "sources": [
+        {"title": "Introduction to Surface Chemistry and Catalysis, 2nd ed. — Adsorption", "authors": "Somorjai, G. A.; Li, Y.", "journal": "Wiley", "year": "2010", "doi": null, "url": "https://www.wiley.com/en-us/Introduction+to+Surface+Chemistry+and+Catalysis%2C+2nd+Edition-p-9780470508237"},
+        {"title": "Reactions at solid surfaces: from atoms to complexity (Nobel Lecture)", "authors": "Ertl, G.", "journal": "Angewandte Chemie International Edition", "year": "2008", "doi": "10.1002/anie.200800480", "url": "https://doi.org/10.1002/anie.200800480"},
+        {"title": "Gold Book: chemisorption", "authors": "IUPAC", "journal": "IUPAC Compendium of Chemical Terminology", "year": "2019", "doi": "10.1351/goldbook.C01048", "url": "https://goldbook.iupac.org/terms/view/C01048"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Adsorbate approaches", "role": "red", "shape": "process", "detail": "Molecule nears the surface", "sourceRef": 0},
+        {"id": "N2", "label": "Interaction strength?", "role": "blue", "shape": "decision", "detail": "Energy scale of binding", "sourceRef": 2},
+        {"id": "N3", "label": "Weak van der Waals", "role": "green", "shape": "process", "detail": "~10–40 kJ/mol", "sourceRef": 0},
+        {"id": "N4", "label": "Physisorption (reversible)", "role": "green", "shape": "process", "detail": "No bond formed", "sourceRef": 2},
+        {"id": "N5", "label": "Strong: electron sharing", "role": "green", "shape": "process", "detail": "Chemical interaction", "sourceRef": 1},
+        {"id": "N6", "label": "Activation barrier?", "role": "blue", "shape": "decision", "detail": "Energy needed to bond", "sourceRef": 1},
+        {"id": "N7", "label": "Activated chemisorption", "role": "green", "shape": "process", "detail": "Crosses a barrier", "sourceRef": 1},
+        {"id": "N8", "label": "Non-activated", "role": "green", "shape": "process", "detail": "Barrierless bonding", "sourceRef": 1},
+        {"id": "N9", "label": "Chemical bond to surface", "role": "blue", "shape": "process", "detail": "Strong adsorbate–surface bond", "sourceRef": 0},
+        {"id": "N10", "label": "Adsorbed state classified", "role": "violet", "shape": "process", "detail": "Physi- vs chemisorbed", "sourceRef": 2}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3", "label": "weak"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N10"},
+        {"from": "N2", "to": "N5", "label": "strong"}, {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7", "label": "yes"}, {"from": "N6", "to": "N8", "label": "no"},
+        {"from": "N7", "to": "N9"}, {"from": "N8", "to": "N9"}, {"from": "N9", "to": "N10"}
+      ]
+    },
+    {
+      "id": "surface_chemistry-heterogeneous-catalysis",
+      "name": "Heterogeneous Catalysis (Langmuir–Hinshelwood)",
+      "description": "In the Langmuir-Hinshelwood mechanism both reactants adsorb on the catalyst surface, diffuse and react in the adsorbed state, and the product desorbs to regenerate the active site, giving a catalytic turnover cycle.",
+      "graphType": "cyclic_pathway",
+      "domainContext": "Heterogeneous catalysis",
+      "namedCollections": ["surface-chemistry"],
+      "keywords": ["langmuir-hinshelwood", "heterogeneous catalysis", "surface reaction", "desorption", "turnover"],
+      "basis": "source_extraction:surface_chemistry-heterogeneous-catalysis",
+      "sources": [
+        {"title": "Reactions at solid surfaces: from atoms to complexity (Nobel Lecture)", "authors": "Ertl, G.", "journal": "Angewandte Chemie International Edition", "year": "2008", "doi": "10.1002/anie.200800480", "url": "https://doi.org/10.1002/anie.200800480"},
+        {"title": "Introduction to Surface Chemistry and Catalysis, 2nd ed. — Reaction Mechanisms", "authors": "Somorjai, G. A.; Li, Y.", "journal": "Wiley", "year": "2010", "doi": null, "url": "https://www.wiley.com/en-us/Introduction+to+Surface+Chemistry+and+Catalysis%2C+2nd+Edition-p-9780470508237"},
+        {"title": "Concepts of Modern Catalysis and Kinetics, 3rd ed.", "authors": "Chorkendorff, I.; Niemantsverdriet, J. W.", "journal": "Wiley-VCH", "year": "2017", "doi": "10.1002/9783527691937", "url": "https://doi.org/10.1002/9783527691937"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Reactants in gas phase", "role": "red", "shape": "process", "detail": "A and B molecules", "sourceRef": 1},
+        {"id": "N2", "label": "Adsorb on surface", "role": "green", "shape": "process", "detail": "Occupy active sites", "sourceRef": 0},
+        {"id": "N3", "label": "Both species adsorbed?", "role": "blue", "shape": "decision", "detail": "Co-adsorption required", "sourceRef": 2},
+        {"id": "N4", "label": "Wait for co-adsorption", "role": "green", "shape": "process", "detail": "Coverage builds", "sourceRef": 2},
+        {"id": "N5", "label": "Surface diffusion", "role": "green", "shape": "process", "detail": "Adsorbates migrate", "sourceRef": 1},
+        {"id": "N6", "label": "React on surface", "role": "green", "shape": "process", "detail": "Bond formation at site", "sourceRef": 0},
+        {"id": "N7", "label": "Product adsorbed", "role": "blue", "shape": "process", "detail": "Bound product species", "sourceRef": 1},
+        {"id": "N8", "label": "Desorb product", "role": "green", "shape": "process", "detail": "Release to gas phase", "sourceRef": 1},
+        {"id": "N9", "label": "Site regenerated", "role": "green", "shape": "process", "detail": "Ready for next cycle", "sourceRef": 0},
+        {"id": "N10", "label": "Catalytic turnover", "role": "violet", "shape": "process", "detail": "Net product formed", "sourceRef": 2}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4", "label": "no"}, {"from": "N4", "to": "N2", "label": "build coverage"}, {"from": "N3", "to": "N5", "label": "yes"},
+        {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7"}, {"from": "N7", "to": "N8"}, {"from": "N8", "to": "N9"}, {"from": "N9", "to": "N2", "label": "next turn"}, {"from": "N8", "to": "N10"}
+      ]
+    },
+    {
+      "id": "surface_chemistry-heterogeneous-catalyst-screening",
+      "name": "Catalyst Screening (Volcano)",
+      "description": "Catalyst screening ranks candidates by adsorbate binding energy against the Sabatier principle: too-strong binding poisons the surface and too-weak binding fails to activate reactants, so the best catalyst sits near the volcano peak with intermediate binding.",
+      "graphType": "cyclic_pathway",
+      "domainContext": "Catalyst design",
+      "namedCollections": ["surface-chemistry"],
+      "keywords": ["sabatier principle", "volcano plot", "binding energy", "catalyst screening", "descriptor"],
+      "basis": "source_extraction:surface_chemistry-heterogeneous-catalyst-screening",
+      "sources": [
+        {"title": "Towards the computational design of solid catalysts", "authors": "Nørskov, J. K.; Bligaard, T.; Rossmeisl, J.; Christensen, C. H.", "journal": "Nature Chemistry", "year": "2009", "doi": "10.1038/nchem.121", "url": "https://doi.org/10.1038/nchem.121"},
+        {"title": "The nature of the active site in heterogeneous metal catalysis", "authors": "Bligaard, T.; Nørskov, J. K.", "journal": "Chemical Society Reviews", "year": "2008", "doi": "10.1039/B800260F", "url": "https://doi.org/10.1039/B800260F"},
+        {"title": "Concepts of Modern Catalysis and Kinetics, 3rd ed. — Sabatier Analysis", "authors": "Chorkendorff, I.; Niemantsverdriet, J. W.", "journal": "Wiley-VCH", "year": "2017", "doi": "10.1002/9783527691937", "url": "https://doi.org/10.1002/9783527691937"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Candidate catalysts", "role": "red", "shape": "process", "detail": "Screening set", "sourceRef": 0},
+        {"id": "N2", "label": "Get binding energy", "role": "green", "shape": "process", "detail": "Descriptor of adsorption", "sourceRef": 0},
+        {"id": "N3", "label": "Binding too strong?", "role": "blue", "shape": "decision", "detail": "Left leg of volcano", "sourceRef": 1},
+        {"id": "N4", "label": "Product poisons surface", "role": "green", "shape": "process", "detail": "Sites blocked", "sourceRef": 1},
+        {"id": "N5", "label": "Binding too weak?", "role": "blue", "shape": "decision", "detail": "Right leg of volcano", "sourceRef": 1},
+        {"id": "N6", "label": "Reactant won't adsorb", "role": "green", "shape": "process", "detail": "No activation", "sourceRef": 1},
+        {"id": "N7", "label": "Intermediate (Sabatier)", "role": "green", "shape": "process", "detail": "Optimal binding", "sourceRef": 0},
+        {"id": "N8", "label": "Near volcano peak", "role": "blue", "shape": "process", "detail": "Maximum rate", "sourceRef": 0},
+        {"id": "N9", "label": "Test activity", "role": "green", "shape": "process", "detail": "Experimental validation", "sourceRef": 2},
+        {"id": "N10", "label": "Optimal catalyst", "role": "violet", "shape": "process", "detail": "Selected material", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4", "label": "yes"}, {"from": "N4", "to": "N1", "label": "try another"},
+        {"from": "N3", "to": "N5", "label": "no"}, {"from": "N5", "to": "N6", "label": "yes"}, {"from": "N6", "to": "N1", "label": "try another"},
+        {"from": "N5", "to": "N7", "label": "no"}, {"from": "N7", "to": "N8"}, {"from": "N8", "to": "N9"}, {"from": "N9", "to": "N10"}
+      ]
+    },
+    {
+      "id": "surface_chemistry-supported-catalysts",
+      "name": "Supported Metal Catalyst Preparation",
+      "description": "Supported metal catalysts are made by impregnating a high-area oxide support with a metal precursor, drying, calcining to the oxide, and reducing to metal nanoparticles; dispersion is measured by chemisorption and tuned by adjusting loading and conditions.",
+      "graphType": "cyclic_pathway",
+      "domainContext": "Catalyst synthesis",
+      "namedCollections": ["surface-chemistry"],
+      "keywords": ["supported catalyst", "impregnation", "calcination", "reduction", "metal dispersion"],
+      "basis": "source_extraction:surface_chemistry-supported-catalysts",
+      "sources": [
+        {"title": "Fundamentals of Industrial Catalytic Processes, 2nd ed.", "authors": "Bartholomew, C. H.; Farrauto, R. J.", "journal": "Wiley-Interscience", "year": "2006", "doi": "10.1002/9780471730071", "url": "https://doi.org/10.1002/9780471730071"},
+        {"title": "Synthesis of Solid Catalysts", "authors": "de Jong, K. P. (ed.)", "journal": "Wiley-VCH", "year": "2009", "doi": "10.1002/9783527626854", "url": "https://doi.org/10.1002/9783527626854"},
+        {"title": "Introduction to Surface Chemistry and Catalysis, 2nd ed. — Catalyst Preparation", "authors": "Somorjai, G. A.; Li, Y.", "journal": "Wiley", "year": "2010", "doi": null, "url": "https://www.wiley.com/en-us/Introduction+to+Surface+Chemistry+and+Catalysis%2C+2nd+Edition-p-9780470508237"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Oxide support", "role": "red", "shape": "process", "detail": "Alumina / silica, high area", "sourceRef": 0},
+        {"id": "N2", "label": "Impregnate precursor", "role": "green", "shape": "process", "detail": "Metal salt solution", "sourceRef": 0},
+        {"id": "N3", "label": "Dry", "role": "green", "shape": "process", "detail": "Remove solvent", "sourceRef": 0},
+        {"id": "N4", "label": "Calcine -> oxide", "role": "green", "shape": "process", "detail": "Decompose precursor", "sourceRef": 1},
+        {"id": "N5", "label": "Reduce -> metal NPs", "role": "green", "shape": "process", "detail": "H2 reduction to metal", "sourceRef": 1},
+        {"id": "N6", "label": "Dispersion adequate?", "role": "blue", "shape": "decision", "detail": "Particle size / exposure", "sourceRef": 2},
+        {"id": "N7", "label": "Adjust loading/conditions", "role": "green", "shape": "process", "detail": "Tune the synthesis", "sourceRef": 0},
+        {"id": "N8", "label": "Measure dispersion", "role": "green", "shape": "process", "detail": "Chemisorption titration", "sourceRef": 2},
+        {"id": "N9", "label": "Active supported catalyst", "role": "violet", "shape": "process", "detail": "Ready for reaction", "sourceRef": 1}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"}, {"from": "N5", "to": "N6"},
+        {"from": "N6", "to": "N7", "label": "no"}, {"from": "N7", "to": "N2", "label": "re-prepare"}, {"from": "N6", "to": "N8", "label": "yes"}, {"from": "N8", "to": "N9"}
+      ]
+    },
+    {
+      "id": "surface_chemistry-zeolite-catalysis",
+      "name": "Zeolite Shape-Selective Catalysis",
+      "description": "Zeolites impose shape selectivity through their micropores: reactants must fit the aperture to reach Brønsted acid sites, the transition state must fit the cavity, and only products that can exit are released, giving reactant, transition-state and product selectivity.",
+      "graphType": "cyclic_pathway",
+      "domainContext": "Zeolite catalysis",
+      "namedCollections": ["surface-chemistry"],
+      "keywords": ["zeolite", "shape selectivity", "bronsted acid site", "micropore", "transition state"],
+      "basis": "source_extraction:surface_chemistry-zeolite-catalysis",
+      "sources": [
+        {"title": "Inorganic solid acids and their use in acid-catalyzed hydrocarbon reactions", "authors": "Corma, A.", "journal": "Chemical Reviews", "year": "1995", "doi": "10.1021/cr00035a013", "url": "https://doi.org/10.1021/cr00035a013"},
+        {"title": "Ordered porous materials for emerging applications", "authors": "Davis, M. E.", "journal": "Nature", "year": "2002", "doi": "10.1038/nature00785", "url": "https://doi.org/10.1038/nature00785"},
+        {"title": "Molecular shape-selective catalysis", "authors": "Weisz, P. B.", "journal": "Pure and Applied Chemistry", "year": "1980", "doi": "10.1351/pac198052092091", "url": "https://doi.org/10.1351/pac198052092091"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Reactant mixture", "role": "red", "shape": "process", "detail": "Feed molecules", "sourceRef": 0},
+        {"id": "N2", "label": "Diffuse into micropores", "role": "green", "shape": "process", "detail": "Enter the framework", "sourceRef": 1},
+        {"id": "N3", "label": "Reactant fits aperture?", "role": "blue", "shape": "decision", "detail": "Reactant selectivity", "sourceRef": 2},
+        {"id": "N4", "label": "Reactant excluded", "role": "green", "shape": "process", "detail": "Too large to enter", "sourceRef": 2},
+        {"id": "N5", "label": "Reach acid site", "role": "green", "shape": "process", "detail": "Brønsted proton transfer", "sourceRef": 0},
+        {"id": "N6", "label": "Carbocation TS", "role": "blue", "shape": "process", "detail": "Confined transition state", "sourceRef": 0},
+        {"id": "N7", "label": "TS fits cavity?", "role": "blue", "shape": "decision", "detail": "Transition-state selectivity", "sourceRef": 2},
+        {"id": "N8", "label": "TS-selectivity limits", "role": "green", "shape": "process", "detail": "Bulky pathway suppressed", "sourceRef": 2},
+        {"id": "N9", "label": "Product fits to exit?", "role": "blue", "shape": "decision", "detail": "Product selectivity", "sourceRef": 2},
+        {"id": "N10", "label": "Retained / isomerizes", "role": "green", "shape": "process", "detail": "Bulky product trapped", "sourceRef": 1},
+        {"id": "N11", "label": "Shape-selective product", "role": "violet", "shape": "process", "detail": "Diffuses out", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4", "label": "no"}, {"from": "N3", "to": "N5", "label": "yes"},
+        {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7"}, {"from": "N7", "to": "N8", "label": "no"}, {"from": "N8", "to": "N5", "label": "alt path"},
+        {"from": "N7", "to": "N9", "label": "yes"}, {"from": "N9", "to": "N10", "label": "no"}, {"from": "N10", "to": "N6", "label": "re-react"}, {"from": "N9", "to": "N11", "label": "yes"}
+      ]
+    },
+    {
+      "id": "surface_chemistry-photocatalysis",
+      "name": "Semiconductor Photocatalysis (TiO2)",
+      "description": "In TiO2 photocatalysis, photons above the band gap excite electron-hole pairs; charges either recombine (losing energy) or migrate to the surface, where they drive redox reactions that generate reactive oxygen species and degrade adsorbed pollutants.",
+      "graphType": "cyclic_pathway",
+      "domainContext": "Photocatalysis",
+      "namedCollections": ["surface-chemistry"],
+      "keywords": ["photocatalysis", "band gap", "electron-hole pair", "recombination", "reactive oxygen species"],
+      "basis": "source_extraction:surface_chemistry-photocatalysis",
+      "sources": [
+        {"title": "Electrochemical photolysis of water at a semiconductor electrode", "authors": "Fujishima, A.; Honda, K.", "journal": "Nature", "year": "1972", "doi": "10.1038/238037a0", "url": "https://doi.org/10.1038/238037a0"},
+        {"title": "Environmental applications of semiconductor photocatalysis", "authors": "Hoffmann, M. R.; Martin, S. T.; Choi, W.; Bahnemann, D. W.", "journal": "Chemical Reviews", "year": "1995", "doi": "10.1021/cr00033a004", "url": "https://doi.org/10.1021/cr00033a004"},
+        {"title": "TiO2 photocatalysis: a historical overview and future prospects", "authors": "Fujishima, A.; Rao, T. N.; Tryk, D. A.", "journal": "Journal of Photochemistry and Photobiology C", "year": "2000", "doi": "10.1016/S1389-5567(00)00002-2", "url": "https://doi.org/10.1016/S1389-5567(00)00002-2"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "TiO2 + light", "role": "red", "shape": "process", "detail": "Illuminated semiconductor", "sourceRef": 0},
+        {"id": "N2", "label": "Photon ≥ band gap?", "role": "blue", "shape": "decision", "detail": "Absorption threshold", "sourceRef": 1},
+        {"id": "N3", "label": "No absorption", "role": "green", "shape": "process", "detail": "Sub-band-gap light", "sourceRef": 1},
+        {"id": "N4", "label": "Excite e−/hole pair", "role": "green", "shape": "process", "detail": "Promote electron to CB", "sourceRef": 0},
+        {"id": "N5", "label": "Charge separation", "role": "blue", "shape": "process", "detail": "Electron and hole apart", "sourceRef": 1},
+        {"id": "N6", "label": "Recombine?", "role": "blue", "shape": "decision", "detail": "Competes with reaction", "sourceRef": 1},
+        {"id": "N7", "label": "Energy lost as heat", "role": "green", "shape": "process", "detail": "Recombination loss", "sourceRef": 1},
+        {"id": "N8", "label": "Migrate to surface", "role": "green", "shape": "process", "detail": "Reach adsorbates", "sourceRef": 0},
+        {"id": "N9", "label": "Redox of adsorbates", "role": "green", "shape": "process", "detail": "Holes oxidize, e− reduce", "sourceRef": 1},
+        {"id": "N10", "label": "Reactive oxygen species", "role": "green", "shape": "process", "detail": "•OH, O2•−", "sourceRef": 1},
+        {"id": "N11", "label": "Pollutant degraded", "role": "violet", "shape": "process", "detail": "Mineralization", "sourceRef": 2}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3", "label": "no"}, {"from": "N2", "to": "N4", "label": "yes"}, {"from": "N4", "to": "N5"}, {"from": "N5", "to": "N6"},
+        {"from": "N6", "to": "N7", "label": "yes"}, {"from": "N7", "to": "N4", "label": "re-excite"}, {"from": "N6", "to": "N8", "label": "no"}, {"from": "N8", "to": "N9"}, {"from": "N9", "to": "N10"}, {"from": "N10", "to": "N11"}
+      ]
+    },
+    {
+      "id": "surface_chemistry-crystal-structure",
+      "name": "Surface Reconstruction & Relaxation",
+      "description": "A freshly created surface has high-energy dangling bonds; to lower its energy the top layers relax (change spacing) or reconstruct (rebond into a new periodicity), behavior that adsorbates can further alter and that is probed by LEED or STM.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Surface structure",
+      "namedCollections": ["surface-chemistry"],
+      "keywords": ["surface reconstruction", "relaxation", "dangling bonds", "leed", "surface energy"],
+      "basis": "source_extraction:surface_chemistry-crystal-structure",
+      "sources": [
+        {"title": "Semiconductor surface reconstruction: the structural chemistry of two-dimensional surface compounds", "authors": "Duke, C. B.", "journal": "Chemical Reviews", "year": "1996", "doi": "10.1021/cr940034m", "url": "https://doi.org/10.1021/cr940034m"},
+        {"title": "Introduction to Surface Chemistry and Catalysis, 2nd ed. — Surface Structure", "authors": "Somorjai, G. A.; Li, Y.", "journal": "Wiley", "year": "2010", "doi": null, "url": "https://www.wiley.com/en-us/Introduction+to+Surface+Chemistry+and+Catalysis%2C+2nd+Edition-p-9780470508237"},
+        {"title": "Reactions at solid surfaces (Nobel Lecture)", "authors": "Ertl, G.", "journal": "Angewandte Chemie International Edition", "year": "2008", "doi": "10.1002/anie.200800480", "url": "https://doi.org/10.1002/anie.200800480"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Freshly cleaved surface", "role": "red", "shape": "process", "detail": "New surface created", "sourceRef": 1},
+        {"id": "N2", "label": "Dangling bonds, high energy", "role": "green", "shape": "process", "detail": "Unsatisfied valences", "sourceRef": 0},
+        {"id": "N3", "label": "How to lower energy?", "role": "blue", "shape": "decision", "detail": "Relax vs reconstruct", "sourceRef": 1},
+        {"id": "N4", "label": "Relaxation: spacing shifts", "role": "green", "shape": "process", "detail": "Interlayer contraction", "sourceRef": 1},
+        {"id": "N5", "label": "Reconstruction: rebonding", "role": "green", "shape": "process", "detail": "Atoms reposition", "sourceRef": 0},
+        {"id": "N6", "label": "New surface periodicity", "role": "blue", "shape": "process", "detail": "e.g. Si(111)-7×7", "sourceRef": 0},
+        {"id": "N7", "label": "Adsorbates present?", "role": "blue", "shape": "decision", "detail": "Adsorption can change it", "sourceRef": 2},
+        {"id": "N8", "label": "Adsorbate-driven change", "role": "green", "shape": "process", "detail": "Lifts/forms reconstruction", "sourceRef": 2},
+        {"id": "N9", "label": "Probe by LEED / STM", "role": "green", "shape": "process", "detail": "Determine structure", "sourceRef": 1},
+        {"id": "N10", "label": "Stable surface structure", "role": "violet", "shape": "process", "detail": "Equilibrium termination", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4", "label": "small"}, {"from": "N3", "to": "N5", "label": "large"},
+        {"from": "N4", "to": "N6"}, {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7"}, {"from": "N7", "to": "N8", "label": "yes"}, {"from": "N8", "to": "N9"}, {"from": "N7", "to": "N9", "label": "no"}, {"from": "N9", "to": "N10"}
+      ]
+    },
+    {
+      "id": "surface_chemistry-defects-doping",
+      "name": "Surface Active Sites & Structure Sensitivity",
+      "description": "Catalytic activity often depends on surface site type: terraces, steps and kinks differ in coordination, with low-coordination defect sites usually more reactive; whether the rate depends on site distribution defines a structure-sensitive versus structure-insensitive reaction.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Active sites in catalysis",
+      "namedCollections": ["surface-chemistry"],
+      "keywords": ["active site", "step edge", "kink", "structure sensitivity", "coordination number"],
+      "basis": "source_extraction:surface_chemistry-defects-doping",
+      "sources": [
+        {"title": "The role of the structure and surface composition in catalysis", "authors": "Somorjai, G. A.; Carrazza, J.", "journal": "Industrial & Engineering Chemistry Fundamentals", "year": "1986", "doi": "10.1021/i100021a005", "url": "https://doi.org/10.1021/i100021a005"},
+        {"title": "Concepts of Modern Catalysis and Kinetics, 3rd ed. — Structure Sensitivity", "authors": "Chorkendorff, I.; Niemantsverdriet, J. W.", "journal": "Wiley-VCH", "year": "2017", "doi": "10.1002/9783527691937", "url": "https://doi.org/10.1002/9783527691937"},
+        {"title": "Reactions at solid surfaces (Nobel Lecture)", "authors": "Ertl, G.", "journal": "Angewandte Chemie International Edition", "year": "2008", "doi": "10.1002/anie.200800480", "url": "https://doi.org/10.1002/anie.200800480"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Catalyst surface", "role": "red", "shape": "process", "detail": "Real, defective surface", "sourceRef": 0},
+        {"id": "N2", "label": "Identify site types", "role": "green", "shape": "process", "detail": "Map the topography", "sourceRef": 0},
+        {"id": "N3", "label": "Terrace / step / kink?", "role": "blue", "shape": "decision", "detail": "Coordination differs", "sourceRef": 0},
+        {"id": "N4", "label": "Low-coordination site", "role": "green", "shape": "process", "detail": "Step/kink, undercoordinated", "sourceRef": 0},
+        {"id": "N5", "label": "Terrace (close-packed)", "role": "green", "shape": "process", "detail": "High coordination", "sourceRef": 0},
+        {"id": "N6", "label": "Higher reactivity at defects", "role": "green", "shape": "process", "detail": "Stronger binding", "sourceRef": 2},
+        {"id": "N7", "label": "Reactant binds site", "role": "green", "shape": "process", "detail": "Adsorption at active site", "sourceRef": 1},
+        {"id": "N8", "label": "Structure sensitive?", "role": "blue", "shape": "decision", "detail": "Rate vs site type", "sourceRef": 1},
+        {"id": "N9", "label": "Rate depends on sites", "role": "green", "shape": "process", "detail": "Structure-sensitive", "sourceRef": 1},
+        {"id": "N10", "label": "Structure-insensitive", "role": "green", "shape": "process", "detail": "Rate per area constant", "sourceRef": 1},
+        {"id": "N11", "label": "Activity model", "role": "violet", "shape": "process", "detail": "Site-resolved kinetics", "sourceRef": 2}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4", "label": "step/kink"}, {"from": "N3", "to": "N5", "label": "terrace"},
+        {"from": "N4", "to": "N6"}, {"from": "N6", "to": "N7"}, {"from": "N5", "to": "N7"}, {"from": "N7", "to": "N8"}, {"from": "N8", "to": "N9", "label": "yes"}, {"from": "N8", "to": "N10", "label": "no"}, {"from": "N9", "to": "N11"}, {"from": "N10", "to": "N11"}
+      ]
+    },
+    {
+      "id": "surface_chemistry-polymorphism",
+      "name": "Wetting & Contact Angle",
+      "description": "Wetting is governed by the balance of solid-vapor, solid-liquid and liquid-vapor interfacial tensions through Young's equation; the resulting contact angle classifies wetting, complete spreading or non-wetting, and roughness modifies it via the Wenzel/Cassie-Baxter regimes.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Interfacial science",
+      "namedCollections": ["surface-chemistry"],
+      "keywords": ["wetting", "contact angle", "young's equation", "surface tension", "wenzel cassie"],
+      "basis": "source_extraction:surface_chemistry-polymorphism",
+      "sources": [
+        {"title": "An essay on the cohesion of fluids (Young's equation)", "authors": "Young, T.", "journal": "Philosophical Transactions of the Royal Society", "year": "1805", "doi": "10.1098/rstl.1805.0005", "url": "https://doi.org/10.1098/rstl.1805.0005"},
+        {"title": "Wetting: statics and dynamics", "authors": "de Gennes, P. G.", "journal": "Reviews of Modern Physics", "year": "1985", "doi": "10.1103/RevModPhys.57.827", "url": "https://doi.org/10.1103/RevModPhys.57.827"},
+        {"title": "Resistance of solid surfaces to wetting by water (Wenzel)", "authors": "Wenzel, R. N.", "journal": "Industrial & Engineering Chemistry", "year": "1936", "doi": "10.1021/ie50320a024", "url": "https://doi.org/10.1021/ie50320a024"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Liquid drop on solid", "role": "red", "shape": "process", "detail": "Three-phase contact line", "sourceRef": 0},
+        {"id": "N2", "label": "Three interfacial tensions", "role": "green", "shape": "process", "detail": "γsv, γsl, γlv", "sourceRef": 0},
+        {"id": "N3", "label": "Young's equation balance", "role": "green", "shape": "process", "detail": "Horizontal force balance", "sourceRef": 0},
+        {"id": "N4", "label": "Contact angle θ?", "role": "blue", "shape": "decision", "detail": "Classify wetting", "sourceRef": 1},
+        {"id": "N5", "label": "θ < 90°: wetting", "role": "green", "shape": "process", "detail": "Hydrophilic-like", "sourceRef": 1},
+        {"id": "N6", "label": "θ > 90°: non-wetting", "role": "green", "shape": "process", "detail": "Hydrophobic-like", "sourceRef": 1},
+        {"id": "N7", "label": "θ ≈ 0: spreads fully", "role": "green", "shape": "process", "detail": "Complete wetting", "sourceRef": 1},
+        {"id": "N8", "label": "Surface rough?", "role": "blue", "shape": "decision", "detail": "Real vs ideal surface", "sourceRef": 2},
+        {"id": "N9", "label": "Wenzel / Cassie–Baxter", "role": "green", "shape": "process", "detail": "Roughness amplifies", "sourceRef": 2},
+        {"id": "N10", "label": "Effective wettability", "role": "violet", "shape": "process", "detail": "Apparent contact angle", "sourceRef": 1}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"},
+        {"from": "N4", "to": "N5", "label": "< 90°"}, {"from": "N4", "to": "N6", "label": "> 90°"}, {"from": "N4", "to": "N7", "label": "≈ 0"},
+        {"from": "N5", "to": "N8"}, {"from": "N6", "to": "N8"}, {"from": "N7", "to": "N10"}, {"from": "N8", "to": "N9", "label": "yes"}, {"from": "N9", "to": "N10"}, {"from": "N8", "to": "N10", "label": "smooth"}
+      ]
+    },
+    {
+      "id": "surface_chemistry-enzyme-catalysis",
+      "name": "Self-Assembled Monolayers (SAMs)",
+      "description": "Self-assembled monolayers form when amphiphilic molecules chemisorb through their headgroups onto a surface (e.g. thiols on gold) and then order via tail-tail van der Waals packing; coverage builds with time and annealing removes defects to yield a functional monolayer.",
+      "graphType": "cyclic_pathway",
+      "domainContext": "Molecular self-assembly",
+      "namedCollections": ["surface-chemistry"],
+      "keywords": ["self-assembled monolayer", "thiol-gold", "chemisorption", "ordering", "van der waals"],
+      "basis": "source_extraction:surface_chemistry-enzyme-catalysis",
+      "sources": [
+        {"title": "Adsorption of bifunctional organic disulfides on gold surfaces", "authors": "Nuzzo, R. G.; Allara, D. L.", "journal": "Journal of the American Chemical Society", "year": "1983", "doi": "10.1021/ja00352a020", "url": "https://doi.org/10.1021/ja00352a020"},
+        {"title": "Self-assembled monolayers of thiolates on metals as a form of nanotechnology", "authors": "Love, J. C.; Estroff, L. A.; Kriebel, J. K.; Nuzzo, R. G.; Whitesides, G. M.", "journal": "Chemical Reviews", "year": "2005", "doi": "10.1021/cr0300789", "url": "https://doi.org/10.1021/cr0300789"},
+        {"title": "Formation and structure of self-assembled monolayers", "authors": "Schreiber, F.", "journal": "Progress in Surface Science", "year": "2000", "doi": "10.1016/S0079-6816(00)00024-1", "url": "https://doi.org/10.1016/S0079-6816(00)00024-1"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Substrate + amphiphile", "role": "red", "shape": "process", "detail": "Solution of SAM molecules", "sourceRef": 1},
+        {"id": "N2", "label": "Headgroup binds surface", "role": "green", "shape": "process", "detail": "Anchoring chemistry", "sourceRef": 0},
+        {"id": "N3", "label": "Chemisorption (thiol–Au)", "role": "green", "shape": "process", "detail": "Strong S–Au bond", "sourceRef": 0},
+        {"id": "N4", "label": "Molecules pack / order", "role": "green", "shape": "process", "detail": "Lie-down to stand-up", "sourceRef": 2},
+        {"id": "N5", "label": "Coverage high?", "role": "blue", "shape": "decision", "detail": "Near-saturation", "sourceRef": 2},
+        {"id": "N6", "label": "More adsorption time", "role": "green", "shape": "process", "detail": "Continue immersion", "sourceRef": 2},
+        {"id": "N7", "label": "Tail packing (vdW)", "role": "green", "shape": "process", "detail": "Crystalline chains", "sourceRef": 1},
+        {"id": "N8", "label": "Ordered monolayer", "role": "blue", "shape": "process", "detail": "Densely packed film", "sourceRef": 1},
+        {"id": "N9", "label": "Anneal out defects", "role": "green", "shape": "process", "detail": "Improve ordering", "sourceRef": 2},
+        {"id": "N10", "label": "Functional SAM", "role": "violet", "shape": "process", "detail": "Tailored surface", "sourceRef": 1}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"},
+        {"from": "N5", "to": "N6", "label": "no"}, {"from": "N6", "to": "N2", "label": "continue"}, {"from": "N5", "to": "N7", "label": "yes"}, {"from": "N7", "to": "N8"}, {"from": "N8", "to": "N9"}, {"from": "N9", "to": "N10"}
+      ]
+    }
+  ]
+}

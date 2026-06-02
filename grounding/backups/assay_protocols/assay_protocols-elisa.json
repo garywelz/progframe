@@ -1,0 +1,190 @@
+{
+  "id": "assay_protocols-elisa",
+  "name": "ELISA",
+  "category": "biology",
+  "subcategory": "assay_protocols",
+  "subcategory_name": "Assay / Lab Protocols",
+  "description": "Research-standard flowchart for ELISA.",
+  "keywords": [
+    "elisa"
+  ],
+  "namedCollections": [
+    "lab-protocols"
+  ],
+  "colorScheme": {
+    "red": {
+      "hex": "#ff6b6b",
+      "category": "Triggers & Inputs"
+    },
+    "yellow": {
+      "hex": "#ffd43b",
+      "category": "Structures & Objects"
+    },
+    "green": {
+      "hex": "#51cf66",
+      "category": "Processing & Operations"
+    },
+    "blue": {
+      "hex": "#74c0fc",
+      "category": "Intermediates & States"
+    },
+    "violet": {
+      "hex": "#b197fc",
+      "category": "Products & Outputs"
+    }
+  },
+  "complexity": {
+    "nodes": 10,
+    "edges": 11,
+    "conditionals": 2,
+    "logicGates": {
+      "orGates": 3,
+      "andGates": 1,
+      "notGates": 0,
+      "total": 4
+    },
+    "level": "high",
+    "detailLevel": "source_grounded_rebuild",
+    "loops": 1
+  },
+  "graphMetrics": {
+    "nodes": 10,
+    "edges": 11,
+    "conditionals": 2,
+    "andGates": 1,
+    "orGates": 3,
+    "notGates": 0,
+    "loops": 1
+  },
+  "mermaid": "graph TD\n    N1[\"ELISA research question\"]\n    N2[\"ELISA initiating condition\"]\n    N3[\"Core biological components: elisa\"]\n    N4[\"Recognition or activation step\"]\n    N5[\"Intermediate regulatory state\"]\n    N6[\"Committed mechanistic step\"]\n    N7{\"Feedback/checkpoint control\"}\n    N8[\"Measured phenotype or product\"]\n    N9{\"Source-grounded check: The MIQE...\"}\n    N10[\"ELISA prediction/readout\"]\n\n    N1 --> N2\n    N2 --> N3\n    N3 --> N4\n    N4 --> N5\n    N5 --> N6\n    N6 --> N7\n    N7 -->|yes| N8\n    N8 --> N9\n    N9 -->|yes| N10\n    N5 -->|feedback| N3\n    N4 -->|commit| N7\n\n    style N1 fill:#ff6b6b,color:#fff\n    style N2 fill:#ff6b6b,color:#fff\n    style N3 fill:#ffd43b,color:#000\n    style N4 fill:#51cf66,color:#fff\n    style N5 fill:#74c0fc,color:#fff\n    style N6 fill:#51cf66,color:#fff\n    style N7 fill:#74c0fc,color:#fff\n    style N8 fill:#b197fc,color:#fff\n    style N9 fill:#ffd43b,color:#000\n    style N10 fill:#b197fc,color:#fff",
+  "nodeDetails": [
+    {
+      "id": "N1",
+      "label": "ELISA research question",
+      "detail": "ELISA research question",
+      "type": "process",
+      "role": "Triggers & Inputs"
+    },
+    {
+      "id": "N2",
+      "label": "ELISA initiating condition",
+      "detail": "ELISA initiating condition",
+      "type": "process",
+      "role": "Triggers & Inputs"
+    },
+    {
+      "id": "N3",
+      "label": "Core biological components: elisa",
+      "detail": "Core biological components: elisa",
+      "type": "process",
+      "role": "Structures & Objects"
+    },
+    {
+      "id": "N4",
+      "label": "Recognition or activation step",
+      "detail": "Recognition or activation step",
+      "type": "process",
+      "role": "Processing & Operations"
+    },
+    {
+      "id": "N5",
+      "label": "Intermediate regulatory state",
+      "detail": "Intermediate regulatory state",
+      "type": "process",
+      "role": "Intermediates & States"
+    },
+    {
+      "id": "N6",
+      "label": "Committed mechanistic step",
+      "detail": "Committed mechanistic step",
+      "type": "process",
+      "role": "Processing & Operations"
+    },
+    {
+      "id": "N7",
+      "label": "Feedback/checkpoint control",
+      "detail": "Feedback/checkpoint control",
+      "type": "decision",
+      "role": "Intermediates & States"
+    },
+    {
+      "id": "N8",
+      "label": "Measured phenotype or product",
+      "detail": "Measured phenotype or product",
+      "type": "process",
+      "role": "Products & Outputs"
+    },
+    {
+      "id": "N9",
+      "label": "Source-grounded check: The MIQE...",
+      "detail": "Source-grounded check: The MIQE guidelines",
+      "type": "decision",
+      "role": "Structures & Objects"
+    },
+    {
+      "id": "N10",
+      "label": "ELISA prediction/readout",
+      "detail": "ELISA prediction/readout",
+      "type": "process",
+      "role": "Products & Outputs"
+    }
+  ],
+  "flowchartStandard": {
+    "name": "source_grounded_rebuild_v1",
+    "applied": "2026-04-30",
+    "curationStatus": "source_grounded_draft",
+    "basis": "biology_process_or_subcategory:assay_protocols",
+    "topologySignature": "adaac2776fb82ed8",
+    "sourceGrounding": "Graph steps are derived from the process title, existing source metadata, and curated process/subfield templates; citations support the process topic and should be reviewed for node-level claims before marking verified."
+  },
+  "lastUpdated": "2026-04-30",
+  "verified": false,
+  "notes": "Corrective rebuild: replaces the generic scaffold with a process-specific step structure and records topology for duplicate detection.",
+  "sources": [
+    {
+      "title": "The MIQE guidelines: minimum information for publication of quantitative real-time PCR experiments",
+      "authors": "Bustin, S. A.; Benes, V.; Garson, J. A.; et al.",
+      "journal": "Clinical Chemistry",
+      "year": "2009",
+      "pubmed": "19246619",
+      "doi": "10.1373/clinchem.2008.112797",
+      "url": "https://doi.org/10.1373/clinchem.2008.112797"
+    },
+    {
+      "title": "Immunoblotting and immunodetection",
+      "authors": "Towbin, H.; Staehelin, T.; Gordon, J.",
+      "journal": "Proceedings of the National Academy of Sciences",
+      "year": "1979",
+      "pubmed": "388439",
+      "doi": "10.1073/pnas.76.9.4350",
+      "url": "https://doi.org/10.1073/pnas.76.9.4350"
+    },
+    {
+      "title": "ELISA: theory and practice",
+      "authors": "Crowther, J. R.",
+      "journal": "Methods in Molecular Biology",
+      "year": "1995",
+      "pubmed": null,
+      "doi": null,
+      "url": "https://link.springer.com/book/10.1385/0896032795"
+    },
+    {
+      "title": "Molecular biology of the cell",
+      "authors": "Alberts, B.; Johnson, A.; Lewis, J.; Morgan, D.; Raff, M.; Roberts, K.; Walter, P.",
+      "journal": "Garland Science",
+      "year": "2014",
+      "pubmed": null,
+      "doi": null,
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK21054/"
+    },
+    {
+      "title": "Molecular cell biology",
+      "authors": "Lodish, H.; Berk, A.; Kaiser, C. A.; Krieger, M.; Bretscher, A.; Ploegh, H.; Amon, A.; Scott, M. P.",
+      "journal": "W. H. Freeman",
+      "year": "2016",
+      "pubmed": null,
+      "doi": null,
+      "url": "https://www.ncbi.nlm.nih.gov/books/"
+    }
+  ]
+}

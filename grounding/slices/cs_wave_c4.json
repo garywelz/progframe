@@ -1,0 +1,228 @@
+{
+  "discipline": "computer-science",
+  "slice": "software_engineering",
+  "charts": [
+    {
+      "id": "software_engineering-continuous-integration-pipeline",
+      "name": "Continuous Integration Pipeline",
+      "description": "A CI pipeline validates every change automatically: a push triggers checkout and build, and on success the unit and integration test suites run, followed by static analysis; only when all gates pass is the artifact packaged and deployed to staging, while any failure stops the pipeline and notifies the author to fix.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Software engineering",
+      "keywords": ["continuous integration", "build pipeline", "automated testing", "fail fast", "staging deploy"],
+      "basis": "source_extraction:software_engineering-continuous-integration-pipeline",
+      "sources": [
+        {"title": "Continuous Delivery: Reliable Software Releases through Build, Test, and Deployment Automation", "authors": "Humble, J.; Farley, D.", "journal": "Addison-Wesley", "year": "2010", "url": "https://www.oreilly.com/library/view/continuous-delivery-reliable/9780321670250/"},
+        {"title": "Continuous Integration", "authors": "Fowler, M.", "journal": "martinfowler.com", "year": "2006", "url": "https://martinfowler.com/articles/continuousIntegration.html"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Developer pushes commit", "role": "red", "shape": "process", "detail": "Change to repo", "sourceRef": 1},
+        {"id": "N2", "label": "CI triggers on push", "role": "green", "shape": "process", "detail": "Webhook fires", "sourceRef": 1},
+        {"id": "N3", "label": "Checkout + build", "role": "green", "shape": "process", "detail": "Compile sources", "sourceRef": 0},
+        {"id": "N4", "label": "Build succeeds?", "role": "blue", "shape": "decision", "detail": "No compile errors", "sourceRef": 0},
+        {"id": "N5", "label": "Fail fast, notify", "role": "green", "shape": "process", "detail": "Alert author", "sourceRef": 1},
+        {"id": "N6", "label": "Run unit + integration", "role": "green", "shape": "process", "detail": "Test suites", "sourceRef": 0},
+        {"id": "N7", "label": "Tests pass?", "role": "blue", "shape": "decision", "detail": "All green", "sourceRef": 0},
+        {"id": "N8", "label": "Static analysis / lint", "role": "green", "shape": "process", "detail": "Quality gates", "sourceRef": 0},
+        {"id": "N9", "label": "Package artifact", "role": "green", "shape": "process", "detail": "Build output", "sourceRef": 0},
+        {"id": "N10", "label": "Deploy to staging", "role": "green", "shape": "process", "detail": "Pre-prod env", "sourceRef": 0},
+        {"id": "N11", "label": "Merge-ready build", "role": "violet", "shape": "process", "detail": "Verified change", "sourceRef": 1}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"},
+        {"from": "N4", "to": "N5", "label": "no"}, {"from": "N5", "to": "N1", "label": "fix"}, {"from": "N4", "to": "N6", "label": "yes"},
+        {"from": "N6", "to": "N7"}, {"from": "N7", "to": "N5", "label": "no"}, {"from": "N7", "to": "N8", "label": "yes"},
+        {"from": "N8", "to": "N9"}, {"from": "N9", "to": "N10"}, {"from": "N10", "to": "N11"}
+      ]
+    },
+    {
+      "id": "software_engineering-incident-response",
+      "name": "Incident Response",
+      "description": "Incident response restores service and learns from failures: an alert is triaged and assigned a severity, an incident is declared and responders assembled, the root cause is investigated, a mitigation applied, and service confirmed restored; a blameless postmortem then captures action items so the failure mode is prevented.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Software engineering / SRE",
+      "keywords": ["incident response", "severity triage", "root cause", "mitigation", "postmortem"],
+      "basis": "source_extraction:software_engineering-incident-response",
+      "sources": [
+        {"title": "Site Reliability Engineering: How Google Runs Production Systems", "authors": "Beyer, B.; Jones, C.; Petoff, J.; Murphy, N. R.", "journal": "O'Reilly Media", "year": "2016", "url": "https://sre.google/sre-book/managing-incidents/"},
+        {"title": "Blameless PostMortems and a Just Culture", "authors": "Allspaw, J.", "journal": "Code as Craft (Etsy Engineering)", "year": "2012", "url": "https://www.etsy.com/codeascraft/blameless-postmortems/"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Alert / incident detected", "role": "red", "shape": "process", "detail": "Monitoring fires", "sourceRef": 0},
+        {"id": "N2", "label": "Triage + assign severity", "role": "green", "shape": "process", "detail": "Impact level", "sourceRef": 0},
+        {"id": "N3", "label": "Declare incident", "role": "green", "shape": "process", "detail": "Open response", "sourceRef": 0},
+        {"id": "N4", "label": "Assemble responders", "role": "green", "shape": "process", "detail": "Roles assigned", "sourceRef": 0},
+        {"id": "N5", "label": "Investigate root cause", "role": "green", "shape": "process", "detail": "Form hypotheses", "sourceRef": 0},
+        {"id": "N6", "label": "Mitigation found?", "role": "blue", "shape": "decision", "detail": "Path to recovery", "sourceRef": 0},
+        {"id": "N7", "label": "Gather more data", "role": "green", "shape": "process", "detail": "Logs, metrics", "sourceRef": 0},
+        {"id": "N8", "label": "Apply mitigation", "role": "green", "shape": "process", "detail": "Stop the bleeding", "sourceRef": 0},
+        {"id": "N9", "label": "Service restored?", "role": "blue", "shape": "decision", "detail": "Health recovered", "sourceRef": 0},
+        {"id": "N10", "label": "Postmortem + actions", "role": "green", "shape": "process", "detail": "Blameless review", "sourceRef": 1},
+        {"id": "N11", "label": "Resolved + learnings", "role": "violet", "shape": "process", "detail": "Prevent recurrence", "sourceRef": 1}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"}, {"from": "N5", "to": "N6"},
+        {"from": "N6", "to": "N7", "label": "no"}, {"from": "N7", "to": "N5", "label": "investigate"}, {"from": "N6", "to": "N8", "label": "yes"},
+        {"from": "N8", "to": "N9"}, {"from": "N9", "to": "N5", "label": "no"}, {"from": "N9", "to": "N10", "label": "yes"}, {"from": "N10", "to": "N11"}
+      ]
+    },
+    {
+      "id": "software_engineering-code-review-workflow",
+      "name": "Code Review Workflow",
+      "description": "Code review gates changes into the main branch: an author opens a pull request that triggers CI, reviewers read the diff in context, and any change requests send the author back to revise; once discussions are resolved and the reviewers approve, the change is merged and integrated.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Software engineering",
+      "keywords": ["code review", "pull request", "modern code review", "approval", "merge"],
+      "basis": "source_extraction:software_engineering-code-review-workflow",
+      "sources": [
+        {"title": "Expectations, outcomes, and challenges of modern code review", "authors": "Bacchelli, A.; Bird, C.", "journal": "International Conference on Software Engineering (ICSE)", "year": "2013", "doi": "10.1109/ICSE.2013.6606617", "url": "https://doi.org/10.1109/ICSE.2013.6606617"},
+        {"title": "Design and code inspections to reduce errors in program development", "authors": "Fagan, M. E.", "journal": "IBM Systems Journal", "year": "1976", "doi": "10.1147/sj.153.0182", "url": "https://doi.org/10.1147/sj.153.0182"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Author opens PR", "role": "red", "shape": "process", "detail": "Proposed change", "sourceRef": 0},
+        {"id": "N2", "label": "CI checks run", "role": "green", "shape": "process", "detail": "Automated gates", "sourceRef": 0},
+        {"id": "N3", "label": "Reviewers assigned", "role": "green", "shape": "process", "detail": "Subject experts", "sourceRef": 0},
+        {"id": "N4", "label": "Read diff + context", "role": "green", "shape": "process", "detail": "Understand change", "sourceRef": 0},
+        {"id": "N5", "label": "Change requests?", "role": "blue", "shape": "decision", "detail": "Issues raised", "sourceRef": 0},
+        {"id": "N6", "label": "Author revises code", "role": "green", "shape": "process", "detail": "Address feedback", "sourceRef": 0},
+        {"id": "N7", "label": "Approved?", "role": "blue", "shape": "decision", "detail": "Reviewer sign-off", "sourceRef": 0},
+        {"id": "N8", "label": "Resolve discussions", "role": "green", "shape": "process", "detail": "Close threads", "sourceRef": 1},
+        {"id": "N9", "label": "Merge to main", "role": "green", "shape": "process", "detail": "Integrate change", "sourceRef": 0},
+        {"id": "N10", "label": "Merged + integrated", "role": "violet", "shape": "process", "detail": "In trunk", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"},
+        {"from": "N5", "to": "N6", "label": "yes"}, {"from": "N6", "to": "N4", "label": "re-review"}, {"from": "N5", "to": "N7", "label": "no"},
+        {"from": "N7", "to": "N8", "label": "no"}, {"from": "N8", "to": "N4", "label": "discuss"}, {"from": "N7", "to": "N9", "label": "yes"}, {"from": "N9", "to": "N10"}
+      ]
+    },
+    {
+      "id": "software_engineering-requirements-engineering",
+      "name": "Requirements Engineering",
+      "description": "Requirements engineering turns stakeholder needs into a validated specification: requirements are elicited, analyzed, and classified as functional behavior or non-functional quality attributes; conflicts and ambiguities are negotiated and resolved, the result is validated with stakeholders, and the agreed set is baselined into a specification.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Software engineering",
+      "keywords": ["requirements engineering", "elicitation", "functional requirements", "non-functional", "validation"],
+      "basis": "source_extraction:software_engineering-requirements-engineering",
+      "sources": [
+        {"title": "Requirements engineering: a roadmap", "authors": "Nuseibeh, B.; Easterbrook, S.", "journal": "Proceedings of the Conference on the Future of Software Engineering", "year": "2000", "doi": "10.1145/336512.336523", "url": "https://doi.org/10.1145/336512.336523"},
+        {"title": "Software Engineering (10th ed.)", "authors": "Sommerville, I.", "journal": "Pearson", "year": "2015", "url": "https://www.pearson.com/en-us/subject-catalog/p/software-engineering/P200000003258"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Stakeholder needs", "role": "red", "shape": "process", "detail": "Goals and problems", "sourceRef": 0},
+        {"id": "N2", "label": "Elicit requirements", "role": "green", "shape": "process", "detail": "Interviews, workshops", "sourceRef": 0},
+        {"id": "N3", "label": "Analyze + classify", "role": "green", "shape": "process", "detail": "Structure findings", "sourceRef": 1},
+        {"id": "N4", "label": "Functional or not?", "role": "blue", "shape": "decision", "detail": "Behavior vs quality", "sourceRef": 1},
+        {"id": "N5", "label": "Specify behavior", "role": "green", "shape": "process", "detail": "What system does", "sourceRef": 1},
+        {"id": "N6", "label": "Specify quality attrs", "role": "green", "shape": "process", "detail": "Performance, security", "sourceRef": 1},
+        {"id": "N7", "label": "Conflicts / ambiguity?", "role": "blue", "shape": "decision", "detail": "Inconsistencies", "sourceRef": 0},
+        {"id": "N8", "label": "Negotiate + resolve", "role": "green", "shape": "process", "detail": "Reconcile needs", "sourceRef": 0},
+        {"id": "N9", "label": "Validate w/ stakeholders", "role": "green", "shape": "process", "detail": "Confirm intent", "sourceRef": 0},
+        {"id": "N10", "label": "Baseline specification", "role": "blue", "shape": "process", "detail": "Agreed version", "sourceRef": 1},
+        {"id": "N11", "label": "Requirements doc", "role": "violet", "shape": "process", "detail": "SRS artifact", "sourceRef": 1}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"},
+        {"from": "N4", "to": "N5", "label": "functional"}, {"from": "N4", "to": "N6", "label": "non-functional"}, {"from": "N5", "to": "N7"}, {"from": "N6", "to": "N7"},
+        {"from": "N7", "to": "N8", "label": "yes"}, {"from": "N8", "to": "N3", "label": "rework"}, {"from": "N7", "to": "N9", "label": "no"}, {"from": "N9", "to": "N10"}, {"from": "N10", "to": "N11"}
+      ]
+    },
+    {
+      "id": "software_engineering-neural-network",
+      "name": "Test-Driven Development (TDD)",
+      "description": "Test-driven development follows a red-green-refactor cycle: write a failing test that specifies desired behavior, confirm it fails, write the minimal code to make it pass, then refactor while keeping all tests green; the loop repeats per behavior, producing tested, well-factored code.",
+      "graphType": "cyclic_pathway",
+      "domainContext": "Software engineering",
+      "keywords": ["test-driven development", "red-green-refactor", "unit test", "minimal implementation", "regression"],
+      "basis": "source_extraction:software_engineering-neural-network",
+      "sources": [
+        {"title": "Test-Driven Development: By Example", "authors": "Beck, K.", "journal": "Addison-Wesley", "year": "2002", "url": "https://www.oreilly.com/library/view/test-driven-development/0321146530/"},
+        {"title": "An initial investigation of test driven development in industry", "authors": "George, B.; Williams, L.", "journal": "ACM Symposium on Applied Computing", "year": "2003", "doi": "10.1145/952532.952753", "url": "https://doi.org/10.1145/952532.952753"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "New feature / behavior", "role": "red", "shape": "process", "detail": "Requirement", "sourceRef": 0},
+        {"id": "N2", "label": "Write a failing test", "role": "green", "shape": "process", "detail": "Specify intent", "sourceRef": 0},
+        {"id": "N3", "label": "Run test suite", "role": "green", "shape": "process", "detail": "Expect red", "sourceRef": 0},
+        {"id": "N4", "label": "Fails as expected?", "role": "blue", "shape": "decision", "detail": "Test is valid", "sourceRef": 0},
+        {"id": "N5", "label": "Fix the test", "role": "green", "shape": "process", "detail": "Correct spec", "sourceRef": 0},
+        {"id": "N6", "label": "Write minimal code", "role": "green", "shape": "process", "detail": "Just enough", "sourceRef": 0},
+        {"id": "N7", "label": "Run tests again", "role": "green", "shape": "process", "detail": "Seek green", "sourceRef": 0},
+        {"id": "N8", "label": "All tests pass?", "role": "blue", "shape": "decision", "detail": "Behavior met", "sourceRef": 0},
+        {"id": "N9", "label": "Adjust implementation", "role": "green", "shape": "process", "detail": "Make it pass", "sourceRef": 0},
+        {"id": "N10", "label": "Refactor cleanly", "role": "green", "shape": "process", "detail": "Improve design", "sourceRef": 1},
+        {"id": "N11", "label": "Tests still pass?", "role": "blue", "shape": "decision", "detail": "No regression", "sourceRef": 0},
+        {"id": "N12", "label": "Working tested feature", "role": "violet", "shape": "process", "detail": "Green + clean", "sourceRef": 1}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"},
+        {"from": "N4", "to": "N5", "label": "no"}, {"from": "N5", "to": "N3", "label": "retry"}, {"from": "N4", "to": "N6", "label": "yes"},
+        {"from": "N6", "to": "N7"}, {"from": "N7", "to": "N8"}, {"from": "N8", "to": "N9", "label": "no"}, {"from": "N9", "to": "N7", "label": "rerun"},
+        {"from": "N8", "to": "N10", "label": "yes"}, {"from": "N10", "to": "N11"}, {"from": "N11", "to": "N9", "label": "no"}, {"from": "N11", "to": "N12", "label": "yes"}
+      ]
+    },
+    {
+      "id": "software_engineering-natural-language-processing",
+      "name": "Code Refactoring Workflow",
+      "description": "Refactoring improves internal design without changing behavior: after spotting a code smell, test coverage is ensured (adding characterization tests if needed), then small behavior-preserving transformations are applied and verified by tests; any failure is reverted, and the cycle repeats until no smells remain.",
+      "graphType": "cyclic_pathway",
+      "domainContext": "Software engineering",
+      "keywords": ["refactoring", "code smell", "behavior preserving", "characterization tests", "design improvement"],
+      "basis": "source_extraction:software_engineering-natural-language-processing",
+      "sources": [
+        {"title": "Refactoring: Improving the Design of Existing Code (2nd ed.)", "authors": "Fowler, M.", "journal": "Addison-Wesley", "year": "2018", "url": "https://martinfowler.com/books/refactoring.html"},
+        {"title": "A survey of software refactoring", "authors": "Mens, T.; Tourwe, T.", "journal": "IEEE Transactions on Software Engineering", "year": "2004", "doi": "10.1109/TSE.2004.1265817", "url": "https://doi.org/10.1109/TSE.2004.1265817"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Code smell identified", "role": "red", "shape": "process", "detail": "Design weakness", "sourceRef": 0},
+        {"id": "N2", "label": "Ensure test coverage", "role": "green", "shape": "process", "detail": "Safety net", "sourceRef": 1},
+        {"id": "N3", "label": "Tests sufficient?", "role": "blue", "shape": "decision", "detail": "Cover behavior", "sourceRef": 0},
+        {"id": "N4", "label": "Add characterization tests", "role": "green", "shape": "process", "detail": "Pin current behavior", "sourceRef": 0},
+        {"id": "N5", "label": "Choose refactoring", "role": "green", "shape": "process", "detail": "Catalog move", "sourceRef": 0},
+        {"id": "N6", "label": "Apply small transform", "role": "green", "shape": "process", "detail": "One step", "sourceRef": 0},
+        {"id": "N7", "label": "Run tests", "role": "green", "shape": "process", "detail": "Verify", "sourceRef": 1},
+        {"id": "N8", "label": "Behavior preserved?", "role": "blue", "shape": "decision", "detail": "Still green", "sourceRef": 0},
+        {"id": "N9", "label": "Revert change", "role": "green", "shape": "process", "detail": "Undo step", "sourceRef": 0},
+        {"id": "N10", "label": "More smells remain?", "role": "blue", "shape": "decision", "detail": "Keep cleaning", "sourceRef": 1},
+        {"id": "N11", "label": "Commit refactored code", "role": "green", "shape": "process", "detail": "Small safe commit", "sourceRef": 0},
+        {"id": "N12", "label": "Cleaner design, same behavior", "role": "violet", "shape": "process", "detail": "Improved code", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4", "label": "no"}, {"from": "N4", "to": "N2", "label": "augment"}, {"from": "N3", "to": "N5", "label": "yes"},
+        {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7"}, {"from": "N7", "to": "N8"},
+        {"from": "N8", "to": "N9", "label": "no"}, {"from": "N9", "to": "N5", "label": "retry"}, {"from": "N8", "to": "N10", "label": "yes"},
+        {"from": "N10", "to": "N11", "label": "yes"}, {"from": "N11", "to": "N5", "label": "next"}, {"from": "N10", "to": "N12", "label": "no"}
+      ]
+    },
+    {
+      "id": "software_engineering-machine-learning",
+      "name": "Agile Scrum Sprint",
+      "description": "A Scrum sprint delivers a potentially shippable increment in a fixed timebox: the team plans and selects a sprint backlog from the product backlog, develops through daily standups, removing impediments as they arise, and when the timebox ends holds a sprint review to demo and a retrospective to improve.",
+      "graphType": "cyclic_pathway",
+      "domainContext": "Software engineering / agile",
+      "keywords": ["Scrum", "sprint", "agile", "sprint backlog", "retrospective"],
+      "basis": "source_extraction:software_engineering-machine-learning",
+      "sources": [
+        {"title": "The Scrum Guide: The Definitive Guide to Scrum", "authors": "Schwaber, K.; Sutherland, J.", "journal": "scrumguides.org", "year": "2020", "url": "https://scrumguides.org/scrum-guide.html"},
+        {"title": "Manifesto for Agile Software Development", "authors": "Beck, K.; et al.", "journal": "agilemanifesto.org", "year": "2001", "url": "https://agilemanifesto.org/"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Product backlog", "role": "red", "shape": "process", "detail": "Prioritized items", "sourceRef": 0},
+        {"id": "N2", "label": "Sprint planning", "role": "green", "shape": "process", "detail": "Set sprint goal", "sourceRef": 0},
+        {"id": "N3", "label": "Select sprint backlog", "role": "green", "shape": "process", "detail": "Committed work", "sourceRef": 0},
+        {"id": "N4", "label": "Daily standup", "role": "green", "shape": "process", "detail": "Sync progress", "sourceRef": 0},
+        {"id": "N5", "label": "Develop increment", "role": "green", "shape": "process", "detail": "Build + test", "sourceRef": 1},
+        {"id": "N6", "label": "Blockers raised?", "role": "blue", "shape": "decision", "detail": "Impediments", "sourceRef": 0},
+        {"id": "N7", "label": "Resolve impediments", "role": "green", "shape": "process", "detail": "Scrum master", "sourceRef": 0},
+        {"id": "N8", "label": "Sprint timebox ended?", "role": "blue", "shape": "decision", "detail": "Fixed duration", "sourceRef": 0},
+        {"id": "N9", "label": "Continue work", "role": "green", "shape": "process", "detail": "Next day", "sourceRef": 0},
+        {"id": "N10", "label": "Sprint review (demo)", "role": "green", "shape": "process", "detail": "Inspect increment", "sourceRef": 0},
+        {"id": "N11", "label": "Retrospective", "role": "green", "shape": "process", "detail": "Improve process", "sourceRef": 0},
+        {"id": "N12", "label": "Shippable increment", "role": "violet", "shape": "process", "detail": "Done work", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"}, {"from": "N5", "to": "N6"},
+        {"from": "N6", "to": "N7", "label": "yes"}, {"from": "N7", "to": "N4", "label": "unblock"}, {"from": "N6", "to": "N8", "label": "no"},
+        {"from": "N8", "to": "N9", "label": "no"}, {"from": "N9", "to": "N4", "label": "iterate"}, {"from": "N8", "to": "N10", "label": "yes"}, {"from": "N10", "to": "N11"}, {"from": "N11", "to": "N12"}
+      ]
+    }
+  ]
+}

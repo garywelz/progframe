@@ -1,0 +1,763 @@
+{
+  "discipline": "biology",
+  "slice": "pathways+taxonomy",
+  "charts": [
+    {
+      "id": "pathways-glycolysis",
+      "description": "Glycolysis: glucose is invested with two ATP and committed at phosphofructokinase-1, split into triose phosphates, then oxidized to yield NADH and a net two ATP and two pyruvate, with PFK-1 allosterically gated by the cell's energy charge.",
+      "graphType": "mechanism_flowchart",
+      "domainContext": "Central carbon catabolism",
+      "namedCollections": ["metabolism"],
+      "keywords": ["glycolysis", "phosphofructokinase", "atp", "pyruvate", "nadh"],
+      "basis": "source_extraction:pathways-glycolysis",
+      "sources": [
+        {"title": "Biochemistry, 5th ed. — Glycolysis Is an Energy-Conversion Pathway", "authors": "Berg, J. M.; Tymoczko, J. L.; Stryer, L.", "journal": "W. H. Freeman (NCBI Bookshelf, Section 16.1)", "year": "2002", "doi": null, "url": "https://www.ncbi.nlm.nih.gov/books/NBK22593/"},
+        {"title": "Rethinking glycolysis: on the biochemical logic of metabolic pathways", "authors": "Bar-Even, A.; Flamholz, A.; Noor, E.; Milo, R.", "journal": "Nature Chemical Biology", "year": "2012", "pubmed": "22596202", "doi": "10.1038/nchembio.971", "url": "https://doi.org/10.1038/nchembio.971"},
+        {"title": "Aerobic glycolysis: meeting the metabolic requirements of cell proliferation", "authors": "Lunt, S. Y.; Vander Heiden, M. G.", "journal": "Annual Review of Cell and Developmental Biology", "year": "2011", "pubmed": "21985671", "doi": "10.1146/annurev-cellbio-092910-154237", "url": "https://doi.org/10.1146/annurev-cellbio-092910-154237"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Glucose", "role": "red", "shape": "process", "detail": "Six-carbon substrate", "sourceRef": 0},
+        {"id": "N2", "label": "Hexokinase -> G6P", "role": "green", "shape": "process", "detail": "First ATP-investing phosphorylation", "sourceRef": 0},
+        {"id": "N3", "label": "Isomerize -> F6P", "role": "green", "shape": "process", "detail": "Phosphoglucose isomerase", "sourceRef": 0},
+        {"id": "N4", "label": "PFK-1 -> F1,6BP", "role": "yellow", "shape": "process", "detail": "Committed, rate-limiting step", "sourceRef": 1},
+        {"id": "N5", "label": "Aldolase: 2 triose-P", "role": "green", "shape": "process", "detail": "Cleavage into DHAP + G3P", "sourceRef": 0},
+        {"id": "N6", "label": "GAPDH: NAD+ -> NADH", "role": "green", "shape": "process", "detail": "Oxidation and phosphorylation", "sourceRef": 0},
+        {"id": "N7", "label": "Payoff: ATP via PGK/PK", "role": "green", "shape": "process", "detail": "Substrate-level phosphorylation", "sourceRef": 0},
+        {"id": "N8", "label": "Energy charge high?", "role": "blue", "shape": "decision", "detail": "ATP/citrate inhibit, AMP activates PFK-1", "sourceRef": 2},
+        {"id": "N9", "label": "2 Pyruvate (net 2 ATP)", "role": "violet", "shape": "process", "detail": "Glycolytic end products", "sourceRef": 1}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"},
+        {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7"}, {"from": "N7", "to": "N8"},
+        {"from": "N8", "to": "N4", "label": "ATP high: inhibit"}, {"from": "N8", "to": "N9", "label": "proceed"}
+      ]
+    },
+    {
+      "id": "pathways-gluconeogenesis",
+      "description": "Gluconeogenesis: pyruvate is converted to glucose by bypassing the three irreversible glycolytic steps (pyruvate carboxylase/PEPCK, fructose-1,6-bisphosphatase, glucose-6-phosphatase), gated by energy charge and reciprocal hormonal regulation in liver.",
+      "graphType": "mechanism_flowchart",
+      "domainContext": "Glucose biosynthesis",
+      "namedCollections": ["metabolism"],
+      "keywords": ["gluconeogenesis", "pepck", "fructose-1,6-bisphosphatase", "glucose-6-phosphatase", "liver"],
+      "basis": "source_extraction:pathways-gluconeogenesis",
+      "sources": [
+        {"title": "Biochemistry, 5th ed. — Gluconeogenesis", "authors": "Berg, J. M.; Tymoczko, J. L.; Stryer, L.", "journal": "W. H. Freeman (NCBI Bookshelf, Section 16.3)", "year": "2002", "doi": null, "url": "https://www.ncbi.nlm.nih.gov/books/NBK22591/"},
+        {"title": "Molecular physiology of the regulation of hepatic gluconeogenesis and glycolysis", "authors": "Pilkis, S. J.; Granner, D. K.", "journal": "Annual Review of Physiology", "year": "1992", "pubmed": "1562184", "doi": "10.1146/annurev.ph.54.030192.004405", "url": "https://doi.org/10.1146/annurev.ph.54.030192.004405"},
+        {"title": "Gluconeogenesis and related aspects of glycolysis", "authors": "Hers, H. G.; Hue, L.", "journal": "Annual Review of Biochemistry", "year": "1983", "pubmed": "6311080", "doi": "10.1146/annurev.bi.52.070183.003153", "url": "https://doi.org/10.1146/annurev.bi.52.070183.003153"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Pyruvate", "role": "red", "shape": "process", "detail": "Gluconeogenic precursor", "sourceRef": 0},
+        {"id": "N2", "label": "Pyruvate carboxylase -> OAA", "role": "green", "shape": "process", "detail": "Mitochondrial carboxylation (bypass 1a)", "sourceRef": 0},
+        {"id": "N3", "label": "PEPCK -> PEP", "role": "green", "shape": "process", "detail": "Bypass of pyruvate kinase", "sourceRef": 0},
+        {"id": "N4", "label": "Climb reverse glycolysis", "role": "green", "shape": "process", "detail": "Reversible steps run backward", "sourceRef": 0},
+        {"id": "N5", "label": "Fructose-1,6-bisphosphatase", "role": "yellow", "shape": "process", "detail": "Committed bypass of PFK-1", "sourceRef": 1},
+        {"id": "N6", "label": "Energy charge adequate?", "role": "blue", "shape": "decision", "detail": "ATP and substrate availability gate flux", "sourceRef": 2},
+        {"id": "N7", "label": "F6P -> G6P", "role": "green", "shape": "process", "detail": "Isomerization", "sourceRef": 0},
+        {"id": "N8", "label": "Glucose-6-phosphatase (ER)", "role": "green", "shape": "process", "detail": "Final bypass of hexokinase", "sourceRef": 0},
+        {"id": "N9", "label": "Glucose exported", "role": "violet", "shape": "process", "detail": "Released to blood by liver", "sourceRef": 1}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"}, {"from": "N5", "to": "N6"},
+        {"from": "N6", "to": "N7", "label": "yes"}, {"from": "N6", "to": "N5", "label": "low ATP: stall"},
+        {"from": "N7", "to": "N8"}, {"from": "N8", "to": "N9"}
+      ]
+    },
+    {
+      "id": "pathways-krebs-cycle",
+      "description": "Citric acid cycle: acetyl-CoA condenses with oxaloacetate and is oxidized through eight steps that release two CO2, three NADH, one FADH2 and one GTP per turn, regenerating oxaloacetate, with isocitrate dehydrogenase gated by the NADH/ATP level.",
+      "graphType": "cyclic_pathway",
+      "domainContext": "Central oxidative metabolism",
+      "namedCollections": ["metabolism"],
+      "keywords": ["citric acid cycle", "krebs", "acetyl-coa", "nadh", "oxaloacetate"],
+      "basis": "source_extraction:pathways-krebs-cycle",
+      "sources": [
+        {"title": "Biochemistry, 5th ed. — The Citric Acid Cycle", "authors": "Berg, J. M.; Tymoczko, J. L.; Stryer, L.", "journal": "W. H. Freeman (NCBI Bookshelf, Chapter 17)", "year": "2002", "doi": null, "url": "https://www.ncbi.nlm.nih.gov/books/NBK21163/"},
+        {"title": "The key role of anaplerosis and cataplerosis for citric acid cycle function", "authors": "Owen, O. E.; Kalhan, S. C.; Hanson, R. W.", "journal": "Journal of Biological Chemistry", "year": "2002", "pubmed": "12426160", "doi": "10.1074/jbc.R200006200", "url": "https://doi.org/10.1074/jbc.R200006200"},
+        {"title": "The role of citric acid in intermediate metabolism in animal tissues", "authors": "Krebs, H. A.; Johnson, W. A.", "journal": "FEBS Letters (reprint)", "year": "1980", "pubmed": "395075", "doi": "10.1016/0014-5793(80)80029-2", "url": "https://doi.org/10.1016/0014-5793(80)80029-2"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Acetyl-CoA enters", "role": "red", "shape": "process", "detail": "Two-carbon fuel from pyruvate/fat", "sourceRef": 0},
+        {"id": "N2", "label": "Citrate synthase: citrate", "role": "green", "shape": "process", "detail": "Condensation with oxaloacetate", "sourceRef": 0},
+        {"id": "N3", "label": "Aconitase: isocitrate", "role": "green", "shape": "process", "detail": "Isomerization", "sourceRef": 0},
+        {"id": "N4", "label": "NADH / ATP high?", "role": "blue", "shape": "decision", "detail": "Isocitrate dehydrogenase regulation", "sourceRef": 1},
+        {"id": "N5", "label": "Isocitrate DH: aKG + NADH", "role": "green", "shape": "process", "detail": "First oxidative decarboxylation", "sourceRef": 0},
+        {"id": "N6", "label": "aKG DH: succinyl-CoA", "role": "green", "shape": "process", "detail": "Second oxidative decarboxylation, NADH", "sourceRef": 0},
+        {"id": "N7", "label": "Succinyl-CoA -> GTP", "role": "green", "shape": "process", "detail": "Substrate-level phosphorylation", "sourceRef": 0},
+        {"id": "N8", "label": "Succinate DH: FADH2", "role": "green", "shape": "process", "detail": "Oxidation to fumarate", "sourceRef": 0},
+        {"id": "N9", "label": "Fumarase: malate", "role": "green", "shape": "process", "detail": "Hydration", "sourceRef": 0},
+        {"id": "N10", "label": "Malate DH: OAA + NADH", "role": "green", "shape": "process", "detail": "Regenerates oxaloacetate", "sourceRef": 0},
+        {"id": "N11", "label": "OAA regenerated", "role": "violet", "shape": "process", "detail": "Cycle ready for next acetyl-CoA", "sourceRef": 2}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"},
+        {"from": "N4", "to": "N5", "label": "proceed"}, {"from": "N4", "to": "N3", "label": "NADH high: slow"},
+        {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7"}, {"from": "N7", "to": "N8"}, {"from": "N8", "to": "N9"},
+        {"from": "N9", "to": "N10"}, {"from": "N10", "to": "N11"}, {"from": "N11", "to": "N2", "label": "next turn"}
+      ]
+    },
+    {
+      "id": "pathways-oxidative-phosphorylation",
+      "description": "Oxidative phosphorylation: electrons from NADH/FADH2 pass through respiratory complexes to O2 while protons are pumped across the inner membrane, and the resulting proton-motive force drives ATP synthase, with respiratory control by ADP availability.",
+      "graphType": "mechanism_flowchart",
+      "domainContext": "Mitochondrial bioenergetics",
+      "namedCollections": ["metabolism"],
+      "keywords": ["oxidative phosphorylation", "electron transport chain", "proton gradient", "atp synthase", "chemiosmosis"],
+      "basis": "source_extraction:pathways-oxidative-phosphorylation",
+      "sources": [
+        {"title": "Biochemistry, 5th ed. — Oxidative Phosphorylation", "authors": "Berg, J. M.; Tymoczko, J. L.; Stryer, L.", "journal": "W. H. Freeman (NCBI Bookshelf, Chapter 18)", "year": "2002", "doi": null, "url": "https://www.ncbi.nlm.nih.gov/books/NBK21208/"},
+        {"title": "Coupling of phosphorylation to electron and hydrogen transfer by a chemi-osmotic type of mechanism", "authors": "Mitchell, P.", "journal": "Nature", "year": "1961", "pubmed": "13771349", "doi": "10.1038/191144a0", "url": "https://doi.org/10.1038/191144a0"},
+        {"title": "Oxidative phosphorylation at the fin de siècle", "authors": "Saraste, M.", "journal": "Science", "year": "1999", "pubmed": "10066159", "doi": "10.1126/science.283.5407.1488", "url": "https://doi.org/10.1126/science.283.5407.1488"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "NADH / FADH2 fuel", "role": "red", "shape": "process", "detail": "Reduced carriers from catabolism", "sourceRef": 0},
+        {"id": "N2", "label": "Complex I/II oxidize", "role": "green", "shape": "process", "detail": "Electrons enter the chain", "sourceRef": 0},
+        {"id": "N3", "label": "Ubiquinone shuttle", "role": "green", "shape": "process", "detail": "Mobile electron carrier", "sourceRef": 0},
+        {"id": "N4", "label": "Complex III -> cyt c", "role": "green", "shape": "process", "detail": "Q-cycle electron transfer", "sourceRef": 0},
+        {"id": "N5", "label": "Complex IV reduces O2", "role": "green", "shape": "process", "detail": "Terminal electron acceptor -> water", "sourceRef": 0},
+        {"id": "N6", "label": "Protons pumped out", "role": "blue", "shape": "process", "detail": "H+ moved at I, III, IV", "sourceRef": 1},
+        {"id": "N7", "label": "Proton-motive force", "role": "blue", "shape": "process", "detail": "Electrochemical gradient stored", "sourceRef": 1},
+        {"id": "N8", "label": "ATP synthase rotates", "role": "green", "shape": "process", "detail": "Protons flow back through F0F1", "sourceRef": 0},
+        {"id": "N9", "label": "ADP available?", "role": "blue", "shape": "decision", "detail": "Respiratory control by substrate", "sourceRef": 2},
+        {"id": "N10", "label": "ATP synthesized", "role": "violet", "shape": "process", "detail": "Phosphorylation of ADP", "sourceRef": 0},
+        {"id": "N11", "label": "Backpressure slows ETC", "role": "green", "shape": "process", "detail": "High gradient limits pumping", "sourceRef": 2}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"},
+        {"from": "N2", "to": "N6"}, {"from": "N4", "to": "N6"}, {"from": "N5", "to": "N6"},
+        {"from": "N6", "to": "N7"}, {"from": "N7", "to": "N8"}, {"from": "N8", "to": "N9"},
+        {"from": "N9", "to": "N10", "label": "yes"}, {"from": "N9", "to": "N11", "label": "no ADP"}, {"from": "N11", "to": "N2", "label": "respiratory control"}
+      ]
+    },
+    {
+      "id": "pathways-pentose-phosphate-pathway",
+      "description": "Pentose phosphate pathway: glucose-6-phosphate enters the oxidative branch (G6PD, rate-limiting) to generate NADPH and ribose precursors, and the non-oxidative branch interconverts sugars to balance NADPH versus ribose-5-phosphate demand.",
+      "graphType": "decision_flowchart",
+      "domainContext": "NADPH and ribose supply",
+      "namedCollections": ["metabolism"],
+      "keywords": ["pentose phosphate", "g6pd", "nadph", "ribose-5-phosphate", "transketolase"],
+      "basis": "source_extraction:pathways-pentose-phosphate-pathway",
+      "sources": [
+        {"title": "Biochemistry, 5th ed. — The Pentose Phosphate Pathway", "authors": "Berg, J. M.; Tymoczko, J. L.; Stryer, L.", "journal": "W. H. Freeman (NCBI Bookshelf, Chapter 20)", "year": "2002", "doi": null, "url": "https://www.ncbi.nlm.nih.gov/books/NBK22467/"},
+        {"title": "The return of metabolism: biochemistry and physiology of the pentose phosphate pathway", "authors": "Stincone, A.; et al.", "journal": "Biological Reviews", "year": "2015", "pubmed": "25243985", "doi": "10.1111/brv.12140", "url": "https://doi.org/10.1111/brv.12140"},
+        {"title": "The pentose phosphate pathway and cancer", "authors": "Patra, K. C.; Hay, N.", "journal": "Trends in Biochemical Sciences", "year": "2014", "pubmed": "25037503", "doi": "10.1016/j.tibs.2014.06.005", "url": "https://doi.org/10.1016/j.tibs.2014.06.005"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Glucose-6-phosphate", "role": "red", "shape": "process", "detail": "Shared entry with glycolysis", "sourceRef": 0},
+        {"id": "N2", "label": "G6PD: oxidative branch", "role": "yellow", "shape": "process", "detail": "Rate-limiting, produces NADPH", "sourceRef": 1},
+        {"id": "N3", "label": "6-PG -> Ru5P (NADPH, CO2)", "role": "green", "shape": "process", "detail": "Second NADPH and decarboxylation", "sourceRef": 0},
+        {"id": "N4", "label": "Cell's dominant need?", "role": "blue", "shape": "decision", "detail": "NADPH vs ribose demand", "sourceRef": 2},
+        {"id": "N5", "label": "Ribose-5-phosphate made", "role": "green", "shape": "process", "detail": "Isomerization for nucleotides", "sourceRef": 0},
+        {"id": "N6", "label": "Nucleotide synthesis", "role": "violet", "shape": "process", "detail": "Ribose into nucleic acids", "sourceRef": 2},
+        {"id": "N7", "label": "Non-oxidative branch", "role": "green", "shape": "process", "detail": "Transketolase/transaldolase", "sourceRef": 0},
+        {"id": "N8", "label": "Convert to glycolytic intermediates", "role": "green", "shape": "process", "detail": "F6P and G3P produced", "sourceRef": 0},
+        {"id": "N9", "label": "Feed glycolysis", "role": "violet", "shape": "process", "detail": "Carbon returns to central metabolism", "sourceRef": 1}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"},
+        {"from": "N4", "to": "N5", "label": "ribose"}, {"from": "N5", "to": "N6"},
+        {"from": "N4", "to": "N7", "label": "NADPH only"}, {"from": "N7", "to": "N8"}, {"from": "N8", "to": "N9"}
+      ]
+    },
+    {
+      "id": "pathways-fatty-acid-synthesis",
+      "description": "Fatty acid synthesis: cytosolic acetyl-CoA is carboxylated to malonyl-CoA (ACC, committed step), and fatty acid synthase iterates condensation-reduction-dehydration-reduction cycles on ACP, adding two carbons per round until palmitate is released.",
+      "graphType": "iterative_pathway",
+      "domainContext": "Lipid biosynthesis",
+      "namedCollections": ["metabolism"],
+      "keywords": ["fatty acid synthesis", "acetyl-coa carboxylase", "malonyl-coa", "fatty acid synthase", "palmitate"],
+      "basis": "source_extraction:pathways-fatty-acid-synthesis",
+      "sources": [
+        {"title": "Biochemistry, 5th ed. — Fatty Acid Metabolism", "authors": "Berg, J. M.; Tymoczko, J. L.; Stryer, L.", "journal": "W. H. Freeman (NCBI Bookshelf, Chapter 22)", "year": "2002", "doi": null, "url": "https://www.ncbi.nlm.nih.gov/books/NBK22497/"},
+        {"title": "Fatty acid synthesis and its regulation", "authors": "Wakil, S. J.; Stoops, J. K.; Joshi, V. C.", "journal": "Annual Review of Biochemistry", "year": "1983", "pubmed": "6137189", "doi": "10.1146/annurev.bi.52.070183.002541", "url": "https://doi.org/10.1146/annurev.bi.52.070183.002541"},
+        {"title": "The crystal structure of a mammalian fatty acid synthase", "authors": "Maier, T.; Leibundgut, M.; Ban, N.", "journal": "Science", "year": "2008", "pubmed": "18772398", "doi": "10.1126/science.1161269", "url": "https://doi.org/10.1126/science.1161269"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Cytosolic acetyl-CoA", "role": "red", "shape": "process", "detail": "Exported from mitochondria via citrate", "sourceRef": 0},
+        {"id": "N2", "label": "ACC -> malonyl-CoA", "role": "yellow", "shape": "process", "detail": "Committed, rate-limiting carboxylation", "sourceRef": 1},
+        {"id": "N3", "label": "Load onto ACP", "role": "green", "shape": "process", "detail": "Priming of the synthase", "sourceRef": 2},
+        {"id": "N4", "label": "Condensation (KS)", "role": "green", "shape": "process", "detail": "Ketoacyl synthase adds two carbons", "sourceRef": 2},
+        {"id": "N5", "label": "Reduction (NADPH)", "role": "green", "shape": "process", "detail": "Ketoacyl reductase", "sourceRef": 0},
+        {"id": "N6", "label": "Dehydration", "role": "green", "shape": "process", "detail": "Dehydratase forms enoyl", "sourceRef": 0},
+        {"id": "N7", "label": "Reduction (NADPH)", "role": "green", "shape": "process", "detail": "Enoyl reductase saturates", "sourceRef": 0},
+        {"id": "N8", "label": "Reached C16?", "role": "blue", "shape": "decision", "detail": "Chain-length checkpoint", "sourceRef": 0},
+        {"id": "N9", "label": "Palmitate released", "role": "violet", "shape": "process", "detail": "Thioesterase frees the product", "sourceRef": 1}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"},
+        {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7"}, {"from": "N7", "to": "N8"},
+        {"from": "N8", "to": "N4", "label": "< C16: add 2C"}, {"from": "N8", "to": "N9", "label": "C16"}
+      ]
+    },
+    {
+      "id": "pathways-fatty-acid-beta-oxidation",
+      "description": "Fatty acid beta-oxidation: activated fatty acyl-CoA is shuttled into the mitochondrion by carnitine, then each cycle of oxidation, hydration, oxidation and thiolytic cleavage shortens the chain by two carbons, yielding acetyl-CoA, FADH2 and NADH.",
+      "graphType": "iterative_pathway",
+      "domainContext": "Lipid catabolism",
+      "namedCollections": ["metabolism"],
+      "keywords": ["beta-oxidation", "carnitine shuttle", "acyl-coa", "acetyl-coa", "fadh2"],
+      "basis": "source_extraction:pathways-fatty-acid-beta-oxidation",
+      "sources": [
+        {"title": "A general introduction to the biochemistry of mitochondrial fatty acid β-oxidation", "authors": "Houten, S. M.; Wanders, R. J.", "journal": "Journal of Inherited Metabolic Disease", "year": "2010", "pubmed": "20300939", "doi": "10.1007/s10545-010-9061-2", "url": "https://doi.org/10.1007/s10545-010-9061-2"},
+        {"title": "Mammalian mitochondrial beta-oxidation", "authors": "Eaton, S.; Bartlett, K.; Pourfarzam, M.", "journal": "Biochemical Journal", "year": "1996", "pubmed": "8973548", "doi": "10.1042/bj3200345", "url": "https://doi.org/10.1042/bj3200345"},
+        {"title": "Biochemistry, 5th ed. — Fatty Acids Are Oxidized in Mitochondria", "authors": "Berg, J. M.; Tymoczko, J. L.; Stryer, L.", "journal": "W. H. Freeman (NCBI Bookshelf, Section 22.2)", "year": "2002", "doi": null, "url": "https://www.ncbi.nlm.nih.gov/books/NBK22387/"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Fatty acid activated (acyl-CoA)", "role": "red", "shape": "process", "detail": "Acyl-CoA synthetase, ATP cost", "sourceRef": 2},
+        {"id": "N2", "label": "Carnitine shuttle (CPT1)", "role": "green", "shape": "process", "detail": "Entry into the mitochondrial matrix", "sourceRef": 0},
+        {"id": "N3", "label": "Acyl-CoA DH: FADH2", "role": "green", "shape": "process", "detail": "First oxidation", "sourceRef": 1},
+        {"id": "N4", "label": "Enoyl-CoA hydratase", "role": "green", "shape": "process", "detail": "Hydration across the double bond", "sourceRef": 1},
+        {"id": "N5", "label": "3-hydroxyacyl-CoA DH: NADH", "role": "green", "shape": "process", "detail": "Second oxidation", "sourceRef": 1},
+        {"id": "N6", "label": "Thiolase: cleave acetyl-CoA", "role": "green", "shape": "process", "detail": "Releases acetyl-CoA, shortens chain", "sourceRef": 1},
+        {"id": "N7", "label": "Chain shortened by 2C", "role": "blue", "shape": "process", "detail": "Acyl-CoA two carbons shorter", "sourceRef": 0},
+        {"id": "N8", "label": "Carbons remain?", "role": "blue", "shape": "decision", "detail": "Continue until fully degraded", "sourceRef": 0},
+        {"id": "N9", "label": "Acetyl-CoA -> Krebs/ketones", "role": "violet", "shape": "process", "detail": "Feeds the citric acid cycle", "sourceRef": 2}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"},
+        {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7"}, {"from": "N6", "to": "N9"}, {"from": "N7", "to": "N8"},
+        {"from": "N8", "to": "N3", "label": "yes: next cycle"}, {"from": "N8", "to": "N9", "label": "no"}
+      ]
+    },
+    {
+      "id": "pathways-fermentation-lactate-and-ethanol-branches",
+      "description": "Fermentation: when oxygen is limiting, cells regenerate NAD+ to sustain glycolysis by reducing pyruvate, either to lactate via lactate dehydrogenase (animals) or to ethanol via pyruvate decarboxylase and alcohol dehydrogenase (yeast).",
+      "graphType": "decision_flowchart",
+      "domainContext": "Anaerobic NAD+ regeneration",
+      "namedCollections": ["metabolism"],
+      "keywords": ["fermentation", "lactate", "ethanol", "nad+ regeneration", "anaerobic"],
+      "basis": "source_extraction:pathways-fermentation-lactate-and-ethanol-branches",
+      "sources": [
+        {"title": "Biochemistry, 5th ed. — Fermentations Provide a Means of Oxidizing NADH", "authors": "Berg, J. M.; Tymoczko, J. L.; Stryer, L.", "journal": "W. H. Freeman (NCBI Bookshelf, Section 16.1.9)", "year": "2002", "doi": null, "url": "https://www.ncbi.nlm.nih.gov/books/NBK22593/"},
+        {"title": "Evolution of carbohydrate metabolic pathways", "authors": "Romano, A. H.; Conway, T.", "journal": "Research in Microbiology", "year": "1996", "pubmed": "9084754", "doi": "10.1016/0923-2508(96)83998-2", "url": "https://doi.org/10.1016/0923-2508(96)83998-2"},
+        {"title": "An evolutionary perspective on the Crabtree effect", "authors": "Pfeiffer, T.; Morley, A.", "journal": "Frontiers in Molecular Biosciences", "year": "2014", "pubmed": "25988158", "doi": "10.3389/fmolb.2014.00017", "url": "https://doi.org/10.3389/fmolb.2014.00017"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Glucose -> pyruvate", "role": "red", "shape": "process", "detail": "Glycolysis makes pyruvate + NADH", "sourceRef": 0},
+        {"id": "N2", "label": "Oxygen limited?", "role": "blue", "shape": "decision", "detail": "NADH must be reoxidized anaerobically", "sourceRef": 0},
+        {"id": "N3", "label": "Aerobic: pyruvate to mito", "role": "green", "shape": "process", "detail": "Oxidative metabolism instead", "sourceRef": 0},
+        {"id": "N4", "label": "Organism type?", "role": "blue", "shape": "decision", "detail": "Determines fermentation product", "sourceRef": 1},
+        {"id": "N5", "label": "Lactate dehydrogenase", "role": "green", "shape": "process", "detail": "Reduces pyruvate to lactate", "sourceRef": 0},
+        {"id": "N6", "label": "Lactate; NAD+ regenerated", "role": "violet", "shape": "process", "detail": "Glycolysis can continue", "sourceRef": 0},
+        {"id": "N7", "label": "Pyruvate decarboxylase", "role": "green", "shape": "process", "detail": "Pyruvate -> acetaldehyde + CO2", "sourceRef": 2},
+        {"id": "N8", "label": "Alcohol dehydrogenase", "role": "green", "shape": "process", "detail": "Acetaldehyde -> ethanol", "sourceRef": 2},
+        {"id": "N9", "label": "Ethanol + CO2; NAD+ back", "role": "violet", "shape": "process", "detail": "Yeast fermentation product", "sourceRef": 2}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"},
+        {"from": "N2", "to": "N3", "label": "O2 present"}, {"from": "N2", "to": "N4", "label": "anaerobic"},
+        {"from": "N4", "to": "N5", "label": "lactate"}, {"from": "N5", "to": "N6"},
+        {"from": "N4", "to": "N7", "label": "ethanol"}, {"from": "N7", "to": "N8"}, {"from": "N8", "to": "N9"}
+      ]
+    },
+    {
+      "id": "pathways-urea-cycle",
+      "description": "Urea cycle: ammonia and bicarbonate are condensed (CPS1, allosterically activated by N-acetylglutamate) into carbamoyl phosphate, then through citrulline, argininosuccinate and arginine to release urea while regenerating ornithine for the next turn.",
+      "graphType": "cyclic_pathway",
+      "domainContext": "Nitrogen disposal",
+      "namedCollections": ["metabolism"],
+      "keywords": ["urea cycle", "carbamoyl phosphate", "citrulline", "arginine", "ornithine"],
+      "basis": "source_extraction:pathways-urea-cycle",
+      "sources": [
+        {"title": "Biochemistry, 5th ed. — The Urea Cycle", "authors": "Berg, J. M.; Tymoczko, J. L.; Stryer, L.", "journal": "W. H. Freeman (NCBI Bookshelf, Section 23.4)", "year": "2002", "doi": null, "url": "https://www.ncbi.nlm.nih.gov/books/NBK22475/"},
+        {"title": "Regulation of enzymes of the urea cycle and arginine metabolism", "authors": "Morris, S. M. Jr.", "journal": "Annual Review of Nutrition", "year": "2002", "pubmed": "12055339", "doi": "10.1146/annurev.nutr.22.110801.140547", "url": "https://doi.org/10.1146/annurev.nutr.22.110801.140547"},
+        {"title": "Suggested guidelines for the diagnosis and management of urea cycle disorders", "authors": "Häberle, J.; et al.", "journal": "Orphanet Journal of Rare Diseases", "year": "2012", "pubmed": "22642880", "doi": "10.1186/1750-1172-7-32", "url": "https://doi.org/10.1186/1750-1172-7-32"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Ammonia + bicarbonate", "role": "red", "shape": "process", "detail": "Toxic nitrogen to be disposed", "sourceRef": 0},
+        {"id": "N2", "label": "N-acetylglutamate present?", "role": "blue", "shape": "decision", "detail": "Essential allosteric activator of CPS1", "sourceRef": 1},
+        {"id": "N3", "label": "CPS1: carbamoyl phosphate", "role": "yellow", "shape": "process", "detail": "Committed, rate-limiting (mitochondria)", "sourceRef": 0},
+        {"id": "N4", "label": "OTC: citrulline", "role": "green", "shape": "process", "detail": "Ornithine + carbamoyl phosphate", "sourceRef": 0},
+        {"id": "N5", "label": "Citrulline to cytosol", "role": "green", "shape": "process", "detail": "Transport across membrane", "sourceRef": 0},
+        {"id": "N6", "label": "ASS: argininosuccinate", "role": "green", "shape": "process", "detail": "Aspartate donates second nitrogen", "sourceRef": 0},
+        {"id": "N7", "label": "ASL: arginine + fumarate", "role": "green", "shape": "process", "detail": "Cleavage to arginine", "sourceRef": 0},
+        {"id": "N8", "label": "Arginase: urea + ornithine", "role": "green", "shape": "process", "detail": "Releases urea", "sourceRef": 0},
+        {"id": "N9", "label": "Urea excreted", "role": "violet", "shape": "process", "detail": "Eliminated by kidneys", "sourceRef": 2},
+        {"id": "N10", "label": "Ornithine re-enters mito", "role": "green", "shape": "process", "detail": "Regenerated for the next turn", "sourceRef": 1}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"},
+        {"from": "N2", "to": "N3", "label": "NAG present"}, {"from": "N2", "to": "N1", "label": "absent: wait"},
+        {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"}, {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7"}, {"from": "N7", "to": "N8"},
+        {"from": "N8", "to": "N9"}, {"from": "N8", "to": "N10"}, {"from": "N10", "to": "N4", "label": "next turn"}
+      ]
+    },
+    {
+      "id": "pathways-calvin-cycle",
+      "description": "Calvin cycle: RuBisCO fixes CO2 onto ribulose-1,5-bisphosphate, the 3-phosphoglycerate product is reduced using ATP and NADPH to G3P, and most G3P is used to regenerate RuBP while a fraction is exported to make sugars.",
+      "graphType": "cyclic_pathway",
+      "domainContext": "Carbon fixation",
+      "namedCollections": ["metabolism"],
+      "keywords": ["calvin cycle", "rubisco", "carbon fixation", "rubp", "g3p"],
+      "basis": "source_extraction:pathways-calvin-cycle",
+      "sources": [
+        {"title": "Biochemistry, 5th ed. — The Calvin Cycle", "authors": "Berg, J. M.; Tymoczko, J. L.; Stryer, L.", "journal": "W. H. Freeman (NCBI Bookshelf, Chapter 20)", "year": "2002", "doi": null, "url": "https://www.ncbi.nlm.nih.gov/books/NBK22344/"},
+        {"title": "The path of carbon in photosynthesis", "authors": "Bassham, J. A.; Benson, A. A.; Calvin, M.", "journal": "Journal of Biological Chemistry", "year": "1950", "pubmed": "14774424", "doi": "10.1016/S0021-9258(19)45228-9", "url": "https://doi.org/10.1016/S0021-9258(19)45228-9"},
+        {"title": "The Calvin cycle revisited", "authors": "Raines, C. A.", "journal": "Photosynthesis Research", "year": "2003", "pubmed": "16245098", "doi": "10.1023/A:1022421515027", "url": "https://doi.org/10.1023/A:1022421515027"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "CO2 enters stroma", "role": "red", "shape": "process", "detail": "Inorganic carbon substrate", "sourceRef": 1},
+        {"id": "N2", "label": "RuBisCO fixes CO2 to RuBP", "role": "yellow", "shape": "process", "detail": "Carboxylation, committed step", "sourceRef": 0},
+        {"id": "N3", "label": "3-phosphoglycerate", "role": "blue", "shape": "process", "detail": "First stable product (x2 per CO2)", "sourceRef": 0},
+        {"id": "N4", "label": "ATP -> 1,3-BPG", "role": "green", "shape": "process", "detail": "Phosphorylation", "sourceRef": 0},
+        {"id": "N5", "label": "NADPH -> G3P", "role": "green", "shape": "process", "detail": "Reduction to triose phosphate", "sourceRef": 0},
+        {"id": "N6", "label": "Enough G3P to export?", "role": "blue", "shape": "decision", "detail": "5 of 6 G3P regenerate RuBP", "sourceRef": 2},
+        {"id": "N7", "label": "G3P -> sugars", "role": "violet", "shape": "process", "detail": "Net product for biosynthesis", "sourceRef": 0},
+        {"id": "N8", "label": "Regenerate RuBP (ATP)", "role": "green", "shape": "process", "detail": "Rearrangement of carbon skeletons", "sourceRef": 2},
+        {"id": "N9", "label": "RuBP ready", "role": "green", "shape": "process", "detail": "Acceptor restored", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"}, {"from": "N5", "to": "N6"},
+        {"from": "N6", "to": "N7", "label": "export"}, {"from": "N6", "to": "N8", "label": "regenerate"},
+        {"from": "N8", "to": "N9"}, {"from": "N9", "to": "N2", "label": "next fixation"}
+      ]
+    },
+    {
+      "id": "pathways-photosynthesis-light-reactions",
+      "description": "Light reactions: photons excite Photosystem II, water is split to replace electrons and release O2, electrons travel the Z-scheme through cytochrome b6f and Photosystem I to make NADPH, and the proton gradient drives ATP synthesis.",
+      "graphType": "mechanism_flowchart",
+      "domainContext": "Photosynthetic energy capture",
+      "namedCollections": ["metabolism"],
+      "keywords": ["light reactions", "photosystem", "z-scheme", "water splitting", "nadph"],
+      "basis": "source_extraction:pathways-photosynthesis-light-reactions",
+      "sources": [
+        {"title": "Biochemistry, 5th ed. — The Light Reactions of Photosynthesis", "authors": "Berg, J. M.; Tymoczko, J. L.; Stryer, L.", "journal": "W. H. Freeman (NCBI Bookshelf, Chapter 19)", "year": "2002", "doi": null, "url": "https://www.ncbi.nlm.nih.gov/books/NBK22538/"},
+        {"title": "Structure and function of photosystems I and II", "authors": "Nelson, N.; Yocum, C. F.", "journal": "Annual Review of Plant Biology", "year": "2006", "pubmed": "16669766", "doi": "10.1146/annurev.arplant.57.032905.105350", "url": "https://doi.org/10.1146/annurev.arplant.57.032905.105350"},
+        {"title": "Photosynthetic energy conversion: natural and artificial", "authors": "Barber, J.", "journal": "Chemical Society Reviews", "year": "2009", "pubmed": "19169468", "doi": "10.1039/b802262n", "url": "https://doi.org/10.1039/b802262n"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Photon absorbed", "role": "red", "shape": "process", "detail": "Light energy enters antenna", "sourceRef": 0},
+        {"id": "N2", "label": "PSII excites P680", "role": "green", "shape": "process", "detail": "Charge separation at reaction center", "sourceRef": 1},
+        {"id": "N3", "label": "Water split: O2 + H+", "role": "green", "shape": "process", "detail": "Oxygen-evolving complex donates e-", "sourceRef": 2},
+        {"id": "N4", "label": "Electrons -> plastoquinone", "role": "green", "shape": "process", "detail": "Reduced PQ carries electrons", "sourceRef": 1},
+        {"id": "N5", "label": "Cytochrome b6f pumps H+", "role": "green", "shape": "process", "detail": "Builds the proton gradient", "sourceRef": 0},
+        {"id": "N6", "label": "Plastocyanin -> PSI (P700)", "role": "green", "shape": "process", "detail": "Electron handoff to PSI", "sourceRef": 1},
+        {"id": "N7", "label": "Photon re-excites PSI", "role": "green", "shape": "process", "detail": "Second photochemical step", "sourceRef": 1},
+        {"id": "N8", "label": "Ferredoxin -> NADPH", "role": "green", "shape": "process", "detail": "FNR reduces NADP+", "sourceRef": 0},
+        {"id": "N9", "label": "ATP synthase makes ATP", "role": "green", "shape": "process", "detail": "Photophosphorylation", "sourceRef": 0},
+        {"id": "N10", "label": "ATP + NADPH for Calvin", "role": "violet", "shape": "process", "detail": "Power the dark reactions", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N2", "label": "replace e-"},
+        {"from": "N2", "to": "N4"}, {"from": "N4", "to": "N5"}, {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7"},
+        {"from": "N7", "to": "N8"}, {"from": "N5", "to": "N9"}, {"from": "N9", "to": "N10"}, {"from": "N8", "to": "N10"}
+      ]
+    },
+    {
+      "id": "pathways-nitrogen-fixation",
+      "description": "Biological nitrogen fixation: the nitrogenase Fe protein uses ATP to deliver electrons one at a time to the MoFe protein's FeMo-cofactor, which accumulates enough electrons and protons to reduce inert N2 to two ammonia, later assimilated by GS/GOGAT.",
+      "graphType": "iterative_pathway",
+      "domainContext": "Nitrogen assimilation",
+      "namedCollections": ["metabolism"],
+      "keywords": ["nitrogen fixation", "nitrogenase", "femo cofactor", "ammonia", "atp"],
+      "basis": "source_extraction:pathways-nitrogen-fixation",
+      "sources": [
+        {"title": "Mechanism of nitrogen fixation by nitrogenase: the next stage", "authors": "Hoffman, B. M.; Lukoyanov, D.; Yang, Z. Y.; Dean, D. R.; Seefeldt, L. C.", "journal": "Chemical Reviews", "year": "2014", "pubmed": "24467365", "doi": "10.1021/cr400641x", "url": "https://doi.org/10.1021/cr400641x"},
+        {"title": "Mechanism of Mo-dependent nitrogenase", "authors": "Seefeldt, L. C.; Hoffman, B. M.; Dean, D. R.", "journal": "Annual Review of Biochemistry", "year": "2009", "pubmed": "19400766", "doi": "10.1146/annurev.biochem.78.070907.103812", "url": "https://doi.org/10.1146/annurev.biochem.78.070907.103812"},
+        {"title": "Nitrogenases", "authors": "Burris, R. H.", "journal": "Journal of Biological Chemistry", "year": "1991", "pubmed": "1900349", "doi": "10.1016/S0021-9258(18)54415-9", "url": "https://doi.org/10.1016/S0021-9258(18)54415-9"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Atmospheric N2", "role": "red", "shape": "process", "detail": "Triple-bonded, inert dinitrogen", "sourceRef": 1},
+        {"id": "N2", "label": "Nitrogenase (Fe + MoFe)", "role": "green", "shape": "process", "detail": "Two-component metalloenzyme", "sourceRef": 0},
+        {"id": "N3", "label": "ATP + ferredoxin bind", "role": "green", "shape": "process", "detail": "Reduced Fe protein primed", "sourceRef": 2},
+        {"id": "N4", "label": "Fe protein transfers 1 e-", "role": "green", "shape": "process", "detail": "ATP hydrolysis drives transfer", "sourceRef": 0},
+        {"id": "N5", "label": "Electrons stored on FeMo-co", "role": "green", "shape": "process", "detail": "Cofactor accumulates reducing power", "sourceRef": 2},
+        {"id": "N6", "label": "Eight electrons delivered?", "role": "blue", "shape": "decision", "detail": "Stoichiometry for N2 + H2", "sourceRef": 0},
+        {"id": "N7", "label": "N2 reduced stepwise", "role": "green", "shape": "process", "detail": "Sequential protonation/reduction", "sourceRef": 0},
+        {"id": "N8", "label": "N2 -> 2 NH3 + H2", "role": "green", "shape": "process", "detail": "Ammonia produced", "sourceRef": 0},
+        {"id": "N9", "label": "NH3 assimilated (GS/GOGAT)", "role": "violet", "shape": "process", "detail": "Incorporated into amino acids", "sourceRef": 1}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"}, {"from": "N5", "to": "N6"},
+        {"from": "N6", "to": "N3", "label": "no: next e-"}, {"from": "N6", "to": "N7", "label": "yes"}, {"from": "N7", "to": "N8"}, {"from": "N8", "to": "N9"}
+      ]
+    },
+    {
+      "id": "pathways-apoptosis",
+      "description": "Apoptosis: extrinsic death receptors activate caspase-8 while intrinsic stress is gated by the BCL-2 family at the mitochondrion; cytochrome c release forms the apoptosome and activates caspase-9, converging on executioner caspases that dismantle the cell.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Programmed cell death",
+      "namedCollections": ["cell-death"],
+      "keywords": ["apoptosis", "caspase", "apoptosome", "cytochrome c", "bcl-2"],
+      "basis": "source_extraction:pathways-apoptosis",
+      "sources": [
+        {"title": "Apoptosis: controlled demolition at the cellular level", "authors": "Taylor, R. C.; Cullen, S. P.; Martin, S. J.", "journal": "Nature Reviews Molecular Cell Biology", "year": "2008", "pubmed": "18073771", "doi": "10.1038/nrm2312", "url": "https://doi.org/10.1038/nrm2312"},
+        {"title": "Cell Death Signaling", "authors": "Green, D. R.; Llambi, F.", "journal": "Cold Spring Harbor Perspectives in Biology", "year": "2015", "pubmed": "26056967", "doi": "10.1101/cshperspect.a006080", "url": "https://doi.org/10.1101/cshperspect.a006080"},
+        {"title": "Molecular mechanisms of caspase regulation during apoptosis", "authors": "Riedl, S. J.; Shi, Y.", "journal": "Nature Reviews Molecular Cell Biology", "year": "2004", "pubmed": "15314635", "doi": "10.1038/nrm1496", "url": "https://doi.org/10.1038/nrm1496"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Death signal / stress", "role": "red", "shape": "process", "detail": "Apoptotic trigger", "sourceRef": 0},
+        {"id": "N2", "label": "Intrinsic or extrinsic?", "role": "blue", "shape": "decision", "detail": "Two initiating routes", "sourceRef": 1},
+        {"id": "N3", "label": "Death receptor (Fas/TNF)", "role": "green", "shape": "process", "detail": "Extrinsic ligand engagement", "sourceRef": 0},
+        {"id": "N4", "label": "DISC -> caspase-8", "role": "green", "shape": "process", "detail": "Initiator caspase activated", "sourceRef": 2},
+        {"id": "N5", "label": "Mito stress: BAX/BAK", "role": "green", "shape": "process", "detail": "Intrinsic effectors", "sourceRef": 1},
+        {"id": "N6", "label": "BCL-2 balance?", "role": "blue", "shape": "decision", "detail": "Pro- vs anti-apoptotic rheostat", "sourceRef": 1},
+        {"id": "N7", "label": "Cell survives", "role": "violet", "shape": "process", "detail": "MOMP blocked by BCL-2", "sourceRef": 1},
+        {"id": "N8", "label": "Cytochrome c released", "role": "blue", "shape": "process", "detail": "MOMP into cytosol", "sourceRef": 1},
+        {"id": "N9", "label": "Apoptosome -> caspase-9", "role": "green", "shape": "process", "detail": "APAF1 platform activates caspase-9", "sourceRef": 2},
+        {"id": "N10", "label": "Executioner caspases-3/7", "role": "green", "shape": "process", "detail": "Convergence point", "sourceRef": 2},
+        {"id": "N11", "label": "Substrate cleavage; DNA cut", "role": "green", "shape": "process", "detail": "Demolition of the cell", "sourceRef": 0},
+        {"id": "N12", "label": "Apoptotic cell death", "role": "violet", "shape": "process", "detail": "Cleared without inflammation", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"},
+        {"from": "N2", "to": "N3", "label": "extrinsic"}, {"from": "N2", "to": "N5", "label": "intrinsic"},
+        {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N10"},
+        {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7", "label": "anti-apoptotic"}, {"from": "N6", "to": "N8", "label": "pro-apoptotic"},
+        {"from": "N8", "to": "N9"}, {"from": "N9", "to": "N10"}, {"from": "N10", "to": "N11"}, {"from": "N11", "to": "N12"}
+      ]
+    },
+    {
+      "id": "pathways-necroptosis",
+      "description": "Necroptosis: when caspase-8 is inhibited downstream of death receptors, RIPK1 and RIPK3 assemble the necrosome, RIPK3 phosphorylates MLKL, and oligomerized MLKL permeabilizes the plasma membrane to cause lytic, inflammatory cell death.",
+      "graphType": "mechanism_flowchart",
+      "domainContext": "Programmed necrosis",
+      "namedCollections": ["cell-death"],
+      "keywords": ["necroptosis", "ripk1", "ripk3", "mlkl", "necrosome"],
+      "basis": "source_extraction:pathways-necroptosis",
+      "sources": [
+        {"title": "Necroptosis and its role in inflammation", "authors": "Pasparakis, M.; Vandenabeele, P.", "journal": "Nature", "year": "2015", "pubmed": "25592536", "doi": "10.1038/nature14191", "url": "https://doi.org/10.1038/nature14191"},
+        {"title": "Mixed lineage kinase domain-like protein mediates necrosis signaling downstream of RIP3 kinase", "authors": "Sun, L.; et al.", "journal": "Cell", "year": "2012", "pubmed": "22265413", "doi": "10.1016/j.cell.2011.11.031", "url": "https://doi.org/10.1016/j.cell.2011.11.031"},
+        {"title": "Phosphorylation-driven assembly of the RIP1-RIP3 complex regulates programmed necrosis", "authors": "Cho, Y. S.; et al.", "journal": "Cell", "year": "2009", "pubmed": "19524513", "doi": "10.1016/j.cell.2009.05.037", "url": "https://doi.org/10.1016/j.cell.2009.05.037"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "TNF / death receptor", "role": "red", "shape": "process", "detail": "Ligation of TNFR1", "sourceRef": 0},
+        {"id": "N2", "label": "Complex I -> RIPK1", "role": "green", "shape": "process", "detail": "RIPK1 signaling hub", "sourceRef": 2},
+        {"id": "N3", "label": "Caspase-8 active?", "role": "blue", "shape": "decision", "detail": "Caspase-8 cleaves RIPK1/3", "sourceRef": 0},
+        {"id": "N4", "label": "Apoptosis (RIPK1 cleaved)", "role": "violet", "shape": "process", "detail": "Default outcome if caspase active", "sourceRef": 0},
+        {"id": "N5", "label": "RIPK1-RIPK3 necrosome", "role": "green", "shape": "process", "detail": "RHIM-mediated amyloid complex", "sourceRef": 2},
+        {"id": "N6", "label": "RIPK3 phosphorylates MLKL", "role": "green", "shape": "process", "detail": "Pseudokinase substrate", "sourceRef": 1},
+        {"id": "N7", "label": "MLKL oligomerizes", "role": "green", "shape": "process", "detail": "Activated executioner", "sourceRef": 1},
+        {"id": "N8", "label": "MLKL to plasma membrane", "role": "green", "shape": "process", "detail": "Targets membrane phospholipids", "sourceRef": 1},
+        {"id": "N9", "label": "Membrane permeabilized", "role": "blue", "shape": "process", "detail": "Loss of membrane integrity", "sourceRef": 0},
+        {"id": "N10", "label": "Lytic death + DAMPs", "role": "violet", "shape": "process", "detail": "Inflammatory cell rupture", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"},
+        {"from": "N3", "to": "N4", "label": "active"}, {"from": "N3", "to": "N5", "label": "inhibited"},
+        {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7"}, {"from": "N7", "to": "N8"}, {"from": "N8", "to": "N9"}, {"from": "N9", "to": "N10"}
+      ]
+    },
+    {
+      "id": "pathways-cell-cycle",
+      "description": "Cell cycle: cyclin-CDK complexes drive progression through G1, S, G2 and M, with the G1/S restriction point, the G2/M DNA-integrity checkpoint and the spindle-assembly checkpoint arresting the cycle for repair when conditions are not met.",
+      "graphType": "cyclic_pathway",
+      "domainContext": "Cell division control",
+      "namedCollections": ["cell-cycle"],
+      "keywords": ["cell cycle", "cyclin", "cdk", "checkpoint", "mitosis"],
+      "basis": "source_extraction:pathways-cell-cycle",
+      "sources": [
+        {"title": "Cyclin-dependent kinases: engines, clocks, and microprocessors", "authors": "Morgan, D. O.", "journal": "Annual Review of Cell and Developmental Biology", "year": "1997", "pubmed": "9442869", "doi": "10.1146/annurev.cellbio.13.1.261", "url": "https://doi.org/10.1146/annurev.cellbio.13.1.261"},
+        {"title": "Cell cycle, CDKs and cancer: a changing paradigm", "authors": "Malumbres, M.; Barbacid, M.", "journal": "Nature Reviews Cancer", "year": "2009", "pubmed": "19238148", "doi": "10.1038/nrc2602", "url": "https://doi.org/10.1038/nrc2602"},
+        {"title": "Checkpoints: controls that ensure the order of cell cycle events", "authors": "Hartwell, L. H.; Weinert, T. A.", "journal": "Science", "year": "1989", "pubmed": "2683079", "doi": "10.1126/science.2683079", "url": "https://doi.org/10.1126/science.2683079"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "G1 phase", "role": "red", "shape": "process", "detail": "Growth and commitment", "sourceRef": 0},
+        {"id": "N2", "label": "Cyclin D-CDK4/6", "role": "green", "shape": "process", "detail": "Growth signals build CDK activity", "sourceRef": 1},
+        {"id": "N3", "label": "Restriction point passed?", "role": "blue", "shape": "decision", "detail": "G1/S commitment (Rb/E2F)", "sourceRef": 2},
+        {"id": "N4", "label": "S: DNA replication", "role": "green", "shape": "process", "detail": "Genome duplicated once", "sourceRef": 0},
+        {"id": "N5", "label": "G2 phase", "role": "green", "shape": "process", "detail": "Preparation for mitosis", "sourceRef": 0},
+        {"id": "N6", "label": "G2/M: DNA intact?", "role": "blue", "shape": "decision", "detail": "DNA-damage checkpoint", "sourceRef": 2},
+        {"id": "N7", "label": "Cyclin B-CDK1 -> mitosis", "role": "green", "shape": "process", "detail": "Mitotic entry", "sourceRef": 1},
+        {"id": "N8", "label": "Spindle attached?", "role": "blue", "shape": "decision", "detail": "Spindle-assembly checkpoint", "sourceRef": 2},
+        {"id": "N9", "label": "Anaphase: sisters separate", "role": "green", "shape": "process", "detail": "APC/C triggers separation", "sourceRef": 0},
+        {"id": "N10", "label": "Cytokinesis -> two cells", "role": "violet", "shape": "process", "detail": "Division complete", "sourceRef": 0},
+        {"id": "N11", "label": "Arrest / repair", "role": "green", "shape": "process", "detail": "Checkpoint halts the cycle", "sourceRef": 2}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"},
+        {"from": "N3", "to": "N11", "label": "no"}, {"from": "N3", "to": "N4", "label": "yes"},
+        {"from": "N4", "to": "N5"}, {"from": "N5", "to": "N6"},
+        {"from": "N6", "to": "N11", "label": "damage"}, {"from": "N6", "to": "N7", "label": "intact"},
+        {"from": "N7", "to": "N8"}, {"from": "N8", "to": "N7", "label": "not attached"}, {"from": "N8", "to": "N9", "label": "attached"},
+        {"from": "N9", "to": "N10"}, {"from": "N10", "to": "N1", "label": "next cycle"}, {"from": "N11", "to": "N1", "label": "after repair"}
+      ]
+    },
+    {
+      "id": "pathways-gpcr-signaling",
+      "description": "GPCR signaling: ligand binding makes the receptor a GEF that loads GTP onto Galpha, the dissociated subunits activate effectors producing second messengers and a cellular response, and GTP hydrolysis plus GRK/arrestin desensitization reset the system.",
+      "graphType": "mechanism_flowchart",
+      "domainContext": "Transmembrane signal transduction",
+      "namedCollections": ["signaling-cell-fate"],
+      "keywords": ["gpcr", "g protein", "second messenger", "camp", "desensitization"],
+      "basis": "source_extraction:pathways-gpcr-signaling",
+      "sources": [
+        {"title": "Seven-transmembrane receptors", "authors": "Pierce, K. L.; Premont, R. T.; Lefkowitz, R. J.", "journal": "Nature Reviews Molecular Cell Biology", "year": "2002", "pubmed": "12209124", "doi": "10.1038/nrm908", "url": "https://doi.org/10.1038/nrm908"},
+        {"title": "G proteins: transducers of receptor-generated signals", "authors": "Gilman, A. G.", "journal": "Annual Review of Biochemistry", "year": "1987", "pubmed": "3113327", "doi": "10.1146/annurev.bi.56.070187.003151", "url": "https://doi.org/10.1146/annurev.bi.56.070187.003151"},
+        {"title": "Crystal structure of the β2 adrenergic receptor-Gs protein complex", "authors": "Rasmussen, S. G.; et al.", "journal": "Nature", "year": "2011", "pubmed": "21772288", "doi": "10.1038/nature10361", "url": "https://doi.org/10.1038/nature10361"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Ligand binds GPCR", "role": "red", "shape": "process", "detail": "Agonist engages the receptor", "sourceRef": 0},
+        {"id": "N2", "label": "Receptor conformational change", "role": "green", "shape": "process", "detail": "Active state created", "sourceRef": 2},
+        {"id": "N3", "label": "Galpha GDP -> GTP", "role": "green", "shape": "process", "detail": "Receptor acts as GEF", "sourceRef": 1},
+        {"id": "N4", "label": "G protein dissociates", "role": "green", "shape": "process", "detail": "Galpha and Gbetagamma separate", "sourceRef": 1},
+        {"id": "N5", "label": "Effector (AC / PLC)", "role": "green", "shape": "process", "detail": "Enzyme activity modulated", "sourceRef": 0},
+        {"id": "N6", "label": "Second messengers", "role": "blue", "shape": "process", "detail": "cAMP, IP3, Ca2+ produced", "sourceRef": 0},
+        {"id": "N7", "label": "PKA / PKC activated", "role": "green", "shape": "process", "detail": "Downstream kinases", "sourceRef": 0},
+        {"id": "N8", "label": "Cellular response", "role": "violet", "shape": "process", "detail": "Physiological output", "sourceRef": 0},
+        {"id": "N9", "label": "GTP hydrolyzed?", "role": "blue", "shape": "decision", "detail": "Intrinsic/RGS-accelerated timer", "sourceRef": 1},
+        {"id": "N10", "label": "G protein reassociates", "role": "green", "shape": "process", "detail": "Heterotrimer reforms, signal off", "sourceRef": 1},
+        {"id": "N11", "label": "GRK + arrestin desensitize", "role": "green", "shape": "process", "detail": "Receptor uncoupled/internalized", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"},
+        {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7"}, {"from": "N7", "to": "N8"},
+        {"from": "N4", "to": "N9"}, {"from": "N9", "to": "N10", "label": "yes"}, {"from": "N10", "to": "N3", "label": "re-activate"},
+        {"from": "N2", "to": "N11"}, {"from": "N11", "to": "N2", "label": "desensitize"}
+      ]
+    },
+    {
+      "id": "pathways-insulin-signaling",
+      "description": "Insulin signaling: the insulin receptor autophosphorylates and recruits IRS proteins, activating PI3K-Akt to branch into GLUT4-mediated glucose uptake, glycogen synthesis and mTOR-driven growth, with S6K feedback dampening IRS.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Metabolic hormone signaling",
+      "namedCollections": ["signaling-cell-fate"],
+      "keywords": ["insulin", "irs", "pi3k", "akt", "glut4"],
+      "basis": "source_extraction:pathways-insulin-signaling",
+      "sources": [
+        {"title": "Insulin signalling and the regulation of glucose and lipid metabolism", "authors": "Saltiel, A. R.; Kahn, C. R.", "journal": "Nature", "year": "2001", "pubmed": "11742412", "doi": "10.1038/414799a", "url": "https://doi.org/10.1038/414799a"},
+        {"title": "Critical nodes in signalling pathways: insights into insulin action", "authors": "Taniguchi, C. M.; Emanuelli, B.; Kahn, C. R.", "journal": "Nature Reviews Molecular Cell Biology", "year": "2006", "pubmed": "16493415", "doi": "10.1038/nrm1837", "url": "https://doi.org/10.1038/nrm1837"},
+        {"title": "Insulin signaling in health and disease", "authors": "White, M. F.", "journal": "Science", "year": "2003", "pubmed": "14593182", "doi": "10.1126/science.1090922", "url": "https://doi.org/10.1126/science.1090922"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Insulin binds receptor", "role": "red", "shape": "process", "detail": "Hormone engages RTK", "sourceRef": 0},
+        {"id": "N2", "label": "Receptor autophosphorylation", "role": "green", "shape": "process", "detail": "Tyrosine kinase activation", "sourceRef": 2},
+        {"id": "N3", "label": "IRS-1/2 phosphorylated", "role": "green", "shape": "process", "detail": "Scaffold for downstream effectors", "sourceRef": 0},
+        {"id": "N4", "label": "PI3K -> PIP3", "role": "green", "shape": "process", "detail": "Lipid second messenger", "sourceRef": 1},
+        {"id": "N5", "label": "PDK1 + Akt activated", "role": "green", "shape": "process", "detail": "Central signaling node", "sourceRef": 1},
+        {"id": "N6", "label": "Which branch?", "role": "blue", "shape": "decision", "detail": "Akt has multiple substrates", "sourceRef": 0},
+        {"id": "N7", "label": "GLUT4 translocation", "role": "green", "shape": "process", "detail": "Transporter to plasma membrane", "sourceRef": 0},
+        {"id": "N8", "label": "Glucose uptake", "role": "violet", "shape": "process", "detail": "Lowers blood glucose", "sourceRef": 0},
+        {"id": "N9", "label": "GSK3 inhibited -> glycogen", "role": "green", "shape": "process", "detail": "Glycogen synthesis promoted", "sourceRef": 0},
+        {"id": "N10", "label": "mTOR -> growth", "role": "violet", "shape": "process", "detail": "Protein synthesis and growth", "sourceRef": 1},
+        {"id": "N11", "label": "S6K feedback on IRS", "role": "green", "shape": "process", "detail": "Negative feedback inhibition", "sourceRef": 2}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"}, {"from": "N5", "to": "N6"},
+        {"from": "N6", "to": "N7", "label": "glucose"}, {"from": "N7", "to": "N8"},
+        {"from": "N6", "to": "N9", "label": "glycogen"},
+        {"from": "N6", "to": "N10", "label": "growth"}, {"from": "N10", "to": "N11"}, {"from": "N11", "to": "N3", "label": "inhibit"}
+      ]
+    },
+    {
+      "id": "pathways-jak-stat-signaling",
+      "description": "JAK-STAT signaling: cytokine-induced receptor dimerization activates associated JAK kinases that phosphorylate the receptor and recruited STATs, which dimerize, enter the nucleus and drive transcription, with SOCS providing negative feedback.",
+      "graphType": "mechanism_flowchart",
+      "domainContext": "Cytokine signal transduction",
+      "namedCollections": ["signaling-cell-fate"],
+      "keywords": ["jak", "stat", "cytokine", "socs", "transcription"],
+      "basis": "source_extraction:pathways-jak-stat-signaling",
+      "sources": [
+        {"title": "Jak-STAT pathways and transcriptional activation in response to IFNs and other extracellular signaling proteins", "authors": "Darnell, J. E. Jr.; Kerr, I. M.; Stark, G. R.", "journal": "Science", "year": "1994", "pubmed": "8197455", "doi": "10.1126/science.8197455", "url": "https://doi.org/10.1126/science.8197455"},
+        {"title": "The JAK-STAT pathway at twenty", "authors": "Stark, G. R.; Darnell, J. E. Jr.", "journal": "Immunity", "year": "2012", "pubmed": "22520844", "doi": "10.1016/j.immuni.2012.03.013", "url": "https://doi.org/10.1016/j.immuni.2012.03.013"},
+        {"title": "JAK-STAT signaling: from interferons to cytokines", "authors": "Schindler, C.; Levy, D. E.; Decker, T.", "journal": "Journal of Biological Chemistry", "year": "2007", "pubmed": "17502367", "doi": "10.1074/jbc.R700016200", "url": "https://doi.org/10.1074/jbc.R700016200"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Cytokine binds receptor", "role": "red", "shape": "process", "detail": "Ligand engages cytokine receptor", "sourceRef": 0},
+        {"id": "N2", "label": "Receptor dimerization", "role": "green", "shape": "process", "detail": "Brings JAKs together", "sourceRef": 2},
+        {"id": "N3", "label": "JAKs transphosphorylate", "role": "green", "shape": "process", "detail": "Reciprocal kinase activation", "sourceRef": 1},
+        {"id": "N4", "label": "Receptor Tyr phosphorylated", "role": "green", "shape": "process", "detail": "Docking sites created", "sourceRef": 0},
+        {"id": "N5", "label": "STAT docks via SH2", "role": "green", "shape": "process", "detail": "STAT recruited to receptor", "sourceRef": 0},
+        {"id": "N6", "label": "STAT phosphorylated", "role": "green", "shape": "process", "detail": "JAK phosphorylates STAT", "sourceRef": 1},
+        {"id": "N7", "label": "STAT dimerizes", "role": "green", "shape": "process", "detail": "Reciprocal SH2-pTyr dimer", "sourceRef": 0},
+        {"id": "N8", "label": "Enter nucleus; bind DNA", "role": "green", "shape": "process", "detail": "Transcription factor activity", "sourceRef": 0},
+        {"id": "N9", "label": "Target gene transcription", "role": "violet", "shape": "process", "detail": "Cytokine-responsive genes", "sourceRef": 0},
+        {"id": "N10", "label": "SOCS induced", "role": "green", "shape": "process", "detail": "Feedback inhibitor of JAK", "sourceRef": 2}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"},
+        {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7"}, {"from": "N7", "to": "N8"}, {"from": "N8", "to": "N9"},
+        {"from": "N9", "to": "N10"}, {"from": "N10", "to": "N3", "label": "inhibit JAK"}
+      ]
+    },
+    {
+      "id": "pathways-mapk-signaling",
+      "description": "MAPK cascade: an activated receptor tyrosine kinase recruits Grb2/SOS to load Ras-GTP, which triggers the three-tier Raf-MEK-ERK kinase cascade; active ERK enters the nucleus to drive proliferation, with phosphatase feedback.",
+      "graphType": "mechanism_flowchart",
+      "domainContext": "Growth-factor signal transduction",
+      "namedCollections": ["signaling-cell-fate"],
+      "keywords": ["mapk", "ras", "raf", "mek", "erk"],
+      "basis": "source_extraction:pathways-mapk-signaling",
+      "sources": [
+        {"title": "The MAPK signaling cascade", "authors": "Seger, R.; Krebs, E. G.", "journal": "FASEB Journal", "year": "1995", "pubmed": "7601337", "doi": "10.1096/fasebj.9.9.7601337", "url": "https://doi.org/10.1096/fasebj.9.9.7601337"},
+        {"title": "Mammalian MAP kinase signalling cascades", "authors": "Chang, L.; Karin, M.", "journal": "Nature", "year": "2001", "pubmed": "11242034", "doi": "10.1038/35065000", "url": "https://doi.org/10.1038/35065000"},
+        {"title": "MAP kinase pathways", "authors": "Morrison, D. K.", "journal": "Cold Spring Harbor Perspectives in Biology", "year": "2012", "pubmed": "23125017", "doi": "10.1101/cshperspect.a011254", "url": "https://doi.org/10.1101/cshperspect.a011254"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Growth factor binds RTK", "role": "red", "shape": "process", "detail": "Receptor activation", "sourceRef": 1},
+        {"id": "N2", "label": "RTK autophosphorylation", "role": "green", "shape": "process", "detail": "Phosphotyrosine docking sites", "sourceRef": 2},
+        {"id": "N3", "label": "Grb2 / SOS recruited", "role": "green", "shape": "process", "detail": "Adaptor and GEF assembled", "sourceRef": 0},
+        {"id": "N4", "label": "Ras GDP -> GTP", "role": "green", "shape": "process", "detail": "Small GTPase activated", "sourceRef": 1},
+        {"id": "N5", "label": "Raf (MAPKKK) active", "role": "green", "shape": "process", "detail": "Tier 1 kinase", "sourceRef": 0},
+        {"id": "N6", "label": "MEK (MAPKK) phosphorylated", "role": "green", "shape": "process", "detail": "Tier 2 dual-specificity kinase", "sourceRef": 0},
+        {"id": "N7", "label": "ERK (MAPK) phosphorylated", "role": "green", "shape": "process", "detail": "Tier 3 effector kinase", "sourceRef": 0},
+        {"id": "N8", "label": "ERK -> nucleus", "role": "green", "shape": "process", "detail": "Translocation to chromatin", "sourceRef": 0},
+        {"id": "N9", "label": "TF activation (Elk-1)", "role": "green", "shape": "process", "detail": "Immediate-early genes", "sourceRef": 0},
+        {"id": "N10", "label": "Proliferation / differentiation", "role": "violet", "shape": "process", "detail": "Cellular outcome", "sourceRef": 1},
+        {"id": "N11", "label": "MKP negative feedback", "role": "green", "shape": "process", "detail": "Phosphatases inactivate ERK/Raf", "sourceRef": 2}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"},
+        {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7"}, {"from": "N7", "to": "N8"}, {"from": "N8", "to": "N9"}, {"from": "N9", "to": "N10"},
+        {"from": "N7", "to": "N11"}, {"from": "N11", "to": "N5", "label": "dampen"}
+      ]
+    },
+    {
+      "id": "pathways-nf-kb-inflammatory-signaling",
+      "description": "NF-kB signaling: inflammatory stimuli activate the IKK complex, which phosphorylates IkB to trigger its ubiquitination and degradation; freed NF-kB enters the nucleus to drive inflammatory genes, including newly synthesized IkB that provides negative feedback.",
+      "graphType": "mechanism_flowchart",
+      "domainContext": "Inflammatory transcriptional control",
+      "namedCollections": ["signaling-cell-fate"],
+      "keywords": ["nf-kb", "ikk", "ikb", "inflammation", "transcription"],
+      "basis": "source_extraction:pathways-nf-kb-inflammatory-signaling",
+      "sources": [
+        {"title": "Shared principles in NF-κB signaling", "authors": "Hayden, M. S.; Ghosh, S.", "journal": "Cell", "year": "2008", "pubmed": "18267068", "doi": "10.1016/j.cell.2008.01.020", "url": "https://doi.org/10.1016/j.cell.2008.01.020"},
+        {"title": "Phosphorylation meets ubiquitination: the control of NF-κB activity", "authors": "Karin, M.; Ben-Neriah, Y.", "journal": "Annual Review of Immunology", "year": "2000", "pubmed": "10837071", "doi": "10.1146/annurev.immunol.18.1.621", "url": "https://doi.org/10.1146/annurev.immunol.18.1.621"},
+        {"title": "The NF-κB family of transcription factors and its regulation", "authors": "Oeckinghaus, A.; Ghosh, S.", "journal": "Cold Spring Harbor Perspectives in Biology", "year": "2009", "pubmed": "20066092", "doi": "10.1101/cshperspect.a000034", "url": "https://doi.org/10.1101/cshperspect.a000034"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "TNF / IL-1 / LPS stimulus", "role": "red", "shape": "process", "detail": "Pro-inflammatory trigger", "sourceRef": 0},
+        {"id": "N2", "label": "Receptor + adaptors recruited", "role": "green", "shape": "process", "detail": "Signaling complex assembled", "sourceRef": 0},
+        {"id": "N3", "label": "IKK complex activated", "role": "green", "shape": "process", "detail": "IkB kinase turned on", "sourceRef": 1},
+        {"id": "N4", "label": "IkB phosphorylated", "role": "green", "shape": "process", "detail": "Marks IkB for destruction", "sourceRef": 1},
+        {"id": "N5", "label": "IkB ubiquitinated + degraded", "role": "green", "shape": "process", "detail": "Proteasomal removal", "sourceRef": 1},
+        {"id": "N6", "label": "NF-kB freed (p65/p50)", "role": "green", "shape": "process", "detail": "Nuclear localization unmasked", "sourceRef": 0},
+        {"id": "N7", "label": "NF-kB to nucleus", "role": "green", "shape": "process", "detail": "DNA binding", "sourceRef": 0},
+        {"id": "N8", "label": "Inflammatory genes on", "role": "violet", "shape": "process", "detail": "Cytokines, chemokines induced", "sourceRef": 0},
+        {"id": "N9", "label": "IkBalpha re-synthesized", "role": "green", "shape": "process", "detail": "Feedback resequesters NF-kB", "sourceRef": 2}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"},
+        {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7"}, {"from": "N7", "to": "N8"},
+        {"from": "N8", "to": "N9"}, {"from": "N9", "to": "N6", "label": "resequester"}
+      ]
+    },
+    {
+      "id": "pathways-notch-signaling",
+      "description": "Notch signaling: a Delta/Jagged ligand on a neighboring cell engages Notch and the pulling force exposes cleavage sites; ADAM and gamma-secretase release the Notch intracellular domain, which enters the nucleus with CSL/Mastermind to activate HES/HEY genes.",
+      "graphType": "mechanism_flowchart",
+      "domainContext": "Juxtacrine cell signaling",
+      "namedCollections": ["signaling-cell-fate"],
+      "keywords": ["notch", "delta", "gamma-secretase", "nicd", "lateral inhibition"],
+      "basis": "source_extraction:pathways-notch-signaling",
+      "sources": [
+        {"title": "The canonical Notch signaling pathway: unfolding the activation mechanism", "authors": "Kopan, R.; Ilagan, M. X.", "journal": "Cell", "year": "2009", "pubmed": "19379690", "doi": "10.1016/j.cell.2009.03.045", "url": "https://doi.org/10.1016/j.cell.2009.03.045"},
+        {"title": "Notch signalling: a simple pathway becomes complex", "authors": "Bray, S. J.", "journal": "Nature Reviews Molecular Cell Biology", "year": "2006", "pubmed": "16936697", "doi": "10.1038/nrm2009", "url": "https://doi.org/10.1038/nrm2009"},
+        {"title": "Notch signalling in context", "authors": "Bray, S. J.", "journal": "Nature Reviews Molecular Cell Biology", "year": "2016", "pubmed": "27507209", "doi": "10.1038/nrm.2016.94", "url": "https://doi.org/10.1038/nrm.2016.94"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Ligand on neighbor cell", "role": "red", "shape": "process", "detail": "Delta/Jagged presented in trans", "sourceRef": 0},
+        {"id": "N2", "label": "Notch receptor", "role": "red", "shape": "process", "detail": "On the signal-receiving cell", "sourceRef": 0},
+        {"id": "N3", "label": "Binding + pulling force", "role": "green", "shape": "process", "detail": "Mechanical unfolding of NRR", "sourceRef": 2},
+        {"id": "N4", "label": "ADAM S2 cleavage", "role": "green", "shape": "process", "detail": "Metalloprotease cut", "sourceRef": 0},
+        {"id": "N5", "label": "Gamma-secretase S3 cleavage", "role": "green", "shape": "process", "detail": "Intramembrane proteolysis", "sourceRef": 1},
+        {"id": "N6", "label": "NICD released", "role": "blue", "shape": "process", "detail": "Notch intracellular domain freed", "sourceRef": 0},
+        {"id": "N7", "label": "NICD enters nucleus", "role": "green", "shape": "process", "detail": "Translocation", "sourceRef": 0},
+        {"id": "N8", "label": "Bind CSL; recruit MAML", "role": "green", "shape": "process", "detail": "Activator complex formed", "sourceRef": 1},
+        {"id": "N9", "label": "HES/HEY genes on", "role": "violet", "shape": "process", "detail": "Target transcription", "sourceRef": 0},
+        {"id": "N10", "label": "Lateral inhibition feedback", "role": "green", "shape": "process", "detail": "Represses ligand, sharpens fates", "sourceRef": 2}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N3"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"},
+        {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7"}, {"from": "N7", "to": "N8"}, {"from": "N8", "to": "N9"},
+        {"from": "N9", "to": "N10"}, {"from": "N10", "to": "N1", "label": "reduce ligand"}
+      ]
+    },
+    {
+      "id": "pathways-p53-dna-damage-response",
+      "description": "p53 DNA-damage response: ATM/ATR phosphorylate p53, disrupting MDM2 binding so p53 accumulates and induces p21-mediated arrest and repair; if damage is irreparable, p53 drives apoptosis, while re-synthesized MDM2 provides negative feedback.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Genome-guardian signaling",
+      "namedCollections": ["cell-cycle"],
+      "keywords": ["p53", "atm", "mdm2", "p21", "apoptosis"],
+      "basis": "source_extraction:pathways-p53-dna-damage-response",
+      "sources": [
+        {"title": "p53 in health and disease", "authors": "Vousden, K. H.; Lane, D. P.", "journal": "Nature Reviews Molecular Cell Biology", "year": "2007", "pubmed": "17401423", "doi": "10.1038/nrm2147", "url": "https://doi.org/10.1038/nrm2147"},
+        {"title": "Regulation of p53 in response to DNA damage", "authors": "Lakin, N. D.; Jackson, S. P.", "journal": "Oncogene", "year": "1999", "pubmed": "10602461", "doi": "10.1038/sj.onc.1203015", "url": "https://doi.org/10.1038/sj.onc.1203015"},
+        {"title": "Modes of p53 regulation", "authors": "Kruse, J. P.; Gu, W.", "journal": "Cell", "year": "2009", "pubmed": "19450511", "doi": "10.1016/j.cell.2009.04.037", "url": "https://doi.org/10.1016/j.cell.2009.04.037"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "DNA damage", "role": "red", "shape": "process", "detail": "Genotoxic stress", "sourceRef": 0},
+        {"id": "N2", "label": "ATM/ATR activated", "role": "green", "shape": "process", "detail": "Apical damage-sensing kinases", "sourceRef": 1},
+        {"id": "N3", "label": "p53 phosphorylated", "role": "green", "shape": "process", "detail": "Stabilizing modifications", "sourceRef": 1},
+        {"id": "N4", "label": "MDM2 binding disrupted", "role": "green", "shape": "process", "detail": "p53 escapes degradation", "sourceRef": 2},
+        {"id": "N5", "label": "p53 accumulates (tetramer)", "role": "green", "shape": "process", "detail": "Active transcription factor", "sourceRef": 0},
+        {"id": "N6", "label": "Damage repairable?", "role": "blue", "shape": "decision", "detail": "Severity determines fate", "sourceRef": 0},
+        {"id": "N7", "label": "p21 -> cycle arrest", "role": "green", "shape": "process", "detail": "Time for repair", "sourceRef": 0},
+        {"id": "N8", "label": "DNA repair", "role": "green", "shape": "process", "detail": "Lesions corrected", "sourceRef": 0},
+        {"id": "N9", "label": "Repair successful?", "role": "blue", "shape": "decision", "detail": "Outcome check", "sourceRef": 0},
+        {"id": "N10", "label": "Resume cycle", "role": "violet", "shape": "process", "detail": "Survival", "sourceRef": 0},
+        {"id": "N11", "label": "Apoptosis (PUMA/BAX)", "role": "violet", "shape": "process", "detail": "Eliminate damaged cell", "sourceRef": 0},
+        {"id": "N12", "label": "MDM2 re-synthesized", "role": "green", "shape": "process", "detail": "Negative feedback on p53", "sourceRef": 2}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"}, {"from": "N5", "to": "N6"},
+        {"from": "N6", "to": "N7", "label": "yes"}, {"from": "N7", "to": "N8"}, {"from": "N8", "to": "N9"},
+        {"from": "N9", "to": "N10", "label": "repaired"}, {"from": "N9", "to": "N11", "label": "failed"}, {"from": "N6", "to": "N11", "label": "severe"},
+        {"from": "N5", "to": "N12"}, {"from": "N12", "to": "N5", "label": "degrade p53"}
+      ]
+    },
+    {
+      "id": "pathways-wnt-beta-catenin-signaling",
+      "description": "Wnt/beta-catenin signaling: without Wnt, the Axin/APC/GSK3 destruction complex phosphorylates beta-catenin for degradation; Wnt binding to Frizzled/LRP recruits Dishevelled, inhibits the complex, and lets beta-catenin accumulate and activate TCF/LEF target genes.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Developmental signaling",
+      "namedCollections": ["signaling-cell-fate"],
+      "keywords": ["wnt", "beta-catenin", "destruction complex", "frizzled", "tcf/lef"],
+      "basis": "source_extraction:pathways-wnt-beta-catenin-signaling",
+      "sources": [
+        {"title": "Wnt/β-catenin signaling: components, mechanisms, and diseases", "authors": "MacDonald, B. T.; Tamai, K.; He, X.", "journal": "Developmental Cell", "year": "2009", "pubmed": "19619488", "doi": "10.1016/j.devcel.2009.06.016", "url": "https://doi.org/10.1016/j.devcel.2009.06.016"},
+        {"title": "Wnt/β-catenin signaling and disease", "authors": "Clevers, H.; Nusse, R.", "journal": "Cell", "year": "2012", "pubmed": "22682243", "doi": "10.1016/j.cell.2012.05.012", "url": "https://doi.org/10.1016/j.cell.2012.05.012"},
+        {"title": "Wnt/β-Catenin Signaling, Disease, and Emerging Therapeutic Modalities", "authors": "Nusse, R.; Clevers, H.", "journal": "Cell", "year": "2017", "pubmed": "28575679", "doi": "10.1016/j.cell.2017.05.016", "url": "https://doi.org/10.1016/j.cell.2017.05.016"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Wnt ligand present?", "role": "blue", "shape": "decision", "detail": "Determines pathway state", "sourceRef": 0},
+        {"id": "N2", "label": "Destruction complex active", "role": "green", "shape": "process", "detail": "Axin/APC/GSK3 assembled", "sourceRef": 0},
+        {"id": "N3", "label": "Beta-catenin phosphorylated", "role": "green", "shape": "process", "detail": "Primed by CK1/GSK3", "sourceRef": 1},
+        {"id": "N4", "label": "Ubiquitinated + degraded", "role": "green", "shape": "process", "detail": "Beta-TrCP/proteasome", "sourceRef": 1},
+        {"id": "N5", "label": "Target genes off", "role": "violet", "shape": "process", "detail": "TCF bound by repressors", "sourceRef": 0},
+        {"id": "N6", "label": "Wnt binds Frizzled/LRP", "role": "green", "shape": "process", "detail": "Co-receptor engagement", "sourceRef": 0},
+        {"id": "N7", "label": "Dishevelled recruited", "role": "green", "shape": "process", "detail": "Signal to the complex", "sourceRef": 2},
+        {"id": "N8", "label": "Destruction complex inhibited", "role": "green", "shape": "process", "detail": "Beta-catenin no longer degraded", "sourceRef": 1},
+        {"id": "N9", "label": "Beta-catenin accumulates", "role": "blue", "shape": "process", "detail": "Stabilized in cytoplasm", "sourceRef": 0},
+        {"id": "N10", "label": "Beta-catenin to nucleus", "role": "green", "shape": "process", "detail": "Translocation", "sourceRef": 0},
+        {"id": "N11", "label": "TCF/LEF genes on", "role": "violet", "shape": "process", "detail": "Wnt target transcription", "sourceRef": 1}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2", "label": "absent"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"},
+        {"from": "N1", "to": "N6", "label": "present"}, {"from": "N6", "to": "N7"}, {"from": "N7", "to": "N8"}, {"from": "N8", "to": "N9"},
+        {"from": "N9", "to": "N10"}, {"from": "N10", "to": "N11"}
+      ]
+    },
+    {
+      "id": "taxonomy-domains-of-life",
+      "description": "Domains of life: comparison of small-subunit rRNA sequences resolves cellular life into three domains - Bacteria, Archaea and Eukarya - each with characteristic example lineages, with eukaryotes arising from within the archaeal radiation.",
+      "graphType": "taxonomy_tree",
+      "domainContext": "Phylogenetic classification",
+      "namedCollections": ["taxonomy-pilots"],
+      "keywords": ["domains of life", "rRNA", "bacteria", "archaea", "eukarya"],
+      "basis": "source_extraction:taxonomy-domains-of-life",
+      "sources": [
+        {"title": "Towards a natural system of organisms: proposal for the domains Archaea, Bacteria, and Eucarya", "authors": "Woese, C. R.; Kandler, O.; Wheelis, M. L.", "journal": "PNAS", "year": "1990", "pubmed": "2112744", "doi": "10.1073/pnas.87.12.4576", "url": "https://doi.org/10.1073/pnas.87.12.4576"},
+        {"title": "Phylogenetic structure of the prokaryotic domain: the primary kingdoms", "authors": "Woese, C. R.; Fox, G. E.", "journal": "PNAS", "year": "1977", "pubmed": "270744", "doi": "10.1073/pnas.74.11.5088", "url": "https://doi.org/10.1073/pnas.74.11.5088"},
+        {"title": "A new view of the tree of life", "authors": "Hug, L. A.; et al.", "journal": "Nature Microbiology", "year": "2016", "pubmed": "27572647", "doi": "10.1038/nmicrobiol.2016.48", "url": "https://doi.org/10.1038/nmicrobiol.2016.48"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Last universal common ancestor", "role": "red", "shape": "process", "detail": "Root of cellular life", "sourceRef": 1},
+        {"id": "N2", "label": "Compare SSU rRNA sequences", "role": "green", "shape": "process", "detail": "Molecular phylogenetic marker", "sourceRef": 0},
+        {"id": "N3", "label": "Three domains resolved?", "role": "blue", "shape": "decision", "detail": "Deep branching into domains", "sourceRef": 0},
+        {"id": "N4", "label": "Bacteria", "role": "green", "shape": "process", "detail": "Domain of true bacteria", "sourceRef": 0},
+        {"id": "N5", "label": "Archaea", "role": "green", "shape": "process", "detail": "Domain of archaea", "sourceRef": 0},
+        {"id": "N6", "label": "Eukarya", "role": "green", "shape": "process", "detail": "Nucleated organisms", "sourceRef": 0},
+        {"id": "N7", "label": "E. coli, cyanobacteria", "role": "violet", "shape": "process", "detail": "Example bacterial lineages", "sourceRef": 2},
+        {"id": "N8", "label": "Methanogens, halophiles", "role": "violet", "shape": "process", "detail": "Example archaeal lineages", "sourceRef": 2},
+        {"id": "N9", "label": "Protists, fungi, plants, animals", "role": "violet", "shape": "process", "detail": "Eukaryotic kingdoms", "sourceRef": 2},
+        {"id": "N10", "label": "Eukaryotes from archaeal host", "role": "green", "shape": "process", "detail": "Endosymbiotic origin", "sourceRef": 2}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"},
+        {"from": "N3", "to": "N4", "label": "domain"}, {"from": "N3", "to": "N5", "label": "domain"}, {"from": "N3", "to": "N6", "label": "domain"},
+        {"from": "N4", "to": "N7"}, {"from": "N5", "to": "N8"}, {"from": "N6", "to": "N9"}, {"from": "N5", "to": "N10"}, {"from": "N10", "to": "N9"}
+      ]
+    }
+  ]
+}

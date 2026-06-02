@@ -1,0 +1,307 @@
+{
+  "discipline": "biology",
+  "slice": "cell_biology+immunology",
+  "charts": [
+    {
+      "id": "cell_biology-autophagy",
+      "description": "Macroautophagy: starvation-driven, mTORC1-gated formation of a double-membrane autophagosome that engulfs cytoplasmic cargo and fuses with the lysosome for degradation and nutrient recycling.",
+      "graphType": "mechanism_flowchart",
+      "domainContext": "Cellular degradation pathway",
+      "namedCollections": ["cell-biology"],
+      "keywords": ["autophagy", "mtorc1", "ulk1", "lc3", "autophagosome", "lysosome"],
+      "basis": "source_extraction:cell_biology-autophagy",
+      "sources": [
+        {"title": "Autophagy: renovation of cells and tissues", "authors": "Mizushima, N.; Komatsu, M.", "journal": "Cell", "year": "2011", "pubmed": "22078875", "doi": "10.1016/j.cell.2011.10.026", "url": "https://doi.org/10.1016/j.cell.2011.10.026"},
+        {"title": "Mechanisms governing autophagosome biogenesis", "authors": "Nakatogawa, H.", "journal": "Nature Reviews Molecular Cell Biology", "year": "2020", "pubmed": "32382020", "doi": "10.1038/s41580-020-0241-0", "url": "https://doi.org/10.1038/s41580-020-0241-0"},
+        {"title": "Autophagy fights disease through cellular self-digestion", "authors": "Mizushima, N.; Levine, B.; Cuervo, A. M.; Klionsky, D. J.", "journal": "Nature", "year": "2008", "pubmed": "18305538", "doi": "10.1038/nature06639", "url": "https://doi.org/10.1038/nature06639"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Nutrient starvation", "role": "red", "shape": "process", "detail": "Amino-acid/energy deprivation triggers autophagy", "sourceRef": 0},
+        {"id": "N2", "label": "mTORC1 inhibited", "role": "red", "shape": "process", "detail": "mTORC1 inactivation de-represses autophagy initiation", "sourceRef": 0},
+        {"id": "N3", "label": "ULK1 complex activated", "role": "green", "shape": "process", "detail": "ULK1-ATG13-FIP200 complex initiates the pathway", "sourceRef": 1},
+        {"id": "N4", "label": "PI3KC3-Beclin1: PI3P", "role": "green", "shape": "process", "detail": "Class III PI3K/Beclin-1 generates PI3P to nucleate the phagophore", "sourceRef": 1},
+        {"id": "N5", "label": "ATG9 membrane delivery", "role": "yellow", "shape": "process", "detail": "ATG9 vesicles supply lipid to the growing phagophore", "sourceRef": 1},
+        {"id": "N6", "label": "LC3-I to LC3-II (PE)", "role": "green", "shape": "process", "detail": "ATG12-ATG5-ATG16L1 conjugates LC3 to phosphatidylethanolamine", "sourceRef": 1},
+        {"id": "N7", "label": "p62 binds ubiq. cargo", "role": "green", "shape": "process", "detail": "p62/SQSTM1 bridges ubiquitinated cargo to LC3-II", "sourceRef": 0},
+        {"id": "N8", "label": "Phagophore closes", "role": "blue", "shape": "process", "detail": "Membrane elongates and seals around cargo", "sourceRef": 1},
+        {"id": "N9", "label": "Autophagosome formed", "role": "blue", "shape": "process", "detail": "Completed double-membrane autophagosome", "sourceRef": 1},
+        {"id": "N10", "label": "Fuse with lysosome?", "role": "blue", "shape": "decision", "detail": "Autophagosome-lysosome fusion checkpoint", "sourceRef": 2},
+        {"id": "N11", "label": "Autolysosome degrades cargo", "role": "green", "shape": "process", "detail": "Lysosomal hydrolases degrade the enclosed contents", "sourceRef": 2},
+        {"id": "N12", "label": "Recycled amino acids/lipids", "role": "violet", "shape": "process", "detail": "Breakdown products returned to the cytosol", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"},
+        {"from": "N4", "to": "N5"}, {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7"},
+        {"from": "N7", "to": "N8"}, {"from": "N8", "to": "N9"}, {"from": "N9", "to": "N10"},
+        {"from": "N10", "to": "N11", "label": "yes"}, {"from": "N10", "to": "N9", "label": "mature"},
+        {"from": "N11", "to": "N12"}, {"from": "N12", "to": "N2", "label": "nutrients"}
+      ]
+    },
+    {
+      "id": "cell_biology-protein-folding-and-chaperone-response",
+      "description": "Chaperone-assisted protein folding: Hsp70 and chaperonins iteratively fold nascent chains, a heat-shock response replenishes chaperones under stress, and terminally misfolded proteins are routed to degradation.",
+      "graphType": "mechanism_flowchart",
+      "domainContext": "Proteostasis pathway",
+      "namedCollections": ["cell-biology"],
+      "keywords": ["protein folding", "chaperone", "hsp70", "chaperonin", "proteostasis", "hsf1"],
+      "basis": "source_extraction:cell_biology-protein-folding-and-chaperone-response",
+      "sources": [
+        {"title": "Molecular chaperones in protein folding and proteostasis", "authors": "Hartl, F. U.; Bracher, A.; Hayer-Hartl, M.", "journal": "Nature", "year": "2011", "pubmed": "21776078", "doi": "10.1038/nature10317", "url": "https://doi.org/10.1038/nature10317"},
+        {"title": "Adapting proteostasis for disease intervention", "authors": "Balch, W. E.; Morimoto, R. I.; Dillin, A.; Kelly, J. W.", "journal": "Science", "year": "2008", "pubmed": "18276881", "doi": "10.1126/science.1141448", "url": "https://doi.org/10.1126/science.1141448"},
+        {"title": "The unfolded protein response: from stress pathway to homeostatic regulation", "authors": "Walter, P.; Ron, D.", "journal": "Science", "year": "2011", "pubmed": "22116877", "doi": "10.1126/science.1209038", "url": "https://doi.org/10.1126/science.1209038"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Nascent polypeptide", "role": "red", "shape": "process", "detail": "Newly synthesized chain emerges from the ribosome", "sourceRef": 0},
+        {"id": "N2", "label": "Hsp70 binds hydrophobic", "role": "green", "shape": "process", "detail": "Hsp70 shields exposed hydrophobic segments", "sourceRef": 0},
+        {"id": "N3", "label": "ATP-driven fold cycle", "role": "green", "shape": "process", "detail": "ATP hydrolysis drives binding/release folding cycles", "sourceRef": 0},
+        {"id": "N4", "label": "Correctly folded?", "role": "blue", "shape": "decision", "detail": "Native conformation reached?", "sourceRef": 0},
+        {"id": "N5", "label": "Native functional protein", "role": "violet", "shape": "process", "detail": "Properly folded, active protein", "sourceRef": 0},
+        {"id": "N6", "label": "Chaperonin (TRiC/GroEL)", "role": "green", "shape": "process", "detail": "Encapsulated folding in a chaperonin chamber", "sourceRef": 0},
+        {"id": "N7", "label": "Proteostasis stress sensed", "role": "blue", "shape": "process", "detail": "Accumulating unfolded protein signals stress", "sourceRef": 1},
+        {"id": "N8", "label": "HSF1 induces chaperones", "role": "green", "shape": "process", "detail": "Heat-shock response raises chaperone capacity", "sourceRef": 1},
+        {"id": "N9", "label": "Terminally misfolded", "role": "blue", "shape": "process", "detail": "Refolding repeatedly fails", "sourceRef": 1},
+        {"id": "N10", "label": "Ubiquitin tag for disposal", "role": "green", "shape": "process", "detail": "Chaperone-linked E3s mark protein for degradation", "sourceRef": 1},
+        {"id": "N11", "label": "Degraded / aggregates cleared", "role": "violet", "shape": "process", "detail": "Removed by proteasome/autophagy", "sourceRef": 2}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"},
+        {"from": "N4", "to": "N5", "label": "yes"}, {"from": "N4", "to": "N6", "label": "no"},
+        {"from": "N6", "to": "N3", "label": "refold"}, {"from": "N4", "to": "N7", "label": "stress"},
+        {"from": "N7", "to": "N8"}, {"from": "N8", "to": "N2", "label": "more Hsp"},
+        {"from": "N6", "to": "N9", "label": "fails"}, {"from": "N9", "to": "N10"}, {"from": "N10", "to": "N11"}
+      ]
+    },
+    {
+      "id": "cell_biology-ubiquitin-proteasome-degradation",
+      "description": "Ubiquitin-proteasome system: an E1-E2-E3 enzyme cascade builds a K48-linked polyubiquitin chain on a substrate, which the 26S proteasome recognizes, deubiquitinates, unfolds, and degrades into peptides.",
+      "graphType": "mechanism_flowchart",
+      "domainContext": "Regulated protein degradation",
+      "namedCollections": ["cell-biology"],
+      "keywords": ["ubiquitin", "proteasome", "e3 ligase", "k48", "degradation", "degron"],
+      "basis": "source_extraction:cell_biology-ubiquitin-proteasome-degradation",
+      "sources": [
+        {"title": "The ubiquitin system", "authors": "Hershko, A.; Ciechanover, A.", "journal": "Annual Review of Biochemistry", "year": "1998", "pubmed": "9759494", "doi": "10.1146/annurev.biochem.67.1.425", "url": "https://doi.org/10.1146/annurev.biochem.67.1.425"},
+        {"title": "The ubiquitin-proteasome proteolytic pathway: destruction for the sake of construction", "authors": "Glickman, M. H.; Ciechanover, A.", "journal": "Physiological Reviews", "year": "2002", "pubmed": "11917093", "doi": "10.1152/physrev.00027.2001", "url": "https://doi.org/10.1152/physrev.00027.2001"},
+        {"title": "The ubiquitin code", "authors": "Komander, D.; Rape, M.", "journal": "Annual Review of Biochemistry", "year": "2012", "pubmed": "22524316", "doi": "10.1146/annurev-biochem-060310-170328", "url": "https://doi.org/10.1146/annurev-biochem-060310-170328"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Substrate with degron", "role": "red", "shape": "process", "detail": "Target protein bearing a degradation signal", "sourceRef": 0},
+        {"id": "N2", "label": "E1 activates ubiquitin (ATP)", "role": "green", "shape": "process", "detail": "E1 forms a thioester-linked ubiquitin using ATP", "sourceRef": 0},
+        {"id": "N3", "label": "E2 carries ubiquitin", "role": "green", "shape": "process", "detail": "Ubiquitin transferred to an E2 conjugating enzyme", "sourceRef": 0},
+        {"id": "N4", "label": "E3 ligase binds substrate", "role": "green", "shape": "process", "detail": "E3 ligase confers substrate specificity", "sourceRef": 0},
+        {"id": "N5", "label": "Transfer Ub to substrate", "role": "green", "shape": "process", "detail": "E3 catalyzes ubiquitin transfer onto the substrate", "sourceRef": 2},
+        {"id": "N6", "label": "K48 chain length >= 4?", "role": "blue", "shape": "decision", "detail": "A K48-linked tetra-ubiquitin chain is the degradation signal", "sourceRef": 2},
+        {"id": "N7", "label": "26S proteasome binds polyUb", "role": "blue", "shape": "process", "detail": "19S regulatory particle recognizes the chain", "sourceRef": 1},
+        {"id": "N8", "label": "DUBs recycle ubiquitin", "role": "green", "shape": "process", "detail": "Deubiquitinases remove and recycle ubiquitin", "sourceRef": 2},
+        {"id": "N9", "label": "ATPase unfolds substrate", "role": "green", "shape": "process", "detail": "AAA-ATPases unfold and translocate the substrate", "sourceRef": 1},
+        {"id": "N10", "label": "20S core proteolysis", "role": "green", "shape": "process", "detail": "Proteolytic core cleaves the protein", "sourceRef": 1},
+        {"id": "N11", "label": "Short peptides released", "role": "violet", "shape": "process", "detail": "Peptides and recycled ubiquitin released", "sourceRef": 1}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N4"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N5"},
+        {"from": "N4", "to": "N5"}, {"from": "N5", "to": "N6"},
+        {"from": "N6", "to": "N3", "label": "extend"}, {"from": "N6", "to": "N7", "label": "yes"},
+        {"from": "N7", "to": "N8"}, {"from": "N8", "to": "N9"}, {"from": "N9", "to": "N10"}, {"from": "N10", "to": "N11"}
+      ]
+    },
+    {
+      "id": "immunology-antigen-processing-and-mhc-presentation",
+      "description": "Antigen presentation: endogenous proteins are processed by the proteasome and loaded onto MHC class I for CD8+ T cells, while exogenous antigens are degraded in endosomes and loaded onto MHC class II for CD4+ T cells.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Adaptive immune recognition",
+      "namedCollections": ["signaling-cell-fate"],
+      "keywords": ["antigen processing", "mhc class i", "mhc class ii", "tap", "hla-dm", "t cell"],
+      "basis": "source_extraction:immunology-antigen-processing-and-mhc-presentation",
+      "sources": [
+        {"title": "Towards a systems understanding of MHC class I and MHC class II antigen presentation", "authors": "Neefjes, J.; Jongsma, M. L.; Paul, P.; Bakke, O.", "journal": "Nature Reviews Immunology", "year": "2011", "pubmed": "21997792", "doi": "10.1038/nri3084", "url": "https://doi.org/10.1038/nri3084"},
+        {"title": "Pathways of antigen processing", "authors": "Blum, J. S.; Wearsch, P. A.; Cresswell, P.", "journal": "Annual Review of Immunology", "year": "2013", "pubmed": "23298206", "doi": "10.1146/annurev-immunol-032712-095910", "url": "https://doi.org/10.1146/annurev-immunol-032712-095910"},
+        {"title": "Present Yourself! By MHC Class I and MHC Class II Molecules", "authors": "Rock, K. L.; Reits, E.; Neefjes, J.", "journal": "Trends in Immunology", "year": "2016", "pubmed": "27616475", "doi": "10.1016/j.it.2016.08.010", "url": "https://doi.org/10.1016/j.it.2016.08.010"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Antigen in/at the cell", "role": "red", "shape": "process", "detail": "Protein antigen available for processing", "sourceRef": 0},
+        {"id": "N2", "label": "Endogenous or exogenous?", "role": "blue", "shape": "decision", "detail": "Source of the antigen routes the pathway", "sourceRef": 0},
+        {"id": "N3", "label": "Proteasome cleaves cytosolic Ag", "role": "green", "shape": "process", "detail": "Cytosolic proteins degraded into peptides", "sourceRef": 1},
+        {"id": "N4", "label": "TAP transports peptides to ER", "role": "green", "shape": "process", "detail": "TAP imports peptides into the ER", "sourceRef": 1},
+        {"id": "N5", "label": "Peptide loads MHC class I", "role": "green", "shape": "process", "detail": "Peptide-loading complex loads MHC I", "sourceRef": 1},
+        {"id": "N6", "label": "MHC I surface: CD8+ T cell", "role": "violet", "shape": "process", "detail": "MHC I displays peptide to cytotoxic CD8+ T cells", "sourceRef": 2},
+        {"id": "N7", "label": "Endocytosis to phagolysosome", "role": "green", "shape": "process", "detail": "Exogenous antigen internalized and acidified", "sourceRef": 1},
+        {"id": "N8", "label": "Proteolysis in MIIC", "role": "green", "shape": "process", "detail": "Cathepsins degrade antigen in the MHC II compartment", "sourceRef": 1},
+        {"id": "N9", "label": "HLA-DM removes CLIP", "role": "green", "shape": "process", "detail": "HLA-DM exchanges CLIP for antigenic peptide", "sourceRef": 1},
+        {"id": "N10", "label": "Peptide loads MHC class II", "role": "green", "shape": "process", "detail": "Antigenic peptide loaded onto MHC II", "sourceRef": 1},
+        {"id": "N11", "label": "MHC II surface: CD4+ T cell", "role": "violet", "shape": "process", "detail": "MHC II displays peptide to helper CD4+ T cells", "sourceRef": 2}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"},
+        {"from": "N2", "to": "N3", "label": "endogenous"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"}, {"from": "N5", "to": "N6"},
+        {"from": "N2", "to": "N7", "label": "exogenous"}, {"from": "N7", "to": "N8"}, {"from": "N8", "to": "N9"}, {"from": "N9", "to": "N10"}, {"from": "N10", "to": "N11"}
+      ]
+    },
+    {
+      "id": "immunology-b-cell-activation-and-antibody-production",
+      "description": "B-cell activation: antigen-engaged B cells either get T-cell help and enter germinal centers for affinity maturation and class switching, or mount a rapid T-independent IgM response, producing antibody-secreting plasma cells.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Humoral immune response",
+      "namedCollections": ["signaling-cell-fate"],
+      "keywords": ["b cell", "germinal center", "somatic hypermutation", "class switch", "plasma cell", "antibody"],
+      "basis": "source_extraction:immunology-b-cell-activation-and-antibody-production",
+      "sources": [
+        {"title": "Germinal centers", "authors": "Victora, G. D.; Nussenzweig, M. C.", "journal": "Annual Review of Immunology", "year": "2012", "pubmed": "22224772", "doi": "10.1146/annurev-immunol-020711-075032", "url": "https://doi.org/10.1146/annurev-immunol-020711-075032"},
+        {"title": "Dynamics of B cells in germinal centres", "authors": "De Silva, N. S.; Klein, U.", "journal": "Nature Reviews Immunology", "year": "2015", "pubmed": "25721931", "doi": "10.1038/nri3804", "url": "https://doi.org/10.1038/nri3804"},
+        {"title": "Memory B cells", "authors": "Kurosaki, T.; Kometani, K.; Ise, W.", "journal": "Nature Reviews Immunology", "year": "2015", "pubmed": "25716098", "doi": "10.1038/nri3802", "url": "https://doi.org/10.1038/nri3802"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Antigen binds BCR", "role": "red", "shape": "process", "detail": "B-cell receptor engages antigen", "sourceRef": 1},
+        {"id": "N2", "label": "T-dependent antigen?", "role": "blue", "shape": "decision", "detail": "Protein (TD) vs polysaccharide (TI) antigen", "sourceRef": 0},
+        {"id": "N3", "label": "Present Ag on MHC II to Tfh", "role": "green", "shape": "process", "detail": "B cell presents antigen to follicular helper T cells", "sourceRef": 0},
+        {"id": "N4", "label": "CD40L + cytokine help", "role": "green", "shape": "process", "detail": "Tfh deliver CD40L and cytokine co-stimulation", "sourceRef": 0},
+        {"id": "N5", "label": "Germinal center proliferation", "role": "green", "shape": "process", "detail": "Clonal expansion in the germinal center", "sourceRef": 0},
+        {"id": "N6", "label": "Somatic hypermutation", "role": "green", "shape": "process", "detail": "AID-driven mutation of V regions", "sourceRef": 1},
+        {"id": "N7", "label": "High BCR affinity?", "role": "blue", "shape": "decision", "detail": "Affinity-based selection by limiting antigen", "sourceRef": 1},
+        {"id": "N8", "label": "Class switch recombination", "role": "green", "shape": "process", "detail": "Isotype switch to IgG/IgA/IgE", "sourceRef": 0},
+        {"id": "N9", "label": "Plasma + memory B cells", "role": "green", "shape": "process", "detail": "Differentiation into effector and memory cells", "sourceRef": 2},
+        {"id": "N10", "label": "Secreted antibodies", "role": "violet", "shape": "process", "detail": "High-affinity class-switched antibodies", "sourceRef": 2},
+        {"id": "N11", "label": "T-independent plasmablast", "role": "green", "shape": "process", "detail": "Rapid extrafollicular IgM response", "sourceRef": 2}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"},
+        {"from": "N2", "to": "N3", "label": "yes"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"},
+        {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7"},
+        {"from": "N7", "to": "N5", "label": "low: recycle"}, {"from": "N7", "to": "N8", "label": "high"},
+        {"from": "N8", "to": "N9"}, {"from": "N9", "to": "N10"},
+        {"from": "N2", "to": "N11", "label": "no"}, {"from": "N11", "to": "N10"}
+      ]
+    },
+    {
+      "id": "immunology-complement-cascade",
+      "description": "Complement activation: classical, lectin, and alternative pathways converge on C3 convertase, driving opsonization, anaphylatoxin release, and assembly of the C5b-C9 membrane attack complex that lyses pathogens.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Innate humoral defense",
+      "namedCollections": ["signaling-cell-fate"],
+      "keywords": ["complement", "c3 convertase", "classical", "lectin", "alternative", "membrane attack complex"],
+      "basis": "source_extraction:immunology-complement-cascade",
+      "sources": [
+        {"title": "Complement: a key system for immune surveillance and homeostasis", "authors": "Ricklin, D.; Hajishengallis, G.; Yang, K.; Lambris, J. D.", "journal": "Nature Immunology", "year": "2010", "pubmed": "20720586", "doi": "10.1038/ni.1923", "url": "https://doi.org/10.1038/ni.1923"},
+        {"title": "Complement (First of two parts)", "authors": "Walport, M. J.", "journal": "New England Journal of Medicine", "year": "2001", "pubmed": "11297706", "doi": "10.1056/NEJM200104053441406", "url": "https://doi.org/10.1056/NEJM200104053441406"},
+        {"title": "Complement System Part I - Molecular Mechanisms of Activation and Regulation", "authors": "Merle, N. S.; Church, S. E.; Fremeaux-Bacchi, V.; Roumenina, L. T.", "journal": "Frontiers in Immunology", "year": "2015", "pubmed": "26082779", "doi": "10.3389/fimmu.2015.00262", "url": "https://doi.org/10.3389/fimmu.2015.00262"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Pathogen surface", "role": "red", "shape": "process", "detail": "Microbial surface triggers complement", "sourceRef": 0},
+        {"id": "N2", "label": "Activation pathway?", "role": "blue", "shape": "decision", "detail": "Classical, lectin, or alternative initiation", "sourceRef": 1},
+        {"id": "N3", "label": "Classical: C1q-antibody", "role": "green", "shape": "process", "detail": "C1q binds antigen-bound antibody", "sourceRef": 1},
+        {"id": "N4", "label": "Lectin: MBL binds sugars", "role": "green", "shape": "process", "detail": "Mannose-binding lectin recognizes microbial carbohydrates", "sourceRef": 2},
+        {"id": "N5", "label": "Alternative: C3 tickover", "role": "green", "shape": "process", "detail": "Spontaneous C3 hydrolysis amplified on microbial surfaces", "sourceRef": 2},
+        {"id": "N6", "label": "C3 convertase forms", "role": "green", "shape": "process", "detail": "C4b2a or C3bBb assembles", "sourceRef": 2},
+        {"id": "N7", "label": "C3 -> C3a + C3b", "role": "green", "shape": "process", "detail": "C3 cleavage releases anaphylatoxin C3a and opsonin C3b", "sourceRef": 0},
+        {"id": "N8", "label": "C3b opsonization", "role": "green", "shape": "process", "detail": "C3b tags the pathogen for phagocytosis", "sourceRef": 0},
+        {"id": "N9", "label": "C5 convertase -> C5b", "role": "green", "shape": "process", "detail": "C5 cleavage yields C5a and C5b", "sourceRef": 2},
+        {"id": "N10", "label": "C5b-C9 membrane attack", "role": "blue", "shape": "process", "detail": "Terminal components form the membrane attack complex", "sourceRef": 1},
+        {"id": "N11", "label": "Pathogen lysis", "role": "violet", "shape": "process", "detail": "Pore formation lyses the target", "sourceRef": 1}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"},
+        {"from": "N2", "to": "N3", "label": "classical"}, {"from": "N2", "to": "N4", "label": "lectin"}, {"from": "N2", "to": "N5", "label": "alternative"},
+        {"from": "N3", "to": "N6"}, {"from": "N4", "to": "N6"}, {"from": "N5", "to": "N6"},
+        {"from": "N6", "to": "N7"}, {"from": "N7", "to": "N8"}, {"from": "N7", "to": "N9"},
+        {"from": "N9", "to": "N10"}, {"from": "N10", "to": "N11"}
+      ]
+    },
+    {
+      "id": "immunology-inflammasome-activation",
+      "description": "NLRP3 inflammasome: a priming signal induces NLRP3 and pro-IL-1beta, a second danger signal triggers NLRP3-ASC-caspase-1 assembly, and active caspase-1 matures IL-1beta and cleaves gasdermin D to drive pyroptosis.",
+      "graphType": "mechanism_flowchart",
+      "domainContext": "Innate inflammatory signaling",
+      "namedCollections": ["signaling-cell-fate"],
+      "keywords": ["inflammasome", "nlrp3", "caspase-1", "il-1beta", "gasdermin d", "pyroptosis"],
+      "basis": "source_extraction:immunology-inflammasome-activation",
+      "sources": [
+        {"title": "The inflammasome: a molecular platform triggering activation of inflammatory caspases and processing of proIL-beta", "authors": "Martinon, F.; Burns, K.; Tschopp, J.", "journal": "Molecular Cell", "year": "2002", "pubmed": "12191486", "doi": "10.1016/s1097-2765(02)00599-3", "url": "https://doi.org/10.1016/s1097-2765(02)00599-3"},
+        {"title": "The NLRP3 inflammasome: molecular activation and regulation to therapeutics", "authors": "Swanson, K. V.; Deng, M.; Ting, J. P.", "journal": "Nature Reviews Immunology", "year": "2019", "pubmed": "31036962", "doi": "10.1038/s41577-019-0165-0", "url": "https://doi.org/10.1038/s41577-019-0165-0"},
+        {"title": "Inflammasomes: mechanism of assembly, regulation and signalling", "authors": "Broz, P.; Dixit, V. M.", "journal": "Nature Reviews Immunology", "year": "2016", "pubmed": "27291964", "doi": "10.1038/nri.2016.58", "url": "https://doi.org/10.1038/nri.2016.58"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Signal 1: PAMP/TLR", "role": "red", "shape": "process", "detail": "Priming via TLR/NF-kB", "sourceRef": 1},
+        {"id": "N2", "label": "NF-kB primes NLRP3, pro-IL-1b", "role": "green", "shape": "process", "detail": "Transcriptional induction of NLRP3 and pro-IL-1beta", "sourceRef": 1},
+        {"id": "N3", "label": "Signal 2: DAMP / K+ efflux", "role": "red", "shape": "process", "detail": "Danger signal (K+ efflux, ROS, lysosomal damage)", "sourceRef": 1},
+        {"id": "N4", "label": "Both signals present?", "role": "blue", "shape": "decision", "detail": "Two-signal requirement for activation", "sourceRef": 2},
+        {"id": "N5", "label": "NLRP3 oligomerizes", "role": "green", "shape": "process", "detail": "NLRP3 nucleates the inflammasome", "sourceRef": 2},
+        {"id": "N6", "label": "ASC speck recruits casp-1", "role": "green", "shape": "process", "detail": "ASC adaptor recruits pro-caspase-1", "sourceRef": 0},
+        {"id": "N7", "label": "Caspase-1 autoactivation", "role": "green", "shape": "process", "detail": "Proximity-induced caspase-1 activation", "sourceRef": 0},
+        {"id": "N8", "label": "Cleave pro-IL-1b/IL-18", "role": "green", "shape": "process", "detail": "Maturation of IL-1beta and IL-18", "sourceRef": 1},
+        {"id": "N9", "label": "Cleave gasdermin D", "role": "green", "shape": "process", "detail": "GSDMD N-terminal fragment released", "sourceRef": 1},
+        {"id": "N10", "label": "GSDMD pores; pyroptosis", "role": "blue", "shape": "process", "detail": "Membrane pores drive lytic cell death", "sourceRef": 1},
+        {"id": "N11", "label": "IL-1b release; inflammation", "role": "violet", "shape": "process", "detail": "Mature cytokines released, amplifying inflammation", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N4"}, {"from": "N3", "to": "N4"},
+        {"from": "N4", "to": "N5", "label": "yes"}, {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7"},
+        {"from": "N7", "to": "N8"}, {"from": "N7", "to": "N9"},
+        {"from": "N8", "to": "N11"}, {"from": "N9", "to": "N10"}, {"from": "N10", "to": "N11"}
+      ]
+    },
+    {
+      "id": "immunology-innate-immune-pattern-recognition",
+      "description": "Pattern recognition: PRRs detect microbial PAMPs, and surface vs endosomal receptors recruit MyD88 or TRIF adaptors, activating NF-kB and IRF transcription factors to induce cytokines and type I interferons.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Innate immune signaling",
+      "namedCollections": ["signaling-cell-fate"],
+      "keywords": ["pattern recognition", "toll-like receptor", "myd88", "trif", "nf-kb", "interferon"],
+      "basis": "source_extraction:immunology-innate-immune-pattern-recognition",
+      "sources": [
+        {"title": "Pattern recognition receptors and inflammation", "authors": "Takeuchi, O.; Akira, S.", "journal": "Cell", "year": "2010", "pubmed": "20303872", "doi": "10.1016/j.cell.2010.01.022", "url": "https://doi.org/10.1016/j.cell.2010.01.022"},
+        {"title": "The role of pattern-recognition receptors in innate immunity: update on Toll-like receptors", "authors": "Kawai, T.; Akira, S.", "journal": "Nature Immunology", "year": "2010", "pubmed": "20404851", "doi": "10.1038/ni.1863", "url": "https://doi.org/10.1038/ni.1863"},
+        {"title": "Innate immune pattern recognition: a cell biological perspective", "authors": "Brubaker, S. W.; Bonham, K. S.; Zanoni, I.; Kagan, J. C.", "journal": "Annual Review of Immunology", "year": "2015", "pubmed": "25581309", "doi": "10.1146/annurev-immunol-032414-112240", "url": "https://doi.org/10.1146/annurev-immunol-032414-112240"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Microbial PAMP", "role": "red", "shape": "process", "detail": "Conserved microbial molecule (LPS, dsRNA, CpG)", "sourceRef": 0},
+        {"id": "N2", "label": "PRR engagement (TLR/RLR)", "role": "yellow", "shape": "process", "detail": "Pattern-recognition receptor binds the PAMP", "sourceRef": 0},
+        {"id": "N3", "label": "Receptor location?", "role": "blue", "shape": "decision", "detail": "Cell-surface vs endosomal receptor determines adaptor", "sourceRef": 1},
+        {"id": "N4", "label": "Surface TLR4: MyD88", "role": "green", "shape": "process", "detail": "Surface TLRs recruit the MyD88 adaptor", "sourceRef": 1},
+        {"id": "N5", "label": "Endosomal TLR3/7/9: TRIF", "role": "green", "shape": "process", "detail": "Endosomal TLRs signal via TRIF/MyD88", "sourceRef": 1},
+        {"id": "N6", "label": "IRAK/TRAF6 -> IKK", "role": "green", "shape": "process", "detail": "Adaptor complex activates the IKK kinase", "sourceRef": 1},
+        {"id": "N7", "label": "NF-kB to nucleus", "role": "green", "shape": "process", "detail": "NF-kB translocates and drives transcription", "sourceRef": 0},
+        {"id": "N8", "label": "IRF3/7 activated", "role": "green", "shape": "process", "detail": "Interferon regulatory factors activated", "sourceRef": 1},
+        {"id": "N9", "label": "Cytokines + type I IFN", "role": "green", "shape": "process", "detail": "Pro-inflammatory cytokines and interferons induced", "sourceRef": 2},
+        {"id": "N10", "label": "Antimicrobial inflammation", "role": "violet", "shape": "process", "detail": "Inflammatory and antiviral response", "sourceRef": 2}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"},
+        {"from": "N3", "to": "N4", "label": "surface"}, {"from": "N3", "to": "N5", "label": "endosomal"},
+        {"from": "N4", "to": "N6"}, {"from": "N6", "to": "N7"}, {"from": "N5", "to": "N8"},
+        {"from": "N7", "to": "N9"}, {"from": "N8", "to": "N9"}, {"from": "N9", "to": "N10"}
+      ]
+    },
+    {
+      "id": "immunology-t-cell-receptor-activation",
+      "description": "T-cell activation: TCR engagement of peptide-MHC plus CD28 costimulation triggers Lck/ZAP-70 signaling and the LAT signalosome, branching into Ca2+/NFAT, NF-kB, and MAPK pathways that drive IL-2 and clonal expansion; without costimulation the cell becomes anergic.",
+      "graphType": "mechanism_flowchart",
+      "domainContext": "Adaptive immune signaling",
+      "namedCollections": ["signaling-cell-fate"],
+      "keywords": ["t cell receptor", "cd28", "lck", "zap-70", "lat", "nfat", "il-2"],
+      "basis": "source_extraction:immunology-t-cell-receptor-activation",
+      "sources": [
+        {"title": "T cell activation", "authors": "Smith-Garvin, J. E.; Koretzky, G. A.; Jordan, M. S.", "journal": "Annual Review of Immunology", "year": "2009", "pubmed": "19132916", "doi": "10.1146/annurev.immunol.021908.132706", "url": "https://doi.org/10.1146/annurev.immunol.021908.132706"},
+        {"title": "Insights into the initiation of TCR signaling", "authors": "Chakraborty, A. K.; Weiss, A.", "journal": "Nature Immunology", "year": "2014", "pubmed": "24840981", "doi": "10.1038/ni.2940", "url": "https://doi.org/10.1038/ni.2940"},
+        {"title": "Regulatory mechanisms in T cell receptor signalling", "authors": "Gaud, G.; Lesourne, R.; Love, P. E.", "journal": "Nature Reviews Immunology", "year": "2018", "pubmed": "29789755", "doi": "10.1038/s41577-018-0020-8", "url": "https://doi.org/10.1038/s41577-018-0020-8"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "TCR binds peptide-MHC", "role": "red", "shape": "process", "detail": "Signal 1: TCR engages antigenic peptide-MHC", "sourceRef": 1},
+        {"id": "N2", "label": "CD28 binds B7", "role": "red", "shape": "process", "detail": "Signal 2: CD28 costimulation by B7", "sourceRef": 0},
+        {"id": "N3", "label": "Costimulation present?", "role": "blue", "shape": "decision", "detail": "Costimulation checkpoint", "sourceRef": 2},
+        {"id": "N4", "label": "Anergy / no response", "role": "violet", "shape": "process", "detail": "TCR signal without CD28 induces anergy", "sourceRef": 2},
+        {"id": "N5", "label": "Lck phosphorylates ITAMs", "role": "green", "shape": "process", "detail": "Lck phosphorylates CD3/zeta ITAMs", "sourceRef": 1},
+        {"id": "N6", "label": "ZAP-70 recruited", "role": "green", "shape": "process", "detail": "ZAP-70 binds phospho-ITAMs and activates", "sourceRef": 1},
+        {"id": "N7", "label": "LAT signalosome", "role": "green", "shape": "process", "detail": "LAT scaffolds the downstream signaling complex", "sourceRef": 0},
+        {"id": "N8", "label": "PLCg1: Ca2+/NFAT", "role": "green", "shape": "process", "detail": "Calcium flux activates NFAT", "sourceRef": 0},
+        {"id": "N9", "label": "Ras-MAPK / PKCt-NF-kB", "role": "green", "shape": "process", "detail": "MAPK/AP-1 and NF-kB arms activated", "sourceRef": 0},
+        {"id": "N10", "label": "IL-2 + activation genes", "role": "green", "shape": "process", "detail": "Transcription of IL-2 and activation program", "sourceRef": 0},
+        {"id": "N11", "label": "Clonal proliferation", "role": "violet", "shape": "process", "detail": "T-cell expansion and differentiation", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N3"}, {"from": "N2", "to": "N3"},
+        {"from": "N3", "to": "N4", "label": "no"}, {"from": "N3", "to": "N5", "label": "yes"},
+        {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7"}, {"from": "N7", "to": "N8"}, {"from": "N7", "to": "N9"},
+        {"from": "N8", "to": "N10"}, {"from": "N9", "to": "N10"}, {"from": "N10", "to": "N11"}
+      ]
+    }
+  ]
+}

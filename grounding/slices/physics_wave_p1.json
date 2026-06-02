@@ -1,0 +1,188 @@
+{
+  "discipline": "physics",
+  "slice": "electromagnetism+quantum_mechanics",
+  "charts": [
+    {
+      "id": "electromagnetism-wave-function",
+      "name": "Electromagnetic Induction (Faraday's Law)",
+      "description": "Faraday's law of induction relates a changing magnetic flux through a circuit to an induced electromotive force: the flux is defined as the surface integral of B, and when it changes in time an EMF equal to minus its rate of change drives a current whose direction, set by Lenz's law, opposes the change.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Classical electromagnetism",
+      "keywords": ["electromagnetic induction", "Faraday's law", "magnetic flux", "Lenz's law", "induced EMF"],
+      "basis": "source_extraction:electromagnetism-wave-function",
+      "sources": [
+        {"title": "Experimental researches in electricity (First series)", "authors": "Faraday, M.", "journal": "Philosophical Transactions of the Royal Society", "year": "1832", "doi": "10.1098/rstl.1832.0006", "url": "https://doi.org/10.1098/rstl.1832.0006"},
+        {"title": "Introduction to Electrodynamics (4th ed.)", "authors": "Griffiths, D. J.", "journal": "Cambridge University Press", "year": "2017", "doi": "10.1017/9781108333511", "url": "https://doi.org/10.1017/9781108333511"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Conducting loop in B-field", "role": "red", "shape": "process", "detail": "Circuit + magnetic field", "sourceRef": 1},
+        {"id": "N2", "label": "Define magnetic flux", "role": "green", "shape": "process", "detail": "Phi = integral B.dA", "sourceRef": 1},
+        {"id": "N3", "label": "Flux changing in time?", "role": "blue", "shape": "decision", "detail": "dPhi/dt nonzero", "sourceRef": 0},
+        {"id": "N4", "label": "Vary B, area, or angle", "role": "green", "shape": "process", "detail": "Move or rotate loop", "sourceRef": 0},
+        {"id": "N5", "label": "Flux rate nonzero", "role": "blue", "shape": "process", "detail": "Time-varying linkage", "sourceRef": 0},
+        {"id": "N6", "label": "Faraday: EMF = -dPhi/dt", "role": "green", "shape": "process", "detail": "Induced EMF", "sourceRef": 0},
+        {"id": "N7", "label": "Lenz's law sets polarity", "role": "green", "shape": "process", "detail": "Sign opposes change", "sourceRef": 1},
+        {"id": "N8", "label": "Induced current I = EMF/R", "role": "green", "shape": "process", "detail": "Ohmic response", "sourceRef": 1},
+        {"id": "N9", "label": "Induced B opposes change", "role": "blue", "shape": "process", "detail": "Energy conservation", "sourceRef": 1},
+        {"id": "N10", "label": "Predicted EMF & current", "role": "violet", "shape": "process", "detail": "Quantitative result", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"},
+        {"from": "N3", "to": "N4", "label": "no"}, {"from": "N4", "to": "N2", "label": "drive change"}, {"from": "N3", "to": "N5", "label": "yes"},
+        {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7"}, {"from": "N7", "to": "N8"}, {"from": "N8", "to": "N9"}, {"from": "N9", "to": "N10"}
+      ]
+    },
+    {
+      "id": "electromagnetism-quantum-computing",
+      "name": "Maxwell's Equations to EM Waves",
+      "description": "Maxwell's equations predict electromagnetic waves: in a source-free region, taking the curl of Faraday's law and substituting the Ampere-Maxwell law yields a wave equation for the fields; a transverse plane-wave solution propagates at speed c = 1/sqrt(mu*eps) with E, B, and the wavevector mutually perpendicular.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Classical electromagnetism",
+      "keywords": ["Maxwell's equations", "electromagnetic wave", "wave equation", "speed of light", "transverse wave"],
+      "basis": "source_extraction:electromagnetism-quantum-computing",
+      "sources": [
+        {"title": "A dynamical theory of the electromagnetic field", "authors": "Maxwell, J. C.", "journal": "Philosophical Transactions of the Royal Society", "year": "1865", "doi": "10.1098/rstl.1865.0008", "url": "https://doi.org/10.1098/rstl.1865.0008"},
+        {"title": "Introduction to Electrodynamics (4th ed.)", "authors": "Griffiths, D. J.", "journal": "Cambridge University Press", "year": "2017", "doi": "10.1017/9781108333511", "url": "https://doi.org/10.1017/9781108333511"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Maxwell's equations", "role": "red", "shape": "process", "detail": "Four field laws", "sourceRef": 0},
+        {"id": "N2", "label": "Source-free region", "role": "green", "shape": "process", "detail": "rho = 0, J = 0", "sourceRef": 1},
+        {"id": "N3", "label": "Take curl of Faraday law", "role": "green", "shape": "process", "detail": "Vector identity", "sourceRef": 1},
+        {"id": "N4", "label": "Insert Ampere-Maxwell", "role": "green", "shape": "process", "detail": "Couple E and B", "sourceRef": 1},
+        {"id": "N5", "label": "Wave equation for E, B", "role": "blue", "shape": "process", "detail": "Second-order PDE", "sourceRef": 0},
+        {"id": "N6", "label": "Plane-wave ansatz works?", "role": "blue", "shape": "decision", "detail": "Try exp(i(kx-wt))", "sourceRef": 1},
+        {"id": "N7", "label": "Try general solution", "role": "green", "shape": "process", "detail": "Superpose modes", "sourceRef": 1},
+        {"id": "N8", "label": "Speed c = 1/sqrt(mu eps)", "role": "green", "shape": "process", "detail": "Light speed emerges", "sourceRef": 0},
+        {"id": "N9", "label": "E, B, k mutually perp.", "role": "green", "shape": "process", "detail": "Transverse, E/B = c", "sourceRef": 1},
+        {"id": "N10", "label": "Propagating EM wave", "role": "violet", "shape": "process", "detail": "Radiation solution", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"}, {"from": "N5", "to": "N6"},
+        {"from": "N6", "to": "N7", "label": "no"}, {"from": "N7", "to": "N5", "label": "recast"}, {"from": "N6", "to": "N8", "label": "yes"}, {"from": "N8", "to": "N9"}, {"from": "N9", "to": "N10"}
+      ]
+    },
+    {
+      "id": "electromagnetism-quantum-entanglement",
+      "name": "Electrostatic Boundary-Value Problem",
+      "description": "Electrostatic boundary-value problems find the potential in a region from charges and conductor boundaries: Poisson's equation holds where charge is present and Laplace's equation elsewhere; applying boundary conditions, and exploiting symmetry via separation of variables or the method of images, gives the potential whose gradient is the field.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Classical electrostatics",
+      "keywords": ["electrostatics", "Laplace equation", "Poisson equation", "method of images", "boundary conditions"],
+      "basis": "source_extraction:electromagnetism-quantum-entanglement",
+      "sources": [
+        {"title": "Classical Electrodynamics (3rd ed.)", "authors": "Jackson, J. D.", "journal": "Wiley", "year": "1998", "url": "https://www.wiley.com/en-us/Classical+Electrodynamics%2C+3rd+Edition-p-9780471309321"},
+        {"title": "Introduction to Electrodynamics (4th ed.)", "authors": "Griffiths, D. J.", "journal": "Cambridge University Press", "year": "2017", "doi": "10.1017/9781108333511", "url": "https://doi.org/10.1017/9781108333511"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Charges + conductors", "role": "red", "shape": "process", "detail": "Specify geometry", "sourceRef": 1},
+        {"id": "N2", "label": "Charge-free region?", "role": "blue", "shape": "decision", "detail": "Is rho zero here", "sourceRef": 1},
+        {"id": "N3", "label": "Poisson equation", "role": "green", "shape": "process", "detail": "del^2 V = -rho/eps0", "sourceRef": 1},
+        {"id": "N4", "label": "Laplace equation", "role": "green", "shape": "process", "detail": "del^2 V = 0", "sourceRef": 0},
+        {"id": "N5", "label": "Apply boundary conditions", "role": "green", "shape": "process", "detail": "V on conductors", "sourceRef": 0},
+        {"id": "N6", "label": "Symmetry available?", "role": "blue", "shape": "decision", "detail": "Choose technique", "sourceRef": 0},
+        {"id": "N7", "label": "Separation of variables", "role": "green", "shape": "process", "detail": "Orthogonal modes", "sourceRef": 0},
+        {"id": "N8", "label": "Method of images", "role": "green", "shape": "process", "detail": "Image charges", "sourceRef": 0},
+        {"id": "N9", "label": "Solve potential V(r)", "role": "blue", "shape": "process", "detail": "Unique by theorem", "sourceRef": 1},
+        {"id": "N10", "label": "Field E = -grad V", "role": "green", "shape": "process", "detail": "Differentiate", "sourceRef": 1},
+        {"id": "N11", "label": "Field & potential map", "role": "violet", "shape": "process", "detail": "Full solution", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"},
+        {"from": "N2", "to": "N3", "label": "no"}, {"from": "N2", "to": "N4", "label": "yes"},
+        {"from": "N3", "to": "N5"}, {"from": "N4", "to": "N5"}, {"from": "N5", "to": "N6"},
+        {"from": "N6", "to": "N7", "label": "coordinate"}, {"from": "N6", "to": "N8", "label": "image"},
+        {"from": "N7", "to": "N9"}, {"from": "N8", "to": "N9"}, {"from": "N9", "to": "N10"}, {"from": "N10", "to": "N11"}
+      ]
+    },
+    {
+      "id": "quantum_mechanics-electromagnetic-induction",
+      "name": "Time-Independent Schrodinger Equation",
+      "description": "Solving the time-independent Schrodinger equation for a particle in a potential gives stationary states: writing H psi = E psi and distinguishing bound from scattering states, boundary conditions impose a quantization condition that selects discrete energy eigenvalues with normalizable eigenfunctions.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Quantum mechanics",
+      "keywords": ["Schrodinger equation", "stationary states", "energy quantization", "eigenfunctions", "bound states"],
+      "basis": "source_extraction:quantum_mechanics-electromagnetic-induction",
+      "sources": [
+        {"title": "An undulatory theory of the mechanics of atoms and molecules", "authors": "Schrodinger, E.", "journal": "Physical Review", "year": "1926", "doi": "10.1103/PhysRev.28.1049", "url": "https://doi.org/10.1103/PhysRev.28.1049"},
+        {"title": "Introduction to Quantum Mechanics (3rd ed.)", "authors": "Griffiths, D. J.; Schroeter, D. F.", "journal": "Cambridge University Press", "year": "2018", "doi": "10.1017/9781316995433", "url": "https://doi.org/10.1017/9781316995433"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Particle in potential V(x)", "role": "red", "shape": "process", "detail": "Define the system", "sourceRef": 1},
+        {"id": "N2", "label": "Write H psi = E psi", "role": "green", "shape": "process", "detail": "Eigenvalue problem", "sourceRef": 0},
+        {"id": "N3", "label": "Bound or scattering?", "role": "blue", "shape": "decision", "detail": "Energy vs potential", "sourceRef": 1},
+        {"id": "N4", "label": "Scattering: continuum E", "role": "green", "shape": "process", "detail": "Unbound states", "sourceRef": 1},
+        {"id": "N5", "label": "Bound: normalizable psi", "role": "green", "shape": "process", "detail": "Decays at infinity", "sourceRef": 1},
+        {"id": "N6", "label": "Apply boundary conditions", "role": "green", "shape": "process", "detail": "Continuity of psi, psi'", "sourceRef": 0},
+        {"id": "N7", "label": "Quantization condition", "role": "blue", "shape": "process", "detail": "Selects allowed E", "sourceRef": 0},
+        {"id": "N8", "label": "Discrete energy levels", "role": "green", "shape": "process", "detail": "Spectrum En", "sourceRef": 0},
+        {"id": "N9", "label": "Eigenfunctions valid?", "role": "blue", "shape": "decision", "detail": "Normalizable, smooth", "sourceRef": 1},
+        {"id": "N10", "label": "Re-normalize psi", "role": "green", "shape": "process", "detail": "Fix coefficients", "sourceRef": 1},
+        {"id": "N11", "label": "Stationary states", "role": "violet", "shape": "process", "detail": "psi_n with E_n", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"},
+        {"from": "N3", "to": "N4", "label": "scattering"}, {"from": "N4", "to": "N6"}, {"from": "N3", "to": "N5", "label": "bound"}, {"from": "N5", "to": "N6"},
+        {"from": "N6", "to": "N7"}, {"from": "N7", "to": "N8"}, {"from": "N8", "to": "N9"},
+        {"from": "N9", "to": "N10", "label": "no"}, {"from": "N10", "to": "N6", "label": "refine"}, {"from": "N9", "to": "N11", "label": "yes"}
+      ]
+    },
+    {
+      "id": "quantum_mechanics-maxwells-equations",
+      "name": "Quantum Harmonic Oscillator",
+      "description": "The quantum harmonic oscillator is solved algebraically with ladder operators: rewriting the Hamiltonian in terms of a and a-dagger whose commutator is one gives H = hbar*omega(a-dagger a + 1/2); the ground state is annihilated by a, and repeated raising builds the equally spaced spectrum E_n = hbar*omega(n + 1/2).",
+      "graphType": "cyclic_pathway",
+      "domainContext": "Quantum mechanics",
+      "keywords": ["quantum harmonic oscillator", "ladder operators", "creation operator", "energy spectrum", "zero-point energy"],
+      "basis": "source_extraction:quantum_mechanics-maxwells-equations",
+      "sources": [
+        {"title": "The Principles of Quantum Mechanics (4th ed.)", "authors": "Dirac, P. A. M.", "journal": "Oxford University Press", "year": "1958", "url": "https://global.oup.com/academic/product/the-principles-of-quantum-mechanics-9780198520115"},
+        {"title": "Modern Quantum Mechanics (2nd ed.)", "authors": "Sakurai, J. J.; Napolitano, J.", "journal": "Cambridge University Press", "year": "2017", "doi": "10.1017/9781108499996", "url": "https://doi.org/10.1017/9781108499996"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Quadratic potential well", "role": "red", "shape": "process", "detail": "V = 1/2 m w^2 x^2", "sourceRef": 1},
+        {"id": "N2", "label": "Hamiltonian H = T + V", "role": "green", "shape": "process", "detail": "p^2/2m + 1/2 m w^2 x^2", "sourceRef": 0},
+        {"id": "N3", "label": "Define ladder operators", "role": "green", "shape": "process", "detail": "a and a-dagger", "sourceRef": 0},
+        {"id": "N4", "label": "Commutator [a, a-dag] = 1", "role": "blue", "shape": "process", "detail": "Canonical relation", "sourceRef": 0},
+        {"id": "N5", "label": "H = hw(a-dag a + 1/2)", "role": "green", "shape": "process", "detail": "Number operator form", "sourceRef": 0},
+        {"id": "N6", "label": "Ground state: a|0> = 0", "role": "green", "shape": "process", "detail": "Lowest energy", "sourceRef": 1},
+        {"id": "N7", "label": "Raise with a-dagger", "role": "green", "shape": "process", "detail": "Climb the ladder", "sourceRef": 1},
+        {"id": "N8", "label": "More excited states?", "role": "blue", "shape": "decision", "detail": "Build the tower", "sourceRef": 1},
+        {"id": "N9", "label": "Apply a-dagger again", "role": "green", "shape": "process", "detail": "Next level", "sourceRef": 1},
+        {"id": "N10", "label": "Spectrum En = hw(n+1/2)", "role": "violet", "shape": "process", "detail": "Evenly spaced", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"}, {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7"}, {"from": "N7", "to": "N8"},
+        {"from": "N8", "to": "N9", "label": "yes"}, {"from": "N9", "to": "N7", "label": "iterate"}, {"from": "N8", "to": "N10", "label": "no"}
+      ]
+    },
+    {
+      "id": "quantum_mechanics-electromagnetic-wave",
+      "name": "Quantum Tunneling Through a Barrier",
+      "description": "Quantum tunneling lets a particle with energy below a potential barrier cross it: the wavefunction is solved piecewise in the three regions, decaying exponentially inside the barrier, and matching the function and its derivative at the walls yields a transmission amplitude with probability T approximately exp(-2*kappa*L).",
+      "graphType": "decision_flowchart",
+      "domainContext": "Quantum mechanics",
+      "keywords": ["quantum tunneling", "potential barrier", "transmission coefficient", "evanescent wave", "WKB"],
+      "basis": "source_extraction:quantum_mechanics-electromagnetic-wave",
+      "sources": [
+        {"title": "Zur Quantentheorie des Atomkernes (quantum theory of the atomic nucleus)", "authors": "Gamow, G.", "journal": "Zeitschrift fur Physik", "year": "1928", "doi": "10.1007/BF01343196", "url": "https://doi.org/10.1007/BF01343196"},
+        {"title": "Introduction to Quantum Mechanics (3rd ed.)", "authors": "Griffiths, D. J.; Schroeter, D. F.", "journal": "Cambridge University Press", "year": "2018", "doi": "10.1017/9781316995433", "url": "https://doi.org/10.1017/9781316995433"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Energy E below barrier V0", "role": "red", "shape": "process", "detail": "Classically forbidden", "sourceRef": 1},
+        {"id": "N2", "label": "Split into three regions", "role": "green", "shape": "process", "detail": "Before, in, after", "sourceRef": 1},
+        {"id": "N3", "label": "Solve each region", "role": "green", "shape": "process", "detail": "Schrodinger eq.", "sourceRef": 1},
+        {"id": "N4", "label": "Region II: decaying psi", "role": "blue", "shape": "process", "detail": "exp(-kappa x)", "sourceRef": 1},
+        {"id": "N5", "label": "Match psi, psi' at walls", "role": "green", "shape": "process", "detail": "Continuity", "sourceRef": 1},
+        {"id": "N6", "label": "Continuity satisfied?", "role": "blue", "shape": "decision", "detail": "Both boundaries", "sourceRef": 1},
+        {"id": "N7", "label": "Re-solve coefficients", "role": "green", "shape": "process", "detail": "Linear system", "sourceRef": 1},
+        {"id": "N8", "label": "Transmission amplitude", "role": "green", "shape": "process", "detail": "Outgoing/incoming", "sourceRef": 0},
+        {"id": "N9", "label": "T ~ exp(-2 kappa L)", "role": "green", "shape": "process", "detail": "Thick-barrier limit", "sourceRef": 0},
+        {"id": "N10", "label": "Tunneling probability", "role": "violet", "shape": "process", "detail": "Nonzero crossing", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"}, {"from": "N5", "to": "N6"},
+        {"from": "N6", "to": "N7", "label": "no"}, {"from": "N7", "to": "N5", "label": "re-match"}, {"from": "N6", "to": "N8", "label": "yes"}, {"from": "N8", "to": "N9"}, {"from": "N9", "to": "N10"}
+      ]
+    }
+  ]
+}

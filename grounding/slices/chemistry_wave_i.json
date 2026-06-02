@@ -1,0 +1,355 @@
+{
+  "discipline": "chemistry",
+  "slice": "materials_chemistry+materials_science",
+  "charts": [
+    {
+      "id": "materials_chemistry-thin-film-deposition",
+      "name": "Thin-Film Deposition by CVD",
+      "description": "Chemical vapor deposition grows a solid thin film from gaseous precursors: reactant gases are transported to a heated substrate where they adsorb, react or decompose, nucleate, and grow into a conformal film while volatile byproducts desorb, with deposition rate and uniformity controlled by temperature, pressure, and flow.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Materials chemistry / thin films",
+      "namedCollections": ["materials-chemistry"],
+      "keywords": ["chemical vapor deposition", "thin film", "precursor", "surface reaction", "conformal growth"],
+      "basis": "source_extraction:materials_chemistry-thin-film-deposition",
+      "sources": [
+        {"title": "Chemical vapour deposition of thin films and coatings", "authors": "Choy, K. L.", "journal": "Progress in Materials Science", "year": "2003", "doi": "10.1016/S0079-6425(01)00009-3", "url": "https://doi.org/10.1016/S0079-6425(01)00009-3"},
+        {"title": "Handbook of Chemical Vapor Deposition (2nd ed.)", "authors": "Pierson, H. O.", "journal": "Noyes / William Andrew", "year": "1999", "doi": "10.1016/B978-081551432-9.50000-2", "url": "https://doi.org/10.1016/B978-081551432-9.50000-2"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Substrate in reactor", "role": "red", "shape": "process", "detail": "Heated, evacuated chamber", "sourceRef": 1},
+        {"id": "N2", "label": "Introduce precursor gases", "role": "green", "shape": "process", "detail": "Carrier + reactive species", "sourceRef": 0},
+        {"id": "N3", "label": "Transport to hot surface", "role": "green", "shape": "process", "detail": "Diffuse through boundary layer", "sourceRef": 0},
+        {"id": "N4", "label": "Adsorb on substrate", "role": "green", "shape": "process", "detail": "Physi/chemisorption", "sourceRef": 0},
+        {"id": "N5", "label": "Surface reaction / decompose", "role": "green", "shape": "process", "detail": "Form solid species", "sourceRef": 1},
+        {"id": "N6", "label": "Nucleation + film growth", "role": "green", "shape": "process", "detail": "Islands coalesce", "sourceRef": 0},
+        {"id": "N7", "label": "Byproducts desorb", "role": "blue", "shape": "process", "detail": "Volatiles pumped away", "sourceRef": 1},
+        {"id": "N8", "label": "Uniform + conformal?", "role": "blue", "shape": "decision", "detail": "Thickness, step coverage", "sourceRef": 0},
+        {"id": "N9", "label": "Tune T / pressure / flow", "role": "green", "shape": "process", "detail": "Shift regime", "sourceRef": 0},
+        {"id": "N10", "label": "Deposited thin film", "role": "violet", "shape": "process", "detail": "Functional coating", "sourceRef": 1}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"},
+        {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7"}, {"from": "N7", "to": "N8"},
+        {"from": "N8", "to": "N9", "label": "no"}, {"from": "N9", "to": "N2", "label": "adjust"}, {"from": "N8", "to": "N10", "label": "yes"}
+      ]
+    },
+    {
+      "id": "materials_chemistry-polymerization-process",
+      "name": "Emulsion Polymerization",
+      "description": "Emulsion polymerization builds polymer inside surfactant micelles dispersed in water: above the critical micelle concentration a water-soluble initiator generates radicals that enter micelles to nucleate particles, monomer diffuses from droplets to feed propagation, and growth continues until droplets are exhausted, yielding a polymer latex.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Polymer / materials chemistry",
+      "namedCollections": ["materials-chemistry"],
+      "keywords": ["emulsion polymerization", "micelle", "particle nucleation", "latex", "Smith-Ewart"],
+      "basis": "source_extraction:materials_chemistry-polymerization-process",
+      "sources": [
+        {"title": "A general theory of the mechanism of emulsion polymerization", "authors": "Harkins, W. D.", "journal": "Journal of the American Chemical Society", "year": "1947", "doi": "10.1021/ja01200a012", "url": "https://doi.org/10.1021/ja01200a012"},
+        {"title": "Kinetics of emulsion polymerization", "authors": "Smith, W. V.; Ewart, R. H.", "journal": "Journal of Chemical Physics", "year": "1948", "doi": "10.1063/1.1746738", "url": "https://doi.org/10.1063/1.1746738"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Monomer + water + surfactant", "role": "red", "shape": "process", "detail": "Emulsified system", "sourceRef": 0},
+        {"id": "N2", "label": "Above CMC: micelles form", "role": "green", "shape": "process", "detail": "Swollen with monomer", "sourceRef": 0},
+        {"id": "N3", "label": "Monomer droplets reservoir", "role": "blue", "shape": "process", "detail": "Large droplets persist", "sourceRef": 0},
+        {"id": "N4", "label": "Add aqueous initiator", "role": "green", "shape": "process", "detail": "Generate radicals in water", "sourceRef": 1},
+        {"id": "N5", "label": "Radical enters micelle", "role": "green", "shape": "process", "detail": "Locus of reaction", "sourceRef": 1},
+        {"id": "N6", "label": "Particle nucleation", "role": "green", "shape": "process", "detail": "Micelles become particles", "sourceRef": 0},
+        {"id": "N7", "label": "Monomer diffuses from droplets", "role": "green", "shape": "process", "detail": "Feeds growing particles", "sourceRef": 0},
+        {"id": "N8", "label": "Propagate in particles", "role": "green", "shape": "process", "detail": "Chain growth", "sourceRef": 1},
+        {"id": "N9", "label": "Droplets depleted?", "role": "blue", "shape": "decision", "detail": "Reservoir exhausted", "sourceRef": 0},
+        {"id": "N10", "label": "Continue from particle pool", "role": "green", "shape": "process", "detail": "Stage III kinetics", "sourceRef": 1},
+        {"id": "N11", "label": "Polymer latex", "role": "violet", "shape": "process", "detail": "Colloidal dispersion", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N1", "to": "N4"}, {"from": "N4", "to": "N5"},
+        {"from": "N3", "to": "N5"}, {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7"}, {"from": "N7", "to": "N8"},
+        {"from": "N8", "to": "N9"}, {"from": "N9", "to": "N10", "label": "no"}, {"from": "N10", "to": "N8", "label": "feed"}, {"from": "N9", "to": "N11", "label": "yes"}
+      ]
+    },
+    {
+      "id": "materials_chemistry-nanomaterials",
+      "name": "Nanoparticle Synthesis (LaMer)",
+      "description": "The LaMer model explains monodisperse nanoparticle synthesis: precursor decomposition raises monomer concentration until a critical supersaturation triggers a single burst of nucleation, which drops the concentration below threshold so no new nuclei form, and the existing nuclei grow by diffusion under capping-ligand control into uniform particles.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Nanomaterials chemistry",
+      "namedCollections": ["materials-chemistry"],
+      "keywords": ["LaMer model", "burst nucleation", "supersaturation", "monodisperse", "diffusion growth"],
+      "basis": "source_extraction:materials_chemistry-nanomaterials",
+      "sources": [
+        {"title": "Theory, production and mechanism of formation of monodispersed hydrosols", "authors": "LaMer, V. K.; Dinegar, R. H.", "journal": "Journal of the American Chemical Society", "year": "1950", "doi": "10.1021/ja01167a001", "url": "https://doi.org/10.1021/ja01167a001"},
+        {"title": "Mechanisms of nucleation and growth of nanoparticles in solution", "authors": "Thanh, N. T. K.; Maclean, N.; Mahiddine, S.", "journal": "Chemical Reviews", "year": "2014", "doi": "10.1021/cr400544s", "url": "https://doi.org/10.1021/cr400544s"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Precursor solution", "role": "red", "shape": "process", "detail": "Dissolved metal salt", "sourceRef": 0},
+        {"id": "N2", "label": "Reduce / decompose", "role": "green", "shape": "process", "detail": "Generate monomers", "sourceRef": 1},
+        {"id": "N3", "label": "Monomer conc rises", "role": "green", "shape": "process", "detail": "Builds supersaturation", "sourceRef": 0},
+        {"id": "N4", "label": "Above critical Scrit?", "role": "blue", "shape": "decision", "detail": "Nucleation threshold", "sourceRef": 0},
+        {"id": "N5", "label": "Keep accumulating monomer", "role": "green", "shape": "process", "detail": "No nuclei yet", "sourceRef": 0},
+        {"id": "N6", "label": "Burst nucleation", "role": "green", "shape": "process", "detail": "Single short burst", "sourceRef": 0},
+        {"id": "N7", "label": "Conc drops below Scrit", "role": "blue", "shape": "process", "detail": "Nucleation stops", "sourceRef": 0},
+        {"id": "N8", "label": "Diffusion-limited growth", "role": "green", "shape": "process", "detail": "Nuclei enlarge", "sourceRef": 1},
+        {"id": "N9", "label": "Cap with ligands", "role": "green", "shape": "process", "detail": "Arrest growth", "sourceRef": 1},
+        {"id": "N10", "label": "Monodisperse nanoparticles", "role": "violet", "shape": "process", "detail": "Narrow size dist.", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"},
+        {"from": "N4", "to": "N5", "label": "no"}, {"from": "N5", "to": "N3", "label": "accumulate"}, {"from": "N4", "to": "N6", "label": "yes"},
+        {"from": "N6", "to": "N7"}, {"from": "N7", "to": "N8"}, {"from": "N8", "to": "N9"}, {"from": "N9", "to": "N10"}
+      ]
+    },
+    {
+      "id": "materials_chemistry-composite-materials",
+      "name": "Composite Fabrication",
+      "description": "Composite fabrication combines a matrix with a reinforcing phase: after selecting matrix chemistry, fibers or particles are surface-treated for wetting, then impregnated or infiltrated by the matrix, and interfacial bonding is verified before consolidation and curing produce the finished part.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Composite materials processing",
+      "namedCollections": ["materials-chemistry"],
+      "keywords": ["composite", "matrix", "reinforcement", "interfacial bonding", "consolidation"],
+      "basis": "source_extraction:materials_chemistry-composite-materials",
+      "sources": [
+        {"title": "An Introduction to Composite Materials (3rd ed.)", "authors": "Hull, D.; Clyne, T. W.", "journal": "Cambridge University Press", "year": "2019", "doi": "10.1017/9781139178600", "url": "https://doi.org/10.1017/9781139178600"},
+        {"title": "Materials Science and Engineering: An Introduction (10th ed.)", "authors": "Callister, W. D.; Rethwisch, D. G.", "journal": "Wiley", "year": "2018", "url": "https://www.wiley.com/en-us/Materials+Science+and+Engineering%3A+An+Introduction%2C+10th+Edition-p-9781119405498"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Matrix + reinforcement", "role": "red", "shape": "process", "detail": "Constituent selection", "sourceRef": 1},
+        {"id": "N2", "label": "Choose matrix type", "role": "blue", "shape": "decision", "detail": "Polymer vs metal/ceramic", "sourceRef": 0},
+        {"id": "N3", "label": "Polymer matrix route", "role": "green", "shape": "process", "detail": "Resin + hardener", "sourceRef": 0},
+        {"id": "N4", "label": "Metal / ceramic matrix", "role": "green", "shape": "process", "detail": "High-T processing", "sourceRef": 0},
+        {"id": "N5", "label": "Surface-treat fibers", "role": "green", "shape": "process", "detail": "Promote wetting", "sourceRef": 0},
+        {"id": "N6", "label": "Impregnate / infiltrate", "role": "green", "shape": "process", "detail": "Matrix wets reinforcement", "sourceRef": 0},
+        {"id": "N7", "label": "Strong interface?", "role": "blue", "shape": "decision", "detail": "Load transfer", "sourceRef": 0},
+        {"id": "N8", "label": "Add coupling agent", "role": "green", "shape": "process", "detail": "Improve adhesion", "sourceRef": 0},
+        {"id": "N9", "label": "Consolidate + cure", "role": "green", "shape": "process", "detail": "Heat / pressure", "sourceRef": 1},
+        {"id": "N10", "label": "Composite part", "role": "violet", "shape": "process", "detail": "Bonded structure", "sourceRef": 1}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3", "label": "polymer"}, {"from": "N2", "to": "N4", "label": "metal/ceramic"},
+        {"from": "N3", "to": "N5"}, {"from": "N4", "to": "N5"}, {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7"},
+        {"from": "N7", "to": "N8", "label": "no"}, {"from": "N8", "to": "N5", "label": "retreat"}, {"from": "N7", "to": "N9", "label": "yes"}, {"from": "N9", "to": "N10"}
+      ]
+    },
+    {
+      "id": "materials_chemistry-polymer-chemistry",
+      "name": "Controlled Radical Polymerization (ATRP/RAFT)",
+      "description": "Controlled/living radical polymerization keeps a low instantaneous radical concentration through a fast dynamic equilibrium between active and dormant chains; when the equilibrium strongly favors the dormant species, all chains grow at the same slow rate, giving predictable molar mass and low dispersity once the target is reached.",
+      "graphType": "cyclic_pathway",
+      "domainContext": "Controlled polymerization",
+      "namedCollections": ["materials-chemistry"],
+      "keywords": ["controlled radical polymerization", "ATRP", "RAFT", "dormant chain", "low dispersity"],
+      "basis": "source_extraction:materials_chemistry-polymer-chemistry",
+      "sources": [
+        {"title": "Atom transfer radical polymerization", "authors": "Matyjaszewski, K.; Xia, J.", "journal": "Chemical Reviews", "year": "2001", "doi": "10.1021/cr940534g", "url": "https://doi.org/10.1021/cr940534g"},
+        {"title": "Living free-radical polymerization by reversible addition-fragmentation chain transfer: the RAFT process", "authors": "Chiefari, J.; et al.", "journal": "Macromolecules", "year": "1998", "doi": "10.1021/ma9804951", "url": "https://doi.org/10.1021/ma9804951"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Monomer + control agent", "role": "red", "shape": "process", "detail": "Initiator + catalyst/CTA", "sourceRef": 0},
+        {"id": "N2", "label": "Activate dormant species", "role": "green", "shape": "process", "detail": "Generate radical", "sourceRef": 0},
+        {"id": "N3", "label": "Active <=> dormant equilibrium", "role": "blue", "shape": "process", "detail": "Reversible exchange", "sourceRef": 1},
+        {"id": "N4", "label": "Favors dormant?", "role": "blue", "shape": "decision", "detail": "Equilibrium position", "sourceRef": 0},
+        {"id": "N5", "label": "Tune catalyst / CTA", "role": "green", "shape": "process", "detail": "Shift equilibrium", "sourceRef": 1},
+        {"id": "N6", "label": "Low instantaneous [radical]", "role": "green", "shape": "process", "detail": "Suppress termination", "sourceRef": 0},
+        {"id": "N7", "label": "Add monomers, re-cap", "role": "green", "shape": "process", "detail": "Short active period", "sourceRef": 1},
+        {"id": "N8", "label": "Uniform chain growth", "role": "green", "shape": "process", "detail": "All chains in step", "sourceRef": 0},
+        {"id": "N9", "label": "Target MW reached?", "role": "blue", "shape": "decision", "detail": "Conversion goal", "sourceRef": 0},
+        {"id": "N10", "label": "Low-dispersity polymer", "role": "violet", "shape": "process", "detail": "Narrow MWD", "sourceRef": 1}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"},
+        {"from": "N4", "to": "N5", "label": "no"}, {"from": "N5", "to": "N2", "label": "retune"}, {"from": "N4", "to": "N6", "label": "yes"},
+        {"from": "N6", "to": "N7"}, {"from": "N7", "to": "N8"}, {"from": "N8", "to": "N9"},
+        {"from": "N9", "to": "N7", "label": "more cycles"}, {"from": "N9", "to": "N10", "label": "yes"}
+      ]
+    },
+    {
+      "id": "materials_chemistry-sol-gel-synthesis",
+      "name": "Sol-Gel Synthesis",
+      "description": "Sol-gel processing converts metal alkoxide precursors into an oxide network through hydrolysis and condensation: a colloidal sol crosslinks into a continuous gel, which is aged and then dried either supercritically to an aerogel or by evaporation to a xerogel, and finally calcined to the dense oxide.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Sol-gel materials chemistry",
+      "namedCollections": ["materials-chemistry"],
+      "keywords": ["sol-gel", "hydrolysis", "condensation", "gelation", "aerogel"],
+      "basis": "source_extraction:materials_chemistry-sol-gel-synthesis",
+      "sources": [
+        {"title": "The sol-gel process", "authors": "Hench, L. L.; West, J. K.", "journal": "Chemical Reviews", "year": "1990", "doi": "10.1021/cr00099a003", "url": "https://doi.org/10.1021/cr00099a003"},
+        {"title": "Sol-Gel Science: The Physics and Chemistry of Sol-Gel Processing", "authors": "Brinker, C. J.; Scherer, G. W.", "journal": "Academic Press", "year": "1990", "doi": "10.1016/C2009-0-22386-5", "url": "https://doi.org/10.1016/C2009-0-22386-5"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Metal alkoxide precursor", "role": "red", "shape": "process", "detail": "M(OR)n in solvent", "sourceRef": 1},
+        {"id": "N2", "label": "Hydrolysis (M-OR -> M-OH)", "role": "green", "shape": "process", "detail": "Water + catalyst", "sourceRef": 0},
+        {"id": "N3", "label": "Condensation (M-O-M)", "role": "green", "shape": "process", "detail": "Release water/alcohol", "sourceRef": 0},
+        {"id": "N4", "label": "Colloidal sol", "role": "blue", "shape": "process", "detail": "Dispersed clusters", "sourceRef": 1},
+        {"id": "N5", "label": "Crosslink to gel network", "role": "green", "shape": "process", "detail": "Spanning solid", "sourceRef": 0},
+        {"id": "N6", "label": "Gel point reached?", "role": "blue", "shape": "decision", "detail": "Viscosity diverges", "sourceRef": 1},
+        {"id": "N7", "label": "Age (more condensation)", "role": "green", "shape": "process", "detail": "Strengthen network", "sourceRef": 1},
+        {"id": "N8", "label": "Drying route?", "role": "blue", "shape": "decision", "detail": "Capillary stress", "sourceRef": 1},
+        {"id": "N9", "label": "Supercritical -> aerogel", "role": "green", "shape": "process", "detail": "Preserve porosity", "sourceRef": 1},
+        {"id": "N10", "label": "Evaporate -> xerogel", "role": "green", "shape": "process", "detail": "Network shrinks", "sourceRef": 1},
+        {"id": "N11", "label": "Calcine to oxide", "role": "violet", "shape": "process", "detail": "Densified ceramic", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"},
+        {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7", "label": "no"}, {"from": "N7", "to": "N3", "label": "age"}, {"from": "N6", "to": "N8", "label": "yes"},
+        {"from": "N8", "to": "N9", "label": "supercritical"}, {"from": "N8", "to": "N10", "label": "evaporative"}, {"from": "N9", "to": "N11"}, {"from": "N10", "to": "N11"}
+      ]
+    },
+    {
+      "id": "materials_science-composite-materials",
+      "name": "Composite Stiffness (Rule of Mixtures)",
+      "description": "The rule of mixtures predicts the elastic stiffness of a continuous-fiber composite from constituent properties and volume fractions: loading parallel to the fibers obeys the iso-strain Voigt bound while transverse loading obeys the iso-stress Reuss bound, with corrections for fiber orientation giving the effective modulus.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Materials science / mechanics",
+      "namedCollections": ["materials-science"],
+      "keywords": ["rule of mixtures", "Voigt bound", "Reuss bound", "iso-strain", "elastic modulus"],
+      "basis": "source_extraction:materials_science-composite-materials",
+      "sources": [
+        {"title": "An Introduction to Composite Materials (3rd ed.)", "authors": "Hull, D.; Clyne, T. W.", "journal": "Cambridge University Press", "year": "2019", "doi": "10.1017/9781139178600", "url": "https://doi.org/10.1017/9781139178600"},
+        {"title": "Materials Science and Engineering: An Introduction (10th ed.)", "authors": "Callister, W. D.; Rethwisch, D. G.", "journal": "Wiley", "year": "2018", "url": "https://www.wiley.com/en-us/Materials+Science+and+Engineering%3A+An+Introduction%2C+10th+Edition-p-9781119405498"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Matrix + fiber properties", "role": "red", "shape": "process", "detail": "Ef, Em known", "sourceRef": 1},
+        {"id": "N2", "label": "Set volume fractions", "role": "green", "shape": "process", "detail": "Vf + Vm = 1", "sourceRef": 1},
+        {"id": "N3", "label": "Loading direction?", "role": "blue", "shape": "decision", "detail": "Relative to fibers", "sourceRef": 0},
+        {"id": "N4", "label": "Iso-strain (longitudinal)", "role": "green", "shape": "process", "detail": "Voigt limit", "sourceRef": 0},
+        {"id": "N5", "label": "Ec = Vf·Ef + Vm·Em", "role": "green", "shape": "process", "detail": "Upper bound", "sourceRef": 0},
+        {"id": "N6", "label": "Iso-stress (transverse)", "role": "green", "shape": "process", "detail": "Reuss limit", "sourceRef": 0},
+        {"id": "N7", "label": "1/Ec = Vf/Ef + Vm/Em", "role": "green", "shape": "process", "detail": "Lower bound", "sourceRef": 0},
+        {"id": "N8", "label": "Correct for orientation", "role": "green", "shape": "process", "detail": "Efficiency factor", "sourceRef": 1},
+        {"id": "N9", "label": "Predicted stiffness", "role": "violet", "shape": "process", "detail": "Effective modulus", "sourceRef": 1}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"},
+        {"from": "N3", "to": "N4", "label": "longitudinal"}, {"from": "N4", "to": "N5"},
+        {"from": "N3", "to": "N6", "label": "transverse"}, {"from": "N6", "to": "N7"},
+        {"from": "N5", "to": "N8"}, {"from": "N7", "to": "N8"}, {"from": "N8", "to": "N9"}
+      ]
+    },
+    {
+      "id": "materials_science-defects-doping",
+      "name": "Doping & Point Defects",
+      "description": "Doping a semiconductor introduces substitutional impurities that act as donors or acceptors: thermal ionization releases electrons or holes, charge neutrality is maintained through compensating defects described by Kroger-Vink notation, and the resulting carrier concentration sets the conductivity and type of the doped material.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Defect chemistry of solids",
+      "namedCollections": ["materials-science"],
+      "keywords": ["doping", "point defects", "donor", "acceptor", "Kroger-Vink"],
+      "basis": "source_extraction:materials_science-defects-doping",
+      "sources": [
+        {"title": "Physics of Semiconductor Devices (3rd ed.)", "authors": "Sze, S. M.; Ng, K. K.", "journal": "Wiley", "year": "2007", "doi": "10.1002/0470068329", "url": "https://doi.org/10.1002/0470068329"},
+        {"title": "Materials Science and Engineering: An Introduction (10th ed.)", "authors": "Callister, W. D.; Rethwisch, D. G.", "journal": "Wiley", "year": "2018", "url": "https://www.wiley.com/en-us/Materials+Science+and+Engineering%3A+An+Introduction%2C+10th+Edition-p-9781119405498"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Pure semiconductor", "role": "red", "shape": "process", "detail": "Intrinsic crystal", "sourceRef": 0},
+        {"id": "N2", "label": "Introduce dopant atoms", "role": "green", "shape": "process", "detail": "Substitutional sites", "sourceRef": 1},
+        {"id": "N3", "label": "Donor or acceptor?", "role": "blue", "shape": "decision", "detail": "Valence vs host", "sourceRef": 0},
+        {"id": "N4", "label": "Donor (n-type): extra e-", "role": "green", "shape": "process", "detail": "Level near CB", "sourceRef": 0},
+        {"id": "N5", "label": "Acceptor (p-type): holes", "role": "green", "shape": "process", "detail": "Level near VB", "sourceRef": 0},
+        {"id": "N6", "label": "Ionize at temperature", "role": "green", "shape": "process", "detail": "Release carriers", "sourceRef": 0},
+        {"id": "N7", "label": "Defect balance (Kroger-Vink)", "role": "green", "shape": "process", "detail": "Charge neutrality", "sourceRef": 1},
+        {"id": "N8", "label": "Carrier concentration set", "role": "blue", "shape": "process", "detail": "n or p fixed", "sourceRef": 0},
+        {"id": "N9", "label": "Conductivity tuned", "role": "green", "shape": "process", "detail": "sigma = n e mu", "sourceRef": 0},
+        {"id": "N10", "label": "Doped material", "role": "violet", "shape": "process", "detail": "Engineered type", "sourceRef": 1}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"},
+        {"from": "N3", "to": "N4", "label": "donor"}, {"from": "N3", "to": "N5", "label": "acceptor"},
+        {"from": "N4", "to": "N6"}, {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7"},
+        {"from": "N7", "to": "N8"}, {"from": "N8", "to": "N9"}, {"from": "N9", "to": "N10"}
+      ]
+    },
+    {
+      "id": "materials_science-crystal-structure",
+      "name": "Crystal Structure & Unit Cells",
+      "description": "Determining a crystal structure starts from the lattice-and-basis description: a unit cell and its Bravais lattice are identified, close-packed arrangements are classified as FCC/HCP versus BCC, coordination number and atomic packing factor are computed, and Miller indices label planes for relating structure to properties.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Crystallography / solid state",
+      "namedCollections": ["materials-science"],
+      "keywords": ["unit cell", "Bravais lattice", "atomic packing factor", "Miller indices", "close packing"],
+      "basis": "source_extraction:materials_science-crystal-structure",
+      "sources": [
+        {"title": "Introduction to Solid State Physics (8th ed.)", "authors": "Kittel, C.", "journal": "Wiley", "year": "2005", "url": "https://www.wiley.com/en-us/Introduction+to+Solid+State+Physics%2C+8th+Edition-p-9780471415268"},
+        {"title": "Materials Science and Engineering: An Introduction (10th ed.)", "authors": "Callister, W. D.; Rethwisch, D. G.", "journal": "Wiley", "year": "2018", "url": "https://www.wiley.com/en-us/Materials+Science+and+Engineering%3A+An+Introduction%2C+10th+Edition-p-9781119405498"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Crystalline solid", "role": "red", "shape": "process", "detail": "Periodic order", "sourceRef": 0},
+        {"id": "N2", "label": "Identify lattice + basis", "role": "green", "shape": "process", "detail": "Repeating motif", "sourceRef": 0},
+        {"id": "N3", "label": "Choose unit cell", "role": "green", "shape": "process", "detail": "Lattice parameters", "sourceRef": 0},
+        {"id": "N4", "label": "Assign Bravais lattice", "role": "blue", "shape": "process", "detail": "One of 14 types", "sourceRef": 0},
+        {"id": "N5", "label": "Close-packed?", "role": "blue", "shape": "decision", "detail": "Stacking sequence", "sourceRef": 1},
+        {"id": "N6", "label": "FCC / HCP", "role": "green", "shape": "process", "detail": "ABC or ABA", "sourceRef": 1},
+        {"id": "N7", "label": "BCC or other", "role": "green", "shape": "process", "detail": "Lower packing", "sourceRef": 1},
+        {"id": "N8", "label": "Compute coordination + APF", "role": "green", "shape": "process", "detail": "Density of packing", "sourceRef": 1},
+        {"id": "N9", "label": "Miller indices for planes", "role": "blue", "shape": "process", "detail": "(hkl) directions", "sourceRef": 0},
+        {"id": "N10", "label": "Structure-property model", "role": "violet", "shape": "process", "detail": "Anisotropy, slip", "sourceRef": 1}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"},
+        {"from": "N5", "to": "N6", "label": "yes"}, {"from": "N5", "to": "N7", "label": "no"},
+        {"from": "N6", "to": "N8"}, {"from": "N7", "to": "N8"}, {"from": "N8", "to": "N9"}, {"from": "N9", "to": "N10"}
+      ]
+    },
+    {
+      "id": "materials_science-nanomaterials",
+      "name": "Quantum Confinement in Nanocrystals",
+      "description": "When a semiconductor crystal shrinks below the exciton Bohr radius, charge carriers become spatially confined, their energy levels become discrete, and the band gap widens with decreasing size; this size-tunable gap shifts the absorption and emission, allowing the synthesis size to be adjusted to hit a target wavelength.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Nanoscience / quantum dots",
+      "namedCollections": ["materials-science"],
+      "keywords": ["quantum confinement", "exciton Bohr radius", "band gap", "quantum dot", "size-tunable emission"],
+      "basis": "source_extraction:materials_science-nanomaterials",
+      "sources": [
+        {"title": "Electron-electron and electron-hole interactions in small semiconductor crystallites", "authors": "Brus, L. E.", "journal": "Journal of Chemical Physics", "year": "1984", "doi": "10.1063/1.447218", "url": "https://doi.org/10.1063/1.447218"},
+        {"title": "Semiconductor clusters, nanocrystals, and quantum dots", "authors": "Alivisatos, A. P.", "journal": "Science", "year": "1996", "doi": "10.1126/science.271.5251.933", "url": "https://doi.org/10.1126/science.271.5251.933"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Bulk semiconductor", "role": "red", "shape": "process", "detail": "Continuous bands", "sourceRef": 1},
+        {"id": "N2", "label": "Reduce size toward nm", "role": "green", "shape": "process", "detail": "Shrink crystal", "sourceRef": 1},
+        {"id": "N3", "label": "Size < exciton Bohr radius?", "role": "blue", "shape": "decision", "detail": "Confinement onset", "sourceRef": 0},
+        {"id": "N4", "label": "Bulk-like band gap", "role": "green", "shape": "process", "detail": "Weak confinement", "sourceRef": 0},
+        {"id": "N5", "label": "Confine carriers", "role": "green", "shape": "process", "detail": "Particle in a box", "sourceRef": 0},
+        {"id": "N6", "label": "Discrete energy levels", "role": "blue", "shape": "process", "detail": "Quantized states", "sourceRef": 0},
+        {"id": "N7", "label": "Band gap widens", "role": "green", "shape": "process", "detail": "~1/R^2 scaling", "sourceRef": 0},
+        {"id": "N8", "label": "Size-tunable emission", "role": "green", "shape": "process", "detail": "Color vs size", "sourceRef": 1},
+        {"id": "N9", "label": "Hit target wavelength?", "role": "blue", "shape": "decision", "detail": "Match spectrum", "sourceRef": 1},
+        {"id": "N10", "label": "Adjust synthesis size", "role": "green", "shape": "process", "detail": "Tune growth", "sourceRef": 1},
+        {"id": "N11", "label": "Quantum dot, target gap", "role": "violet", "shape": "process", "detail": "Designed emitter", "sourceRef": 1}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"},
+        {"from": "N3", "to": "N4", "label": "no"}, {"from": "N4", "to": "N2", "label": "shrink more"}, {"from": "N3", "to": "N5", "label": "yes"},
+        {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7"}, {"from": "N7", "to": "N8"}, {"from": "N8", "to": "N9"},
+        {"from": "N9", "to": "N10", "label": "no"}, {"from": "N10", "to": "N2", "label": "re-grow"}, {"from": "N9", "to": "N11", "label": "yes"}
+      ]
+    },
+    {
+      "id": "materials_science-polymorphism",
+      "name": "Polymorphism & Phase Transformation",
+      "description": "Polymorphic systems can crystallize into several structures: kinetics often favor a metastable form first (Ostwald's rule of stages) while thermodynamics favor the most stable polymorph, and applying temperature, pressure, or a seed crosses the transformation barrier to convert toward the controlled target polymorph.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Phase transformations in solids",
+      "namedCollections": ["materials-science"],
+      "keywords": ["polymorphism", "metastable", "Ostwald rule of stages", "phase transformation", "nucleation barrier"],
+      "basis": "source_extraction:materials_science-polymorphism",
+      "sources": [
+        {"title": "Polymorphism in Molecular Crystals", "authors": "Bernstein, J.", "journal": "Oxford University Press", "year": "2002", "doi": "10.1093/acprof:oso/9780199236565.001.0001", "url": "https://doi.org/10.1093/acprof:oso/9780199236565.001.0001"},
+        {"title": "Materials Science and Engineering: An Introduction (10th ed.)", "authors": "Callister, W. D.; Rethwisch, D. G.", "journal": "Wiley", "year": "2018", "url": "https://www.wiley.com/en-us/Materials+Science+and+Engineering%3A+An+Introduction%2C+10th+Edition-p-9781119405498"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Multiple polymorphs exist", "role": "red", "shape": "process", "detail": "Same composition", "sourceRef": 0},
+        {"id": "N2", "label": "Rank stable vs metastable", "role": "green", "shape": "process", "detail": "Free-energy order", "sourceRef": 0},
+        {"id": "N3", "label": "Kinetic or thermodynamic?", "role": "blue", "shape": "decision", "detail": "Control regime", "sourceRef": 0},
+        {"id": "N4", "label": "Metastable forms first", "role": "green", "shape": "process", "detail": "Lower barrier", "sourceRef": 0},
+        {"id": "N5", "label": "Ostwald's rule of stages", "role": "blue", "shape": "process", "detail": "Stepwise stability", "sourceRef": 0},
+        {"id": "N6", "label": "Most stable nucleates", "role": "green", "shape": "process", "detail": "Global minimum", "sourceRef": 1},
+        {"id": "N7", "label": "Apply T / P / seed", "role": "green", "shape": "process", "detail": "Drive transformation", "sourceRef": 1},
+        {"id": "N8", "label": "Barrier crossed?", "role": "blue", "shape": "decision", "detail": "Activation met", "sourceRef": 1},
+        {"id": "N9", "label": "Anneal / add seed", "role": "green", "shape": "process", "detail": "Lower barrier", "sourceRef": 1},
+        {"id": "N10", "label": "Converted polymorph", "role": "green", "shape": "process", "detail": "New phase grows", "sourceRef": 0},
+        {"id": "N11", "label": "Controlled polymorph", "role": "violet", "shape": "process", "detail": "Target form", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"},
+        {"from": "N3", "to": "N4", "label": "kinetic"}, {"from": "N4", "to": "N5"}, {"from": "N3", "to": "N6", "label": "thermodynamic"},
+        {"from": "N5", "to": "N7"}, {"from": "N6", "to": "N7"}, {"from": "N7", "to": "N8"},
+        {"from": "N8", "to": "N9", "label": "no"}, {"from": "N9", "to": "N7", "label": "assist"}, {"from": "N8", "to": "N10", "label": "yes"}, {"from": "N10", "to": "N11"}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,392 @@
+{
+  "discipline": "chemistry",
+  "slice": "quantum+computational",
+  "charts": [
+    {
+      "id": "quantum_chemistry-computational-methods",
+      "name": "Ab Initio Hartree–Fock SCF",
+      "description": "Hartree–Fock solves the electronic structure self-consistently: from a geometry and basis set, integrals are computed, an initial guess builds the Fock matrix, the Roothaan equations are solved for new orbitals and density, and the cycle repeats until the energy converges.",
+      "graphType": "cyclic_pathway",
+      "domainContext": "Electronic structure theory",
+      "namedCollections": ["quantum-chemistry"],
+      "keywords": ["hartree-fock", "self-consistent field", "fock matrix", "roothaan equations", "basis set"],
+      "basis": "source_extraction:quantum_chemistry-computational-methods",
+      "sources": [
+        {"title": "New Developments in Molecular Orbital Theory (Roothaan equations)", "authors": "Roothaan, C. C. J.", "journal": "Reviews of Modern Physics", "year": "1951", "doi": "10.1103/RevModPhys.23.69", "url": "https://doi.org/10.1103/RevModPhys.23.69"},
+        {"title": "Modern Quantum Chemistry: Introduction to Advanced Electronic Structure Theory", "authors": "Szabo, A.; Ostlund, N. S.", "journal": "Dover Publications", "year": "1996", "doi": null, "url": "https://store.doverpublications.com/products/9780486691862"},
+        {"title": "Introduction to Computational Chemistry, 3rd ed.", "authors": "Jensen, F.", "journal": "Wiley", "year": "2017", "doi": "10.1002/9781119839118", "url": "https://doi.org/10.1002/9781119839118"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Geometry + basis set", "role": "red", "shape": "process", "detail": "Define the molecule and AOs", "sourceRef": 1},
+        {"id": "N2", "label": "Compute integrals", "role": "green", "shape": "process", "detail": "One- and two-electron integrals", "sourceRef": 1},
+        {"id": "N3", "label": "Initial MO guess", "role": "green", "shape": "process", "detail": "Starting coefficients/density", "sourceRef": 1},
+        {"id": "N4", "label": "Build Fock matrix", "role": "green", "shape": "process", "detail": "Mean-field operator", "sourceRef": 0},
+        {"id": "N5", "label": "Solve FC = SCε", "role": "green", "shape": "process", "detail": "Roothaan eigenvalue problem", "sourceRef": 0},
+        {"id": "N6", "label": "New density matrix", "role": "blue", "shape": "process", "detail": "From occupied orbitals", "sourceRef": 1},
+        {"id": "N7", "label": "Energy converged?", "role": "blue", "shape": "decision", "detail": "ΔE and density change small", "sourceRef": 2},
+        {"id": "N8", "label": "Update density (DIIS)", "role": "green", "shape": "process", "detail": "Accelerate convergence", "sourceRef": 2},
+        {"id": "N9", "label": "Converged HF wavefunction", "role": "green", "shape": "process", "detail": "Self-consistent solution", "sourceRef": 0},
+        {"id": "N10", "label": "Energy + properties", "role": "violet", "shape": "process", "detail": "Observable predictions", "sourceRef": 2}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"}, {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7"},
+        {"from": "N7", "to": "N8", "label": "no"}, {"from": "N8", "to": "N4", "label": "iterate"}, {"from": "N7", "to": "N9", "label": "yes"}, {"from": "N9", "to": "N10"}
+      ]
+    },
+    {
+      "id": "quantum_chemistry-density-functional-theory-workflow",
+      "name": "Kohn–Sham DFT Workflow",
+      "description": "Kohn–Sham DFT recasts the interacting electron problem as non-interacting electrons in an effective potential: after choosing an exchange-correlation functional and basis, the density is iterated through the KS equations until self-consistency, then properties are computed.",
+      "graphType": "cyclic_pathway",
+      "domainContext": "Density functional theory",
+      "namedCollections": ["quantum-chemistry"],
+      "keywords": ["density functional theory", "kohn-sham", "exchange-correlation", "self-consistent field", "electron density"],
+      "basis": "source_extraction:quantum_chemistry-density-functional-theory-workflow",
+      "sources": [
+        {"title": "Inhomogeneous Electron Gas", "authors": "Hohenberg, P.; Kohn, W.", "journal": "Physical Review", "year": "1964", "doi": "10.1103/PhysRev.136.B864", "url": "https://doi.org/10.1103/PhysRev.136.B864"},
+        {"title": "Self-Consistent Equations Including Exchange and Correlation Effects", "authors": "Kohn, W.; Sham, L. J.", "journal": "Physical Review", "year": "1965", "doi": "10.1103/PhysRev.140.A1133", "url": "https://doi.org/10.1103/PhysRev.140.A1133"},
+        {"title": "Density-functional thermochemistry. III. The role of exact exchange (B3LYP)", "authors": "Becke, A. D.", "journal": "Journal of Chemical Physics", "year": "1993", "doi": "10.1063/1.464913", "url": "https://doi.org/10.1063/1.464913"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "System + nuclei", "role": "red", "shape": "process", "detail": "External potential defined", "sourceRef": 0},
+        {"id": "N2", "label": "Choose functional + basis", "role": "blue", "shape": "decision", "detail": "Accuracy vs cost", "sourceRef": 2},
+        {"id": "N3", "label": "LDA / GGA / hybrid", "role": "green", "shape": "process", "detail": "Exchange-correlation choice", "sourceRef": 2},
+        {"id": "N4", "label": "Initial electron density", "role": "green", "shape": "process", "detail": "Starting guess", "sourceRef": 1},
+        {"id": "N5", "label": "Build KS potential", "role": "green", "shape": "process", "detail": "Hartree + XC + external", "sourceRef": 1},
+        {"id": "N6", "label": "Solve KS equations", "role": "green", "shape": "process", "detail": "Single-particle orbitals", "sourceRef": 1},
+        {"id": "N7", "label": "New density", "role": "blue", "shape": "process", "detail": "Sum over occupied KS orbitals", "sourceRef": 1},
+        {"id": "N8", "label": "SCF converged?", "role": "blue", "shape": "decision", "detail": "Density self-consistent", "sourceRef": 1},
+        {"id": "N9", "label": "Mix densities, iterate", "role": "green", "shape": "process", "detail": "Update and repeat", "sourceRef": 1},
+        {"id": "N10", "label": "Ground-state density + E", "role": "green", "shape": "process", "detail": "Converged solution", "sourceRef": 0},
+        {"id": "N11", "label": "Compute properties", "role": "violet", "shape": "process", "detail": "Geometry, spectra, energetics", "sourceRef": 2}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"}, {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7"}, {"from": "N7", "to": "N8"},
+        {"from": "N8", "to": "N9", "label": "no"}, {"from": "N9", "to": "N5", "label": "iterate"}, {"from": "N8", "to": "N10", "label": "yes"}, {"from": "N10", "to": "N11"}
+      ]
+    },
+    {
+      "id": "quantum_chemistry-molecular-orbitals",
+      "name": "Molecular Orbitals via LCAO",
+      "description": "Molecular orbitals are built from atomic orbitals: only AOs of matching symmetry and similar energy combine, generating bonding and antibonding MOs that are ordered by energy and filled by the Aufbau principle to give bond order and an MO diagram.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Molecular orbital theory",
+      "namedCollections": ["quantum-chemistry"],
+      "keywords": ["molecular orbital", "lcao", "bonding antibonding", "bond order", "mo diagram"],
+      "basis": "source_extraction:quantum_chemistry-molecular-orbitals",
+      "sources": [
+        {"title": "Electronic Population Analysis on LCAO–MO Molecular Wave Functions", "authors": "Mulliken, R. S.", "journal": "Journal of Chemical Physics", "year": "1955", "doi": "10.1063/1.1740588", "url": "https://doi.org/10.1063/1.1740588"},
+        {"title": "Inorganic Chemistry, 6th ed. — Molecular Orbital Theory", "authors": "Housecroft, C. E.; Sharpe, A. G.", "journal": "Pearson", "year": "2018", "doi": null, "url": "https://www.pearson.com/en-gb/subject-catalog/p/inorganic-chemistry/P200000005860"},
+        {"title": "Gold Book: molecular orbital", "authors": "IUPAC", "journal": "IUPAC Compendium of Chemical Terminology", "year": "2019", "doi": "10.1351/goldbook.M03996", "url": "https://goldbook.iupac.org/terms/view/M03996"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Atomic orbitals (basis)", "role": "red", "shape": "process", "detail": "Valence AOs of each atom", "sourceRef": 1},
+        {"id": "N2", "label": "Symmetry-adapted AOs", "role": "green", "shape": "process", "detail": "Group by symmetry", "sourceRef": 1},
+        {"id": "N3", "label": "Same symmetry + energy?", "role": "blue", "shape": "decision", "detail": "Overlap criteria", "sourceRef": 1},
+        {"id": "N4", "label": "Non-matching: nonbonding", "role": "green", "shape": "process", "detail": "No effective interaction", "sourceRef": 1},
+        {"id": "N5", "label": "Linear combination (LCAO)", "role": "green", "shape": "process", "detail": "Add/subtract AOs", "sourceRef": 0},
+        {"id": "N6", "label": "Bonding + antibonding MOs", "role": "blue", "shape": "process", "detail": "In- and out-of-phase", "sourceRef": 0},
+        {"id": "N7", "label": "Order MOs by energy", "role": "green", "shape": "process", "detail": "Build the diagram", "sourceRef": 1},
+        {"id": "N8", "label": "Fill (Aufbau, Hund)", "role": "green", "shape": "process", "detail": "Add valence electrons", "sourceRef": 1},
+        {"id": "N9", "label": "Bond order = (b−a)/2", "role": "green", "shape": "process", "detail": "Net bonding electrons", "sourceRef": 1},
+        {"id": "N10", "label": "MO diagram", "role": "violet", "shape": "process", "detail": "Predicts stability/magnetism", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"},
+        {"from": "N3", "to": "N4", "label": "no"}, {"from": "N3", "to": "N5", "label": "yes"},
+        {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7"}, {"from": "N4", "to": "N7"}, {"from": "N7", "to": "N8"}, {"from": "N8", "to": "N9"}, {"from": "N9", "to": "N10"}
+      ]
+    },
+    {
+      "id": "quantum_chemistry-reaction-pathways",
+      "name": "Transition State on the PES",
+      "description": "Locating a reaction pathway on the potential energy surface: build an initial path between reactant and product, optimize it (e.g. nudged elastic band) to a first-order saddle point, verify it has a single imaginary frequency, and confirm by IRC before reading the activation energy.",
+      "graphType": "cyclic_pathway",
+      "domainContext": "Reaction path computation",
+      "namedCollections": ["quantum-chemistry"],
+      "keywords": ["potential energy surface", "transition state", "nudged elastic band", "intrinsic reaction coordinate", "activation energy"],
+      "basis": "source_extraction:quantum_chemistry-reaction-pathways",
+      "sources": [
+        {"title": "A climbing image nudged elastic band method for finding saddle points", "authors": "Henkelman, G.; Uberuaga, B. P.; Jónsson, H.", "journal": "Journal of Chemical Physics", "year": "2000", "doi": "10.1063/1.1329672", "url": "https://doi.org/10.1063/1.1329672"},
+        {"title": "The intrinsic reaction coordinate. An ab initio calculation", "authors": "Fukui, K.", "journal": "Accounts of Chemical Research", "year": "1981", "doi": "10.1021/ar00072a001", "url": "https://doi.org/10.1021/ar00072a001"},
+        {"title": "Introduction to Computational Chemistry, 3rd ed. — Optimization and Reaction Paths", "authors": "Jensen, F.", "journal": "Wiley", "year": "2017", "doi": "10.1002/9781119839118", "url": "https://doi.org/10.1002/9781119839118"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Reactant + product geom", "role": "red", "shape": "process", "detail": "Optimized endpoints", "sourceRef": 2},
+        {"id": "N2", "label": "Build initial path (NEB)", "role": "green", "shape": "process", "detail": "Interpolate images", "sourceRef": 0},
+        {"id": "N3", "label": "Optimize images on PES", "role": "green", "shape": "process", "detail": "Relax band to MEP", "sourceRef": 0},
+        {"id": "N4", "label": "Locate saddle point (TS)", "role": "green", "shape": "process", "detail": "Climbing image", "sourceRef": 0},
+        {"id": "N5", "label": "One imaginary frequency?", "role": "blue", "shape": "decision", "detail": "First-order saddle test", "sourceRef": 2},
+        {"id": "N6", "label": "Refine TS guess", "role": "green", "shape": "process", "detail": "eigenvector-following", "sourceRef": 2},
+        {"id": "N7", "label": "IRC connects R and P?", "role": "blue", "shape": "decision", "detail": "Validate the saddle", "sourceRef": 1},
+        {"id": "N8", "label": "Re-search the path", "role": "green", "shape": "process", "detail": "Wrong TS found", "sourceRef": 0},
+        {"id": "N9", "label": "Activation energy Ea", "role": "green", "shape": "process", "detail": "Barrier height", "sourceRef": 1},
+        {"id": "N10", "label": "Validated pathway", "role": "violet", "shape": "process", "detail": "Mechanistic route", "sourceRef": 1}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"},
+        {"from": "N5", "to": "N6", "label": "no"}, {"from": "N6", "to": "N4", "label": "refine"}, {"from": "N5", "to": "N7", "label": "yes"},
+        {"from": "N7", "to": "N8", "label": "no"}, {"from": "N8", "to": "N2", "label": "restart"}, {"from": "N7", "to": "N9", "label": "yes"}, {"from": "N9", "to": "N10"}
+      ]
+    },
+    {
+      "id": "quantum_chemistry-electronic-transitions",
+      "name": "Electronic Excited States (TD-DFT)",
+      "description": "Excited states are computed from the ground state with time-dependent DFT: solving the Casida equations yields excitation energies and oscillator strengths, selection rules classify transitions as bright or dark, and Franck–Condon factors shape the simulated UV-Vis spectrum.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Excited-state theory",
+      "namedCollections": ["quantum-chemistry"],
+      "keywords": ["td-dft", "excited states", "oscillator strength", "selection rules", "franck-condon"],
+      "basis": "source_extraction:quantum_chemistry-electronic-transitions",
+      "sources": [
+        {"title": "Density-Functional Theory for Time-Dependent Systems", "authors": "Runge, E.; Gross, E. K. U.", "journal": "Physical Review Letters", "year": "1984", "doi": "10.1103/PhysRevLett.52.997", "url": "https://doi.org/10.1103/PhysRevLett.52.997"},
+        {"title": "Time-dependent density functional response theory of molecular systems (Casida)", "authors": "Casida, M. E.", "journal": "Recent Advances in Density Functional Methods", "year": "1995", "doi": "10.1142/9789812830586_0005", "url": "https://doi.org/10.1142/9789812830586_0005"},
+        {"title": "Molecular Quantum Mechanics, 5th ed. — Molecular Spectroscopy", "authors": "Atkins, P. W.; Friedman, R. S.", "journal": "Oxford University Press", "year": "2011", "doi": null, "url": "https://global.oup.com/academic/product/molecular-quantum-mechanics-9780199541423"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Ground-state wavefunction", "role": "red", "shape": "process", "detail": "Converged reference", "sourceRef": 0},
+        {"id": "N2", "label": "Apply TD-DFT response", "role": "green", "shape": "process", "detail": "Linear-response formalism", "sourceRef": 0},
+        {"id": "N3", "label": "Solve Casida equations", "role": "green", "shape": "process", "detail": "Eigenvalue problem", "sourceRef": 1},
+        {"id": "N4", "label": "Excitation energies + f", "role": "blue", "shape": "process", "detail": "Energies and oscillator strengths", "sourceRef": 1},
+        {"id": "N5", "label": "Symmetry-allowed?", "role": "blue", "shape": "decision", "detail": "Selection rules", "sourceRef": 2},
+        {"id": "N6", "label": "Forbidden: dark state", "role": "green", "shape": "process", "detail": "Low oscillator strength", "sourceRef": 2},
+        {"id": "N7", "label": "Allowed: bright state", "role": "green", "shape": "process", "detail": "Strong absorption", "sourceRef": 2},
+        {"id": "N8", "label": "Franck–Condon structure", "role": "blue", "shape": "process", "detail": "Vibronic progression", "sourceRef": 2},
+        {"id": "N9", "label": "Simulate UV-Vis spectrum", "role": "green", "shape": "process", "detail": "Broadened band shape", "sourceRef": 1},
+        {"id": "N10", "label": "Assigned transitions", "role": "violet", "shape": "process", "detail": "Spectrum interpreted", "sourceRef": 1}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"},
+        {"from": "N5", "to": "N6", "label": "no"}, {"from": "N5", "to": "N7", "label": "yes"}, {"from": "N6", "to": "N9"}, {"from": "N7", "to": "N8"}, {"from": "N8", "to": "N9"}, {"from": "N9", "to": "N10"}
+      ]
+    },
+    {
+      "id": "quantum_chemistry-spectroscopic-calculations",
+      "name": "Harmonic Vibrational (IR) Frequencies",
+      "description": "Vibrational frequencies follow from the Hessian at an optimized geometry: mass-weighting and diagonalization give normal modes; the absence of imaginary frequencies confirms a minimum, IR intensities come from dipole derivatives, and scaled frequencies simulate the IR spectrum.",
+      "graphType": "cyclic_pathway",
+      "domainContext": "Vibrational spectra computation",
+      "namedCollections": ["quantum-chemistry"],
+      "keywords": ["hessian", "normal modes", "vibrational frequencies", "ir intensity", "frequency scaling"],
+      "basis": "source_extraction:quantum_chemistry-spectroscopic-calculations",
+      "sources": [
+        {"title": "Introduction to Computational Chemistry, 3rd ed. — Vibrational Frequencies", "authors": "Jensen, F.", "journal": "Wiley", "year": "2017", "doi": "10.1002/9781119839118", "url": "https://doi.org/10.1002/9781119839118"},
+        {"title": "Harmonic vibrational frequencies: scale factors for obtaining fundamentals", "authors": "Scott, A. P.; Radom, L.", "journal": "Journal of Physical Chemistry", "year": "1996", "doi": "10.1021/jp960976r", "url": "https://doi.org/10.1021/jp960976r"},
+        {"title": "Essentials of Computational Chemistry: Theories and Models, 2nd ed.", "authors": "Cramer, C. J.", "journal": "Wiley", "year": "2004", "doi": null, "url": "https://www.wiley.com/en-us/Essentials+of+Computational+Chemistry%3A+Theories+and+Models%2C+2nd+Edition-p-9780470091821"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Optimized geometry", "role": "red", "shape": "process", "detail": "Stationary point", "sourceRef": 0},
+        {"id": "N2", "label": "Compute Hessian", "role": "green", "shape": "process", "detail": "Second energy derivatives", "sourceRef": 0},
+        {"id": "N3", "label": "Mass-weight + diagonalize", "role": "green", "shape": "process", "detail": "Solve eigenvalue problem", "sourceRef": 0},
+        {"id": "N4", "label": "Normal modes + freqs", "role": "blue", "shape": "process", "detail": "Force-constant eigenvalues", "sourceRef": 0},
+        {"id": "N5", "label": "Imaginary frequencies?", "role": "blue", "shape": "decision", "detail": "Minimum vs saddle", "sourceRef": 0},
+        {"id": "N6", "label": "Re-optimize geometry", "role": "green", "shape": "process", "detail": "Follow the soft mode", "sourceRef": 2},
+        {"id": "N7", "label": "IR intensities (dμ/dQ)", "role": "green", "shape": "process", "detail": "Dipole derivatives", "sourceRef": 2},
+        {"id": "N8", "label": "Apply scale factor", "role": "green", "shape": "process", "detail": "Correct harmonic bias", "sourceRef": 1},
+        {"id": "N9", "label": "Simulate IR spectrum", "role": "green", "shape": "process", "detail": "Broadened peaks", "sourceRef": 1},
+        {"id": "N10", "label": "Assign vibrational bands", "role": "violet", "shape": "process", "detail": "Mode-by-mode assignment", "sourceRef": 1}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"},
+        {"from": "N5", "to": "N6", "label": "yes"}, {"from": "N6", "to": "N1", "label": "re-run"}, {"from": "N5", "to": "N7", "label": "no"},
+        {"from": "N7", "to": "N8"}, {"from": "N8", "to": "N9"}, {"from": "N9", "to": "N10"}
+      ]
+    },
+    {
+      "id": "quantum_chemistry-molecular-dynamics-simulation-setup",
+      "name": "Molecular Dynamics Setup",
+      "description": "Setting up an MD simulation: define the system and force field, build and minimize the configuration, assign velocities and equilibrate under a thermostat/barostat, then run production dynamics with a stable integration timestep before analyzing the trajectory.",
+      "graphType": "cyclic_pathway",
+      "domainContext": "Molecular dynamics",
+      "namedCollections": ["quantum-chemistry"],
+      "keywords": ["molecular dynamics", "force field", "equilibration", "verlet integration", "thermostat"],
+      "basis": "source_extraction:quantum_chemistry-molecular-dynamics-simulation-setup",
+      "sources": [
+        {"title": "Computer Experiments on Classical Fluids (Verlet integration)", "authors": "Verlet, L.", "journal": "Physical Review", "year": "1967", "doi": "10.1103/PhysRev.159.98", "url": "https://doi.org/10.1103/PhysRev.159.98"},
+        {"title": "Understanding Molecular Simulation: From Algorithms to Applications, 2nd ed.", "authors": "Frenkel, D.; Smit, B.", "journal": "Academic Press", "year": "2002", "doi": "10.1016/B978-0-12-267351-1.X5000-7", "url": "https://doi.org/10.1016/B978-0-12-267351-1.X5000-7"},
+        {"title": "Scalable molecular dynamics with NAMD", "authors": "Phillips, J. C.; et al.", "journal": "Journal of Computational Chemistry", "year": "2005", "doi": "10.1002/jcc.20289", "url": "https://doi.org/10.1002/jcc.20289"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "System + force field", "role": "red", "shape": "process", "detail": "Topology and parameters", "sourceRef": 2},
+        {"id": "N2", "label": "Build / solvate config", "role": "green", "shape": "process", "detail": "Box, solvent, ions", "sourceRef": 1},
+        {"id": "N3", "label": "Energy minimization", "role": "green", "shape": "process", "detail": "Remove bad contacts", "sourceRef": 1},
+        {"id": "N4", "label": "Assign velocities (T)", "role": "green", "shape": "process", "detail": "Maxwell–Boltzmann", "sourceRef": 1},
+        {"id": "N5", "label": "Equilibrate (NVT/NPT)", "role": "green", "shape": "process", "detail": "Thermostat / barostat", "sourceRef": 1},
+        {"id": "N6", "label": "Equilibrated?", "role": "blue", "shape": "decision", "detail": "Properties stationary", "sourceRef": 1},
+        {"id": "N7", "label": "Extend equilibration", "role": "green", "shape": "process", "detail": "Run longer", "sourceRef": 1},
+        {"id": "N8", "label": "Production run", "role": "green", "shape": "process", "detail": "Integrate Newton's equations", "sourceRef": 0},
+        {"id": "N9", "label": "Timestep stable?", "role": "blue", "shape": "decision", "detail": "Energy conservation", "sourceRef": 0},
+        {"id": "N10", "label": "Reduce timestep", "role": "green", "shape": "process", "detail": "Improve stability", "sourceRef": 0},
+        {"id": "N11", "label": "Trajectory analysis", "role": "violet", "shape": "process", "detail": "Ensemble averages", "sourceRef": 2}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"}, {"from": "N5", "to": "N6"},
+        {"from": "N6", "to": "N7", "label": "no"}, {"from": "N7", "to": "N5", "label": "continue"}, {"from": "N6", "to": "N8", "label": "yes"},
+        {"from": "N8", "to": "N9"}, {"from": "N9", "to": "N10", "label": "no"}, {"from": "N10", "to": "N8", "label": "rerun"}, {"from": "N9", "to": "N11", "label": "yes"}
+      ]
+    },
+    {
+      "id": "computational_chemistry-ir-spectroscopy",
+      "name": "Basis Set & Method Selection",
+      "description": "Choosing a computational protocol balances accuracy against cost: pick a method family (DFT vs correlated wavefunction), select a basis set with appropriate polarization/diffuse functions for the chemistry, and benchmark against reference data before committing.",
+      "graphType": "cyclic_pathway",
+      "domainContext": "Computational protocol design",
+      "namedCollections": ["computational-chemistry"],
+      "keywords": ["basis set", "method selection", "dft vs wavefunction", "diffuse functions", "benchmarking"],
+      "basis": "source_extraction:computational_chemistry-ir-spectroscopy",
+      "sources": [
+        {"title": "Gaussian basis sets for use in correlated molecular calculations (cc-pVnZ)", "authors": "Dunning, T. H. Jr.", "journal": "Journal of Chemical Physics", "year": "1989", "doi": "10.1063/1.456153", "url": "https://doi.org/10.1063/1.456153"},
+        {"title": "Introduction to Computational Chemistry, 3rd ed. — Basis Sets and Method Choice", "authors": "Jensen, F.", "journal": "Wiley", "year": "2017", "doi": "10.1002/9781119839118", "url": "https://doi.org/10.1002/9781119839118"},
+        {"title": "Perspective on density functional theory", "authors": "Becke, A. D.", "journal": "Journal of Chemical Physics", "year": "2014", "doi": "10.1063/1.4869598", "url": "https://doi.org/10.1063/1.4869598"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Define chemical problem", "role": "red", "shape": "process", "detail": "Property and system size", "sourceRef": 1},
+        {"id": "N2", "label": "Accuracy vs cost target", "role": "blue", "shape": "decision", "detail": "Affordable rigor", "sourceRef": 1},
+        {"id": "N3", "label": "Method family?", "role": "blue", "shape": "decision", "detail": "DFT vs wavefunction", "sourceRef": 2},
+        {"id": "N4", "label": "DFT (balanced)", "role": "green", "shape": "process", "detail": "Functional choice", "sourceRef": 2},
+        {"id": "N5", "label": "MP2 / CCSD(T)", "role": "green", "shape": "process", "detail": "Correlated wavefunction", "sourceRef": 1},
+        {"id": "N6", "label": "Choose basis set", "role": "green", "shape": "process", "detail": "Zeta level and contraction", "sourceRef": 0},
+        {"id": "N7", "label": "Diffuse/polarization?", "role": "blue", "shape": "decision", "detail": "Anions, H-bonds, excited states", "sourceRef": 0},
+        {"id": "N8", "label": "Add functions", "role": "green", "shape": "process", "detail": "Augment the basis", "sourceRef": 0},
+        {"id": "N9", "label": "Benchmark vs reference", "role": "green", "shape": "process", "detail": "Validate accuracy", "sourceRef": 1},
+        {"id": "N10", "label": "Validated protocol", "role": "violet", "shape": "process", "detail": "Ready for production", "sourceRef": 1}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4", "label": "DFT"}, {"from": "N3", "to": "N5", "label": "WFN"},
+        {"from": "N4", "to": "N6"}, {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7"},
+        {"from": "N7", "to": "N8", "label": "yes"}, {"from": "N8", "to": "N9"}, {"from": "N7", "to": "N9", "label": "no"},
+        {"from": "N9", "to": "N10", "label": "ok"}, {"from": "N9", "to": "N6", "label": "insufficient"}
+      ]
+    },
+    {
+      "id": "computational_chemistry-mass-spectrometry",
+      "name": "Geometry Optimization",
+      "description": "Geometry optimization finds a stationary point by iteratively stepping along energy gradients until they vanish; a subsequent frequency calculation confirms a true minimum (no imaginary modes) or signals a saddle that must be re-optimized.",
+      "graphType": "cyclic_pathway",
+      "domainContext": "Molecular structure optimization",
+      "namedCollections": ["computational-chemistry"],
+      "keywords": ["geometry optimization", "energy gradient", "stationary point", "frequency analysis", "minimum"],
+      "basis": "source_extraction:computational_chemistry-mass-spectrometry",
+      "sources": [
+        {"title": "Geometry optimization in redundant internal coordinates", "authors": "Pulay, P.; Fogarasi, G.", "journal": "Journal of Chemical Physics", "year": "1992", "doi": "10.1063/1.462844", "url": "https://doi.org/10.1063/1.462844"},
+        {"title": "Introduction to Computational Chemistry, 3rd ed. — Optimization Techniques", "authors": "Jensen, F.", "journal": "Wiley", "year": "2017", "doi": "10.1002/9781119839118", "url": "https://doi.org/10.1002/9781119839118"},
+        {"title": "Essentials of Computational Chemistry, 2nd ed. — Potential Energy Surfaces", "authors": "Cramer, C. J.", "journal": "Wiley", "year": "2004", "doi": null, "url": "https://www.wiley.com/en-us/Essentials+of+Computational+Chemistry%3A+Theories+and+Models%2C+2nd+Edition-p-9780470091821"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Initial structure", "role": "red", "shape": "process", "detail": "Starting coordinates", "sourceRef": 1},
+        {"id": "N2", "label": "Energy + gradient", "role": "green", "shape": "process", "detail": "Forces on atoms", "sourceRef": 1},
+        {"id": "N3", "label": "Gradient near zero?", "role": "blue", "shape": "decision", "detail": "Convergence test", "sourceRef": 1},
+        {"id": "N4", "label": "Take optimizer step", "role": "green", "shape": "process", "detail": "Quasi-Newton (BFGS)", "sourceRef": 0},
+        {"id": "N5", "label": "Stationary point found", "role": "green", "shape": "process", "detail": "Forces vanish", "sourceRef": 1},
+        {"id": "N6", "label": "Frequency calculation", "role": "green", "shape": "process", "detail": "Characterize curvature", "sourceRef": 2},
+        {"id": "N7", "label": "Imaginary modes?", "role": "blue", "shape": "decision", "detail": "Minimum vs saddle", "sourceRef": 2},
+        {"id": "N8", "label": "Perturb + reoptimize", "role": "green", "shape": "process", "detail": "Distort along soft mode", "sourceRef": 2},
+        {"id": "N9", "label": "True minimum confirmed", "role": "green", "shape": "process", "detail": "All real frequencies", "sourceRef": 1},
+        {"id": "N10", "label": "Optimized geometry + thermo", "role": "violet", "shape": "process", "detail": "Structure and free energy", "sourceRef": 2}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"},
+        {"from": "N3", "to": "N4", "label": "no"}, {"from": "N4", "to": "N2", "label": "step"}, {"from": "N3", "to": "N5", "label": "yes"},
+        {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7"}, {"from": "N7", "to": "N8", "label": "yes"}, {"from": "N8", "to": "N2", "label": "reoptimize"}, {"from": "N7", "to": "N9", "label": "no"}, {"from": "N9", "to": "N10"}
+      ]
+    },
+    {
+      "id": "computational_chemistry-uv-vis-spectroscopy",
+      "name": "QM/MM Multiscale Modeling",
+      "description": "QM/MM partitions a large system into a small quantum region treated with electronic structure and a classical force-field environment; link atoms handle the boundary and electrostatic embedding couples the regions, enabling reactions in enzymes or solution.",
+      "graphType": "cyclic_pathway",
+      "domainContext": "Multiscale simulation",
+      "namedCollections": ["computational-chemistry"],
+      "keywords": ["qm/mm", "multiscale", "embedding", "link atoms", "enzyme reaction"],
+      "basis": "source_extraction:computational_chemistry-uv-vis-spectroscopy",
+      "sources": [
+        {"title": "Theoretical studies of enzymic reactions (QM/MM)", "authors": "Warshel, A.; Levitt, M.", "journal": "Journal of Molecular Biology", "year": "1976", "doi": "10.1016/0022-2836(76)90311-9", "url": "https://doi.org/10.1016/0022-2836(76)90311-9"},
+        {"title": "QM/MM methods for biomolecular systems", "authors": "Senn, H. M.; Thiel, W.", "journal": "Angewandte Chemie International Edition", "year": "2009", "doi": "10.1002/anie.200802019", "url": "https://doi.org/10.1002/anie.200802019"},
+        {"title": "Multiscale modeling of biological functions: from enzymes to molecular machines (Nobel Lecture)", "authors": "Warshel, A.", "journal": "Angewandte Chemie International Edition", "year": "2014", "doi": "10.1002/anie.201403689", "url": "https://doi.org/10.1002/anie.201403689"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Large system", "role": "red", "shape": "process", "detail": "Enzyme or solvated solute", "sourceRef": 0},
+        {"id": "N2", "label": "Partition QM vs MM", "role": "green", "shape": "process", "detail": "Define the regions", "sourceRef": 1},
+        {"id": "N3", "label": "Reactive site in QM?", "role": "blue", "shape": "decision", "detail": "Capture bond changes", "sourceRef": 1},
+        {"id": "N4", "label": "Expand QM region", "role": "green", "shape": "process", "detail": "Include key residues", "sourceRef": 1},
+        {"id": "N5", "label": "Treat boundary (link atoms)", "role": "green", "shape": "process", "detail": "Cap severed bonds", "sourceRef": 1},
+        {"id": "N6", "label": "QM electronic structure", "role": "green", "shape": "process", "detail": "Quantum region energy", "sourceRef": 0},
+        {"id": "N7", "label": "MM force-field environment", "role": "green", "shape": "process", "detail": "Classical surroundings", "sourceRef": 0},
+        {"id": "N8", "label": "Couple QM–MM (embedding)", "role": "green", "shape": "process", "detail": "Electrostatic embedding", "sourceRef": 1},
+        {"id": "N9", "label": "Energy + forces combined", "role": "blue", "shape": "process", "detail": "Total QM/MM gradient", "sourceRef": 0},
+        {"id": "N10", "label": "Optimize / run dynamics", "role": "green", "shape": "process", "detail": "Sample the system", "sourceRef": 2},
+        {"id": "N11", "label": "Multiscale property", "role": "violet", "shape": "process", "detail": "Reaction barrier / spectrum", "sourceRef": 2}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4", "label": "no"}, {"from": "N4", "to": "N2", "label": "repartition"}, {"from": "N3", "to": "N5", "label": "yes"},
+        {"from": "N5", "to": "N6"}, {"from": "N5", "to": "N7"}, {"from": "N6", "to": "N8"}, {"from": "N7", "to": "N8"}, {"from": "N8", "to": "N9"}, {"from": "N9", "to": "N10"}, {"from": "N10", "to": "N11"}
+      ]
+    },
+    {
+      "id": "computational_chemistry-chromatography",
+      "name": "Molecular Docking (Virtual Screening)",
+      "description": "Molecular docking predicts how ligands bind a target: the receptor is prepared, ligand poses are generated and placed in the binding site, scored for affinity, resampled when poor, ranked, and iterated over a library to shortlist virtual-screening hits.",
+      "graphType": "cyclic_pathway",
+      "domainContext": "Structure-based virtual screening",
+      "namedCollections": ["computational-chemistry"],
+      "keywords": ["molecular docking", "virtual screening", "scoring function", "binding pose", "receptor preparation"],
+      "basis": "source_extraction:computational_chemistry-chromatography",
+      "sources": [
+        {"title": "Development and validation of a genetic algorithm for flexible docking (GOLD)", "authors": "Jones, G.; Willett, P.; Glen, R. C.; Leach, A. R.; Taylor, R.", "journal": "Journal of Molecular Biology", "year": "1997", "doi": "10.1006/jmbi.1996.0897", "url": "https://doi.org/10.1006/jmbi.1996.0897"},
+        {"title": "Docking and scoring in virtual screening for drug discovery", "authors": "Kitchen, D. B.; Decornez, H.; Furr, J. R.; Bajorath, J.", "journal": "Nature Reviews Drug Discovery", "year": "2004", "doi": "10.1038/nrd1549", "url": "https://doi.org/10.1038/nrd1549"},
+        {"title": "AutoDock Vina: improving the speed and accuracy of docking", "authors": "Trott, O.; Olson, A. J.", "journal": "Journal of Computational Chemistry", "year": "2010", "doi": "10.1002/jcc.21334", "url": "https://doi.org/10.1002/jcc.21334"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Target + ligand library", "role": "red", "shape": "process", "detail": "Structure and compounds", "sourceRef": 1},
+        {"id": "N2", "label": "Prepare receptor + grid", "role": "green", "shape": "process", "detail": "Protonate, define site", "sourceRef": 2},
+        {"id": "N3", "label": "Generate ligand poses", "role": "green", "shape": "process", "detail": "Conformers/orientations", "sourceRef": 0},
+        {"id": "N4", "label": "Place pose in site", "role": "green", "shape": "process", "detail": "Sample binding geometry", "sourceRef": 0},
+        {"id": "N5", "label": "Score binding affinity", "role": "green", "shape": "process", "detail": "Scoring function", "sourceRef": 1},
+        {"id": "N6", "label": "Clashes / low score?", "role": "blue", "shape": "decision", "detail": "Pose quality check", "sourceRef": 0},
+        {"id": "N7", "label": "Resample pose", "role": "green", "shape": "process", "detail": "Search again", "sourceRef": 0},
+        {"id": "N8", "label": "Rank top poses", "role": "green", "shape": "process", "detail": "Best per ligand", "sourceRef": 1},
+        {"id": "N9", "label": "More ligands?", "role": "blue", "shape": "decision", "detail": "Iterate the library", "sourceRef": 1},
+        {"id": "N10", "label": "Next ligand", "role": "green", "shape": "process", "detail": "Advance the screen", "sourceRef": 1},
+        {"id": "N11", "label": "Hit shortlist", "role": "violet", "shape": "process", "detail": "Candidates for assay", "sourceRef": 1}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"}, {"from": "N5", "to": "N6"},
+        {"from": "N6", "to": "N7", "label": "yes"}, {"from": "N7", "to": "N4", "label": "resample"}, {"from": "N6", "to": "N8", "label": "no"},
+        {"from": "N8", "to": "N9"}, {"from": "N9", "to": "N10", "label": "yes"}, {"from": "N10", "to": "N3", "label": "dock next"}, {"from": "N9", "to": "N11", "label": "no"}
+      ]
+    },
+    {
+      "id": "computational_chemistry-nmr-spectroscopy",
+      "name": "Free Energy (FEP / TI)",
+      "description": "Alchemical free-energy methods compute a free-energy difference by coupling two end states through a parameter lambda: simulations at intermediate windows are run until sampling converges, and dU/dlambda or energy differences are integrated to give the free-energy change.",
+      "graphType": "cyclic_pathway",
+      "domainContext": "Free-energy simulation",
+      "namedCollections": ["computational-chemistry"],
+      "keywords": ["free energy perturbation", "thermodynamic integration", "alchemical", "lambda windows", "sampling convergence"],
+      "basis": "source_extraction:computational_chemistry-nmr-spectroscopy",
+      "sources": [
+        {"title": "Statistical Mechanics of Fluid Mixtures (thermodynamic integration)", "authors": "Kirkwood, J. G.", "journal": "Journal of Chemical Physics", "year": "1935", "doi": "10.1063/1.1749657", "url": "https://doi.org/10.1063/1.1749657"},
+        {"title": "High-Temperature Equation of State by a Perturbation Method (free-energy perturbation)", "authors": "Zwanzig, R. W.", "journal": "Journal of Chemical Physics", "year": "1954", "doi": "10.1063/1.1740409", "url": "https://doi.org/10.1063/1.1740409"},
+        {"title": "Good practices in free-energy calculations", "authors": "Pohorille, A.; Jarzynski, C.; Chipot, C.", "journal": "Journal of Physical Chemistry B", "year": "2010", "doi": "10.1021/jp102971x", "url": "https://doi.org/10.1021/jp102971x"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Two end states (A, B)", "role": "red", "shape": "process", "detail": "Initial and final systems", "sourceRef": 1},
+        {"id": "N2", "label": "Define coupling λ", "role": "green", "shape": "process", "detail": "Alchemical path", "sourceRef": 0},
+        {"id": "N3", "label": "Set up λ windows", "role": "green", "shape": "process", "detail": "Discretize the path", "sourceRef": 0},
+        {"id": "N4", "label": "Simulate window λ_i", "role": "green", "shape": "process", "detail": "Equilibrate + sample", "sourceRef": 2},
+        {"id": "N5", "label": "Sampling converged?", "role": "blue", "shape": "decision", "detail": "Error estimate acceptable", "sourceRef": 2},
+        {"id": "N6", "label": "Extend sampling", "role": "green", "shape": "process", "detail": "More steps at this λ", "sourceRef": 2},
+        {"id": "N7", "label": "Collect dU/dλ or ΔU", "role": "green", "shape": "process", "detail": "Per-window estimator", "sourceRef": 0},
+        {"id": "N8", "label": "More windows?", "role": "blue", "shape": "decision", "detail": "Cover full path", "sourceRef": 1},
+        {"id": "N9", "label": "Next λ window", "role": "green", "shape": "process", "detail": "Advance along λ", "sourceRef": 0},
+        {"id": "N10", "label": "Integrate / BAR over λ", "role": "green", "shape": "process", "detail": "Combine windows", "sourceRef": 1},
+        {"id": "N11", "label": "Free energy ΔG", "role": "violet", "shape": "process", "detail": "Binding/solvation free energy", "sourceRef": 1}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"},
+        {"from": "N5", "to": "N6", "label": "no"}, {"from": "N6", "to": "N4", "label": "more sampling"}, {"from": "N5", "to": "N7", "label": "yes"},
+        {"from": "N7", "to": "N8"}, {"from": "N8", "to": "N9", "label": "yes"}, {"from": "N9", "to": "N4", "label": "next window"}, {"from": "N8", "to": "N10", "label": "no"}, {"from": "N10", "to": "N11"}
+      ]
+    }
+  ]
+}

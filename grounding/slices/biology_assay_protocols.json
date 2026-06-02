@@ -1,0 +1,215 @@
+{
+  "discipline": "biology",
+  "slice": "assay_protocols",
+  "charts": [
+    {
+      "id": "assay_protocols-pcr",
+      "description": "Polymerase chain reaction: thermostable-polymerase amplification of a target DNA sequence through repeated denaturation, primer annealing, and extension, with a gel size check before the product is accepted.",
+      "graphType": "algorithm_flowchart",
+      "domainContext": "Nucleic-acid amplification protocol",
+      "namedCollections": ["lab-protocols"],
+      "keywords": ["pcr", "amplification", "taq polymerase", "thermal cycling", "primers"],
+      "basis": "source_extraction:assay_protocols-pcr",
+      "sources": [
+        {"title": "Primer-directed enzymatic amplification of DNA with a thermostable DNA polymerase", "authors": "Saiki, R. K.; Gelfand, D. H.; Stoffel, S.; Scharf, S. J.; Higuchi, R.; Horn, G. T.; Mullis, K. B.; Erlich, H. A.", "journal": "Science", "year": "1988", "pubmed": "2448875", "doi": "10.1126/science.2448875", "url": "https://doi.org/10.1126/science.2448875"},
+        {"title": "Specific synthesis of DNA in vitro via a polymerase-catalyzed chain reaction", "authors": "Mullis, K. B.; Faloona, F. A.", "journal": "Methods in Enzymology", "year": "1987", "pubmed": "3431465", "doi": "10.1016/0076-6879(87)55023-6", "url": "https://doi.org/10.1016/0076-6879(87)55023-6"},
+        {"title": "Molecular Cloning: A Laboratory Manual (3rd ed.)", "authors": "Sambrook, J.; Russell, D. W.", "journal": "Cold Spring Harbor Laboratory Press", "year": "2001", "doi": null, "url": "https://www.worldcat.org/oclc/45458336"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Template DNA", "role": "red", "shape": "process", "detail": "Target DNA template containing the sequence to amplify", "sourceRef": 0},
+        {"id": "N2", "label": "Forward + reverse primers", "role": "red", "shape": "process", "detail": "Oligonucleotide primer pair flanking the target", "sourceRef": 1},
+        {"id": "N3", "label": "dNTPs, Taq, Mg2+ buffer", "role": "yellow", "shape": "process", "detail": "Reaction components: dNTPs, thermostable Taq polymerase, Mg2+ buffer", "sourceRef": 0},
+        {"id": "N4", "label": "Assemble mix on ice", "role": "green", "shape": "process", "detail": "Combine template, primers, and master mix on ice", "sourceRef": 2},
+        {"id": "N5", "label": "Initial denaturation 95C", "role": "green", "shape": "process", "detail": "Initial denaturation to separate template strands", "sourceRef": 0},
+        {"id": "N6", "label": "Denature 94C", "role": "green", "shape": "process", "detail": "Per-cycle strand denaturation", "sourceRef": 1},
+        {"id": "N7", "label": "Anneal primers ~55C", "role": "green", "shape": "process", "detail": "Primers anneal to complementary sequences near the target Tm", "sourceRef": 1},
+        {"id": "N8", "label": "Extend at 72C (Taq)", "role": "green", "shape": "process", "detail": "Taq polymerase extends primers 5'->3'", "sourceRef": 0},
+        {"id": "N9", "label": "Cycles complete?", "role": "blue", "shape": "decision", "detail": "Have all (~25-35) thermal cycles run?", "sourceRef": 1},
+        {"id": "N10", "label": "Final extension 72C", "role": "green", "shape": "process", "detail": "Final extension to complete partial products", "sourceRef": 2},
+        {"id": "N11", "label": "Correct amplicon size?", "role": "blue", "shape": "decision", "detail": "Agarose gel check: single band at expected size", "sourceRef": 2},
+        {"id": "N12", "label": "Amplified target DNA", "role": "violet", "shape": "process", "detail": "Purified, correctly sized amplicon", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N4"}, {"from": "N2", "to": "N4"}, {"from": "N3", "to": "N4"},
+        {"from": "N4", "to": "N5"}, {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7"},
+        {"from": "N7", "to": "N8"}, {"from": "N8", "to": "N9"},
+        {"from": "N9", "to": "N6", "label": "no"}, {"from": "N9", "to": "N10", "label": "yes"},
+        {"from": "N10", "to": "N11"},
+        {"from": "N11", "to": "N4", "label": "optimize"}, {"from": "N11", "to": "N12", "label": "yes"}
+      ]
+    },
+    {
+      "id": "assay_protocols-elisa",
+      "description": "Sandwich enzyme-linked immunosorbent assay: a plate-bound capture antibody traps the analyte, an enzyme-conjugated detection antibody and substrate generate colour, and absorbance is read against a cutoff to call the result.",
+      "graphType": "algorithm_flowchart",
+      "domainContext": "Immunoassay protocol",
+      "namedCollections": ["lab-protocols"],
+      "keywords": ["elisa", "immunoassay", "antibody", "absorbance", "antigen"],
+      "basis": "source_extraction:assay_protocols-elisa",
+      "sources": [
+        {"title": "Enzyme-linked immunosorbent assay (ELISA). Quantitative assay of immunoglobulin G", "authors": "Engvall, E.; Perlmann, P.", "journal": "Immunochemistry", "year": "1971", "pubmed": "5135623", "doi": "10.1016/0019-2791(71)90454-X", "url": "https://doi.org/10.1016/0019-2791(71)90454-X"},
+        {"title": "Enzyme immunoassay (EIA)/enzyme-linked immunosorbent assay (ELISA)", "authors": "Lequin, R. M.", "journal": "Clinical Chemistry", "year": "2005", "pubmed": "16179424", "doi": "10.1373/clinchem.2005.051532", "url": "https://doi.org/10.1373/clinchem.2005.051532"},
+        {"title": "The ELISA Guidebook (Methods in Molecular Biology, vol. 516)", "authors": "Crowther, J. R.", "journal": "Humana Press", "year": "2009", "doi": "10.1007/978-1-60327-254-4", "url": "https://doi.org/10.1007/978-1-60327-254-4"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Capture antibody", "role": "red", "shape": "process", "detail": "Antibody specific to the target analyte, used to coat the plate", "sourceRef": 0},
+        {"id": "N2", "label": "Sample antigen", "role": "red", "shape": "process", "detail": "Specimen containing the analyte to quantify", "sourceRef": 1},
+        {"id": "N3", "label": "Microtiter plate", "role": "yellow", "shape": "process", "detail": "96-well polystyrene plate as solid phase", "sourceRef": 2},
+        {"id": "N4", "label": "Coat plate, 4C overnight", "role": "green", "shape": "process", "detail": "Adsorb capture antibody to wells overnight at 4C", "sourceRef": 2},
+        {"id": "N5", "label": "Block with BSA", "role": "green", "shape": "process", "detail": "Block remaining binding sites to reduce background", "sourceRef": 2},
+        {"id": "N6", "label": "Add sample; incubate", "role": "green", "shape": "process", "detail": "Analyte binds captured antibody", "sourceRef": 0},
+        {"id": "N7", "label": "Wash unbound", "role": "green", "shape": "process", "detail": "Remove unbound material", "sourceRef": 2},
+        {"id": "N8", "label": "Enzyme-conj. detection Ab", "role": "green", "shape": "process", "detail": "Add enzyme-labeled detection antibody; incubate", "sourceRef": 0},
+        {"id": "N9", "label": "Wash; add TMB substrate", "role": "green", "shape": "process", "detail": "Wash, then add chromogenic substrate; enzyme develops colour", "sourceRef": 1},
+        {"id": "N10", "label": "Stop; read OD450", "role": "blue", "shape": "process", "detail": "Stop reaction; measure absorbance at 450 nm", "sourceRef": 1},
+        {"id": "N11", "label": "OD above cutoff?", "role": "blue", "shape": "decision", "detail": "Compare signal to standard-curve cutoff", "sourceRef": 1},
+        {"id": "N12", "label": "Analyte quantified", "role": "violet", "shape": "process", "detail": "Positive: analyte concentration read from standard curve", "sourceRef": 0},
+        {"id": "N13", "label": "Reported negative", "role": "violet", "shape": "process", "detail": "Signal below cutoff: analyte not detected", "sourceRef": 1}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N4"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"},
+        {"from": "N5", "to": "N6"}, {"from": "N2", "to": "N6"}, {"from": "N6", "to": "N7"},
+        {"from": "N7", "to": "N8"}, {"from": "N8", "to": "N9"}, {"from": "N9", "to": "N10"},
+        {"from": "N10", "to": "N11"},
+        {"from": "N11", "to": "N12", "label": "yes"}, {"from": "N11", "to": "N13", "label": "no"}
+      ]
+    },
+    {
+      "id": "assay_protocols-western-blot",
+      "description": "Western blot: SDS-PAGE separates denatured proteins by mass, proteins are electro-transferred to a membrane, and a primary/secondary antibody pair with chemiluminescent detection reveals the target band, with a transfer/probe troubleshooting loop.",
+      "graphType": "algorithm_flowchart",
+      "domainContext": "Protein immunodetection protocol",
+      "namedCollections": ["lab-protocols"],
+      "keywords": ["western blot", "sds-page", "immunoblot", "antibody", "chemiluminescence"],
+      "basis": "source_extraction:assay_protocols-western-blot",
+      "sources": [
+        {"title": "Electrophoretic transfer of proteins from polyacrylamide gels to nitrocellulose sheets: procedure and some applications", "authors": "Towbin, H.; Staehelin, T.; Gordon, J.", "journal": "PNAS", "year": "1979", "pubmed": "388439", "doi": "10.1073/pnas.76.9.4350", "url": "https://doi.org/10.1073/pnas.76.9.4350"},
+        {"title": "Western blotting: electrophoretic transfer of proteins from SDS-PAGE to unmodified nitrocellulose and radiographic detection with antibody and radioiodinated protein A", "authors": "Burnette, W. N.", "journal": "Analytical Biochemistry", "year": "1981", "pubmed": "6266278", "doi": "10.1016/0003-2697(81)90281-5", "url": "https://doi.org/10.1016/0003-2697(81)90281-5"},
+        {"title": "Western blot: technique, theory, and trouble shooting", "authors": "Mahmood, T.; Yang, P. C.", "journal": "North American Journal of Medical Sciences", "year": "2012", "pubmed": "23050259", "doi": "10.4103/1947-2714.100998", "url": "https://doi.org/10.4103/1947-2714.100998"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Protein lysate", "role": "red", "shape": "process", "detail": "Cell/tissue protein extract", "sourceRef": 1},
+        {"id": "N2", "label": "Primary antibody", "role": "red", "shape": "process", "detail": "Antibody specific to the target protein", "sourceRef": 2},
+        {"id": "N3", "label": "SDS-PAGE gel", "role": "yellow", "shape": "process", "detail": "Polyacrylamide gel for denaturing electrophoresis", "sourceRef": 0},
+        {"id": "N4", "label": "Denature & load samples", "role": "green", "shape": "process", "detail": "Boil in SDS/reducing buffer; load wells", "sourceRef": 1},
+        {"id": "N5", "label": "SDS-PAGE: separate by MW", "role": "green", "shape": "process", "detail": "Electrophorese to resolve proteins by molecular weight", "sourceRef": 0},
+        {"id": "N6", "label": "Electroblot to membrane", "role": "green", "shape": "process", "detail": "Transfer proteins to nitrocellulose/PVDF", "sourceRef": 0},
+        {"id": "N7", "label": "Block membrane", "role": "green", "shape": "process", "detail": "Block with milk/BSA to limit nonspecific binding", "sourceRef": 2},
+        {"id": "N8", "label": "Probe primary Ab; wash", "role": "green", "shape": "process", "detail": "Incubate primary antibody; wash", "sourceRef": 2},
+        {"id": "N9", "label": "Secondary Ab-HRP; wash", "role": "green", "shape": "process", "detail": "Incubate HRP-conjugated secondary antibody; wash", "sourceRef": 2},
+        {"id": "N10", "label": "Add ECL; image", "role": "blue", "shape": "process", "detail": "Add chemiluminescent substrate; capture image", "sourceRef": 2},
+        {"id": "N11", "label": "Band at expected MW?", "role": "blue", "shape": "decision", "detail": "Is there a specific band at the target molecular weight?", "sourceRef": 2},
+        {"id": "N12", "label": "Detected protein band", "role": "violet", "shape": "process", "detail": "Confirmed target protein signal", "sourceRef": 1}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N4"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"},
+        {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7"}, {"from": "N7", "to": "N8"},
+        {"from": "N2", "to": "N8"}, {"from": "N8", "to": "N9"}, {"from": "N9", "to": "N10"},
+        {"from": "N10", "to": "N11"},
+        {"from": "N11", "to": "N6", "label": "troubleshoot"}, {"from": "N11", "to": "N12", "label": "yes"}
+      ]
+    },
+    {
+      "id": "assay_protocols-dna-extraction",
+      "description": "Genomic DNA extraction: cells are lysed and proteins digested, then DNA is purified either by organic (phenol:chloroform) extraction or by silica-column binding, precipitated/eluted, and accepted only when the A260/A280 purity ratio is acceptable.",
+      "graphType": "algorithm_flowchart",
+      "domainContext": "Nucleic-acid purification protocol",
+      "namedCollections": ["lab-protocols"],
+      "keywords": ["dna extraction", "lysis", "phenol chloroform", "silica column", "purity"],
+      "basis": "source_extraction:assay_protocols-dna-extraction",
+      "sources": [
+        {"title": "Molecular Cloning: A Laboratory Manual (3rd ed.)", "authors": "Sambrook, J.; Russell, D. W.", "journal": "Cold Spring Harbor Laboratory Press", "year": "2001", "doi": null, "url": "https://www.worldcat.org/oclc/45458336"},
+        {"title": "Rapid and simple method for purification of nucleic acids", "authors": "Boom, R.; Sol, C. J.; Salimans, M. M.; Jansen, C. L.; Wertheim-van Dillen, P. M.; van der Noordaa, J.", "journal": "Journal of Clinical Microbiology", "year": "1990", "pubmed": "1691208", "doi": "10.1128/jcm.28.3.495-503.1990", "url": "https://doi.org/10.1128/jcm.28.3.495-503.1990"},
+        {"title": "Isolation of High-Molecular-Weight DNA Using Organic Solvents", "authors": "Green, M. R.; Sambrook, J.", "journal": "Cold Spring Harbor Protocols", "year": "2017", "pubmed": "28373480", "doi": "10.1101/pdb.prot093450", "url": "https://doi.org/10.1101/pdb.prot093450"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Cell/tissue sample", "role": "red", "shape": "process", "detail": "Starting biological material", "sourceRef": 0},
+        {"id": "N2", "label": "Lysis buffer + proteinase K", "role": "yellow", "shape": "process", "detail": "Detergent lysis buffer with proteinase K", "sourceRef": 0},
+        {"id": "N3", "label": "Lyse cells; digest protein", "role": "green", "shape": "process", "detail": "Disrupt membranes and digest proteins to release DNA", "sourceRef": 0},
+        {"id": "N4", "label": "Purification method?", "role": "blue", "shape": "decision", "detail": "Choose organic extraction or silica-column purification", "sourceRef": 1},
+        {"id": "N5", "label": "Phenol:chloroform extract", "role": "green", "shape": "process", "detail": "Partition proteins to organic phase; recover aqueous DNA", "sourceRef": 2},
+        {"id": "N6", "label": "Bind DNA to silica column", "role": "green", "shape": "process", "detail": "Bind DNA to silica in chaotropic salt", "sourceRef": 1},
+        {"id": "N7", "label": "Wash column", "role": "green", "shape": "process", "detail": "Ethanol washes remove salts and contaminants", "sourceRef": 1},
+        {"id": "N8", "label": "Ethanol precipitate", "role": "green", "shape": "process", "detail": "Precipitate DNA from aqueous phase with ethanol", "sourceRef": 2},
+        {"id": "N9", "label": "Elute / resuspend DNA", "role": "green", "shape": "process", "detail": "Elute or resuspend purified DNA in buffer", "sourceRef": 0},
+        {"id": "N10", "label": "A260/A280 ~ 1.8?", "role": "blue", "shape": "decision", "detail": "Spectrophotometric purity check (~1.8 for DNA)", "sourceRef": 0},
+        {"id": "N11", "label": "Purified genomic DNA", "role": "violet", "shape": "process", "detail": "Clean genomic DNA ready for downstream use", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N3"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"},
+        {"from": "N4", "to": "N5", "label": "organic"}, {"from": "N4", "to": "N6", "label": "column"},
+        {"from": "N5", "to": "N8"}, {"from": "N6", "to": "N7"}, {"from": "N7", "to": "N9"},
+        {"from": "N8", "to": "N9"}, {"from": "N9", "to": "N10"},
+        {"from": "N10", "to": "N3", "label": "re-extract"}, {"from": "N10", "to": "N11", "label": "yes"}
+      ]
+    },
+    {
+      "id": "assay_protocols-agarose-gel",
+      "description": "Agarose gel electrophoresis: DNA fragments loaded alongside a size ladder migrate through an agarose matrix toward the anode and separate by size, are stained and visualised under UV, and re-run at adjusted conditions if bands are not resolved.",
+      "graphType": "algorithm_flowchart",
+      "domainContext": "Nucleic-acid separation protocol",
+      "namedCollections": ["lab-protocols"],
+      "keywords": ["agarose", "electrophoresis", "dna ladder", "size separation", "uv"],
+      "basis": "source_extraction:assay_protocols-agarose-gel",
+      "sources": [
+        {"title": "The gel electrophoresis of DNA", "authors": "Aaij, C.; Borst, P.", "journal": "Biochimica et Biophysica Acta", "year": "1972", "pubmed": "4555955", "doi": "10.1016/0005-2787(72)90426-9", "url": "https://doi.org/10.1016/0005-2787(72)90426-9"},
+        {"title": "Agarose gel electrophoresis for the separation of DNA fragments", "authors": "Lee, P. Y.; Costumbrado, J.; Hsu, C. Y.; Kim, Y. H.", "journal": "Journal of Visualized Experiments", "year": "2012", "pubmed": "22546956", "doi": "10.3791/3923", "url": "https://doi.org/10.3791/3923"},
+        {"title": "Molecular Cloning: A Laboratory Manual (3rd ed.)", "authors": "Sambrook, J.; Russell, D. W.", "journal": "Cold Spring Harbor Laboratory Press", "year": "2001", "doi": null, "url": "https://www.worldcat.org/oclc/45458336"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "DNA samples", "role": "red", "shape": "process", "detail": "Fragments to be sized, in loading dye", "sourceRef": 1},
+        {"id": "N2", "label": "DNA size ladder", "role": "red", "shape": "process", "detail": "Reference ladder of known fragment sizes", "sourceRef": 2},
+        {"id": "N3", "label": "Agarose + TAE buffer", "role": "yellow", "shape": "process", "detail": "Agarose dissolved in TAE/TBE running buffer", "sourceRef": 2},
+        {"id": "N4", "label": "Cast gel with comb", "role": "green", "shape": "process", "detail": "Pour molten agarose, set with comb to form wells", "sourceRef": 2},
+        {"id": "N5", "label": "Load samples + ladder", "role": "green", "shape": "process", "detail": "Load DNA and ladder into wells", "sourceRef": 1},
+        {"id": "N6", "label": "Apply voltage; migrate", "role": "green", "shape": "process", "detail": "DNA migrates toward the anode; smaller fragments move faster", "sourceRef": 0},
+        {"id": "N7", "label": "Dye front near gel end?", "role": "blue", "shape": "decision", "detail": "Has the tracking dye migrated far enough?", "sourceRef": 1},
+        {"id": "N8", "label": "Stain; visualize on UV", "role": "green", "shape": "process", "detail": "Stain with intercalating dye; image under UV", "sourceRef": 1},
+        {"id": "N9", "label": "Bands resolved at size?", "role": "blue", "shape": "decision", "detail": "Are fragments resolved at expected sizes vs ladder?", "sourceRef": 2},
+        {"id": "N10", "label": "Sized DNA fragments imaged", "role": "violet", "shape": "process", "detail": "Gel image with fragments sized against the ladder", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"}, {"from": "N1", "to": "N5"},
+        {"from": "N2", "to": "N5"}, {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7"},
+        {"from": "N7", "to": "N6", "label": "no"}, {"from": "N7", "to": "N8", "label": "yes"},
+        {"from": "N8", "to": "N9"},
+        {"from": "N9", "to": "N4", "label": "adjust %"}, {"from": "N9", "to": "N10", "label": "yes"}
+      ]
+    },
+    {
+      "id": "assay_protocols-bacterial-transformation",
+      "description": "Heat-shock transformation: plasmid DNA is mixed with chemically competent E. coli, a brief 42 C heat shock drives uptake, cells recover and express the resistance marker, and selective plating yields transformed colonies, with a retry loop when no colonies appear.",
+      "graphType": "algorithm_flowchart",
+      "domainContext": "Microbial genetic-transformation protocol",
+      "namedCollections": ["lab-protocols"],
+      "keywords": ["transformation", "competent cells", "heat shock", "plasmid", "selection"],
+      "basis": "source_extraction:assay_protocols-bacterial-transformation",
+      "sources": [
+        {"title": "Nonchromosomal antibiotic resistance in bacteria: genetic transformation of Escherichia coli by R-factor DNA", "authors": "Cohen, S. N.; Chang, A. C.; Hsu, L.", "journal": "PNAS", "year": "1972", "pubmed": "4559594", "doi": "10.1073/pnas.69.8.2110", "url": "https://doi.org/10.1073/pnas.69.8.2110"},
+        {"title": "Studies on transformation of Escherichia coli with plasmids", "authors": "Hanahan, D.", "journal": "Journal of Molecular Biology", "year": "1983", "pubmed": "6345791", "doi": "10.1016/S0022-2836(83)80284-8", "url": "https://doi.org/10.1016/S0022-2836(83)80284-8"},
+        {"title": "Transformation of plasmid DNA into E. coli using the heat shock method", "authors": "Froger, A.; Hall, J. E.", "journal": "Journal of Visualized Experiments", "year": "2007", "pubmed": "18997900", "doi": "10.3791/253", "url": "https://doi.org/10.3791/253"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Competent E. coli", "role": "red", "shape": "process", "detail": "Chemically competent E. coli cells", "sourceRef": 1},
+        {"id": "N2", "label": "Plasmid DNA (marker)", "role": "red", "shape": "process", "detail": "Plasmid carrying a selectable resistance marker", "sourceRef": 0},
+        {"id": "N3", "label": "Selective agar + antibiotic", "role": "yellow", "shape": "process", "detail": "Agar plates containing the selection antibiotic", "sourceRef": 0},
+        {"id": "N4", "label": "Mix DNA + cells on ice", "role": "green", "shape": "process", "detail": "Combine plasmid with competent cells; incubate on ice", "sourceRef": 2},
+        {"id": "N5", "label": "Heat shock 42C, 45s", "role": "green", "shape": "process", "detail": "Brief 42 C heat shock to promote DNA uptake", "sourceRef": 1},
+        {"id": "N6", "label": "Return to ice", "role": "green", "shape": "process", "detail": "Chill cells immediately after heat shock", "sourceRef": 2},
+        {"id": "N7", "label": "Recover in SOC, 37C 1h", "role": "green", "shape": "process", "detail": "Outgrowth in rich medium to express resistance", "sourceRef": 1},
+        {"id": "N8", "label": "Plate on selective agar", "role": "green", "shape": "process", "detail": "Spread cells on antibiotic plates", "sourceRef": 0},
+        {"id": "N9", "label": "Incubate 37C overnight", "role": "green", "shape": "process", "detail": "Grow colonies overnight", "sourceRef": 2},
+        {"id": "N10", "label": "Colonies on plate?", "role": "blue", "shape": "decision", "detail": "Did antibiotic-resistant colonies grow?", "sourceRef": 1},
+        {"id": "N11", "label": "Transformed colonies", "role": "violet", "shape": "process", "detail": "Colonies carrying the plasmid", "sourceRef": 0},
+        {"id": "N12", "label": "Check competency/DNA", "role": "yellow", "shape": "process", "detail": "Troubleshoot cell competency and DNA quality", "sourceRef": 1}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N4"}, {"from": "N2", "to": "N4"}, {"from": "N4", "to": "N5"},
+        {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7"}, {"from": "N7", "to": "N8"},
+        {"from": "N3", "to": "N8"}, {"from": "N8", "to": "N9"}, {"from": "N9", "to": "N10"},
+        {"from": "N10", "to": "N11", "label": "yes"}, {"from": "N10", "to": "N12", "label": "no"},
+        {"from": "N12", "to": "N4", "label": "retry"}
+      ]
+    }
+  ]
+}

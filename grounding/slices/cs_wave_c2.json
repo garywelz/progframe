@@ -1,0 +1,224 @@
+{
+  "discipline": "computer-science",
+  "slice": "machine_learning",
+  "charts": [
+    {
+      "id": "machine_learning-feature-engineering-pipeline",
+      "name": "Feature Engineering Pipeline",
+      "description": "Feature engineering turns raw data into model-ready inputs: records are cleaned and missing values handled, categorical variables encoded, numeric features scaled, and derived features created, then features are selected by importance; transformations are fit only on training data to avoid leakage before producing the feature matrix.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Machine learning",
+      "keywords": ["feature engineering", "data preprocessing", "feature scaling", "feature selection", "data leakage"],
+      "basis": "source_extraction:machine_learning-feature-engineering-pipeline",
+      "sources": [
+        {"title": "Feature Engineering and Selection: A Practical Approach for Predictive Models", "authors": "Kuhn, M.; Johnson, K.", "journal": "CRC Press", "year": "2019", "doi": "10.1201/9781315108230", "url": "https://doi.org/10.1201/9781315108230"},
+        {"title": "Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow (2nd ed.)", "authors": "Geron, A.", "journal": "O'Reilly Media", "year": "2019", "url": "https://www.oreilly.com/library/view/hands-on-machine-learning/9781492032632/"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Raw dataset", "role": "red", "shape": "process", "detail": "Heterogeneous columns", "sourceRef": 1},
+        {"id": "N2", "label": "Clean + handle missing", "role": "green", "shape": "process", "detail": "Impute / drop", "sourceRef": 0},
+        {"id": "N3", "label": "Encode categoricals", "role": "green", "shape": "process", "detail": "One-hot / target", "sourceRef": 0},
+        {"id": "N4", "label": "Scale / normalize", "role": "green", "shape": "process", "detail": "Standardize numerics", "sourceRef": 1},
+        {"id": "N5", "label": "Create derived features", "role": "green", "shape": "process", "detail": "Ratios, interactions", "sourceRef": 0},
+        {"id": "N6", "label": "Select / reduce features", "role": "green", "shape": "process", "detail": "Importance, PCA", "sourceRef": 1},
+        {"id": "N7", "label": "Feature importance ok?", "role": "blue", "shape": "decision", "detail": "Signal vs noise", "sourceRef": 1},
+        {"id": "N8", "label": "Drop or transform", "role": "green", "shape": "process", "detail": "Refine set", "sourceRef": 0},
+        {"id": "N9", "label": "Prevent leakage (train fit)", "role": "blue", "shape": "process", "detail": "Fit on train only", "sourceRef": 0},
+        {"id": "N10", "label": "Feature matrix ready", "role": "violet", "shape": "process", "detail": "Model input", "sourceRef": 1}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"}, {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7"},
+        {"from": "N7", "to": "N8", "label": "no"}, {"from": "N8", "to": "N5", "label": "iterate"}, {"from": "N7", "to": "N9", "label": "yes"}, {"from": "N9", "to": "N10"}
+      ]
+    },
+    {
+      "id": "machine_learning-hyperparameter-optimization",
+      "name": "Hyperparameter Optimization",
+      "description": "Hyperparameter optimization searches configuration space for the best-performing model: a strategy is chosen among grid, random, or Bayesian search, candidate configurations are sampled, scored by cross-validation, and the best is tracked; sampling continues until the budget is exhausted, returning the optimal hyperparameters.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Machine learning",
+      "keywords": ["hyperparameter optimization", "grid search", "random search", "Bayesian optimization", "cross-validation"],
+      "basis": "source_extraction:machine_learning-hyperparameter-optimization",
+      "sources": [
+        {"title": "Random search for hyper-parameter optimization", "authors": "Bergstra, J.; Bengio, Y.", "journal": "Journal of Machine Learning Research", "year": "2012", "url": "https://jmlr.org/papers/v13/bergstra12a.html"},
+        {"title": "Practical Bayesian optimization of machine learning algorithms", "authors": "Snoek, J.; Larochelle, H.; Adams, R. P.", "journal": "Advances in Neural Information Processing Systems", "year": "2012", "url": "https://arxiv.org/abs/1206.2944"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Model + search space", "role": "red", "shape": "process", "detail": "Define ranges", "sourceRef": 0},
+        {"id": "N2", "label": "Choose search strategy", "role": "blue", "shape": "decision", "detail": "Exploration method", "sourceRef": 0},
+        {"id": "N3", "label": "Grid search", "role": "green", "shape": "process", "detail": "Exhaustive mesh", "sourceRef": 0},
+        {"id": "N4", "label": "Random search", "role": "green", "shape": "process", "detail": "Sample uniformly", "sourceRef": 0},
+        {"id": "N5", "label": "Bayesian optimization", "role": "green", "shape": "process", "detail": "Surrogate model", "sourceRef": 1},
+        {"id": "N6", "label": "Sample configuration", "role": "green", "shape": "process", "detail": "Pick next point", "sourceRef": 1},
+        {"id": "N7", "label": "Cross-validate score", "role": "green", "shape": "process", "detail": "Estimate performance", "sourceRef": 0},
+        {"id": "N8", "label": "Better than best?", "role": "blue", "shape": "decision", "detail": "Compare metric", "sourceRef": 1},
+        {"id": "N9", "label": "Update best config", "role": "green", "shape": "process", "detail": "Track incumbent", "sourceRef": 1},
+        {"id": "N10", "label": "Budget exhausted?", "role": "blue", "shape": "decision", "detail": "Trials / time", "sourceRef": 0},
+        {"id": "N11", "label": "Best hyperparameters", "role": "violet", "shape": "process", "detail": "Tuned model", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3", "label": "grid"}, {"from": "N2", "to": "N4", "label": "random"}, {"from": "N2", "to": "N5", "label": "bayesian"},
+        {"from": "N3", "to": "N6"}, {"from": "N4", "to": "N6"}, {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7"}, {"from": "N7", "to": "N8"},
+        {"from": "N8", "to": "N9", "label": "yes"}, {"from": "N9", "to": "N10"}, {"from": "N8", "to": "N10", "label": "no"}, {"from": "N10", "to": "N6", "label": "no"}, {"from": "N10", "to": "N11", "label": "yes"}
+      ]
+    },
+    {
+      "id": "machine_learning-model-training-pipeline",
+      "name": "Model Training Pipeline",
+      "description": "A model training pipeline manages the end-to-end fit: data is split into train, validation, and test, parameters initialized, and the model trained over mini-batches while monitoring training and validation loss; regularization counters overfitting and the best checkpoint is kept once validation converges, yielding the trained model.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Machine learning",
+      "keywords": ["training pipeline", "train-validation split", "overfitting", "regularization", "checkpointing"],
+      "basis": "source_extraction:machine_learning-model-training-pipeline",
+      "sources": [
+        {"title": "Deep Learning", "authors": "Goodfellow, I.; Bengio, Y.; Courville, A.", "journal": "MIT Press", "year": "2016", "url": "https://www.deeplearningbook.org/"},
+        {"title": "Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow (2nd ed.)", "authors": "Geron, A.", "journal": "O'Reilly Media", "year": "2019", "url": "https://www.oreilly.com/library/view/hands-on-machine-learning/9781492032632/"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Training data + model", "role": "red", "shape": "process", "detail": "Architecture chosen", "sourceRef": 0},
+        {"id": "N2", "label": "Split train/val/test", "role": "green", "shape": "process", "detail": "Disjoint partitions", "sourceRef": 1},
+        {"id": "N3", "label": "Initialize parameters", "role": "green", "shape": "process", "detail": "Weight init", "sourceRef": 0},
+        {"id": "N4", "label": "Train on mini-batches", "role": "green", "shape": "process", "detail": "Iterate epochs", "sourceRef": 0},
+        {"id": "N5", "label": "Compute training loss", "role": "blue", "shape": "process", "detail": "Objective value", "sourceRef": 0},
+        {"id": "N6", "label": "Evaluate on validation", "role": "green", "shape": "process", "detail": "Held-out metric", "sourceRef": 1},
+        {"id": "N7", "label": "Overfitting?", "role": "blue", "shape": "decision", "detail": "Train << val gap", "sourceRef": 0},
+        {"id": "N8", "label": "Regularize / augment", "role": "green", "shape": "process", "detail": "Dropout, L2, data", "sourceRef": 0},
+        {"id": "N9", "label": "Converged?", "role": "blue", "shape": "decision", "detail": "Val loss plateau", "sourceRef": 1},
+        {"id": "N10", "label": "Checkpoint best model", "role": "green", "shape": "process", "detail": "Save weights", "sourceRef": 1},
+        {"id": "N11", "label": "Trained model", "role": "violet", "shape": "process", "detail": "Ready to test", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"}, {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7"},
+        {"from": "N7", "to": "N8", "label": "yes"}, {"from": "N8", "to": "N4", "label": "retrain"}, {"from": "N7", "to": "N9", "label": "no"},
+        {"from": "N9", "to": "N4", "label": "no"}, {"from": "N9", "to": "N10", "label": "yes"}, {"from": "N10", "to": "N11"}
+      ]
+    },
+    {
+      "id": "machine_learning-model-evaluation-and-validation",
+      "name": "Model Evaluation & Validation",
+      "description": "Model evaluation estimates generalization rather than training fit: metrics are chosen by task (precision/recall for classification, RMSE/R-squared for regression), k-fold cross-validation gives mean and variance of performance, the bias-variance regime is diagnosed, and a final held-out test confirms the model generalizes before acceptance.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Machine learning",
+      "keywords": ["model evaluation", "cross-validation", "bias-variance", "generalization", "held-out test"],
+      "basis": "source_extraction:machine_learning-model-evaluation-and-validation",
+      "sources": [
+        {"title": "The Elements of Statistical Learning (2nd ed.)", "authors": "Hastie, T.; Tibshirani, R.; Friedman, J.", "journal": "Springer", "year": "2009", "doi": "10.1007/978-0-387-84858-7", "url": "https://doi.org/10.1007/978-0-387-84858-7"},
+        {"title": "A study of cross-validation and bootstrap for accuracy estimation and model selection", "authors": "Kohavi, R.", "journal": "International Joint Conference on Artificial Intelligence", "year": "1995", "url": "https://www.ijcai.org/Proceedings/95-2/Papers/016.pdf"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Trained model + test set", "role": "red", "shape": "process", "detail": "Evaluation inputs", "sourceRef": 0},
+        {"id": "N2", "label": "Choose metric (task)", "role": "blue", "shape": "decision", "detail": "Problem type", "sourceRef": 0},
+        {"id": "N3", "label": "Classification: P/R/F1", "role": "green", "shape": "process", "detail": "Confusion matrix", "sourceRef": 0},
+        {"id": "N4", "label": "Regression: RMSE/R^2", "role": "green", "shape": "process", "detail": "Error metrics", "sourceRef": 0},
+        {"id": "N5", "label": "K-fold cross-validation", "role": "green", "shape": "process", "detail": "Resample splits", "sourceRef": 1},
+        {"id": "N6", "label": "Compute mean + variance", "role": "green", "shape": "process", "detail": "Score stability", "sourceRef": 1},
+        {"id": "N7", "label": "High bias or variance?", "role": "blue", "shape": "decision", "detail": "Diagnose regime", "sourceRef": 0},
+        {"id": "N8", "label": "Diagnose under/overfit", "role": "green", "shape": "process", "detail": "Adjust complexity", "sourceRef": 0},
+        {"id": "N9", "label": "Check on held-out test", "role": "green", "shape": "process", "detail": "Final estimate", "sourceRef": 1},
+        {"id": "N10", "label": "Generalization ok?", "role": "blue", "shape": "decision", "detail": "Meets target", "sourceRef": 0},
+        {"id": "N11", "label": "Validated model", "role": "violet", "shape": "process", "detail": "Accepted", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3", "label": "classification"}, {"from": "N2", "to": "N4", "label": "regression"},
+        {"from": "N3", "to": "N5"}, {"from": "N4", "to": "N5"}, {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7"},
+        {"from": "N7", "to": "N8", "label": "yes"}, {"from": "N7", "to": "N9", "label": "no"}, {"from": "N8", "to": "N9"},
+        {"from": "N9", "to": "N10"}, {"from": "N10", "to": "N8", "label": "no"}, {"from": "N10", "to": "N11", "label": "yes"}
+      ]
+    },
+    {
+      "id": "machine_learning-quality-assurance",
+      "name": "K-Means Clustering",
+      "description": "K-means partitions unlabeled data into k clusters by minimizing within-cluster variance: after initializing k centroids, each point is assigned to its nearest centroid and centroids are recomputed as cluster means; this repeats until assignments stop changing, and cluster quality guides whether to adjust k.",
+      "graphType": "cyclic_pathway",
+      "domainContext": "Unsupervised machine learning",
+      "keywords": ["k-means", "clustering", "centroid", "Lloyd's algorithm", "within-cluster variance"],
+      "basis": "source_extraction:machine_learning-quality-assurance",
+      "sources": [
+        {"title": "Least squares quantization in PCM", "authors": "Lloyd, S. P.", "journal": "IEEE Transactions on Information Theory", "year": "1982", "doi": "10.1109/TIT.1982.1056489", "url": "https://doi.org/10.1109/TIT.1982.1056489"},
+        {"title": "k-means++: the advantages of careful seeding", "authors": "Arthur, D.; Vassilvitskii, S.", "journal": "ACM-SIAM Symposium on Discrete Algorithms", "year": "2007", "doi": "10.5555/1283383.1283494", "url": "https://dl.acm.org/doi/10.5555/1283383.1283494"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Unlabeled data points", "role": "red", "shape": "process", "detail": "Feature vectors", "sourceRef": 0},
+        {"id": "N2", "label": "Choose k clusters", "role": "green", "shape": "process", "detail": "Number of groups", "sourceRef": 0},
+        {"id": "N3", "label": "Initialize centroids", "role": "green", "shape": "process", "detail": "k-means++ seeding", "sourceRef": 1},
+        {"id": "N4", "label": "Assign to nearest", "role": "green", "shape": "process", "detail": "Min distance", "sourceRef": 0},
+        {"id": "N5", "label": "Recompute centroids", "role": "green", "shape": "process", "detail": "Cluster means", "sourceRef": 0},
+        {"id": "N6", "label": "Assignments changed?", "role": "blue", "shape": "decision", "detail": "Membership shift", "sourceRef": 0},
+        {"id": "N7", "label": "Iterate", "role": "green", "shape": "process", "detail": "Next round", "sourceRef": 0},
+        {"id": "N8", "label": "Converged", "role": "blue", "shape": "process", "detail": "Stable clusters", "sourceRef": 0},
+        {"id": "N9", "label": "Inertia / silhouette", "role": "green", "shape": "process", "detail": "Quality measure", "sourceRef": 1},
+        {"id": "N10", "label": "Good k?", "role": "blue", "shape": "decision", "detail": "Elbow / score", "sourceRef": 1},
+        {"id": "N11", "label": "Adjust k", "role": "green", "shape": "process", "detail": "Re-cluster", "sourceRef": 1},
+        {"id": "N12", "label": "Cluster assignments", "role": "violet", "shape": "process", "detail": "Final partition", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"}, {"from": "N5", "to": "N6"},
+        {"from": "N6", "to": "N7", "label": "yes"}, {"from": "N7", "to": "N4", "label": "reassign"}, {"from": "N6", "to": "N8", "label": "no"},
+        {"from": "N8", "to": "N9"}, {"from": "N9", "to": "N10"}, {"from": "N10", "to": "N11", "label": "no"}, {"from": "N11", "to": "N3", "label": "retry"}, {"from": "N10", "to": "N12", "label": "yes"}
+      ]
+    },
+    {
+      "id": "machine_learning-software-development-lifecycle",
+      "name": "Backpropagation Training",
+      "description": "Backpropagation trains a neural network by gradient descent: a forward pass computes the output and loss, then the loss gradient is propagated backward layer by layer via the chain rule to obtain per-parameter gradients; weights are updated and the cycle repeats over the data until the loss converges.",
+      "graphType": "cyclic_pathway",
+      "domainContext": "Deep learning",
+      "keywords": ["backpropagation", "chain rule", "gradient descent", "neural network", "loss gradient"],
+      "basis": "source_extraction:machine_learning-software-development-lifecycle",
+      "sources": [
+        {"title": "Learning representations by back-propagating errors", "authors": "Rumelhart, D. E.; Hinton, G. E.; Williams, R. J.", "journal": "Nature", "year": "1986", "doi": "10.1038/323533a0", "url": "https://doi.org/10.1038/323533a0"},
+        {"title": "Deep Learning", "authors": "Goodfellow, I.; Bengio, Y.; Courville, A.", "journal": "MIT Press", "year": "2016", "url": "https://www.deeplearningbook.org/"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Neural network + loss", "role": "red", "shape": "process", "detail": "Layers + objective", "sourceRef": 1},
+        {"id": "N2", "label": "Forward pass per layer", "role": "green", "shape": "process", "detail": "Compute activations", "sourceRef": 0},
+        {"id": "N3", "label": "Compute output + loss", "role": "blue", "shape": "process", "detail": "Prediction error", "sourceRef": 0},
+        {"id": "N4", "label": "Loss gradient at output", "role": "green", "shape": "process", "detail": "dL/d(output)", "sourceRef": 0},
+        {"id": "N5", "label": "Apply chain rule back", "role": "green", "shape": "process", "detail": "Layer by layer", "sourceRef": 0},
+        {"id": "N6", "label": "Gradients per layer", "role": "blue", "shape": "process", "detail": "dL/dW for each", "sourceRef": 0},
+        {"id": "N7", "label": "More layers upstream?", "role": "blue", "shape": "decision", "detail": "Reached input?", "sourceRef": 0},
+        {"id": "N8", "label": "Propagate to prev layer", "role": "green", "shape": "process", "detail": "Continue backward", "sourceRef": 0},
+        {"id": "N9", "label": "Update weights (GD)", "role": "green", "shape": "process", "detail": "W -= lr * grad", "sourceRef": 1},
+        {"id": "N10", "label": "Converged / max epochs?", "role": "blue", "shape": "decision", "detail": "Stopping rule", "sourceRef": 1},
+        {"id": "N11", "label": "Repeat forward pass", "role": "green", "shape": "process", "detail": "Next iteration", "sourceRef": 0},
+        {"id": "N12", "label": "Trained weights", "role": "violet", "shape": "process", "detail": "Fitted network", "sourceRef": 1}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"}, {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7"},
+        {"from": "N7", "to": "N8", "label": "yes"}, {"from": "N8", "to": "N5", "label": "continue"}, {"from": "N7", "to": "N9", "label": "no"},
+        {"from": "N9", "to": "N10"}, {"from": "N10", "to": "N11", "label": "no"}, {"from": "N11", "to": "N2", "label": "epoch"}, {"from": "N10", "to": "N12", "label": "yes"}
+      ]
+    },
+    {
+      "id": "machine_learning-project-management",
+      "name": "Support Vector Machine (SVM)",
+      "description": "A support vector machine classifies by finding the maximum-margin hyperplane: data is mapped into a feature space, and if not linearly separable a kernel implicitly lifts it higher; solving the dual quadratic program identifies the support vectors that define the boundary, with a soft margin allowing controlled violations.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Supervised machine learning",
+      "keywords": ["support vector machine", "maximum margin", "kernel trick", "support vectors", "soft margin"],
+      "basis": "source_extraction:machine_learning-project-management",
+      "sources": [
+        {"title": "Support-vector networks", "authors": "Cortes, C.; Vapnik, V.", "journal": "Machine Learning", "year": "1995", "doi": "10.1007/BF00994018", "url": "https://doi.org/10.1007/BF00994018"},
+        {"title": "A training algorithm for optimal margin classifiers", "authors": "Boser, B. E.; Guyon, I. M.; Vapnik, V. N.", "journal": "Workshop on Computational Learning Theory", "year": "1992", "doi": "10.1145/130385.130401", "url": "https://doi.org/10.1145/130385.130401"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Labeled training data", "role": "red", "shape": "process", "detail": "Two classes", "sourceRef": 0},
+        {"id": "N2", "label": "Map to feature space", "role": "green", "shape": "process", "detail": "Represent points", "sourceRef": 0},
+        {"id": "N3", "label": "Linearly separable?", "role": "blue", "shape": "decision", "detail": "In current space", "sourceRef": 1},
+        {"id": "N4", "label": "Apply kernel trick", "role": "green", "shape": "process", "detail": "Implicit lift", "sourceRef": 0},
+        {"id": "N5", "label": "Maximize margin", "role": "green", "shape": "process", "detail": "Widest gap", "sourceRef": 0},
+        {"id": "N6", "label": "Solve QP (dual)", "role": "green", "shape": "process", "detail": "Convex optimization", "sourceRef": 1},
+        {"id": "N7", "label": "Identify support vectors", "role": "blue", "shape": "process", "detail": "Boundary points", "sourceRef": 0},
+        {"id": "N8", "label": "Soft margin (slack C)?", "role": "blue", "shape": "decision", "detail": "Noisy data", "sourceRef": 0},
+        {"id": "N9", "label": "Allow margin violations", "role": "green", "shape": "process", "detail": "Penalty C", "sourceRef": 0},
+        {"id": "N10", "label": "Decision boundary set", "role": "green", "shape": "process", "detail": "Hyperplane fixed", "sourceRef": 0},
+        {"id": "N11", "label": "SVM classifier", "role": "violet", "shape": "process", "detail": "Predicts new points", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4", "label": "no"}, {"from": "N4", "to": "N5"}, {"from": "N3", "to": "N5", "label": "yes"},
+        {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7"}, {"from": "N7", "to": "N8"},
+        {"from": "N8", "to": "N9", "label": "yes"}, {"from": "N9", "to": "N10"}, {"from": "N8", "to": "N10", "label": "no"}, {"from": "N10", "to": "N11"}
+      ]
+    }
+  ]
+}

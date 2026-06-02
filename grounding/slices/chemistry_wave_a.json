@@ -1,0 +1,371 @@
+{
+  "discipline": "chemistry",
+  "slice": "thermodynamics+polymer",
+  "charts": [
+    {
+      "id": "thermodynamics-gibbs-free-energy-calculation",
+      "name": "Gibbs Free Energy & Spontaneity",
+      "description": "Determine reaction spontaneity by combining enthalpy and entropy into the Gibbs free energy change, classifying the sign of ΔG and relating ΔG° to the equilibrium constant.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Chemical thermodynamics",
+      "namedCollections": ["thermodynamics"],
+      "keywords": ["gibbs free energy", "spontaneity", "enthalpy", "entropy", "equilibrium constant"],
+      "basis": "source_extraction:thermodynamics-gibbs-free-energy-calculation",
+      "sources": [
+        {"title": "Physical Chemistry, 11th ed. — The Second and Third Laws (Gibbs energy)", "authors": "Atkins, P.; de Paula, J.; Keeler, J.", "journal": "Oxford University Press", "year": "2018", "doi": null, "url": "https://global.oup.com/ukhe/product/atkins-physical-chemistry-9780198769866"},
+        {"title": "Gold Book: Gibbs energy (function), G", "authors": "IUPAC", "journal": "IUPAC Compendium of Chemical Terminology", "year": "2019", "doi": "10.1351/goldbook.G02629", "url": "https://goldbook.iupac.org/terms/view/G02629"},
+        {"title": "NIST Chemistry WebBook — thermochemical data", "authors": "Linstrom, P. J.; Mallard, W. G. (eds.)", "journal": "NIST Standard Reference Database 69", "year": "2023", "doi": "10.18434/T4D303", "url": "https://webbook.nist.gov/chemistry/"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Define system + reaction", "role": "red", "shape": "process", "detail": "Specify reactants, products, T and P", "sourceRef": 0},
+        {"id": "N2", "label": "Tabulate ΔH (enthalpy)", "role": "green", "shape": "process", "detail": "Reaction enthalpy from formation data", "sourceRef": 2},
+        {"id": "N3", "label": "Tabulate ΔS (entropy)", "role": "green", "shape": "process", "detail": "Reaction entropy from standard entropies", "sourceRef": 2},
+        {"id": "N4", "label": "ΔG = ΔH − TΔS", "role": "green", "shape": "process", "detail": "Combine at temperature T", "sourceRef": 0},
+        {"id": "N5", "label": "Sign of ΔG?", "role": "blue", "shape": "decision", "detail": "Spontaneity criterion at constant T,P", "sourceRef": 1},
+        {"id": "N6", "label": "ΔG < 0: spontaneous", "role": "violet", "shape": "process", "detail": "Forward reaction favored", "sourceRef": 1},
+        {"id": "N7", "label": "ΔG > 0: non-spontaneous", "role": "violet", "shape": "process", "detail": "Reverse reaction favored", "sourceRef": 1},
+        {"id": "N8", "label": "ΔG = 0: at equilibrium", "role": "violet", "shape": "process", "detail": "No net change", "sourceRef": 1},
+        {"id": "N9", "label": "ΔG° = −RT ln K", "role": "green", "shape": "process", "detail": "Link standard ΔG to equilibrium constant", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N1", "to": "N3"}, {"from": "N2", "to": "N4"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"},
+        {"from": "N5", "to": "N6", "label": "< 0"}, {"from": "N5", "to": "N7", "label": "> 0"}, {"from": "N5", "to": "N8", "label": "= 0"}, {"from": "N8", "to": "N9"}
+      ]
+    },
+    {
+      "id": "thermodynamics-thermochemistry",
+      "name": "Reaction Enthalpy via Hess's Law",
+      "description": "Obtain a reaction enthalpy either by direct calorimetry or, when the reaction is impractical to measure, by combining tabulated enthalpies of known reactions or formation enthalpies through Hess's law.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Thermochemistry",
+      "namedCollections": ["thermodynamics"],
+      "keywords": ["hess's law", "enthalpy", "calorimetry", "formation enthalpy", "thermochemistry"],
+      "basis": "source_extraction:thermodynamics-thermochemistry",
+      "sources": [
+        {"title": "Physical Chemistry, 11th ed. — The First Law (thermochemistry, Hess's law)", "authors": "Atkins, P.; de Paula, J.; Keeler, J.", "journal": "Oxford University Press", "year": "2018", "doi": null, "url": "https://global.oup.com/ukhe/product/atkins-physical-chemistry-9780198769866"},
+        {"title": "Gold Book: standard enthalpy of reaction", "authors": "IUPAC", "journal": "IUPAC Compendium of Chemical Terminology", "year": "2019", "doi": "10.1351/goldbook.S05907", "url": "https://goldbook.iupac.org/terms/view/S05907"},
+        {"title": "NIST Chemistry WebBook — enthalpies of formation", "authors": "Linstrom, P. J.; Mallard, W. G. (eds.)", "journal": "NIST Standard Reference Database 69", "year": "2023", "doi": "10.18434/T4D303", "url": "https://webbook.nist.gov/chemistry/"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Target reaction", "role": "red", "shape": "process", "detail": "Reaction whose ΔH is wanted", "sourceRef": 0},
+        {"id": "N2", "label": "Measurable directly?", "role": "blue", "shape": "decision", "detail": "Can the reaction run cleanly in a calorimeter?", "sourceRef": 0},
+        {"id": "N3", "label": "Calorimetry: measure q", "role": "green", "shape": "process", "detail": "Heat at constant P gives ΔH", "sourceRef": 0},
+        {"id": "N4", "label": "Select known reactions", "role": "green", "shape": "process", "detail": "Choose steps that sum to target", "sourceRef": 1},
+        {"id": "N5", "label": "Scale + reverse equations", "role": "green", "shape": "process", "detail": "Adjust coefficients and signs", "sourceRef": 1},
+        {"id": "N6", "label": "Sum enthalpies (Hess)", "role": "green", "shape": "process", "detail": "ΔH is path-independent", "sourceRef": 1},
+        {"id": "N7", "label": "Use ΔHf° formation data", "role": "green", "shape": "process", "detail": "Products minus reactants", "sourceRef": 2},
+        {"id": "N8", "label": "ΔH_rxn obtained", "role": "violet", "shape": "process", "detail": "Reaction enthalpy reported", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"},
+        {"from": "N2", "to": "N3", "label": "yes"}, {"from": "N3", "to": "N8"},
+        {"from": "N2", "to": "N4", "label": "no"}, {"from": "N4", "to": "N5"}, {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N8"},
+        {"from": "N2", "to": "N7", "label": "formation data"}, {"from": "N7", "to": "N8"}
+      ]
+    },
+    {
+      "id": "thermodynamics-entropy-changes",
+      "name": "Entropy Change & the Second Law",
+      "description": "Compute the entropy change of a process via a reversible path, add the surroundings' entropy change, and use the sign of the total entropy of the universe to judge whether the process is spontaneous, reversible, or impossible.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Second law of thermodynamics",
+      "namedCollections": ["thermodynamics"],
+      "keywords": ["entropy", "second law", "reversible path", "clausius", "spontaneity"],
+      "basis": "source_extraction:thermodynamics-entropy-changes",
+      "sources": [
+        {"title": "Physical Chemistry, 11th ed. — Entropy and the Second Law", "authors": "Atkins, P.; de Paula, J.; Keeler, J.", "journal": "Oxford University Press", "year": "2018", "doi": null, "url": "https://global.oup.com/ukhe/product/atkins-physical-chemistry-9780198769866"},
+        {"title": "Gold Book: entropy, S", "authors": "IUPAC", "journal": "IUPAC Compendium of Chemical Terminology", "year": "2019", "doi": "10.1351/goldbook.E02149", "url": "https://goldbook.iupac.org/terms/view/E02149"},
+        {"title": "Reflections on the Motive Power of Heat (Clausius formulation, reprint)", "authors": "Clausius, R.", "journal": "Annalen der Physik", "year": "1865", "doi": "10.1002/andp.18652010702", "url": "https://doi.org/10.1002/andp.18652010702"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Process of interest", "role": "red", "shape": "process", "detail": "Initial and final states", "sourceRef": 0},
+        {"id": "N2", "label": "Construct reversible path", "role": "green", "shape": "process", "detail": "State function lets path differ", "sourceRef": 0},
+        {"id": "N3", "label": "ΔS_sys = ∫ dq_rev/T", "role": "green", "shape": "process", "detail": "System entropy change", "sourceRef": 2},
+        {"id": "N4", "label": "ΔS_surroundings = −q/T", "role": "green", "shape": "process", "detail": "From heat exchanged with reservoir", "sourceRef": 0},
+        {"id": "N5", "label": "ΔS_univ = ΔS_sys + ΔS_surr", "role": "blue", "shape": "process", "detail": "Total entropy production", "sourceRef": 2},
+        {"id": "N6", "label": "ΔS_univ sign?", "role": "blue", "shape": "decision", "detail": "Clausius inequality", "sourceRef": 1},
+        {"id": "N7", "label": "> 0: spontaneous", "role": "violet", "shape": "process", "detail": "Irreversible, occurs naturally", "sourceRef": 1},
+        {"id": "N8", "label": "= 0: reversible", "role": "violet", "shape": "process", "detail": "At equilibrium", "sourceRef": 1},
+        {"id": "N9", "label": "< 0: impossible", "role": "violet", "shape": "process", "detail": "Forbidden in isolation", "sourceRef": 1}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N1", "to": "N4"}, {"from": "N3", "to": "N5"}, {"from": "N4", "to": "N5"}, {"from": "N5", "to": "N6"},
+        {"from": "N6", "to": "N7", "label": "> 0"}, {"from": "N6", "to": "N8", "label": "= 0"}, {"from": "N6", "to": "N9", "label": "< 0"}
+      ]
+    },
+    {
+      "id": "thermodynamics-chemical-equilibrium",
+      "name": "Chemical Equilibrium & Le Chatelier",
+      "description": "Starting from a system at equilibrium, apply a disturbance (composition, temperature, or pressure), compare the reaction quotient to K, and predict the direction of the shift that relieves the stress until a new equilibrium is reached.",
+      "graphType": "mechanism_flowchart",
+      "domainContext": "Chemical equilibrium",
+      "namedCollections": ["thermodynamics"],
+      "keywords": ["equilibrium", "le chatelier", "reaction quotient", "equilibrium constant", "shift"],
+      "basis": "source_extraction:thermodynamics-chemical-equilibrium",
+      "sources": [
+        {"title": "Physical Chemistry, 11th ed. — Chemical Equilibrium", "authors": "Atkins, P.; de Paula, J.; Keeler, J.", "journal": "Oxford University Press", "year": "2018", "doi": null, "url": "https://global.oup.com/ukhe/product/atkins-physical-chemistry-9780198769866"},
+        {"title": "Gold Book: Le Chatelier's principle", "authors": "IUPAC", "journal": "IUPAC Compendium of Chemical Terminology", "year": "2019", "doi": "10.1351/goldbook.L03482", "url": "https://goldbook.iupac.org/terms/view/L03482"},
+        {"title": "Sur un énoncé général des lois des équilibres chimiques", "authors": "Le Chatelier, H.", "journal": "Comptes Rendus de l'Académie des Sciences", "year": "1884", "doi": null, "url": "https://gallica.bnf.fr/ark:/12148/bpt6k3055f"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "System at equilibrium", "role": "red", "shape": "process", "detail": "Forward and reverse rates equal", "sourceRef": 0},
+        {"id": "N2", "label": "Write K expression", "role": "green", "shape": "process", "detail": "Equilibrium constant in activities", "sourceRef": 0},
+        {"id": "N3", "label": "Apply a disturbance?", "role": "blue", "shape": "decision", "detail": "Type of stress imposed", "sourceRef": 1},
+        {"id": "N4", "label": "Add reactant / product", "role": "green", "shape": "process", "detail": "Composition change", "sourceRef": 1},
+        {"id": "N5", "label": "Change temperature", "role": "green", "shape": "process", "detail": "K itself changes with T", "sourceRef": 0},
+        {"id": "N6", "label": "Change pressure / volume", "role": "green", "shape": "process", "detail": "Shifts toward fewer gas moles", "sourceRef": 1},
+        {"id": "N7", "label": "Compare Q vs K", "role": "blue", "shape": "process", "detail": "Reaction quotient relative to K", "sourceRef": 0},
+        {"id": "N8", "label": "Shift to relieve stress", "role": "green", "shape": "process", "detail": "Net reaction in restoring direction", "sourceRef": 1},
+        {"id": "N9", "label": "New equilibrium reached", "role": "violet", "shape": "process", "detail": "Rates re-balance", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"},
+        {"from": "N3", "to": "N4", "label": "composition"}, {"from": "N3", "to": "N5", "label": "temperature"}, {"from": "N3", "to": "N6", "label": "pressure"},
+        {"from": "N4", "to": "N7"}, {"from": "N6", "to": "N7"}, {"from": "N5", "to": "N8"}, {"from": "N7", "to": "N8"}, {"from": "N8", "to": "N9"},
+        {"from": "N9", "to": "N3", "label": "further stress"}
+      ]
+    },
+    {
+      "id": "thermodynamics-phase-transitions",
+      "name": "First-Order Phase Transition (Clapeyron)",
+      "description": "Two phases reach coexistence when their chemical potentials are equal; the Clapeyron equation then relates the slope of the phase boundary to the entropy and volume changes, and crossing the boundary drives the transition with its latent heat.",
+      "graphType": "cyclic_pathway",
+      "domainContext": "Phase equilibria",
+      "namedCollections": ["thermodynamics"],
+      "keywords": ["phase transition", "clapeyron", "chemical potential", "latent heat", "coexistence"],
+      "basis": "source_extraction:thermodynamics-phase-transitions",
+      "sources": [
+        {"title": "Physical Chemistry, 11th ed. — Physical Transformations of Pure Substances", "authors": "Atkins, P.; de Paula, J.; Keeler, J.", "journal": "Oxford University Press", "year": "2018", "doi": null, "url": "https://global.oup.com/ukhe/product/atkins-physical-chemistry-9780198769866"},
+        {"title": "Gold Book: Clapeyron equation", "authors": "IUPAC", "journal": "IUPAC Compendium of Chemical Terminology", "year": "2019", "doi": "10.1351/goldbook.C01097", "url": "https://goldbook.iupac.org/terms/view/C01097"},
+        {"title": "NIST Chemistry WebBook — phase-change data", "authors": "Linstrom, P. J.; Mallard, W. G. (eds.)", "journal": "NIST Standard Reference Database 69", "year": "2023", "doi": "10.18434/T4D303", "url": "https://webbook.nist.gov/chemistry/"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Two phases in contact", "role": "red", "shape": "process", "detail": "e.g. liquid and vapor", "sourceRef": 0},
+        {"id": "N2", "label": "Chemical potentials equal?", "role": "blue", "shape": "decision", "detail": "Coexistence criterion μ1 = μ2", "sourceRef": 0},
+        {"id": "N3", "label": "Phase with lower μ grows", "role": "green", "shape": "process", "detail": "Matter converts spontaneously", "sourceRef": 0},
+        {"id": "N4", "label": "Coexistence: μ1 = μ2", "role": "blue", "shape": "process", "detail": "On the phase boundary", "sourceRef": 1},
+        {"id": "N5", "label": "Clapeyron: dP/dT = ΔS/ΔV", "role": "green", "shape": "process", "detail": "Slope of the boundary", "sourceRef": 1},
+        {"id": "N6", "label": "Latent heat ΔH = TΔS", "role": "green", "shape": "process", "detail": "Heat absorbed at transition", "sourceRef": 2},
+        {"id": "N7", "label": "Boundary on P–T diagram", "role": "violet", "shape": "process", "detail": "Phase diagram constructed", "sourceRef": 0},
+        {"id": "N8", "label": "Cross boundary -> transition", "role": "green", "shape": "process", "detail": "Change T or P past the line", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3", "label": "no"}, {"from": "N3", "to": "N2", "label": "continue"},
+        {"from": "N2", "to": "N4", "label": "yes"}, {"from": "N4", "to": "N5"}, {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7"}, {"from": "N7", "to": "N8"},
+        {"from": "N8", "to": "N2", "label": "re-evaluate"}
+      ]
+    },
+    {
+      "id": "thermodynamics-solution-thermodynamics",
+      "name": "Ideal vs Real Solution Behavior",
+      "description": "Model a mixture starting from ideal mixing, test for Raoult's-law behavior, and when deviations occur describe them with activity coefficients and an excess Gibbs energy to predict vapor pressures and phase equilibria.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Solution thermodynamics",
+      "namedCollections": ["thermodynamics"],
+      "keywords": ["ideal solution", "raoult's law", "activity coefficient", "excess gibbs energy", "vapor pressure"],
+      "basis": "source_extraction:thermodynamics-solution-thermodynamics",
+      "sources": [
+        {"title": "Physical Chemistry, 11th ed. — Simple Mixtures", "authors": "Atkins, P.; de Paula, J.; Keeler, J.", "journal": "Oxford University Press", "year": "2018", "doi": null, "url": "https://global.oup.com/ukhe/product/atkins-physical-chemistry-9780198769866"},
+        {"title": "Gold Book: activity coefficient", "authors": "IUPAC", "journal": "IUPAC Compendium of Chemical Terminology", "year": "2019", "doi": "10.1351/goldbook.A00116", "url": "https://goldbook.iupac.org/terms/view/A00116"},
+        {"title": "Gold Book: Raoult's law", "authors": "IUPAC", "journal": "IUPAC Compendium of Chemical Terminology", "year": "2019", "doi": "10.1351/goldbook.R05121", "url": "https://goldbook.iupac.org/terms/view/R05121"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Mix two components", "role": "red", "shape": "process", "detail": "Define mole fractions", "sourceRef": 0},
+        {"id": "N2", "label": "Ideal ΔG_mix = RTΣx ln x", "role": "green", "shape": "process", "detail": "Ideal mixing free energy", "sourceRef": 0},
+        {"id": "N3", "label": "Raoult's law obeyed?", "role": "blue", "shape": "decision", "detail": "Test for ideality", "sourceRef": 2},
+        {"id": "N4", "label": "Activity = mole fraction", "role": "green", "shape": "process", "detail": "Ideal limit", "sourceRef": 2},
+        {"id": "N5", "label": "Use activity coefficients γ", "role": "green", "shape": "process", "detail": "a = γx for real mixtures", "sourceRef": 1},
+        {"id": "N6", "label": "Excess Gibbs energy G^E", "role": "blue", "shape": "process", "detail": "Departure from ideality", "sourceRef": 0},
+        {"id": "N7", "label": "Positive/negative deviation", "role": "green", "shape": "process", "detail": "Sign of deviation from Raoult", "sourceRef": 0},
+        {"id": "N8", "label": "Predict VLE / vapor pressure", "role": "violet", "shape": "process", "detail": "Phase behavior of the solution", "sourceRef": 0}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"},
+        {"from": "N3", "to": "N4", "label": "yes"}, {"from": "N3", "to": "N5", "label": "no"},
+        {"from": "N5", "to": "N6"}, {"from": "N6", "to": "N7"}, {"from": "N4", "to": "N8"}, {"from": "N7", "to": "N8"}
+      ]
+    },
+    {
+      "id": "thermodynamics-chemical-potential-determination",
+      "name": "Chemical Potential & Phase Equilibrium",
+      "description": "Express each species' chemical potential as a function of activity, then drive multiphase systems toward equilibrium by transferring matter down the chemical-potential gradient until the potential of every component is equal in all phases.",
+      "graphType": "cyclic_pathway",
+      "domainContext": "Multiphase equilibrium",
+      "namedCollections": ["thermodynamics"],
+      "keywords": ["chemical potential", "activity", "phase equilibrium", "mass transfer", "partial molar"],
+      "basis": "source_extraction:thermodynamics-chemical-potential-determination",
+      "sources": [
+        {"title": "Physical Chemistry, 11th ed. — The Chemical Potential of Mixtures", "authors": "Atkins, P.; de Paula, J.; Keeler, J.", "journal": "Oxford University Press", "year": "2018", "doi": null, "url": "https://global.oup.com/ukhe/product/atkins-physical-chemistry-9780198769866"},
+        {"title": "Gold Book: chemical potential, μ", "authors": "IUPAC", "journal": "IUPAC Compendium of Chemical Terminology", "year": "2019", "doi": "10.1351/goldbook.C01032", "url": "https://goldbook.iupac.org/terms/view/C01032"},
+        {"title": "On the Equilibrium of Heterogeneous Substances", "authors": "Gibbs, J. W.", "journal": "Transactions of the Connecticut Academy of Arts and Sciences", "year": "1878", "doi": "10.2475/ajs.s3-16.96.441", "url": "https://doi.org/10.2475/ajs.s3-16.96.441"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Species in a phase", "role": "red", "shape": "process", "detail": "Component of interest", "sourceRef": 0},
+        {"id": "N2", "label": "μ = μ° + RT ln a", "role": "green", "shape": "process", "detail": "Potential from activity", "sourceRef": 1},
+        {"id": "N3", "label": "Determine activity a", "role": "green", "shape": "process", "detail": "Measure or model a", "sourceRef": 0},
+        {"id": "N4", "label": "More than one phase?", "role": "blue", "shape": "decision", "detail": "Single vs multiphase system", "sourceRef": 0},
+        {"id": "N5", "label": "μ equal in all phases?", "role": "blue", "shape": "decision", "detail": "Equilibrium condition", "sourceRef": 2},
+        {"id": "N6", "label": "Transfer down gradient", "role": "green", "shape": "process", "detail": "Matter moves to lower μ", "sourceRef": 0},
+        {"id": "N7", "label": "Compositions update", "role": "green", "shape": "process", "detail": "Activities change with amounts", "sourceRef": 0},
+        {"id": "N8", "label": "Phase equilibrium", "role": "violet", "shape": "process", "detail": "μ uniform across phases", "sourceRef": 2}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"},
+        {"from": "N4", "to": "N8", "label": "single phase"}, {"from": "N4", "to": "N5", "label": "multiphase"},
+        {"from": "N5", "to": "N6", "label": "no"}, {"from": "N6", "to": "N7"}, {"from": "N7", "to": "N5", "label": "recheck"}, {"from": "N5", "to": "N8", "label": "yes"}
+      ]
+    },
+    {
+      "id": "polymer_chemistry-thermochemistry",
+      "name": "Free-Radical Chain Polymerization",
+      "description": "Free-radical chain polymerization proceeds by initiator decomposition, repeated monomer addition during propagation, and chain-end loss by combination/disproportionation or chain transfer, governing molecular weight and conversion.",
+      "graphType": "iterative_pathway",
+      "domainContext": "Polymer synthesis",
+      "namedCollections": ["polymer-chemistry"],
+      "keywords": ["radical polymerization", "initiation", "propagation", "termination", "chain transfer"],
+      "basis": "source_extraction:polymer_chemistry-thermochemistry",
+      "sources": [
+        {"title": "Principles of Polymerization, 4th ed. — Radical Chain Polymerization", "authors": "Odian, G.", "journal": "Wiley-Interscience", "year": "2004", "doi": "10.1002/047147875X", "url": "https://doi.org/10.1002/047147875X"},
+        {"title": "The Chemistry of Radical Polymerization, 2nd ed.", "authors": "Moad, G.; Solomon, D. H.", "journal": "Elsevier", "year": "2006", "doi": "10.1016/B978-0-08-044288-4.X5000-4", "url": "https://doi.org/10.1016/B978-0-08-044288-4.X5000-4"},
+        {"title": "Principles of Polymer Chemistry", "authors": "Flory, P. J.", "journal": "Cornell University Press", "year": "1953", "doi": null, "url": "https://www.cornellpress.cornell.edu/book/9780801401343/principles-of-polymer-chemistry/"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Monomer + initiator", "role": "red", "shape": "process", "detail": "Vinyl monomer and radical source", "sourceRef": 0},
+        {"id": "N2", "label": "Initiation: radical forms", "role": "green", "shape": "process", "detail": "Initiator decomposes to radicals", "sourceRef": 0},
+        {"id": "N3", "label": "Add to first monomer", "role": "green", "shape": "process", "detail": "Primary radical starts a chain", "sourceRef": 0},
+        {"id": "N4", "label": "Propagation: chain grows", "role": "green", "shape": "process", "detail": "Sequential monomer addition", "sourceRef": 1},
+        {"id": "N5", "label": "Monomer remaining?", "role": "blue", "shape": "decision", "detail": "Continue adding while available", "sourceRef": 1},
+        {"id": "N6", "label": "Chain-end fate?", "role": "blue", "shape": "decision", "detail": "Termination vs transfer", "sourceRef": 1},
+        {"id": "N7", "label": "Combination / disproportionation", "role": "green", "shape": "process", "detail": "Two radicals terminate", "sourceRef": 1},
+        {"id": "N8", "label": "Chain transfer to X", "role": "green", "shape": "process", "detail": "Radical moves to a new chain", "sourceRef": 1},
+        {"id": "N9", "label": "Dead polymer chain", "role": "violet", "shape": "process", "detail": "Final macromolecule", "sourceRef": 2}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"},
+        {"from": "N5", "to": "N4", "label": "yes: add"}, {"from": "N5", "to": "N6", "label": "low"},
+        {"from": "N6", "to": "N7", "label": "terminate"}, {"from": "N7", "to": "N9"},
+        {"from": "N6", "to": "N8", "label": "transfer"}, {"from": "N8", "to": "N4", "label": "new chain"}
+      ]
+    },
+    {
+      "id": "polymer_chemistry-chemical-equilibrium",
+      "name": "Step-Growth Polymerization (Carothers)",
+      "description": "Step-growth polymerization builds high molecular weight only at high conversion: difunctional monomers condense, the Carothers equation links degree of polymerization to extent of reaction, and removing the condensation byproduct drives the equilibrium forward.",
+      "graphType": "iterative_pathway",
+      "domainContext": "Polycondensation",
+      "namedCollections": ["polymer-chemistry"],
+      "keywords": ["step-growth", "carothers equation", "polycondensation", "degree of polymerization", "conversion"],
+      "basis": "source_extraction:polymer_chemistry-chemical-equilibrium",
+      "sources": [
+        {"title": "Polymers and polyfunctionality", "authors": "Carothers, W. H.", "journal": "Transactions of the Faraday Society", "year": "1936", "doi": "10.1039/tf9363200039", "url": "https://doi.org/10.1039/tf9363200039"},
+        {"title": "Principles of Polymerization, 4th ed. — Step Polymerization", "authors": "Odian, G.", "journal": "Wiley-Interscience", "year": "2004", "doi": "10.1002/047147875X", "url": "https://doi.org/10.1002/047147875X"},
+        {"title": "Principles of Polymer Chemistry", "authors": "Flory, P. J.", "journal": "Cornell University Press", "year": "1953", "doi": null, "url": "https://www.cornellpress.cornell.edu/book/9780801401343/principles-of-polymer-chemistry/"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Difunctional monomers", "role": "red", "shape": "process", "detail": "e.g. diol + diacid", "sourceRef": 1},
+        {"id": "N2", "label": "Condensation reaction", "role": "green", "shape": "process", "detail": "Functional groups react, expel small molecule", "sourceRef": 0},
+        {"id": "N3", "label": "Oligomers form", "role": "green", "shape": "process", "detail": "Any two species can couple", "sourceRef": 1},
+        {"id": "N4", "label": "Track extent of reaction p", "role": "blue", "shape": "process", "detail": "Fraction of groups reacted", "sourceRef": 0},
+        {"id": "N5", "label": "Carothers: Xn = 1/(1−p)", "role": "green", "shape": "process", "detail": "Degree of polymerization", "sourceRef": 0},
+        {"id": "N6", "label": "p high enough?", "role": "blue", "shape": "decision", "detail": "High MW needs p > 0.99", "sourceRef": 2},
+        {"id": "N7", "label": "Remove byproduct, raise T", "role": "green", "shape": "process", "detail": "Shift equilibrium toward polymer", "sourceRef": 2},
+        {"id": "N8", "label": "High-MW polymer", "role": "violet", "shape": "process", "detail": "Useful chain length reached", "sourceRef": 1}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"}, {"from": "N5", "to": "N6"},
+        {"from": "N6", "to": "N7", "label": "no"}, {"from": "N7", "to": "N2", "label": "drive forward"}, {"from": "N6", "to": "N8", "label": "yes"}
+      ]
+    },
+    {
+      "id": "polymer_chemistry-phase-transitions",
+      "name": "Glass Transition in Polymers",
+      "description": "On cooling an amorphous polymer, free volume contracts until, below the glass transition temperature, segmental motion freezes and the material becomes a rigid glass; cooling rate and plasticizer content shift the observed Tg.",
+      "graphType": "mechanism_flowchart",
+      "domainContext": "Polymer physics",
+      "namedCollections": ["polymer-chemistry"],
+      "keywords": ["glass transition", "free volume", "segmental motion", "plasticizer", "amorphous polymer"],
+      "basis": "source_extraction:polymer_chemistry-phase-transitions",
+      "sources": [
+        {"title": "Nature of the glass transition and the glassy state", "authors": "Gibbs, J. H.; DiMarzio, E. A.", "journal": "Journal of Chemical Physics", "year": "1958", "doi": "10.1063/1.1744141", "url": "https://doi.org/10.1063/1.1744141"},
+        {"title": "Principles of Polymerization, 4th ed. — Polymer properties (Tg)", "authors": "Odian, G.", "journal": "Wiley-Interscience", "year": "2004", "doi": "10.1002/047147875X", "url": "https://doi.org/10.1002/047147875X"},
+        {"title": "The temperature dependence of relaxation mechanisms (WLF equation)", "authors": "Williams, M. L.; Landel, R. F.; Ferry, J. D.", "journal": "Journal of the American Chemical Society", "year": "1955", "doi": "10.1021/ja01619a008", "url": "https://doi.org/10.1021/ja01619a008"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Amorphous polymer melt", "role": "red", "shape": "process", "detail": "Above Tg, chains mobile", "sourceRef": 1},
+        {"id": "N2", "label": "Cool the polymer", "role": "green", "shape": "process", "detail": "Reduce temperature", "sourceRef": 1},
+        {"id": "N3", "label": "Free volume decreases", "role": "green", "shape": "process", "detail": "Less room for chain motion", "sourceRef": 0},
+        {"id": "N4", "label": "Below Tg?", "role": "blue", "shape": "decision", "detail": "Compare to glass transition temperature", "sourceRef": 0},
+        {"id": "N5", "label": "Segmental motion frozen", "role": "green", "shape": "process", "detail": "Cooperative motion arrested", "sourceRef": 0},
+        {"id": "N6", "label": "Glassy, brittle solid", "role": "violet", "shape": "process", "detail": "Rigid amorphous state", "sourceRef": 1},
+        {"id": "N7", "label": "Rubbery / mobile state", "role": "green", "shape": "process", "detail": "Above Tg, viscoelastic", "sourceRef": 2},
+        {"id": "N8", "label": "Plasticizer / rate shifts Tg", "role": "green", "shape": "process", "detail": "Additives and kinetics move Tg", "sourceRef": 2}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"},
+        {"from": "N4", "to": "N5", "label": "yes"}, {"from": "N5", "to": "N6"},
+        {"from": "N4", "to": "N7", "label": "no"}, {"from": "N7", "to": "N8"}, {"from": "N8", "to": "N3", "label": "modifies"}
+      ]
+    },
+    {
+      "id": "polymer_chemistry-solution-thermodynamics",
+      "name": "Flory–Huggins Solution Theory",
+      "description": "Flory–Huggins lattice theory combines a small combinatorial entropy of mixing for long chains with an enthalpic χ interaction parameter; the resulting free energy predicts miscibility or phase separation of polymer solutions.",
+      "graphType": "decision_flowchart",
+      "domainContext": "Polymer solution thermodynamics",
+      "namedCollections": ["polymer-chemistry"],
+      "keywords": ["flory-huggins", "chi parameter", "lattice model", "miscibility", "phase separation"],
+      "basis": "source_extraction:polymer_chemistry-solution-thermodynamics",
+      "sources": [
+        {"title": "Thermodynamics of high polymer solutions", "authors": "Flory, P. J.", "journal": "Journal of Chemical Physics", "year": "1942", "doi": "10.1063/1.1723621", "url": "https://doi.org/10.1063/1.1723621"},
+        {"title": "Some properties of solutions of long-chain compounds", "authors": "Huggins, M. L.", "journal": "Journal of Physical Chemistry", "year": "1942", "doi": "10.1021/j150415a018", "url": "https://doi.org/10.1021/j150415a018"},
+        {"title": "Principles of Polymer Chemistry — Polymer Solutions", "authors": "Flory, P. J.", "journal": "Cornell University Press", "year": "1953", "doi": null, "url": "https://www.cornellpress.cornell.edu/book/9780801401343/principles-of-polymer-chemistry/"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Polymer + solvent", "role": "red", "shape": "process", "detail": "Long chains in small-molecule solvent", "sourceRef": 0},
+        {"id": "N2", "label": "Lattice model: place chains", "role": "green", "shape": "process", "detail": "Segments occupy lattice sites", "sourceRef": 1},
+        {"id": "N3", "label": "Entropy of mixing (small)", "role": "green", "shape": "process", "detail": "Connectivity limits configurations", "sourceRef": 0},
+        {"id": "N4", "label": "Enthalpy via χ parameter", "role": "green", "shape": "process", "detail": "Segment-solvent contact energy", "sourceRef": 1},
+        {"id": "N5", "label": "ΔG_mix with χφ₁φ₂", "role": "green", "shape": "process", "detail": "Flory–Huggins free energy", "sourceRef": 0},
+        {"id": "N6", "label": "χ below critical?", "role": "blue", "shape": "decision", "detail": "Good vs poor solvent", "sourceRef": 2},
+        {"id": "N7", "label": "Miscible: single phase", "role": "violet", "shape": "process", "detail": "Homogeneous solution", "sourceRef": 2},
+        {"id": "N8", "label": "Phase separation (binodal)", "role": "green", "shape": "process", "detail": "Demixing into two phases", "sourceRef": 0},
+        {"id": "N9", "label": "Coexisting phases", "role": "violet", "shape": "process", "detail": "Polymer-rich and -poor regions", "sourceRef": 2}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N1", "to": "N4"}, {"from": "N3", "to": "N5"}, {"from": "N4", "to": "N5"}, {"from": "N5", "to": "N6"},
+        {"from": "N6", "to": "N7", "label": "yes"}, {"from": "N6", "to": "N8", "label": "no"}, {"from": "N8", "to": "N9"}
+      ]
+    },
+    {
+      "id": "polymer_chemistry-entropy-changes",
+      "name": "Entropic Rubber Elasticity",
+      "description": "In a cross-linked elastomer the restoring force is entropic: stretching extends network chains and lowers their conformational entropy, so the chains recoil when released, a behavior captured by the statistical theory of rubber elasticity.",
+      "graphType": "cyclic_pathway",
+      "domainContext": "Elastomer physics",
+      "namedCollections": ["polymer-chemistry"],
+      "keywords": ["rubber elasticity", "conformational entropy", "cross-link", "entropic force", "network"],
+      "basis": "source_extraction:polymer_chemistry-entropy-changes",
+      "sources": [
+        {"title": "The Physics of Rubber Elasticity, 3rd ed.", "authors": "Treloar, L. R. G.", "journal": "Oxford University Press", "year": "1975", "doi": null, "url": "https://global.oup.com/academic/product/the-physics-of-rubber-elasticity-9780198570271"},
+        {"title": "Statistical mechanics of cross-linked polymer networks", "authors": "Flory, P. J.; Rehner, J.", "journal": "Journal of Chemical Physics", "year": "1943", "doi": "10.1063/1.1723792", "url": "https://doi.org/10.1063/1.1723792"},
+        {"title": "Principles of Polymer Chemistry — Rubber Elasticity", "authors": "Flory, P. J.", "journal": "Cornell University Press", "year": "1953", "doi": null, "url": "https://www.cornellpress.cornell.edu/book/9780801401343/principles-of-polymer-chemistry/"}
+      ],
+      "nodes": [
+        {"id": "N1", "label": "Cross-linked elastomer", "role": "red", "shape": "process", "detail": "Network of coiled chains", "sourceRef": 0},
+        {"id": "N2", "label": "Apply stretching force", "role": "green", "shape": "process", "detail": "Deform the network", "sourceRef": 0},
+        {"id": "N3", "label": "Chains extend", "role": "green", "shape": "process", "detail": "End-to-end distance grows", "sourceRef": 1},
+        {"id": "N4", "label": "Conformational entropy drops", "role": "blue", "shape": "process", "detail": "Fewer accessible configurations", "sourceRef": 0},
+        {"id": "N5", "label": "Entropic restoring force", "role": "green", "shape": "process", "detail": "Force ∝ T, opposes extension", "sourceRef": 1},
+        {"id": "N6", "label": "Release the load?", "role": "blue", "shape": "decision", "detail": "Force removed or sustained", "sourceRef": 0},
+        {"id": "N7", "label": "Chains recoil to coil", "role": "green", "shape": "process", "detail": "Entropy maximized again", "sourceRef": 2},
+        {"id": "N8", "label": "Original shape recovered", "role": "violet", "shape": "process", "detail": "Reversible elastic recovery", "sourceRef": 0},
+        {"id": "N9", "label": "Stress–strain (statistical)", "role": "green", "shape": "process", "detail": "Network model under load", "sourceRef": 1}
+      ],
+      "edges": [
+        {"from": "N1", "to": "N2"}, {"from": "N2", "to": "N3"}, {"from": "N3", "to": "N4"}, {"from": "N4", "to": "N5"}, {"from": "N5", "to": "N6"},
+        {"from": "N6", "to": "N7", "label": "release"}, {"from": "N7", "to": "N8"},
+        {"from": "N6", "to": "N9", "label": "hold load"}, {"from": "N9", "to": "N5", "label": "sustained"}
+      ]
+    }
+  ]
+}
