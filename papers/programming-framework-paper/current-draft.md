@@ -10,6 +10,8 @@ Researcher, New Media Lab, CUNY Graduate Center
 Email: gwelz@gc.cuny.edu  
 ORCID: https://orcid.org/0009-0005-7806-0892
 
+**Status:** Submitted to *Learned Publishing* (Wiley), June 2, 2026 | Preprint: Zenodo DOI 10.5281/zenodo.18463441 | Wiley submission ID `4ed3a6f7-c912-4abf-b573-5fb2f612da52`
+
 ## Abstract
 
 Scientific and technical fields rely heavily on textual process descriptions that are difficult to compare, analyse, or reuse computationally. We introduce the Programming Framework, a methodology for transforming textual process descriptions into structured, computable diagrams using large language models (LLMs) and Mermaid diagram syntax. Node colours, shapes, and edge types serve as lightweight semantic markers, providing flexible visual encoding that can be adapted to domain-specific conventions. We demonstrate the feasibility and cross-domain transferability of the methodology through application across biology (via the Genome Logic Modelling Project) and mathematics — where the framework extends naturally from algorithmic flowcharts to axiomatic dependency graphs and proof graphs, enabling unified structural comparison across procedural and logical forms. The methodology is designed to lower the barrier to process visualisation for researchers, educators, and AI systems, enabling structured comparison and analysis across scientific disciplines without requiring specialised software or domain-specific diagramming expertise. The Programming Framework is proposed as reusable, open infrastructure — a starting point that others can adopt, extend, and critique — with all methodology, tools, and examples publicly available.

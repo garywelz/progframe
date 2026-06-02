@@ -7,6 +7,8 @@
 **Companion paper:** Mathematics preprint [10.5281/zenodo.20510603](https://doi.org/10.5281/zenodo.20510603); submitted to *Journal of Logic and Computation*, 2 June 2026  
 **Source:** `current-draft.md` · **Build:** `./build_programming_framework_outputs.sh` → `programming_framework.pdf`, `programming_framework.docx`
 
+**Submitted:** June 2, 2026 — Wiley Authors ([submission.wiley.com](https://submission.wiley.com)), Original Article; submission ID `4ed3a6f7-c912-4abf-b573-5fb2f612da52`
+
 **Full guidelines:** `submission-target.md` (Wiley Author Guidelines, captured May 2026)
 
 ---
@@ -100,22 +102,24 @@ After submission: optional Zenodo record note “Under review at *Learned Publis
 
 ---
 
-## 8. Pre-submission checklist
+## 8. Submission checklist — completed June 2, 2026
 
 - [x] `count_prose_words.py` → main text ≤6,000 (5,930)
 - [x] Key points ≤140 characters each
 - [x] Rebuild `programming_framework.docx` and spot-check figures
-- [x] Cover letter updated
-- [ ] Wiley Authors account; article type = Original article
-- [ ] ORCID linked in Wiley profile
-- [ ] Ethics / COI / funding / preprint / data statements completed in portal
-- [ ] Suggested reviewers (if requested)
-- [ ] Submit via [submission.wiley.com](https://submission.wiley.com)
+- [x] Cover letter submitted in portal
+- [x] Wiley Authors — Original Article
+- [x] ORCID linked
+- [x] Ethics / COI / funding / preprint / data statements
+- [x] Reviewer PDF checked
+- [x] Submitted via [submission.wiley.com](https://submission.wiley.com)
 
 ---
 
 ## 9. After submission
 
-- Save confirmation email and manuscript ID
-- Do not submit the same manuscript to another journal while under review
-- Mathematics paper at JLC is a **separate** submission — no conflict if disclosed as related work / companion preprint
+- [x] Submitted to editorial office (June 2, 2026)
+- [ ] Save Wiley confirmation email; track status in **My dashboard**
+- [ ] Optional: Zenodo new version — description note “Under review at *Learned Publishing*”
+- Do not submit this manuscript elsewhere while under review
+- Mathematics paper at JLC is a **separate** submission (disclosed in cover letter and data statement)

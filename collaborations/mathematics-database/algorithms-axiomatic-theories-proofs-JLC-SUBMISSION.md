@@ -124,7 +124,7 @@ Provide name, affiliation, email, and one-line rationale for each.
 
 ---
 
-## 7. Pre-submission checklist
+## 7. Submission checklist — completed June 2, 2026
 
 - [x] PDF renders correctly, all 8 figures legible, 2 tables intact
 - [x] AI-use disclosure present in Acknowledgments
@@ -132,3 +132,9 @@ Provide name, affiliation, email, and one-line rationale for each.
 - [x] PDF attached: `algorithms-axiomatic-theories-proofs-welz-2026.pdf`
 - [x] Covering message sent (June 2, 2026)
 - [x] Sent from gwelz@gc.cuny.edu
+
+## 8. After submission
+
+- [x] Submitted to editorial office (June 2, 2026)
+- [ ] Save JLC acknowledgment email when received
+- Companion **Programming Framework** paper submitted separately to *Learned Publishing* (same day)

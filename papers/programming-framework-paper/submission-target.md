@@ -1,5 +1,7 @@
 # Submission target: *Learned Publishing*
 
+**Status:** Submitted June 2, 2026 (Wiley submission ID `4ed3a6f7-c912-4abf-b573-5fb2f612da52`). See `LEARNED-PUBLISHING-SUBMISSION.md` and `../SUBMISSION-STATUS.md`.
+
 **Journal:** [Learned Publishing](https://onlinelibrary.wiley.com/journal/17414857) (Wiley; published for ALPSP, in collaboration with SSP)  
 **Editor-in-Chief:** Laura Dormer — [editor@alpsp.org](mailto:editor@alpsp.org)  
 **ISSNs:** Print **0953-1513** · Online **1741-4857**
