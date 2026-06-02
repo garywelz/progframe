@@ -653,6 +653,8 @@ The broader argument of this paper is that formal structure is recoverable from 
 
 This work is part of the CopernicusAI Knowledge Engine project, which aims to create AI-powered tools for scientific research synthesis and knowledge discovery. The Mathematics Database and the Programming Framework serve as foundational methodological components of that project. The author thanks the CUNY Graduate Center New Media Lab for institutional support.
 
+The diagrams in this paper were generated with large-language-model assistance as part of the Programming Framework methodology described herein; large-language-model tools were also used to assist with copy-editing and revision. All scholarly content, analysis, and conclusions are the author's own.
+
 ---
 
 ## Appendix: Reference Proof Graph — Infinitely Many Primes (Euclid)
