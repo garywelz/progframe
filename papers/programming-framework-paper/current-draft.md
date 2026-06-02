@@ -542,7 +542,7 @@ flowchart TD
 
 ### 4.2 Mathematical Processes
 
-Mathematics routinely mixes **three kinds of objects** that are usually published in disconnected notations: **algorithms** (procedures), **axiomatic theories** (dependency among statements), and **proofs** (justifications). The Programming Framework deployment *Algorithms, Axiomatic Theories, and Proofs* treats all three as **labeled directed graphs** in Mermaid, generated from natural-language descriptions with LLMs, reviewed by humans, and stored as **versioned JSON** in the public **Mathematics Database**—a domain-specific extension; a companion manuscript (in preparation) documents the corpus and schema in full.
+Mathematics routinely mixes **three kinds of objects** that are usually published in disconnected notations: **algorithms** (procedures), **axiomatic theories** (dependency among statements), and **proofs** (justifications). The Programming Framework deployment *Algorithms, Axiomatic Theories, and Proofs* treats all three as **labeled directed graphs** in Mermaid, generated from natural-language descriptions with LLMs, reviewed by humans, and stored as **versioned JSON** in the public **Mathematics Database**—a domain-specific extension; a companion manuscript (Welz, 2026) documents the corpus and schema in full.
 
 **Algorithmic flowcharts** in the mathematics corpus commonly use the Framework’s **five-category palette** (§3.2) where authors adopt it for teaching-style figures: nodes are steps, decisions, or states; edges are sequential or conditional flow with explicit **loops and branching**. Corpus metadata records coarse structural indicators for comparison. Representative entries include the Sieve of Eratosthenes, Merge Sort, Dijkstra’s algorithm, and the Euclidean algorithm.
 
@@ -673,7 +673,7 @@ across multiple domains.
 The two most developed applications are:
 
 1. **Biology (Genome Logic Modelling Project):** process diagrams spanning multiple pathway families and organisms, with a companion research paper in preparation.
-2. **Mathematics (Algorithms, Axiomatic Theories, and Proofs):** algorithmic flowcharts, axiomatic dependency graphs, and proof graphs across multiple structural categories — see Section 4.2 and the live database — with a companion research paper in preparation.
+2. **Mathematics (Algorithms, Axiomatic Theories, and Proofs):** algorithmic flowcharts, axiomatic dependency graphs, and proof graphs across multiple structural categories — see Section 4.2 and the live database — with a companion research paper available as a Zenodo preprint (Welz, 2026).
 
 This shows that the method is flexible enough to handle diverse content across scientific disciplines, given appropriate prompts and scoping.
 
@@ -735,7 +735,7 @@ Further work includes:
 5. Community libraries and domain extensions: public submission/review; specialised palettes and tool integration.
 
 ## 7. Conclusion
-The Programming Framework offers a practical, reusable method for turning textual process descriptions into structured, computable diagrams using LLMs and Mermaid, enhanced by a suggested five-category colour-coding system that can be customised for specific domains. It has been applied most extensively in biology (via GLMP) and mathematics (via the Algorithms, Axiomatic Theories, and Proofs project), each with a companion draft research paper, and the need for careful human validation applies throughout.
+The Programming Framework offers a practical, reusable method for turning textual process descriptions into structured, computable diagrams using LLMs and Mermaid, enhanced by a suggested five-category colour-coding system that can be customised for specific domains. It has been applied most extensively in biology (via GLMP) and mathematics (via the Algorithms, Axiomatic Theories, and Proofs project; companion preprint, Welz, 2026), each with a companion research paper, and the need for careful human validation applies throughout.
 The framework’s suggested colour-coding system provides a starting point for consistent visualisation, but
 recognises that different processes may benefit from custom colour schemes; curated GLMP charts increasingly
 adopt the five-category palette above, while legacy snapshots may retain older biology-specific encodings until refreshed.
@@ -795,6 +795,8 @@ Welz, G. (2024). From inspiration to AI: Biology as visual programming. *Medium*
 Welz, G. (2024–2025a). The Programming Framework: A universal method for process analysis [Hugging Face Space]. https://huggingface.co/spaces/garywelz/programming_framework
 
 Welz, G. (2024–2025b). GLMP: Genome Logic Modelling Project [Hugging Face Space]. https://huggingface.co/spaces/garywelz/glmp
+
+Welz, G. (2026). *Algorithms, axiomatic theories, and proofs as graphs: A unified diagrammatic representation of mathematical structure* [Preprint]. Zenodo. https://doi.org/10.5281/zenodo.20510603
 
 White, J., Fu, Q., Hays, S., Sandborn, M., Olea, C., Gilbert, H., … Schmidt, D. C. (2023). A prompt pattern catalog to enhance prompt engineering with ChatGPT. *arXiv*. https://arxiv.org/abs/2302.11382
 
