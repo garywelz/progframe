@@ -92,15 +92,10 @@ papers/programming-framework-paper/*.docx
 papers/programming-framework-paper/.pdf-build/
 papers/programming-framework-paper/_build_*.md
 
-# Scratch build folder for the mathematics paper PDF (regenerable from the .md)
-**/zenodo_build/
-# Keep only config in zenodo_build/; ignore regenerated intermediates if folder is partially populated
-**/zenodo_build/diagrams/
-**/zenodo_build/paper*.html
-**/zenodo_build/paper*.pdf
-**/zenodo_build/paper*.md
-**/zenodo_build/paper-img*
-**/zenodo_build/test-pdf*
+# Mathematics paper PDF build scratch (regenerable from .md); track config only
+**/zenodo_build/*
+!**/zenodo_build/paper.css
+!**/zenodo_build/puppeteer.json
 
 # Chart audit output (regenerable via audit_charts.py)
 chart_audit/
