@@ -7,6 +7,7 @@
 **Preprint:** Zenodo, 2 June 2026 — DOI 10.5281/zenodo.20510603
 **Submission file:** `algorithms-axiomatic-theories-proofs-welz-2026.pdf`
 **Submitted:** June 2, 2026 — email to Jane Spurr (jane@janespurr.net), subject `JLC Submission`, from gwelz@gc.cuny.edu
+**Outcome:** Desk rejection, June 2026 — JLC 26-093. Editors: "generic survey paper" (genre fit). No peer review. **Next venue:** PLOS ONE — see `algorithms-axiomatic-theories-proofs-PLOS-ONE-SUBMISSION.md`.
 
 ---
 
@@ -136,5 +137,6 @@ Provide name, affiliation, email, and one-line rationale for each.
 ## 8. After submission
 
 - [x] Submitted to editorial office (June 2, 2026)
-- [ ] Save JLC acknowledgment email when received
+- [x] Decision received: desk rejection (genre fit — survey), JLC 26-093
+- [x] Retitled and restructured for PLOS ONE (`algorithms-axiomatic-theories-proofs-revised.md`)
 - Companion **Programming Framework** paper submitted separately to *Learned Publishing* (same day)

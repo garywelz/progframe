@@ -1,11 +1,11 @@
-# Algorithms, Axiomatic Theories, and Proofs as Graphs: A Unified Diagrammatic Representation of Mathematical Structure
+# Proof Graphs and Algorithm Capsules: A Corpus Study of Diagonalization Proofs from Cantor to Gödel to Goodstein
 
 **Gary Welz**
 Researcher, New Media Lab, CUNY Graduate Center
 Email: gwelz@gc.cuny.edu
 ORCID: https://orcid.org/0009-0005-7806-0892
 
-**Status:** Submitted to *Journal of Logic and Computation*, June 2, 2026 | Preprint: Zenodo DOI 10.5281/zenodo.20510603
+**Status:** Declined at desk review, *Journal of Logic and Computation*, June 2026 (genre fit) | Revising for *PLOS ONE* | Preprint: Zenodo DOI 10.5281/zenodo.20510603
 **Repository:** garywelz/progframe
 **Path:** collaborations/mathematics-database/algorithms-axiomatic-theories-proofs-revised.md
 
@@ -27,23 +27,21 @@ The methodology is a domain-specific application and extension of the Programmin
 
 ## 1. Introduction
 
-### 1.1 The Representation Problem in Mathematics
+### 1.1 The Representation Problem in Mathematical Proofs
 
-Mathematics is unusual among scientific disciplines in having multiple fundamentally different kinds of objects that practitioners work with routinely. An algorithm is a procedure: a finite sequence of steps that transforms an input into an output. An axiomatic system is a dependency structure: a network of definitions and deductions where theorems follow from axioms through chains of logical inference. A proof is a justification: a structured argument that a particular claim follows necessarily from accepted premises, often involving constructions, assumptions, and contradiction.
+Mathematical proofs are structured arguments in which assumptions, constructions, inferences, and conclusions carry distinct logical roles. Yet proofs are almost always published and taught in prose — linear text that conceals the dependency structure of the argument, obscures where procedural constructions sit within inferential steps, and offers no common format for comparing proofs across domains or methods.
 
-These three object types are taught differently, published differently, and represented differently. Algorithms appear as pseudocode or flowcharts. Axiomatic systems are presented as numbered lists of postulates followed by theorems in linear sequence. Proofs are written in prose, sometimes with diagrams, rarely with any formal representation of their logical dependency structure.
+This representational gap has consequences. A logician reading Gödel's incompleteness proof and a set theorist reading Cantor's diagonal argument may each recognize that a diagonal construction lies at the core of the argument, but comparing the structural role of those constructions — or measuring how each proof allocates complexity between procedure and inference — requires placing both arguments in a common representational space. That space does not exist in standard mathematical practice. Knowledge representation systems typically address axiomatic dependency charts or formal verification certificates, not the internal architecture of informal proof arguments as inspectable, comparable structures.
 
-This representational fragmentation has consequences. Cross-object comparison becomes difficult: how does the structural complexity of a proof compare to the algorithm it may implicitly contain? Machine processing becomes difficult: knowledge representation systems for mathematics typically handle one object type at a time. And structural regularities that are only visible when objects are placed in a common representational space remain hidden.
+Algorithms and axiomatic systems — the other object types mathematicians work with routinely — suffer parallel representational fragmentation: procedures appear as pseudocode or flowcharts, theories as numbered axiom lists. This paper concentrates on proofs. The question is whether proof structure can be made explicit, measurable, and comparable — and whether doing so reveals regularities invisible in prose.
 
 ### 1.2 The Proposed Approach
 
-We propose that algorithms, axiomatic systems, and proofs can all be represented as labeled directed graphs, and that this unification is not merely a formal exercise but reveals genuine structural properties of mathematical objects. Specifically:
+This paper concentrates on **proof graphs** — labeled directed graphs that encode the justification structure of mathematical arguments — though the same pipeline also produces algorithmic flowcharts and axiomatic dependency graphs for comparative context (§3.1–§3.2, §6.2). The central empirical thread is a corpus study of eight proof graphs, with particular attention to three landmark diagonalization arguments: Cantor's diagonal proofs, Gödel's First Incompleteness Theorem, and the Kirby–Paris/Goodstein independence result. Represented as proof graphs, these three proofs — usually treated as belonging to set theory, mathematical logic, and combinatorics respectively — share a common structural signature: in each case an **algorithm capsule** (an embedded procedural substructure) is not incidental to the argument but is its structural core. We term this group the **diagonalization family**; the finding is developed with exact corpus figures in §6.
 
-- **Algorithmic flowcharts** expose the computational structure of procedures: their branching factor, loop depth, and sequential complexity.
-- **Axiomatic dependency graphs** expose the logical architecture of mathematical systems: which theorems depend on which axioms, and how far removed from first principles any given result is.
-- **Proof graphs** expose the justification structure of mathematical arguments: the roles played by different steps, the presence of embedded algorithmic substructures (algorithm capsules), and the structural differences between proofs of the same theorem by different methods.
+Proof graphs expose the roles played by different proof steps, the presence of algorithm capsules, and the structural differences between proofs of the same theorem by different methods. Algorithmic flowcharts and axiomatic dependency graphs, generated by the same methodology, provide the comparative baseline against which proof-graph complexity can be measured.
 
-A skeptical reader might ask whether the graph representation merely redescribes what a careful reader of the prose already knows, rather than revealing anything genuinely new. The answer is that making structure explicit is itself a form of discovery — specifically when the structure was previously inaccessible to measurement and comparison. A proof theorist reading Euclid's infinitude argument already understands that a construction lies at its heart. But comparing that construction's structural role to the analogous construction in the Cantor diagonal proof, or to the diagonal lemma in Gödel's First Incompleteness Theorem, requires a common representational space. The graph provides that space. It is what makes the diagonalization family observation — developed in §6.1 — a finding rather than a redescription. The situation is analogous to phylogenetic trees in biology: evolutionary relationships were always present, but the tree representation made them comparable, measurable, and falsifiable in a way that prose natural history did not.
+A skeptical reader might ask whether the graph representation merely redescribes what a careful reader of the prose already knows, rather than revealing anything genuinely new. The answer is that making structure explicit is itself a form of discovery — specifically when the structure was previously inaccessible to measurement and comparison. Comparing the construction in Euclid's infinitude argument to the diagonal constructions in Cantor, Gödel, and Goodstein requires a common representational space. The graph provides that space. It is what makes the diagonalization family observation a finding rather than a redescription. The situation is analogous to phylogenetic trees in biology: evolutionary relationships were always present, but the tree representation made them comparable, measurable, and falsifiable in a way that prose natural history did not.
 
 The mechanism for generating these graphs is the Programming Framework: a methodology for transforming natural language descriptions of processes into structured Mermaid Markdown diagrams using large language models (LLMs), with human-in-the-loop validation and versioned JSON storage [1].
 
@@ -51,61 +49,49 @@ The mechanism for generating these graphs is the Programming Framework: a method
 
 This paper contributes:
 
-**Conceptual:** A unified graph-theoretic representation of three mathematically distinct object types, with a formal characterization of each graph type and the node/edge vocabularies that distinguish them.
+**Conceptual:** A proof-graph formalism with an eight-role node vocabulary (source, assumption, construction, assertion, inference, algorithm capsule, contradiction, conclusion) and the algorithm capsule as a representational device for embedded procedural substructures within proofs.
 
-**Empirical:** The Mathematics Database — a publicly accessible corpus of LLM-generated graphs spanning algorithms (Sieve of Eratosthenes, Merge Sort, Dijkstra's Algorithm, Euclidean Algorithm, Gödel numbering, and others), axiomatic systems (Euclid's Elements, Peano Arithmetic, ZFC Set Theory, Group Theory, Ring Theory, Field Theory, Category Theory, Lambda Calculus), and proof graphs (Euclid Book I pilot proofs, Infinitely Many Primes, Pythagorean Theorem proof comparison across multiple proof families, Fundamental Theorem of Arithmetic, Cantor Diagonal proofs and variants, Gödel Completeness Theorem, Gödel First Incompleteness Theorem, and the Kirby–Paris/Goodstein independence result).
+**Empirical:** A corpus study of eight proof graphs, with the identification of the diagonalization family spanning Cantor, Gödel, and Goodstein — three proofs whose shared topological signature is visible and measurable in the graph representation but not recoverable from prose alone. The Mathematics Database provides the open, machine-readable infrastructure for this corpus.
 
-**Methodological:** The proof graph node vocabulary — an eight-role domain-specific extension of the Programming Framework's general color system — as a reusable representation for mathematical justification structure.
+**Methodological:** A human-in-the-loop pipeline for generating proof graphs from natural language descriptions using LLMs, as a domain-specific extension of the Programming Framework [1].
 
-**Theoretical:** The observation that proof graphs regularly contain embedded algorithm capsules, making explicit a structural relationship between proof and computation that is implicit in mathematical practice but rarely formalized at the diagram level. This observation extends to the identification of the diagonalization family — a structurally coherent group of proofs whose common topological signature is only visible in the graph representation.
+**Theoretical:** The claim that proof graphs regularly contain algorithm capsules, making explicit a structural relationship between proof and computation that is implicit in mathematical practice but rarely formalized at the diagram level — and that this relationship intensifies in diagonalization arguments across mathematically distant domains.
 
 ---
 
 ## 2. Related Work
 
-### 2.1 Mathematical Knowledge Representation
+### 2.1 Graph-Based Proof Representation
 
-Formal representations of mathematical knowledge have a long history. The QED project [2] and its successors sought to represent all of mathematics in machine-checkable form. Proof assistants — Lean [3], Coq [5], Isabelle [6] — provide formal languages for both axiomatic systems and proofs, enabling automated verification. The Mizar Mathematical Library [7] represents a large body of formalized mathematics in a human-readable formal language.
+Graph-theoretic representations of proofs have been explored in proof complexity theory [9], where proof graphs (also called proof DAGs) are used to measure the size and depth of proofs in formal systems. DAG stands for directed acyclic graph: edges flow in one direction, and no step can depend, even indirectly, on itself. DAG-like proofs have been studied as a generalization of tree-like proofs [9].
 
-These systems are powerful but require significant expertise and are oriented toward formal verification rather than structural analysis or educational accessibility. They do not provide lightweight, rapidly generated, visually inspectable representations of the kind proposed here. Section 4.1 illustrates — on one classical theorem — how a Lean-style proof flow differs in shape and semantics from an informal proof graph in the sense used in this paper.
+The proof graphs in this paper are DAGs at the proof level. Several corpus entries contain algorithm capsule nodes whose internal structure is cyclic — the diagonal enumeration in the Rationals Are Countable proof, for example, contains an explicit loop. The algorithm capsule node type makes this two-level structure visible: cycles are encapsulated within capsule nodes rather than appearing at the proof graph's top level.
 
-Mathematical ontologies — including the Mathematics Subject Classification (MSC) and OpenMath [8] — provide controlled vocabularies for mathematical content but do not represent the internal structure of proofs or algorithms as graphs.
+The present work differs from proof complexity in that it is concerned with the semantic roles of nodes in proofs — what each step does (assumption, construction, inference, and so on) — rather than with formal complexity bounds. Argument mapping [10] is a closer conceptual relative: the proof graph vocabulary in §3.3 can be understood as a domain-specific formalization of argument mapping applied to mathematical justification.
 
-### 2.2 Graph-Based Proof Representation
+Formal proof assistants — Lean [3], Coq [5], Isabelle [6] — represent mathematics for machine verification rather than structural inspection. Section 4.1 contrasts Lean-style proof flow with the informal proof graphs used here; the two approaches are complementary, not competing.
 
-Graph-theoretic representations of proofs have been explored in proof complexity theory [9], where proof graphs (also called proof DAGs) are used to measure the size and depth of proofs in formal systems. DAG stands for directed acyclic graph. A directed graph is one where every edge has a direction — it goes from one node to another, not bidirectionally. Acyclic means the graph contains no cycles: following edges in their directed order, you can never return to a node you have already visited. In the context of proofs, acyclicity reflects the fact that logical dependency flows in one direction — from premises to conclusions — and a step cannot depend, even indirectly, on itself. DAG-like proofs have been studied as a generalization of tree-like proofs [9].
+### 2.2 LLM Diagram Generation
 
-The proof graphs in this paper are DAGs at the proof level: logical dependency flows in one direction from premises to conclusion. However, several proof graphs in the Mathematics Database corpus contain algorithm capsule nodes whose internal structure is cyclic — the diagonal enumeration in the Rationals Are Countable proof, for example, contains an explicit loop. The algorithm capsule node type is precisely the representational device that makes this two-level structure visible: cycles are encapsulated within capsule nodes rather than appearing at the proof graph's top level. This distinction — between proof-level acyclicity and capsule-level iteration — is one of the structural properties the unified representation makes explicit and measurable.
+Large language models have demonstrated capacity for mathematical reasoning [11, 12], and recent work has explored LLM-assisted formalization of mathematics [13]. The present work uses LLMs differently: not to reason about mathematics or verify proofs, but to generate structured diagrammatic representations from natural language descriptions, as one step in a human-in-the-loop pipeline. This paper makes no claims about LLM mathematical reasoning ability, only about LLM utility as a diagram generation tool under human supervision.
 
-The present work differs from proof complexity in that it is concerned with the semantic roles of nodes in proofs — what each step does (assumption, construction, inference, and so on) — rather than with formal complexity bounds.
+### 2.3 Programming Framework and Generation Pipeline
 
-Argument mapping [10] — the practice of representing argumentative structure as directed graphs — is a closer conceptual relative, and has been applied to mathematical proofs in educational contexts. The proof graph vocabulary introduced in §3.3 can be understood as a domain-specific formalization of argument mapping applied to mathematical justification: it takes the general practice of diagramming argumentative structure and gives it a precise eight-role node vocabulary suited to the specific demands of mathematical proof.
+The Programming Framework [1] is a general methodology for transforming textual process descriptions into structured Mermaid Markdown diagrams [14] using LLMs, with human-in-the-loop validation and versioned JSON storage. The present paper extends it to proof graphs by introducing the eight-role node vocabulary and algorithm capsule concept described in §3.3.
 
-### 2.3 LLM-Assisted Mathematical Reasoning
+All proof graphs in the corpus were generated using the following pipeline:
 
-Large language models have demonstrated capacity for mathematical reasoning [11, 12], and recent work has explored LLM-assisted formalization of mathematics [13]. The present work uses LLMs differently: not to reason about mathematics or verify proofs, but to generate structured diagrammatic representations of mathematical objects from natural language descriptions, as one step in a human-in-the-loop pipeline. The distinction matters — this paper makes no claims about LLM mathematical reasoning ability, only about LLM utility as a diagram generation tool under human supervision.
+**Step 1 — Source selection.** A proof is selected and a natural language description is prepared from standard reference sources — typically textbook or encyclopaedia prose.
 
-### 2.4 The Programming Framework
+**Step 2 — LLM prompting.** The description is submitted to a large language model with a structured prompt specifying the proof-graph node vocabulary, color scheme, and Mermaid syntax requirements.
 
-The Programming Framework [1] is a general methodology for transforming textual process descriptions into structured Mermaid Markdown diagrams [14] using LLMs, with a suggested five-category color-coding system (triggers/inputs, structures/objects, processing/operations, intermediates/states, products/outputs) that can be customized for domain-specific needs. It has been applied across biology, chemistry, physics, and computer science as well as mathematics.
+**Step 3 — Human review.** The generated diagram is rendered and reviewed for logical dependency accuracy, node coverage, role assignment, and Mermaid validity.
 
-The present paper both applies and extends the Programming Framework. It applies the base methodology unchanged — natural language input, LLM-generated Mermaid output, human-in-the-loop validation, versioned JSON storage. It extends the framework in two directions: first, by demonstrating that the methodology supports not only procedural processes (algorithms) but logical dependency structures (axiomatic systems) and justification structures (proofs); and second, by introducing domain-specific node vocabularies for axiomatic roles and proof roles that go beyond the framework's five-category base system. The nature and implications of these extensions are developed in §6.
+**Step 4 — Metadata construction.** A JSON metadata record is constructed per the schema in §5.1; structural metrics are counted from the rendered diagram.
 
-### 2.5 Graph Generation Pipeline
+**Step 5 — Versioned storage.** The completed entry is committed to the Google Cloud Storage repository and made publicly accessible via the interactive viewer in §5.4.
 
-All graphs in the Mathematics Database were generated using the following pipeline:
-
-**Step 1 — Source selection.** A mathematical object (algorithm, axiomatic system, or proof) is selected and a natural language description is prepared, drawing on standard reference sources. For algorithms, pseudocode or textbook descriptions serve as input. For axiomatic systems, standard axiom lists and theorem sequences are used. For proofs, prose proof texts — typically from textbook or encyclopaedia sources — are the primary input.
-
-**Step 2 — LLM prompting.** The natural language description is submitted to a large language model with a structured prompt specifying the target graph type (flowchart, dependency graph, or proof graph), the applicable node vocabulary, the color scheme, and the Mermaid syntax requirements. The prompt instructs the model to generate valid Mermaid Markdown and to assign node roles explicitly.
-
-**Step 3 — Human review.** The generated Mermaid diagram is rendered and reviewed by the author. Review checks for: correctness of logical dependency (do the edges accurately represent the mathematical relationships?), completeness of node coverage (are all significant steps represented?), accuracy of role assignment (does each node carry the correct role from the applicable vocabulary?), and Mermaid rendering validity (does the diagram render without errors?).
-
-**Step 4 — Metadata construction.** A JSON metadata record is constructed for the entry, populating all fields in the schema described in §5.1. Structural metrics — node count, edge count, capsule count, and others — are counted from the rendered diagram and recorded.
-
-**Step 5 — Versioned storage.** The completed entry — Mermaid source and JSON metadata — is committed to the Google Cloud Storage repository and made publicly accessible via the interactive viewer described in §5.4.
-
-This pipeline is a direct application of the Programming Framework methodology [1]. The human review step in Stage 3 is the primary quality control mechanism. It does not constitute formal expert validation — that limitation is noted in §7 — but it ensures that each entry has been inspected for logical accuracy by an author with familiarity with the relevant mathematical content.
+The human review step is the primary quality control mechanism. It does not constitute formal expert validation — that limitation is noted in §7 — but it ensures that each entry has been inspected for logical accuracy by an author with familiarity with the relevant mathematical content.
 
 ---
 
@@ -157,7 +143,7 @@ Algorithmic flowcharts are the most direct application of the Programming Framew
 
 ### 3.2 Axiomatic Dependency Graphs
 
-An axiomatic dependency graph represents the logical architecture of a mathematical system as a directed acyclic graph (DAG) — the same structure defined in §2.2, where edges flow in one direction and no theorem can depend, even indirectly, on itself. In the axiomatic context, acyclicity is not merely a formal property but a logical requirement: if theorem B depends on theorem A, then A cannot simultaneously depend on B, or the entire deductive structure would be circular and the system would prove nothing.
+An axiomatic dependency graph represents the logical architecture of a mathematical system as a directed acyclic graph (DAG) — the same structure defined in §2.1, where edges flow in one direction and no theorem can depend, even indirectly, on itself. In the axiomatic context, acyclicity is not merely a formal property but a logical requirement: if theorem B depends on theorem A, then A cannot simultaneously depend on B, or the entire deductive structure would be circular and the system would prove nothing.
 
 The nodes and edges of an axiomatic dependency graph are:
 
@@ -168,13 +154,7 @@ The nodes and edges of an axiomatic dependency graph are:
 
 **Structural metrics captured:** node count, edge count, depth distribution, axiom-to-theorem ratio, number of distinct proof paths to key results.
 
-**Examples in the database:**
-- Euclid's Elements (Books I–VI) — the founding example of axiomatic mathematics; dependency graph reveals which theorems are load-bearing for later results
-- Peano Arithmetic — compact axiom set with far-reaching consequences; graph reveals the dependency structure of the natural number system
-- ZFC Set Theory — complex axiom set; graph reveals the role of individual axioms (e.g., Axiom of Choice) in downstream theorems
-- Group Theory, Ring Theory, Field Theory — algebraic hierarchy; dependency graphs reveal the inclusion structure of algebraic axiom systems
-- Category Theory — highly abstract; dependency graph reveals the role of universal constructions
-- Lambda Calculus — foundational for type theory and functional programming; bridge between mathematics and computer science
+**Examples in the database:** Euclid's Elements, Peano Arithmetic, ZFC Set Theory, and standard algebraic theories — 194 entries in total, listed in the live database (§5.4). This paper does not survey them entry by entry; they supply comparative context in §6.2.
 
 Figure 2 gives an illustrative dependency slice of Book I of Euclid's Elements — postulates, common notions, and early propositions — with coloring by object type. Node labels are abbreviated after Heath's translation.
 
@@ -470,7 +450,7 @@ Each entry in the database is a JSON object. The normative schema used in this p
 
 The deployed manifest uses `name` in place of `title` and `processType` in place of `category` for implementation compatibility. All other fields are identical between the normative schema and the deployed manifest.
 
-As of the May 2026 public manifest, the corpus contains 225 entries in total: 194 axiomatic theories, 23 algorithms, and 8 proof graphs, organized across 27 subcategories.
+The analytical focus of this paper is the eight-entry **proof graph corpus** documented in §5.3. The broader Mathematics Database — produced by the same pipeline — also contains 23 algorithmic flowcharts and 194 axiomatic dependency graphs (see §5.4 for the full manifest). Those entries supply comparative context in §6.2 but are not catalogued here.
 
 The `frontier` flag marks entries where the graph representation pushes against the limits of Mermaid's expressivity or the LLM's reliability — cases requiring additional validation or suggesting future extensions to the methodology. One proof graph entry currently carries this flag: the Kirby–Paris/Goodstein Independence result, noted in §6.1.
 
@@ -517,27 +497,25 @@ This URL should be understood as a shape-and-palette demonstration. The main cor
 
 ---
 
-## 6. What the Representation Reveals
+## 6. Findings from the Proof Graph Corpus
 
-The three graph types introduced in §3 and implemented in the Mathematics Database (§5) are not merely a representational convenience. They reveal structural properties of mathematical objects that are invisible in prose and inaccessible to measurement without a common representational space. This section develops three findings: the regularity of algorithm capsules across the proof graph corpus (§6.1), the structural complexity differences between the three graph types (§6.2), and the topological differences between proof families for the same theorem (§6.3).
+This section reports three findings from the eight-entry proof graph corpus (Table 1, §5.3): the diagonalization family spanning Cantor, Gödel, and Goodstein (§6.1), structural complexity differences between proof graphs and other graph types (§6.2), and topological differences between proof families for the same theorem (§6.3).
 
-### 6.1 Algorithm Capsules in Proofs
+### 6.1 The Diagonalization Family
 
-The most structurally significant finding from the proof graph corpus is the regularity of algorithm capsule nodes. All eight proof graph entries in the Mathematics Database contain at least one algorithm capsule — an embedded construction or procedure that plays an essential role in the proof's argument but is distinct in character from the logical inference steps surrounding it. Table 1 (§5.3) gives the exact capsule counts.
-
-This regularity is not surprising in retrospect: mathematicians have long noted that many existence proofs are constructive, and that the construction itself carries the mathematical content. What the proof graph representation makes explicit — and measurable — is the structural boundary between the algorithmic and the inferential within a single proof. That boundary is visible in the graph and absent from prose.
-
-Within the Euclid Book I bundle, the fact that only proposition I.1 contributes a capsule is itself instructive. I.4 (SAS Congruence) has zero capsules because its proof proceeds entirely by superposition: a methodological assumption rather than a construction. I.5 (Base Angles) has zero capsules because its construction steps are individual proof-specific auxiliary lines rather than a reusable procedure. The contrast between I.1, I.4, and I.5 within the same bundle illustrates the decision rule stated in §3.3: a capsule is a self-contained procedural substructure with its own input/output logic, not merely a sequence of construction steps.
-
-The proof graph corpus contains three entries in what we term the **diagonalization family**: the Cantor Diagonal Proofs, the Gödel First Incompleteness proof graph, and the Kirby–Paris/Goodstein Independence result. In each case the algorithm capsule is not incidental to the proof but is its structural core — the mechanism by which the argument achieves its result.
+The central finding of this corpus study is that three landmark diagonalization proofs — Cantor's diagonal arguments, Gödel's First Incompleteness Theorem, and the Kirby–Paris/Goodstein independence result — form a structurally coherent **diagonalization family** when represented as proof graphs. In each case an **algorithm capsule** is not incidental to the proof but is its structural core — the mechanism by which the argument achieves its result.
 
 In the Cantor diagonal proofs the capsule is the construction of a real number, subset, or enumeration path that differs from every element of an assumed listing — a finite procedure applied at each position of an infinite list. In the Gödel First Incompleteness proof graph the capsule is the diagonal lemma: the arithmetical procedure that constructs a self-referential sentence by applying a provability predicate to its own Gödel number. In the Kirby–Paris/Goodstein entry the capsule is the Goodstein sequence computation — an explicit algorithmic procedure whose termination, provable by ordinal descent, cannot be established within Peano Arithmetic.
 
 All three capsules have the same logical role: they construct an object with a property that generates the proof's central tension, whether contradiction, unprovability, or independence. The proof graph representation makes this family resemblance visible and measurable. All three entries share a common topological signature: a dense algorithm capsule node with high out-degree feeding into an assertion chain that terminates either at a contradiction node (Cantor, Gödel) or a meta-level independence node (Kirby–Paris). This signature is not accessible from prose descriptions of the three proofs, which present them as belonging to different mathematical domains — set theory, mathematical logic, and combinatorics respectively.
 
-The Gödel Numbering algorithm — included in the corpus as a standalone algorithmic flowchart — serves as the explicit capsule twin to the First Incompleteness proof graph, making this the first algorithm/proof pair in the corpus where the same mathematical content appears in both the algorithm and proof graph categories. This pairing directly supports the claim in §1.2: the unified representation reveals structural relationships between proof and computation that are invisible when the two object types are represented separately.
+The Gödel Numbering algorithm — included in the corpus as a standalone algorithmic flowchart — serves as the explicit capsule twin to the First Incompleteness proof graph, making this the first algorithm/proof pair in the corpus where the same mathematical content appears in both categories. This pairing directly supports the claim in §1.2: placing proofs and algorithms in a common representational space reveals structural relationships invisible when the two object types are represented separately.
 
 **Scope note.** Gödel's second incompleteness theorem is represented in the current database only as an axiomatic dependency chart (Peano and Gödel sequence, Part 8). A dedicated proof graph for second incompleteness is deferred: it requires additional internal formalization of consistency statements and would exceed the validation burden of the first incompleteness pilot.
+
+Beyond the diagonalization family, algorithm capsules appear in all eight proof graph entries (Table 1). What the proof graph representation makes explicit — and measurable — is the structural boundary between the algorithmic and the inferential within a single proof. That boundary is visible in the graph and absent from prose.
+
+Within the Euclid Book I bundle, the fact that only proposition I.1 contributes a capsule is instructive. I.4 (SAS Congruence) has zero capsules because its proof proceeds entirely by superposition: a methodological assumption rather than a construction. I.5 (Base Angles) has zero capsules because its construction steps are individual proof-specific auxiliary lines rather than a reusable procedure. The contrast between I.1, I.4, and I.5 within the same bundle illustrates the decision rule stated in §3.3: a capsule is a self-contained procedural substructure with its own input/output logic, not merely a sequence of construction steps.
 
 ### 6.2 Structural Complexity Comparison
 
@@ -547,7 +525,7 @@ Three structural observations follow from the corpus metadata:
 
 **Proof graphs are more complex than algorithmic flowcharts of comparable mathematical content.** The higher node and edge counts reflect the inferential overhead of justification relative to procedure: a proof must not only perform a computation but establish why the computation's output has the required property. The algorithm capsule node type makes this overhead visible by marking where procedure ends and inference begins.
 
-**Axiomatic dependency graphs vary significantly in depth-to-breadth ratio.** Euclidean geometry has relatively few axioms and many theorems — a broad, shallow DAG. ZFC Set Theory has more axioms and more deeply nested dependencies — a narrower, deeper DAG. This depth-to-breadth ratio is a structural property of the axiomatic system itself, not an artifact of the representation, and it is measurable from the manifest metadata.
+**Proof graphs differ in complexity from axiomatic dependency graphs of related content.** Axiomatic charts in the broader database (e.g., Peano Arithmetic, ZFC) vary in depth-to-breadth ratio; proof graphs for the same domain allocate complexity differently, with higher inferential overhead reflected in node and edge counts.
 
 **Proof-by-contradiction graphs have a distinctive topology.** A single contradiction node with high in-degree, preceded by a dense assumption and inference subgraph, followed by a minimal conclusion arc. This contradiction hub topology is visible in the Cantor, Gödel, and Infinitely Many Primes entries and is one of the topological signatures identified in §4.3.
 
@@ -567,7 +545,7 @@ The Pythagorean Theorem entry is the proof graph corpus's clearest demonstration
 
 ## 7. Limitations
 
-**LLM accuracy.** LLM-generated proof graphs may misrepresent the logical structure of proofs, particularly for complex or non-standard arguments. All entries in the current database have been reviewed by the author, but systematic expert validation — particularly by logicians and proof theorists — remains future work. The human-in-the-loop pipeline described in §2.5 mitigates but does not eliminate this risk.
+**LLM accuracy.** LLM-generated proof graphs may misrepresent the logical structure of proofs, particularly for complex or non-standard arguments. All entries in the current database have been reviewed by the author, but systematic expert validation — particularly by logicians and proof theorists — remains future work. The human-in-the-loop pipeline described in §2.3 mitigates but does not eliminate this risk.
 
 **Mermaid expressivity.** Mermaid does not natively support some features that would be useful for proof graphs: parallel proof branches, multiple inheritance in axiomatic hierarchies, or quantifier structure. The most consequential expressivity limitation is the representation of conjunctive premises — distinguishing joint justification from alternative control flow paths. The AND marker grammar described in §4.4 addresses this partially; it remains under evaluation and has not yet been rolled out across the main corpus. These limitations are otherwise managed by approximation and noted in individual entry metadata.
 
@@ -601,9 +579,9 @@ The Pythagorean Theorem entry is the proof graph corpus's clearest demonstration
 
 ## 9. Conclusion
 
-This paper has demonstrated that algorithms, axiomatic systems, and proofs — three mathematically distinct object types conventionally treated as categorically separate — can all be represented as labeled directed graphs using the Programming Framework methodology. That demonstration is not merely formal. It produces findings.
+This paper has introduced proof graphs with algorithm capsules as a diagrammatic representation of mathematical justification structure, and reported a corpus study of eight proof graphs with a central finding: three landmark diagonalization proofs — Cantor, Gödel, and Goodstein — form a structurally coherent family whose common topological signature is only visible in the graph representation. In each case the algorithm capsule is not incidental to the proof but is its structural core. This family resemblance cuts across the conventional domain boundaries of set theory, mathematical logic, and combinatorics. It is a finding about mathematical structure, not merely about representation.
 
-The central finding is the regularity of algorithm capsules across the proof graph corpus. All eight proof graph entries in the Mathematics Database contain at least one algorithm capsule, and three entries — the Cantor Diagonal Proofs, the Gödel First Incompleteness proof graph, and the Kirby–Paris/Goodstein Independence result — form a structurally coherent diagonalization family whose common topological signature is only visible in the graph representation. In each case the algorithm capsule is not incidental to the proof but is its structural core. This family resemblance cuts across the conventional domain boundaries of set theory, mathematical logic, and combinatorics. It is a finding about mathematical structure, not about representation.
+All eight proof graph entries in the corpus contain at least one algorithm capsule; the diagonalization family is the most structurally pronounced instance of a broader regularity.
 
 A skeptic might ask whether the graph representation merely redescribes what a careful reader of the prose already knows. The answer developed in §1.2 bears restating here: making structure explicit is itself a form of discovery when the structure was previously inaccessible to measurement and comparison. The diagonalization family is not visible in prose descriptions of the three proofs. It becomes visible — and measurable, and comparable — only when the three proofs are placed in a common representational space. The same is true of the two-level DAG/cycle structure identified in §3.3: proof graphs are acyclic at the proof level but may contain cycles encapsulated within algorithm capsule nodes. That structural property is present in the proofs whether or not it is represented. The graph makes it nameable, inspectable, and available for cross-proof comparison in a way that prose does not.
 
