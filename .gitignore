@@ -64,7 +64,10 @@ benchmark_data/
 # Windows Zone.Identifier files
 *:Zone.Identifier
 
-# Personal documents
+# Personal documents (keep outside repo; explicit names if copied here by mistake)
+2025Initial 1099.pdf
+form_8949_2025*.pdf
+CopernicusAI China Edition*.pdf
 *.pdf
 # Built manuscript (repo tracks this one PDF for GitHub convenience)
 !papers/programming-framework-paper/programming_framework.pdf
@@ -91,6 +94,13 @@ papers/programming-framework-paper/_build_*.md
 
 # Scratch build folder for the mathematics paper PDF (regenerable from the .md)
 **/zenodo_build/
+# Keep only config in zenodo_build/; ignore regenerated intermediates if folder is partially populated
+**/zenodo_build/diagrams/
+**/zenodo_build/paper*.html
+**/zenodo_build/paper*.pdf
+**/zenodo_build/paper*.md
+**/zenodo_build/paper-img*
+**/zenodo_build/test-pdf*
 
 # Chart audit output (regenerable via audit_charts.py)
 chart_audit/
