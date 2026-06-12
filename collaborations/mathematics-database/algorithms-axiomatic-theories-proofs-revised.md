@@ -119,7 +119,7 @@ An algorithmic flowchart in the Mathematics Database is a standard directed grap
 
 Figure 1 illustrates the Euclidean Algorithm as an algorithmic flowchart using this color vocabulary. The algorithm is a clean example of iterative structure: a single decision node, a back-edge forming the loop, and a minimal path to termination. The color legend appears with the diagram.
 
-*Figure 1: Euclidean Algorithm — algorithmic flowchart. GLMP 5-color scheme as in the Mathematics Database table: Red = input, Lavender = decision, Green = operation, Violet = output.*
+*Figure 1: Euclidean Algorithm — algorithmic flowchart. GLMP 6-color scheme (exact hex values from the Mathematics Database table): Red = input, Lavender = decision, Green = operation, Violet = output.*
 
 ```mermaid
 flowchart TD
@@ -130,14 +130,16 @@ flowchart TD
     E --> F["b equals r"]
     F --> B
     C --> G["Return GCD"]
-    classDef glmpInput fill:#ff6b6b,stroke:#c0392b,color:#fff,stroke-width:2px
-    classDef glmpDecision fill:#e6e6fa,stroke:#9775fa,color:#0f172a,stroke-width:2px
-    classDef glmpOperation fill:#51cf66,stroke:#40c057,color:#fff,stroke-width:2px
-    classDef glmpOutput fill:#b197fc,stroke:#9775fa,color:#fff,stroke-width:2px
-    class A glmpInput
-    class B glmpDecision
-    class C,G glmpOutput
-    class D,E,F glmpOperation
+    classDef red fill:#ff6b6b,color:#fff,stroke:#c0392b
+    classDef yellow fill:#ffd43b,color:#000,stroke:#f59f00
+    classDef green fill:#51cf66,color:#fff,stroke:#40c057
+    classDef lightblue fill:#74c0fc,color:#fff,stroke:#4dabf7
+    classDef violet fill:#b197fc,color:#fff,stroke:#9775fa
+    classDef lavender fill:#e6e6fa,color:#333,stroke:#b19cd9
+    class A red
+    class B lavender
+    class C,G violet
+    class D,E,F green
 ```
 
 Algorithmic flowcharts are the most direct application of the Programming Framework's base methodology and require no extension to the standard vocabulary.
@@ -191,12 +193,12 @@ flowchart TD
     CN1 --> Prop5
     CN3 --> Prop5
     Prop4 --> Prop5
-    classDef post fill:#ff6b6b,stroke:#c0392b,color:#fff,stroke-width:2px
-    classDef cn fill:#ffd43b,stroke:#f59f00,color:#0f172a,stroke-width:2px
-    classDef pr fill:#51cf66,stroke:#40c057,color:#fff,stroke-width:2px
-    class P1,P2,P3 post
-    class CN1,CN3,CN4,CN5 cn
-    class Prop1,Prop2,Prop3,Prop4,Prop5 pr
+    classDef red fill:#ff6b6b,color:#fff,stroke:#c0392b
+    classDef yellow fill:#ffd43b,color:#000,stroke:#f59f00
+    classDef green fill:#51cf66,color:#fff,stroke:#40c057
+    class P1,P2,P3 red
+    class CN1,CN3,CN4,CN5 yellow
+    class Prop1,Prop2,Prop3,Prop4,Prop5 green
 ```
 
 Axiomatic dependency graphs require a domain-specific node vocabulary not present in the base Programming Framework, making them a natural extension case. The acyclicity of these graphs is not imposed as a technical constraint but follows from the logical requirement that deductive systems be non-circular.
@@ -213,18 +215,18 @@ Proof graphs are the novel contribution of this paper. A proof graph represents 
 
 **The eight-role proof graph vocabulary:**
 
-| Role | Color (Mathematics Database) | Definition |
-|------|------------------------------|------------|
-| Source | Amber (`#f2c879`) | The theorem, proposition, or claim being proved |
-| Assumption | Violet (`#c084fc`) | A temporary assumption (e.g., for contradiction or induction) |
-| Construction | Moss (`#8fbc5a`) | An object explicitly constructed in the proof |
-| Assertion | Steel (`#8ecae6`) | A claim that follows from prior steps |
-| Inference | Copper (`#f4a261`) | A logical inference rule or proof step |
-| Algorithm Capsule | Indigo (`#818cf8`) | An embedded algorithmic substructure within the proof |
-| Contradiction | Crimson (`#ef4444`) | A contradiction reached (in proof by contradiction) |
-| Conclusion | Teal (`#2dd4bf`) | The final conclusion establishing the theorem |
+| Role | GLMP color | Definition |
+|------|------------|------------|
+| Source | Red (`#ff6b6b`) | The theorem, proposition, or claim being proved |
+| Assumption | Yellow (`#ffd43b`) | A temporary assumption (e.g., for contradiction or induction) |
+| Construction | Yellow (`#ffd43b`) | An object explicitly constructed in the proof |
+| Assertion | Green (`#51cf66`) | A claim that follows from prior steps |
+| Inference | Light blue (`#74c0fc`) | A logical inference rule or proof step |
+| Algorithm Capsule | Green (`#51cf66`) | An embedded algorithmic substructure within the proof |
+| Contradiction | Red (`#ff6b6b`) | A contradiction reached (in proof by contradiction) |
+| Conclusion | Violet (`#b197fc`) | The final conclusion establishing the theorem |
 
-Node fills use the same muted proof-role palette as the live proof-graph pages in the Mathematics Database (`proof-graphs/`). Algorithmic flowcharts and axiomatic dependency graphs use the GLMP 5-color scheme shown in the database table viewer.
+All figures in this paper use the **exact GLMP 6-color scheme** from the Mathematics Database table viewer: red, yellow, green, light blue, violet, and lavender (decision diamonds). Proof roles map onto this palette as shown above; algorithmic flowcharts and axiomatic dependency graphs use the same hex values directly.
 
 **On the mutual exclusivity of roles.** The eight roles are intended to be mutually exclusive: each node in a proof graph carries exactly one role. In practice, some proof steps are ambiguous — a step may function simultaneously as a construction and an assertion, or as an inference and a conclusion. The decision rule applied in the Mathematics Database is to assign the role that best captures the step's primary proof-theoretic function. A step that constructs an object and asserts a property of it in the same move is classified as a Construction if the object's existence is what the proof requires, and as an Assertion if the property is what the proof requires. A step that draws a final inference is classified as a Conclusion rather than an Inference if it directly establishes the theorem being proved. These decisions are recorded in the entry metadata and are available for review. The goal is consistency within the corpus rather than a claim that the boundaries are always sharp.
 
@@ -278,21 +280,18 @@ flowchart TD
     F["Contradiction: list was complete"]
     G["Conclusion: no finite list is exhaustive"]
     A --> B --> C --> D --> E --> F --> G
-    classDef proofSource fill:#f2c879,stroke:#7a4f12,color:#0f172a,stroke-width:2px
-    classDef proofAssumption fill:#c084fc,stroke:#6d28d9,color:#0f172a,stroke-width:2px
-    classDef proofConstruction fill:#8fbc5a,stroke:#3f6212,color:#0f172a,stroke-width:2px
-    classDef proofAssertion fill:#8ecae6,stroke:#25637a,color:#0f172a,stroke-width:2px
-    classDef proofInference fill:#f4a261,stroke:#9a3412,color:#0f172a,stroke-width:2px
-    classDef proofAlgorithm fill:#818cf8,stroke:#3730a3,color:#0f172a,stroke-width:2px
-    classDef proofContradiction fill:#ef4444,stroke:#991b1b,color:#ffffff,stroke-width:2px
-    classDef proofConclusion fill:#2dd4bf,stroke:#0f766e,color:#0f172a,stroke-width:2px
-    class A proofSource
-    class B proofAssumption
-    class C proofAlgorithm
-    class D proofAssertion
-    class E proofInference
-    class F proofContradiction
-    class G proofConclusion
+    classDef red fill:#ff6b6b,color:#fff,stroke:#c0392b
+    classDef yellow fill:#ffd43b,color:#000,stroke:#f59f00
+    classDef green fill:#51cf66,color:#fff,stroke:#40c057
+    classDef lightblue fill:#74c0fc,color:#fff,stroke:#4dabf7
+    classDef violet fill:#b197fc,color:#fff,stroke:#9775fa
+    class A red
+    class B yellow
+    class C green
+    class D green
+    class E lightblue
+    class F red
+    class G violet
 ```
 
 **Lean-schematic proof tree (goal and lemma oriented).**
@@ -307,18 +306,16 @@ flowchart TD
     G5["show: p cannot be in S"]
     G6["contradiction: S was assumed exhaustive"]
     T --> G1 --> G2 --> G3 --> G4 --> G5 --> G6
-    classDef proofSource fill:#f2c879,stroke:#7a4f12,color:#0f172a,stroke-width:2px
-    classDef proofAssumption fill:#c084fc,stroke:#6d28d9,color:#0f172a,stroke-width:2px
-    classDef proofConstruction fill:#8fbc5a,stroke:#3f6212,color:#0f172a,stroke-width:2px
-    classDef proofAssertion fill:#8ecae6,stroke:#25637a,color:#0f172a,stroke-width:2px
-    classDef proofInference fill:#f4a261,stroke:#9a3412,color:#0f172a,stroke-width:2px
-    classDef proofContradiction fill:#ef4444,stroke:#991b1b,color:#ffffff,stroke-width:2px
-    class T proofSource
-    class G1 proofAssumption
-    class G2 proofConstruction
-    class G3,G4 proofAssertion
-    class G5 proofInference
-    class G6 proofContradiction
+    classDef red fill:#ff6b6b,color:#fff,stroke:#c0392b
+    classDef yellow fill:#ffd43b,color:#000,stroke:#f59f00
+    classDef green fill:#51cf66,color:#fff,stroke:#40c057
+    classDef lightblue fill:#74c0fc,color:#fff,stroke:#4dabf7
+    class T red
+    class G1 yellow
+    class G2 yellow
+    class G3,G4 green
+    class G5 lightblue
+    class G6 red
 ```
 
 **How the two differ:**
@@ -352,16 +349,16 @@ flowchart TD
   ST --> IH
   ST --> C["Conclusion: by induction P holds for all n"]
   B --> C
-  classDef proofSource fill:#f2c879,stroke:#7a4f12,color:#0f172a,stroke-width:2px
-  classDef proofAssumption fill:#c084fc,stroke:#6d28d9,color:#0f172a,stroke-width:2px
-  classDef proofAssertion fill:#8ecae6,stroke:#25637a,color:#0f172a,stroke-width:2px
-  classDef proofInference fill:#f4a261,stroke:#9a3412,color:#0f172a,stroke-width:2px
-  classDef proofConclusion fill:#2dd4bf,stroke:#0f766e,color:#0f172a,stroke-width:2px
-  class S proofSource
-  class B proofAssertion
-  class IH proofAssumption
-  class ST proofInference
-  class C proofConclusion
+  classDef red fill:#ff6b6b,color:#fff,stroke:#c0392b
+  classDef yellow fill:#ffd43b,color:#000,stroke:#f59f00
+  classDef green fill:#51cf66,color:#fff,stroke:#40c057
+  classDef lightblue fill:#74c0fc,color:#fff,stroke:#4dabf7
+  classDef violet fill:#b197fc,color:#fff,stroke:#9775fa
+  class S red
+  class B green
+  class IH yellow
+  class ST lightblue
+  class C violet
 ```
 
 The back-edge from ST to IH encodes the inductive pattern without introducing a full cycle into the proof graph. This is a principled representational choice: the back-edge marks where the inductive pattern repeats without implying that the proof's logical dependency is circular.
@@ -386,18 +383,17 @@ flowchart TD
   T --> C1 --> AC
   T --> C2 --> AC
   AC --> AS --> I --> CO
-  classDef proofSource fill:#f2c879,stroke:#7a4f12,color:#0f172a,stroke-width:2px
-  classDef proofConstruction fill:#8fbc5a,stroke:#3f6212,color:#0f172a,stroke-width:2px
-  classDef proofAlgorithm fill:#818cf8,stroke:#3730a3,color:#0f172a,stroke-width:2px
-  classDef proofAssertion fill:#8ecae6,stroke:#25637a,color:#0f172a,stroke-width:2px
-  classDef proofInference fill:#f4a261,stroke:#9a3412,color:#0f172a,stroke-width:2px
-  classDef proofConclusion fill:#2dd4bf,stroke:#0f766e,color:#0f172a,stroke-width:2px
-  class T proofSource
-  class C1,C2 proofConstruction
-  class AC proofAlgorithm
-  class AS proofAssertion
-  class I proofInference
-  class CO proofConclusion
+  classDef red fill:#ff6b6b,color:#fff,stroke:#c0392b
+  classDef yellow fill:#ffd43b,color:#000,stroke:#f59f00
+  classDef green fill:#51cf66,color:#fff,stroke:#40c057
+  classDef lightblue fill:#74c0fc,color:#fff,stroke:#4dabf7
+  classDef violet fill:#b197fc,color:#fff,stroke:#9775fa
+  class T red
+  class C1,C2 yellow
+  class AC green
+  class AS green
+  class I lightblue
+  class CO violet
 ```
 
 An algebraic proof — proceeding by symbolic rewriting — produces a **chain topology**: a narrow sequential path of inference nodes with few constructions and shallow branching.
@@ -411,14 +407,14 @@ flowchart TD
   R3["Inference: isolate c squared"]
   CO2["Conclusion: a squared plus b squared equals c squared"]
   T2 --> A0 --> R1 --> R2 --> R3 --> CO2
-  classDef proofSource fill:#f2c879,stroke:#7a4f12,color:#0f172a,stroke-width:2px
-  classDef proofAssumption fill:#c084fc,stroke:#6d28d9,color:#0f172a,stroke-width:2px
-  classDef proofInference fill:#f4a261,stroke:#9a3412,color:#0f172a,stroke-width:2px
-  classDef proofConclusion fill:#2dd4bf,stroke:#0f766e,color:#0f172a,stroke-width:2px
-  class T2 proofSource
-  class A0 proofAssumption
-  class R1,R2,R3 proofInference
-  class CO2 proofConclusion
+  classDef red fill:#ff6b6b,color:#fff,stroke:#c0392b
+  classDef yellow fill:#ffd43b,color:#000,stroke:#f59f00
+  classDef lightblue fill:#74c0fc,color:#fff,stroke:#4dabf7
+  classDef violet fill:#b197fc,color:#fff,stroke:#9775fa
+  class T2 red
+  class A0 yellow
+  class R1,R2,R3 lightblue
+  class CO2 violet
 ```
 
 | Topology | Visual signature | Typical role mix |
@@ -665,7 +661,7 @@ The diagrams in this paper were generated with large-language-model assistance a
 
 ## Appendix: Reference Proof Graph — Infinitely Many Primes (Euclid)
 
-The following proof graph illustrates per-node role styling for the eight-role schema from §3.3 on Euclid's infinitude-of-primes argument. Colors match the Mathematics Database proof-graph palette: Amber = source, Violet = assumption, Indigo = algorithm capsule, Steel = assertion, Copper = inference, Crimson = contradiction, Teal = conclusion.
+The following proof graph illustrates per-node role styling for the eight-role schema from §3.3 on Euclid's infinitude-of-primes argument. Colors use the GLMP 6-color scheme from the Mathematics Database table: Red = source/contradiction, Yellow = assumption, Green = assertion/algorithm capsule, Light blue = inference, Violet = conclusion.
 
 ```mermaid
 flowchart TD
@@ -677,18 +673,14 @@ flowchart TD
     F["Contradiction: list was complete"]
     G["Conclusion: no finite list is exhaustive"]
     A --> B --> C --> D --> E --> F --> G
-    classDef proofSource fill:#f2c879,stroke:#7a4f12,color:#0f172a,stroke-width:2px
-    classDef proofAssumption fill:#c084fc,stroke:#6d28d9,color:#0f172a,stroke-width:2px
-    classDef proofAlgorithm fill:#818cf8,stroke:#3730a3,color:#0f172a,stroke-width:2px
-    classDef proofAssertion fill:#8ecae6,stroke:#25637a,color:#0f172a,stroke-width:2px
-    classDef proofInference fill:#f4a261,stroke:#9a3412,color:#0f172a,stroke-width:2px
-    classDef proofContradiction fill:#ef4444,stroke:#991b1b,color:#ffffff,stroke-width:2px
-    classDef proofConclusion fill:#2dd4bf,stroke:#0f766e,color:#0f172a,stroke-width:2px
-    class A proofSource
-    class B proofAssumption
-    class C proofAlgorithm
-    class D proofAssertion
-    class E proofInference
-    class F proofContradiction
-    class G proofConclusion
+    classDef red fill:#ff6b6b,color:#fff,stroke:#c0392b
+    classDef yellow fill:#ffd43b,color:#000,stroke:#f59f00
+    classDef green fill:#51cf66,color:#fff,stroke:#40c057
+    classDef lightblue fill:#74c0fc,color:#fff,stroke:#4dabf7
+    classDef violet fill:#b197fc,color:#fff,stroke:#9775fa
+    class A,F red
+    class B yellow
+    class C,D green
+    class E lightblue
+    class G violet
 ```

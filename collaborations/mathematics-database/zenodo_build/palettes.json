@@ -1,34 +1,36 @@
 {
-  "glmp_algorithm": {
-    "description": "Mathematics Database table — 5/6-color GLMP scheme for algorithmic flowcharts",
+  "glmp_6color": {
+    "description": "Mathematics Database table — exact GLMP 6-color scheme (godel-numbering-algorithm.html)",
+    "classDefs": [
+      "classDef red fill:#ff6b6b,color:#fff,stroke:#c0392b",
+      "classDef yellow fill:#ffd43b,color:#000,stroke:#f59f00",
+      "classDef green fill:#51cf66,color:#fff,stroke:#40c057",
+      "classDef lightblue fill:#74c0fc,color:#fff,stroke:#4dabf7",
+      "classDef violet fill:#b197fc,color:#fff,stroke:#9775fa",
+      "classDef lavender fill:#e6e6fa,color:#333,stroke:#b19cd9"
+    ],
     "roles": {
-      "input": { "fill": "#ff6b6b", "stroke": "#c0392b", "color": "#ffffff" },
-      "structure": { "fill": "#ffd43b", "stroke": "#f59f00", "color": "#000000" },
-      "operation": { "fill": "#51cf66", "stroke": "#40c057", "color": "#ffffff" },
-      "intermediate": { "fill": "#74c0fc", "stroke": "#4dabf7", "color": "#ffffff" },
-      "output": { "fill": "#b197fc", "stroke": "#9775fa", "color": "#ffffff" },
-      "decision": { "fill": "#e6e6fa", "stroke": "#9775fa", "color": "#0f172a" }
-    }
-  },
-  "axiomatic_dependency": {
-    "description": "Mathematics Database — axiomatic dependency charts",
-    "roles": {
-      "postulate": { "fill": "#ff6b6b", "stroke": "#c0392b", "color": "#ffffff" },
-      "common_notion": { "fill": "#ffd43b", "stroke": "#f59f00", "color": "#000000" },
-      "proposition": { "fill": "#51cf66", "stroke": "#40c057", "color": "#ffffff" }
-    }
-  },
-  "proof_graph": {
-    "description": "Mathematics Database proof-graphs/ — eight-role palette (matches table viewer)",
-    "roles": {
-      "source": { "fill": "#f2c879", "stroke": "#7a4f12", "color": "#0f172a", "label": "Amber" },
-      "assumption": { "fill": "#c084fc", "stroke": "#6d28d9", "color": "#0f172a", "label": "Violet" },
-      "construction": { "fill": "#8fbc5a", "stroke": "#3f6212", "color": "#0f172a", "label": "Moss" },
-      "assertion": { "fill": "#8ecae6", "stroke": "#25637a", "color": "#0f172a", "label": "Steel" },
-      "inference": { "fill": "#f4a261", "stroke": "#9a3412", "color": "#0f172a", "label": "Copper" },
-      "algorithm_capsule": { "fill": "#818cf8", "stroke": "#3730a3", "color": "#0f172a", "label": "Indigo" },
-      "contradiction": { "fill": "#ef4444", "stroke": "#991b1b", "color": "#ffffff", "label": "Crimson" },
-      "conclusion": { "fill": "#2dd4bf", "stroke": "#0f766e", "color": "#0f172a", "label": "Teal" }
+      "red": { "fill": "#ff6b6b", "label": "Triggers & Inputs" },
+      "yellow": { "fill": "#ffd43b", "label": "Structures & Objects" },
+      "green": { "fill": "#51cf66", "label": "Processing & Operations" },
+      "lightblue": { "fill": "#74c0fc", "label": "Intermediates & States" },
+      "violet": { "fill": "#b197fc", "label": "Products & Outputs" },
+      "lavender": { "fill": "#e6e6fa", "label": "Decision diamonds (AND/OR)" }
+    },
+    "proof_role_mapping": {
+      "source": "red",
+      "assumption": "yellow",
+      "construction": "yellow",
+      "assertion": "green",
+      "inference": "lightblue",
+      "algorithm_capsule": "green",
+      "contradiction": "red",
+      "conclusion": "violet"
+    },
+    "axiomatic_mapping": {
+      "postulate": "red",
+      "common_notion": "yellow",
+      "proposition": "green"
     }
   }
 }

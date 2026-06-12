@@ -461,8 +461,8 @@ loop, and a minimal path to termination. The color legend appears with
 the diagram.
 
 \emph{Figure 1: Euclidean Algorithm --- algorithmic flowchart. GLMP
-5-color scheme as in the Mathematics Database table: Red = input,
-Lavender = decision, Green = operation, Violet = output.}
+6-color scheme (exact hex values from the Mathematics Database table):
+Red = input, Lavender = decision, Green = operation, Violet = output.}
 
 \includegraphics{figures/fig1.pdf}
 
@@ -571,33 +571,34 @@ representation makes explicit that prose cannot.
 
 \begin{longtable}[]{@{}lll@{}}
 \toprule\noalign{}
-Role & Color (Mathematics Database) & Definition \\
+Role & GLMP color & Definition \\
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-Source & Amber (\texttt{\#f2c879}) & The theorem, proposition, or claim
+Source & Red (\texttt{\#ff6b6b}) & The theorem, proposition, or claim
 being proved \\
-Assumption & Violet (\texttt{\#c084fc}) & A temporary assumption (e.g.,
+Assumption & Yellow (\texttt{\#ffd43b}) & A temporary assumption (e.g.,
 for contradiction or induction) \\
-Construction & Moss (\texttt{\#8fbc5a}) & An object explicitly
+Construction & Yellow (\texttt{\#ffd43b}) & An object explicitly
 constructed in the proof \\
-Assertion & Steel (\texttt{\#8ecae6}) & A claim that follows from prior
+Assertion & Green (\texttt{\#51cf66}) & A claim that follows from prior
 steps \\
-Inference & Copper (\texttt{\#f4a261}) & A logical inference rule or
+Inference & Light blue (\texttt{\#74c0fc}) & A logical inference rule or
 proof step \\
-Algorithm Capsule & Indigo (\texttt{\#818cf8}) & An embedded algorithmic
+Algorithm Capsule & Green (\texttt{\#51cf66}) & An embedded algorithmic
 substructure within the proof \\
-Contradiction & Crimson (\texttt{\#ef4444}) & A contradiction reached
-(in proof by contradiction) \\
-Conclusion & Teal (\texttt{\#2dd4bf}) & The final conclusion
+Contradiction & Red (\texttt{\#ff6b6b}) & A contradiction reached (in
+proof by contradiction) \\
+Conclusion & Violet (\texttt{\#b197fc}) & The final conclusion
 establishing the theorem \\
 \end{longtable}
 
-Node fills use the same muted proof-role palette as the live proof-graph
-pages in the Mathematics Database (\texttt{proof-graphs/}). Algorithmic
-flowcharts and axiomatic dependency graphs use the GLMP 5-color scheme
-shown in the database table viewer.
+All figures in this paper use the \textbf{exact GLMP 6-color scheme}
+from the Mathematics Database table viewer: red, yellow, green, light
+blue, violet, and lavender (decision diamonds). Proof roles map onto
+this palette as shown above; algorithmic flowcharts and axiomatic
+dependency graphs use the same hex values directly.
 
 \textbf{On the mutual exclusivity of roles.} The eight roles are
 intended to be mutually exclusive: each node in a proof graph carries
@@ -1459,10 +1460,10 @@ conclusions are the author\textquotesingle s own.
 
 The following proof graph illustrates per-node role styling for the
 eight-role schema from §3.3 on Euclid\textquotesingle s
-infinitude-of-primes argument. Colors match the Mathematics Database
-proof-graph palette: Amber = source, Violet = assumption, Indigo =
-algorithm capsule, Steel = assertion, Copper = inference, Crimson =
-contradiction, Teal = conclusion.
+infinitude-of-primes argument. Colors use the GLMP 6-color scheme from
+the Mathematics Database table: Red = source/contradiction, Yellow =
+assumption, Green = assertion/algorithm capsule, Light blue = inference,
+Violet = conclusion.
 
 \includegraphics{figures/fig8.pdf}
 
