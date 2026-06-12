@@ -5,7 +5,7 @@ Researcher, New Media Lab, CUNY Graduate Center
 Email: gwelz@gc.cuny.edu
 ORCID: https://orcid.org/0009-0005-7806-0892
 
-**Status:** Declined at desk review, *Journal of Logic and Computation*, June 2026 (genre fit) | Revising for *PLOS ONE* | Preprint: Zenodo DOI 10.5281/zenodo.20510603
+**Status:** Declined at desk review, *Journal of Logic and Computation*, June 2026 (genre fit) | Revising for *PLOS ONE* | Preprint: Zenodo DOI 10.5281/zenodo.20670491 (v2, June 12, 2026)
 **Repository:** garywelz/progframe
 **Path:** collaborations/mathematics-database/proof-graphs-diagonalization-corpus.md
 

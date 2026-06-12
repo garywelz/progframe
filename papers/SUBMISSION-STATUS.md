@@ -1,6 +1,6 @@
 # Paper submission status — Gary Welz
 
-Last updated: **June 2, 2026** (mathematics paper revision)
+Last updated: **June 12, 2026** (mathematics preprint v2 on Zenodo)
 
 | Paper | Journal | Status | Portal / contact | ID / file |
 |-------|---------|--------|------------------|-----------|
@@ -12,7 +12,7 @@ Last updated: **June 2, 2026** (mathematics paper revision)
 | Paper | Concept DOI |
 |-------|-------------|
 | Programming Framework | [10.5281/zenodo.18463441](https://doi.org/10.5281/zenodo.18463441) |
-| Mathematics | [10.5281/zenodo.20510603](https://doi.org/10.5281/zenodo.20510603) |
+| Mathematics | [10.5281/zenodo.20670491](https://doi.org/10.5281/zenodo.20670491) (v2; v1: [10.5281/zenodo.20510603](https://doi.org/10.5281/zenodo.20510603)) |
 
 ## Repo pointers
 
