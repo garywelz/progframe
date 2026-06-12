@@ -11,6 +11,7 @@ export PUPPETEER_EXECUTABLE_PATH="${PUPPETEER_EXECUTABLE_PATH:-/usr/bin/chromium
 PUPPETEER_JSON="$ZENODO/puppeteer.json"
 MERMAID_CONFIG="$ZENODO/mermaid-config.json"
 MERMAID_CSS="$ZENODO/mermaid-figures.css"
+PALETTES="$ZENODO/palettes.json"
 MMDC_SCALE="${MMDC_SCALE:-3}"
 MMDC_WIDTH="${MMDC_WIDTH:-1400}"
 
@@ -19,6 +20,7 @@ needs_figures() {
   [[ "$SOURCE" -nt figures/fig8.pdf ]] && return 0
   [[ "$MERMAID_CONFIG" -nt figures/fig8.pdf ]] && return 0
   [[ "$MERMAID_CSS" -nt figures/fig8.pdf ]] && return 0
+  [[ "$PALETTES" -nt figures/fig8.pdf ]] && return 0
   [[ "${FORCE_FIGURES:-}" == "1" ]] && return 0
   return 1
 }

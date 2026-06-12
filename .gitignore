@@ -98,6 +98,7 @@ papers/programming-framework-paper/_build_*.md
 !**/zenodo_build/puppeteer.json
 !**/zenodo_build/mermaid-config.json
 !**/zenodo_build/mermaid-figures.css
+!**/zenodo_build/palettes.json
 
 # Chart audit output (regenerable via audit_charts.py)
 chart_audit/

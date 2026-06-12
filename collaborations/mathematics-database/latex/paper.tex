@@ -460,9 +460,9 @@ iterative structure: a single decision node, a back-edge forming the
 loop, and a minimal path to termination. The color legend appears with
 the diagram.
 
-\emph{Figure 1: Euclidean Algorithm --- algorithmic flowchart. Color
-legend: Red = input, Blue = decision/intermediate, Green = operation,
-Violet = output.}
+\emph{Figure 1: Euclidean Algorithm --- algorithmic flowchart. GLMP
+5-color scheme as in the Mathematics Database table: Red = input,
+Lavender = decision, Green = operation, Violet = output.}
 
 \includegraphics{figures/fig1.pdf}
 
@@ -519,7 +519,7 @@ abbreviated after Heath\textquotesingle s translation.
 
 \emph{Figure 2: Euclid\textquotesingle s Elements Book I --- axiomatic
 dependency graph (illustrative; abbreviated node labels after Heath).
-Color legend: Red = Postulates, Purple = Common Notions, Teal =
+Database palette: Red = Postulates, Yellow = Common Notions, Green =
 Propositions.}
 
 \includegraphics{figures/fig2.pdf}
@@ -571,23 +571,33 @@ representation makes explicit that prose cannot.
 
 \begin{longtable}[]{@{}lll@{}}
 \toprule\noalign{}
-Role & Color & Definition \\
+Role & Color (Mathematics Database) & Definition \\
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-Source & Red & The theorem, proposition, or claim being proved \\
-Assumption & Orange & A temporary assumption (e.g., for contradiction or
-induction) \\
-Construction & Yellow & An object explicitly constructed in the proof \\
-Assertion & Green & A claim that follows from prior steps \\
-Inference & Blue & A logical inference rule or proof step \\
-Algorithm Capsule & Teal & An embedded algorithmic substructure within
-the proof \\
-Contradiction & Purple & A contradiction reached (in proof by
-contradiction) \\
-Conclusion & Violet & The final conclusion establishing the theorem \\
+Source & Amber (\texttt{\#f2c879}) & The theorem, proposition, or claim
+being proved \\
+Assumption & Violet (\texttt{\#c084fc}) & A temporary assumption (e.g.,
+for contradiction or induction) \\
+Construction & Moss (\texttt{\#8fbc5a}) & An object explicitly
+constructed in the proof \\
+Assertion & Steel (\texttt{\#8ecae6}) & A claim that follows from prior
+steps \\
+Inference & Copper (\texttt{\#f4a261}) & A logical inference rule or
+proof step \\
+Algorithm Capsule & Indigo (\texttt{\#818cf8}) & An embedded algorithmic
+substructure within the proof \\
+Contradiction & Crimson (\texttt{\#ef4444}) & A contradiction reached
+(in proof by contradiction) \\
+Conclusion & Teal (\texttt{\#2dd4bf}) & The final conclusion
+establishing the theorem \\
 \end{longtable}
+
+Node fills use the same muted proof-role palette as the live proof-graph
+pages in the Mathematics Database (\texttt{proof-graphs/}). Algorithmic
+flowcharts and axiomatic dependency graphs use the GLMP 5-color scheme
+shown in the database table viewer.
 
 \textbf{On the mutual exclusivity of roles.} The eight roles are
 intended to be mutually exclusive: each node in a proof graph carries
@@ -1449,11 +1459,10 @@ conclusions are the author\textquotesingle s own.
 
 The following proof graph illustrates per-node role styling for the
 eight-role schema from §3.3 on Euclid\textquotesingle s
-infinitude-of-primes argument. Node colors map to roles: Red = source,
-Orange = assumption, Teal = algorithm capsule, Green = assertion, Blue =
-inference, Purple = contradiction, Violet = conclusion. The Construction
-role (Yellow) has no standalone node in this compact presentation ---
-the Euclidean construction is represented inside the algorithm capsule.
+infinitude-of-primes argument. Colors match the Mathematics Database
+proof-graph palette: Amber = source, Violet = assumption, Indigo =
+algorithm capsule, Steel = assertion, Copper = inference, Crimson =
+contradiction, Teal = conclusion.
 
 \includegraphics{figures/fig8.pdf}
 

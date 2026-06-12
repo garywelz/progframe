@@ -1,28 +1,19 @@
 {
   "theme": "base",
-  "fontSize": 20,
+  "fontSize": 18,
   "themeVariables": {
     "fontFamily": "Arial, Helvetica, sans-serif",
-    "fontSize": "20px",
-    "primaryTextColor": "#111111",
-    "primaryColor": "#f8f9fa",
-    "primaryBorderColor": "#212529",
-    "lineColor": "#212529",
-    "secondaryColor": "#e9ecef",
-    "tertiaryColor": "#dee2e6",
-    "nodeTextColor": "#111111",
-    "textColor": "#111111",
-    "mainBkg": "#f8f9fa",
-    "clusterBkg": "#f1f3f5",
-    "titleColor": "#111111",
+    "fontSize": "18px",
+    "primaryTextColor": "#0f172a",
+    "lineColor": "#334155",
     "edgeLabelBackground": "#ffffff"
   },
   "flowchart": {
     "htmlLabels": true,
-    "nodeSpacing": 60,
-    "rankSpacing": 70,
-    "padding": 20,
+    "nodeSpacing": 55,
+    "rankSpacing": 65,
+    "padding": 18,
     "curve": "basis"
   },
-  "themeCSS": ".node .label, .nodeLabel, .label text, .edgeLabel { font-size: 20px !important; font-weight: 600 !important; } .node rect, .node circle, .node polygon, .node path { stroke-width: 2.5px !important; stroke: #212529 !important; }"
+  "themeCSS": ".node .label, .nodeLabel, .label { font-size: 18px !important; font-weight: 600 !important; } .node rect, .node circle, .node polygon, .node path { stroke-width: 2px !important; }"
 }
