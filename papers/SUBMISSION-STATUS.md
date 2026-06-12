@@ -1,10 +1,10 @@
 # Paper submission status — Gary Welz
 
-Last updated: **June 12, 2026** (mathematics preprint v2 on Zenodo)
+Last updated: **June 12, 2026** (Learned Publishing desk rejection; mathematics preprint v2 on Zenodo)
 
 | Paper | Journal | Status | Portal / contact | ID / file |
 |-------|---------|--------|------------------|-----------|
-| **The Programming Framework** | [*Learned Publishing*](https://onlinelibrary.wiley.com/journal/17414857) (Wiley) | Under review (submitted June 2, 2026) | [submission.wiley.com](https://submission.wiley.com) | `4ed3a6f7-c912-4abf-b573-5fb2f612da52` |
+| **The Programming Framework** | ~~[*Learned Publishing*](https://onlinelibrary.wiley.com/journal/17414857) (Wiley)~~ | **Declined at desk June 12, 2026** (out of scope; ms 7995743) — next venue TBD | [submission.wiley.com](https://submission.wiley.com) | `4ed3a6f7-c912-4abf-b573-5fb2f612da52` |
 | **Proof Graphs and Algorithm Capsules** | [*PLOS ONE*](https://journals.plos.org/plosone/) | **Revising** — JLC desk reject June 2026 (JLC 26-093) | [Editorial Manager](https://www.editorialmanager.com/pone/default.aspx) | `latex/paper.pdf` |
 
 ## Preprints (Zenodo)

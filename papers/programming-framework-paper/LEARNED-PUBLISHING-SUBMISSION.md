@@ -9,6 +9,8 @@
 
 **Submitted:** June 2, 2026 — Wiley Authors ([submission.wiley.com](https://submission.wiley.com)), Original Article; submission ID `4ed3a6f7-c912-4abf-b573-5fb2f612da52`
 
+**Outcome:** **Declined at desk, June 12, 2026** — manuscript 7995743 ruled outside journal scope (no peer review). *Learned Publishing* covers the scholarly publishing industry; the paper is a research-methods contribution. Next venue under consideration.
+
 **Full guidelines:** `submission-target.md` (Wiley Author Guidelines, captured May 2026)
 
 ---
