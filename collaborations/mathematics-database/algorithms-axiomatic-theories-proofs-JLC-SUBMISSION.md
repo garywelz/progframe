@@ -138,5 +138,5 @@ Provide name, affiliation, email, and one-line rationale for each.
 
 - [x] Submitted to editorial office (June 2, 2026)
 - [x] Decision received: desk rejection (genre fit — survey), JLC 26-093
-- [x] Retitled and restructured for PLOS ONE (`algorithms-axiomatic-theories-proofs-revised.md`)
+- [x] Retitled and restructured for PLOS ONE (`proof-graphs-diagonalization-corpus.md`)
 - Companion **Programming Framework** paper submitted separately to *Learned Publishing* (same day)

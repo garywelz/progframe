@@ -11,7 +11,7 @@ Rebuild from the canonical Markdown source:
 - `figures/fig1.pdf` … `fig8.pdf` — vector Mermaid diagrams
 - `paper.pdf` — compiled submission PDF (~29 pp.)
 
-**Source of truth:** `../algorithms-axiomatic-theories-proofs-revised.md`
+**Source of truth:** `../proof-graphs-diagonalization-corpus.md`
 
 **Pipeline:** `prepare_source.py` injects YAML abstract, swaps Mermaid blocks for `figures/figN.pdf`, and `patch_paper_tex.py` adds the author affiliation block. Re-run `build_latex.sh` after any Markdown edits.
 

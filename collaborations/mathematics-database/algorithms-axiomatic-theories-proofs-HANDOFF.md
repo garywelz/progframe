@@ -10,7 +10,7 @@
 
 This is a complete handoff from a Claude editing session in which the paper "Algorithms, Axiomatic Theories, and Proofs as Graphs: A Unified Diagrammatic Representation of Mathematical Structure" was revised from pre-submission draft to submission-ready state. The revised paper is in the accompanying file:
 
-**`algorithms-axiomatic-theories-proofs-revised.md`**
+**`proof-graphs-diagonalization-corpus.md`** (formerly `algorithms-axiomatic-theories-proofs-revised.md`)
 
 This handoff document records every editorial decision made, every action item outstanding, and every verification performed, so that work can continue in Cursor without loss of context.
 

@@ -7,7 +7,7 @@ import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
-SOURCE = ROOT.parent / "algorithms-axiomatic-theories-proofs-revised.md"
+SOURCE = ROOT.parent / "proof-graphs-diagonalization-corpus.md"
 FIG_MD = ROOT / "paper-fig.md"
 OUT = ROOT / "paper-latex.md"
 

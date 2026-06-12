@@ -4,7 +4,7 @@
 **Author:** Gary Welz (sole author)
 **Target journal:** [*PLOS ONE*](https://journals.plos.org/plosone/)
 **Preprint:** Zenodo — DOI [10.5281/zenodo.20510603](https://doi.org/10.5281/zenodo.20510603)
-**Source:** `algorithms-axiomatic-theories-proofs-revised.md`
+**Source:** `proof-graphs-diagonalization-corpus.md`
 **Submission PDF:** `latex/paper.pdf` (rebuild: `cd latex && ./build_latex.sh`)
 
 **Prior submission:** Declined at desk review, *Journal of Logic and Computation*, June 2026 (JLC 26-093; genre fit — editors classified as survey).

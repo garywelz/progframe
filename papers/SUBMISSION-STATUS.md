@@ -17,7 +17,7 @@ Last updated: **June 2, 2026** (mathematics paper revision)
 ## Repo pointers
 
 - Programming Framework: `papers/programming-framework-paper/` — `LEARNED-PUBLISHING-SUBMISSION.md`, `current-draft.md`
-- Mathematics: `collaborations/mathematics-database/` — `algorithms-axiomatic-theories-proofs-PLOS-ONE-SUBMISSION.md`, `algorithms-axiomatic-theories-proofs-revised.md`, `algorithms-axiomatic-theories-proofs-JLC-SUBMISSION.md` (prior venue)
+- Mathematics: `collaborations/mathematics-database/` — `proof-graphs-diagonalization-corpus-PLOS-ONE-SUBMISSION.md`, `proof-graphs-diagonalization-corpus.md`, `algorithms-axiomatic-theories-proofs-JLC-SUBMISSION.md` (prior venue)
 
 ## Pending (optional)
 

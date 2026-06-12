@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
-# Build LaTeX PDF from algorithms-axiomatic-theories-proofs-revised.md
+# Build LaTeX PDF from proof-graphs-diagonalization-corpus.md
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")" && pwd)"
 cd "$ROOT"
 
-SOURCE="$ROOT/../algorithms-axiomatic-theories-proofs-revised.md"
+SOURCE="$ROOT/../proof-graphs-diagonalization-corpus.md"
 ZENODO="$ROOT/../zenodo_build"
 export PUPPETEER_EXECUTABLE_PATH="${PUPPETEER_EXECUTABLE_PATH:-/usr/bin/chromium-browser}"
 PUPPETEER_JSON="$ZENODO/puppeteer.json"
