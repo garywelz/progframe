@@ -86,6 +86,19 @@
 % Allow footnotes in longtable head/foot
 \IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
 \makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
 \setlength{\emergencystretch}{3em} % prevent overfull lines
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
@@ -144,29 +157,28 @@ visualization, graph-theoretic representation, Programming Framework},
 
 \title{Proof Graphs and Algorithm Capsules: A Corpus Study of
 Diagonalization Proofs from Cantor to Gödel to Goodstein}
-\author{Gary Welz}
+\author{Gary Welz \\[0.6em]{\normalsize Researcher, New Media Lab, CUNY Graduate Center \\[0.35em]Email: \texttt{gwelz@gc.cuny.edu} \\[0.35em]ORCID: \url{https://orcid.org/0009-0005-7806-0892}}}
 \date{}
 
 \begin{document}
 \maketitle
-
-\setstretch{1.15}
-abstract: \textbar{} Mathematics encompasses three fundamentally
-distinct object types --- algorithms, axiomatic systems, and proofs.
-These are conventionally treated as categorically separate in
-mathematical practice, education, and knowledge representation. We
-demonstrate that all three can be expressed as labeled directed graphs
-using Mermaid Markdown. This unified representation reveals structural
-properties that conventional prose and static diagrams obscure. The
-central empirical finding is the regularity of \textbf{algorithm
-capsules} --- embedded procedural substructures within proofs --- across
-mathematically distant domains. Analysis of the Mathematics Database
-corpus identifies a \textbf{diagonalization family} spanning three
-entries: Cantor diagonal proofs, the Gödel First Incompleteness proof
-graph, and the Kirby--Paris/Goodstein independence result. In each case
-the algorithm capsule is not incidental to the argument but is its
-structural core. This family resemblance is visible and measurable in
-the graph representation. It is not accessible from prose alone. The
+\begin{abstract}
+Mathematics encompasses three fundamentally distinct object types ---
+algorithms, axiomatic systems, and proofs. These are conventionally
+treated as categorically separate in mathematical practice, education,
+and knowledge representation. We demonstrate that all three can be
+expressed as labeled directed graphs using Mermaid Markdown. This
+unified representation reveals structural properties that conventional
+prose and static diagrams obscure. The central empirical finding is the
+regularity of \textbf{algorithm capsules} --- embedded procedural
+substructures within proofs --- across mathematically distant domains.
+Analysis of the Mathematics Database corpus identifies a
+\textbf{diagonalization family} spanning three entries: Cantor diagonal
+proofs, the Gödel First Incompleteness proof graph, and the
+Kirby--Paris/Goodstein independence result. In each case the algorithm
+capsule is not incidental to the argument but is its structural core.
+This family resemblance is visible and measurable in the graph
+representation. It is not accessible from prose alone. The
 representation is implemented as three graph types. Algorithmic
 flowcharts capture procedural structure. Axiomatic dependency graphs
 represent logical dependency among axioms, definitions, and theorems.
@@ -184,7 +196,9 @@ claim extends from procedural processes to logical and justificatory
 structures: that formal structure is recoverable from natural language
 descriptions of complex systems, and is meaningful, measurable, and
 comparable once recovered.
+\end{abstract}
 
+\setstretch{1.15}
 \hypertarget{1-introduction}{%
 \subsection{1. Introduction}\label{1-introduction}}
 
@@ -450,25 +464,7 @@ the diagram.
 legend: Red = input, Blue = decision/intermediate, Green = operation,
 Violet = output.}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{flowchart TD}
-\NormalTok{    A["Input integers a and b"] {-}{-}\textgreater{} B\{"b equals 0?"\}}
-\NormalTok{    B {-}{-}\textgreater{}|Yes| C["GCD equals a"]}
-\NormalTok{    B {-}{-}\textgreater{}|No| D["r equals a mod b"]}
-\NormalTok{    D {-}{-}\textgreater{} E["a equals b"]}
-\NormalTok{    E {-}{-}\textgreater{} F["b equals r"]}
-\NormalTok{    F {-}{-}\textgreater{} B}
-\NormalTok{    C {-}{-}\textgreater{} G["Return GCD"]}
-\NormalTok{    style A fill:\#ff6b6b,color:\#fff}
-\NormalTok{    style B fill:\#74c0fc,color:\#fff}
-\NormalTok{    style C fill:\#74c0fc,color:\#fff}
-\NormalTok{    style D fill:\#51cf66,color:\#fff}
-\NormalTok{    style E fill:\#51cf66,color:\#fff}
-\NormalTok{    style F fill:\#51cf66,color:\#fff}
-\NormalTok{    style G fill:\#b197fc,color:\#fff}
-\end{Highlighting}
-\end{Shaded}
+\includegraphics{figures/fig1.pdf}
 
 Algorithmic flowcharts are the most direct application of the
 Programming Framework\textquotesingle s base methodology and require no
@@ -526,45 +522,7 @@ dependency graph (illustrative; abbreviated node labels after Heath).
 Color legend: Red = Postulates, Purple = Common Notions, Teal =
 Propositions.}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{flowchart TD}
-\NormalTok{    P1["Post. I draw segment between two points"]}
-\NormalTok{    P2["Post. II extend a finite line"]}
-\NormalTok{    P3["Post. III draw circle center and radius"]}
-\NormalTok{    CN1["CN I equals of the same are equal"]}
-\NormalTok{    CN3["CN III subtract equals, equals remain"]}
-\NormalTok{    CN4["CN IV coincide implies equal"]}
-\NormalTok{    CN5["CN V whole greater than part"]}
-\NormalTok{    Prop1["Prop. I.1 equilateral triangle on segment"]}
-\NormalTok{    Prop2["Prop. I.2 transport a length"]}
-\NormalTok{    Prop3["Prop. I.3 cut off lesser from greater"]}
-\NormalTok{    Prop4["Prop. I.4 SAS triangle congruence"]}
-\NormalTok{    Prop5["Prop. I.5 isosceles base angles"]}
-\NormalTok{    P1 {-}{-}\textgreater{} Prop1}
-\NormalTok{    P3 {-}{-}\textgreater{} Prop1}
-\NormalTok{    Prop1 {-}{-}\textgreater{} Prop2}
-\NormalTok{    P1 {-}{-}\textgreater{} Prop2}
-\NormalTok{    P2 {-}{-}\textgreater{} Prop2}
-\NormalTok{    P3 {-}{-}\textgreater{} Prop2}
-\NormalTok{    Prop2 {-}{-}\textgreater{} Prop3}
-\NormalTok{    P3 {-}{-}\textgreater{} Prop3}
-\NormalTok{    CN4 {-}{-}\textgreater{} Prop4}
-\NormalTok{    CN5 {-}{-}\textgreater{} Prop4}
-\NormalTok{    Prop1 {-}{-}\textgreater{} Prop5}
-\NormalTok{    P1 {-}{-}\textgreater{} Prop5}
-\NormalTok{    P2 {-}{-}\textgreater{} Prop5}
-\NormalTok{    CN1 {-}{-}\textgreater{} Prop5}
-\NormalTok{    CN3 {-}{-}\textgreater{} Prop5}
-\NormalTok{    Prop4 {-}{-}\textgreater{} Prop5}
-\NormalTok{    classDef post fill:\#e74c3c,color:\#fff}
-\NormalTok{    classDef cn fill:\#9b59b6,color:\#fff}
-\NormalTok{    classDef pr fill:\#1abc9c,color:\#fff}
-\NormalTok{    class P1,P2,P3 post}
-\NormalTok{    class CN1,CN3,CN4,CN5 cn}
-\NormalTok{    class Prop1,Prop2,Prop3,Prop4,Prop5 pr}
-\end{Highlighting}
-\end{Shaded}
+\includegraphics{figures/fig2.pdf}
 
 Axiomatic dependency graphs require a domain-specific node vocabulary
 not present in the base Programming Framework, making them a natural
@@ -759,49 +717,11 @@ proof term.
 
 \textbf{Informal proof graph (role-oriented).}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{flowchart TD}
-\NormalTok{    A["Source: claim infinitely many primes"]}
-\NormalTok{    B["Assumption: finite list p1 through pn"]}
-\NormalTok{    C["Algorithm capsule: N equals product of all listed primes plus 1"]}
-\NormalTok{    D["Assertion: N not divisible by any listed prime"]}
-\NormalTok{    E["Inference: N is prime or has a new prime factor"]}
-\NormalTok{    F["Contradiction: list was complete"]}
-\NormalTok{    G["Conclusion: no finite list is exhaustive"]}
-\NormalTok{    A {-}{-}\textgreater{} B {-}{-}\textgreater{} C {-}{-}\textgreater{} D {-}{-}\textgreater{} E {-}{-}\textgreater{} F {-}{-}\textgreater{} G}
-\NormalTok{    style A fill:\#ff6b6b,color:\#fff}
-\NormalTok{    style B fill:\#ffa94d,color:\#000}
-\NormalTok{    style C fill:\#20c997,color:\#fff}
-\NormalTok{    style D fill:\#51cf66,color:\#fff}
-\NormalTok{    style E fill:\#74c0fc,color:\#fff}
-\NormalTok{    style F fill:\#9775fa,color:\#fff}
-\NormalTok{    style G fill:\#b197fc,color:\#fff}
-\end{Highlighting}
-\end{Shaded}
+\includegraphics{figures/fig3.pdf}
 
 \textbf{Lean-schematic proof tree (goal and lemma oriented).}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{flowchart TD}
-\NormalTok{    T["Theorem goal: primes are not contained in any finite set"]}
-\NormalTok{    G1["intro: hypothetical finite set S of primes"]}
-\NormalTok{    G2["define N as product of S plus one"]}
-\NormalTok{    G3["invoke: every n greater than 1 has a prime factor"]}
-\NormalTok{    G4["have: some prime p divides N"]}
-\NormalTok{    G5["show: p cannot be in S"]}
-\NormalTok{    G6["contradiction: S was assumed exhaustive"]}
-\NormalTok{    T {-}{-}\textgreater{} G1 {-}{-}\textgreater{} G2 {-}{-}\textgreater{} G3 {-}{-}\textgreater{} G4 {-}{-}\textgreater{} G5 {-}{-}\textgreater{} G6}
-\NormalTok{    style T fill:\#ff6b6b,color:\#fff}
-\NormalTok{    style G1 fill:\#ffa94d,color:\#000}
-\NormalTok{    style G2 fill:\#20c997,color:\#fff}
-\NormalTok{    style G3 fill:\#51cf66,color:\#fff}
-\NormalTok{    style G4 fill:\#74c0fc,color:\#fff}
-\NormalTok{    style G5 fill:\#74c0fc,color:\#fff}
-\NormalTok{    style G6 fill:\#9775fa,color:\#fff}
-\end{Highlighting}
-\end{Shaded}
+\includegraphics{figures/fig4.pdf}
 
 \textbf{How the two differ:}
 
@@ -853,26 +773,7 @@ semantically the same "next instance of the pattern," but a DAG with one
 back-edge that displays reliably in Mermaid and preserves the
 directional dependency structure.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{flowchart TD}
-\NormalTok{  S["Source: theorem P n for all natural n"]}
-\NormalTok{  B["Base case: prove P 0"]}
-\NormalTok{  IH["Assumption: inductive hypothesis P n"]}
-\NormalTok{  ST["Inference: prove P of n plus 1 from IH"]}
-\NormalTok{  S {-}{-}\textgreater{} B}
-\NormalTok{  B {-}{-}\textgreater{} IH}
-\NormalTok{  IH {-}{-}\textgreater{} ST}
-\NormalTok{  ST {-}{-}\textgreater{} IH}
-\NormalTok{  ST {-}{-}\textgreater{} C["Conclusion: by induction P holds for all n"]}
-\NormalTok{  B {-}{-}\textgreater{} C}
-\NormalTok{  style S fill:\#ff6b6b,color:\#fff}
-\NormalTok{  style B fill:\#51cf66,color:\#fff}
-\NormalTok{  style IH fill:\#ffa94d,color:\#000}
-\NormalTok{  style ST fill:\#74c0fc,color:\#fff}
-\NormalTok{  style C fill:\#b197fc,color:\#fff}
-\end{Highlighting}
-\end{Shaded}
+\includegraphics{figures/fig5.pdf}
 
 The back-edge from ST to IH encodes the inductive pattern without
 introducing a full cycle into the proof graph. This is a principled
@@ -902,51 +803,13 @@ out into multiple construction nodes before converging on a central
 algorithm capsule, producing a \textbf{merge topology}: width followed
 by a join.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{flowchart TD}
-\NormalTok{  T["Source: Pythagorean theorem a squared plus b squared equals c squared"]}
-\NormalTok{  C1["Construction: altitude to hypotenuse"]}
-\NormalTok{  C2["Construction: mark similar triangles"]}
-\NormalTok{  AC["Algorithm capsule: length or area chase"]}
-\NormalTok{  AS["Assertion: proportional segments"]}
-\NormalTok{  I["Inference: combine ratios to relate a b c"]}
-\NormalTok{  CO["Conclusion: as required"]}
-\NormalTok{  T {-}{-}\textgreater{} C1 {-}{-}\textgreater{} AC}
-\NormalTok{  T {-}{-}\textgreater{} C2 {-}{-}\textgreater{} AC}
-\NormalTok{  AC {-}{-}\textgreater{} AS {-}{-}\textgreater{} I {-}{-}\textgreater{} CO}
-\NormalTok{  style T fill:\#ff6b6b,color:\#fff}
-\NormalTok{  style C1 fill:\#ffd43b,color:\#000}
-\NormalTok{  style C2 fill:\#ffd43b,color:\#000}
-\NormalTok{  style AC fill:\#20c997,color:\#fff}
-\NormalTok{  style AS fill:\#51cf66,color:\#fff}
-\NormalTok{  style I fill:\#74c0fc,color:\#fff}
-\NormalTok{  style CO fill:\#b197fc,color:\#fff}
-\end{Highlighting}
-\end{Shaded}
+\includegraphics{figures/fig6.pdf}
 
 An algebraic proof --- proceeding by symbolic rewriting --- produces a
 \textbf{chain topology}: a narrow sequential path of inference nodes
 with few constructions and shallow branching.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{flowchart TD}
-\NormalTok{  T2["Source: same theorem for legs a b and hypotenuse c"]}
-\NormalTok{  A0["Assumption: nonnegative lengths"]}
-\NormalTok{  R1["Inference: encode triangle constraint algebraically"]}
-\NormalTok{  R2["Inference: expand and simplify"]}
-\NormalTok{  R3["Inference: isolate c squared"]}
-\NormalTok{  CO2["Conclusion: a squared plus b squared equals c squared"]}
-\NormalTok{  T2 {-}{-}\textgreater{} A0 {-}{-}\textgreater{} R1 {-}{-}\textgreater{} R2 {-}{-}\textgreater{} R3 {-}{-}\textgreater{} CO2}
-\NormalTok{  style T2 fill:\#ff6b6b,color:\#fff}
-\NormalTok{  style A0 fill:\#ffa94d,color:\#000}
-\NormalTok{  style R1 fill:\#74c0fc,color:\#fff}
-\NormalTok{  style R2 fill:\#74c0fc,color:\#fff}
-\NormalTok{  style R3 fill:\#74c0fc,color:\#fff}
-\NormalTok{  style CO2 fill:\#b197fc,color:\#fff}
-\end{Highlighting}
-\end{Shaded}
+\includegraphics{figures/fig7.pdf}
 
 \begin{longtable}[]{@{}lll@{}}
 \toprule\noalign{}
@@ -1592,26 +1455,6 @@ inference, Purple = contradiction, Violet = conclusion. The Construction
 role (Yellow) has no standalone node in this compact presentation ---
 the Euclidean construction is represented inside the algorithm capsule.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{flowchart TD}
-\NormalTok{    A["Source: claim infinitely many primes"]}
-\NormalTok{    B["Assumption: finite list p1 through pn"]}
-\NormalTok{    C["Algorithm capsule: N equals product of all listed primes plus 1"]}
-\NormalTok{    D["Assertion: N not divisible by any listed prime"]}
-\NormalTok{    E["Inference: N is prime or has a new prime factor"]}
-\NormalTok{    F["Contradiction: list was complete"]}
-\NormalTok{    G["Conclusion: no finite list is exhaustive"]}
-\NormalTok{    A {-}{-}\textgreater{} B {-}{-}\textgreater{} C {-}{-}\textgreater{} D {-}{-}\textgreater{} E {-}{-}\textgreater{} F {-}{-}\textgreater{} G}
-\NormalTok{    style A fill:\#ff6b6b,color:\#fff}
-\NormalTok{    style B fill:\#ffa94d,color:\#000}
-\NormalTok{    style C fill:\#20c997,color:\#fff}
-\NormalTok{    style D fill:\#51cf66,color:\#fff}
-\NormalTok{    style E fill:\#74c0fc,color:\#fff}
-\NormalTok{    style F fill:\#9775fa,color:\#fff}
-\NormalTok{    style G fill:\#b197fc,color:\#fff}
-\end{Highlighting}
-\end{Shaded}
-
+\includegraphics{figures/fig8.pdf}
 
 \end{document}

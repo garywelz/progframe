@@ -1,4 +1,4 @@
-# LaTeX source — Mathematics paper (JLC submission)
+# LaTeX source — Mathematics paper (PLOS ONE submission)
 
 Rebuild from the canonical Markdown source:
 
@@ -9,10 +9,12 @@ Rebuild from the canonical Markdown source:
 **Outputs**
 - `paper.tex` — pandoc-generated LaTeX (standalone article)
 - `figures/fig1.pdf` … `fig8.pdf` — vector Mermaid diagrams
-- `paper.pdf` — compiled submission PDF (~31 pp.)
+- `paper.pdf` — compiled submission PDF (~29 pp.)
 
 **Source of truth:** `../algorithms-axiomatic-theories-proofs-revised.md`
 
-**On acceptance:** Upload `paper.tex`, `header.tex`, and all files in `figures/` to OUP/JLC as the editable source bundle. Re-run `build_latex.sh` after any Markdown edits.
+**Pipeline:** `prepare_source.py` injects YAML abstract, swaps Mermaid blocks for `figures/figN.pdf`, and `patch_paper_tex.py` adds the author affiliation block. Re-run `build_latex.sh` after any Markdown edits.
+
+**Regenerate figures** (if Mermaid diagrams change): `FORCE_FIGURES=1 ./build_latex.sh` (requires `mmdc` + Chromium).
 
 **Requirements:** `pandoc`, `pdflatex`, `mermaid-cli` (`mmdc`), Chromium (`PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser`).
