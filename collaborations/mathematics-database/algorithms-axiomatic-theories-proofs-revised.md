@@ -119,8 +119,6 @@ An algorithmic flowchart in the Mathematics Database is a standard directed grap
 
 Figure 1 illustrates the Euclidean Algorithm as an algorithmic flowchart using this color vocabulary. The algorithm is a clean example of iterative structure: a single decision node, a back-edge forming the loop, and a minimal path to termination. The color legend appears with the diagram.
 
-*Figure 1: Euclidean Algorithm — algorithmic flowchart. GLMP 6-color scheme (exact hex values from the Mathematics Database table): Red = input, Lavender = decision, Green = operation, Violet = output.*
-
 ```mermaid
 flowchart TD
     A["Input integers a and b"] --> B{"b equals 0?"}
@@ -142,6 +140,8 @@ flowchart TD
     class D,E,F green
 ```
 
+*Figure 1: Euclidean Algorithm — algorithmic flowchart. GLMP 6-color scheme (exact hex values from the Mathematics Database table): Red = input, Lavender = decision, Green = operation, Violet = output.*
+
 Algorithmic flowcharts are the most direct application of the Programming Framework's base methodology and require no extension to the standard vocabulary.
 
 ### 3.2 Axiomatic Dependency Graphs
@@ -161,10 +161,8 @@ The nodes and edges of an axiomatic dependency graph are:
 
 Figure 2 gives an illustrative dependency slice of Book I of Euclid's Elements — postulates, common notions, and early propositions — with coloring by object type. Node labels are abbreviated after Heath's translation.
 
-*Figure 2: Euclid's Elements Book I — axiomatic dependency graph (illustrative; abbreviated node labels after Heath). Database palette: Red = Postulates, Yellow = Common Notions, Green = Propositions.*
-
 ```mermaid
-flowchart TD
+flowchart LR
     P1["Post. I draw segment between two points"]
     P2["Post. II extend a finite line"]
     P3["Post. III draw circle center and radius"]
@@ -200,6 +198,8 @@ flowchart TD
     class CN1,CN3,CN4,CN5 yellow
     class Prop1,Prop2,Prop3,Prop4,Prop5 green
 ```
+
+*Figure 2: Euclid's Elements Book I — axiomatic dependency graph (illustrative; abbreviated node labels after Heath). Database palette: Red = Postulates, Yellow = Common Notions, Green = Propositions.*
 
 Axiomatic dependency graphs require a domain-specific node vocabulary not present in the base Programming Framework, making them a natural extension case. The acyclicity of these graphs is not imposed as a technical constraint but follows from the logical requirement that deductive systems be non-circular.
 
@@ -369,7 +369,9 @@ This treatment of induction illustrates a general design principle for proof gra
 
 Different proof strategies for the same theorem produce characteristically different graph topologies. The Pythagorean Theorem proof comparison entry in the Mathematics Database illustrates this most clearly.
 
-A geometric proof — such as the similar-triangle construction — fans out into multiple construction nodes before converging on a central algorithm capsule, producing a **merge topology**: width followed by a join.
+A geometric proof — such as the similar-triangle construction — fans out into multiple construction nodes before converging on a central algorithm capsule, producing a **merge topology**: width followed by a join. An algebraic proof — proceeding by symbolic rewriting — produces a **chain topology**: a narrow sequential path of inference nodes with few constructions and shallow branching. The two topologies are shown side by side below.
+
+**Merge topology (geometric proof).**
 
 ```mermaid
 flowchart TD
@@ -396,7 +398,7 @@ flowchart TD
   class CO violet
 ```
 
-An algebraic proof — proceeding by symbolic rewriting — produces a **chain topology**: a narrow sequential path of inference nodes with few constructions and shallow branching.
+**Chain topology (algebraic proof).**
 
 ```mermaid
 flowchart TD
@@ -531,6 +533,48 @@ The central finding of this corpus study is that three landmark diagonalization 
 
 In the Cantor diagonal proofs the capsule is the construction of a real number, subset, or enumeration path that differs from every element of an assumed listing — a finite procedure applied at each position of an infinite list. In the Gödel First Incompleteness proof graph the capsule is the diagonal lemma: the arithmetical procedure that constructs a self-referential sentence by applying a provability predicate to its own Gödel number. In the Kirby–Paris/Goodstein entry the capsule is the Goodstein sequence computation — an explicit algorithmic procedure whose termination, provable by ordinal descent, cannot be established within Peano Arithmetic.
 
+Figure 8 shows the family's archetype as it appears in the Cantor Diagonal Proofs database entry: the proof graph for the uncountability of the reals in (0,1). The algorithm capsule — read the *n*th digit of the *n*th listed real and flip it — sits at the structural center of the graph. Everything upstream of the capsule prepares its input (the assumed enumeration, written as decimal rows); everything downstream is inference about its output (the anti-diagonal real *x*), terminating at the contradiction hub where the completeness assumption collapses.
+
+```mermaid
+flowchart TD
+  T["Source: reals in (0,1) are uncountable"]
+  AL["Assumption: every real in (0,1) appears in a sequence r1, r2, r3, ..."]
+  DR["Construction: write each rn as a decimal row"]
+  DC["Source: choose decimal expansions not ending in repeating 9s"]
+  DD["Algorithm capsule: read nth digit of rn and choose a different digit, avoiding 9"]
+  CX["Construction: define x by the changed diagonal digits"]
+  XI["Assertion: x is a real number in (0,1)"]
+  DF["Assertion: x differs from rn in the nth digit for every n"]
+  NL["Assertion: x is not equal to any listed rn"]
+  CT["Contradiction: list was assumed complete, but x is missing"]
+  DS["Inference: discharge assumption — no sequence lists all reals in (0,1)"]
+  CC["Conclusion: reals are uncountable"]
+  T --> AL --> DR --> DD --> CX
+  DC --> DR
+  DC --> DF
+  CX --> XI
+  CX --> DF
+  DF --> NL
+  AL --> CT
+  NL --> CT
+  CT --> DS --> CC
+  classDef red fill:#ff6b6b,color:#1e1e1e,stroke:#c0392b
+  classDef yellow fill:#ffd43b,color:#1e1e1e,stroke:#f59f00
+  classDef green fill:#51cf66,color:#1e1e1e,stroke:#40c057
+  classDef lightblue fill:#74c0fc,color:#1e1e1e,stroke:#4dabf7
+  classDef violet fill:#b197fc,color:#1e1e1e,stroke:#9775fa
+  class T,DC,CT red
+  class AL yellow
+  class DR,CX yellow
+  class DD,XI,DF,NL green
+  class DS lightblue
+  class CC violet
+```
+
+*Figure 8: Cantor's diagonal argument for the uncountability of the reals in (0,1), rendered as a proof graph (from the Cantor Diagonal Proofs entry in the Mathematics Database). The algorithm capsule (the anti-diagonal digit procedure) is the structural core: assumptions and constructions feed it, assertions flow from it, and the argument terminates at the contradiction hub. Colors follow the GLMP 6-color role scheme: Red = source/contradiction, Yellow = assumption/construction, Green = assertion/algorithm capsule, Light blue = inference, Violet = conclusion.*
+
+This is what diagonalization *looks like* under the proof graph representation, and the shape is visibly different from the other proof shapes in the corpus. Two features mark the family at a glance. First, the construction narrows to a waist at the algorithm capsule: everything the proof builds funnels through the diagonal procedure before any assertion can be made, in contrast to the chain topology of algebraic proofs (§4.3), which has no procedural bottleneck at all. Second, the assumption node throws a long edge that bypasses the entire construction and lands directly on the contradiction node — the visual trace of self-reference, in which the assumed enumeration is confronted with an object built from that very enumeration. Neither feature is apparent from the prose of the proof; both are immediate in the picture. This is the sense in which the representation itself is a finding: diagonal proofs do not merely *work* differently from other proofs — under this representation, they *look* different.
+
 All three capsules have the same logical role: they construct an object with a property that generates the proof's central tension, whether contradiction, unprovability, or independence. The proof graph representation makes this family resemblance visible and measurable. All three entries share a common topological signature: a dense algorithm capsule node with high out-degree feeding into an assertion chain that terminates either at a contradiction node (Cantor, Gödel) or a meta-level independence node (Kirby–Paris). This signature is not accessible from prose descriptions of the three proofs, which present them as belonging to different mathematical domains — set theory, mathematical logic, and combinatorics respectively.
 
 The Gödel Numbering algorithm — included in the corpus as a standalone algorithmic flowchart — serves as the explicit capsule twin to the First Incompleteness proof graph, making this the first algorithm/proof pair in the corpus where the same mathematical content appears in both categories. This pairing directly supports the claim in §1.2: placing proofs and algorithms in a common representational space reveals structural relationships invisible when the two object types are represented separately.
@@ -656,31 +700,3 @@ The broader argument of this paper is that formal structure is recoverable from 
 This work is part of the CopernicusAI Knowledge Engine project, which aims to create AI-powered tools for scientific research synthesis and knowledge discovery. The Mathematics Database and the Programming Framework serve as foundational methodological components of that project. The author thanks the CUNY Graduate Center New Media Lab for institutional support.
 
 The diagrams in this paper were generated with large-language-model assistance as part of the Programming Framework methodology described herein; large-language-model tools were also used to assist with copy-editing and revision. All scholarly content, analysis, and conclusions are the author's own.
-
----
-
-## Appendix: Reference Proof Graph — Infinitely Many Primes (Euclid)
-
-The following proof graph illustrates per-node role styling for the eight-role schema from §3.3 on Euclid's infinitude-of-primes argument. Colors use the GLMP 6-color scheme from the Mathematics Database table: Red = source/contradiction, Yellow = assumption, Green = assertion/algorithm capsule, Light blue = inference, Violet = conclusion.
-
-```mermaid
-flowchart TD
-    A["Source: claim infinitely many primes"]
-    B["Assumption: finite list p1 through pn"]
-    C["Algorithm capsule: N equals product of all listed primes plus 1"]
-    D["Assertion: N not divisible by any listed prime"]
-    E["Inference: N is prime or has a new prime factor"]
-    F["Contradiction: list was complete"]
-    G["Conclusion: no finite list is exhaustive"]
-    A --> B --> C --> D --> E --> F --> G
-    classDef red fill:#ff6b6b,color:#1e1e1e,stroke:#c0392b
-    classDef yellow fill:#ffd43b,color:#1e1e1e,stroke:#f59f00
-    classDef green fill:#51cf66,color:#1e1e1e,stroke:#40c057
-    classDef lightblue fill:#74c0fc,color:#1e1e1e,stroke:#4dabf7
-    classDef violet fill:#b197fc,color:#1e1e1e,stroke:#9775fa
-    class A,F red
-    class B yellow
-    class C,D green
-    class E lightblue
-    class G violet
-```

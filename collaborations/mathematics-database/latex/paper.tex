@@ -138,7 +138,8 @@
 \newunicodechar{₂}{\ensuremath{_2}}
 \newunicodechar{ₙ}{\ensuremath{_n}}
 \providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
-\setcounter{secnumdepth}{3}
+% Headings carry manual numbers (e.g. "9. Conclusion"); disable LaTeX's own.
+\setcounter{secnumdepth}{-\maxdimen}
 \ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
@@ -157,7 +158,7 @@ visualization, graph-theoretic representation, Programming Framework},
 
 \title{Proof Graphs and Algorithm Capsules: A Corpus Study of
 Diagonalization Proofs from Cantor to Gödel to Goodstein}
-\author{Gary Welz \\[0.6em]{\normalsize Researcher, New Media Lab, CUNY Graduate Center \\[0.35em]Email: \texttt{gwelz@gc.cuny.edu} \\[0.35em]ORCID: \url{https://orcid.org/0009-0005-7806-0892}}}
+\author{Gary Welz \\[0.6em]{\normalsize Researcher, New Media Lab, CUNY Graduate Center} \\[0.35em]{\normalsize Email: \texttt{gwelz@gc.cuny.edu}} \\[0.35em]{\normalsize ORCID: \url{https://orcid.org/0009-0005-7806-0892}}}
 \date{}
 
 \begin{document}
@@ -460,11 +461,11 @@ iterative structure: a single decision node, a back-edge forming the
 loop, and a minimal path to termination. The color legend appears with
 the diagram.
 
+\includegraphics{figures/fig1.pdf}
+
 \emph{Figure 1: Euclidean Algorithm --- algorithmic flowchart. GLMP
 6-color scheme (exact hex values from the Mathematics Database table):
 Red = input, Lavender = decision, Green = operation, Violet = output.}
-
-\includegraphics{figures/fig1.pdf}
 
 Algorithmic flowcharts are the most direct application of the
 Programming Framework\textquotesingle s base methodology and require no
@@ -517,12 +518,12 @@ Euclid\textquotesingle s Elements --- postulates, common notions, and
 early propositions --- with coloring by object type. Node labels are
 abbreviated after Heath\textquotesingle s translation.
 
+\includegraphics{figures/fig2.pdf}
+
 \emph{Figure 2: Euclid\textquotesingle s Elements Book I --- axiomatic
 dependency graph (illustrative; abbreviated node labels after Heath).
 Database palette: Red = Postulates, Yellow = Common Notions, Green =
 Propositions.}
-
-\includegraphics{figures/fig2.pdf}
 
 Axiomatic dependency graphs require a domain-specific node vocabulary
 not present in the base Programming Framework, making them a natural
@@ -569,7 +570,7 @@ representation makes explicit that prose cannot.
 
 \textbf{The eight-role proof graph vocabulary:}
 
-\begin{longtable}[]{@{}lll@{}}
+\begin{longtable}[]{@{}>{\raggedright\arraybackslash}p{0.16\linewidth}>{\raggedright\arraybackslash}p{0.38\linewidth}>{\raggedright\arraybackslash}p{0.36\linewidth}@{}}
 \toprule\noalign{}
 Role & GLMP color & Definition \\
 \midrule\noalign{}
@@ -726,17 +727,20 @@ dependencies as one might sketch after reading a formal proof. The
 labels below are illustrative, not a literal port of a specific Mathlib
 proof term.
 
-\textbf{Informal proof graph (role-oriented).}
-
-\includegraphics{figures/fig3.pdf}
-
-\textbf{Lean-schematic proof tree (goal and lemma oriented).}
-
-\includegraphics{figures/fig4.pdf}
+\noindent\begin{minipage}[t]{0.48\linewidth}
+\centering
+\textbf{Informal proof graph (role-oriented).}\\[0.6em]
+\includegraphics[width=\linewidth,height=0.78\textheight,keepaspectratio]{figures/fig3.pdf}
+\end{minipage}\hfill
+\noindent\begin{minipage}[t]{0.48\linewidth}
+\centering
+\textbf{Lean-schematic proof tree (goal and lemma oriented).}\\[0.6em]
+\includegraphics[width=\linewidth,height=0.78\textheight,keepaspectratio]{figures/fig4.pdf}
+\end{minipage}
 
 \textbf{How the two differ:}
 
-\begin{longtable}[]{@{}lll@{}}
+\begin{longtable}[]{@{}>{\raggedright\arraybackslash}p{0.16\linewidth}>{\raggedright\arraybackslash}p{0.38\linewidth}>{\raggedright\arraybackslash}p{0.36\linewidth}@{}}
 \toprule\noalign{}
 Dimension & Informal proof graph (this paper) & Lean-style schematic \\
 \midrule\noalign{}
@@ -812,17 +816,23 @@ clearly.
 A geometric proof --- such as the similar-triangle construction --- fans
 out into multiple construction nodes before converging on a central
 algorithm capsule, producing a \textbf{merge topology}: width followed
-by a join.
+by a join. An algebraic proof --- proceeding by symbolic rewriting ---
+produces a \textbf{chain topology}: a narrow sequential path of
+inference nodes with few constructions and shallow branching. The two
+topologies are shown side by side below.
 
-\includegraphics{figures/fig6.pdf}
+\noindent\begin{minipage}[t]{0.48\linewidth}
+\centering
+\textbf{Merge topology (geometric proof).}\\[0.6em]
+\includegraphics[width=\linewidth,height=0.78\textheight,keepaspectratio]{figures/fig6.pdf}
+\end{minipage}\hfill
+\noindent\begin{minipage}[t]{0.48\linewidth}
+\centering
+\textbf{Chain topology (algebraic proof).}\\[0.6em]
+\includegraphics[width=\linewidth,height=0.78\textheight,keepaspectratio]{figures/fig7.pdf}
+\end{minipage}
 
-An algebraic proof --- proceeding by symbolic rewriting --- produces a
-\textbf{chain topology}: a narrow sequential path of inference nodes
-with few constructions and shallow branching.
-
-\includegraphics{figures/fig7.pdf}
-
-\begin{longtable}[]{@{}lll@{}}
+\begin{longtable}[]{@{}>{\raggedright\arraybackslash}p{0.16\linewidth}>{\raggedright\arraybackslash}p{0.38\linewidth}>{\raggedright\arraybackslash}p{0.36\linewidth}@{}}
 \toprule\noalign{}
 Topology & Visual signature & Typical role mix \\
 \midrule\noalign{}
@@ -1054,6 +1064,44 @@ Gödel number. In the Kirby--Paris/Goodstein entry the capsule is the
 Goodstein sequence computation --- an explicit algorithmic procedure
 whose termination, provable by ordinal descent, cannot be established
 within Peano Arithmetic.
+
+Figure 8 shows the family\textquotesingle s archetype as it appears in
+the Cantor Diagonal Proofs database entry: the proof graph for the
+uncountability of the reals in (0,1). The algorithm capsule --- read the
+\emph{n}th digit of the \emph{n}th listed real and flip it --- sits at
+the structural center of the graph. Everything upstream of the capsule
+prepares its input (the assumed enumeration, written as decimal rows);
+everything downstream is inference about its output (the anti-diagonal
+real \emph{x}), terminating at the contradiction hub where the
+completeness assumption collapses.
+
+\includegraphics{figures/fig8.pdf}
+
+\emph{Figure 8: Cantor\textquotesingle s diagonal argument for the
+uncountability of the reals in (0,1), rendered as a proof graph (from
+the Cantor Diagonal Proofs entry in the Mathematics Database). The
+algorithm capsule (the anti-diagonal digit procedure) is the structural
+core: assumptions and constructions feed it, assertions flow from it,
+and the argument terminates at the contradiction hub. Colors follow the
+GLMP 6-color role scheme: Red = source/contradiction, Yellow =
+assumption/construction, Green = assertion/algorithm capsule, Light blue
+= inference, Violet = conclusion.}
+
+This is what diagonalization \emph{looks like} under the proof graph
+representation, and the shape is visibly different from the other proof
+shapes in the corpus. Two features mark the family at a glance. First,
+the construction narrows to a waist at the algorithm capsule: everything
+the proof builds funnels through the diagonal procedure before any
+assertion can be made, in contrast to the chain topology of algebraic
+proofs (§4.3), which has no procedural bottleneck at all. Second, the
+assumption node throws a long edge that bypasses the entire construction
+and lands directly on the contradiction node --- the visual trace of
+self-reference, in which the assumed enumeration is confronted with an
+object built from that very enumeration. Neither feature is apparent
+from the prose of the proof; both are immediate in the picture. This is
+the sense in which the representation itself is a finding: diagonal
+proofs do not merely \emph{work} differently from other proofs --- under
+this representation, they \emph{look} different.
 
 All three capsules have the same logical role: they construct an object
 with a property that generates the proof\textquotesingle s central
@@ -1451,20 +1499,5 @@ assistance as part of the Programming Framework methodology described
 herein; large-language-model tools were also used to assist with
 copy-editing and revision. All scholarly content, analysis, and
 conclusions are the author\textquotesingle s own.
-
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-\hypertarget{appendix-reference-proof-graph--infinitely-many-primes-euclid}{%
-\subsection{Appendix: Reference Proof Graph --- Infinitely Many Primes
-(Euclid)}\label{appendix-reference-proof-graph--infinitely-many-primes-euclid}}
-
-The following proof graph illustrates per-node role styling for the
-eight-role schema from §3.3 on Euclid\textquotesingle s
-infinitude-of-primes argument. Colors use the GLMP 6-color scheme from
-the Mathematics Database table: Red = source/contradiction, Yellow =
-assumption, Green = assertion/algorithm capsule, Light blue = inference,
-Violet = conclusion.
-
-\includegraphics{figures/fig8.pdf}
 
 \end{document}
