@@ -1,13 +1,13 @@
 {
   "glmp_6color": {
-    "description": "Mathematics Database table — exact GLMP 6-color scheme (godel-numbering-algorithm.html)",
+    "description": "Mathematics Database table — GLMP 6-color fills; dark labels for PDF export",
     "classDefs": [
-      "classDef red fill:#ff6b6b,color:#fff,stroke:#c0392b",
-      "classDef yellow fill:#ffd43b,color:#000,stroke:#f59f00",
-      "classDef green fill:#51cf66,color:#fff,stroke:#40c057",
-      "classDef lightblue fill:#74c0fc,color:#fff,stroke:#4dabf7",
-      "classDef violet fill:#b197fc,color:#fff,stroke:#9775fa",
-      "classDef lavender fill:#e6e6fa,color:#333,stroke:#b19cd9"
+      "classDef red fill:#ff6b6b,color:#1e1e1e,stroke:#c0392b",
+      "classDef yellow fill:#ffd43b,color:#1e1e1e,stroke:#f59f00",
+      "classDef green fill:#51cf66,color:#1e1e1e,stroke:#40c057",
+      "classDef lightblue fill:#74c0fc,color:#1e1e1e,stroke:#4dabf7",
+      "classDef violet fill:#b197fc,color:#1e1e1e,stroke:#9775fa",
+      "classDef lavender fill:#e6e6fa,color:#1e1e1e,stroke:#b19cd9"
     ],
     "roles": {
       "red": { "fill": "#ff6b6b", "label": "Triggers & Inputs" },
@@ -17,6 +17,7 @@
       "violet": { "fill": "#b197fc", "label": "Products & Outputs" },
       "lavender": { "fill": "#e6e6fa", "label": "Decision diamonds (AND/OR)" }
     },
+    "label_color": "#1e1e1e",
     "proof_role_mapping": {
       "source": "red",
       "assumption": "yellow",

@@ -130,12 +130,12 @@ flowchart TD
     E --> F["b equals r"]
     F --> B
     C --> G["Return GCD"]
-    classDef red fill:#ff6b6b,color:#fff,stroke:#c0392b
-    classDef yellow fill:#ffd43b,color:#000,stroke:#f59f00
-    classDef green fill:#51cf66,color:#fff,stroke:#40c057
-    classDef lightblue fill:#74c0fc,color:#fff,stroke:#4dabf7
-    classDef violet fill:#b197fc,color:#fff,stroke:#9775fa
-    classDef lavender fill:#e6e6fa,color:#333,stroke:#b19cd9
+    classDef red fill:#ff6b6b,color:#1e1e1e,stroke:#c0392b
+    classDef yellow fill:#ffd43b,color:#1e1e1e,stroke:#f59f00
+    classDef green fill:#51cf66,color:#1e1e1e,stroke:#40c057
+    classDef lightblue fill:#74c0fc,color:#1e1e1e,stroke:#4dabf7
+    classDef violet fill:#b197fc,color:#1e1e1e,stroke:#9775fa
+    classDef lavender fill:#e6e6fa,color:#1e1e1e,stroke:#b19cd9
     class A red
     class B lavender
     class C,G violet
@@ -193,9 +193,9 @@ flowchart TD
     CN1 --> Prop5
     CN3 --> Prop5
     Prop4 --> Prop5
-    classDef red fill:#ff6b6b,color:#fff,stroke:#c0392b
-    classDef yellow fill:#ffd43b,color:#000,stroke:#f59f00
-    classDef green fill:#51cf66,color:#fff,stroke:#40c057
+    classDef red fill:#ff6b6b,color:#1e1e1e,stroke:#c0392b
+    classDef yellow fill:#ffd43b,color:#1e1e1e,stroke:#f59f00
+    classDef green fill:#51cf66,color:#1e1e1e,stroke:#40c057
     class P1,P2,P3 red
     class CN1,CN3,CN4,CN5 yellow
     class Prop1,Prop2,Prop3,Prop4,Prop5 green
@@ -226,7 +226,7 @@ Proof graphs are the novel contribution of this paper. A proof graph represents 
 | Contradiction | Red (`#ff6b6b`) | A contradiction reached (in proof by contradiction) |
 | Conclusion | Violet (`#b197fc`) | The final conclusion establishing the theorem |
 
-All figures in this paper use the **exact GLMP 6-color scheme** from the Mathematics Database table viewer: red, yellow, green, light blue, violet, and lavender (decision diamonds). Proof roles map onto this palette as shown above; algorithmic flowcharts and axiomatic dependency graphs use the same hex values directly.
+All figures in this paper use the **exact GLMP 6-color fills** from the Mathematics Database table viewer: red, yellow, green, light blue, violet, and lavender (decision diamonds). Node labels are rendered in dark text (`#1e1e1e`) for print/PDF readability on the pastel fills. Proof roles map onto this palette as shown above.
 
 **On the mutual exclusivity of roles.** The eight roles are intended to be mutually exclusive: each node in a proof graph carries exactly one role. In practice, some proof steps are ambiguous — a step may function simultaneously as a construction and an assertion, or as an inference and a conclusion. The decision rule applied in the Mathematics Database is to assign the role that best captures the step's primary proof-theoretic function. A step that constructs an object and asserts a property of it in the same move is classified as a Construction if the object's existence is what the proof requires, and as an Assertion if the property is what the proof requires. A step that draws a final inference is classified as a Conclusion rather than an Inference if it directly establishes the theorem being proved. These decisions are recorded in the entry metadata and are available for review. The goal is consistency within the corpus rather than a claim that the boundaries are always sharp.
 
@@ -280,11 +280,11 @@ flowchart TD
     F["Contradiction: list was complete"]
     G["Conclusion: no finite list is exhaustive"]
     A --> B --> C --> D --> E --> F --> G
-    classDef red fill:#ff6b6b,color:#fff,stroke:#c0392b
-    classDef yellow fill:#ffd43b,color:#000,stroke:#f59f00
-    classDef green fill:#51cf66,color:#fff,stroke:#40c057
-    classDef lightblue fill:#74c0fc,color:#fff,stroke:#4dabf7
-    classDef violet fill:#b197fc,color:#fff,stroke:#9775fa
+    classDef red fill:#ff6b6b,color:#1e1e1e,stroke:#c0392b
+    classDef yellow fill:#ffd43b,color:#1e1e1e,stroke:#f59f00
+    classDef green fill:#51cf66,color:#1e1e1e,stroke:#40c057
+    classDef lightblue fill:#74c0fc,color:#1e1e1e,stroke:#4dabf7
+    classDef violet fill:#b197fc,color:#1e1e1e,stroke:#9775fa
     class A red
     class B yellow
     class C green
@@ -306,10 +306,10 @@ flowchart TD
     G5["show: p cannot be in S"]
     G6["contradiction: S was assumed exhaustive"]
     T --> G1 --> G2 --> G3 --> G4 --> G5 --> G6
-    classDef red fill:#ff6b6b,color:#fff,stroke:#c0392b
-    classDef yellow fill:#ffd43b,color:#000,stroke:#f59f00
-    classDef green fill:#51cf66,color:#fff,stroke:#40c057
-    classDef lightblue fill:#74c0fc,color:#fff,stroke:#4dabf7
+    classDef red fill:#ff6b6b,color:#1e1e1e,stroke:#c0392b
+    classDef yellow fill:#ffd43b,color:#1e1e1e,stroke:#f59f00
+    classDef green fill:#51cf66,color:#1e1e1e,stroke:#40c057
+    classDef lightblue fill:#74c0fc,color:#1e1e1e,stroke:#4dabf7
     class T red
     class G1 yellow
     class G2 yellow
@@ -349,11 +349,11 @@ flowchart TD
   ST --> IH
   ST --> C["Conclusion: by induction P holds for all n"]
   B --> C
-  classDef red fill:#ff6b6b,color:#fff,stroke:#c0392b
-  classDef yellow fill:#ffd43b,color:#000,stroke:#f59f00
-  classDef green fill:#51cf66,color:#fff,stroke:#40c057
-  classDef lightblue fill:#74c0fc,color:#fff,stroke:#4dabf7
-  classDef violet fill:#b197fc,color:#fff,stroke:#9775fa
+  classDef red fill:#ff6b6b,color:#1e1e1e,stroke:#c0392b
+  classDef yellow fill:#ffd43b,color:#1e1e1e,stroke:#f59f00
+  classDef green fill:#51cf66,color:#1e1e1e,stroke:#40c057
+  classDef lightblue fill:#74c0fc,color:#1e1e1e,stroke:#4dabf7
+  classDef violet fill:#b197fc,color:#1e1e1e,stroke:#9775fa
   class S red
   class B green
   class IH yellow
@@ -383,11 +383,11 @@ flowchart TD
   T --> C1 --> AC
   T --> C2 --> AC
   AC --> AS --> I --> CO
-  classDef red fill:#ff6b6b,color:#fff,stroke:#c0392b
-  classDef yellow fill:#ffd43b,color:#000,stroke:#f59f00
-  classDef green fill:#51cf66,color:#fff,stroke:#40c057
-  classDef lightblue fill:#74c0fc,color:#fff,stroke:#4dabf7
-  classDef violet fill:#b197fc,color:#fff,stroke:#9775fa
+  classDef red fill:#ff6b6b,color:#1e1e1e,stroke:#c0392b
+  classDef yellow fill:#ffd43b,color:#1e1e1e,stroke:#f59f00
+  classDef green fill:#51cf66,color:#1e1e1e,stroke:#40c057
+  classDef lightblue fill:#74c0fc,color:#1e1e1e,stroke:#4dabf7
+  classDef violet fill:#b197fc,color:#1e1e1e,stroke:#9775fa
   class T red
   class C1,C2 yellow
   class AC green
@@ -407,10 +407,10 @@ flowchart TD
   R3["Inference: isolate c squared"]
   CO2["Conclusion: a squared plus b squared equals c squared"]
   T2 --> A0 --> R1 --> R2 --> R3 --> CO2
-  classDef red fill:#ff6b6b,color:#fff,stroke:#c0392b
-  classDef yellow fill:#ffd43b,color:#000,stroke:#f59f00
-  classDef lightblue fill:#74c0fc,color:#fff,stroke:#4dabf7
-  classDef violet fill:#b197fc,color:#fff,stroke:#9775fa
+  classDef red fill:#ff6b6b,color:#1e1e1e,stroke:#c0392b
+  classDef yellow fill:#ffd43b,color:#1e1e1e,stroke:#f59f00
+  classDef lightblue fill:#74c0fc,color:#1e1e1e,stroke:#4dabf7
+  classDef violet fill:#b197fc,color:#1e1e1e,stroke:#9775fa
   class T2 red
   class A0 yellow
   class R1,R2,R3 lightblue
@@ -673,11 +673,11 @@ flowchart TD
     F["Contradiction: list was complete"]
     G["Conclusion: no finite list is exhaustive"]
     A --> B --> C --> D --> E --> F --> G
-    classDef red fill:#ff6b6b,color:#fff,stroke:#c0392b
-    classDef yellow fill:#ffd43b,color:#000,stroke:#f59f00
-    classDef green fill:#51cf66,color:#fff,stroke:#40c057
-    classDef lightblue fill:#74c0fc,color:#fff,stroke:#4dabf7
-    classDef violet fill:#b197fc,color:#fff,stroke:#9775fa
+    classDef red fill:#ff6b6b,color:#1e1e1e,stroke:#c0392b
+    classDef yellow fill:#ffd43b,color:#1e1e1e,stroke:#f59f00
+    classDef green fill:#51cf66,color:#1e1e1e,stroke:#40c057
+    classDef lightblue fill:#74c0fc,color:#1e1e1e,stroke:#4dabf7
+    classDef violet fill:#b197fc,color:#1e1e1e,stroke:#9775fa
     class A,F red
     class B yellow
     class C,D green

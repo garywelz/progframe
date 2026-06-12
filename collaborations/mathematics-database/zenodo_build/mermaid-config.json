@@ -15,5 +15,5 @@
     "padding": 18,
     "curve": "basis"
   },
-  "themeCSS": ".node .label, .nodeLabel, .label { font-size: 18px !important; font-weight: 600 !important; } .node rect, .node circle, .node polygon, .node path { stroke-width: 2px !important; }"
+  "themeCSS": ".node .label, .nodeLabel, .nodeLabel span, .label, .label span, .node text, .node tspan { color: #1e1e1e !important; fill: #1e1e1e !important; font-size: 18px !important; font-weight: 700 !important; } .node rect, .node circle, .node polygon, .node path { stroke-width: 2px !important; }"
 }
