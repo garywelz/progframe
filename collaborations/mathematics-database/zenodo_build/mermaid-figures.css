@@ -1,0 +1,31 @@
+/* High-contrast labels for mmdc PDF/SVG figure export */
+body {
+  margin: 0;
+  background: #ffffff;
+}
+
+.mermaid svg {
+  font-family: Arial, Helvetica, sans-serif !important;
+}
+
+.mermaid .node .label,
+.mermaid .nodeLabel,
+.mermaid .label,
+.mermaid .edgeLabel {
+  font-size: 20px !important;
+  font-weight: 600 !important;
+  line-height: 1.25 !important;
+}
+
+.mermaid .node rect,
+.mermaid .node circle,
+.mermaid .node polygon,
+.mermaid .node path {
+  stroke-width: 2.5px !important;
+  stroke: #212529 !important;
+}
+
+.mermaid .edgeLabel {
+  background-color: #ffffff !important;
+  color: #111111 !important;
+}

@@ -130,13 +130,13 @@ flowchart TD
     E --> F["b equals r"]
     F --> B
     C --> G["Return GCD"]
-    style A fill:#ff6b6b,color:#fff
-    style B fill:#74c0fc,color:#fff
-    style C fill:#74c0fc,color:#fff
-    style D fill:#51cf66,color:#fff
-    style E fill:#51cf66,color:#fff
-    style F fill:#51cf66,color:#fff
-    style G fill:#b197fc,color:#fff
+    style A fill:#c92a2a,color:#fff
+    style B fill:#1864ab,color:#fff
+    style C fill:#1864ab,color:#fff
+    style D fill:#2b8a3e,color:#fff
+    style E fill:#2b8a3e,color:#fff
+    style F fill:#2b8a3e,color:#fff
+    style G fill:#6741d9,color:#fff
 ```
 
 Algorithmic flowcharts are the most direct application of the Programming Framework's base methodology and require no extension to the standard vocabulary.
@@ -190,9 +190,9 @@ flowchart TD
     CN1 --> Prop5
     CN3 --> Prop5
     Prop4 --> Prop5
-    classDef post fill:#e74c3c,color:#fff
-    classDef cn fill:#9b59b6,color:#fff
-    classDef pr fill:#1abc9c,color:#fff
+    classDef post fill:#c92a2a,color:#fff
+    classDef cn fill:#862e9c,color:#fff
+    classDef pr fill:#087f5b,color:#fff
     class P1,P2,P3 post
     class CN1,CN3,CN4,CN5 cn
     class Prop1,Prop2,Prop3,Prop4,Prop5 pr
@@ -275,13 +275,13 @@ flowchart TD
     F["Contradiction: list was complete"]
     G["Conclusion: no finite list is exhaustive"]
     A --> B --> C --> D --> E --> F --> G
-    style A fill:#ff6b6b,color:#fff
-    style B fill:#ffa94d,color:#000
-    style C fill:#20c997,color:#fff
-    style D fill:#51cf66,color:#fff
-    style E fill:#74c0fc,color:#fff
-    style F fill:#9775fa,color:#fff
-    style G fill:#b197fc,color:#fff
+    style A fill:#c92a2a,color:#fff
+    style B fill:#d9480f,color:#fff
+    style C fill:#087f5b,color:#fff
+    style D fill:#2b8a3e,color:#fff
+    style E fill:#1864ab,color:#fff
+    style F fill:#5f3dc4,color:#fff
+    style G fill:#6741d9,color:#fff
 ```
 
 **Lean-schematic proof tree (goal and lemma oriented).**
@@ -296,13 +296,13 @@ flowchart TD
     G5["show: p cannot be in S"]
     G6["contradiction: S was assumed exhaustive"]
     T --> G1 --> G2 --> G3 --> G4 --> G5 --> G6
-    style T fill:#ff6b6b,color:#fff
-    style G1 fill:#ffa94d,color:#000
-    style G2 fill:#20c997,color:#fff
-    style G3 fill:#51cf66,color:#fff
-    style G4 fill:#74c0fc,color:#fff
-    style G5 fill:#74c0fc,color:#fff
-    style G6 fill:#9775fa,color:#fff
+    style T fill:#c92a2a,color:#fff
+    style G1 fill:#d9480f,color:#fff
+    style G2 fill:#087f5b,color:#fff
+    style G3 fill:#2b8a3e,color:#fff
+    style G4 fill:#1864ab,color:#fff
+    style G5 fill:#1864ab,color:#fff
+    style G6 fill:#5f3dc4,color:#fff
 ```
 
 **How the two differ:**
@@ -336,11 +336,11 @@ flowchart TD
   ST --> IH
   ST --> C["Conclusion: by induction P holds for all n"]
   B --> C
-  style S fill:#ff6b6b,color:#fff
-  style B fill:#51cf66,color:#fff
-  style IH fill:#ffa94d,color:#000
-  style ST fill:#74c0fc,color:#fff
-  style C fill:#b197fc,color:#fff
+  style S fill:#c92a2a,color:#fff
+  style B fill:#2b8a3e,color:#fff
+  style IH fill:#d9480f,color:#fff
+  style ST fill:#1864ab,color:#fff
+  style C fill:#6741d9,color:#fff
 ```
 
 The back-edge from ST to IH encodes the inductive pattern without introducing a full cycle into the proof graph. This is a principled representational choice: the back-edge marks where the inductive pattern repeats without implying that the proof's logical dependency is circular.
@@ -365,13 +365,13 @@ flowchart TD
   T --> C1 --> AC
   T --> C2 --> AC
   AC --> AS --> I --> CO
-  style T fill:#ff6b6b,color:#fff
-  style C1 fill:#ffd43b,color:#000
-  style C2 fill:#ffd43b,color:#000
-  style AC fill:#20c997,color:#fff
-  style AS fill:#51cf66,color:#fff
-  style I fill:#74c0fc,color:#fff
-  style CO fill:#b197fc,color:#fff
+  style T fill:#c92a2a,color:#fff
+  style C1 fill:#e67700,color:#fff
+  style C2 fill:#e67700,color:#fff
+  style AC fill:#087f5b,color:#fff
+  style AS fill:#2b8a3e,color:#fff
+  style I fill:#1864ab,color:#fff
+  style CO fill:#6741d9,color:#fff
 ```
 
 An algebraic proof — proceeding by symbolic rewriting — produces a **chain topology**: a narrow sequential path of inference nodes with few constructions and shallow branching.
@@ -385,12 +385,12 @@ flowchart TD
   R3["Inference: isolate c squared"]
   CO2["Conclusion: a squared plus b squared equals c squared"]
   T2 --> A0 --> R1 --> R2 --> R3 --> CO2
-  style T2 fill:#ff6b6b,color:#fff
-  style A0 fill:#ffa94d,color:#000
-  style R1 fill:#74c0fc,color:#fff
-  style R2 fill:#74c0fc,color:#fff
-  style R3 fill:#74c0fc,color:#fff
-  style CO2 fill:#b197fc,color:#fff
+  style T2 fill:#c92a2a,color:#fff
+  style A0 fill:#d9480f,color:#fff
+  style R1 fill:#1864ab,color:#fff
+  style R2 fill:#1864ab,color:#fff
+  style R3 fill:#1864ab,color:#fff
+  style CO2 fill:#6741d9,color:#fff
 ```
 
 | Topology | Visual signature | Typical role mix |
@@ -649,11 +649,11 @@ flowchart TD
     F["Contradiction: list was complete"]
     G["Conclusion: no finite list is exhaustive"]
     A --> B --> C --> D --> E --> F --> G
-    style A fill:#ff6b6b,color:#fff
-    style B fill:#ffa94d,color:#000
-    style C fill:#20c997,color:#fff
-    style D fill:#51cf66,color:#fff
-    style E fill:#74c0fc,color:#fff
-    style F fill:#9775fa,color:#fff
-    style G fill:#b197fc,color:#fff
+    style A fill:#c92a2a,color:#fff
+    style B fill:#d9480f,color:#fff
+    style C fill:#087f5b,color:#fff
+    style D fill:#2b8a3e,color:#fff
+    style E fill:#1864ab,color:#fff
+    style F fill:#5f3dc4,color:#fff
+    style G fill:#6741d9,color:#fff
 ```
